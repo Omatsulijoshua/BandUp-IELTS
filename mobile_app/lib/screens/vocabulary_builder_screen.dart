@@ -1,15 +1,18 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
+import '../providers/auth_provider.dart';
+import 'subscription_screen.dart';
 
-class VocabularyBuilderScreen extends StatefulWidget {
+class VocabularyBuilderScreen extends ConsumerStatefulWidget {
   const VocabularyBuilderScreen({super.key});
 
   @override
-  State<VocabularyBuilderScreen> createState() => _VocabularyBuilderScreenState();
+  ConsumerState<VocabularyBuilderScreen> createState() => _VocabularyBuilderScreenState();
 }
 
-class _VocabularyBuilderScreenState extends State<VocabularyBuilderScreen> {
+class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScreen> {
   final ApiService _apiService = ApiService();
   final TextEditingController _customTopicController = TextEditingController();
 
@@ -38,11 +41,10 @@ class _VocabularyBuilderScreenState extends State<VocabularyBuilderScreen> {
   void initState() {
     super.initState();
     _customTopicController.addListener(() {
-      if (_customTopicController.text.trim().isNotEmpty) {
-        setState(() {
-          _selectedTopicIndex = -1; // Unselect predefined buttons
-        });
+      if (_customTopicController.text.trim().isNotEmpty && _selectedTopicIndex != -1) {
+        _selectedTopicIndex = -1;
       }
+      setState(() {});
     });
   }
 
@@ -66,6 +68,38 @@ class _VocabularyBuilderScreenState extends State<VocabularyBuilderScreen> {
   Future<void> _generateVocabulary() async {
     if (!_isGenerateEnabled) return;
 
+    final user = ref.read(authProvider).user;
+    final List subs = user?['subscriptions'] as List? ?? [];
+    final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
+
+    if (!hasActiveSub) {
+      if (_freeUses <= 0) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            backgroundColor: const Color(0xFF0B1E36),
+            title: const Text('Free Limit Reached', style: TextStyle(color: Colors.white)),
+            content: const Text('You have used all 3 free vocabulary generations. Upgrade to Premium for unlimited access!', style: TextStyle(color: Colors.white70)),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel', style: TextStyle(color: Colors.white54)),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFC62828)),
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
+                },
+                child: const Text('Upgrade', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+              ),
+            ],
+          ),
+        );
+        return;
+      }
+    }
+
     setState(() {
       _submitting = true;
       _words = null;
@@ -87,7 +121,9 @@ class _VocabularyBuilderScreenState extends State<VocabularyBuilderScreen> {
         setState(() {
           _words = data['words'] as List?;
           _activeTopicTitle = topicToSubmit;
-          if (_freeUses > 0) _freeUses--;
+          if (!hasActiveSub && _freeUses > 0) {
+            _freeUses--;
+          }
         });
       } else {
         throw Exception('Status code: ${response.statusCode}');
@@ -104,6 +140,10 @@ class _VocabularyBuilderScreenState extends State<VocabularyBuilderScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final user = ref.watch(authProvider).user;
+    final List subs = user?['subscriptions'] as List? ?? [];
+    final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
+
     // Determine button position based on whether results are generated
     final bool showResults = _words != null && _words!.isNotEmpty;
 
@@ -135,13 +175,15 @@ class _VocabularyBuilderScreenState extends State<VocabularyBuilderScreen> {
             // If results are shown, the generation button sits at the top (like Screenshot 3)
             if (showResults) ...[
               _buildGenerateButton(),
-              const SizedBox(height: 12),
-              Center(
-                child: Text(
-                  '$_freeUses free uses remaining',
-                  style: const TextStyle(color: Colors.white38, fontSize: 11),
+              if (!hasActiveSub) ...[
+                const SizedBox(height: 12),
+                Center(
+                  child: Text(
+                    '$_freeUses free uses remaining',
+                    style: const TextStyle(color: Colors.white38, fontSize: 11),
+                  ),
                 ),
-              ),
+              ],
               const SizedBox(height: 24),
               Text(
                 '$_activeTopicTitle Vocabulary',
@@ -227,13 +269,15 @@ class _VocabularyBuilderScreenState extends State<VocabularyBuilderScreen> {
 
               // Generate Vocabulary Button
               _buildGenerateButton(),
-              const SizedBox(height: 12),
-              Center(
-                child: Text(
-                  '$_freeUses free uses remaining',
-                  style: const TextStyle(color: Colors.white38, fontSize: 11),
+              if (!hasActiveSub) ...[
+                const SizedBox(height: 12),
+                Center(
+                  child: Text(
+                    '$_freeUses free uses remaining',
+                    style: const TextStyle(color: Colors.white38, fontSize: 11),
+                  ),
                 ),
-              ),
+              ],
             ],
           ],
         ),
@@ -248,16 +292,16 @@ class _VocabularyBuilderScreenState extends State<VocabularyBuilderScreen> {
       child: ElevatedButton.icon(
         onPressed: _isGenerateEnabled ? _generateVocabulary : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFFC62828),
-          foregroundColor: Colors.white,
-          disabledBackgroundColor: const Color(0xFF1E3E6E),
-          disabledForegroundColor: Colors.white54,
+          backgroundColor: _isGenerateEnabled ? const Color(0xFFC62828) : const Color(0xFFE2E8F0),
+          foregroundColor: _isGenerateEnabled ? Colors.white : Colors.black38,
+          disabledBackgroundColor: const Color(0xFFE2E8F0),
+          disabledForegroundColor: Colors.black38,
           elevation: 0,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
         icon: _submitting
             ? const SizedBox.shrink()
-            : const Icon(Icons.auto_awesome, size: 16),
+            : Icon(Icons.auto_awesome, size: 16, color: _isGenerateEnabled ? Colors.white : Colors.black26),
         label: _submitting
             ? const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
