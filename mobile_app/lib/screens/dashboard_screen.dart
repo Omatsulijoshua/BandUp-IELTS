@@ -190,8 +190,11 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
     final String level = user?['currentLevel'] ?? 'INTERMEDIATE';
     final String levelName = level == 'BEGINNER' ? _t('level_beg') : (level == 'ADVANCED' ? _t('level_adv') : 'Advance');
 
-    // Monthly practice counter from all activities
-    final int completedCount = user?['monthlyPracticesCount'] ?? 0;
+    // Practice counter from all 4 modules (Listening: 48, Reading: 144, Writing: 96, Speaking: 48 = 336 Total)
+    final int dynamicDoneCount = listeningDone + readingDone + writingDone + speakingDone;
+    final int userMonthlyCount = user?['monthlyPracticesCount'] ?? 0;
+    final int completedCount = dynamicDoneCount > userMonthlyCount ? dynamicDoneCount : userMonthlyCount;
+    const int totalPractices = 336;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF4F6FB),
@@ -341,7 +344,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(4),
                             child: LinearProgressIndicator(
-                              value: (completedCount / 308.0).clamp(0.0, 1.0),
+                              value: (completedCount / totalPractices.toDouble()).clamp(0.0, 1.0),
                               minHeight: 5,
                               backgroundColor: Colors.black.withOpacity(0.05),
                               valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFC62828)),
@@ -349,7 +352,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                           ),
                           const SizedBox(height: 6),
                           Text(
-                            '$completedCount/308 practices',
+                            '$completedCount/$totalPractices practices',
                             style: const TextStyle(
                               color: Color(0xFF64748B),
                               fontSize: 10,

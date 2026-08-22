@@ -886,7 +886,7 @@ export default function StudentDashboard() {
                   {/* Total monthly practices counter */}
                   <div className="w-full mt-6 pt-4 border-t border-primary-light/30 flex justify-between items-center text-xs">
                     <span className="text-slate-400">Total completed:</span>
-                    <span className="text-gold font-bold">{profile.monthlyPracticesCount ?? 0} / 308 practices</span>
+                    <span className="text-gold font-bold">{profile.monthlyPracticesCount ?? 0} / 336 practices</span>
                   </div>
                 </div>
 
