@@ -247,6 +247,15 @@ export class ContentController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Post('speaking/generate-sample')
+  async generateSpeakingSample(
+    @Body('topic') topic: string,
+    @Body('part') part: number,
+  ) {
+    return this.contentService.generateSpeakingSample(topic, part);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Get('schedule')
   async getPersonalizedSchedule(@Req() req: any) {
     return this.contentService.getPersonalizedSchedule(req.user.sub);
