@@ -71,6 +71,43 @@ async function bootstrap() {
         },
       });
 
+      console.log('[MIGRATION] Clearing all existing records in Neon to avoid ID conflicts...');
+      try {
+        await prisma.tutorFeedback.deleteMany();
+        await prisma.userAnswer.deleteMany();
+        await prisma.userMockAttempt.deleteMany();
+        await prisma.mockTestSection.deleteMany();
+        await prisma.mockTest.deleteMany();
+        await prisma.speakingSubmission.deleteMany();
+        await prisma.writingSubmission.deleteMany();
+        await prisma.speakingPrompt.deleteMany();
+        await prisma.writingPrompt.deleteMany();
+        await prisma.answer.deleteMany();
+        await prisma.questionOption.deleteMany();
+        await prisma.practiceQuestion.deleteMany();
+        await prisma.lesson.deleteMany();
+        await prisma.payment.deleteMany();
+        await prisma.subscription.deleteMany();
+        await prisma.progressStats.deleteMany();
+        await prisma.notification.deleteMany();
+        await prisma.adminAuditLog.deleteMany();
+        await prisma.assignmentSubmission.deleteMany();
+        await prisma.assignment.deleteMany();
+        await prisma.referralWithdrawal.deleteMany();
+        await prisma.supportTicket.deleteMany();
+        await prisma.user.updateMany({ data: { referredById: null } });
+        await prisma.user.deleteMany();
+        await prisma.listeningAudio.deleteMany();
+        await prisma.readingPassage.deleteMany();
+        await prisma.module.deleteMany();
+        await prisma.subscriptionPlan.deleteMany();
+        await prisma.coupon.deleteMany();
+        await prisma.appSettings.deleteMany();
+        console.log('[MIGRATION] Neon database cleared successfully.');
+      } catch (err: any) {
+        console.error('[MIGRATION] Error clearing Neon tables:', err.message);
+      }
+
       const migrateTable = async (tableName: string, clientKey: string) => {
         console.log(`[MIGRATION] Migrating table ${tableName}...`);
         try {
