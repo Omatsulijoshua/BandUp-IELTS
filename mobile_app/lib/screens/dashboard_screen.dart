@@ -401,11 +401,11 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                           ),
                         ),
                         const SizedBox(width: 12),
-                        const Expanded(
+                        Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 'IELTS Mock Exam',
                                 style: TextStyle(
                                   color: Colors.white,
@@ -413,8 +413,8 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(height: 2),
-                              Text(
+                              const SizedBox(height: 2),
+                              const Text(
                                 'Full Timed Simulation',
                                 style: TextStyle(
                                   color: Color(0xFFD4AF37),
@@ -422,6 +422,40 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                                   fontWeight: FontWeight.bold,
                                   letterSpacing: 0.5,
                                 ),
+                              ),
+                              const SizedBox(height: 6),
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.access_time_rounded,
+                                    color: Colors.white70,
+                                    size: 13,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  const Text(
+                                    '2h 45m',
+                                    style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 14),
+                                  const Icon(
+                                    Icons.checklist_rounded,
+                                    color: Colors.white70,
+                                    size: 13,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  const Text(
+                                    'All 4 Skills',
+                                    style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

@@ -232,11 +232,11 @@ class _ToolsScreenState extends State<ToolsScreen> {
                                 ),
                               ),
                               const SizedBox(width: 12),
-                              const Expanded(
+                              Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Timed Mock Exam',
                                       style: TextStyle(
                                         color: Colors.white,
@@ -244,8 +244,8 @@ class _ToolsScreenState extends State<ToolsScreen> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    SizedBox(height: 2),
-                                    Text(
+                                    const SizedBox(height: 2),
+                                    const Text(
                                       'Real IELTS Conditions',
                                       style: TextStyle(
                                         color: Color(0xFFD4AF37),
@@ -253,6 +253,40 @@ class _ToolsScreenState extends State<ToolsScreen> {
                                         fontWeight: FontWeight.bold,
                                         letterSpacing: 0.5,
                                       ),
+                                    ),
+                                    const SizedBox(height: 6),
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.access_time_rounded,
+                                          color: Colors.white70,
+                                          size: 13,
+                                        ),
+                                        const SizedBox(width: 4),
+                                        const Text(
+                                          '2h 45m',
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 14),
+                                        const Icon(
+                                          Icons.checklist_rounded,
+                                          color: Colors.white70,
+                                          size: 13,
+                                        ),
+                                        const SizedBox(width: 4),
+                                        const Text(
+                                          'All 4 Skills',
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
@@ -266,7 +300,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
                           ),
                           const SizedBox(height: 12),
                           const Text(
-                            'Complete a full 3-hour practice simulation of the Listening, Reading, Writing, and Speaking modules with overall band grading.',
+                            'Complete a full 2h 45m practice simulation of the Listening, Reading, Writing, and Speaking modules with overall band grading.',
                             style: TextStyle(
                               color: Colors.white70,
                               fontSize: 11,
