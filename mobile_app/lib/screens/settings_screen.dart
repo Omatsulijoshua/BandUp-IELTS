@@ -554,6 +554,36 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     _showRateAppDialog();
                   }),
                   const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  _buildSupportItem('Restore Purchases', Icons.restore_rounded, () async {
+                    setState(() => _isSaving = true);
+                    try {
+                      await ref.read(authProvider.notifier).fetchProfile();
+                      final updatedUser = ref.read(authProvider).user;
+                      final List subs = updatedUser?['subscriptions'] as List? ?? [];
+                      final hasPremium = subs.any((sub) => sub['status'] == 'ACTIVE');
+                      
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              hasPremium 
+                                ? 'Premium active! Your purchases have been restored successfully.' 
+                                : 'No active premium subscriptions found for this account.'
+                            ),
+                          ),
+                        );
+                      }
+                    } catch (e) {
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Failed to restore purchases. Please check your network connection.')),
+                        );
+                      }
+                    } finally {
+                      setState(() => _isSaving = false);
+                    }
+                  }),
+                  const Divider(color: Color(0xFF1E3E6E), height: 1),
                   _buildSupportItem(_t('privacy_policy'), Icons.security, () {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Privacy Policy loaded successfully.')),
