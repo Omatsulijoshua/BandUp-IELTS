@@ -155,6 +155,18 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
     }
   }
 
+  int _getHistoryCount(dynamic history) {
+    if (history == null) return 0;
+    if (history is List) return history.length;
+    if (history is String) {
+      try {
+        final decoded = jsonDecode(history);
+        if (decoded is List) return decoded.length;
+      } catch (_) {}
+    }
+    return 0;
+  }
+
   String _getGreetingText() {
     final hour = DateTime.now().hour;
     if (hour < 12) {
@@ -169,6 +181,11 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(authProvider).user;
+    final int listeningDone = _getHistoryCount(user?['progressStats']?['listeningHistory']);
+    final int readingDone = _getHistoryCount(user?['progressStats']?['readingHistory']);
+    final int writingDone = _getHistoryCount(user?['progressStats']?['writingHistory']);
+    final int speakingDone = _getHistoryCount(user?['progressStats']?['speakingHistory']);
+
     final double targetBand = (user?['targetBand'] as num? ?? 7.0).toDouble();
     final String level = user?['currentLevel'] ?? 'INTERMEDIATE';
     final String levelName = level == 'BEGINNER' ? _t('level_beg') : (level == 'ADVANCED' ? _t('level_adv') : 'Advance');
@@ -587,8 +604,8 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
               _buildContinueCard(
                 module: 'Listening',
                 title: 'IELTS Book 10 Test 1',
-                progressText: '0/44 tests completed',
-                progressValue: 0.0,
+                progressText: '$listeningDone/48 tests completed',
+                progressValue: (listeningDone / 48.0).clamp(0.0, 1.0),
                 icon: Icons.headset_rounded,
                 iconColor: Colors.blueAccent,
                 bgColor: Colors.blue.withOpacity(0.08),
@@ -599,8 +616,8 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
               _buildContinueCard(
                 module: 'Reading',
                 title: 'History/Architecture',
-                progressText: '0/132 passages completed',
-                progressValue: 0.0,
+                progressText: '$readingDone/144 passages completed',
+                progressValue: (readingDone / 144.0).clamp(0.0, 1.0),
                 icon: Icons.menu_book_rounded,
                 iconColor: Colors.purpleAccent,
                 bgColor: Colors.purple.withOpacity(0.08),
@@ -611,8 +628,8 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
               _buildContinueCard(
                 module: 'Writing',
                 title: 'Test 1 Task 1',
-                progressText: '0/88 tasks completed',
-                progressValue: 0.0,
+                progressText: '$writingDone/96 tasks completed',
+                progressValue: (writingDone / 96.0).clamp(0.0, 1.0),
                 icon: Icons.edit_rounded,
                 iconColor: Colors.amberAccent,
                 bgColor: Colors.amber.withOpacity(0.08),
@@ -623,8 +640,8 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
               _buildContinueCard(
                 module: 'Speaking',
                 title: 'IELTS Book 10 Test 1',
-                progressText: '0/44 tests completed',
-                progressValue: 0.0,
+                progressText: '$speakingDone/48 tests completed',
+                progressValue: (speakingDone / 48.0).clamp(0.0, 1.0),
                 icon: Icons.mic_rounded,
                 iconColor: Colors.greenAccent,
                 bgColor: Colors.green.withOpacity(0.08),
@@ -798,6 +815,35 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                           fontWeight: FontWeight.bold,
                           fontSize: 13,
                         ),
+                      ),
+                      const SizedBox(height: 6),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 60,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(2),
+                              child: LinearProgressIndicator(
+                                value: progressValue,
+                                backgroundColor: badgeBg.withOpacity(0.5),
+                                valueColor: AlwaysStoppedAnimation<Color>(badgeText),
+                                minHeight: 4,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              progressText,
+                              style: const TextStyle(
+                                color: Colors.black45,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
