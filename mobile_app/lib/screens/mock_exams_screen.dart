@@ -1,17 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
+import '../widgets/premium_paywall.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class MockExamsScreen extends StatefulWidget {
+class MockExamsScreen extends ConsumerStatefulWidget {
   const MockExamsScreen({super.key});
 
   @override
-  State<MockExamsScreen> createState() => _MockExamsScreenState();
+  ConsumerState<MockExamsScreen> createState() => _MockExamsScreenState();
 }
 
-class _MockExamsScreenState extends State<MockExamsScreen> {
+class _MockExamsScreenState extends ConsumerState<MockExamsScreen> {
   final ApiService _apiService = ApiService();
   final TextEditingController _responseController = TextEditingController();
 
@@ -145,6 +148,18 @@ class _MockExamsScreenState extends State<MockExamsScreen> {
   }
 
   void _startMockExamFlow() {
+    final user = ref.read(authProvider).user;
+    final List subs = user?['subscriptions'] as List? ?? [];
+    final bool isPremium = user?['isSubscribed'] == true || 
+        user?['subscriptionTier'] == 'PREMIUM' ||
+        user?['subscriptionTier'] == 'PRO' ||
+        subs.any((s) => s['status'] == 'ACTIVE' || s['status'] == 'APPROVED');
+
+    if (!isPremium) {
+      showPremiumPaywall(context);
+      return;
+    }
+
     setState(() {
       _currentView = 'SECTION_INTRO';
       _currentSectionIndex = 0;
