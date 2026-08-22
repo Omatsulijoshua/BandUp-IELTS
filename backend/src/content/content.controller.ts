@@ -256,6 +256,16 @@ export class ContentController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Post('writing/generate-sample')
+  async generateWritingSample(
+    @Body('topic') topic: string,
+    @Body('taskType') taskType: string,
+    @Body('imageUrl') imageUrl?: string,
+  ) {
+    return this.contentService.generateWritingSample(topic, taskType, imageUrl);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Get('schedule')
   async getPersonalizedSchedule(@Req() req: any) {
     return this.contentService.getPersonalizedSchedule(req.user.sub);

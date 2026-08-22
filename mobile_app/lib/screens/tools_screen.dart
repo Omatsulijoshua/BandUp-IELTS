@@ -7,6 +7,7 @@ import 'vocabulary_builder_screen.dart';
 import 'speaking_practice_screen.dart';
 import 'speaking_samples_screen.dart';
 import 'writing_practice_screen.dart';
+import 'writing_samples_screen.dart';
 import 'mock_exams_screen.dart';
 import 'band_calculator_screen.dart';
 
@@ -166,7 +167,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const WritingPracticeScreen()),
+                        MaterialPageRoute(builder: (_) => const WritingSamplesScreen()),
                       );
                     },
                   ),

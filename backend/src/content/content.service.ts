@@ -1008,5 +1008,28 @@ Output only the model response text. Do not include any explanations, introducti
     const sampleAnswer = aiResponse.text.trim();
     return { sampleAnswer };
   }
+
+  async generateWritingSample(topic: string, taskType: string, imageUrl?: string) {
+    let constraints = '';
+    if (taskType === 'TASK_1_ACADEMIC') {
+      constraints = 'Task 1 Academic: Write a report describing visual/chart data. Aim for a structured introduction, overview, and key features. Minimum 150 words.';
+    } else if (taskType === 'TASK_1_GENERAL') {
+      constraints = 'Task 1 General: Write a letter (formal, semi-formal, or informal). Begin with an appropriate salutation, cover the requested points clearly, and end with an appropriate sign-off. Minimum 150 words.';
+    } else {
+      constraints = 'Task 2: Write a formal, argumentative essay addressing the given opinion, discussion, or problem. Include an introduction, body paragraphs, and a clear conclusion. Minimum 250 words.';
+    }
+
+    const prompt = `You are a professional IELTS Writing examiner. Please generate a Band 9 model response for the following question/prompt.
+Prompt/Topic: "${topic}"
+Task Type: ${taskType}
+Constraints: ${constraints}
+${imageUrl ? `Chart/Graph Image URL reference: "${imageUrl}"` : ''}
+
+Output only the model response text. Do not include any explanations, introduction, markdown headers, or JSON formatting. Just the answer.`;
+
+    const aiResponse = await this.aiService.generateChatCompletion([{ role: 'user', content: prompt }]);
+    const sampleAnswer = aiResponse.text.trim();
+    return { sampleAnswer };
+  }
 }
 
