@@ -1,19 +1,23 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
+import '../providers/auth_provider.dart';
+import 'subscription_screen.dart';
 
-class GrammarCheckerScreen extends StatefulWidget {
+class GrammarCheckerScreen extends ConsumerStatefulWidget {
   const GrammarCheckerScreen({super.key});
 
   @override
-  State<GrammarCheckerScreen> createState() => _GrammarCheckerScreenState();
+  ConsumerState<GrammarCheckerScreen> createState() => _GrammarCheckerScreenState();
 }
 
-class _GrammarCheckerScreenState extends State<GrammarCheckerScreen> {
+class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
   final ApiService _apiService = ApiService();
   final TextEditingController _textController = TextEditingController();
   bool _submitting = false;
   dynamic _result;
+  int _freeTriesRemaining = 3;
 
   bool get _isCheckEnabled {
     return _textController.text.trim().isNotEmpty && !_submitting;
@@ -21,6 +25,38 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen> {
 
   Future<void> _checkGrammar() async {
     if (!_isCheckEnabled) return;
+
+    final user = ref.read(authProvider).user;
+    final List subs = user?['subscriptions'] as List? ?? [];
+    final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
+
+    if (!hasActiveSub) {
+      if (_freeTriesRemaining <= 0) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            backgroundColor: const Color(0xFF0B1E36),
+            title: const Text('Free Limit Reached', style: TextStyle(color: Colors.white)),
+            content: const Text('You have used all 3 free grammar checks. Upgrade to Premium for unlimited access!', style: TextStyle(color: Colors.white70)),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel', style: TextStyle(color: Colors.white54)),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFC62828)),
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
+                },
+                child: const Text('Upgrade', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+              ),
+            ],
+          ),
+        );
+        return;
+      }
+    }
 
     setState(() {
       _submitting = true;
@@ -39,6 +75,9 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen> {
       if (response.statusCode == 201) {
         setState(() {
           _result = jsonDecode(response.body);
+          if (!hasActiveSub) {
+            _freeTriesRemaining--;
+          }
         });
       } else {
         throw Exception('Status code: ${response.statusCode}');
@@ -61,6 +100,10 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final user = ref.watch(authProvider).user;
+    final List subs = user?['subscriptions'] as List? ?? [];
+    final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
+
     return Scaffold(
       backgroundColor: const Color(0xFF050E1A),
       appBar: AppBar(
@@ -104,6 +147,9 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen> {
                 controller: _textController,
                 maxLines: 6,
                 style: const TextStyle(color: Colors.black87, fontSize: 14),
+                onChanged: (val) {
+                  setState(() {});
+                },
                 decoration: const InputDecoration(
                   hintText: 'Type or paste text to check grammar...',
                   hintStyle: TextStyle(color: Colors.black26),
@@ -147,12 +193,13 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen> {
             const SizedBox(height: 12),
 
             // Free uses indicator
-            const Center(
-              child: Text(
-                '3 free uses remaining',
-                style: TextStyle(color: Colors.white38, fontSize: 11),
+            if (!hasActiveSub)
+              Center(
+                child: Text(
+                  '$_freeTriesRemaining free uses remaining',
+                  style: const TextStyle(color: Colors.white38, fontSize: 11),
+                ),
               ),
-            ),
             const SizedBox(height: 30),
 
             // Analysis Results Card
