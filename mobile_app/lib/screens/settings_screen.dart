@@ -252,6 +252,73 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 } catch (_) {}
               }
 
+              if (hasActiveSub) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFD81B60), // Crimson / Pink
+                                Color(0xFF8E24AA), // Purple
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                          ),
+                          child: const Center(
+                            child: Icon(
+                              Icons.workspace_premium_rounded,
+                              color: Colors.white,
+                              size: 26,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        const Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Premium Active',
+                                style: TextStyle(
+                                  color: Color(0xFF0F172A),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                'All features unlocked',
+                                style: TextStyle(
+                                  color: Color(0xFF64748B),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }
+
               return Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -267,9 +334,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         color: Color(0xFF152A4A),
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(
-                        hasActiveSub ? Icons.verified_rounded : Icons.lock_open,
-                        color: const Color(0xFFD4AF37),
+                      child: const Icon(
+                        Icons.lock_open,
+                        color: Color(0xFFD4AF37),
                         size: 28,
                       ),
                     ),
@@ -294,7 +361,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                       ),
                       child: Text(
-                        hasActiveSub ? 'Manage' : _t('upgrade'),
+                        _t('upgrade'),
                         style: const TextStyle(color: Color(0xFF050E1A), fontWeight: FontWeight.bold, fontSize: 12),
                       ),
                     ),
