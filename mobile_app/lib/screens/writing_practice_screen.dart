@@ -1,18 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 import '../widgets/premium_paywall.dart';
 import '../widgets/times_up_dialog.dart';
 
-class WritingPracticeScreen extends StatefulWidget {
+class WritingPracticeScreen extends ConsumerStatefulWidget {
   const WritingPracticeScreen({super.key});
 
   @override
-  State<WritingPracticeScreen> createState() => _WritingPracticeScreenState();
+  ConsumerState<WritingPracticeScreen> createState() => _WritingPracticeScreenState();
 }
 
-class _WritingPracticeScreenState extends State<WritingPracticeScreen> {
+class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
   final ApiService _apiService = ApiService();
   final TextEditingController _textController = TextEditingController();
   final TextEditingController _customQuestionController = TextEditingController();
@@ -696,8 +698,15 @@ class _WritingPracticeScreenState extends State<WritingPracticeScreen> {
           itemCount: 12,
           separatorBuilder: (context, index) => const SizedBox(height: 16),
           itemBuilder: (context, index) {
+            final user = ref.watch(authProvider).user;
+            final List subs = user?['subscriptions'] as List? ?? [];
+            final bool isPremium = user?['isSubscribed'] == true || 
+                user?['subscriptionTier'] == 'PREMIUM' ||
+                user?['subscriptionTier'] == 'PRO' ||
+                subs.any((s) => s['status'] == 'ACTIVE' || s['status'] == 'APPROVED');
+
             final bookNum = 10 + index;
-            final isUnlocked = bookNum == 10;
+            final isUnlocked = isPremium || bookNum == 10;
 
             return InkWell(
               onTap: () {
@@ -955,12 +964,19 @@ class _WritingPracticeScreenState extends State<WritingPracticeScreen> {
           itemCount: 4,
           separatorBuilder: (context, index) => const SizedBox(height: 12),
           itemBuilder: (context, index) {
+            final user = ref.watch(authProvider).user;
+            final List subs = user?['subscriptions'] as List? ?? [];
+            final bool isPremium = user?['isSubscribed'] == true || 
+                user?['subscriptionTier'] == 'PREMIUM' ||
+                user?['subscriptionTier'] == 'PRO' ||
+                subs.any((s) => s['status'] == 'ACTIVE' || s['status'] == 'APPROVED');
+
             final testNum = index + 1;
-            final isUnlocked = testNum == 1;
+            final isUnlocked = isPremium || (_selectedBook == 10 && testNum == 1);
 
             return InkWell(
               onTap: () {
-                if (testNum != 1) {
+                if (!isUnlocked) {
                   _showPremiumDialog();
                   return;
                 }

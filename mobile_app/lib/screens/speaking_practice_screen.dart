@@ -1,18 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 import '../widgets/premium_paywall.dart';
 import '../widgets/times_up_dialog.dart';
 
-class SpeakingPracticeScreen extends StatefulWidget {
+class SpeakingPracticeScreen extends ConsumerStatefulWidget {
   const SpeakingPracticeScreen({super.key});
 
   @override
-  State<SpeakingPracticeScreen> createState() => _SpeakingPracticeScreenState();
+  ConsumerState<SpeakingPracticeScreen> createState() => _SpeakingPracticeScreenState();
 }
 
-class _SpeakingPracticeScreenState extends State<SpeakingPracticeScreen> {
+class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen> {
   final ApiService _apiService = ApiService();
   final TextEditingController _transcriptController = TextEditingController();
 
@@ -365,36 +367,48 @@ class _SpeakingPracticeScreenState extends State<SpeakingPracticeScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Loop through Books 10 to 20 with 4 tests each dynamically
-            ...List.generate(11, (bookIndex) {
-              final bookNum = 10 + bookIndex;
+            // Check user subscription status
+            (() {
+              final user = ref.watch(authProvider).user;
+              final List subs = user?['subscriptions'] as List? ?? [];
+              final bool isPremium = user?['isSubscribed'] == true || 
+                  user?['subscriptionTier'] == 'PREMIUM' ||
+                  user?['subscriptionTier'] == 'PRO' ||
+                  subs.any((s) => s['status'] == 'ACTIVE' || s['status'] == 'APPROVED');
+
               return Column(
                 mainAxisSize: MainAxisSize.min,
-                children: List.generate(4, (testIndex) {
-                  final testNum = 1 + testIndex;
-                  final isFirstTest = (bookNum == 10 && testNum == 1);
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 12.0),
-                    child: _buildTestListItem(
-                      title: 'IELTS Book $bookNum Test $testNum',
-                      subtitle: isFirstTest ? '3 Parts  |  0/3 Completed' : 'Premium Content',
-                      isLocked: !isFirstTest,
-                      iconData: isFirstTest ? Icons.mic : Icons.lock,
-                      onTap: () {
-                        if (isFirstTest) {
-                          setState(() {
-                            _currentScreen = 'TEST_DETAIL';
-                            _selectedPart = 1;
-                          });
-                        } else {
-                          showPremiumPaywall(context);
-                        }
-                      },
-                    ),
+                children: List.generate(11, (bookIndex) {
+                  final bookNum = 10 + bookIndex;
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: List.generate(4, (testIndex) {
+                      final testNum = 1 + testIndex;
+                      final isUnlocked = isPremium || (bookNum == 10 && testNum == 1);
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 12.0),
+                        child: _buildTestListItem(
+                          title: 'IELTS Book $bookNum Test $testNum',
+                          subtitle: isUnlocked ? '3 Parts  |  0/3 Completed' : 'Premium Content',
+                          isLocked: !isUnlocked,
+                          iconData: isUnlocked ? Icons.mic : Icons.lock,
+                          onTap: () {
+                            if (isUnlocked) {
+                              setState(() {
+                                _currentScreen = 'TEST_DETAIL';
+                                _selectedPart = 1;
+                              });
+                            } else {
+                              showPremiumPaywall(context);
+                            }
+                          },
+                        ),
+                      );
+                    }),
                   );
                 }),
               );
-            }),
+            })(),
             const SizedBox(height: 30),
           ],
         ),

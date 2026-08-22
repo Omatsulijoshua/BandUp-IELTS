@@ -1,20 +1,22 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:audioplayers/audioplayers.dart';
+import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 import '../widgets/times_up_dialog.dart';
 import '../widgets/premium_paywall.dart';
 import '../services/localization.dart';
 
-class ListeningPracticeScreen extends StatefulWidget {
+class ListeningPracticeScreen extends ConsumerStatefulWidget {
   const ListeningPracticeScreen({super.key});
 
   @override
-  State<ListeningPracticeScreen> createState() => _ListeningPracticeScreenState();
+  ConsumerState<ListeningPracticeScreen> createState() => _ListeningPracticeScreenState();
 }
 
-class _ListeningPracticeScreenState extends State<ListeningPracticeScreen> {
+class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScreen> {
   final ApiService _apiService = ApiService();
   
   // Audio Player variables
@@ -890,10 +892,17 @@ class _ListeningPracticeScreenState extends State<ListeningPracticeScreen> {
               itemCount: allTests.length,
               separatorBuilder: (context, index) => const SizedBox(height: 12),
               itemBuilder: (context, index) {
+                final user = ref.watch(authProvider).user;
+                final List subs = user?['subscriptions'] as List? ?? [];
+                final bool isPremium = user?['isSubscribed'] == true || 
+                    user?['subscriptionTier'] == 'PREMIUM' ||
+                    user?['subscriptionTier'] == 'PRO' ||
+                    subs.any((s) => s['status'] == 'ACTIVE' || s['status'] == 'APPROVED');
+
                 final testItem = allTests[index];
                 final bookNum = testItem['book']!;
                 final testNum = testItem['test']!;
-                final isUnlocked = bookNum == 10 && testNum == 1;
+                final isUnlocked = isPremium || (bookNum == 10 && testNum == 1);
 
                 return InkWell(
                   onTap: () {

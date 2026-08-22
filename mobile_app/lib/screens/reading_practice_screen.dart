@@ -1,18 +1,20 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 import '../widgets/premium_paywall.dart';
 import '../widgets/times_up_dialog.dart';
 
-class ReadingPracticeScreen extends StatefulWidget {
+class ReadingPracticeScreen extends ConsumerStatefulWidget {
   const ReadingPracticeScreen({super.key});
 
   @override
-  State<ReadingPracticeScreen> createState() => _ReadingPracticeScreenState();
+  ConsumerState<ReadingPracticeScreen> createState() => _ReadingPracticeScreenState();
 }
 
-class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
+class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
   final ApiService _apiService = ApiService();
 
   String _viewState = 'TESTS'; // TESTS, OVERVIEW, PRACTICE
@@ -479,10 +481,17 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
           itemCount: allTests.length,
           separatorBuilder: (context, index) => const SizedBox(height: 12),
           itemBuilder: (context, index) {
+            final user = ref.watch(authProvider).user;
+            final List subs = user?['subscriptions'] as List? ?? [];
+            final bool isPremium = user?['isSubscribed'] == true || 
+                user?['subscriptionTier'] == 'PREMIUM' ||
+                user?['subscriptionTier'] == 'PRO' ||
+                subs.any((s) => s['status'] == 'ACTIVE' || s['status'] == 'APPROVED');
+
             final testItem = allTests[index];
             final bookNum = testItem['book']!;
             final testNum = testItem['test']!;
-            final isUnlocked = bookNum == 10 && testNum == 1;
+            final isUnlocked = isPremium || (bookNum == 10 && testNum == 1);
 
             return InkWell(
               onTap: () {
