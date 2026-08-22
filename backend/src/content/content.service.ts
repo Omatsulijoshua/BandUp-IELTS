@@ -1002,22 +1002,11 @@ Topic/Question: "${topic}"
 Speaking Part: Part ${part}
 Constraints: ${constraints}
 
-Respond ONLY with a JSON object in this exact format:
-{
-  "sampleAnswer": "The full Band 9 model response text"
-}
-
-Do not output any markdown formatting or any other text before/after the JSON.`;
+Output only the model response text. Do not include any explanations, introduction, markdown headers, or JSON formatting. Just the answer.`;
 
     const aiResponse = await this.aiService.generateChatCompletion([{ role: 'user', content: prompt }]);
-    let cleanText = aiResponse.text.trim();
-    if (cleanText.startsWith('```json')) {
-      cleanText = cleanText.substring(7);
-    }
-    if (cleanText.endsWith('```')) {
-      cleanText = cleanText.substring(0, cleanText.length - 3);
-    }
-    return JSON.parse(cleanText.trim());
+    const sampleAnswer = aiResponse.text.trim();
+    return { sampleAnswer };
   }
 }
 
