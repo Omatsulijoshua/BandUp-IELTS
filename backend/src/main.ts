@@ -55,6 +55,105 @@ async function bootstrap() {
     credentials: true,
   });
 
+  // Data migration from Supabase to Neon (gated by RUN_MIGRATION env variable)
+  if (process.env.RUN_MIGRATION === 'true') {
+    console.log('[MIGRATION] RUN_MIGRATION is set to true. Starting migration from Supabase to Neon...');
+    const prisma = app.get(PrismaService);
+    const supabaseUrl = "postgresql://postgres:up43RDKHtk8WLUL3@db.gviiynntpkvzgqysnrrx.supabase.co:5432/postgres?sslmode=require";
+    
+    try {
+      const { PrismaClient } = await import('@prisma/client');
+      const supabaseClient = new PrismaClient({
+        datasources: {
+          db: {
+            url: supabaseUrl,
+          },
+        },
+      });
+
+      const migrateTable = async (tableName: string, clientKey: string) => {
+        console.log(`[MIGRATION] Migrating table ${tableName}...`);
+        try {
+          const data = await (supabaseClient as any)[clientKey].findMany();
+          console.log(`[MIGRATION] Fetched ${data.length} records from Supabase ${tableName}`);
+          if (data.length === 0) return;
+
+          let insertData = data;
+          if (tableName === 'User') {
+            insertData = data.map((u: any) => ({ ...u, referredById: null }));
+          }
+
+          const batchSize = 100;
+          for (let i = 0; i < insertData.length; i += batchSize) {
+            const batch = insertData.slice(i, i + batchSize);
+            await (prisma as any)[clientKey].createMany({
+              data: batch,
+              skipDuplicates: true
+            });
+          }
+          console.log(`[MIGRATION] Inserted ${data.length} records into Neon ${tableName}`);
+        } catch (error: any) {
+          console.error(`[MIGRATION] Error migrating table ${tableName}:`, error.message);
+        }
+      };
+
+      // Table migration in order of dependencies
+      await migrateTable('AppSettings', 'appSettings');
+      await migrateTable('Coupon', 'coupon');
+      await migrateTable('SubscriptionPlan', 'subscriptionPlan');
+      await migrateTable('Module', 'module');
+      await migrateTable('ReadingPassage', 'readingPassage');
+      await migrateTable('ListeningAudio', 'listeningAudio');
+      await migrateTable('User', 'user');
+      await migrateTable('Subscription', 'subscription');
+      await migrateTable('Payment', 'payment');
+      await migrateTable('Lesson', 'lesson');
+      await migrateTable('PracticeQuestion', 'practiceQuestion');
+      await migrateTable('QuestionOption', 'questionOption');
+      await migrateTable('Answer', 'answer');
+      await migrateTable('WritingPrompt', 'writingPrompt');
+      await migrateTable('SpeakingPrompt', 'speakingPrompt');
+      await migrateTable('MockTest', 'mockTest');
+      await migrateTable('MockTestSection', 'mockTestSection');
+      await migrateTable('UserMockAttempt', 'userMockAttempt');
+      await migrateTable('UserAnswer', 'userAnswer');
+      await migrateTable('WritingSubmission', 'writingSubmission');
+      await migrateTable('SpeakingSubmission', 'speakingSubmission');
+      await migrateTable('TutorFeedback', 'tutorFeedback');
+      await migrateTable('ProgressStats', 'progressStats');
+      await migrateTable('Notification', 'notification');
+      await migrateTable('AdminAuditLog', 'adminAuditLog');
+      await migrateTable('Assignment', 'assignment');
+      await migrateTable('AssignmentSubmission', 'assignmentSubmission');
+      await migrateTable('ReferralWithdrawal', 'referralWithdrawal');
+      await migrateTable('SupportTicket', 'supportTicket');
+
+      // Restore user referrals
+      console.log("[MIGRATION] Restoring user referral relationships...");
+      try {
+        const users = await supabaseClient.user.findMany({
+          where: { referredById: { not: null } },
+          select: { id: true, referredById: true }
+        });
+        console.log(`[MIGRATION] Updating referral references for ${users.length} users...`);
+        for (const u of users) {
+          await prisma.user.update({
+            where: { id: u.id },
+            data: { referredById: u.referredById }
+          });
+        }
+        console.log("[MIGRATION] Referral relationships restored successfully!");
+      } catch (err: any) {
+        console.error("[MIGRATION] Error restoring referral relationships:", err.message);
+      }
+
+      console.log("[MIGRATION] Data migration from Supabase to Neon completed successfully! 🎉");
+      await supabaseClient.$disconnect();
+    } catch (e: any) {
+      console.error("[MIGRATION] Migration failed:", e.message);
+    }
+  }
+
   // Auto-seed production super-admin if missing
   try {
     const prisma = app.get(PrismaService);
