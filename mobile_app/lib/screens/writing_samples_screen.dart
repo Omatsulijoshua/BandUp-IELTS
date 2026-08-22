@@ -273,7 +273,7 @@ class _WritingSamplesScreenState extends ConsumerState<WritingSamplesScreen> {
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.check_circle, color: Colors.emerald, size: 16),
+                      const Icon(Icons.check_circle, color: Colors.green, size: 16),
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
