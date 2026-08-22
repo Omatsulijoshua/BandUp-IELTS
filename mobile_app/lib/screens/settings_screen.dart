@@ -625,6 +625,23 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 },
               ),
             ),
+            const SizedBox(height: 24),
+
+            // About Settings
+            const Text('ABOUT', style: TextStyle(color: Colors.white30, fontSize: 10, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10),
+            Container(
+              decoration: BoxDecoration(
+                color: const Color(0xFF0B1E36),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: const Color(0xFF1E3E6E)),
+              ),
+              child: const ListTile(
+                leading: Icon(Icons.info_outline_rounded, color: Color(0xFFD4AF37), size: 20),
+                title: Text('Version', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600)),
+                trailing: Text('1.0.0', style: TextStyle(color: Colors.white54, fontSize: 12, fontWeight: FontWeight.w500)),
+              ),
+            ),
             const SizedBox(height: 40),
           ],
         ),
