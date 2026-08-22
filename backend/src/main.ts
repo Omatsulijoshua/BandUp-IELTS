@@ -59,7 +59,7 @@ async function bootstrap() {
   if (process.env.RUN_MIGRATION === 'true') {
     console.log('[MIGRATION] RUN_MIGRATION is set to true. Starting migration from Supabase to Neon...');
     const prisma = app.get(PrismaService);
-    const supabaseUrl = "postgresql://postgres.gviiynntpkvzgqysnrrx:up43RDKHtk8WLUL3@aws-0-us-east-1.pooler.supabase.com:6543/postgres?pgbouncer=true&sslmode=require";
+    const supabaseUrl = "postgresql://postgres.gviiynntpkvzgqysnrrx:up43RDKHtk8WLUL3@aws-0-eu-west-1.pooler.supabase.com:6543/postgres?pgbouncer=true&sslmode=require";
     
     try {
       const { PrismaClient } = await import('@prisma/client');
