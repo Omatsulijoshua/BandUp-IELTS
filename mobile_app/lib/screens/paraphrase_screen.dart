@@ -1,20 +1,24 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
+import '../providers/auth_provider.dart';
+import 'subscription_screen.dart';
 
-class ParaphraseScreen extends StatefulWidget {
+class ParaphraseScreen extends ConsumerStatefulWidget {
   const ParaphraseScreen({super.key});
 
   @override
-  State<ParaphraseScreen> createState() => _ParaphraseScreenState();
+  ConsumerState<ParaphraseScreen> createState() => _ParaphraseScreenState();
 }
 
-class _ParaphraseScreenState extends State<ParaphraseScreen> {
+class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
   final ApiService _apiService = ApiService();
   final TextEditingController _sentenceController = TextEditingController();
   bool _submitting = false;
   List<dynamic>? _versions;
+  int _freeTriesRemaining = 3;
 
   bool get _isParaphraseEnabled {
     return _sentenceController.text.trim().isNotEmpty && !_submitting;
@@ -22,6 +26,38 @@ class _ParaphraseScreenState extends State<ParaphraseScreen> {
 
   Future<void> _paraphrase() async {
     if (!_isParaphraseEnabled) return;
+
+    final user = ref.read(authProvider).user;
+    final List subs = user?['subscriptions'] as List? ?? [];
+    final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
+
+    if (!hasActiveSub) {
+      if (_freeTriesRemaining <= 0) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            backgroundColor: const Color(0xFF0B1E36),
+            title: const Text('Free Limit Reached', style: TextStyle(color: Colors.white)),
+            content: const Text('You have used all 3 free paraphrases. Upgrade to Premium for unlimited access!', style: TextStyle(color: Colors.white70)),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel', style: TextStyle(color: Colors.white54)),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFC62828)),
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
+                },
+                child: const Text('Upgrade', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+              ),
+            ],
+          ),
+        );
+        return;
+      }
+    }
 
     setState(() {
       _submitting = true;
@@ -41,6 +77,9 @@ class _ParaphraseScreenState extends State<ParaphraseScreen> {
         final data = jsonDecode(response.body);
         setState(() {
           _versions = data['versions'] as List?;
+          if (!hasActiveSub) {
+            _freeTriesRemaining--;
+          }
         });
       } else {
         throw Exception('Status code: ${response.statusCode}');
@@ -73,6 +112,10 @@ class _ParaphraseScreenState extends State<ParaphraseScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final user = ref.watch(authProvider).user;
+    final List subs = user?['subscriptions'] as List? ?? [];
+    final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
+
     return Scaffold(
       backgroundColor: const Color(0xFF050E1A),
       appBar: AppBar(
@@ -140,6 +183,9 @@ class _ParaphraseScreenState extends State<ParaphraseScreen> {
                 controller: _sentenceController,
                 maxLines: 4,
                 style: const TextStyle(color: Colors.black87, fontSize: 14),
+                onChanged: (val) {
+                  setState(() {});
+                },
                 decoration: const InputDecoration(
                   hintText: 'Type or paste a sentence to paraphrase...',
                   hintStyle: TextStyle(color: Colors.black26),
@@ -183,12 +229,13 @@ class _ParaphraseScreenState extends State<ParaphraseScreen> {
             const SizedBox(height: 12),
 
             // Free uses indicator
-            const Center(
-              child: Text(
-                '3 free uses remaining',
-                style: TextStyle(color: Colors.white38, fontSize: 11),
+            if (!hasActiveSub)
+              Center(
+                child: Text(
+                  '$_freeTriesRemaining free uses remaining',
+                  style: const TextStyle(color: Colors.white38, fontSize: 11),
+                ),
               ),
-            ),
             const SizedBox(height: 30),
 
             // Paraphrase Versions Result
