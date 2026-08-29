@@ -60,9 +60,9 @@ class DashboardScreenState extends ConsumerState<DashboardScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: isLightTheme ? Colors.white : const Color(0xFF0B1E36),
-        selectedItemColor: isLightTheme ? const Color(0xFFC62828) : const Color(0xFFD4AF37),
-        unselectedItemColor: isLightTheme ? Colors.black38 : Colors.white54,
+        backgroundColor: isLightTheme ? Colors.white : const Color(0xFF0F172A),
+        selectedItemColor: const Color(0xFFC62828),
+        unselectedItemColor: isLightTheme ? Colors.black45 : Colors.white54,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
         unselectedLabelStyle: const TextStyle(fontSize: 10),
         onTap: (index) {
@@ -394,12 +394,12 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                         Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFD4AF37).withOpacity(0.15),
+                            color: const Color(0xFFC62828).withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: const Icon(
                             Icons.assignment_turned_in_rounded,
-                            color: Color(0xFFD4AF37),
+                            color: Color(0xFFC62828),
                             size: 20,
                           ),
                         ),
@@ -420,7 +420,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                               const Text(
                                 'Full Timed Simulation',
                                 style: TextStyle(
-                                  color: Color(0xFFD4AF37),
+                                  color: Color(0xFFEF4444),
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
                                   letterSpacing: 0.5,
@@ -479,8 +479,8 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFD4AF37),
-                          foregroundColor: const Color(0xFF0F172A),
+                          backgroundColor: const Color(0xFFC62828),
+                          foregroundColor: Colors.white,
                           elevation: 0,
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           shape: RoundedRectangleBorder(
