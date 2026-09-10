@@ -70,8 +70,9 @@ flutter:
 
   assets:
     - assets/australian_household_energy_use.png
-    - assets/mp3_1.mp3
-    - assets/mp3_2.mp3
+    - assets/Speaking/IELTS BOOK 21 Test 1/
+    - assets/Speaking/IELTS BOOK 10 Test 1/
+    - assets/Speaking/IELTS BOOK 10 Test 2/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

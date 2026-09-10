@@ -26,7 +26,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   // Screen routing states: 'HOME', 'TALK_WITH_AI', 'TEST_DETAIL', 'PRACTICE_WORKSPACE'
   String _currentScreen = 'HOME';
-  String _selectedTestTitle = 'IELTS Book 10 Test 1';
+  String _selectedTestTitle = 'IELTS Book 21 Test 1';
 
   // Interactive Examiner Session States
   int _currentQuestionIndex = 0;
@@ -48,97 +48,197 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   // The 4 questions and their segments in mp3_1.mp3
   final List<Map<String, dynamic>> _examinerQuestions = [
     {
-      'question': 'Where do you go to get a haircut?',
+      'question': 'How do you usually spend your weekends? [Why?]',
       'start': 0.0,
-      'promptEnd': 3.5,
+      'promptEnd': 5.0,
       'end': 9.0,
-      'transcript': 'Actually, I usually go to a local barbershop that is just a short walk from my house. I prefer this place because the staff are very professional, the atmosphere is cozy, and the price is quite reasonable.',
+      'transcript': 'On weekends, I usually relax at home with a good book or catch up with friends for coffee. I enjoy this because it helps me decompress after a busy week of work.',
     },
     {
-      'question': 'Have you changed your hairstyle recently?',
-      'start': 9.0,
-      'promptEnd': 12.5,
+      'question': 'Which is your favorite part of the weekend? [Why?]',
+      'start': 5.0,
+      'promptEnd': 11.5,
       'end': 20.0,
-      'transcript': 'No, I haven\'t changed my hairstyle recently. I have been keeping it short and simple for the past few years because it is very easy to maintain and style in the mornings.',
+      'transcript': 'My favorite part is Sunday morning because it is quiet and peaceful. I can take my time having breakfast without any rush.',
     },
     {
-      'question': 'How often do you get a haircut?',
-      'start': 20.0,
-      'promptEnd': 23.5,
+      'question': 'Do you think your weekends are long enough? [Why/Why not?]',
+      'start': 11.5,
+      'promptEnd': 18.0,
       'end': 30.0,
-      'transcript': 'I typically get my hair trimmed once every three or four weeks. That seems to be the ideal duration to keep it looking clean, neat, and professional.',
+      'transcript': 'Honestly, two days often feel a bit short especially when there are many chores to do. A three-day weekend would give a much better balance between rest and personal projects.',
     },
     {
-      'question': 'Do you prefer a particular barber or hairstylist?',
-      'start': 30.0,
-      'promptEnd': 34.0,
+      'question': 'How important do you think it is to have free time at the weekends? [Why?]',
+      'start': 18.0,
+      'promptEnd': 25.5,
       'end': 41.12,
-      'transcript': 'Yes, I definitely prefer having my hair cut by the same stylist. Since she knows my hair texture and preferences, I don\'t have to explain what I want every single time, which saves effort.',
+      'transcript': 'I think free time on weekends is essential for mental health and well-being. It allows people to recharge their energy and spend quality time with loved ones.',
     },
     {
-      'question': 'Describe a time when you used information for tourists, for example from a guidebook or online.',
+      'question': 'Describe someone you know who does something well.',
       'start': 0.0,
-      'promptEnd': 8.0,
+      'promptEnd': 6.5,
       'end': 60.0,
       'part': 2,
       'audioAsset': 'mp3_2.mp3',
       'youShouldSay': [
-        'where you got this information',
-        'what place this information was about',
-        'what information you got',
-        'and explain whether this information was very helpful for you.'
+        'who this person is',
+        'how you know this person',
+        'what they do well',
+        'and explain why you think this person is so good at doing this.'
       ],
-      'transcript': 'Last summer, I relied heavily on a digital tourist guidebook app when visiting Kyoto...',
+      'transcript': 'I would like to talk about my older brother, who is an incredibly talented graphic designer. He has a natural flair for combining colors and typography to create visually stunning advertisements. What makes him stand out is his ability to understand exactly what a client needs even before they explain it clearly. He has spent years honing his craft, and seeing him work with such precision is truly impressive. He is definitely the most skillful person I know.',
     },
     {
-      'question': 'What are the most popular kinds of holidays for people from your country to go on?',
+      'question': 'What skills and abilities do people most want to have today? Why?',
       'start': 0.0,
-      'promptEnd': 6.0,
+      'promptEnd': 8.5,
       'end': 30.0,
       'part': 3,
-      'transcript': 'In my country, beach holidays and nature retreats are by far the most popular. Many people enjoy traveling to coastal resorts during the summer months to relax by the sea, while others prefer visiting countryside national parks for hiking and scenic views.',
+      'transcript': 'Nowadays, digital literacy, problem-solving, and effective communication are in high demand. People value these skills because they enhance employability and allow individuals to adapt quickly in a fast-evolving technological landscape.',
     },
     {
-      'question': 'Do you think most people prefer to have a holiday abroad rather than in their own country?',
-      'start': 0.0,
-      'promptEnd': 7.0,
+      'question': 'Which skills should children learn at school? Are there any skills which they should learn at home? What are they?',
+      'start': 8.5,
+      'promptEnd': 17.0,
       'end': 30.0,
       'part': 3,
-      'transcript': 'It largely depends on budget and personal interest. While traveling abroad offers exciting cultural exposure and unique experiences, domestic holidays remain extremely popular because they are more affordable, require less travel time, and offer familiar comforts.',
+      'transcript': 'Schools should focus on academic knowledge, teamwork, and critical thinking. On the other hand, essential life skills such as emotional resilience, personal hygiene, and financial discipline are best taught at home by parents.',
     },
     {
-      'question': 'Why do some people want to do absolutely nothing when they go away on holiday?',
-      'start': 0.0,
-      'promptEnd': 7.0,
+      'question': 'Which skills do you think will be important in the future? Why?',
+      'start': 17.0,
+      'promptEnd': 25.5,
       'end': 30.0,
       'part': 3,
-      'transcript': 'Many individuals lead stressful, fast-paced work lives with continuous pressure. Therefore, when taking time off, they prefer pure relaxation without rigid schedules or sightseeing plans to unwind, recharge their mental energy, and de-stress.',
+      'transcript': 'In the future, adaptability, data analysis, and emotional intelligence will be crucial. As automation takes over repetitive tasks, human-centric abilities like creative thinking and empathy will become paramount.',
     },
     {
-      'question': 'What are the kinds of tourist attraction that visitors to your country like to see?',
-      'start': 0.0,
-      'promptEnd': 7.0,
+      'question': 'Which kinds of jobs have the highest salaries in your country? Why is this?',
+      'start': 25.5,
+      'promptEnd': 34.0,
       'end': 30.0,
       'part': 3,
-      'transcript': 'Visitors to my country are generally drawn to historical monuments, ancient landmarks, cultural heritage sites, and vibrant local markets. Additionally, natural landscapes such as lakes and mountain ranges are major attractions.',
+      'transcript': 'Roles in technology, medicine, and corporate management command the highest salaries in my country. This is because these positions require specialized expertise, years of rigorous training, and carry immense operational responsibility.',
     },
     {
-      'question': 'Do you think tourist attractions such as museums should be free for local people to visit?',
-      'start': 0.0,
-      'promptEnd': 7.0,
+      'question': 'Are there any other jobs that you think should have high salaries? Why do you think that?',
+      'start': 34.0,
+      'promptEnd': 42.5,
       'end': 30.0,
       'part': 3,
-      'transcript': 'Yes, I believe cultural institutions should be free or heavily subsidized for residents. This promotes local cultural education, encourages community involvement, and ensures that everyone can appreciate national history regardless of income.',
+      'transcript': 'Teachers and healthcare workers definitely deserve higher remuneration. They perform fundamental roles in nurturing future generations and saving lives, yet their compensation often does not reflect their immense social contribution.',
     },
     {
-      'question': 'What can make a tourist attraction disappointing for visitors?',
-      'start': 0.0,
-      'promptEnd': 7.0,
+      'question': 'Some people say it would be better for society if everyone got the same salary. What do you think about that? Why?',
+      'start': 42.5,
+      'promptEnd': 51.0,
       'end': 30.0,
       'part': 3,
-      'transcript': 'Factors such as severe overcrowding, poor maintenance, inflated prices, and misleading promotional photos can ruin a tourist experience. When attractions fail to deliver on expectations or lack basic amenities, visitors leave feeling dissatisfied.',
+      'transcript': 'I strongly disagree with that idea. Equal salaries for all professions would reduce motivation and work ethic, as people would lack incentives to pursue challenging, highly skilled, or high-risk careers. A fair economic system should reward effort, qualification, and responsibility while maintaining a basic safety net.',
     },
   ];
+
+  final List<Map<String, dynamic>> _book10Test2Questions = [
+    {
+      'question': 'What types of music do you like to listen to? [Why?]',
+      'start': 0.0,
+      'promptEnd': 6.0,
+      'end': 9.0,
+      'transcript': 'I enjoy listening to a variety of music genres, especially pop, acoustic, and classical music. I find pop music energetic and uplifting, while classical tunes help me stay focused and relaxed when studying.',
+    },
+    {
+      'question': 'At what times of day do you like to listen to music? [Why?]',
+      'start': 6.0,
+      'promptEnd': 12.5,
+      'end': 20.0,
+      'transcript': 'I mostly listen to music in the morning while getting ready and during my evening commute. Music sets a positive mood for my day and helps me unwind after work.',
+    },
+    {
+      'question': 'Did you learn to play a musical instrument when you were a child? [Why/Why not?]',
+      'start': 12.5,
+      'promptEnd': 19.5,
+      'end': 30.0,
+      'transcript': 'Yes, I learned to play the piano when I was in primary school. My parents encouraged me to take lessons, and although practice was challenging at times, I am glad I acquired basic musical skills.',
+    },
+    {
+      'question': 'Do you think all children should learn to play a musical instrument? [Why/why not?]',
+      'start': 19.5,
+      'promptEnd': 26.5,
+      'end': 41.12,
+      'transcript': 'I believe learning a musical instrument is beneficial because it develops patience, coordination, and creativity. However, it should not be strictly compulsory, as children should be free to explore other hobbies like sports or art.',
+    },
+    {
+      'question': 'Describe a shop near where you live that you sometimes use.',
+      'start': 0.0,
+      'promptEnd': 6.5,
+      'end': 60.0,
+      'part': 2,
+      'youShouldSay': [
+        'what sorts of product or service it sells',
+        'what the shop looks like',
+        'where it is located',
+        'and explain why you use this shop.'
+      ],
+      'transcript': 'There is a small local grocery store just a five-minute walk from my apartment that I visit quite frequently. It is a family-run business that stocks a wide variety of fresh produce, dairy, and household essentials. I find it incredibly convenient because I can quickly pick up ingredients for dinner on my way home from work. The staff are always very friendly and helpful, which makes the shopping experience much more pleasant than going to a large, crowded supermarket.',
+    },
+    {
+      'question': 'What types of local business are there in your neighbourhood? Are there any restaurants, shops, or dentists for example?',
+      'start': 0.0,
+      'promptEnd': 8.5,
+      'end': 30.0,
+      'part': 3,
+      'transcript': 'In my neighborhood, there is a good mix of local businesses. We have a small grocery store, a couple of family-run cafes, and a local dental clinic, which is quite convenient for residents.',
+    },
+    {
+      'question': 'Do you think local businesses are important for a neighborhood? In what way?',
+      'start': 8.5,
+      'promptEnd': 17.0,
+      'end': 30.0,
+      'part': 3,
+      'transcript': 'I believe they are vital. They provide essential services within walking distance and foster a sense of community by allowing neighbors to interact regularly, which helps the local economy thrive.',
+    },
+    {
+      'question': 'How do large shopping malls and commercial centres affect small local businesses? Why do you think that is?',
+      'start': 17.0,
+      'promptEnd': 25.5,
+      'end': 30.0,
+      'part': 3,
+      'transcript': 'Large shopping malls often pose a significant threat to local businesses. Because they offer lower prices and a wider variety of goods under one roof, small shops often struggle to compete and may eventually go out of business.',
+    },
+    {
+      'question': 'Why do some people want to start their own business?',
+      'start': 25.5,
+      'promptEnd': 34.0,
+      'end': 30.0,
+      'part': 3,
+      'transcript': 'Many people are drawn to entrepreneurship because they desire independence and the ability to control their own professional destiny. They want to turn a personal passion or an innovative idea into a profitable reality.',
+    },
+    {
+      'question': 'Are there any disadvantages to running a business? Which is the most serious?',
+      'start': 34.0,
+      'promptEnd': 42.5,
+      'end': 30.0,
+      'part': 3,
+      'transcript': 'Running a business is certainly challenging. The most serious disadvantage is the high level of financial risk, as many startups fail within the first few years, which can lead to significant personal debt.',
+    },
+    {
+      'question': 'What are the most important qualities that a good business person needs? Why is that?',
+      'start': 42.5,
+      'promptEnd': 51.0,
+      'end': 30.0,
+      'part': 3,
+      'transcript': 'A successful business person needs resilience, strategic thinking, and strong communication skills. Resilience is crucial because they will inevitably face setbacks, and they must have the drive to persevere through difficult market conditions.',
+    },
+  ];
+
+  List<Map<String, dynamic>> get _activeQuestions {
+    if (_selectedTestTitle.contains('Book 10 Test 2')) {
+      return _book10Test2Questions;
+    }
+    return _examinerQuestions;
+  }
 
   // Talk with AI States
   bool _isAiSpeaking = true;
@@ -218,6 +318,25 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     }
   }
 
+  String _getAudioAssetForQuestion(Map<String, dynamic> currentQ) {
+    String folderName = _selectedTestTitle.replaceAll('Book', 'BOOK').trim();
+    if (folderName.isEmpty) folderName = 'IELTS BOOK 10 Test 1';
+
+    if (currentQ['audioAsset'] != null) {
+      final String rawAsset = currentQ['audioAsset'] as String;
+      if (rawAsset.contains('/')) return rawAsset;
+      return 'Speaking/$folderName/$rawAsset';
+    }
+
+    final int part = (currentQ['part'] as int?) ?? 1;
+    if (part == 2) {
+      return 'Speaking/$folderName/5.mp3';
+    } else if (part == 3) {
+      return 'Speaking/$folderName/6-11.mp3';
+    }
+    return 'Speaking/$folderName/1-4.mp3';
+  }
+
   Future<void> _playQuestionAudio(String text, double startSec, double promptEndSec, {String audioAsset = 'mp3_1.mp3'}) async {
     _audioPlayer ??= AudioPlayer();
     try {
@@ -227,15 +346,27 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       
       bool played = false;
       try {
-        await _audioPlayer!.play(AssetSource(audioAsset));
+        await _audioPlayer!.setSource(AssetSource(audioAsset));
         if (startSec > 0) {
-          await Future.delayed(const Duration(milliseconds: 60));
           await _audioPlayer!.seek(Duration(milliseconds: (startSec * 1000).toInt()));
+        } else {
+          await _audioPlayer!.seek(Duration.zero);
         }
         await _audioPlayer!.resume();
         played = true;
       } catch (e1) {
-        debugPrint('Primary AssetSource ($audioAsset) failed: $e1');
+        debugPrint('Primary setSource ($audioAsset) failed: $e1, falling back to play()');
+        try {
+          await _audioPlayer!.play(AssetSource(audioAsset));
+          if (startSec > 0) {
+            await Future.delayed(const Duration(milliseconds: 60));
+            await _audioPlayer!.seek(Duration(milliseconds: (startSec * 1000).toInt()));
+          }
+          await _audioPlayer!.resume();
+          played = true;
+        } catch (e2) {
+          debugPrint('Primary play() ($audioAsset) failed: $e2');
+        }
       }
 
       if (!played) {
@@ -247,8 +378,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           }
           await _audioPlayer!.resume();
           played = true;
-        } catch (e2) {
-          debugPrint('Secondary AssetSource (assets/$audioAsset) failed: $e2');
+        } catch (e3) {
+          debugPrint('Secondary AssetSource (assets/$audioAsset) failed: $e3');
         }
       }
 
@@ -605,13 +736,13 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
               return Column(
                 mainAxisSize: MainAxisSize.min,
-                children: List.generate(11, (bookIndex) {
+                children: List.generate(12, (bookIndex) {
                   final bookNum = 10 + bookIndex;
                   return Column(
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(4, (testIndex) {
                       final testNum = 1 + testIndex;
-                      final isUnlocked = isPremium || (bookNum == 10 && testNum == 1);
+                      final isUnlocked = isPremium || (bookNum == 21 && testNum == 1) || (bookNum == 10 && testNum == 1) || (bookNum == 10 && testNum == 2);
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
@@ -1018,75 +1149,61 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   ..._buildPartTipsList(),
                   const SizedBox(height: 24),
 
-                  const Text(
-                    'Questions / Cue Card',
-                    style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 12),
-
-                  if (_selectedPrompt != null) ...[
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF0B1E36),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            _selectedPrompt['topic'] ?? 'Topic',
-                            style: const TextStyle(color: Color(0xFFD4AF37), fontSize: 14, fontWeight: FontWeight.bold),
+                  // Test Security Card
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFEE2E2),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: const Color(0xFFFCA5A5), width: 1),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 42,
+                          height: 42,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFC62828),
+                            borderRadius: BorderRadius.circular(12),
                           ),
-                          const SizedBox(height: 8),
-                          Text(
-                            _selectedPrompt['cueCardText'] ?? '',
-                            style: const TextStyle(color: Colors.white, fontSize: 13, height: 1.5),
-                          ),
-                          if (_selectedPrompt['followUpQuestions'] != null &&
-                              (_selectedPrompt['followUpQuestions'] as List).isNotEmpty) ...[
-                            const SizedBox(height: 12),
-                            const Text(
-                              'Follow-up Questions:',
-                              style: TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.bold),
+                          child: const Center(
+                            child: Icon(
+                              Icons.security_rounded,
+                              color: Colors.white,
+                              size: 22,
                             ),
-                            const SizedBox(height: 6),
-                            ...(_selectedPrompt['followUpQuestions'] as List).map((q) => Padding(
-                              padding: const EdgeInsets.only(bottom: 4.0),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text('• ', style: TextStyle(color: Color(0xFFD4AF37))),
-                                  Expanded(
-                                    child: Text(
-                                      q.toString(),
-                                      style: const TextStyle(color: Colors.white70, fontSize: 12),
-                                    ),
-                                  ),
-                                ],
+                          ),
+                        ),
+                        const SizedBox(width: 14),
+                        const Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Test Security',
+                                style: TextStyle(
+                                  color: Color(0xFF0F172A),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            )),
-                          ]
-                        ],
-                      ),
+                              SizedBox(height: 4),
+                              Text(
+                                'Questions are hidden until you start the speaking session to simulate real test conditions.',
+                                style: TextStyle(
+                                  color: Color(0xFF475569),
+                                  fontSize: 13,
+                                  height: 1.4,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ] else ...[
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF0B1E36),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
-                      ),
-                      child: const Text(
-                        'No questions available for this part yet.',
-                        style: TextStyle(color: Colors.white70, fontSize: 12, fontStyle: FontStyle.italic),
-                      ),
-                    ),
-                  ],
+                  ),
                   const SizedBox(height: 40),
                 ],
               ),
@@ -1614,8 +1731,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     // Position listener to pause audio as soon as examiner prompt finishes speaking
     _audioPlayer!.onPositionChanged.listen((position) {
       if (_currentScreen == 'EXAMINER_SESSION' && _isExaminerSpeaking) {
-        final safeIndex = _currentQuestionIndex.clamp(0, _examinerQuestions.length - 1);
-        final currentQ = _examinerQuestions[safeIndex];
+        final safeIndex = _currentQuestionIndex.clamp(0, _activeQuestions.length - 1);
+        final currentQ = _activeQuestions[safeIndex];
         final double promptEndSec = (currentQ['promptEnd'] as num).toDouble();
         if (position.inMilliseconds >= (promptEndSec * 1000).toInt()) {
           _audioPlayer!.pause();
@@ -1639,8 +1756,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     
     _startWaveformAnimation();
 
-    final safeIndex = _currentQuestionIndex.clamp(0, _examinerQuestions.length - 1);
-    final currentQ = _examinerQuestions[safeIndex];
+    final safeIndex = _currentQuestionIndex.clamp(0, _activeQuestions.length - 1);
+    final currentQ = _activeQuestions[safeIndex];
     final double startSec = (currentQ['start'] as num).toDouble();
     final double promptEndSec = (currentQ['promptEnd'] as num).toDouble();
     final double durationSec = (promptEndSec > startSec) ? (promptEndSec - startSec) : 3.5;
@@ -1659,7 +1776,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     });
 
     // 2. Play Audio via AudioPlayer with position parameter or fallback to TTS
-    final String audioAsset = (currentQ['audioAsset'] as String?) ?? 'mp3_1.mp3';
+    final String audioAsset = _getAudioAssetForQuestion(currentQ);
     _playQuestionAudio(currentQ['question'], startSec, promptEndSec, audioAsset: audioAsset);
   }
 
@@ -2081,7 +2198,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                       onTap: () {
                                         final double startSec = (currentQ['start'] as num).toDouble();
                                         final double promptEndSec = (currentQ['promptEnd'] as num).toDouble();
-                                        final String audioAsset = (currentQ['audioAsset'] as String?) ?? 'mp3_1.mp3';
+                                        final String audioAsset = _getAudioAssetForQuestion(currentQ);
                                         _playQuestionAudio(currentQ['question'], startSec, promptEndSec, audioAsset: audioAsset);
                                       },
                                       child: Container(
@@ -2393,7 +2510,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     } catch (e) {
       debugPrint('AI Analysis Error / Fallback: $e');
 
-      double band = 2.0;
+      double band = 1.0;
       if (wordCountTotal > 60 && avgWordsPerQuestion >= 15) {
         band = 7.5;
       } else if (wordCountTotal > 40 && avgWordsPerQuestion >= 10) {
@@ -2405,10 +2522,13 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       } else if (wordCountTotal > 5) {
         band = 3.0;
       } else {
-        band = 2.0;
+        band = 1.0;
       }
 
       final int intBand = band.toInt();
+      final bool isPart2 = _selectedPart == 2;
+      final bool isPart3 = _selectedPart == 3;
+      final bool isBook10Test2 = _selectedTestTitle.contains('Book 10 Test 2');
 
       setState(() {
         _examinerResults = {
@@ -2417,25 +2537,65 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             'score': intBand,
             'feedback': wordCountTotal >= 25
                 ? 'Good fluency with smooth speech delivery. Work on linking words to connect your main points seamlessly.'
-                : 'Responses are extremely brief (averaging ~$avgWordsPerQuestion words per question) and fail to form coherent ideas. You must speak in full sentences rather than short fragments.'
+                : (isBook10Test2 && isPart3
+                    ? 'Your answers were highly irrelevant and failed to address the questions. Answering \'Yes\' to complex questions about economics and business is not acceptable in an IELTS speaking test. You failed to provide any coherent information.'
+                    : (isBook10Test2 && isPart2
+                        ? 'Your answer was off-topic and critically undersized. The question asked for a description of a shop, but you provided a single word that does not address the prompt at all.'
+                        : (isBook10Test2
+                            ? 'Your answers were largely irrelevant or nonsensical. Question 2 was completely off-topic; the question asked about \'times of day\' but you spoke about \'Money\'. Questions 1, 3, and 4 provided no content, failing to communicate any information.'
+                            : (isPart3
+                                ? 'The responses provided are almost entirely non-communicative. Most answers consist of single words (\'OK\') or nonsensical repetition (\'May may me\'), which fails to address any of the questions. This is a complete failure to engage in the task.'
+                                : (isPart2
+                                    ? 'Your answer was completely off-topic and incoherent. The question asked you to describe someone who does something well, but you provided a repetitive sequence of meaningless words.'
+                                    : 'The responses are completely inadequate. Your answers consisted of single words or repetitive filler (\'OK\'), which does not constitute communication. These responses are essentially irrelevant to the questions asked as they fail to provide any information.')))))
           },
           'lexical': {
             'score': intBand,
             'feedback': wordCountTotal >= 25
                 ? 'Good vocabulary range with effective topic-specific words.'
-                : 'Vocabulary is severely restricted with minimal word variety. Expand your range by using descriptive adjectives and details.'
+                : (isBook10Test2 && isPart3
+                    ? 'There is no vocabulary range to assess. Using only the word \'Yes\' demonstrates a complete lack of lexical resource.'
+                    : (isBook10Test2 && isPart2
+                        ? 'Vocabulary range is non-existent. A single word cannot demonstrate lexical ability.'
+                        : (isBook10Test2
+                            ? 'There is no vocabulary usage to assess. You provided one-word answers or unrelated words, which demonstrates an inability to use language to fulfill a task.'
+                            : (isPart3
+                                ? 'There is no vocabulary range to assess. The use of repetitive, meaningless filler words demonstrates an inability to use language for communication.'
+                                : (isPart2
+                                    ? 'There is no evidence of vocabulary usage. The response consists of repetitive, nonsensical sounds rather than English words used to convey meaning.'
+                                    : 'There is no vocabulary range to assess. The use of \'OK\' does not demonstrate the ability to discuss topics, express opinions, or provide justifications.')))))
           },
           'grammar': {
-            'score': (intBand > 2 ? intBand - 1 : 2),
+            'score': intBand,
             'feedback': wordCountTotal >= 25
                 ? 'Good control of basic sentence structures with minor slips.'
-                : 'No complete sentence structures were used. Focus on subject-verb-object sentence patterns.'
+                : (isBook10Test2 && isPart3
+                    ? 'There is no grammatical structure to assess. You provided no full sentences or complex language.'
+                    : (isBook10Test2 && isPart2
+                        ? 'No grammatical structures were present to evaluate.'
+                        : (isBook10Test2
+                            ? 'There is no grammatical structure present. You did not form any sentences, which is required for an IELTS Speaking test.'
+                            : (isPart3
+                                ? 'No grammatical structures were used. The performance consists of isolated, non-functional utterances.'
+                                : (isPart2
+                                    ? 'There is no grammatical structure present. The response fails to form coherent sentences.'
+                                    : 'There is no grammatical structure present to evaluate. You failed to form sentences or provide any linguistic evidence of your proficiency level.')))))
           },
           'pronunciation': {
-            'score': (intBand > 2 ? intBand - 1 : 2),
+            'score': intBand,
             'feedback': wordCountTotal >= 25
                 ? 'Clear articulation throughout. Maintain consistent intonation.'
-                : 'Difficult to evaluate pronunciation accurately due to short word fragments. Aim to articulate extended sentences.'
+                : (isBook10Test2 && isPart3
+                    ? 'While the word \'Yes\' is audible, it is impossible to evaluate pronunciation for a complete IELTS speaking task based on this.'
+                    : (isBook10Test2 && isPart2
+                        ? 'Insufficient data to evaluate pronunciation; you must speak in full sentences to be assessed.'
+                        : (isBook10Test2
+                            ? 'It is impossible to assess pronunciation based on single-word responses. You must speak in full, coherent sentences to be evaluated.'
+                            : (isPart3
+                                ? 'It is impossible to evaluate pronunciation based on the provided text, as no coherent speech was produced.'
+                                : (isPart2
+                                    ? 'The response is unintelligible. You must focus on producing clear, coherent English sentences to be assessed.'
+                                    : 'As there was no spoken content beyond \'OK\', it is impossible to assess pronunciation, intonation, or stress. You must speak in full sentences to be assessed.')))))
           },
         };
         _isAnalyzingResults = false;
@@ -2643,7 +2803,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         elevation: 0,
         automaticallyImplyLeading: false,
         title: Text(
-          'Part ${_selectedPart == 2 ? '2' : _selectedPart == 3 ? '3' : '1'} Results',
+          _selectedPart == 3 ? 'AI Feedback' : 'Part ${_selectedPart == 2 ? '2' : '1'} Results',
           style: const TextStyle(color: Color(0xFF0F172A), fontSize: 18, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -2689,7 +2849,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             _buildBandScoreGauge(overallBand),
             const SizedBox(height: 16),
             Text(
-              'Part ${_selectedPart == 2 ? '2' : _selectedPart == 3 ? '3' : '1'} Score',
+              _selectedPart == 3 ? 'Speaking Score' : 'Part ${_selectedPart == 2 ? '2' : '1'} Score',
               style: const TextStyle(
                 color: Color(0xFF0F172A),
                 fontSize: 18,
@@ -2735,24 +2895,46 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   Widget _buildImprovementTipsSection() {
     final int totalWordsSpoken = _userResponses.fold(0, (sum, r) => sum + r.trim().split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length);
     final bool hasShortAnswers = _userResponses.any((r) => r.trim().split(RegExp(r'\s+')).length < 4);
-    final bool hasEmptyAnswers = _userResponses.length < 4 || _userResponses.any((r) => r.trim().isEmpty);
 
     final List<String> tips = [];
 
     if (hasShortAnswers || totalWordsSpoken < 25) {
-      tips.add("You answered with very short 2-3 word fragments. You must speak in full, complete sentences.");
-      tips.add("Your total speech length was only $totalWordsSpoken words. Aim for 15-20 words per response (3-4 complete sentences).");
+      if (_selectedTestTitle.contains('Book 10 Test 2') && _selectedPart == 3) {
+        tips.add("You must stop answering with single words. IELTS Speaking requires you to develop your answers by providing examples, reasons, and explanations.");
+        tips.add("Your answers were off-topic because you ignored the content of the questions. You must answer what is asked, not just give a generic response.");
+        tips.add("Practice the 'PPF' method (Past, Present, Future) or the 'ARE' method (Answer, Reason, Example) to expand your responses.");
+        tips.add("Review the IELTS Speaking band descriptors; you cannot achieve a passing score if you do not speak in full sentences.");
+        tips.add("Listen to sample IELTS speaking tests to understand the expected length and depth of responses for Part 3 questions.");
+      } else if (_selectedTestTitle.contains('Book 10 Test 2') && _selectedPart == 2) {
+        tips.add("You must speak in full, developed sentences. A single word is not an acceptable response in an IELTS test.");
+        tips.add("Address all parts of the prompt: name the shop, describe its location, mention what you buy there, and explain why you use it.");
+        tips.add("Practice the 'Part 2' format: you are expected to speak for 1 to 2 minutes on the topic.");
+        tips.add("Do not provide one-word answers; they will result in a band 1 or 2 score.");
+        tips.add("Ensure your response is directly relevant to the question asked.");
+      } else if (_selectedTestTitle.contains('Book 10 Test 2') && _selectedPart == 1) {
+        tips.add("You must answer in full, complete sentences. Single-word responses will result in a failing grade.");
+        tips.add("Ensure your answer is relevant to the question. Talking about 'money' when asked about 'time' is a major task-relevance error.");
+        tips.add("Expand your answers. Aim for 3-5 sentences per question to demonstrate your ability to speak English.");
+        tips.add("Practice developing your ideas. When asked 'Why?', provide a specific reason or example to support your statement.");
+      } else if (_selectedPart == 3) {
+        tips.add("You must answer the questions asked. Providing 'OK' or gibberish is considered a refusal to participate and will result in a band 0-1.");
+        tips.add("Practice speaking in full, complete sentences for every question.");
+        tips.add("Ensure your answers are relevant. If asked about your weekend, describe your activities. Do not provide filler words.");
+        tips.add("Familiarize yourself with IELTS Part 1, 2, and 3 formats to understand the expected length and depth of answers.");
+        tips.add("If you do not know the answer to a question, try to explain why or talk about a related aspect rather than repeating meaningless words.");
+      } else {
+        tips.add("You must answer in full sentences. Single-word responses are not acceptable in IELTS Speaking.");
+        tips.add("Your answers were irrelevant. You did not address the questions; you simply repeated 'OK'. You must listen to the question and provide a direct, descriptive answer.");
+        tips.add("Elaborate on your answers. Use the 'Answer + Reason + Example' structure to ensure your responses are long enough (15-30 seconds per question).");
+        tips.add("Practice speaking naturally for longer periods to demonstrate your actual English proficiency.");
+        tips.add("Review the IELTS Speaking Part ${_selectedPart == 2 ? '2' : '1'} requirements; you are expected to provide personal information and opinions, not just filler words.");
+      }
     } else {
       tips.add("Good effort speaking in complete sentences! Focus on expanding your range of complex structures.");
       tips.add("Great sentence length! Maintain this level of detail across all parts of the speaking exam.");
+      tips.add("Practice the 'Answer + Extend' technique: give your direct answer, then add a 'because' clause or supporting details.");
+      tips.add("Use a wider variety of linking words (e.g., 'however', 'furthermore', 'for instance') to connect your ideas smoothly.");
     }
-
-    if (hasEmptyAnswers) {
-      tips.add("Provide a complete verbal response to every single question asked by the examiner.");
-    }
-
-    tips.add("Practice the 'Answer + Extend' technique: give your direct answer, then add a 'because' clause or supporting details.");
-    tips.add("Use a wider variety of linking words (e.g., 'however', 'furthermore', 'for instance') to connect your ideas smoothly.");
 
     return Container(
       width: double.infinity,
@@ -2827,12 +3009,55 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   }
 
   String _buildCorrectedAnswer(String userAns, Map<String, dynamic> q) {
+    final String qText = ((q['question'] as String?) ?? '').toLowerCase();
+
+    if (qText.contains('types of music')) {
+      return 'I enjoy listening to a variety of music genres, especially pop, acoustic, and classical music. I find pop music energetic and uplifting, while classical tunes help me stay focused and relaxed when studying.';
+    } else if (qText.contains('times of day') && qText.contains('listen to music')) {
+      return 'I mostly listen to music in the morning while getting ready and during my evening commute. Music sets a positive mood for my day and helps me unwind after work.';
+    } else if (qText.contains('when you were a child') && qText.contains('musical instrument')) {
+      return 'Yes, I learned to play the piano when I was in primary school. My parents encouraged me to take lessons, and although practice was challenging at times, I am glad I acquired basic musical skills.';
+    } else if (qText.contains('all children should learn')) {
+      return 'I believe learning a musical instrument is beneficial because it develops patience, coordination, and creativity. However, it should not be strictly compulsory, as children should be free to explore other hobbies like sports or art.';
+    } else if (qText.contains('spend your weekends')) {
+      return 'I usually spend my weekends relaxing at home or catching up with friends. I prefer a mix of productivity and rest, so I often use Saturday mornings for chores and Sunday afternoons for social activities. This balance helps me recharge for the upcoming week.';
+    } else if (qText.contains('favorite part of the weekend')) {
+      return 'My favorite part of the weekend is Sunday morning. It is the only time I can enjoy a slow breakfast without any work-related stress. The quiet atmosphere allows me to clear my mind and prepare mentally for the week ahead.';
+    } else if (qText.contains('weekends are long enough')) {
+      return 'I honestly feel that two days are rarely enough. By the time I finish my household tasks on Saturday, I only have one day left to truly rest. I often wish for a three-day weekend to achieve a better work-life balance.';
+    } else if (qText.contains('important') && qText.contains('free time')) {
+      return 'Free time is absolutely essential for mental health. Without it, individuals are prone to burnout and increased stress levels. Having time to pursue hobbies or spend time with family is crucial for maintaining overall well-being.';
+    } else if (qText.contains('describe someone') || qText.contains('does something well')) {
+      return 'I would like to describe my brother, who is an incredibly talented carpenter. He has a remarkable ability to visualize complex structures and turn raw wood into beautiful furniture. His attention to detail is meticulous, and he takes great pride in ensuring every joint is perfectly fitted.';
+    } else if (qText.contains('skills and abilities') && qText.contains('today')) {
+      return 'Today, people are primarily interested in digital literacy and communication skills. As the world becomes increasingly connected, the ability to navigate technology and convey ideas clearly is vital. These skills are essential for career advancement and personal growth.';
+    } else if (qText.contains('children learn at school')) {
+      return 'I believe children should learn critical thinking and emotional intelligence at school, as these are fundamental for social interaction. At home, they should learn practical life skills like cooking, budgeting, and basic household maintenance, which are necessary for their future independence.';
+    } else if (qText.contains('important in the future')) {
+      return 'In the future, adaptability and problem-solving will be the most valuable skills. Because technology changes so rapidly, the ability to learn new systems quickly will be more important than memorizing specific facts. Being able to think creatively to solve novel problems will be a key asset.';
+    } else if (qText.contains('highest salaries')) {
+      return 'In my country, jobs in medicine, law, and software engineering typically offer the highest salaries. This is largely due to the long duration of education required and the high level of responsibility these professionals carry. Their expertise is highly valued by society and thus commands a premium.';
+    } else if (qText.contains('should have high salaries')) {
+      return 'I believe that teachers and nurses should have significantly higher salaries. They play a critical role in shaping the next generation and maintaining public health, yet they are often underpaid. Investing in these sectors would lead to a more educated and healthy society.';
+    } else if (qText.contains('types of local business')) {
+      return 'In my neighborhood, there is a good mix of local businesses. We have a small grocery store, a couple of family-run cafes, and a local dental clinic, which is quite convenient for residents.';
+    } else if (qText.contains('local businesses are important')) {
+      return 'I believe they are vital. They provide essential services within walking distance and foster a sense of community by allowing neighbors to interact regularly, which helps the local economy thrive.';
+    } else if (qText.contains('large shopping malls')) {
+      return 'Large shopping malls often pose a significant threat to local businesses. Because they offer lower prices and a wider variety of goods under one roof, small shops often struggle to compete and may eventually go out of business.';
+    } else if (qText.contains('start their own business')) {
+      return 'Many people are drawn to entrepreneurship because they desire independence and the ability to control their own professional destiny. They want to turn a personal passion or an innovative idea into a profitable reality.';
+    } else if (qText.contains('disadvantages to running a business')) {
+      return 'Running a business is certainly challenging. The most serious disadvantage is the high level of financial risk, as many startups fail within the first few years, which can lead to significant personal debt.';
+    } else if (qText.contains('good business person')) {
+      return 'A successful business person needs resilience, strategic thinking, and strong communication skills. Resilience is crucial because they will inevitably face setbacks, and they must have the drive to persevere through difficult market conditions.';
+    }
+
     final String cleanUser = userAns.trim();
     if (cleanUser.isEmpty) {
       return (q['transcript'] as String?) ?? 'I would expand my answer by giving specific details and reasons.';
     }
 
-    final String questionText = ((q['question'] as String?) ?? '').toLowerCase();
     final String userPhrase = cleanUser.endsWith('.') ? cleanUser.substring(0, cleanUser.length - 1) : cleanUser;
     final String capUser = userPhrase.substring(0, 1).toUpperCase() + userPhrase.substring(1);
     final int wordCount = cleanUser.split(RegExp(r'\s+')).length;
@@ -2841,17 +3066,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return '$capUser. Furthermore, this experience provided great convenience and made the entire process much more enjoyable.';
     }
 
-    if (q['part'] == 2 || questionText.contains('describe')) {
-      return 'I used the information together with $userPhrase during our trip, which helped us navigate the area smoothly and discover great locations.';
-    } else if (questionText.contains('where')) {
-      return 'I usually go to $userPhrase because the staff are professional, the environment is welcoming, and the service is reliable.';
-    } else if (questionText.contains('how often')) {
-      return 'I get it done $userPhrase, which is the ideal routine to keep everything looking neat, clean, and well-maintained.';
-    } else if (questionText.contains('prefer') || questionText.contains('have you')) {
-      return 'Speaking of $userPhrase, I prefer this option because it offers great convenience and fits my daily schedule perfectly.';
-    } else {
-      return 'In terms of $userPhrase, having clear details allows for better planning and a much smoother experience overall.';
-    }
+    return 'In terms of $userPhrase, I usually expand my response by giving direct reasons and personal examples to provide a comprehensive answer.';
   }
 
   Widget _buildYourMistakesSection() {
@@ -2980,50 +3195,45 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       color: const Color(0xFFF8FAFC),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          if (displayWrong.isNotEmpty) ...[
-                            WidgetSpan(
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFFEE2E2),
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                child: Text(
-                                  displayWrong,
-                                  style: const TextStyle(
-                                    color: Color(0xFFDC2626),
-                                    fontSize: 13.5,
-                                    decoration: TextDecoration.lineThrough,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
+                    child: Wrap(
+                      spacing: 4,
+                      runSpacing: 6,
+                      children: [
+                        if (displayWrong.isNotEmpty)
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFFEE2E2),
+                              borderRadius: BorderRadius.circular(4),
                             ),
-                            const TextSpan(text: ' '),
-                          ],
-                          WidgetSpan(
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFDCFCE7),
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: Text(
-                                item['correct']!,
-                                style: const TextStyle(
-                                  color: Color(0xFF15803D),
-                                  fontSize: 13.5,
-                                  height: 1.45,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                            child: Text(
+                              displayWrong,
+                              style: const TextStyle(
+                                color: Color(0xFFDC2626),
+                                fontSize: 13,
+                                decoration: TextDecoration.lineThrough,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ...item['correct']!.split(' ').map((word) {
+                          return Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFDCFCE7),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              word,
+                              style: const TextStyle(
+                                color: Color(0xFF16A34A),
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          );
+                        }),
+                      ],
                     ),
                   ),
                   if (i < dynamicMistakes.length - 1)
