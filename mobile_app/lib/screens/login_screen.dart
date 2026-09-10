@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/auth_provider.dart';
+import '../theme/app_colors.dart';
 import 'register_screen.dart';
 import 'dashboard_screen.dart';
 
@@ -35,7 +36,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Successfully signed in!'),
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.primary,
         ),
       );
       Navigator.pushReplacement(
@@ -50,7 +51,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final authState = ref.watch(authProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A), // Deep Navy
+      backgroundColor: AppColors.backgroundLight,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -62,36 +63,43 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // Logo / Header
-                  const Center(
+                  Center(
                     child: Column(
                       children: [
-                        Icon(
-                          Icons.school_rounded,
-                          size: 64,
-                          color: Color(0xFFD4AF37), // Gold
+                        Container(
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: AppColors.surfaceTint,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.school_rounded,
+                            size: 48,
+                            color: AppColors.primary,
+                          ),
                         ),
-                        SizedBox(height: 12),
-                        Text(
+                        const SizedBox(height: 16),
+                        const Text(
                           'BandUp IELTS',
                           style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            letterSpacing: 1.2,
+                            color: AppColors.textPrimaryLight,
+                            letterSpacing: 1.1,
                           ),
                         ),
-                        SizedBox(height: 6),
-                        Text(
+                        const SizedBox(height: 6),
+                        const Text(
                           'Practice Smarter. Improve Faster.',
                           style: TextStyle(
                             fontSize: 14,
-                            color: Color(0xFF94A3B8),
+                            color: AppColors.textSecondaryLight,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 48),
+                  const SizedBox(height: 40),
 
                   // Error notification
                   if (authState.errorMessage != null) ...[
@@ -115,25 +123,27 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: AppColors.textPrimaryLight),
                     decoration: InputDecoration(
                       labelText: 'Email Address',
-                      labelStyle: const TextStyle(color: Color(0xFF94A3B8)),
-                      prefixIcon: const Icon(Icons.email_outlined, color: Color(0xFFD4AF37)),
+                      labelStyle: const TextStyle(color: AppColors.textSecondaryLight),
+                      prefixIcon: const Icon(Icons.email_outlined, color: AppColors.primary),
+                      filled: true,
+                      fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFF1E3E6E)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.cardBorderLight),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFFD4AF37)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: const BorderSide(color: Colors.redAccent),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: const BorderSide(color: Colors.redAccent),
                       ),
                     ),
@@ -153,25 +163,27 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   TextFormField(
                     controller: _passwordController,
                     obscureText: true,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: AppColors.textPrimaryLight),
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      labelStyle: const TextStyle(color: Color(0xFF94A3B8)),
-                      prefixIcon: const Icon(Icons.lock_outline_rounded, color: Color(0xFFD4AF37)),
+                      labelStyle: const TextStyle(color: AppColors.textSecondaryLight),
+                      prefixIcon: const Icon(Icons.lock_outline_rounded, color: AppColors.primary),
+                      filled: true,
+                      fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFF1E3E6E)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.cardBorderLight),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFFD4AF37)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: const BorderSide(color: Colors.redAccent),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: const BorderSide(color: Colors.redAccent),
                       ),
                     ),
@@ -191,13 +203,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   ElevatedButton(
                     onPressed: authState.isLoading ? null : _submit,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFD4AF37), // Gold
-                      foregroundColor: const Color(0xFF0B1E36), // Deep Blue text
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      elevation: 4,
+                      elevation: 0,
                     ),
                     child: authState.isLoading
                         ? const SizedBox(
@@ -205,7 +217,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             width: 20,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              color: Color(0xFF0B1E36),
+                              color: Colors.white,
                             ),
                           )
                         : const Text(
@@ -221,7 +233,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     children: [
                       const Text(
                         "Don't have an account? ",
-                        style: TextStyle(color: Color(0xFF94A3B8), fontSize: 14),
+                        style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 14),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -233,7 +245,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         child: const Text(
                           'Sign Up',
                           style: TextStyle(
-                            color: Color(0xFFD4AF37),
+                            color: AppColors.primary,
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
                             decoration: TextDecoration.underline,

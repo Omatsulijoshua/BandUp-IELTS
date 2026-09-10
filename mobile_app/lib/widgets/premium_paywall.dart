@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
 
 class PremiumPaywallSheet extends StatefulWidget {
   const PremiumPaywallSheet({super.key});
@@ -14,7 +15,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Color(0xFFF8FAFC),
+        color: AppColors.backgroundLight,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24),
           topRight: Radius.circular(24),
@@ -44,13 +45,13 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
             ),
             const SizedBox(height: 16),
 
-            // Red IELTS Logo
+            // Deep Teal IELTS Logo
             Center(
               child: Container(
                 width: 72,
                 height: 72,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFC62828), // Deep Red
+                  color: AppColors.primary,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: const Center(
@@ -73,7 +74,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
               'Unlock your target IELTS Band Score',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Color(0xFF1E293B),
+                color: AppColors.textPrimaryLight,
                 fontSize: 17,
                 fontWeight: FontWeight.bold,
               ),
@@ -104,10 +105,10 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                             width: 22,
                             height: 22,
                             decoration: BoxDecoration(
-                              color: _selectedMonths == 12 ? const Color(0xFFC62828) : Colors.transparent,
+                              color: _selectedMonths == 12 ? AppColors.primary : Colors.transparent,
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: _selectedMonths == 12 ? const Color(0xFFC62828) : const Color(0xFFCBD5E1),
+                                color: _selectedMonths == 12 ? AppColors.primary : const Color(0xFFCBD5E1),
                                 width: 2,
                               ),
                             ),
@@ -125,7 +126,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                                     const Text(
                                       '12 Months',
                                       style: TextStyle(
-                                        color: Color(0xFF1E293B),
+                                        color: AppColors.textPrimaryLight,
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -134,7 +135,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                                     Container(
                                       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
                                       decoration: BoxDecoration(
-                                        color: const Color(0xFFC62828),
+                                        color: AppColors.accent,
                                         borderRadius: BorderRadius.circular(4),
                                       ),
                                       child: const Text(
@@ -152,7 +153,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                                 const Text(
                                   'Only ₦5,825.00/mo',
                                   style: TextStyle(
-                                    color: Color(0xFF64748B),
+                                    color: AppColors.textSecondaryLight,
                                     fontSize: 11,
                                   ),
                                 ),
@@ -162,7 +163,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                           const Text(
                             '₦ 69,900.00',
                             style: TextStyle(
-                              color: Color(0xFF1E293B),
+                              color: AppColors.textPrimaryLight,
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
@@ -187,10 +188,10 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                             width: 22,
                             height: 22,
                             decoration: BoxDecoration(
-                              color: _selectedMonths == 1 ? const Color(0xFFC62828) : Colors.transparent,
+                              color: _selectedMonths == 1 ? AppColors.primary : Colors.transparent,
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: _selectedMonths == 1 ? const Color(0xFFC62828) : const Color(0xFFCBD5E1),
+                                color: _selectedMonths == 1 ? AppColors.primary : const Color(0xFFCBD5E1),
                                 width: 2,
                               ),
                             ),
@@ -206,7 +207,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                                 const Text(
                                   '1 Month',
                                   style: TextStyle(
-                                    color: Color(0xFF1E293B),
+                                    color: AppColors.textPrimaryLight,
                                     fontSize: 13,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -215,7 +216,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                                 const Text(
                                   'Only ₦19,900.00/mo',
                                   style: TextStyle(
-                                    color: Color(0xFF64748B),
+                                    color: AppColors.textSecondaryLight,
                                     fontSize: 11,
                                   ),
                                 ),
@@ -225,7 +226,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                           const Text(
                             '₦ 19,900.00',
                             style: TextStyle(
-                              color: Color(0xFF1E293B),
+                              color: AppColors.textPrimaryLight,
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
@@ -245,7 +246,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
               child: Text(
                 'WHAT\'S INCLUDED',
                 style: TextStyle(
-                  color: Color(0xFF94A3B8),
+                  color: AppColors.textSecondaryLight,
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.5,
@@ -303,7 +304,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
               height: 48,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFC62828), // deep red
+                  backgroundColor: AppColors.accent,
                   foregroundColor: Colors.white,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
@@ -314,7 +315,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                   Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      backgroundColor: const Color(0xFF15803D),
+                      backgroundColor: AppColors.primary,
                       content: Text(
                         'Thank you! Subscribing for $_selectedMonths ${_selectedMonths == 12 ? "Months" : "Month"}...',
                       ),
@@ -345,7 +346,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                   },
                   child: const Text(
                     'Restore Purchases',
-                    style: TextStyle(color: Color(0xFF94A3B8), fontSize: 11),
+                    style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                   ),
                 ),
                 const SizedBox(width: 4),
@@ -355,7 +356,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                   onPressed: () {},
                   child: const Text(
                     'Terms',
-                    style: TextStyle(color: Color(0xFF94A3B8), fontSize: 11),
+                    style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                   ),
                 ),
                 const SizedBox(width: 4),
@@ -365,7 +366,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                   onPressed: () {},
                   child: const Text(
                     'Privacy',
-                    style: TextStyle(color: Color(0xFF94A3B8), fontSize: 11),
+                    style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                   ),
                 ),
               ],
@@ -391,7 +392,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
             width: 24,
             height: 24,
             decoration: BoxDecoration(
-              color: const Color(0xFFC62828), // deep red background
+              color: AppColors.primary,
               borderRadius: BorderRadius.circular(6),
             ),
             child: Center(
@@ -410,7 +411,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                 Text(
                   title,
                   style: const TextStyle(
-                    color: Color(0xFF1E293B),
+                    color: AppColors.textPrimaryLight,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),
@@ -419,7 +420,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                 Text(
                   description,
                   style: const TextStyle(
-                    color: Color(0xFF64748B),
+                    color: AppColors.textSecondaryLight,
                     fontSize: 10,
                     height: 1.4,
                   ),

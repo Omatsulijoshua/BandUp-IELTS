@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 import '../services/localization.dart';
+import '../theme/app_colors.dart';
 import 'dashboard_screen.dart';
 import 'login_screen.dart';
 import 'register_screen.dart';
@@ -146,13 +147,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0B1E36),
+        backgroundColor: AppColors.primary,
         elevation: 0,
         leading: _currentStep > 0
             ? IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.white70),
+                icon: const Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: _prevStep,
               )
             : null,
@@ -161,8 +162,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 borderRadius: BorderRadius.circular(4),
                 child: LinearProgressIndicator(
                   value: _currentStep / 9.0,
-                  backgroundColor: const Color(0xFF1E3E6E),
-                  valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFD4AF37)),
+                  backgroundColor: Colors.white24,
+                  valueColor: const AlwaysStoppedAnimation<Color>(AppColors.accent),
                   minHeight: 6,
                 ),
               )
@@ -173,15 +174,15 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
               padding: const EdgeInsets.only(right: 8.0),
               child: DropdownButton<String>(
                 value: _selectedLang,
-                icon: const Icon(Icons.language, color: Color(0xFFD4AF37), size: 20),
+                icon: const Icon(Icons.language, color: Colors.white, size: 20),
                 underline: const SizedBox(),
-                dropdownColor: const Color(0xFF0B1E36),
+                dropdownColor: Colors.white,
                 items: LocalizationService.languagesList.map((lang) {
                   return DropdownMenuItem<String>(
                     value: lang['code'],
                     child: Text(
                       lang['name'] ?? '',
-                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12),
                     ),
                   );
                 }).toList(),
@@ -196,7 +197,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           if (_currentStep < 10)
             TextButton(
               onPressed: _finishOnboarding,
-              child: const Text('Skip', style: TextStyle(color: Colors.white54, fontSize: 12)),
+              child: const Text('Skip', style: TextStyle(color: Colors.white70, fontSize: 12)),
             ),
         ],
       ),
@@ -232,60 +233,67 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             height: 120,
             width: 120,
             decoration: BoxDecoration(
-              color: const Color(0xFFD4AF37),
+              color: AppColors.surfaceTint,
               shape: BoxShape.circle,
               boxShadow: [
-                BoxShadow(color: const Color(0xFFD4AF37).withOpacity(0.3), blurRadius: 20, spreadRadius: 5),
+                BoxShadow(color: AppColors.primary.withValues(alpha: 0.15), blurRadius: 20, spreadRadius: 5),
               ],
             ),
             alignment: Alignment.center,
             child: const Text(
               'IELTS',
-              style: TextStyle(color: Color(0xFF050E1A), fontSize: 32, fontWeight: FontWeight.w900),
+              style: TextStyle(color: AppColors.primary, fontSize: 32, fontWeight: FontWeight.w900),
             ),
           ),
           const SizedBox(height: 40),
           Text(
             _t('welcome_title'),
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           Text(
             _t('welcome_desc'),
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white60, fontSize: 13, height: 1.5),
+            style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13, height: 1.5),
           ),
           const Spacer(),
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: const Color(0xFF0B1E36),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: const Color(0xFF1E3E6E)),
+              border: Border.all(color: AppColors.cardBorderLight),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.03),
+                  blurRadius: 6,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
                   children: [
-                    Text('4.8 ★', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                    Text('4.8 ★', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 16)),
                     SizedBox(height: 4),
-                    Text('Rating', style: TextStyle(color: Colors.white38, fontSize: 11)),
+                    Text('Rating', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                   ],
                 ),
                 Column(
                   children: [
-                    Text('300+', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                    Text('300+', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 16)),
                     SizedBox(height: 4),
-                    Text('Mock Tests', style: TextStyle(color: Colors.white38, fontSize: 11)),
+                    Text('Mock Tests', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                   ],
                 ),
                 Column(
                   children: [
-                    Text('+1.5', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                    Text('+1.5', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 16)),
                     SizedBox(height: 4),
-                    Text('Avg. Band ↑', style: TextStyle(color: Colors.white38, fontSize: 11)),
+                    Text('Avg. Band ↑', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                   ],
                 ),
               ],
@@ -297,10 +305,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_t('get_started'), style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
             ),
@@ -320,9 +329,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          Text(_t('target_score_title'), style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(_t('target_score_title'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          Text(_t('target_score_desc'), style: const TextStyle(color: Colors.white54, fontSize: 13)),
+          Text(_t('target_score_desc'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13)),
           const SizedBox(height: 40),
           Expanded(
             child: ListView.builder(
@@ -336,9 +345,19 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     margin: const EdgeInsets.only(bottom: 12),
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                     decoration: BoxDecoration(
-                      color: isSelected ? const Color(0xFFD4AF37) : const Color(0xFF0B1E36),
+                      color: isSelected ? AppColors.surfaceTint : Colors.white,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: isSelected ? const Color(0xFFD4AF37) : const Color(0xFF1E3E6E)),
+                      border: Border.all(
+                        color: isSelected ? AppColors.primary : AppColors.cardBorderLight,
+                        width: isSelected ? 2 : 1,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.03),
+                          blurRadius: 6,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -346,14 +365,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                         Text(
                           'Band $band',
                           style: TextStyle(
-                            color: isSelected ? const Color(0xFF050E1A) : Colors.white,
+                            color: isSelected ? AppColors.primary : AppColors.textPrimaryLight,
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
                           ),
                         ),
                         Text(
                           band >= 7.5 ? 'Expert level' : (band >= 7.0 ? 'Very good user' : 'Competent user'),
-                          style: TextStyle(color: isSelected ? const Color(0xFF050E1A).withOpacity(0.8) : Colors.white30, fontSize: 11),
+                          style: TextStyle(color: isSelected ? AppColors.primary : AppColors.textSecondaryLight, fontSize: 11),
                         ),
                       ],
                     ),
@@ -367,10 +386,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_t('continue_btn'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -389,9 +409,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          Text(_t('test_type_title'), style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(_t('test_type_title'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          Text(_t('test_type_desc'), style: const TextStyle(color: Colors.white54, fontSize: 13)),
+          Text(_t('test_type_desc'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13)),
           const SizedBox(height: 40),
 
           GestureDetector(
@@ -399,28 +419,38 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: _testType == 'ACADEMIC' ? AppColors.surfaceTint : Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: _testType == 'ACADEMIC' ? const Color(0xFFD4AF37) : const Color(0xFF1E3E6E), width: 2),
+                border: Border.all(
+                  color: _testType == 'ACADEMIC' ? AppColors.primary : AppColors.cardBorderLight,
+                  width: 2,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.03),
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
               child: Row(
                 children: [
-                  const Icon(Icons.school, color: Colors.blueAccent, size: 36),
+                  const Icon(Icons.school, color: AppColors.primary, size: 36),
                   const SizedBox(width: 16),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(_t('academic'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
+                        Text(_t('academic'), style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 14)),
                         const SizedBox(height: 4),
-                        Text(_t('academic_desc'), style: const TextStyle(color: Colors.white38, fontSize: 11)),
+                        Text(_t('academic_desc'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                       ],
                     ),
                   ),
                   Radio<String>(
                     value: 'ACADEMIC',
                     groupValue: _testType,
-                    activeColor: const Color(0xFFD4AF37),
+                    activeColor: AppColors.primary,
                     onChanged: (val) => setState(() => _testType = val!),
                   ),
                 ],
@@ -434,28 +464,38 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: _testType == 'GENERAL' ? AppColors.surfaceTint : Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: _testType == 'GENERAL' ? const Color(0xFFD4AF37) : const Color(0xFF1E3E6E), width: 2),
+                border: Border.all(
+                  color: _testType == 'GENERAL' ? AppColors.primary : AppColors.cardBorderLight,
+                  width: 2,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.03),
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
               child: Row(
                 children: [
-                  const Icon(Icons.work, color: Colors.orangeAccent, size: 36),
+                  const Icon(Icons.work, color: AppColors.accent, size: 36),
                   const SizedBox(width: 16),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(_t('general'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
+                        Text(_t('general'), style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 14)),
                         const SizedBox(height: 4),
-                        Text(_t('general_desc'), style: const TextStyle(color: Colors.white38, fontSize: 11)),
+                        Text(_t('general_desc'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                       ],
                     ),
                   ),
                   Radio<String>(
                     value: 'GENERAL',
                     groupValue: _testType,
-                    activeColor: const Color(0xFFD4AF37),
+                    activeColor: AppColors.primary,
                     onChanged: (val) => setState(() => _testType = val!),
                   ),
                 ],
@@ -469,10 +509,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_t('continue_btn'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -491,25 +532,32 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          Text(_t('test_date_title'), style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(_t('test_date_title'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          Text(_t('test_date_desc'), style: const TextStyle(color: Colors.white54, fontSize: 13)),
+          Text(_t('test_date_desc'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13)),
           const SizedBox(height: 40),
 
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: const Color(0xFF0B1E36),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: const Color(0xFF1E3E6E)),
+              border: Border.all(color: AppColors.cardBorderLight),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.03),
+                  blurRadius: 6,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(_t('booked_switch'), style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
+                Text(_t('booked_switch'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.w600)),
                 Switch(
                   value: _hasBookedTest,
-                  activeColor: const Color(0xFFD4AF37),
+                  activeColor: AppColors.primary,
                   onChanged: (val) => setState(() => _hasBookedTest = val),
                 ),
               ],
@@ -521,19 +569,20 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             width: double.infinity,
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              color: const Color(0xFF0B1E36).withOpacity(0.5),
+              color: AppColors.surfaceTint,
               borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: AppColors.primary.withValues(alpha: 0.15)),
             ),
             child: Column(
               children: [
-                const Icon(Icons.calendar_today, color: Color(0xFFD4AF37), size: 40),
+                const Icon(Icons.calendar_today, color: AppColors.primary, size: 40),
                 const SizedBox(height: 16),
-                Text(_t('no_worries'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                Text(_t('no_worries'), style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 16)),
                 const SizedBox(height: 8),
                 Text(
                   _t('flexible_plan'),
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white54, fontSize: 12, height: 1.4),
+                  style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12, height: 1.4),
                 ),
               ],
             ),
@@ -545,10 +594,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_t('continue_btn'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -568,9 +618,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          Text(_t('level_title'), style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(_t('level_title'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          Text(_t('level_desc'), style: const TextStyle(color: Colors.white54, fontSize: 13)),
+          Text(_t('level_desc'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13)),
           const SizedBox(height: 40),
 
           ...levels.map((lvl) {
@@ -584,13 +634,23 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 margin: const EdgeInsets.only(bottom: 16),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: isSelected ? const Color(0xFFD4AF37) : const Color(0xFF0B1E36),
+                  color: isSelected ? AppColors.surfaceTint : Colors.white,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: isSelected ? const Color(0xFFD4AF37) : const Color(0xFF1E3E6E)),
+                  border: Border.all(
+                    color: isSelected ? AppColors.primary : AppColors.cardBorderLight,
+                    width: isSelected ? 2 : 1,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.03),
+                      blurRadius: 6,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
                 ),
                 child: Row(
                   children: [
-                    Icon(icon, color: isSelected ? const Color(0xFF050E1A) : const Color(0xFFD4AF37), size: 24),
+                    Icon(icon, color: AppColors.primary, size: 24),
                     const SizedBox(width: 16),
                     Expanded(
                       child: Column(
@@ -599,7 +659,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                           Text(
                             _t(titleKey),
                             style: TextStyle(
-                              color: isSelected ? const Color(0xFF050E1A) : Colors.white,
+                              color: isSelected ? AppColors.primary : AppColors.textPrimaryLight,
                               fontWeight: FontWeight.bold,
                               fontSize: 13,
                             ),
@@ -608,8 +668,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                           Text(
                             _t(descKey),
                             style: TextStyle(
-                              color: isSelected ? const Color(0xFF050E1A).withOpacity(0.8) : Colors.white54,
-                              fontSize: 10,
+                              color: isSelected ? AppColors.primary.withValues(alpha: 0.8) : AppColors.textSecondaryLight,
+                              fontSize: 11,
                             ),
                           ),
                         ],
@@ -627,10 +687,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_t('continue_btn'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -649,9 +710,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          Text(_t('stoppers_title'), style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(_t('stoppers_title'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          Text(_t('stoppers_desc'), style: const TextStyle(color: Colors.white54, fontSize: 13)),
+          Text(_t('stoppers_desc'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13)),
           const SizedBox(height: 30),
 
           Expanded(
@@ -664,19 +725,29 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 12),
                   decoration: BoxDecoration(
-                    color: isSelected ? const Color(0xFFD4AF37) : const Color(0xFF0B1E36),
+                    color: isSelected ? AppColors.surfaceTint : Colors.white,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: isSelected ? const Color(0xFFD4AF37) : const Color(0xFF1E3E6E)),
+                    border: Border.all(
+                      color: isSelected ? AppColors.primary : AppColors.cardBorderLight,
+                      width: isSelected ? 2 : 1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.03),
+                        blurRadius: 6,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
                   ),
                   child: CheckboxListTile(
                     value: isSelected,
-                    activeColor: const Color(0xFF050E1A),
-                    checkColor: const Color(0xFFD4AF37),
+                    activeColor: AppColors.primary,
+                    checkColor: Colors.white,
                     title: Text(
                       _t(labelKey).isEmpty ? key.replaceAll('_', ' ') : _t(labelKey),
                       style: TextStyle(
-                        color: isSelected ? const Color(0xFF050E1A) : Colors.white,
-                        fontSize: 12,
+                        color: isSelected ? AppColors.primary : AppColors.textPrimaryLight,
+                        fontSize: 13,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -700,10 +771,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_t('continue_btn'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -723,9 +795,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          Text(_t('study_time_title'), style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(_t('study_time_title'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          Text(_t('study_time_desc'), style: const TextStyle(color: Colors.white54, fontSize: 13)),
+          Text(_t('study_time_desc'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13)),
           const SizedBox(height: 40),
 
           ...times.map((t) {
@@ -739,13 +811,23 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 margin: const EdgeInsets.only(bottom: 16),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: isSelected ? const Color(0xFFD4AF37) : const Color(0xFF0B1E36),
+                  color: isSelected ? AppColors.surfaceTint : Colors.white,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: isSelected ? const Color(0xFFD4AF37) : const Color(0xFF1E3E6E)),
+                  border: Border.all(
+                    color: isSelected ? AppColors.primary : AppColors.cardBorderLight,
+                    width: isSelected ? 2 : 1,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.03),
+                      blurRadius: 6,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
                 ),
                 child: Row(
                   children: [
-                    Icon(icon, color: isSelected ? const Color(0xFF050E1A) : const Color(0xFFD4AF37)),
+                    Icon(icon, color: AppColors.primary),
                     const SizedBox(width: 16),
                     Expanded(
                       child: Column(
@@ -754,7 +836,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                           Text(
                             _t(labelKey),
                             style: TextStyle(
-                              color: isSelected ? const Color(0xFF050E1A) : Colors.white,
+                              color: isSelected ? AppColors.primary : AppColors.textPrimaryLight,
                               fontWeight: FontWeight.bold,
                               fontSize: 13,
                             ),
@@ -763,8 +845,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                           Text(
                             _t(descKey),
                             style: TextStyle(
-                              color: isSelected ? const Color(0xFF050E1A).withOpacity(0.8) : Colors.white54,
-                              fontSize: 10,
+                              color: isSelected ? AppColors.primary.withValues(alpha: 0.8) : AppColors.textSecondaryLight,
+                              fontSize: 11,
                             ),
                           ),
                         ],
@@ -782,10 +864,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_t('continue_btn'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -804,9 +887,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          Text(_t('projected_title'), style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(_t('projected_title'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          Text(_t('projected_desc'), style: const TextStyle(color: Colors.white54, fontSize: 13)),
+          Text(_t('projected_desc'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13)),
           const SizedBox(height: 30),
 
           Center(
@@ -815,24 +898,25 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
               height: 160,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: const Color(0xFFD4AF37), width: 10),
+                border: Border.all(color: AppColors.primary, width: 8),
+                color: AppColors.surfaceTint,
               ),
               alignment: Alignment.center,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Band', style: TextStyle(color: Colors.white54, fontSize: 11)),
-                  const SizedBox(height: 4),
-                  Text('$_targetBand', style: const TextStyle(color: Colors.white, fontSize: 36, fontWeight: FontWeight.w900)),
-                  const SizedBox(height: 4),
-                  const Text('↗ +2.5', style: TextStyle(color: Colors.greenAccent, fontSize: 12, fontWeight: FontWeight.bold)),
+                  const Text('Band', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12)),
+                  const SizedBox(height: 2),
+                  Text('$_targetBand', style: const TextStyle(color: AppColors.primary, fontSize: 36, fontWeight: FontWeight.w900)),
+                  const SizedBox(height: 2),
+                  const Text('↗ +2.5', style: TextStyle(color: AppColors.accent, fontSize: 12, fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
           ),
           const SizedBox(height: 32),
 
-          Text(_t('projected_by_skill'), style: const TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.bold)),
+          Text(_t('projected_by_skill'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
 
           GridView.count(
@@ -855,10 +939,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_t('continue_btn'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -873,21 +958,28 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: const Color(0xFF0B1E36),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFF1E3E6E)),
+        border: Border.all(color: AppColors.cardBorderLight),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         children: [
-          Icon(icon, color: const Color(0xFFD4AF37), size: 20),
+          Icon(icon, color: AppColors.primary, size: 20),
           const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(skill, style: const TextStyle(color: Colors.white70, fontSize: 11)),
+              Text(skill, style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
               const SizedBox(height: 2),
-              Text(score, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
+              Text(score, style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 14)),
             ],
           ),
         ],
@@ -899,7 +991,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Widget _buildNotificationsStep() {
     return Center(
       child: Card(
-        color: const Color(0xFF0B1E36),
+        color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         margin: const EdgeInsets.all(32),
         child: Padding(
@@ -907,31 +999,38 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.notifications_active, color: Color(0xFFD4AF37), size: 48),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: const BoxDecoration(
+                  color: AppColors.surfaceTint,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.notifications_active, color: AppColors.primary, size: 36),
+              ),
               const SizedBox(height: 16),
               Text(
                 _t('notifications_dialog'),
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
+                style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 15),
               ),
               const SizedBox(height: 8),
               const Text(
                 'Notifications may include alerts, sounds, and icon badges. These can be configured in Settings.',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white54, fontSize: 11, height: 1.4),
+                style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4),
               ),
               const SizedBox(height: 24),
-              const Divider(color: Color(0xFF1E3E6E)),
+              const Divider(color: AppColors.cardBorderLight),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   TextButton(
                     onPressed: _nextStep,
-                    child: Text(_t('dont_allow'), style: const TextStyle(color: Colors.blueAccent, fontSize: 13)),
+                    child: Text(_t('dont_allow'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13)),
                   ),
                   TextButton(
                     onPressed: _nextStep,
-                    child: Text(_t('allow'), style: const TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold, fontSize: 13)),
+                    child: Text(_t('allow'), style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 13)),
                   ),
                 ],
               ),
@@ -950,14 +1049,21 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Spacer(),
-          const Icon(Icons.stars, color: Color(0xFFD4AF37), size: 64),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: const BoxDecoration(
+              color: AppColors.surfaceTint,
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(Icons.stars, color: AppColors.primary, size: 48),
+          ),
           const SizedBox(height: 24),
-          Text(_t('personal_title'), style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(_t('personal_title'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 12),
           Text(
             _t('personal_desc'),
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white54, fontSize: 12, height: 1.4),
+            style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12, height: 1.4),
           ),
           const SizedBox(height: 32),
 
@@ -973,10 +1079,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_t('continue_btn'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -990,15 +1097,15 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Widget _buildPersonalPointRow(String title, String desc, IconData icon) {
     return Row(
       children: [
-        Icon(icon, color: const Color(0xFFD4AF37), size: 24),
+        Icon(icon, color: AppColors.primary, size: 24),
         const SizedBox(width: 16),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
+              Text(title, style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 13)),
               const SizedBox(height: 2),
-              Text(desc, style: const TextStyle(color: Colors.white38, fontSize: 10)),
+              Text(desc, style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 10)),
             ],
           ),
         ),
@@ -1013,13 +1120,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Center(child: Icon(Icons.workspace_premium, color: Color(0xFFD4AF37), size: 54)),
+          const Center(child: Icon(Icons.workspace_premium, color: AppColors.primary, size: 54)),
           const SizedBox(height: 16),
           Center(
             child: Text(
               _t('paywall_title'),
               textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(height: 24),
@@ -1029,13 +1136,23 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: _selectedPlan == '12_MONTHS' ? AppColors.surfaceTint : Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: _selectedPlan == '12_MONTHS' ? const Color(0xFFD4AF37) : const Color(0xFF1E3E6E), width: 2),
+                border: Border.all(
+                  color: _selectedPlan == '12_MONTHS' ? AppColors.primary : AppColors.cardBorderLight,
+                  width: 2,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.03),
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
               child: Row(
                 children: [
-                  Icon(_selectedPlan == '12_MONTHS' ? Icons.radio_button_checked : Icons.radio_button_off, color: const Color(0xFFD4AF37)),
+                  Icon(_selectedPlan == '12_MONTHS' ? Icons.radio_button_checked : Icons.radio_button_off, color: AppColors.primary),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
@@ -1043,15 +1160,15 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       children: [
                         Row(
                           children: [
-                            Text(_t('paywall_sub1'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
+                            Text(_t('paywall_sub1'), style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 13)),
                           ],
                         ),
                         const SizedBox(height: 4),
-                        const Text('Only ₦5,825.00/mo', style: TextStyle(color: Colors.white54, fontSize: 11)),
+                        const Text('Only ₦5,825.00/mo', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                       ],
                     ),
                   ),
-                  const Text('₦ 69,900.00', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
+                  const Text('₦ 69,900.00', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 14)),
                 ],
               ),
             ),
@@ -1063,32 +1180,42 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: _selectedPlan == '1_MONTH' ? AppColors.surfaceTint : Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: _selectedPlan == '1_MONTH' ? const Color(0xFFD4AF37) : const Color(0xFF1E3E6E), width: 2),
+                border: Border.all(
+                  color: _selectedPlan == '1_MONTH' ? AppColors.primary : AppColors.cardBorderLight,
+                  width: 2,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.03),
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
               child: Row(
                 children: [
-                  Icon(_selectedPlan == '1_MONTH' ? Icons.radio_button_checked : Icons.radio_button_off, color: const Color(0xFFD4AF37)),
+                  Icon(_selectedPlan == '1_MONTH' ? Icons.radio_button_checked : Icons.radio_button_off, color: AppColors.primary),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(_t('paywall_sub2'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
+                        Text(_t('paywall_sub2'), style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 13)),
                         const SizedBox(height: 4),
-                        const Text('Only ₦19,900.00/mo', style: TextStyle(color: Colors.white54, fontSize: 11)),
+                        const Text('Only ₦19,900.00/mo', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                       ],
                     ),
                   ),
-                  const Text('₦ 19,900.00', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
+                  const Text('₦ 19,900.00', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 14)),
                 ],
               ),
             ),
           ),
           const SizedBox(height: 20),
 
-          Text(_t('included_title'), style: const TextStyle(color: Colors.white54, fontSize: 11, fontWeight: FontWeight.bold)),
+          Text(_t('included_title'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, fontWeight: FontWeight.bold)),
           const SizedBox(height: 10),
 
           Expanded(
@@ -1109,10 +1236,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _isSubmitting ? null : _finishOnboarding,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFD4AF37),
-                foregroundColor: const Color(0xFF050E1A),
+                backgroundColor: AppColors.accent,
+                foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                elevation: 0,
               ),
               child: Text(_isSubmitting ? 'Loading...' : _t('continue_btn'), style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
@@ -1121,7 +1249,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           const Center(
             child: Text(
               'Restore Purchases    •    Terms    •    Privacy',
-              style: TextStyle(color: Colors.white30, fontSize: 9),
+              style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 9),
             ),
           ),
           const SizedBox(height: 10),
@@ -1136,15 +1264,15 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, color: const Color(0xFFD4AF37), size: 20),
+          Icon(icon, color: AppColors.primary, size: 20),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+                Text(title, style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 12)),
                 const SizedBox(height: 2),
-                Text(desc, style: const TextStyle(color: Colors.white54, fontSize: 9.5, height: 1.4)),
+                Text(desc, style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 9.5, height: 1.4)),
               ],
             ),
           ),

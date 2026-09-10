@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 import '../services/localization.dart';
+import '../theme/app_colors.dart';
 import 'listening_practice_screen.dart';
 import 'reading_practice_screen.dart';
 import 'writing_practice_screen.dart';
@@ -42,6 +43,85 @@ class DashboardScreenState extends ConsumerState<DashboardScreen> {
 
   String _t(String key) => LocalizationService.translate(key);
 
+  Widget _buildCustomBottomBar() {
+    final items = [
+      {'icon': Icons.home_rounded, 'label': _t('menu_home')},
+      {'icon': Icons.calendar_month_outlined, 'label': _t('menu_plan')},
+      {'icon': Icons.handyman_rounded, 'label': _t('menu_tools')},
+      {'icon': Icons.history_rounded, 'label': _t('menu_history')},
+      {'icon': Icons.settings_rounded, 'label': _t('menu_settings')},
+    ];
+
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 16,
+            offset: const Offset(0, -4),
+          ),
+        ],
+      ),
+      child: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(items.length, (index) {
+              final isSelected = _currentIndex == index;
+              final item = items[index];
+
+              return InkWell(
+                onTap: () {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+                borderRadius: BorderRadius.circular(20),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: isSelected ? 18 : 10,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: isSelected ? const Color(0xFFF6ECEC) : Colors.transparent,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Icon(
+                          item['icon'] as IconData,
+                          size: 22,
+                          color: isSelected ? const Color(0xFFC5221F) : const Color(0xFF111827),
+                        ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        item['label'] as String,
+                        style: TextStyle(
+                          color: isSelected ? const Color(0xFFC5221F) : const Color(0xFF4B5563),
+                          fontSize: 11,
+                          fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(authProvider).user;
@@ -49,35 +129,13 @@ class DashboardScreenState extends ConsumerState<DashboardScreen> {
       return const OnboardingScreen();
     }
 
-    final bool isLightTheme = _currentIndex == 0 || _currentIndex == 2;
-
     return Scaffold(
-      backgroundColor: isLightTheme ? const Color(0xFFF4F6FB) : const Color(0xFF050E1A),
+      backgroundColor: const Color(0xFFF8F9FB),
       body: IndexedStack(
         index: _currentIndex,
         children: _screens,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: isLightTheme ? Colors.white : const Color(0xFF0F172A),
-        selectedItemColor: const Color(0xFFC62828),
-        unselectedItemColor: isLightTheme ? Colors.black45 : Colors.white54,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
-        unselectedLabelStyle: const TextStyle(fontSize: 10),
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(icon: const Icon(Icons.home), label: _t('menu_home')),
-          BottomNavigationBarItem(icon: const Icon(Icons.calendar_month), label: _t('menu_plan')),
-          BottomNavigationBarItem(icon: const Icon(Icons.construction), label: _t('menu_tools')),
-          BottomNavigationBarItem(icon: const Icon(Icons.history), label: _t('menu_history')),
-          BottomNavigationBarItem(icon: const Icon(Icons.settings), label: _t('menu_settings')),
-        ],
-      ),
+      bottomNavigationBar: _buildCustomBottomBar(),
     );
   }
 }
@@ -197,7 +255,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
     const int totalPractices = 336;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F6FB),
+      backgroundColor: const Color(0xFFF9FBFA),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -216,7 +274,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                           Text(
                             _getGreetingText(),
                             style: const TextStyle(
-                              color: Color(0xFF0F172A),
+                              color: Color(0xFF1F2937),
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
                             ),
@@ -232,7 +290,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                       const Text(
                         "Let's reach your goal today!",
                         style: TextStyle(
-                          color: Color(0xFF64748B),
+                          color: Color(0xFF4B5563),
                           fontSize: 12,
                         ),
                       ),
@@ -241,7 +299,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                   IconButton(
                     icon: const Icon(
                       Icons.chat_bubble_outline_rounded,
-                      color: Color(0xFF475569),
+                      color: Color(0xFF0F766E),
                       size: 24,
                     ),
                     onPressed: () {
@@ -282,8 +340,8 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                           child: CircularProgressIndicator(
                             value: 0.65, // Static matching estimation visually
                             strokeWidth: 6,
-                            backgroundColor: Colors.black.withOpacity(0.05),
-                            valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFC62828)), // Red/pinkish
+                            backgroundColor: const Color(0xFFE6F4F1),
+                            valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF0F766E)), // Deep Teal
                           ),
                         ),
                         Column(
@@ -292,7 +350,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                             Text(
                               targetBand.toStringAsFixed(0),
                               style: const TextStyle(
-                                color: Color(0xFF0F172A),
+                                color: Color(0xFF1F2937),
                                 fontSize: 22,
                                 fontWeight: FontWeight.w900,
                               ),
@@ -300,7 +358,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                             const Text(
                               'Band',
                               style: TextStyle(
-                                color: Color(0xFF64748B),
+                                color: Color(0xFF4B5563),
                                 fontSize: 8,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -317,7 +375,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                           const Text(
                             'Current Level',
                             style: TextStyle(
-                              color: Color(0xFF64748B),
+                              color: Color(0xFF4B5563),
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
                             ),
@@ -326,7 +384,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                           Text(
                             levelName,
                             style: const TextStyle(
-                              color: Color(0xFF0F172A),
+                              color: Color(0xFF1F2937),
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -335,7 +393,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                           const Text(
                             'Start practicing to track your level!',
                             style: TextStyle(
-                              color: Color(0xFFC62828),
+                              color: Color(0xFF0F766E),
                               fontSize: 10,
                               fontWeight: FontWeight.w600,
                             ),
@@ -346,15 +404,15 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                             child: LinearProgressIndicator(
                               value: (completedCount / totalPractices.toDouble()).clamp(0.0, 1.0),
                               minHeight: 5,
-                              backgroundColor: Colors.black.withOpacity(0.05),
-                              valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFC62828)),
+                              backgroundColor: const Color(0xFFE6F4F1),
+                              valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF0F766E)),
                             ),
                           ),
                           const SizedBox(height: 6),
                           Text(
                             '$completedCount/$totalPractices practices',
                             style: const TextStyle(
-                              color: Color(0xFF64748B),
+                              color: Color(0xFF4B5563),
                               fontSize: 10,
                             ),
                           ),
@@ -373,14 +431,14 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color(0xFF0F172A), Color(0xFF1E293B)],
+                    colors: [Color(0xFF0F766E), Color(0xFF115E59)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF0F172A).withOpacity(0.15),
+                      color: const Color(0xFF0F766E).withOpacity(0.2),
                       blurRadius: 15,
                       offset: const Offset(0, 8),
                     ),
@@ -394,12 +452,12 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                         Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFC62828).withValues(alpha: 0.2),
+                            color: Colors.white.withValues(alpha: 0.15),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: const Icon(
                             Icons.assignment_turned_in_rounded,
-                            color: Color(0xFFC62828),
+                            color: Colors.white,
                             size: 20,
                           ),
                         ),
@@ -420,7 +478,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                               const Text(
                                 'Full Timed Simulation',
                                 style: TextStyle(
-                                  color: Color(0xFFEF4444),
+                                  color: Color(0xFFE6F4F1),
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
                                   letterSpacing: 0.5,
@@ -479,7 +537,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC62828),
+                          backgroundColor: const Color(0xFFF97316),
                           foregroundColor: Colors.white,
                           elevation: 0,
                           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -513,7 +571,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
               const Text(
                 'Practice Area',
                 style: TextStyle(
-                  color: Color(0xFF0F172A),
+                  color: Color(0xFF1F2937),
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
@@ -529,7 +587,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                 mainAxisSpacing: 12,
                 crossAxisSpacing: 12,
                 children: [
-                  _buildPracticeGridItem('Speaking', Icons.mic, const Color(0xFFD4AF37), () {
+                  _buildPracticeGridItem('Speaking', Icons.mic, AppColors.primary, () {
                     _navigateToPractice(const SpeakingPracticeScreen());
                   }),
                   _buildPracticeGridItem('Writing', Icons.edit, Colors.amberAccent, () {
@@ -550,7 +608,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                 const Text(
                   'Daily Tasks',
                   style: TextStyle(
-                    color: Color(0xFF0F172A),
+                    color: Color(0xFF1F2937),
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -598,7 +656,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                                 Text(
                                   task['title'] ?? '',
                                   style: const TextStyle(
-                                    color: Color(0xFF0F172A),
+                                    color: Color(0xFF1F2937),
                                     fontWeight: FontWeight.bold,
                                     fontSize: 12,
                                   ),
@@ -609,7 +667,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                                 const Text(
                                   'Daily Practice Task',
                                   style: TextStyle(
-                                    color: Color(0xFF64748B),
+                                    color: Color(0xFF4B5563),
                                     fontSize: 9,
                                   ),
                                 ),
@@ -632,7 +690,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
               const Text(
                 'Continue Learning',
                 style: TextStyle(
-                  color: Color(0xFF0F172A),
+                  color: Color(0xFF1F2937),
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
@@ -698,17 +756,17 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
     Color iconColor;
     Color badgeBg;
     if (title == 'Speaking') {
-      iconColor = const Color(0xFF1D4ED8);
-      badgeBg = const Color(0xFFEFF6FF);
+      iconColor = const Color(0xFF0F766E);
+      badgeBg = const Color(0xFFE6F4F1);
     } else if (title == 'Writing') {
-      iconColor = const Color(0xFFD97706);
-      badgeBg = const Color(0xFFFEF3C7);
+      iconColor = const Color(0xFFEA580C);
+      badgeBg = const Color(0xFFFFF7ED);
     } else if (title == 'Reading') {
-      iconColor = const Color(0xFF7C3AED);
-      badgeBg = const Color(0xFFF5F3FF);
+      iconColor = const Color(0xFF0D9488);
+      badgeBg = const Color(0xFFCCFBF1);
     } else {
-      iconColor = const Color(0xFF059669);
-      badgeBg = const Color(0xFFECFDF5);
+      iconColor = const Color(0xFF047857);
+      badgeBg = const Color(0xFFD1FAE5);
     }
 
     return GestureDetector(
@@ -745,7 +803,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                 Text(
                   title,
                   style: const TextStyle(
-                    color: Color(0xFF0F172A),
+                    color: Color(0xFF1F2937),
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
@@ -754,7 +812,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                 const Text(
                   'Start Practice',
                   style: TextStyle(
-                    color: Color(0xFF64748B),
+                    color: Color(0xFF4B5563),
                     fontSize: 10,
                   ),
                 ),
@@ -779,17 +837,17 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
     Color badgeText;
     Color badgeBg;
     if (module == 'Speaking') {
-      badgeText = const Color(0xFF1D4ED8);
-      badgeBg = const Color(0xFFEFF6FF);
+      badgeText = const Color(0xFF0F766E);
+      badgeBg = const Color(0xFFE6F4F1);
     } else if (module == 'Writing') {
-      badgeText = const Color(0xFFD97706);
-      badgeBg = const Color(0xFFFEF3C7);
+      badgeText = const Color(0xFFEA580C);
+      badgeBg = const Color(0xFFFFF7ED);
     } else if (module == 'Reading') {
-      badgeText = const Color(0xFF7C3AED);
-      badgeBg = const Color(0xFFF5F3FF);
+      badgeText = const Color(0xFF0D9488);
+      badgeBg = const Color(0xFFCCFBF1);
     } else {
-      badgeText = const Color(0xFF059669);
-      badgeBg = const Color(0xFFECFDF5);
+      badgeText = const Color(0xFF047857);
+      badgeBg = const Color(0xFFD1FAE5);
     }
 
     return Container(
@@ -848,7 +906,7 @@ class _HomeTabViewState extends ConsumerState<HomeTabView> {
                       Text(
                         title,
                         style: const TextStyle(
-                          color: Color(0xFF0F172A),
+                          color: Color(0xFF1F2937),
                           fontWeight: FontWeight.bold,
                           fontSize: 13,
                         ),

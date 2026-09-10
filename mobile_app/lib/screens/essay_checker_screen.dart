@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
+import '../theme/app_colors.dart';
+
 
 class EssayCheckerScreen extends StatefulWidget {
   const EssayCheckerScreen({super.key});
@@ -114,22 +116,22 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xFFC62828), size: 16),
+          icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 16),
           label: const Text(
             'Back',
-            style: TextStyle(color: Color(0xFFC62828), fontSize: 14, fontWeight: FontWeight.bold),
+            style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ),
         title: const Text(
           'Essay Checker',
-          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -141,7 +143,7 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
             // Task Type Label
             const Text(
               'Task Type',
-              style: TextStyle(color: Colors.white60, fontSize: 11, fontWeight: FontWeight.bold),
+              style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
 
@@ -161,7 +163,7 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
             if (_selectedTaskTypeIndex == 0) ...[
               const Text(
                 'Graph/Chart Image (Optional)',
-                style: TextStyle(color: Colors.white60, fontSize: 11, fontWeight: FontWeight.bold),
+                style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               GestureDetector(
@@ -170,23 +172,23 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFC62828).withValues(alpha: 0.05),
+                    color: AppColors.surfaceTint,
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: const Color(0xFFC62828).withValues(alpha: 0.2), style: BorderStyle.solid),
+                    border: Border.all(color: AppColors.primary.withValues(alpha: 0.2), style: BorderStyle.solid),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         _selectedImagePath != null ? Icons.check_circle : Icons.image,
-                        color: _selectedImagePath != null ? Colors.greenAccent : const Color(0xFFC62828),
+                        color: AppColors.primary,
                         size: 18,
                       ),
                       const SizedBox(width: 8),
                       Text(
                         _selectedImagePath != null ? 'Chart Uploaded' : 'Upload Graph or Chart',
-                        style: TextStyle(
-                          color: _selectedImagePath != null ? Colors.greenAccent : const Color(0xFFC62828),
+                        style: const TextStyle(
+                          color: AppColors.primary,
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
                         ),
@@ -204,14 +206,15 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: TextField(
                 controller: _essayController,
                 maxLines: 8,
-                style: const TextStyle(color: Colors.black87, fontSize: 14),
+                style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 14),
                 decoration: const InputDecoration(
                   hintText: 'Paste or type your essay here...',
-                  hintStyle: TextStyle(color: Colors.black26),
+                  hintStyle: TextStyle(color: AppColors.textSecondaryLight),
                   border: InputBorder.none,
                 ),
               ),
@@ -224,11 +227,11 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
               children: [
                 Text(
                   '$_wordCount words',
-                  style: const TextStyle(color: Color(0xFFD4AF37), fontSize: 12, fontWeight: FontWeight.bold),
+                  style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   'Min. $_minWordsRequired words for $_taskTypeName',
-                  style: const TextStyle(color: Colors.white38, fontSize: 11),
+                  style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                 ),
               ],
             ),
@@ -241,17 +244,17 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
               child: ElevatedButton.icon(
                 onPressed: _isCheckEnabled ? _checkEssay : null,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: _isCheckEnabled ? const Color(0xFFC62828) : const Color(0xFFE2E8F0),
-                  foregroundColor: _isCheckEnabled ? Colors.white : Colors.black38,
+                  backgroundColor: _isCheckEnabled ? AppColors.accent : const Color(0xFFE2E8F0),
+                  foregroundColor: _isCheckEnabled ? Colors.white : AppColors.textSecondaryLight,
                   disabledBackgroundColor: const Color(0xFFE2E8F0),
-                  disabledForegroundColor: Colors.black38,
+                  disabledForegroundColor: AppColors.textSecondaryLight,
                   elevation: 0,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
                 icon: Icon(
                   Icons.auto_awesome,
                   size: 18,
-                  color: _isCheckEnabled ? Colors.white : Colors.black26,
+                  color: _isCheckEnabled ? Colors.white : AppColors.textSecondaryLight,
                 ),
                 label: _submitting
                     ? const SizedBox(
@@ -271,7 +274,7 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
             const Center(
               child: Text(
                 '3 free uses remaining',
-                style: TextStyle(color: Colors.white38, fontSize: 11),
+                style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
               ),
             ),
             const SizedBox(height: 30),
@@ -298,14 +301,15 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          color: isActive ? const Color(0xFFC62828) : Colors.white,
+          color: isActive ? AppColors.primary : Colors.white,
           borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: isActive ? AppColors.primary : AppColors.cardBorderLight),
         ),
         alignment: Alignment.center,
         child: Text(
           title,
           style: TextStyle(
-            color: isActive ? Colors.white : Colors.black54,
+            color: isActive ? Colors.white : AppColors.textSecondaryLight,
             fontSize: 11,
             fontWeight: FontWeight.bold,
           ),
@@ -321,9 +325,16 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF0B1E36),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF1E3E6E)),
+        border: Border.all(color: AppColors.cardBorderLight),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -333,18 +344,18 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
             children: [
               const Text(
                 'AI Analysis Result',
-                style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+                style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 15, fontWeight: FontWeight.bold),
               ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFD4AF37).withValues(alpha: 0.1),
+                  color: AppColors.surfaceTint,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: const Color(0xFFD4AF37).withValues(alpha: 0.3)),
+                  border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
                 ),
                 child: Text(
                   'Band $band',
-                  style: const TextStyle(color: Color(0xFFD4AF37), fontSize: 13, fontWeight: FontWeight.bold),
+                  style: const TextStyle(color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
@@ -372,12 +383,12 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
           // Coaching Tip
           const Text(
             'Coaching Tip',
-            style: TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.bold),
+            style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 6),
           Text(
             _feedback['coachingTip'] ?? 'Focus on expanding your supporting arguments and checking grammar consistency.',
-            style: const TextStyle(color: Colors.white54, fontSize: 11, height: 1.4),
+            style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4),
           ),
           const SizedBox(height: 20),
 
@@ -385,7 +396,7 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
           if (_feedback['sentences'] != null && (_feedback['sentences'] as List).isNotEmpty) ...[
             const Text(
               'Detailed Corrections',
-              style: TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.bold),
+              style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             Column(
@@ -398,27 +409,27 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF050E1A),
+                      color: AppColors.surfaceTint.withValues(alpha: 0.5),
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.redAccent.withValues(alpha: 0.2)),
+                      border: Border.all(color: AppColors.accent.withValues(alpha: 0.3)),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Original: "${s['original'] ?? ''}"',
-                          style: const TextStyle(color: Colors.white38, fontSize: 11, decoration: TextDecoration.lineThrough),
+                          style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, decoration: TextDecoration.lineThrough),
                         ),
                         const SizedBox(height: 4),
                         Text(
                           'Correction: "${s['correction'] ?? ''}"',
-                          style: const TextStyle(color: Colors.greenAccent, fontSize: 11, fontWeight: FontWeight.w600),
+                          style: const TextStyle(color: AppColors.primary, fontSize: 11, fontWeight: FontWeight.w600),
                         ),
                         if (s['explanation'] != null) ...[
                           const SizedBox(height: 4),
                           Text(
                             'Why: ${s['explanation']}',
-                            style: const TextStyle(color: Colors.white54, fontSize: 10),
+                            style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 10),
                           ),
                         ],
                       ],
@@ -437,16 +448,16 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: const Color(0xFF050E1A),
+        color: AppColors.surfaceTint,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: const Color(0xFF1E3E6E)),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.15)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label, style: const TextStyle(color: Colors.white38, fontSize: 9)),
+          Text(label, style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 9)),
           const SizedBox(height: 2),
-          Text(score, style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+          Text(score, style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.bold)),
         ],
       ),
     );

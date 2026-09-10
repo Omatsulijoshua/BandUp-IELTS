@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
+import '../theme/app_colors.dart';
 
 class SubscriptionHistoryScreen extends StatefulWidget {
   const SubscriptionHistoryScreen({super.key});
@@ -60,11 +61,11 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
-            colorScheme: const ColorScheme.dark(
-              primary: Color(0xFFD4AF37),
-              onPrimary: Colors.black,
-              surface: Color(0xFF0B1E36),
-              onSurface: Colors.white,
+            colorScheme: const ColorScheme.light(
+              primary: AppColors.primary,
+              onPrimary: Colors.white,
+              surface: Colors.white,
+              onSurface: AppColors.textPrimaryLight,
             ),
           ),
           child: child!,
@@ -88,11 +89,11 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
-            colorScheme: const ColorScheme.dark(
-              primary: Color(0xFFD4AF37),
-              onPrimary: Colors.black,
-              surface: Color(0xFF0B1E36),
-              onSurface: Colors.white,
+            colorScheme: const ColorScheme.light(
+              primary: AppColors.primary,
+              onPrimary: Colors.white,
+              surface: Colors.white,
+              onSurface: AppColors.textPrimaryLight,
             ),
           ),
           child: child!,
@@ -118,9 +119,10 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0B1E36),
+        backgroundColor: AppColors.primary,
+        elevation: 0,
         title: const Text('Billing History', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
@@ -132,7 +134,10 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
           // Date Filter Panel
           Container(
             padding: const EdgeInsets.all(16),
-            color: const Color(0xFF0B1E36),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              border: Border(bottom: BorderSide(color: AppColors.cardBorderLight)),
+            ),
             child: Column(
               children: [
                 Row(
@@ -143,9 +148,9 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF050E1A),
+                            color: AppColors.backgroundLight,
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: const Color(0xFF1E3E6E)),
+                            border: Border.all(color: AppColors.cardBorderLight),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -155,11 +160,11 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
                                     ? 'Start Date'
                                     : '${_startDate!.year}-${_startDate!.month.toString().padLeft(2, '0')}-${_startDate!.day.toString().padLeft(2, '0')}',
                                 style: TextStyle(
-                                  color: _startDate == null ? Colors.white38 : Colors.white,
+                                  color: _startDate == null ? AppColors.textSecondaryLight : AppColors.textPrimaryLight,
                                   fontSize: 12,
                                 ),
                               ),
-                              const Icon(Icons.calendar_today_rounded, color: Color(0xFFD4AF37), size: 14),
+                              const Icon(Icons.calendar_today_rounded, color: AppColors.primary, size: 14),
                             ],
                           ),
                         ),
@@ -172,9 +177,9 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF050E1A),
+                            color: AppColors.backgroundLight,
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: const Color(0xFF1E3E6E)),
+                            border: Border.all(color: AppColors.cardBorderLight),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -184,11 +189,11 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
                                     ? 'End Date'
                                     : '${_endDate!.year}-${_endDate!.month.toString().padLeft(2, '0')}-${_endDate!.day.toString().padLeft(2, '0')}',
                                 style: TextStyle(
-                                  color: _endDate == null ? Colors.white38 : Colors.white,
+                                  color: _endDate == null ? AppColors.textSecondaryLight : AppColors.textPrimaryLight,
                                   fontSize: 12,
                                 ),
                               ),
-                              const Icon(Icons.calendar_today_rounded, color: Color(0xFFD4AF37), size: 14),
+                              const Icon(Icons.calendar_today_rounded, color: AppColors.primary, size: 14),
                             ],
                           ),
                         ),
@@ -207,7 +212,7 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
                       onPressed: _clearFilters,
-                      child: const Text('Clear Filters', style: TextStyle(color: Color(0xFFD4AF37), fontSize: 12)),
+                      child: const Text('Clear Filters', style: TextStyle(color: AppColors.accent, fontSize: 12, fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ],
@@ -218,12 +223,12 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
           // Logs list
           Expanded(
             child: _loading
-                ? const Center(child: CircularProgressIndicator(color: Color(0xFFD4AF37)))
+                ? const Center(child: CircularProgressIndicator(color: AppColors.primary))
                 : _logs.isEmpty
-                    ? const Center(
+                    ? Center(
                         child: Text(
                           'No subscription logs found.',
-                          style: TextStyle(color: Colors.white38, fontSize: 13),
+                          style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 13),
                         ),
                       )
                     : ListView.builder(
@@ -237,20 +242,30 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
                           final start = DateTime.tryParse(log['startDate'])?.toLocal();
                           final end = DateTime.tryParse(log['endDate'])?.toLocal();
 
-                          Color statusColor = const Color(0xFF10B981);
+                          Color statusBgColor = AppColors.surfaceTint;
+                          Color statusTextColor = AppColors.primary;
                           if (status == 'EXPIRED') {
-                            statusColor = Colors.white54;
+                            statusBgColor = Colors.grey.withValues(alpha: 0.1);
+                            statusTextColor = AppColors.textSecondaryLight;
                           } else if (status == 'CANCELLED') {
-                            statusColor = Colors.redAccent;
+                            statusBgColor = Colors.red.withValues(alpha: 0.1);
+                            statusTextColor = Colors.red;
                           }
 
                           return Container(
                             margin: const EdgeInsets.only(bottom: 12),
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF0B1E36),
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(16),
-                              border: Border.all(color: const Color(0xFF1E3E6E)),
+                              border: Border.all(color: AppColors.cardBorderLight),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withValues(alpha: 0.03),
+                                  blurRadius: 6,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -260,18 +275,18 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
                                   children: [
                                     Text(
                                       plan['name'] ?? 'Plan',
-                                      style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
+                                      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 14, fontWeight: FontWeight.bold),
                                     ),
                                     Container(
                                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                                       decoration: BoxDecoration(
-                                        color: statusColor.withValues(alpha: 0.1),
+                                        color: statusBgColor,
                                         borderRadius: BorderRadius.circular(4),
-                                        border: Border.all(color: statusColor.withValues(alpha: 0.2)),
+                                        border: Border.all(color: statusTextColor.withValues(alpha: 0.2)),
                                       ),
                                       child: Text(
                                         status,
-                                        style: TextStyle(color: statusColor, fontSize: 9, fontWeight: FontWeight.bold),
+                                        style: TextStyle(color: statusTextColor, fontSize: 10, fontWeight: FontWeight.bold),
                                       ),
                                     ),
                                   ],
@@ -280,10 +295,10 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Text('Amount Paid', style: TextStyle(color: Colors.white38, fontSize: 11)),
+                                    const Text('Amount Paid', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                                     Text(
                                       '₦${price.toStringAsFixed(0)}',
-                                      style: const TextStyle(color: Color(0xFFD4AF37), fontSize: 12, fontWeight: FontWeight.bold),
+                                      style: const TextStyle(color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
@@ -292,10 +307,10 @@ class _SubscriptionHistoryScreenState extends State<SubscriptionHistoryScreen> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      const Text('Timeline', style: TextStyle(color: Colors.white38, fontSize: 11)),
+                                      const Text('Timeline', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                                       Text(
                                         '${start.year}-${start.month}-${start.day} to ${end.year}-${end.month}-${end.day}',
-                                        style: const TextStyle(color: Colors.white70, fontSize: 11),
+                                        style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 11),
                                       ),
                                     ],
                                   ),

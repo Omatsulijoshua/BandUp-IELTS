@@ -1,6 +1,8 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/build/web/$1" }
+    { "source": "/assets/(.*)", "destination": "/build/web/assets/$1" },
+    { "source": "/(.*\\.(?:js|json|png|jpg|jpeg|gif|ico|svg|css|woff|woff2|ttf|otf|mp3|wav|ogg|wasm))", "destination": "/build/web/$1" },
+    { "source": "/(.*)", "destination": "/build/web/index.html" }
   ]
 }

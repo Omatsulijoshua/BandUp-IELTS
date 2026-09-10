@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
-/// AppTheme builds the unified ThemeData for BandUp IELTS (White & Black + Crimson Red accent).
+/// AppTheme builds the unified ThemeData for BandUp IELTS: Option 2: Calm & Encouraging (Mint & Slate).
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       brightness: Brightness.light,
-      primaryColor: AppColors.black,
+      primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.backgroundLight,
       colorScheme: const ColorScheme.light(
-        primary: AppColors.black,
-        secondary: AppColors.accent,
+        primary: AppColors.primary,
+        secondary: AppColors.secondary,
+        tertiary: AppColors.accent,
         surface: AppColors.surfaceLight,
         error: AppColors.error,
         onPrimary: AppColors.white,
-        onSecondary: AppColors.white,
+        onSecondary: AppColors.textPrimaryLight,
         onSurface: AppColors.textPrimaryLight,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.primary,
         elevation: 0,
-        iconTheme: IconThemeData(color: AppColors.textPrimaryLight),
+        iconTheme: IconThemeData(color: AppColors.white),
         titleTextStyle: TextStyle(
-          color: AppColors.textPrimaryLight,
+          color: AppColors.white,
           fontSize: 18,
           fontWeight: FontWeight.bold,
         ),
@@ -44,11 +45,12 @@ class AppTheme {
   static ThemeData get darkTheme {
     return ThemeData(
       brightness: Brightness.dark,
-      primaryColor: AppColors.black,
+      primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.backgroundDark,
       colorScheme: const ColorScheme.dark(
-        primary: AppColors.white,
-        secondary: AppColors.accent,
+        primary: AppColors.primaryLight,
+        secondary: AppColors.secondaryDark,
+        tertiary: AppColors.accent,
         surface: AppColors.surfaceDark,
         error: AppColors.error,
         onPrimary: AppColors.black,
@@ -56,7 +58,7 @@ class AppTheme {
         onSurface: AppColors.textPrimaryDark,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.surfaceDark,
         elevation: 0,
         iconTheme: IconThemeData(color: AppColors.textPrimaryDark),
         titleTextStyle: TextStyle(

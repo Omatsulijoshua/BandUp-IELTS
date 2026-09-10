@@ -381,12 +381,12 @@ Provide a short, 3-paragraph explanation:
     let prompt: any;
     let actualPromptId = promptId;
 
-    if (promptId === 'CUSTOM') {
+    if (promptId === 'CUSTOM' || promptId === 'PRACTICE_SESSION' || !promptId) {
       prompt = await this.prisma.speakingPrompt.create({
         data: {
           part: 2,
-          topic: 'Custom Topic (Student)',
-          cueCardText: customQuestionText || 'Custom practice topic description',
+          topic: customQuestionText || 'IELTS Speaking Session',
+          cueCardText: customQuestionText || 'Interactive Speaking Practice',
           followUpQuestions: [],
           difficulty: 'INTERMEDIATE',
         },
@@ -394,52 +394,108 @@ Provide a short, 3-paragraph explanation:
       actualPromptId = prompt.id;
     } else {
       prompt = await this.prisma.speakingPrompt.findUnique({ where: { id: promptId } });
-      if (!prompt) throw new NotFoundException('Speaking prompt not found');
+      if (!prompt) {
+        prompt = await this.prisma.speakingPrompt.create({
+          data: {
+            part: 2,
+            topic: customQuestionText || 'IELTS Speaking Session',
+            cueCardText: customQuestionText || 'Interactive Speaking Practice',
+            followUpQuestions: [],
+            difficulty: 'INTERMEDIATE',
+          },
+        });
+        actualPromptId = prompt.id;
+      }
     }
 
-    const finalTranscription = transcription || 'This is a sample student speaking practice response. I am describing a historic building in my hometown...';
+    const finalTranscription = transcription || 'This is a sample student speaking practice response.';
 
-    // Get prompt template
-    const promptSetting = await this.prisma.appSettings.findUnique({ where: { key: 'prompt_speaking_eval' } });
-    let systemPrompt = promptSetting?.value || 'Grade the speaking response.';
+    // Construct evaluation prompt for AI Service
+    const systemPrompt = `You are a certified senior IELTS Speaking Examiner.
+Evaluate the candidate's actual speaking responses, detect their weaknesses, and fine-tune their OWN spoken words and ideas into high-band model answers (Band 8.5–9.0).
 
-    systemPrompt = systemPrompt
-      .replace('{topic}', prompt.topic)
-      .replace('{cueCardText}', prompt.cueCardText || '')
-      .replace('{userText}', finalTranscription);
+CANDIDATE TRANSCRIPT / QUESTION & ANSWERS:
+${finalTranscription}
 
-    // Force JSON output
-    systemPrompt += `\n\nCRITICAL: Return ONLY a valid JSON object. Do not include markdown code block formatting. Format:
+Topic / Context:
+${customQuestionText || prompt.topic || 'IELTS Speaking Practice'}
+
+CRITICAL INSTRUCTIONS:
+1. Objectively evaluate the candidate's performance across the 4 IELTS criteria:
+   - Fluency and Coherence (0-9)
+   - Lexical Resource (0-9)
+   - Grammatical Range and Accuracy (0-9)
+   - Pronunciation (0-9)
+   - Overall Band (0-9, rounded to 0.5)
+
+2. Analyze what the candidate ACTUALLY said:
+   - If they gave brief, single-word, or fragmented answers, identify why it fails task achievement and coherence.
+   - If they provided spoken content, preserve their exact personal preferences, opinions, and topics (e.g. do not change their favorite music genre, their hometown, or their hobby).
+
+3. FOR EACH QUESTION AND RESPONSE in the transcript:
+   - Provide a clear, honest critique of the candidate's actual response.
+   - Fine-tune their OWN response into a natural, fluent Band 8.5–9.0 IELTS answer. Keep their original thoughts and stance, but upgrade their syntax with complex clauses, discourse markers, precise collocations, and idiomatic vocabulary.
+
+4. Provide 3-4 specific, actionable improvement tips tailored to the weaknesses observed in their spoken answers.
+
+Return ONLY a raw, valid JSON object without markdown code blocks:
+{
+  "estimatedBand": 6.5,
+  "overallBand": 6.5,
+  "fluencyAndCoherence": { "score": 6.5, "feedback": "Detailed feedback on speech flow, linking words, and hesitations" },
+  "lexicalResource": { "score": 6.5, "feedback": "Detailed feedback on vocabulary variety, idioms, and collocations" },
+  "grammaticalRange": { "score": 6.0, "feedback": "Detailed feedback on sentence complexity and grammatical accuracy" },
+  "pronunciation": { "score": 6.5, "feedback": "Detailed feedback on articulation, intonation, and rhythm" },
+  "wellDone": "Summary of what the candidate did well",
+  "mistakes": ["Specific issue identified in their spoken responses"],
+  "improvedAnswer": "Overall upgraded Band 9.0 version of what the student said across the session",
+  "whyBetter": "Explanation of the linguistic upgrades made to their responses",
+  "perQuestionFeedback": [
     {
-      "estimatedBand": 7.0,
-      "breakdown": {
-        "fluencyCoherence": 7.0,
-        "lexicalResource": 7.0,
-        "grammarAccuracy": 7.0,
-        "pronunciation": 7.0
-      },
-      "wellDone": "Your fluency was good and structure was cohesive.",
-      "mistakes": ["Pronunciation tip: 'historic' was pronounced incorrectly"],
-      "improvedAnswer": "A building I would like to describe is...",
-      "whyBetter": "Uses natural collocations and better flow.",
-      "practiceRecommendation": "Practice word stress in multi-syllable nouns."
-    }`;
+      "question": "Question text",
+      "studentAnswer": "Candidate's actual words",
+      "critique": "What was lacking or grammatically incorrect in candidate's words",
+      "improvedAnswer": "Polished Band 8.5-9.0 version fine-tuned from the candidate's own words and thoughts"
+    }
+  ],
+  "tips": [
+    "Specific actionable tip 1",
+    "Specific actionable tip 2",
+    "Specific actionable tip 3"
+  ]
+}`;
 
     let feedbackJson: any = {
-      estimatedBand: 6.5,
-      breakdown: { fluencyCoherence: 6.5, lexicalResource: 6.5, grammarAccuracy: 6.0, pronunciation: 6.5 },
-      wellDone: 'Good response. Try to expand speaking details.',
-      mistakes: [],
+      estimatedBand: 5.5,
+      overallBand: 5.5,
+      fluencyAndCoherence: { score: 5.5, feedback: 'Responses were limited in length and detail.' },
+      lexicalResource: { score: 5.5, feedback: 'Vocabulary was basic with limited topic-specific collocations.' },
+      grammaticalRange: { score: 5.0, feedback: 'Sentence structures were mostly simple with minimal complex sentences.' },
+      pronunciation: { score: 5.5, feedback: 'Speech was audible but could benefit from more varied intonation.' },
+      wellDone: 'Good participation in the practice session.',
+      mistakes: ['Response length too short', 'Limited use of complex sentences'],
       improvedAnswer: finalTranscription,
-      whyBetter: 'N/A',
-      practiceRecommendation: 'Record and practice speaking without pauses.',
+      whyBetter: 'Upgraded responses use cohesive discourse markers and topic-specific vocabulary.',
+      perQuestionFeedback: [],
+      tips: [
+        'Aim to speak for 3-4 sentences per question in Part 1 by giving direct reasons and personal examples.',
+        'Use transition words like "Furthermore", "In contrast", and "Consequently" to connect ideas smoothly.',
+        'Replace general words with more precise, high-level vocabulary.'
+      ],
     };
 
     try {
       const aiResponse = await this.aiService.generateChatCompletion([
         { role: 'user', content: systemPrompt },
       ]);
-      feedbackJson = JSON.parse(aiResponse.text.trim());
+      const text = aiResponse.text.trim();
+      const firstBrace = text.indexOf('{');
+      const lastBrace = text.lastIndexOf('}');
+      if (firstBrace !== -1 && lastBrace !== -1) {
+        feedbackJson = JSON.parse(text.substring(firstBrace, lastBrace + 1));
+      } else {
+        feedbackJson = JSON.parse(text.replace(/```json/gi, '').replace(/```/g, '').trim());
+      }
     } catch (err) {
       console.warn('[AI_SPEAKING_EVAL_ERROR] Using fallback feedback:', err);
     }
@@ -450,7 +506,7 @@ Provide a short, 3-paragraph explanation:
         promptId: actualPromptId,
         audioUrl,
         transcription: finalTranscription,
-        bandScoreEstimate: feedbackJson.estimatedBand,
+        bandScoreEstimate: feedbackJson.estimatedBand || feedbackJson.overallBand || 5.5,
         feedbackJson,
         mode: mode || 'PRACTICE',
       },

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/api_service.dart';
+import '../theme/app_colors.dart';
 import 'subscription_history_screen.dart';
 import 'dashboard_screen.dart';
 
@@ -103,11 +104,11 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
           barrierDismissible: false,
           builder: (context) {
             return AlertDialog(
-              backgroundColor: const Color(0xFF0B1E36),
-              title: const Text('Payment Submitted', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+              backgroundColor: Colors.white,
+              title: const Text('Payment Submitted', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold)),
               content: const Text(
                 'Proof of payment submitted successfully! Tutors will review and activate your account shortly.',
-                style: TextStyle(color: Colors.white70),
+                style: TextStyle(color: AppColors.textSecondaryLight),
               ),
               actions: [
                 TextButton(
@@ -122,7 +123,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       Navigator.pop(context); // Pop screen
                     }
                   },
-                  child: const Text('OK', style: TextStyle(color: Color(0xFFD4AF37), fontWeight: FontWeight.bold)),
+                  child: const Text('OK', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold)),
                 ),
               ],
             );
@@ -148,9 +149,10 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0B1E36),
+        backgroundColor: AppColors.primary,
+        elevation: 0,
         title: const Text('Upgrade Premium', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         leading: widget.isRegisterFlow
             ? const SizedBox()
@@ -169,11 +171,11 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
               },
               child: const Text(
                 'Skip',
-                style: TextStyle(color: Color(0xFFD4AF37), fontWeight: FontWeight.bold, fontSize: 13),
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13),
               ),
             ),
           IconButton(
-            icon: const Icon(Icons.history_rounded, color: Color(0xFFD4AF37)),
+            icon: const Icon(Icons.history_rounded, color: Colors.white),
             onPressed: () {
               Navigator.push(
                 context,
@@ -184,7 +186,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
         ],
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator(color: Color(0xFFD4AF37)))
+          ? const Center(child: CircularProgressIndicator(color: AppColors.primary))
           : SingleChildScrollView(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -192,7 +194,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                 children: [
                   const Text(
                     'Choose Your Premium Plan',
-                    style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 12),
                   ..._plans.map((plan) {
@@ -210,12 +212,19 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                         margin: const EdgeInsets.only(bottom: 12),
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: isSelected ? const Color(0xFF0B1E36) : const Color(0xFF071424),
+                          color: isSelected ? AppColors.surfaceTint : Colors.white,
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(
-                            color: isSelected ? const Color(0xFFD4AF37) : const Color(0xFF1E3E6E),
+                            color: isSelected ? AppColors.primary : AppColors.cardBorderLight,
                             width: isSelected ? 2 : 1,
                           ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.03),
+                              blurRadius: 6,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -225,11 +234,11 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                               children: [
                                 Text(
                                   plan['name'] ?? '',
-                                  style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                                  style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   '₦${price.toStringAsFixed(0)}',
-                                  style: const TextStyle(color: Color(0xFFD4AF37), fontSize: 18, fontWeight: FontWeight.bold),
+                                  style: const TextStyle(color: AppColors.primary, fontSize: 18, fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
@@ -239,12 +248,12 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                                     padding: const EdgeInsets.symmetric(vertical: 2),
                                     child: Row(
                                       children: [
-                                        const Icon(Icons.check_circle_rounded, color: Color(0xFF10B981), size: 14),
+                                        const Icon(Icons.check_circle_rounded, color: AppColors.primary, size: 14),
                                         const SizedBox(width: 8),
                                         Expanded(
                                           child: Text(
                                             feat.toString(),
-                                            style: const TextStyle(color: Colors.white70, fontSize: 12),
+                                            style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
                                           ),
                                         ),
                                       ],
@@ -259,23 +268,30 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                   if (_paymentInfo != null) ...[
                     const Text(
                       'Payment Details',
-                      style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0B1E36),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
+                        border: Border.all(color: AppColors.cardBorderLight),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.03),
+                            blurRadius: 6,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           _buildDetailRow('Bank Name', _paymentInfo['bankName'] ?? ''),
-                          const Divider(color: Color(0xFF1E3E6E), height: 20),
+                          const Divider(color: AppColors.cardBorderLight, height: 20),
                           _buildDetailRow('Account Number', _paymentInfo['accountNumber'] ?? ''),
-                          const Divider(color: Color(0xFF1E3E6E), height: 20),
+                          const Divider(color: AppColors.cardBorderLight, height: 20),
                           _buildDetailRow('Account Name', _paymentInfo['accountName'] ?? ''),
                         ],
                       ),
@@ -283,33 +299,42 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                     const SizedBox(height: 24),
                     const Text(
                       'Confirm Your Payment',
-                      style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     TextField(
                       controller: _referenceController,
-                      style: const TextStyle(color: Colors.white, fontSize: 13),
+                      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13),
                       maxLines: 3,
                       decoration: InputDecoration(
                         labelText: 'Transaction Reference / Sender Details',
-                        labelStyle: const TextStyle(color: Color(0xFF64748B), fontSize: 12),
+                        labelStyle: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
                         helperText: 'Paste transaction reference ID, or enter sender account name and payment date.',
-                        helperStyle: const TextStyle(color: Colors.white38, fontSize: 10),
+                        helperStyle: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 10),
                         filled: true,
-                        fillColor: const Color(0xFF0B1E36),
+                        fillColor: Colors.white,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(color: Color(0xFF1E3E6E)),
+                          borderSide: const BorderSide(color: AppColors.cardBorderLight),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: AppColors.cardBorderLight),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
                         ),
                       ),
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFD4AF37),
-                        foregroundColor: Colors.black,
+                        backgroundColor: AppColors.accent,
+                        foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        elevation: 0,
                       ),
                       onPressed: _submitting ? null : _submitRequest,
                       child: Text(
@@ -328,8 +353,8 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(label, style: const TextStyle(color: Color(0xFF94A3B8), fontSize: 12)),
-        Text(value, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+        Text(label, style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12)),
+        Text(value, style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold)),
       ],
     );
   }

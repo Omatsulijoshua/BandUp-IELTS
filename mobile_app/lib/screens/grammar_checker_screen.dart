@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
 import '../providers/auth_provider.dart';
+import '../theme/app_colors.dart';
 import 'subscription_screen.dart';
 
 class GrammarCheckerScreen extends ConsumerStatefulWidget {
@@ -35,16 +36,20 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            backgroundColor: const Color(0xFF0B1E36),
-            title: const Text('Free Limit Reached', style: TextStyle(color: Colors.white)),
-            content: const Text('You have used all 3 free grammar checks. Upgrade to Premium for unlimited access!', style: TextStyle(color: Colors.white70)),
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            title: const Text('Free Limit Reached', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold)),
+            content: const Text('You have used all 3 free grammar checks. Upgrade to Premium for unlimited access!', style: TextStyle(color: AppColors.textSecondaryLight)),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel', style: TextStyle(color: Colors.white54)),
+                child: const Text('Cancel', style: TextStyle(color: AppColors.textSecondaryLight)),
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFC62828)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.accent,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
@@ -105,22 +110,22 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
     final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
 
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xFFC62828), size: 16),
+          icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 16),
           label: const Text(
             'Back',
-            style: TextStyle(color: Color(0xFFC62828), fontSize: 14, fontWeight: FontWeight.bold),
+            style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ),
         title: const Text(
           'Grammar Checker',
-          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -132,7 +137,7 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
             // Your Text Label
             const Text(
               'Your Text',
-              style: TextStyle(color: Colors.white60, fontSize: 11, fontWeight: FontWeight.bold),
+              style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
 
@@ -142,17 +147,18 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: TextField(
                 controller: _textController,
                 maxLines: 6,
-                style: const TextStyle(color: Colors.black87, fontSize: 14),
+                style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 14),
                 onChanged: (val) {
                   setState(() {});
                 },
                 decoration: const InputDecoration(
                   hintText: 'Type or paste text to check grammar...',
-                  hintStyle: TextStyle(color: Colors.black26),
+                  hintStyle: TextStyle(color: AppColors.textSecondaryLight),
                   border: InputBorder.none,
                 ),
               ),
@@ -166,17 +172,17 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
               child: ElevatedButton.icon(
                 onPressed: _isCheckEnabled ? _checkGrammar : null,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: _isCheckEnabled ? const Color(0xFFC62828) : const Color(0xFFE2E8F0),
-                  foregroundColor: _isCheckEnabled ? Colors.white : Colors.black38,
+                  backgroundColor: _isCheckEnabled ? AppColors.accent : const Color(0xFFE2E8F0),
+                  foregroundColor: _isCheckEnabled ? Colors.white : AppColors.textSecondaryLight,
                   disabledBackgroundColor: const Color(0xFFE2E8F0),
-                  disabledForegroundColor: Colors.black38,
+                  disabledForegroundColor: AppColors.textSecondaryLight,
                   elevation: 0,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
                 icon: Icon(
                   Icons.verified,
                   size: 18,
-                  color: _isCheckEnabled ? Colors.white : Colors.black26,
+                  color: _isCheckEnabled ? Colors.white : AppColors.textSecondaryLight,
                 ),
                 label: _submitting
                     ? const SizedBox(
@@ -197,7 +203,7 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
               Center(
                 child: Text(
                   '$_freeTriesRemaining free uses remaining',
-                  style: const TextStyle(color: Colors.white38, fontSize: 11),
+                  style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                 ),
               ),
             const SizedBox(height: 30),
@@ -224,21 +230,28 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
           width: double.infinity,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: const Color(0xFF0B1E36),
+            color: Colors.white,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: const Color(0xFF1E3E6E)),
+            border: Border.all(color: AppColors.cardBorderLight),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.04),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 'Corrected Version',
-                style: TextStyle(color: Color(0xFFD4AF37), fontSize: 13, fontWeight: FontWeight.bold),
+                style: TextStyle(color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               SelectableText(
                 corrected,
-                style: const TextStyle(color: Colors.white, fontSize: 13, height: 1.4),
+                style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, height: 1.4),
               ),
             ],
           ),
@@ -248,7 +261,7 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
         // Mistakes list header
         Text(
           corrections.isEmpty ? 'No Grammar Errors Found!' : 'Identified Issues',
-          style: const TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
 
@@ -257,18 +270,18 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
             width: double.infinity,
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.green.withValues(alpha: 0.1),
+              color: AppColors.surfaceTint,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
+              border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
             ),
             child: const Row(
               children: [
-                Icon(Icons.check_circle_outline, color: Colors.greenAccent, size: 20),
+                Icon(Icons.check_circle_outline, color: AppColors.primary, size: 20),
                 SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     'Perfect grammar! No mistakes detected in your text.',
-                    style: TextStyle(color: Colors.white70, fontSize: 12),
+                    style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12),
                   ),
                 ),
               ],
@@ -284,27 +297,27 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
                   width: double.infinity,
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF0B1E36),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: const Color(0xFF1E3E6E)),
+                    border: Border.all(color: AppColors.cardBorderLight),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Original: "${c['original'] ?? ''}"',
-                        style: const TextStyle(color: Colors.white38, fontSize: 11, decoration: TextDecoration.lineThrough),
+                        style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, decoration: TextDecoration.lineThrough),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         'Correction: "${c['correction'] ?? ''}"',
-                        style: const TextStyle(color: Colors.greenAccent, fontSize: 11, fontWeight: FontWeight.w600),
+                        style: const TextStyle(color: AppColors.primary, fontSize: 11, fontWeight: FontWeight.w600),
                       ),
                       if (c['explanation'] != null) ...[
                         const SizedBox(height: 6),
                         Text(
                           'Explanation: ${c['explanation']}',
-                          style: const TextStyle(color: Colors.white70, fontSize: 11, height: 1.4),
+                          style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4),
                         ),
                       ],
                     ],

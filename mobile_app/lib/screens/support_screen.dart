@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
 import '../services/api_service.dart';
 
 class SupportScreen extends StatefulWidget {
@@ -74,7 +75,7 @@ class _SupportScreenState extends State<SupportScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Your $_selectedType has been sent successfully!'),
-            backgroundColor: const Color(0xFF10B981),
+            backgroundColor: AppColors.primary,
           ),
         );
         _messageController.clear();
@@ -99,13 +100,13 @@ class _SupportScreenState extends State<SupportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAFC),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.5,
         title: const Text(
           'Help & Support',
-          style: TextStyle(color: Color(0xFF0F172A), fontWeight: FontWeight.bold, fontSize: 16),
+          style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 16),
         ),
         centerTitle: true,
         leading: GestureDetector(
@@ -116,12 +117,12 @@ class _SupportScreenState extends State<SupportScreen> {
               color: Color(0xFFE2E8F0),
               shape: BoxShape.circle,
             ),
-            child: const Icon(Icons.close_rounded, color: Color(0xFF475569), size: 16),
+            child: const Icon(Icons.close_rounded, color: AppColors.textSecondaryLight, size: 16),
           ),
         ),
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator(color: Color(0xFFC62828)))
+          ? const Center(child: CircularProgressIndicator(color: AppColors.primary))
           : SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
               child: Form(
@@ -134,13 +135,13 @@ class _SupportScreenState extends State<SupportScreen> {
                       child: Container(
                         width: 80,
                         height: 80,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFC62828).withOpacity(0.08),
+                        decoration: const BoxDecoration(
+                          color: AppColors.surfaceTint,
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
                           Icons.send_rounded,
-                          color: Color(0xFFC62828),
+                          color: AppColors.primary,
                           size: 32,
                         ),
                       ),
@@ -150,7 +151,7 @@ class _SupportScreenState extends State<SupportScreen> {
                     const Center(
                       child: Text(
                         "We'd love to hear from you!",
-                        style: const TextStyle(color: Color(0xFF0F172A), fontSize: 20, fontWeight: FontWeight.w800),
+                        style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 20, fontWeight: FontWeight.w800),
                       ),
                     ),
                     const SizedBox(height: 6),
@@ -159,7 +160,7 @@ class _SupportScreenState extends State<SupportScreen> {
                         padding: EdgeInsets.symmetric(horizontal: 16.0),
                         child: Text(
                           "Whether you have a great idea or found an issue, let us know so we can improve.",
-                          style: TextStyle(color: Color(0xFF64748B), fontSize: 12),
+                          style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -169,14 +170,14 @@ class _SupportScreenState extends State<SupportScreen> {
                     // Type Selector Label
                     const Text(
                       'WHAT IS THIS REGARDING?',
-                      style: TextStyle(color: Color(0xFF475569), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8),
+                      style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8),
                     ),
                     const SizedBox(height: 8),
 
                     // Segmented Button suggestions/complaints
                     Container(
                       decoration: BoxDecoration(
-                        color: const Color(0xFFF1F5F9),
+                        color: AppColors.surfaceTint,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
@@ -187,14 +188,14 @@ class _SupportScreenState extends State<SupportScreen> {
                               child: Container(
                                 padding: const EdgeInsets.symmetric(vertical: 12),
                                 decoration: BoxDecoration(
-                                  color: _selectedType == 'Suggestion' ? const Color(0xFFC62828) : Colors.transparent,
+                                  color: _selectedType == 'Suggestion' ? AppColors.primary : Colors.transparent,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
                                   child: Text(
                                     'Suggestion',
                                     style: TextStyle(
-                                      color: _selectedType == 'Suggestion' ? Colors.white : const Color(0xFF475569),
+                                      color: _selectedType == 'Suggestion' ? Colors.white : AppColors.textSecondaryLight,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 13,
                                     ),
@@ -209,14 +210,14 @@ class _SupportScreenState extends State<SupportScreen> {
                               child: Container(
                                 padding: const EdgeInsets.symmetric(vertical: 12),
                                 decoration: BoxDecoration(
-                                  color: _selectedType == 'Complaint' ? const Color(0xFFC62828) : Colors.transparent,
+                                  color: _selectedType == 'Complaint' ? AppColors.primary : Colors.transparent,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
                                   child: Text(
                                     'Complaint',
                                     style: TextStyle(
-                                      color: _selectedType == 'Complaint' ? Colors.white : const Color(0xFF475569),
+                                      color: _selectedType == 'Complaint' ? Colors.white : AppColors.textSecondaryLight,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 13,
                                     ),
@@ -233,19 +234,19 @@ class _SupportScreenState extends State<SupportScreen> {
                     // Email input optional
                     const Text(
                       'EMAIL (OPTIONAL)',
-                      style: TextStyle(color: Color(0xFF475569), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8),
+                      style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8),
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
                       controller: _emailController,
-                      style: const TextStyle(color: Color(0xFF0F172A), fontSize: 13),
+                      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         hintText: 'Enter your email address',
-                        hintStyle: const TextStyle(color: Color(0xFF94A3B8), fontSize: 12),
+                        hintStyle: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: const Icon(Icons.email_outlined, color: Color(0xFF94A3B8), size: 18),
+                        prefixIcon: const Icon(Icons.email_outlined, color: AppColors.textSecondaryLight, size: 18),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -253,7 +254,7 @@ class _SupportScreenState extends State<SupportScreen> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(color: Color(0xFFC62828)),
+                          borderSide: const BorderSide(color: AppColors.primary),
                         ),
                       ),
                     ),
@@ -262,17 +263,17 @@ class _SupportScreenState extends State<SupportScreen> {
                     // Message input field
                     const Text(
                       'MESSAGE',
-                      style: TextStyle(color: Color(0xFF475569), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8),
+                      style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8),
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
                       controller: _messageController,
-                      style: const TextStyle(color: Color(0xFF0F172A), fontSize: 13),
+                      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13),
                       maxLines: 5,
                       validator: (val) => val == null || val.trim().isEmpty ? 'Please describe your request details' : null,
                       decoration: InputDecoration(
                         hintText: 'Please describe your suggestion or issue in detail...',
-                        hintStyle: const TextStyle(color: Color(0xFF94A3B8), fontSize: 12),
+                        hintStyle: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
                         filled: true,
                         fillColor: Colors.white,
                         contentPadding: const EdgeInsets.all(16),
@@ -282,7 +283,7 @@ class _SupportScreenState extends State<SupportScreen> {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(color: Color(0xFFC62828)),
+                          borderSide: const BorderSide(color: AppColors.primary),
                         ),
                       ),
                     ),
@@ -291,7 +292,7 @@ class _SupportScreenState extends State<SupportScreen> {
                     // Send suggestion button
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFC62828),
+                        backgroundColor: AppColors.accent,
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -307,7 +308,7 @@ class _SupportScreenState extends State<SupportScreen> {
                     // Ticket History header
                     const Text(
                       'Ticket History',
-                      style: const TextStyle(color: Color(0xFF0F172A), fontSize: 15, fontWeight: FontWeight.w800),
+                      style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 15, fontWeight: FontWeight.w800),
                     ),
                     const SizedBox(height: 12),
                     _tickets.isEmpty
@@ -321,7 +322,7 @@ class _SupportScreenState extends State<SupportScreen> {
                             child: const Center(
                               child: Text(
                                 'No support tickets found.',
-                                style: TextStyle(color: Color(0xFF94A3B8), fontSize: 12),
+                                style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
                               ),
                             ),
                           )
@@ -334,9 +335,9 @@ class _SupportScreenState extends State<SupportScreen> {
                               final status = ticket['status'] ?? 'OPEN';
                               final hasReply = ticket['reply'] != null;
 
-                              Color statusColor = const Color(0xFFC62828);
+                              Color statusColor = AppColors.accent;
                               if (status == 'RESOLVED') {
-                                statusColor = const Color(0xFF10B981);
+                                statusColor = AppColors.primary;
                               } else if (status == 'CLOSED') {
                                 statusColor = Colors.grey;
                               }
@@ -358,7 +359,7 @@ class _SupportScreenState extends State<SupportScreen> {
                                         Expanded(
                                           child: Text(
                                             ticket['subject'] ?? '',
-                                            style: const TextStyle(color: Color(0xFF0F172A), fontSize: 13, fontWeight: FontWeight.bold),
+                                            style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold),
                                           ),
                                         ),
                                         Container(
@@ -378,7 +379,7 @@ class _SupportScreenState extends State<SupportScreen> {
                                     const SizedBox(height: 6),
                                     Text(
                                       ticket['message'] ?? '',
-                                      style: const TextStyle(color: Color(0xFF475569), fontSize: 11, height: 1.4),
+                                      style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4),
                                     ),
                                     if (hasReply) ...[
                                       const SizedBox(height: 12),
@@ -386,21 +387,21 @@ class _SupportScreenState extends State<SupportScreen> {
                                         width: double.infinity,
                                         padding: const EdgeInsets.all(10),
                                         decoration: BoxDecoration(
-                                          color: const Color(0xFF10B981).withOpacity(0.04),
+                                          color: AppColors.surfaceTint,
                                           borderRadius: BorderRadius.circular(8),
-                                          border: Border.all(color: const Color(0xFF10B981).withOpacity(0.12)),
+                                          border: Border.all(color: AppColors.primary.withOpacity(0.2)),
                                         ),
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             const Text(
                                               'TUTOR/ADMIN RESPONSE:',
-                                              style: TextStyle(color: Color(0xFF10B981), fontSize: 8, fontWeight: FontWeight.bold),
+                                              style: TextStyle(color: AppColors.primary, fontSize: 8, fontWeight: FontWeight.bold),
                                             ),
                                             const SizedBox(height: 4),
                                             Text(
                                               ticket['reply'] ?? '',
-                                              style: const TextStyle(color: Color(0xFF475569), fontSize: 11, height: 1.4),
+                                              style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4),
                                             ),
                                           ],
                                         ),

@@ -8,8 +8,10 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
+import '../theme/app_colors.dart';
 import '../widgets/premium_paywall.dart';
 import '../widgets/times_up_dialog.dart';
+import 'history_screen.dart';
 
 class SpeakingPracticeScreen extends ConsumerStatefulWidget {
   const SpeakingPracticeScreen({super.key});
@@ -44,136 +46,191 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   Timer? _waveformTimer;
   Timer? _recordingSimulationTimer;
   Timer? _examinerSpeakingTimer;
+  StreamSubscription? _audioPositionSubscription;
+  StreamSubscription? _audioPlayerCompleteSubscription;
+  bool _isAudioSeeking = false;
 
-  // The 4 questions and their segments in mp3_1.mp3
-  final List<Map<String, dynamic>> _examinerQuestions = [
+  // ==========================================
+  // IELTS BOOK 10 TEST 1 (Audio: 1-4.mp3, 5.mp3, 6-11.mp3)
+  // ==========================================
+  final List<Map<String, dynamic>> _book10Test1Questions = [
+    // Part 1: Questions 1-4 (in q1.mp3 - q4.mp3)
     {
       'question': 'How do you usually spend your weekends? [Why?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.54,
       'start': 0.0,
-      'promptEnd': 5.0,
-      'end': 9.0,
-      'transcript': 'On weekends, I usually relax at home with a good book or catch up with friends for coffee. I enjoy this because it helps me decompress after a busy week of work.',
+      'promptEnd': 2.54,
+      'end': 2.54,
+      'part': 1,
+      'transcript': 'I usually spend my weekends relaxing at home with a book or catching up with friends for coffee. I enjoy this because it helps me decompress after a busy week of work.',
     },
     {
       'question': 'Which is your favorite part of the weekend? [Why?]',
-      'start': 5.0,
-      'promptEnd': 11.5,
-      'end': 20.0,
+      'audioAsset': 'q2.mp3',
+      'duration': 3.02,
+      'start': 0.0,
+      'promptEnd': 3.02,
+      'end': 3.02,
+      'part': 1,
       'transcript': 'My favorite part is Sunday morning because it is quiet and peaceful. I can take my time having breakfast without any rush.',
     },
     {
       'question': 'Do you think your weekends are long enough? [Why/Why not?]',
-      'start': 11.5,
-      'promptEnd': 18.0,
-      'end': 30.0,
+      'audioAsset': 'q3.mp3',
+      'duration': 3.02,
+      'start': 0.0,
+      'promptEnd': 3.02,
+      'end': 3.02,
+      'part': 1,
       'transcript': 'Honestly, two days often feel a bit short especially when there are many chores to do. A three-day weekend would give a much better balance between rest and personal projects.',
     },
     {
       'question': 'How important do you think it is to have free time at the weekends? [Why?]',
-      'start': 18.0,
-      'promptEnd': 25.5,
-      'end': 41.12,
+      'audioAsset': 'q4.mp3',
+      'duration': 5.54,
+      'start': 0.0,
+      'promptEnd': 5.54,
+      'end': 5.54,
+      'part': 1,
       'transcript': 'I think free time on weekends is essential for mental health and well-being. It allows people to recharge their energy and spend quality time with loved ones.',
     },
+
+    // Part 2: Question 5 (Cue Card in q5.mp3)
     {
       'question': 'Describe someone you know who does something well.',
+      'audioAsset': 'q5.mp3',
+      'duration': 4.03,
       'start': 0.0,
-      'promptEnd': 6.5,
-      'end': 60.0,
+      'promptEnd': 4.03,
+      'end': 4.03,
       'part': 2,
-      'audioAsset': 'mp3_2.mp3',
       'youShouldSay': [
         'who this person is',
         'how you know this person',
         'what they do well',
         'and explain why you think this person is so good at doing this.'
       ],
-      'transcript': 'I would like to talk about my older brother, who is an incredibly talented graphic designer. He has a natural flair for combining colors and typography to create visually stunning advertisements. What makes him stand out is his ability to understand exactly what a client needs even before they explain it clearly. He has spent years honing his craft, and seeing him work with such precision is truly impressive. He is definitely the most skillful person I know.',
+      'transcript': 'I would like to talk about my older brother, who is an exceptionally talented carpenter. He has a natural flair for visualizing complex designs and crafting bespoke furniture with immense precision. He has spent years honing his craft, and seeing him work with such precision is truly impressive. He is definitely the most skillful person I know.',
     },
+
+    // Part 3: Questions 6-11 (in q6.mp3 - q11.mp3)
     {
       'question': 'What skills and abilities do people most want to have today? Why?',
+      'audioAsset': 'q6.mp3',
+      'duration': 5.04,
       'start': 0.0,
-      'promptEnd': 8.5,
-      'end': 30.0,
+      'promptEnd': 5.04,
+      'end': 5.04,
       'part': 3,
       'transcript': 'Nowadays, digital literacy, problem-solving, and effective communication are in high demand. People value these skills because they enhance employability and allow individuals to adapt quickly in a fast-evolving technological landscape.',
     },
     {
       'question': 'Which skills should children learn at school? Are there any skills which they should learn at home? What are they?',
-      'start': 8.5,
-      'promptEnd': 17.0,
-      'end': 30.0,
+      'audioAsset': 'q7.mp3',
+      'duration': 6.53,
+      'start': 0.0,
+      'promptEnd': 6.53,
+      'end': 6.53,
       'part': 3,
       'transcript': 'Schools should focus on academic knowledge, teamwork, and critical thinking. On the other hand, essential life skills such as emotional resilience, personal hygiene, and financial discipline are best taught at home by parents.',
     },
     {
       'question': 'Which skills do you think will be important in the future? Why?',
-      'start': 17.0,
-      'promptEnd': 25.5,
-      'end': 30.0,
+      'audioAsset': 'q8.mp3',
+      'duration': 4.54,
+      'start': 0.0,
+      'promptEnd': 4.54,
+      'end': 4.54,
       'part': 3,
       'transcript': 'In the future, adaptability, data analysis, and emotional intelligence will be crucial. As automation takes over repetitive tasks, human-centric abilities like creative thinking and empathy will become paramount.',
     },
     {
       'question': 'Which kinds of jobs have the highest salaries in your country? Why is this?',
-      'start': 25.5,
-      'promptEnd': 34.0,
-      'end': 30.0,
+      'audioAsset': 'q9.mp3',
+      'duration': 5.54,
+      'start': 0.0,
+      'promptEnd': 5.54,
+      'end': 5.54,
       'part': 3,
       'transcript': 'Roles in technology, medicine, and corporate management command the highest salaries in my country. This is because these positions require specialized expertise, years of rigorous training, and carry immense operational responsibility.',
     },
     {
       'question': 'Are there any other jobs that you think should have high salaries? Why do you think that?',
-      'start': 34.0,
-      'promptEnd': 42.5,
-      'end': 30.0,
+      'audioAsset': 'q10.mp3',
+      'duration': 5.04,
+      'start': 0.0,
+      'promptEnd': 5.04,
+      'end': 5.04,
       'part': 3,
       'transcript': 'Teachers and healthcare workers definitely deserve higher remuneration. They perform fundamental roles in nurturing future generations and saving lives, yet their compensation often does not reflect their immense social contribution.',
     },
     {
       'question': 'Some people say it would be better for society if everyone got the same salary. What do you think about that? Why?',
-      'start': 42.5,
-      'promptEnd': 51.0,
-      'end': 30.0,
+      'audioAsset': 'q11.mp3',
+      'duration': 6.53,
+      'start': 0.0,
+      'promptEnd': 6.53,
+      'end': 6.53,
       'part': 3,
       'transcript': 'I strongly disagree with that idea. Equal salaries for all professions would reduce motivation and work ethic, as people would lack incentives to pursue challenging, highly skilled, or high-risk careers. A fair economic system should reward effort, qualification, and responsibility while maintaining a basic safety net.',
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 10 TEST 2 (Audio: q1.mp3 - q11.mp3)
+  // ==========================================
   final List<Map<String, dynamic>> _book10Test2Questions = [
+    // Part 1: Questions 1-4 (in q1.mp3 - q4.mp3)
     {
       'question': 'What types of music do you like to listen to? [Why?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.74,
       'start': 0.0,
-      'promptEnd': 6.0,
-      'end': 9.0,
+      'promptEnd': 2.74,
+      'end': 2.74,
+      'part': 1,
       'transcript': 'I enjoy listening to a variety of music genres, especially pop, acoustic, and classical music. I find pop music energetic and uplifting, while classical tunes help me stay focused and relaxed when studying.',
     },
     {
       'question': 'At what times of day do you like to listen to music? [Why?]',
-      'start': 6.0,
-      'promptEnd': 12.5,
-      'end': 20.0,
+      'audioAsset': 'q2.mp3',
+      'duration': 3.02,
+      'start': 0.0,
+      'promptEnd': 3.02,
+      'end': 3.02,
+      'part': 1,
       'transcript': 'I mostly listen to music in the morning while getting ready and during my evening commute. Music sets a positive mood for my day and helps me unwind after work.',
     },
     {
       'question': 'Did you learn to play a musical instrument when you were a child? [Why/Why not?]',
-      'start': 12.5,
-      'promptEnd': 19.5,
-      'end': 30.0,
+      'audioAsset': 'q3.mp3',
+      'duration': 4.03,
+      'start': 0.0,
+      'promptEnd': 4.03,
+      'end': 4.03,
+      'part': 1,
       'transcript': 'Yes, I learned to play the piano when I was in primary school. My parents encouraged me to take lessons, and although practice was challenging at times, I am glad I acquired basic musical skills.',
     },
     {
       'question': 'Do you think all children should learn to play a musical instrument? [Why/why not?]',
-      'start': 19.5,
-      'promptEnd': 26.5,
-      'end': 41.12,
+      'audioAsset': 'q4.mp3',
+      'duration': 5.04,
+      'start': 0.0,
+      'promptEnd': 5.04,
+      'end': 5.04,
+      'part': 1,
       'transcript': 'I believe learning a musical instrument is beneficial because it develops patience, coordination, and creativity. However, it should not be strictly compulsory, as children should be free to explore other hobbies like sports or art.',
     },
+
+    // Part 2: Question 5 (Cue Card in q5.mp3)
     {
       'question': 'Describe a shop near where you live that you sometimes use.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.74,
       'start': 0.0,
-      'promptEnd': 6.5,
-      'end': 60.0,
+      'promptEnd': 3.74,
+      'end': 3.74,
       'part': 2,
       'youShouldSay': [
         'what sorts of product or service it sells',
@@ -183,62 +240,211 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       ],
       'transcript': 'There is a small local grocery store just a five-minute walk from my apartment that I visit quite frequently. It is a family-run business that stocks a wide variety of fresh produce, dairy, and household essentials. I find it incredibly convenient because I can quickly pick up ingredients for dinner on my way home from work. The staff are always very friendly and helpful, which makes the shopping experience much more pleasant than going to a large, crowded supermarket.',
     },
+
+    // Part 3: Questions 6-11 (in q6.mp3 - q11.mp3)
     {
       'question': 'What types of local business are there in your neighbourhood? Are there any restaurants, shops, or dentists for example?',
+      'audioAsset': 'q6.mp3',
+      'duration': 7.82,
       'start': 0.0,
-      'promptEnd': 8.5,
-      'end': 30.0,
+      'promptEnd': 7.82,
+      'end': 7.82,
       'part': 3,
       'transcript': 'In my neighborhood, there is a good mix of local businesses. We have a small grocery store, a couple of family-run cafes, and a local dental clinic, which is quite convenient for residents.',
     },
     {
       'question': 'Do you think local businesses are important for a neighborhood? In what way?',
-      'start': 8.5,
-      'promptEnd': 17.0,
-      'end': 30.0,
+      'audioAsset': 'q7.mp3',
+      'duration': 5.54,
+      'start': 0.0,
+      'promptEnd': 5.54,
+      'end': 5.54,
       'part': 3,
       'transcript': 'I believe they are vital. They provide essential services within walking distance and foster a sense of community by allowing neighbors to interact regularly, which helps the local economy thrive.',
     },
     {
       'question': 'How do large shopping malls and commercial centres affect small local businesses? Why do you think that is?',
-      'start': 17.0,
-      'promptEnd': 25.5,
-      'end': 30.0,
+      'audioAsset': 'q8.mp3',
+      'duration': 6.84,
+      'start': 0.0,
+      'promptEnd': 6.84,
+      'end': 6.84,
       'part': 3,
       'transcript': 'Large shopping malls often pose a significant threat to local businesses. Because they offer lower prices and a wider variety of goods under one roof, small shops often struggle to compete and may eventually go out of business.',
     },
     {
       'question': 'Why do some people want to start their own business?',
-      'start': 25.5,
-      'promptEnd': 34.0,
-      'end': 30.0,
+      'audioAsset': 'q9.mp3',
+      'duration': 3.74,
+      'start': 0.0,
+      'promptEnd': 3.74,
+      'end': 3.74,
       'part': 3,
       'transcript': 'Many people are drawn to entrepreneurship because they desire independence and the ability to control their own professional destiny. They want to turn a personal passion or an innovative idea into a profitable reality.',
     },
     {
       'question': 'Are there any disadvantages to running a business? Which is the most serious?',
-      'start': 34.0,
-      'promptEnd': 42.5,
-      'end': 30.0,
+      'audioAsset': 'q10.mp3',
+      'duration': 5.23,
+      'start': 0.0,
+      'promptEnd': 5.23,
+      'end': 5.23,
       'part': 3,
       'transcript': 'Running a business is certainly challenging. The most serious disadvantage is the high level of financial risk, as many startups fail within the first few years, which can lead to significant personal debt.',
     },
     {
       'question': 'What are the most important qualities that a good business person needs? Why is that?',
-      'start': 42.5,
-      'promptEnd': 51.0,
-      'end': 30.0,
+      'audioAsset': 'q11.mp3',
+      'duration': 5.64,
+      'start': 0.0,
+      'promptEnd': 5.64,
+      'end': 5.64,
       'part': 3,
       'transcript': 'A successful business person needs resilience, strategic thinking, and strong communication skills. Resilience is crucial because they will inevitably face setbacks, and they must have the drive to persevere through difficult market conditions.',
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 21 TEST 1 (Audio: q1.mp3 - q11.mp3)
+  // ==========================================
+  final List<Map<String, dynamic>> _book21Test1Questions = [
+    // Part 1: Questions 1-4 (in q1.mp3 - q4.mp3)
+    {
+      'question': 'How do you usually spend your weekends? [Why?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.33,
+      'start': 0.0,
+      'promptEnd': 2.33,
+      'end': 2.33,
+      'part': 1,
+      'transcript': 'I usually spend my weekends catching up on rest, reading, or meeting friends for coffee. It helps me refresh my mind after a busy week.',
+    },
+    {
+      'question': 'Which is your favorite part of the weekend? [Why?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 3.02,
+      'start': 0.0,
+      'promptEnd': 3.02,
+      'end': 3.02,
+      'part': 1,
+      'transcript': 'My favorite part is Saturday evening because I can spend unhurried leisure time doing activities I genuinely enjoy without worrying about waking up early.',
+    },
+    {
+      'question': 'Do you think your weekends are long enough? [Why/Why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 3.02,
+      'start': 0.0,
+      'promptEnd': 3.02,
+      'end': 3.02,
+      'part': 1,
+      'transcript': 'Honestly, two days feel rather brief when there are household tasks and errands to complete. A three-day weekend would provide a much more balanced routine.',
+    },
+    {
+      'question': 'How important do you think it is to have free time at the weekends? [Why?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 5.04,
+      'start': 0.0,
+      'promptEnd': 5.04,
+      'end': 5.04,
+      'part': 1,
+      'transcript': 'Having free time at the weekend is crucial for mental recuperation. It helps reduce stress, prevents burnout, and gives people space to nurture personal hobbies and family relationships.',
+    },
+
+    // Part 2: Question 5 (Cue Card in q5.mp3)
+    {
+      'question': 'Describe a time when you used information for tourists, for example from a guidebook or online.',
+      'audioAsset': 'q5.mp3',
+      'duration': 6.53,
+      'start': 0.0,
+      'promptEnd': 6.53,
+      'end': 6.53,
+      'part': 2,
+      'youShouldSay': [
+        'what information you needed',
+        'where you found this information',
+        'how you used this information',
+        'and explain whether this information was helpful or not.'
+      ],
+      'transcript': 'Last summer, when I traveled to Kyoto, I relied heavily on an online travel blog and the official tourist portal. I needed up-to-date guidance on public bus routes and scenic cultural spots. The information was exceptionally helpful because it provided step-by-step navigation and recommended visiting certain temples early in the morning to avoid large tourist crowds.',
+    },
+
+    // Part 3: Questions 6-11 (in q6.mp3 - q11.mp3)
+    {
+      'question': 'What are the most popular kinds of holidays for people from your country to go on?',
+      'audioAsset': 'q6.mp3',
+      'duration': 5.33,
+      'start': 0.0,
+      'promptEnd': 5.33,
+      'end': 5.33,
+      'part': 3,
+      'transcript': 'In my country, beach holidays and cultural city breaks are the most popular. Many families enjoy visiting coastal resorts for relaxation, while younger travelers often favor exploring vibrant urban centers with rich historical heritage.',
+    },
+    {
+      'question': 'Do you think most people prefer to have a holiday abroad rather than in their own country?',
+      'audioAsset': 'q7.mp3',
+      'duration': 5.54,
+      'start': 0.0,
+      'promptEnd': 5.54,
+      'end': 5.54,
+      'part': 3,
+      'transcript': 'It depends on personal interests and budget. Traveling abroad offers exciting opportunities to experience different cultures and languages, but domestic vacations are often more accessible, affordable, and less logistically complex.',
+    },
+    {
+      'question': 'Why do some people want to do absolutely nothing when they go away on holiday?',
+      'audioAsset': 'q8.mp3',
+      'duration': 5.04,
+      'start': 0.0,
+      'promptEnd': 5.04,
+      'end': 5.04,
+      'part': 3,
+      'transcript': 'Many people lead intense, high-stress professional lives, so their primary motivation during a holiday is total mental and physical decompression. Simply lounging by a pool or resting without scheduled commitments helps restore their mental well-being.',
+    },
+    {
+      'question': 'What are the kinds of tourist attractions that visitors to your country like to see?',
+      'audioAsset': 'q9.mp3',
+      'duration': 4.73,
+      'start': 0.0,
+      'promptEnd': 4.73,
+      'end': 4.73,
+      'part': 3,
+      'transcript': 'Visitors are usually drawn to our ancient historical landmarks, national museums, and picturesque national parks. These attractions showcase our unique cultural heritage and stunning natural scenery.',
+    },
+    {
+      'question': 'Do you think tourist attractions such as museums should be free for local people to visit?',
+      'audioAsset': 'q10.mp3',
+      'duration': 5.74,
+      'start': 0.0,
+      'promptEnd': 5.74,
+      'end': 5.74,
+      'part': 3,
+      'transcript': 'Yes, I believe public museums and galleries should be free for local residents because they serve an educational purpose and promote cultural literacy. They can be financed through modest ticket fees for international tourists and government grants.',
+    },
+    {
+      'question': 'What can make a tourist attraction disappointing for visitors?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.74,
+      'start': 0.0,
+      'promptEnd': 3.74,
+      'end': 3.74,
+      'part': 3,
+      'transcript': 'Severe overcrowding, excessive commercialization, and poor maintenance can ruin a visitor\'s experience. When an attraction feels overly transactional or does not match its marketing promises, tourists often feel dissatisfied.',
+    },
+  ];
+
+  /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
     if (_selectedTestTitle.contains('Book 10 Test 2')) {
       return _book10Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 10 Test 1')) {
+      return _book10Test1Questions;
+    } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
+      return _book21Test1Questions;
     }
-    return _examinerQuestions;
+    return _book10Test2Questions;
   }
+
+  /// Backward-compatible alias for any legacy references
+  List<Map<String, dynamic>> get _examinerQuestions => _activeQuestions;
 
   // Talk with AI States
   bool _isAiSpeaking = true;
@@ -320,7 +526,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   String _getAudioAssetForQuestion(Map<String, dynamic> currentQ) {
     String folderName = _selectedTestTitle.replaceAll('Book', 'BOOK').trim();
-    if (folderName.isEmpty) folderName = 'IELTS BOOK 10 Test 1';
+    if (!folderName.contains('BOOK 10 Test 1') &&
+        !folderName.contains('BOOK 10 Test 2') &&
+        !folderName.contains('BOOK 21 Test 1')) {
+      folderName = 'IELTS BOOK 10 Test 1';
+    }
 
     if (currentQ['audioAsset'] != null) {
       final String rawAsset = currentQ['audioAsset'] as String;
@@ -339,60 +549,48 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   Future<void> _playQuestionAudio(String text, double startSec, double promptEndSec, {String audioAsset = 'mp3_1.mp3'}) async {
     _audioPlayer ??= AudioPlayer();
+    _isAudioSeeking = true;
     try {
       await _flutterTts.stop();
       await _audioPlayer!.stop();
       await _audioPlayer!.setVolume(1.0);
+      await _audioPlayer!.setPlaybackRate(1.0);
       
       bool played = false;
+      final startPos = Duration(milliseconds: (startSec * 1000).toInt());
+
       try {
-        await _audioPlayer!.setSource(AssetSource(audioAsset));
-        if (startSec > 0) {
-          await _audioPlayer!.seek(Duration(milliseconds: (startSec * 1000).toInt()));
+        if (startPos > Duration.zero) {
+          await _audioPlayer!.play(AssetSource(audioAsset), position: startPos);
+          await _audioPlayer!.seek(startPos);
         } else {
-          await _audioPlayer!.seek(Duration.zero);
+          await _audioPlayer!.play(AssetSource(audioAsset));
         }
-        await _audioPlayer!.resume();
+        _isAudioSeeking = false;
         played = true;
       } catch (e1) {
-        debugPrint('Primary setSource ($audioAsset) failed: $e1, falling back to play()');
+        debugPrint('Primary play($audioAsset) failed: $e1, trying with assets/ prefix');
         try {
-          await _audioPlayer!.play(AssetSource(audioAsset));
-          if (startSec > 0) {
-            await Future.delayed(const Duration(milliseconds: 60));
-            await _audioPlayer!.seek(Duration(milliseconds: (startSec * 1000).toInt()));
+          if (startPos > Duration.zero) {
+            await _audioPlayer!.play(AssetSource('assets/$audioAsset'), position: startPos);
+            await _audioPlayer!.seek(startPos);
+          } else {
+            await _audioPlayer!.play(AssetSource('assets/$audioAsset'));
           }
-          await _audioPlayer!.resume();
+          _isAudioSeeking = false;
           played = true;
         } catch (e2) {
-          debugPrint('Primary play() ($audioAsset) failed: $e2');
+          debugPrint('Secondary play(assets/$audioAsset) failed: $e2');
         }
       }
 
+      _isAudioSeeking = false;
       if (!played) {
-        try {
-          await _audioPlayer!.play(AssetSource('assets/$audioAsset'));
-          if (startSec > 0) {
-            await Future.delayed(const Duration(milliseconds: 60));
-            await _audioPlayer!.seek(Duration(milliseconds: (startSec * 1000).toInt()));
-          }
-          await _audioPlayer!.resume();
-          played = true;
-        } catch (e3) {
-          debugPrint('Secondary AssetSource (assets/$audioAsset) failed: $e3');
-        }
+        debugPrint('Audio playback failed for "$text", falling back to TTS');
+        await _speakText(text);
       }
-
-      // Check after 300ms if audio position is stagnant/silent, and fall back to TTS if needed
-      Future.delayed(const Duration(milliseconds: 300), () async {
-        if (!mounted) return;
-        final pos = await _audioPlayer?.getCurrentPosition();
-        if (!played || pos == null || (startSec == 0 && pos.inMilliseconds == 0)) {
-          debugPrint('Audio output silent or position stagnant for "$text", falling back to TTS');
-          await _speakText(text);
-        }
-      });
     } catch (e) {
+      _isAudioSeeking = false;
       debugPrint('Audio playback error: $e, falling back to TTS');
       await _speakText(text);
     }
@@ -400,6 +598,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   @override
   void dispose() {
+    _audioPositionSubscription?.cancel();
+    _audioPlayerCompleteSubscription?.cancel();
     _timer?.cancel();
     _aiSpeakingTimer?.cancel();
     _sessionTimer?.cancel();
@@ -541,9 +741,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       }
     } catch (e) {
       debugPrint('Error submitting speaking: $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to submit speaking response.')),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Failed to submit speaking response.')),
+        );
+      }
     } finally {
       setState(() => _submitting = false);
     }
@@ -559,9 +761,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   Widget build(BuildContext context) {
     if (_loading) {
       return const Scaffold(
-        backgroundColor: Color(0xFF050E1A),
+        backgroundColor: AppColors.backgroundLight,
         body: Center(
-          child: CircularProgressIndicator(color: Color(0xFFD4AF37)),
+          child: CircularProgressIndicator(color: AppColors.primary),
         ),
       );
     }
@@ -586,15 +788,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   // --- SCREEN 1: SPEAKING HOME PAGE (Image 1) ---
   Widget _buildHomeScreen() {
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xFFC62828), size: 16),
-          label: const Text('Back', style: TextStyle(color: Color(0xFFC62828), fontSize: 14, fontWeight: FontWeight.bold)),
+          icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 16),
+          label: const Text('Back', style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.bold)),
         ),
       ),
       body: SingleChildScrollView(
@@ -604,12 +806,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           children: [
             const Text(
               'Speaking Practice',
-              style: TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
+              style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 26, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4),
             const Text(
               'Real IELTS Speaking Tests',
-              style: TextStyle(color: Colors.white70, fontSize: 13),
+              style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 13),
             ),
             const SizedBox(height: 24),
 
@@ -627,14 +829,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color(0xFFC62828), Color(0xFF880E4F)],
+                    colors: [AppColors.primary, Color(0xFF134E4A)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFFC62828).withValues(alpha: 0.3),
+                      color: AppColors.primary.withValues(alpha: 0.3),
                       blurRadius: 12,
                       offset: const Offset(0, 6),
                     ),
@@ -647,10 +849,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                           decoration: BoxDecoration(
                             color: Colors.white.withValues(alpha: 0.15),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           child: const Row(
                             children: [
@@ -664,8 +866,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           ),
                         ),
                         Container(
-                          width: 40,
-                          height: 40,
+                          width: 36,
+                          height: 36,
                           decoration: BoxDecoration(
                             color: Colors.white.withValues(alpha: 0.15),
                             shape: BoxShape.circle,
@@ -674,14 +876,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         ),
                       ],
                     ),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 16),
                     const Text(
                       'Talk with AI',
                       style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 4),
                     const Text(
-                      'Practice free conversation with human-like AI voice',
+                      'Practice interactive IELTS speaking with an AI examiner',
                       style: TextStyle(color: Colors.white70, fontSize: 12),
                     ),
                     const SizedBox(height: 16),
@@ -721,7 +923,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
             const Text(
               'Available Tests',
-              style: TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
+              style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 17, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
 
@@ -794,9 +996,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
-          color: const Color(0xFF0B1E36),
+          color: Colors.white,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: const Color(0xFF1E3E6E).withValues(alpha: 0.5)),
+          border: Border.all(color: AppColors.cardBorderLight),
         ),
         child: Row(
           children: [
@@ -804,12 +1006,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: isLocked ? const Color(0xFF1E3E6E).withValues(alpha: 0.3) : const Color(0xFFC62828).withValues(alpha: 0.1),
+                color: isLocked ? AppColors.surfaceTint : AppColors.surfaceTint,
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 iconData,
-                color: isLocked ? const Color(0xFF94A3B8) : const Color(0xFFC62828),
+                color: isLocked ? AppColors.textSecondaryLight : AppColors.primary,
                 size: 20,
               ),
             ),
@@ -821,7 +1023,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   Text(
                     title,
                     style: TextStyle(
-                      color: isLocked ? const Color(0xFF94A3B8) : Colors.white,
+                      color: isLocked ? AppColors.textSecondaryLight : AppColors.textPrimaryLight,
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
@@ -830,7 +1032,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   Text(
                     subtitle,
                     style: const TextStyle(
-                      color: Color(0xFF94A3B8),
+                      color: AppColors.textSecondaryLight,
                       fontSize: 11,
                     ),
                   ),
@@ -839,7 +1041,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             ),
             Icon(
               isLocked ? Icons.lock_outline : Icons.chevron_right,
-              color: const Color(0xFF1E3E6E),
+              color: AppColors.textSecondaryLight,
               size: 20,
             ),
           ],
@@ -851,12 +1053,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   // --- SCREEN 2 & 3: TALK WITH AI (Image 2 & 3) ---
   Widget _buildTalkWithAiScreen() {
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.close, color: Colors.white, size: 24),
+          icon: const Icon(Icons.close, color: AppColors.primary, size: 24),
           onPressed: () {
             _aiSpeakingTimer?.cancel();
             setState(() {
@@ -866,7 +1068,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         ),
         title: const Text(
           'Talk with AI',
-          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -891,7 +1093,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           width: 32,
                           height: 32,
                           decoration: const BoxDecoration(
-                            color: Color(0xFFC62828),
+                            color: AppColors.primary,
                             shape: BoxShape.circle,
                           ),
                           child: const Icon(Icons.psychology, color: Colors.white, size: 18),
@@ -902,14 +1104,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                           decoration: BoxDecoration(
-                            color: isAi ? Colors.white : const Color(0xFF0B1E36),
+                            color: isAi ? Colors.white : AppColors.surfaceTint,
                             borderRadius: BorderRadius.circular(16),
-                            border: isAi ? null : Border.all(color: const Color(0xFF1E3E6E)),
+                            border: isAi ? Border.all(color: AppColors.cardBorderLight) : Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
                           ),
                           child: Text(
                             msg['content'],
-                            style: TextStyle(
-                              color: isAi ? Colors.black87 : Colors.white,
+                            style: const TextStyle(
+                              color: AppColors.textPrimaryLight,
                               fontSize: 13,
                               height: 1.4,
                             ),
@@ -922,10 +1124,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           width: 32,
                           height: 32,
                           decoration: const BoxDecoration(
-                            color: Color(0xFF1E3E6E),
+                            color: AppColors.surfaceTint,
                             shape: BoxShape.circle,
                           ),
-                          child: const Icon(Icons.person, color: Colors.white, size: 18),
+                          child: const Icon(Icons.person, color: AppColors.primary, size: 18),
                         ),
                       ],
                     ],
@@ -938,12 +1140,19 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           // Speaking Status Indicators & Control Buttons
           Container(
             padding: const EdgeInsets.fromLTRB(20, 16, 20, 30),
-            decoration: const BoxDecoration(
-              color: Color(0xFF0B1E36),
-              borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(24),
                 topRight: Radius.circular(24),
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, -4),
+                ),
+              ],
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -956,7 +1165,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       width: 8,
                       height: 8,
                       decoration: BoxDecoration(
-                        color: _isAiSpeaking ? const Color(0xFFC62828) : const Color(0xFF94A3B8),
+                        color: _isAiSpeaking ? AppColors.accent : AppColors.textSecondaryLight,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -964,7 +1173,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     Text(
                       _isAiSpeaking ? 'AI is speaking...' : 'Tap microphone to speak',
                       style: TextStyle(
-                        color: _isAiSpeaking ? Colors.white : const Color(0xFF94A3B8),
+                        color: _isAiSpeaking ? AppColors.textPrimaryLight : AppColors.textSecondaryLight,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -991,7 +1200,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           width: 50,
                           height: 50,
                           decoration: const BoxDecoration(
-                            color: Color(0xFFE65100),
+                            color: AppColors.accent,
                             shape: BoxShape.circle,
                           ),
                           child: const Icon(Icons.stop, color: Colors.white, size: 20),
@@ -1014,19 +1223,19 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         width: 70,
                         height: 70,
                         decoration: BoxDecoration(
-                          color: _isAiSpeaking ? const Color(0xFF1E3E6E) : const Color(0xFFC62828),
+                          color: _isAiSpeaking ? AppColors.surfaceTint : AppColors.accent,
                           shape: BoxShape.circle,
                           boxShadow: _isAiSpeaking
                               ? null
                               : [
                                   BoxShadow(
-                                    color: const Color(0xFFC62828).withValues(alpha: 0.4),
+                                    color: AppColors.accent.withValues(alpha: 0.35),
                                     blurRadius: 16,
                                     spreadRadius: 2,
                                   ),
                                 ],
                         ),
-                        child: const Icon(Icons.mic, color: Colors.white, size: 28),
+                        child: Icon(Icons.mic, color: _isAiSpeaking ? AppColors.textSecondaryLight : Colors.white, size: 28),
                       ),
                     ),
                     const SizedBox(width: 24),
@@ -1039,10 +1248,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         width: 50,
                         height: 50,
                         decoration: BoxDecoration(
+                          color: AppColors.surfaceTint,
                           shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white24),
+                          border: Border.all(color: AppColors.cardBorderLight),
                         ),
-                        child: const Icon(Icons.replay, color: Colors.white, size: 20),
+                        child: const Icon(Icons.replay, color: AppColors.textSecondaryLight, size: 20),
                       ),
                     ),
                   ],
@@ -1052,7 +1262,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 // Free limit counter
                 Text(
                   '$_freeMessagesLeft free messages remaining',
-                  style: const TextStyle(color: Color(0xFF94A3B8), fontSize: 11),
+                  style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                 ),
               ],
             ),
@@ -1065,19 +1275,19 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   // --- SCREEN 4 & 5: TEST DETAIL PAGE (Image 4 & 5) ---
   Widget _buildTestDetailScreen() {
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
           onPressed: () => setState(() => _currentScreen = 'HOME'),
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xFFC62828), size: 16),
-          label: const Text('Back', style: TextStyle(color: Color(0xFFC62828), fontSize: 14, fontWeight: FontWeight.bold)),
+          icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 16),
+          label: const Text('Back', style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.bold)),
         ),
         title: Text(
           _selectedTestTitle,
-          style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -1089,8 +1299,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             child: Container(
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: Row(
                 children: [
@@ -1116,7 +1327,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedPart == 2
                             ? 'Part 2: Question 5'
                             : 'Part 3: Questions 6-11',
-                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 4),
                   Text(
@@ -1125,7 +1336,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedPart == 2
                             ? '3-4 minutes'
                             : '4-5 minutes',
-                    style: const TextStyle(color: Color(0xFFC62828), fontSize: 13, fontWeight: FontWeight.bold),
+                    style: const TextStyle(color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),
 
@@ -1135,13 +1346,13 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedPart == 2
                             ? 'You receive a task card with a topic. You have 1 minute to prepare, then speak for 1-2 minutes.'
                             : 'The examiner asks deeper questions related to Part 2 topic. These require more abstract thinking and opinions.',
-                    style: const TextStyle(color: Colors.white70, fontSize: 13, height: 1.5),
+                    style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 13, height: 1.5),
                   ),
                   const SizedBox(height: 24),
 
                   const Text(
                     'Pro Tips',
-                    style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 12),
 
@@ -1154,9 +1365,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFFEE2E2),
+                      color: AppColors.surfaceTint,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: const Color(0xFFFCA5A5), width: 1),
+                      border: Border.all(color: AppColors.primary.withValues(alpha: 0.2), width: 1),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1165,7 +1376,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           width: 42,
                           height: 42,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFC62828),
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: const Center(
@@ -1184,7 +1395,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                               Text(
                                 'Test Security',
                                 style: TextStyle(
-                                  color: Color(0xFF0F172A),
+                                  color: AppColors.textPrimaryLight,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -1193,7 +1404,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                               Text(
                                 'Questions are hidden until you start the speaking session to simulate real test conditions.',
                                 style: TextStyle(
-                                  color: Color(0xFF475569),
+                                  color: AppColors.textSecondaryLight,
                                   fontSize: 13,
                                   height: 1.4,
                                 ),
@@ -1221,7 +1432,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   _startExaminerSession();
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFC62828),
+                  backgroundColor: AppColors.accent,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
@@ -1256,7 +1467,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFC62828) : Colors.transparent,
+          color: isSelected ? AppColors.primary : Colors.transparent,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
@@ -1264,7 +1475,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             Text(
               title,
               style: TextStyle(
-                color: isSelected ? Colors.white : Colors.white70,
+                color: isSelected ? Colors.white : AppColors.textPrimaryLight,
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
               ),
@@ -1272,7 +1483,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             Text(
               subtitle,
               style: TextStyle(
-                color: isSelected ? Colors.white70 : const Color(0xFF94A3B8),
+                color: isSelected ? Colors.white70 : AppColors.textSecondaryLight,
                 fontSize: 9,
               ),
             ),
@@ -1309,12 +1520,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         padding: const EdgeInsets.only(bottom: 8.0),
         child: Row(
           children: [
-            const Icon(Icons.lightbulb, color: Color(0xFFEAB308), size: 16),
+            const Icon(Icons.lightbulb, color: AppColors.primary, size: 16),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
                 tip,
-                style: const TextStyle(color: Colors.white70, fontSize: 12),
+                style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
               ),
             ),
           ],
@@ -1326,11 +1537,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   // --- SCREEN 6: ORIGINAL INTEGRATED WORKSPACE SCREEN ---
   Widget _buildPracticeWorkspaceScreen() {
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0B1E36),
+        backgroundColor: AppColors.backgroundLight,
+        elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: AppColors.primary),
           onPressed: () {
             _timer?.cancel();
             setState(() {
@@ -1338,7 +1550,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             });
           },
         ),
-        title: const Text('Speaking Workspace', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        title: const Text('Speaking Workspace', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold)),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
@@ -1349,14 +1561,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFF1E3E6E)),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Select Practice Mode', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14)),
+                  const Text('Select Practice Mode', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 14)),
                   const SizedBox(height: 12),
                   Row(
                     children: [
@@ -1364,9 +1576,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         child: ElevatedButton(
                           onPressed: _timerActive ? null : () => setState(() => _mode = 'PRACTICE'),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: _mode == 'PRACTICE' ? const Color(0xFFD4AF37) : const Color(0xFF050E1A),
-                            foregroundColor: _mode == 'PRACTICE' ? const Color(0xFF050E1A) : Colors.white,
-                            side: const BorderSide(color: Color(0xFF1E3E6E)),
+                            backgroundColor: _mode == 'PRACTICE' ? AppColors.primary : AppColors.surfaceTint,
+                            foregroundColor: _mode == 'PRACTICE' ? Colors.white : AppColors.textPrimaryLight,
+                            elevation: 0,
+                            side: BorderSide(color: _mode == 'PRACTICE' ? AppColors.primary : AppColors.cardBorderLight),
                           ),
                           child: const Text('Practice'),
                         ),
@@ -1376,9 +1589,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         child: ElevatedButton(
                           onPressed: _timerActive ? null : () => setState(() => _mode = 'EXAM'),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: _mode == 'EXAM' ? const Color(0xFFD4AF37) : const Color(0xFF050E1A),
-                            foregroundColor: _mode == 'EXAM' ? const Color(0xFF050E1A) : Colors.white,
-                            side: const BorderSide(color: Color(0xFF1E3E6E)),
+                            backgroundColor: _mode == 'EXAM' ? AppColors.primary : AppColors.surfaceTint,
+                            foregroundColor: _mode == 'EXAM' ? Colors.white : AppColors.textPrimaryLight,
+                            elevation: 0,
+                            side: BorderSide(color: _mode == 'EXAM' ? AppColors.primary : AppColors.cardBorderLight),
                           ),
                           child: const Text('Exam Mode'),
                         ),
@@ -1394,28 +1608,31 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               const Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 40.0),
-                  child: Text('No speaking prompts found.', style: TextStyle(color: Colors.white60)),
+                  child: Text('No speaking prompts found.', style: TextStyle(color: AppColors.textSecondaryLight)),
                 ),
               )
             else ...[
               // Prompt selector dropdown
               DropdownButtonFormField<dynamic>(
                 value: _selectedPrompt,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Choose Prompt',
-                  labelStyle: TextStyle(color: Color(0xFFD4AF37)),
+                  labelStyle: const TextStyle(color: AppColors.primary),
                   filled: true,
-                  fillColor: Color(0xFF0B1E36),
-                  border: OutlineInputBorder(),
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: AppColors.cardBorderLight),
+                  ),
                 ),
-                dropdownColor: const Color(0xFF0B1E36),
+                dropdownColor: Colors.white,
                 items: _prompts.map((p) {
                   return DropdownMenuItem<dynamic>(
                     value: p,
                     child: Text(
                       p['topic'] ?? 'Speaking Cue Card',
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12),
                     ),
                   );
                 }).toList(),
@@ -1437,9 +1654,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF0B1E36),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: const Color(0xFF1E3E6E)),
+                    border: Border.all(color: AppColors.cardBorderLight),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -1447,41 +1664,41 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text('CUE CARD DESCRIPTION', style: TextStyle(color: Color(0xFFD4AF37), fontSize: 11, fontWeight: FontWeight.bold)),
+                          const Text('CUE CARD DESCRIPTION', style: TextStyle(color: AppColors.primary, fontSize: 11, fontWeight: FontWeight.bold)),
                           if (_timerActive)
                             Text(
                               '⏱️ ${_formatTime(_timeLeft)}',
-                              style: const TextStyle(color: Colors.redAccent, fontSize: 12, fontWeight: FontWeight.bold),
+                              style: const TextStyle(color: AppColors.accent, fontSize: 12, fontWeight: FontWeight.bold),
                             ),
                         ],
                       ),
                       const SizedBox(height: 12),
                       Text(
                         _selectedPrompt['cueCardText'] ?? '',
-                        style: const TextStyle(color: Colors.white70, fontSize: 12, height: 1.5, fontStyle: FontStyle.italic),
+                        style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, height: 1.5, fontStyle: FontStyle.italic),
                       ),
                       const SizedBox(height: 16),
 
                       // Collapsible Tackle Steps Accordion
                       Container(
                         decoration: BoxDecoration(
-                          color: const Color(0xFF050E1A),
+                          color: AppColors.surfaceTint,
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: const Color(0xFF1E3E6E).withValues(alpha: 0.5)),
+                          border: Border.all(color: AppColors.cardBorderLight),
                         ),
                         child: Theme(
                           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                           child: ExpansionTile(
-                            iconColor: const Color(0xFFEAB308),
-                            collapsedIconColor: const Color(0xFFEAB308),
+                            iconColor: AppColors.primary,
+                            collapsedIconColor: AppColors.primary,
                             title: const Row(
                               children: [
-                                Icon(Icons.lightbulb_outline, color: Color(0xFFEAB308), size: 16),
+                                Icon(Icons.lightbulb_outline, color: AppColors.primary, size: 16),
                                 SizedBox(width: 8),
                                 Expanded(
                                   child: Text(
                                     'How to Tackle this Speaking Task (Steps)',
-                                    style: TextStyle(color: Color(0xFFEAB308), fontSize: 11, fontWeight: FontWeight.bold),
+                                    style: TextStyle(color: AppColors.primary, fontSize: 11, fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ],
@@ -1512,13 +1729,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         TextField(
                           maxLines: 3,
                           onChanged: (text) => setState(() => _selectedPrompt['cueCardText'] = text),
-                          style: const TextStyle(color: Colors.white, fontSize: 12),
-                          decoration: const InputDecoration(
+                          style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12),
+                          decoration: InputDecoration(
                             hintText: 'Enter your custom speaking topic here...',
-                            hintStyle: TextStyle(color: Colors.white38),
+                            hintStyle: const TextStyle(color: AppColors.textSecondaryLight),
                             filled: true,
-                            fillColor: Color(0xFF050E1A),
-                            border: OutlineInputBorder(),
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: const BorderSide(color: AppColors.cardBorderLight),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 20),
@@ -1531,8 +1751,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           child: ElevatedButton(
                             onPressed: _startTimer,
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFFD4AF37),
-                              foregroundColor: const Color(0xFF050E1A),
+                              backgroundColor: AppColors.accent,
+                              foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(vertical: 14),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                             ),
@@ -1543,15 +1763,18 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         TextField(
                           controller: _transcriptController,
                           maxLines: 6,
-                          style: const TextStyle(color: Colors.white, fontSize: 13),
+                          style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13),
                           enabled: _timerActive || _mode == 'PRACTICE',
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Your Speaking Response / Transcription',
-                            labelStyle: TextStyle(color: Colors.white60),
+                            labelStyle: const TextStyle(color: AppColors.textSecondaryLight),
                             alignLabelWithHint: true,
                             filled: true,
-                            fillColor: Color(0xFF050E1A),
-                            border: OutlineInputBorder(),
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: const BorderSide(color: AppColors.cardBorderLight),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 20),
@@ -1562,8 +1785,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                             child: ElevatedButton(
                               onPressed: _submitting ? null : _submitSpeaking,
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF10B981),
-                                foregroundColor: const Color(0xFF050E1A),
+                                backgroundColor: AppColors.accent,
+                                foregroundColor: Colors.white,
                                 padding: const EdgeInsets.symmetric(vertical: 14),
                               ),
                               child: Text(_submitting ? 'Evaluating...' : 'Submit Speaking', style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -1580,16 +1803,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF0B1E36),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: const Color(0xFF1E3E6E)),
+                    border: Border.all(color: AppColors.cardBorderLight),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
                         'AI Speaking Band Score',
-                        style: TextStyle(color: Color(0xFFD4AF37), fontSize: 14, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 12),
                       Row(
@@ -1597,12 +1820,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           Expanded(
                             child: Container(
                               padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(color: const Color(0xFF050E1A), borderRadius: BorderRadius.circular(8)),
+                              decoration: BoxDecoration(color: AppColors.surfaceTint, borderRadius: BorderRadius.circular(8)),
                               child: Column(
                                 children: [
-                                  const Text('EST. BAND', style: TextStyle(color: Colors.white54, fontSize: 9)),
+                                  const Text('EST. BAND', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 9)),
                                   const SizedBox(height: 4),
-                                  Text('Band ${_feedback['estimatedBand']}', style: const TextStyle(color: Color(0xFFD4AF37), fontSize: 16, fontWeight: FontWeight.w900)),
+                                  Text('Band ${_feedback['estimatedBand']}', style: const TextStyle(color: AppColors.primary, fontSize: 16, fontWeight: FontWeight.w900)),
                                 ],
                               ),
                             ),
@@ -1610,38 +1833,38 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         ],
                       ),
                       const SizedBox(height: 16),
-                      const Text('⭐ What you did well:', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                      const Text('⭐ What you did well:', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.bold)),
                       const SizedBox(height: 4),
-                      Text(_feedback['wellDone'] ?? '', style: const TextStyle(color: Colors.white70, fontSize: 12)),
+                      Text(_feedback['wellDone'] ?? '', style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12)),
                       
                       if (_feedback['mistakes'] != null && (_feedback['mistakes'] as List).isNotEmpty) ...[
                         const SizedBox(height: 16),
-                        const Text('⚠️ Mistakes & Corrections:', style: TextStyle(color: Colors.redAccent, fontSize: 12, fontWeight: FontWeight.bold)),
+                        const Text('⚠️ Mistakes & Corrections:', style: TextStyle(color: Color(0xFFDC2626), fontSize: 12, fontWeight: FontWeight.bold)),
                         const SizedBox(height: 4),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: (_feedback['mistakes'] as List).map((m) => Text('- $m', style: const TextStyle(color: Colors.white70, fontSize: 12))).toList(),
+                          children: (_feedback['mistakes'] as List).map((m) => Text('- $m', style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12))).toList(),
                         ),
                       ],
 
                       const SizedBox(height: 16),
-                      const Text('📝 High Band Model Answer:', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                      const Text('📝 High Band Model Answer:', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.bold)),
                       const SizedBox(height: 6),
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(color: const Color(0xFF050E1A), borderRadius: BorderRadius.circular(10)),
+                        decoration: BoxDecoration(color: AppColors.surfaceTint, borderRadius: BorderRadius.circular(10)),
                         child: Text(
                           _feedback['improvedAnswer'] ?? '',
-                          style: const TextStyle(color: Colors.white70, fontSize: 12, height: 1.5, fontStyle: FontStyle.italic),
+                          style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, height: 1.5, fontStyle: FontStyle.italic),
                         ),
                       ),
                       
                       if (_feedback['practiceRecommendation'] != null) ...[
                         const SizedBox(height: 16),
-                        const Text('📈 Recommendations:', style: TextStyle(color: Color(0xFFD4AF37), fontSize: 12, fontWeight: FontWeight.bold)),
+                        const Text('📈 Recommendations:', style: TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.bold)),
                         const SizedBox(height: 4),
-                        Text(_feedback['practiceRecommendation'], style: const TextStyle(color: Colors.white70, fontSize: 12)),
+                        Text(_feedback['practiceRecommendation'], style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12)),
                       ],
                     ],
                   ),
@@ -1652,28 +1875,28 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF10B981).withValues(alpha: 0.1),
+                    color: AppColors.surfaceTint,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: const Color(0xFF10B981).withValues(alpha: 0.3)),
+                    border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
                   ),
                   child: Column(
                     children: [
-                      const Icon(Icons.stars_rounded, color: Color(0xFF10B981), size: 40),
+                      const Icon(Icons.stars_rounded, color: AppColors.primary, size: 40),
                       const SizedBox(height: 12),
                       const Text(
                         'Exam Submitted Successfully!',
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                        style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                       const SizedBox(height: 8),
                       const Text(
                         'Your response has been logged in Exam Mode for evaluation. You can check details in Attempt History later.',
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white70, fontSize: 12),
+                        style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
                       ),
                       const SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () => setState(() => _examSuccess = false),
-                        style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF10B981), foregroundColor: const Color(0xFF050E1A)),
+                        style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent, foregroundColor: Colors.white),
                         child: const Text('Practice Again'),
                       ),
                     ],
@@ -1692,12 +1915,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       children: [
         Text(
           title,
-          style: const TextStyle(color: Color(0xFFEAB308), fontSize: 10, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: AppColors.primary, fontSize: 10, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 2),
         Text(
           body,
-          style: const TextStyle(color: Color(0xFF94A3B8), fontSize: 9, height: 1.4),
+          style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 9, height: 1.4),
         ),
       ],
     );
@@ -1705,6 +1928,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   // --- INTERACTIVE EXAMINER SESSION SCREEN ---
   void _startExaminerSession() async {
+    _userResponses.clear();
     setState(() {
       _currentScreen = 'EXAMINER_SESSION';
       _currentQuestionIndex = _selectedPart == 3 ? 5 : (_selectedPart == 2 ? 4 : 0);
@@ -1729,17 +1953,37 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     _audioPlayer ??= AudioPlayer();
     
     // Position listener to pause audio as soon as examiner prompt finishes speaking
-    _audioPlayer!.onPositionChanged.listen((position) {
-      if (_currentScreen == 'EXAMINER_SESSION' && _isExaminerSpeaking) {
+    _audioPositionSubscription?.cancel();
+    _audioPositionSubscription = _audioPlayer!.onPositionChanged.listen((position) {
+      if (!mounted) return;
+      if (_currentScreen == 'EXAMINER_SESSION' && _isExaminerSpeaking && !_isAudioSeeking) {
         final safeIndex = _currentQuestionIndex.clamp(0, _activeQuestions.length - 1);
         final currentQ = _activeQuestions[safeIndex];
+        final double startSec = (currentQ['start'] as num).toDouble();
         final double promptEndSec = (currentQ['promptEnd'] as num).toDouble();
-        if (position.inMilliseconds >= (promptEndSec * 1000).toInt()) {
+        final int posMs = position.inMilliseconds;
+        final int startMs = (startSec * 1000).toInt();
+        final int endMs = (promptEndSec * 1000).toInt();
+
+        if (posMs >= (endMs - 100) && posMs >= startMs) {
           _audioPlayer!.pause();
+          _examinerSpeakingTimer?.cancel();
           setState(() {
             _isExaminerSpeaking = false;
           });
         }
+      }
+    });
+
+    // Completion listener when question audio finishes playing
+    _audioPlayerCompleteSubscription?.cancel();
+    _audioPlayerCompleteSubscription = _audioPlayer!.onPlayerComplete.listen((_) {
+      if (!mounted) return;
+      if (_currentScreen == 'EXAMINER_SESSION' && _isExaminerSpeaking) {
+        _examinerSpeakingTimer?.cancel();
+        setState(() {
+          _isExaminerSpeaking = false;
+        });
       }
     });
 
@@ -1763,9 +2007,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     final double durationSec = (promptEndSec > startSec) ? (promptEndSec - startSec) : 3.5;
     final int promptDurationMs = (durationSec * 1000).toInt();
 
-    // 1. GUARANTEED TIMER: Created FIRST synchronously so execution is 100% guaranteed to transition
+    // 1. Safety fallback timer: cancelled if onPositionChanged triggers first
     _examinerSpeakingTimer?.cancel();
-    _examinerSpeakingTimer = Timer(Duration(milliseconds: promptDurationMs), () {
+    _examinerSpeakingTimer = Timer(Duration(milliseconds: promptDurationMs + 1500), () {
       if (mounted && _currentScreen == 'EXAMINER_SESSION') {
         _audioPlayer?.pause();
         _flutterTts.stop();
@@ -1922,17 +2166,17 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Light orange circle with Warning icon
+                // Warning icon
                 Container(
                   width: 64,
                   height: 64,
                   decoration: const BoxDecoration(
-                    color: Color(0xFFFEF3C7),
+                    color: AppColors.surfaceTint,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
                     Icons.warning_amber_rounded,
-                    color: Color(0xFFF59E0B),
+                    color: AppColors.accent,
                     size: 36,
                   ),
                 ),
@@ -1940,7 +2184,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 const Text(
                   'End Test?',
                   style: TextStyle(
-                    color: Color(0xFF0F172A),
+                    color: AppColors.textPrimaryLight,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -1950,7 +2194,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   'Are you sure you want to end this test?\nYour progress will be lost.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color(0xFF64748B),
+                    color: AppColors.textSecondaryLight,
                     fontSize: 14,
                     height: 1.4,
                   ),
@@ -1958,7 +2202,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 const SizedBox(height: 28),
                 Row(
                   children: [
-                    // Left Button: End Test (light red background, red text)
+                    // Left Button: End Test
                     Expanded(
                       child: TextButton(
                         onPressed: () {
@@ -1974,7 +2218,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           });
                         },
                         style: TextButton.styleFrom(
-                          backgroundColor: const Color(0xFFFEE2E2),
+                          backgroundColor: AppColors.surfaceTint,
                           padding: const EdgeInsets.symmetric(vertical: 14),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
@@ -1983,7 +2227,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         child: const Text(
                           'End Test',
                           style: TextStyle(
-                            color: Color(0xFFEF4444),
+                            color: AppColors.textSecondaryLight,
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ),
@@ -1991,14 +2235,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       ),
                     ),
                     const SizedBox(width: 12),
-                    // Right Button: Continue (solid red background, white text)
+                    // Right Button: Continue
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC62828),
+                          backgroundColor: AppColors.accent,
                           padding: const EdgeInsets.symmetric(vertical: 14),
                           elevation: 0,
                           shape: RoundedRectangleBorder(
@@ -2029,15 +2273,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     final safeIndex = _currentQuestionIndex.clamp(0, _examinerQuestions.length - 1);
     final currentQ = _examinerQuestions[safeIndex];
     final waveColors = [
-      const Color(0xFFE57373), const Color(0xFFFFB74D), const Color(0xFFFFF176), const Color(0xFF81C784),
-      const Color(0xFF4FC3F7), const Color(0xFF9575CD), const Color(0xFFF06292), const Color(0xFFE57373),
-      const Color(0xFFFFB74D), const Color(0xFFFFF176), const Color(0xFF81C784), const Color(0xFF4FC3F7),
-      const Color(0xFF9575CD), const Color(0xFFF06292), const Color(0xFFE57373), const Color(0xFFFFB74D),
-      const Color(0xFFFFF176), const Color(0xFF81C784), const Color(0xFF4FC3F7), const Color(0xFF9575CD)
+      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981),
+      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981),
+      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981),
+      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981),
+      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981)
     ];
 
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
@@ -2048,14 +2292,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.close, color: Colors.white70, size: 28),
+                    icon: const Icon(Icons.close, color: AppColors.primary, size: 28),
                     onPressed: _showEndTestDialog,
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF0B1E36),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: AppColors.cardBorderLight),
                     ),
                     child: Row(
                       children: [
@@ -2063,14 +2308,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           width: 8,
                           height: 8,
                           decoration: BoxDecoration(
-                            color: (_isRecording || _isExaminerSpeaking) ? const Color(0xFFC62828) : Colors.grey,
+                            color: (_isRecording || _isExaminerSpeaking) ? AppColors.accent : AppColors.textSecondaryLight,
                             shape: BoxShape.circle,
                           ),
                         ),
                         const SizedBox(width: 8),
                         Text(
                           _formatTime(_sessionTime),
-                          style: const TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.bold),
+                          style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -2091,9 +2336,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(24),
+                          border: Border.all(color: AppColors.cardBorderLight),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.1),
+                              color: Colors.black.withValues(alpha: 0.05),
                               blurRadius: 20,
                               offset: const Offset(0, 10),
                             ),
@@ -2110,12 +2356,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                   Container(
                                     width: 6,
                                     height: 6,
-                                    decoration: const BoxDecoration(color: Color(0xFFC62828), shape: BoxShape.circle),
+                                    decoration: const BoxDecoration(color: AppColors.accent, shape: BoxShape.circle),
                                   ),
                                   const SizedBox(width: 6),
                                   Text(
                                     _isExaminerSpeaking ? 'Speaking' : _isRecording ? 'Recording' : 'Idle',
-                                    style: const TextStyle(color: Color(0xFFC62828), fontSize: 11, fontWeight: FontWeight.bold),
+                                    style: const TextStyle(color: AppColors.accent, fontSize: 11, fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
@@ -2126,9 +2372,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                 width: double.infinity,
                                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFF8FAFC),
+                                  color: AppColors.surfaceTint,
                                   borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(color: const Color(0xFFE2E8F0)),
+                                  border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
                                 ),
                                 child: Column(
                                   children: [
@@ -2136,7 +2382,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                       'Q${_currentQuestionIndex + 1}: ${currentQ['question']}',
                                       textAlign: TextAlign.center,
                                       style: const TextStyle(
-                                        color: Color(0xFF0F172A),
+                                        color: AppColors.textPrimaryLight,
                                         fontSize: 18,
                                         fontWeight: FontWeight.w800,
                                         height: 1.4,
@@ -2150,7 +2396,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius: BorderRadius.circular(14),
-                                          border: Border.all(color: const Color(0xFFE2E8F0)),
+                                          border: Border.all(color: AppColors.cardBorderLight),
                                         ),
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -2158,7 +2404,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                             const Text(
                                               'You should say:',
                                               style: TextStyle(
-                                                color: Color(0xFF64748B),
+                                                color: AppColors.textSecondaryLight,
                                                 fontSize: 13,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -2172,13 +2418,13 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                                   children: [
                                                     const Text(
                                                       '• ',
-                                                      style: TextStyle(color: Color(0xFFC62828), fontSize: 13, fontWeight: FontWeight.bold),
+                                                      style: TextStyle(color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.bold),
                                                     ),
                                                     Expanded(
                                                       child: Text(
                                                         bullet.toString(),
                                                         style: const TextStyle(
-                                                          color: Color(0xFF334155),
+                                                          color: AppColors.textPrimaryLight,
                                                           fontSize: 13,
                                                           height: 1.4,
                                                           fontWeight: FontWeight.w500,
@@ -2196,25 +2442,22 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                     const SizedBox(height: 10),
                                     InkWell(
                                       onTap: () {
-                                        final double startSec = (currentQ['start'] as num).toDouble();
-                                        final double promptEndSec = (currentQ['promptEnd'] as num).toDouble();
-                                        final String audioAsset = _getAudioAssetForQuestion(currentQ);
-                                        _playQuestionAudio(currentQ['question'], startSec, promptEndSec, audioAsset: audioAsset);
+                                        _playCurrentQuestion();
                                       },
                                       child: Container(
                                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                                         decoration: BoxDecoration(
-                                          color: const Color(0xFFC62828).withValues(alpha: 0.1),
+                                          color: AppColors.primary.withValues(alpha: 0.1),
                                           borderRadius: BorderRadius.circular(12),
                                         ),
                                         child: const Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            Icon(Icons.volume_up, size: 16, color: Color(0xFFC62828)),
+                                            Icon(Icons.volume_up, size: 16, color: AppColors.primary),
                                             SizedBox(width: 6),
                                             Text(
                                               'Tap to Listen / Replay Audio',
-                                              style: TextStyle(color: Color(0xFFC62828), fontSize: 11, fontWeight: FontWeight.bold),
+                                              style: TextStyle(color: AppColors.primary, fontSize: 11, fontWeight: FontWeight.bold),
                                             ),
                                           ],
                                         ),
@@ -2252,9 +2495,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                   constraints: const BoxConstraints(minHeight: 60),
                                   padding: const EdgeInsets.all(12),
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFF8FAFC),
+                                    color: AppColors.surfaceTint,
                                     borderRadius: BorderRadius.circular(16),
-                                    border: Border.all(color: const Color(0xFFE2E8F0)),
+                                    border: Border.all(color: AppColors.cardBorderLight),
                                   ),
                                   child: Text(
                                     _recordedText.isEmpty
@@ -2263,7 +2506,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                             : 'Tap microphone below to record answer')
                                         : _recordedText,
                                     style: TextStyle(
-                                      color: _recordedText.isEmpty ? Colors.black38 : const Color(0xFF1E293B),
+                                      color: _recordedText.isEmpty ? AppColors.textSecondaryLight : AppColors.textPrimaryLight,
                                       fontSize: 14,
                                       height: 1.4,
                                       fontStyle: _recordedText.isEmpty ? FontStyle.italic : FontStyle.normal,
@@ -2277,7 +2520,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                   children: [
                                     Text(
                                       '$_wordCount words',
-                                      style: const TextStyle(color: Color(0xFFC62828), fontSize: 12, fontWeight: FontWeight.bold),
+                                      style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
@@ -2294,7 +2537,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                     : (_selectedPart == 2 || _currentQuestionIndex == 4
                                         ? 'Part 2: Question 5  ·  1/1 Questions'
                                         : 'Part 1: Questions 1-4  ·  ${_currentQuestionIndex + 1}/4 Questions'),
-                                style: const TextStyle(color: Colors.black38, fontSize: 12, fontWeight: FontWeight.w500),
+                                style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12, fontWeight: FontWeight.w500),
                               ),
                             ],
                           ),
@@ -2309,7 +2552,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           child: Container(
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border: Border.all(color: Colors.white, width: 4),
+                              border: Border.all(color: AppColors.primary, width: 3),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withValues(alpha: 0.1),
@@ -2320,7 +2563,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                             ),
                             child: const CircleAvatar(
                               radius: 40,
-                              backgroundColor: Color(0xFF0B1E36),
+                              backgroundColor: AppColors.surfaceTint,
                               backgroundImage: NetworkImage('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200'),
                             ),
                           ),
@@ -2350,17 +2593,17 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           children: [
                             Text(
                               'Examiner is speaking...',
-                              style: TextStyle(color: Colors.white70, fontSize: 14),
+                              style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 14),
                             ),
                             SizedBox(height: 20),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(Icons.circle, color: Color(0xFFC62828), size: 10),
+                                Icon(Icons.circle, color: AppColors.primary, size: 10),
                                 SizedBox(width: 8),
-                                Icon(Icons.circle, color: Color(0xFFC62828), size: 10),
+                                Icon(Icons.circle, color: AppColors.primary, size: 10),
                                 SizedBox(width: 8),
-                                Icon(Icons.circle, color: Color(0xFFC62828), size: 10),
+                                Icon(Icons.circle, color: AppColors.primary, size: 10),
                               ],
                             ),
                           ],
@@ -2369,7 +2612,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     ] else ...[
                       Text(
                         _isRecording ? 'Recording your answer...' : 'Tap the microphone to answer',
-                        style: const TextStyle(color: Colors.white70, fontSize: 14),
+                        style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 14),
                       ),
                       const SizedBox(height: 16),
                       GestureDetector(
@@ -2384,11 +2627,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           width: 72,
                           height: 72,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFC62828),
+                            color: AppColors.accent,
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: const Color(0xFFC62828).withValues(alpha: 0.4),
+                                color: AppColors.accent.withValues(alpha: 0.35),
                                 blurRadius: 12,
                                 spreadRadius: 4,
                               ),
@@ -2404,7 +2647,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       const SizedBox(height: 8),
                       Text(
                         _isRecording ? 'Tap when finished' : 'Tap to answer',
-                        style: const TextStyle(color: Colors.white54, fontSize: 11),
+                        style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                       ),
                     ],
                   ],
@@ -2423,9 +2666,18 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       _isAnalyzingResults = true;
     });
 
+    final partQuestions = _getQuestionsForSelectedPart();
+    final StringBuffer formattedQA = StringBuffer();
     final combinedTranscription = _userResponses.join(' ');
     final int wordCountTotal = combinedTranscription.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length;
     final int avgWordsPerQuestion = _userResponses.isEmpty ? 0 : (wordCountTotal / _userResponses.length).round();
+
+    for (int i = 0; i < partQuestions.length; i++) {
+      final qText = partQuestions[i]['question'] ?? 'Question ${i + 1}';
+      final userAns = (i < _userResponses.length) ? _userResponses[i].trim() : '';
+      formattedQA.writeln('Question ${i + 1}: $qText');
+      formattedQA.writeln('Student Spoken Response: ${userAns.isEmpty ? "[No response recorded / Candidate was silent]" : userAns}\n');
+    }
 
     try {
       final response = await _apiService.request(
@@ -2434,7 +2686,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         body: jsonEncode({
           'promptId': _selectedPrompt != null ? _selectedPrompt['id'] : 'PRACTICE_SESSION',
           'audioUrl': 'https://placeholder.url/audio.mp3',
-          'transcription': combinedTranscription.isEmpty ? 'Single word answers or silent responses' : combinedTranscription,
+          'transcription': formattedQA.toString(),
+          'customQuestionText': '$_selectedTestTitle - Part $_selectedPart',
           'mode': 'PRACTICE',
         }),
       );
@@ -2448,6 +2701,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           overallBand = (feedback['overallBand'] as num).toDouble();
         } else if (feedback['overall'] != null) {
           overallBand = (feedback['overall'] as num).toDouble();
+        } else if (feedback['estimatedBand'] != null) {
+          overallBand = (feedback['estimatedBand'] as num).toDouble();
         } else {
           if (wordCountTotal > 60 && avgWordsPerQuestion >= 15) {
             overallBand = 7.5;
@@ -2468,6 +2723,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         final lrScore = (feedback['lexicalResource']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 3.0);
         final grScore = (feedback['grammaticalRange']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 2.0);
         final prScore = (feedback['pronunciation']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 2.0);
+
+        final perQFeedback = (feedback['perQuestionFeedback'] as List?) ?? [];
+        final tipsList = (feedback['tips'] as List?)?.map((t) => t.toString()).toList() ?? [];
+        final mistakesList = (feedback['mistakes'] as List?)?.map((m) => m.toString()).toList() ?? [];
 
         setState(() {
           _examinerResults = {
@@ -2500,10 +2759,31 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       ? 'Difficult to evaluate pronunciation accurately due to short word fragments. Aim to articulate extended sentences.'
                       : 'Clear articulation throughout.')
             },
+            'perQuestionFeedback': perQFeedback,
+            'tips': tipsList,
+            'mistakes': mistakesList,
+            'improvedAnswer': feedback['improvedAnswer'],
+            'whyBetter': feedback['whyBetter'],
           };
           _isAnalyzingResults = false;
           _currentScreen = 'EXAMINER_RESULTS';
         });
+
+        final attemptDetails = _buildSpeakingAttemptDetails(
+          band: overallBand,
+          examinerResults: _examinerResults!,
+          tipsList: tipsList,
+          perQFeedback: perQFeedback,
+          partQuestions: partQuestions,
+        );
+
+        HistoryScreen.recordAttempt(
+          title: _selectedTestTitle,
+          module: 'Speaking',
+          score: overallBand,
+          details: attemptDetails,
+          timestamp: DateTime.now(),
+        );
       } else {
         throw Exception('Server error: ${response.statusCode}');
       }
@@ -2526,82 +2806,137 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       }
 
       final int intBand = band.toInt();
-      final bool isPart2 = _selectedPart == 2;
-      final bool isPart3 = _selectedPart == 3;
-      final bool isBook10Test2 = _selectedTestTitle.contains('Book 10 Test 2');
+      final bool hasNoSpokenWords = wordCountTotal == 0;
+      final bool isBrief = avgWordsPerQuestion < 5;
+
+      String fluencyFeedback;
+      String lexicalFeedback;
+      String grammarFeedback;
+      String pronunciationFeedback;
+
+      if (hasNoSpokenWords) {
+        fluencyFeedback = 'No verbal response was detected during the practice session. You must speak into the microphone to receive an IELTS speaking assessment.';
+        lexicalFeedback = 'No vocabulary was used during this attempt to evaluate lexical resource.';
+        grammarFeedback = 'No grammatical structures were spoken.';
+        pronunciationFeedback = 'No speech was recorded to assess pronunciation and intonation.';
+      } else if (isBrief) {
+        fluencyFeedback = 'Your spoken responses were brief (averaging ~$avgWordsPerQuestion words per question). In an IELTS speaking test, you must elaborate with supporting reasons and personal examples.';
+        lexicalFeedback = 'Vocabulary range was limited ($wordCountTotal total words). Try to avoid isolated words or fragments and introduce more descriptive phrases.';
+        grammarFeedback = 'Responses consisted mostly of short phrases. Focus on forming full subject-verb-object sentences.';
+        pronunciationFeedback = 'Speech was detected, but extended sentences are required to evaluate natural rhythm and intonation patterns.';
+      } else {
+        fluencyFeedback = 'Good speech delivery with an average of ~$avgWordsPerQuestion words per question. Continue expanding your ideas with transitional connectors.';
+        lexicalFeedback = 'Appropriate functional vocabulary used ($wordCountTotal total words). To achieve Band 7+, incorporate more topic-specific synonyms and idiomatic collocations.';
+        grammarFeedback = 'Good control of basic sentence patterns. Practice using varied compound and complex structures.';
+        pronunciationFeedback = 'Clear speech articulation and comprehensible delivery.';
+      }
 
       setState(() {
         _examinerResults = {
           'overallBand': band,
           'fluency': {
             'score': intBand,
-            'feedback': wordCountTotal >= 25
-                ? 'Good fluency with smooth speech delivery. Work on linking words to connect your main points seamlessly.'
-                : (isBook10Test2 && isPart3
-                    ? 'Your answers were highly irrelevant and failed to address the questions. Answering \'Yes\' to complex questions about economics and business is not acceptable in an IELTS speaking test. You failed to provide any coherent information.'
-                    : (isBook10Test2 && isPart2
-                        ? 'Your answer was off-topic and critically undersized. The question asked for a description of a shop, but you provided a single word that does not address the prompt at all.'
-                        : (isBook10Test2
-                            ? 'Your answers were largely irrelevant or nonsensical. Question 2 was completely off-topic; the question asked about \'times of day\' but you spoke about \'Money\'. Questions 1, 3, and 4 provided no content, failing to communicate any information.'
-                            : (isPart3
-                                ? 'The responses provided are almost entirely non-communicative. Most answers consist of single words (\'OK\') or nonsensical repetition (\'May may me\'), which fails to address any of the questions. This is a complete failure to engage in the task.'
-                                : (isPart2
-                                    ? 'Your answer was completely off-topic and incoherent. The question asked you to describe someone who does something well, but you provided a repetitive sequence of meaningless words.'
-                                    : 'The responses are completely inadequate. Your answers consisted of single words or repetitive filler (\'OK\'), which does not constitute communication. These responses are essentially irrelevant to the questions asked as they fail to provide any information.')))))
+            'feedback': fluencyFeedback,
           },
           'lexical': {
             'score': intBand,
-            'feedback': wordCountTotal >= 25
-                ? 'Good vocabulary range with effective topic-specific words.'
-                : (isBook10Test2 && isPart3
-                    ? 'There is no vocabulary range to assess. Using only the word \'Yes\' demonstrates a complete lack of lexical resource.'
-                    : (isBook10Test2 && isPart2
-                        ? 'Vocabulary range is non-existent. A single word cannot demonstrate lexical ability.'
-                        : (isBook10Test2
-                            ? 'There is no vocabulary usage to assess. You provided one-word answers or unrelated words, which demonstrates an inability to use language to fulfill a task.'
-                            : (isPart3
-                                ? 'There is no vocabulary range to assess. The use of repetitive, meaningless filler words demonstrates an inability to use language for communication.'
-                                : (isPart2
-                                    ? 'There is no evidence of vocabulary usage. The response consists of repetitive, nonsensical sounds rather than English words used to convey meaning.'
-                                    : 'There is no vocabulary range to assess. The use of \'OK\' does not demonstrate the ability to discuss topics, express opinions, or provide justifications.')))))
+            'feedback': lexicalFeedback,
           },
           'grammar': {
             'score': intBand,
-            'feedback': wordCountTotal >= 25
-                ? 'Good control of basic sentence structures with minor slips.'
-                : (isBook10Test2 && isPart3
-                    ? 'There is no grammatical structure to assess. You provided no full sentences or complex language.'
-                    : (isBook10Test2 && isPart2
-                        ? 'No grammatical structures were present to evaluate.'
-                        : (isBook10Test2
-                            ? 'There is no grammatical structure present. You did not form any sentences, which is required for an IELTS Speaking test.'
-                            : (isPart3
-                                ? 'No grammatical structures were used. The performance consists of isolated, non-functional utterances.'
-                                : (isPart2
-                                    ? 'There is no grammatical structure present. The response fails to form coherent sentences.'
-                                    : 'There is no grammatical structure present to evaluate. You failed to form sentences or provide any linguistic evidence of your proficiency level.')))))
+            'feedback': grammarFeedback,
           },
           'pronunciation': {
             'score': intBand,
-            'feedback': wordCountTotal >= 25
-                ? 'Clear articulation throughout. Maintain consistent intonation.'
-                : (isBook10Test2 && isPart3
-                    ? 'While the word \'Yes\' is audible, it is impossible to evaluate pronunciation for a complete IELTS speaking task based on this.'
-                    : (isBook10Test2 && isPart2
-                        ? 'Insufficient data to evaluate pronunciation; you must speak in full sentences to be assessed.'
-                        : (isBook10Test2
-                            ? 'It is impossible to assess pronunciation based on single-word responses. You must speak in full, coherent sentences to be evaluated.'
-                            : (isPart3
-                                ? 'It is impossible to evaluate pronunciation based on the provided text, as no coherent speech was produced.'
-                                : (isPart2
-                                    ? 'The response is unintelligible. You must focus on producing clear, coherent English sentences to be assessed.'
-                                    : 'As there was no spoken content beyond \'OK\', it is impossible to assess pronunciation, intonation, or stress. You must speak in full sentences to be assessed.')))))
+            'feedback': pronunciationFeedback,
           },
         };
         _isAnalyzingResults = false;
         _currentScreen = 'EXAMINER_RESULTS';
       });
+
+      final attemptDetails = _buildSpeakingAttemptDetails(
+        band: band,
+        examinerResults: _examinerResults!,
+        tipsList: [],
+        perQFeedback: [],
+        partQuestions: partQuestions,
+      );
+
+      HistoryScreen.recordAttempt(
+        title: _selectedTestTitle,
+        module: 'Speaking',
+        score: band,
+        details: attemptDetails,
+        timestamp: DateTime.now(),
+      );
     }
+  }
+
+  Map<String, dynamic> _buildSpeakingAttemptDetails({
+    required double band,
+    required Map<String, dynamic> examinerResults,
+    required List<String> tipsList,
+    required List<dynamic> perQFeedback,
+    required List<Map<String, dynamic>> partQuestions,
+  }) {
+    final List<Map<String, dynamic>> dynamicMistakes = [];
+    final List<Map<String, dynamic>> dynamicResponses = [];
+
+    final int count = _userResponses.isEmpty ? partQuestions.length : _userResponses.length;
+    for (int i = 0; i < count && i < partQuestions.length; i++) {
+      final q = partQuestions[i];
+      final String qTitle = q['question'] ?? 'Question ${i + 1}';
+      final String userAns = (i < _userResponses.length) ? _userResponses[i].trim() : '';
+
+      String wrongStr = userAns.isEmpty ? 'No verbal response recorded' : userAns;
+      String correctStr = '';
+      String critiqueStr = '';
+
+      if (i < perQFeedback.length && perQFeedback[i] is Map) {
+        final item = perQFeedback[i] as Map;
+        if (item['improvedAnswer'] != null && item['improvedAnswer'].toString().trim().isNotEmpty) {
+          correctStr = item['improvedAnswer'].toString().trim();
+        }
+        if (item['critique'] != null) {
+          critiqueStr = item['critique'].toString().trim();
+        }
+      }
+
+      if (correctStr.isEmpty) {
+        correctStr = _fineTuneStudentAnswer(userAns, q);
+      }
+
+      dynamicMistakes.add({
+        'question': qTitle,
+        'wrong': wrongStr,
+        'correct': correctStr,
+        if (critiqueStr.isNotEmpty) 'critique': critiqueStr,
+      });
+
+      final int words = userAns.isEmpty ? 0 : userAns.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length;
+      dynamicResponses.add({
+        'questionNumber': 'Q${i + 1}',
+        'questionText': qTitle,
+        'answer': userAns.isEmpty ? 'No verbal response recorded' : userAns,
+        'wordCount': words,
+      });
+    }
+
+    final finalTips = tipsList.isNotEmpty
+        ? tipsList
+        : _generateDynamicTips(_userResponses, _selectedPart);
+
+    return {
+      'overallBand': band,
+      'fluency': examinerResults['fluency'],
+      'lexical': examinerResults['lexical'],
+      'grammar': examinerResults['grammar'],
+      'pronunciation': examinerResults['pronunciation'],
+      'tips': finalTips,
+      'mistakes': dynamicMistakes,
+      'responses': dynamicResponses,
+    };
   }
 
   // --- SCREEN: TEST COMPLETE (Image 1 & 2) ---
@@ -2614,7 +2949,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         : (isPart2Done ? 'Part 2 completed!' : 'Part 1 completed!');
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAFC),
+      backgroundColor: AppColors.backgroundLight,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -2628,6 +2963,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(24),
+                    border: Border.all(color: AppColors.cardBorderLight),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withValues(alpha: 0.05),
@@ -2642,7 +2978,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       const Text(
                         'Test Complete!',
                         style: TextStyle(
-                          color: Color(0xFF22C55E),
+                          color: AppColors.primary,
                           fontSize: 22,
                           fontWeight: FontWeight.w600,
                         ),
@@ -2651,7 +2987,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       Text(
                         partCompletedText,
                         style: const TextStyle(
-                          color: Color(0xFF16A34A),
+                          color: AppColors.primary,
                           fontSize: 26,
                           fontWeight: FontWeight.w800,
                         ),
@@ -2665,7 +3001,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                               onPressed: _isAnalyzingResults ? null : _analyzeExaminerResults,
                               style: OutlinedButton.styleFrom(
                                 padding: const EdgeInsets.symmetric(vertical: 14),
-                                side: const BorderSide(color: Color(0xFFC62828), width: 1.8),
+                                side: const BorderSide(color: AppColors.primary, width: 1.8),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30),
                                 ),
@@ -2679,14 +3015,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                           height: 18,
                                           child: CircularProgressIndicator(
                                             strokeWidth: 2.2,
-                                            color: Color(0xFFC62828),
+                                            color: AppColors.primary,
                                           ),
                                         ),
                                         SizedBox(width: 8),
                                         Text(
                                           'Analyzing...',
                                           style: TextStyle(
-                                            color: Color(0xFFC62828),
+                                            color: AppColors.primary,
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -2696,12 +3032,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                   : const Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        Icon(Icons.auto_awesome, color: Color(0xFFC62828), size: 18),
+                                        Icon(Icons.auto_awesome, color: AppColors.primary, size: 18),
                                         SizedBox(width: 6),
                                         Text(
                                           'See Results',
                                           style: TextStyle(
-                                            color: Color(0xFFC62828),
+                                            color: AppColors.primary,
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -2719,17 +3055,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                                   setState(() {
                                     if (isPart2Done) {
                                       _selectedPart = 3;
-                                      _currentQuestionIndex = 5;
                                     } else {
                                       _selectedPart = 2;
-                                      _currentQuestionIndex = 4;
                                     }
-                                    _currentScreen = 'EXAMINER_SESSION';
                                   });
-                                  _playCurrentQuestion();
+                                  _startExaminerSession();
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFC62828),
+                                  backgroundColor: AppColors.accent,
                                   padding: const EdgeInsets.symmetric(vertical: 14),
                                   elevation: 0,
                                   shape: RoundedRectangleBorder(
@@ -2766,13 +3099,13 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   child: IconButton(
                     icon: Container(
                       padding: const EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
+                      decoration: const BoxDecoration(
+                        color: AppColors.surfaceTint,
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
                         Icons.close,
-                        color: Colors.black54,
+                        color: AppColors.textSecondaryLight,
                         size: 18,
                       ),
                     ),
@@ -2797,14 +3130,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     final double overallBand = (results['overallBand'] as num?)?.toDouble() ?? 3.0;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAFC),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: false,
         title: Text(
           _selectedPart == 3 ? 'AI Feedback' : 'Part ${_selectedPart == 2 ? '2' : '1'} Results',
-          style: const TextStyle(color: Color(0xFF0F172A), fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 18, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         actions: [
@@ -2823,6 +3156,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: AppColors.cardBorderLight),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withValues(alpha: 0.05),
@@ -2833,7 +3167,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   ),
                   child: const Text(
                     'Done',
-                    style: TextStyle(color: Color(0xFFC62828), fontSize: 14, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -2851,7 +3185,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             Text(
               _selectedPart == 3 ? 'Speaking Score' : 'Part ${_selectedPart == 2 ? '2' : '1'} Score',
               style: const TextStyle(
-                color: Color(0xFF0F172A),
+                color: AppColors.textPrimaryLight,
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
               ),
@@ -2892,49 +3226,49 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     );
   }
 
-  Widget _buildImprovementTipsSection() {
-    final int totalWordsSpoken = _userResponses.fold(0, (sum, r) => sum + r.trim().split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length);
-    final bool hasShortAnswers = _userResponses.any((r) => r.trim().split(RegExp(r'\s+')).length < 4);
+  List<String> _generateDynamicTips(List<String> responses, int part) {
+    final int totalWords = responses.fold(0, (sum, r) {
+      return sum + r.trim().split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length;
+    });
+    final int nonBlankCount = responses.where((r) => r.trim().isNotEmpty).length;
+    final double avgWords = nonBlankCount == 0 ? 0 : totalWords / nonBlankCount;
 
-    final List<String> tips = [];
-
-    if (hasShortAnswers || totalWordsSpoken < 25) {
-      if (_selectedTestTitle.contains('Book 10 Test 2') && _selectedPart == 3) {
-        tips.add("You must stop answering with single words. IELTS Speaking requires you to develop your answers by providing examples, reasons, and explanations.");
-        tips.add("Your answers were off-topic because you ignored the content of the questions. You must answer what is asked, not just give a generic response.");
-        tips.add("Practice the 'PPF' method (Past, Present, Future) or the 'ARE' method (Answer, Reason, Example) to expand your responses.");
-        tips.add("Review the IELTS Speaking band descriptors; you cannot achieve a passing score if you do not speak in full sentences.");
-        tips.add("Listen to sample IELTS speaking tests to understand the expected length and depth of responses for Part 3 questions.");
-      } else if (_selectedTestTitle.contains('Book 10 Test 2') && _selectedPart == 2) {
-        tips.add("You must speak in full, developed sentences. A single word is not an acceptable response in an IELTS test.");
-        tips.add("Address all parts of the prompt: name the shop, describe its location, mention what you buy there, and explain why you use it.");
-        tips.add("Practice the 'Part 2' format: you are expected to speak for 1 to 2 minutes on the topic.");
-        tips.add("Do not provide one-word answers; they will result in a band 1 or 2 score.");
-        tips.add("Ensure your response is directly relevant to the question asked.");
-      } else if (_selectedTestTitle.contains('Book 10 Test 2') && _selectedPart == 1) {
-        tips.add("You must answer in full, complete sentences. Single-word responses will result in a failing grade.");
-        tips.add("Ensure your answer is relevant to the question. Talking about 'money' when asked about 'time' is a major task-relevance error.");
-        tips.add("Expand your answers. Aim for 3-5 sentences per question to demonstrate your ability to speak English.");
-        tips.add("Practice developing your ideas. When asked 'Why?', provide a specific reason or example to support your statement.");
-      } else if (_selectedPart == 3) {
-        tips.add("You must answer the questions asked. Providing 'OK' or gibberish is considered a refusal to participate and will result in a band 0-1.");
-        tips.add("Practice speaking in full, complete sentences for every question.");
-        tips.add("Ensure your answers are relevant. If asked about your weekend, describe your activities. Do not provide filler words.");
-        tips.add("Familiarize yourself with IELTS Part 1, 2, and 3 formats to understand the expected length and depth of answers.");
-        tips.add("If you do not know the answer to a question, try to explain why or talk about a related aspect rather than repeating meaningless words.");
-      } else {
-        tips.add("You must answer in full sentences. Single-word responses are not acceptable in IELTS Speaking.");
-        tips.add("Your answers were irrelevant. You did not address the questions; you simply repeated 'OK'. You must listen to the question and provide a direct, descriptive answer.");
-        tips.add("Elaborate on your answers. Use the 'Answer + Reason + Example' structure to ensure your responses are long enough (15-30 seconds per question).");
-        tips.add("Practice speaking naturally for longer periods to demonstrate your actual English proficiency.");
-        tips.add("Review the IELTS Speaking Part ${_selectedPart == 2 ? '2' : '1'} requirements; you are expected to provide personal information and opinions, not just filler words.");
-      }
+    if (totalWords == 0) {
+      return [
+        'No verbal response was detected during the recording session. Please ensure microphone access is enabled and speak clearly throughout each prompt.',
+        'Practice speaking aloud without hesitation to build confidence and muscle memory for the IELTS Speaking test.',
+        'Aim to speak for the full allotted time: 15-30 seconds for Part 1 questions, and 1 to 2 minutes for Part 2.',
+        'Read questions carefully and take a brief breath before beginning your response.',
+      ];
+    } else if (avgWords < 5) {
+      return [
+        'Expand your responses beyond one-word answers or short phrases. IELTS Speaking requires full, developed thoughts.',
+        'Use the \'ARE\' structure: Answer directly, provide a Reason, and give a personal or realistic Example.',
+        'Incorporate cohesive connectors such as \'for instance\', \'in particular\', and \'on top of that\' to link ideas.',
+        'Avoid simple confirmations like \'yes\' or \'no\'; always explain your viewpoint to demonstrate vocabulary depth.',
+      ];
+    } else if (avgWords < 15) {
+      return [
+        'Good foundation in your answers! To reach Band 7.0+, develop your ideas with contrasting perspectives (e.g. \'While some argue that...\').',
+        'Incorporate more varied, topic-specific vocabulary and idiomatic collocations.',
+        'Practice using complex sentence structures, including conditional clauses and relative pronouns.',
+        'Maintain a steady, natural rhythm and avoid extended hesitation when searching for vocabulary.',
+      ];
     } else {
-      tips.add("Good effort speaking in complete sentences! Focus on expanding your range of complex structures.");
-      tips.add("Great sentence length! Maintain this level of detail across all parts of the speaking exam.");
-      tips.add("Practice the 'Answer + Extend' technique: give your direct answer, then add a 'because' clause or supporting details.");
-      tips.add("Use a wider variety of linking words (e.g., 'however', 'furthermore', 'for instance') to connect your ideas smoothly.");
+      return [
+        'Excellent answer development and fluency! Keep maintaining this high level of detail across all parts.',
+        'Focus on subtle nuances in pronunciation, sentence stress, and intonation to convey emphasis effectively.',
+        'Ensure seamless cohesion across complex explanations, transitioning smoothly between contrasting points.',
+        'Review advanced lexical items and formal idioms to consistently achieve Band 8.5 to 9.0.',
+      ];
     }
+  }
+
+  Widget _buildImprovementTipsSection() {
+    final aiTips = (_examinerResults?['tips'] as List?)?.map((e) => e.toString()).toList() ?? [];
+    final List<String> tips = aiTips.isNotEmpty
+        ? aiTips
+        : _generateDynamicTips(_userResponses, _selectedPart);
 
     return Container(
       width: double.infinity,
@@ -2943,6 +3277,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.cardBorderLight),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.04),
@@ -2957,7 +3292,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           const Text(
             'Improvement Tips',
             style: TextStyle(
-              color: Color(0xFF0F172A),
+              color: AppColors.textPrimaryLight,
               fontSize: 18,
               fontWeight: FontWeight.w800,
             ),
@@ -2973,7 +3308,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     width: 22,
                     height: 22,
                     decoration: const BoxDecoration(
-                      color: Color(0xFFC62828),
+                      color: AppColors.primary,
                       shape: BoxShape.circle,
                     ),
                     child: Center(
@@ -2992,7 +3327,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     child: Text(
                       tips[index],
                       style: const TextStyle(
-                        color: Color(0xFF334155),
+                        color: AppColors.textPrimaryLight,
                         fontSize: 13.5,
                         height: 1.45,
                         fontWeight: FontWeight.w500,
@@ -3008,70 +3343,74 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     );
   }
 
-  String _buildCorrectedAnswer(String userAns, Map<String, dynamic> q) {
+  String _fineTuneStudentAnswer(String userAns, Map<String, dynamic> q) {
+    final String clean = userAns.trim();
     final String qText = ((q['question'] as String?) ?? '').toLowerCase();
 
-    if (qText.contains('types of music')) {
-      return 'I enjoy listening to a variety of music genres, especially pop, acoustic, and classical music. I find pop music energetic and uplifting, while classical tunes help me stay focused and relaxed when studying.';
-    } else if (qText.contains('times of day') && qText.contains('listen to music')) {
-      return 'I mostly listen to music in the morning while getting ready and during my evening commute. Music sets a positive mood for my day and helps me unwind after work.';
-    } else if (qText.contains('when you were a child') && qText.contains('musical instrument')) {
-      return 'Yes, I learned to play the piano when I was in primary school. My parents encouraged me to take lessons, and although practice was challenging at times, I am glad I acquired basic musical skills.';
-    } else if (qText.contains('all children should learn')) {
-      return 'I believe learning a musical instrument is beneficial because it develops patience, coordination, and creativity. However, it should not be strictly compulsory, as children should be free to explore other hobbies like sports or art.';
-    } else if (qText.contains('spend your weekends')) {
-      return 'I usually spend my weekends relaxing at home or catching up with friends. I prefer a mix of productivity and rest, so I often use Saturday mornings for chores and Sunday afternoons for social activities. This balance helps me recharge for the upcoming week.';
-    } else if (qText.contains('favorite part of the weekend')) {
-      return 'My favorite part of the weekend is Sunday morning. It is the only time I can enjoy a slow breakfast without any work-related stress. The quiet atmosphere allows me to clear my mind and prepare mentally for the week ahead.';
-    } else if (qText.contains('weekends are long enough')) {
-      return 'I honestly feel that two days are rarely enough. By the time I finish my household tasks on Saturday, I only have one day left to truly rest. I often wish for a three-day weekend to achieve a better work-life balance.';
-    } else if (qText.contains('important') && qText.contains('free time')) {
-      return 'Free time is absolutely essential for mental health. Without it, individuals are prone to burnout and increased stress levels. Having time to pursue hobbies or spend time with family is crucial for maintaining overall well-being.';
-    } else if (qText.contains('describe someone') || qText.contains('does something well')) {
-      return 'I would like to describe my brother, who is an incredibly talented carpenter. He has a remarkable ability to visualize complex structures and turn raw wood into beautiful furniture. His attention to detail is meticulous, and he takes great pride in ensuring every joint is perfectly fitted.';
-    } else if (qText.contains('skills and abilities') && qText.contains('today')) {
-      return 'Today, people are primarily interested in digital literacy and communication skills. As the world becomes increasingly connected, the ability to navigate technology and convey ideas clearly is vital. These skills are essential for career advancement and personal growth.';
-    } else if (qText.contains('children learn at school')) {
-      return 'I believe children should learn critical thinking and emotional intelligence at school, as these are fundamental for social interaction. At home, they should learn practical life skills like cooking, budgeting, and basic household maintenance, which are necessary for their future independence.';
-    } else if (qText.contains('important in the future')) {
-      return 'In the future, adaptability and problem-solving will be the most valuable skills. Because technology changes so rapidly, the ability to learn new systems quickly will be more important than memorizing specific facts. Being able to think creatively to solve novel problems will be a key asset.';
-    } else if (qText.contains('highest salaries')) {
-      return 'In my country, jobs in medicine, law, and software engineering typically offer the highest salaries. This is largely due to the long duration of education required and the high level of responsibility these professionals carry. Their expertise is highly valued by society and thus commands a premium.';
-    } else if (qText.contains('should have high salaries')) {
-      return 'I believe that teachers and nurses should have significantly higher salaries. They play a critical role in shaping the next generation and maintaining public health, yet they are often underpaid. Investing in these sectors would lead to a more educated and healthy society.';
-    } else if (qText.contains('types of local business')) {
-      return 'In my neighborhood, there is a good mix of local businesses. We have a small grocery store, a couple of family-run cafes, and a local dental clinic, which is quite convenient for residents.';
-    } else if (qText.contains('local businesses are important')) {
-      return 'I believe they are vital. They provide essential services within walking distance and foster a sense of community by allowing neighbors to interact regularly, which helps the local economy thrive.';
-    } else if (qText.contains('large shopping malls')) {
-      return 'Large shopping malls often pose a significant threat to local businesses. Because they offer lower prices and a wider variety of goods under one roof, small shops often struggle to compete and may eventually go out of business.';
-    } else if (qText.contains('start their own business')) {
-      return 'Many people are drawn to entrepreneurship because they desire independence and the ability to control their own professional destiny. They want to turn a personal passion or an innovative idea into a profitable reality.';
-    } else if (qText.contains('disadvantages to running a business')) {
-      return 'Running a business is certainly challenging. The most serious disadvantage is the high level of financial risk, as many startups fail within the first few years, which can lead to significant personal debt.';
-    } else if (qText.contains('good business person')) {
-      return 'A successful business person needs resilience, strategic thinking, and strong communication skills. Resilience is crucial because they will inevitably face setbacks, and they must have the drive to persevere through difficult market conditions.';
+    // 1. Silent / No response fallback
+    if (clean.isEmpty || clean.toLowerCase() == 'no verbal response recorded') {
+      if (qText.contains('types of music')) {
+        return 'I enjoy listening to an eclectic variety of music genres, particularly pop and acoustic melodies. Upbeat pop tracks keep me motivated during busy work days, while softer acoustic tunes allow me to unwind peacefully in the evenings.';
+      } else if (qText.contains('times of day')) {
+        return 'I predominantly listen to music first thing in the morning and during my daily commute. Having cheerful music playing sets an optimistic tone for my morning tasks and helps me decompress after hours of work.';
+      } else if (qText.contains('musical instrument')) {
+        return 'Yes, I actually had the opportunity to learn the piano while in primary school. Although consistent practice was challenging at that young age, acquiring basic musical literacy was an exceptionally rewarding experience.';
+      } else if (qText.contains('weekends')) {
+        return 'I generally spend my weekends striking a balance between rejuvenating rest and personal productivity. I allocate Saturday mornings to personal chores and use Sunday afternoons to socialize with close friends and family.';
+      } else if (qText.contains('free time')) {
+        return 'Free time is undeniably vital for maintaining optimal mental health. Without regular periods of downtime to disconnect from professional obligations, individuals inevitably succumb to fatigue and chronic burnout.';
+      }
+      return (q['transcript'] as String?) ?? 'In response to this question, I would present a direct answer followed by supporting details, personal examples, and a clear concluding rationale.';
     }
 
-    final String cleanUser = userAns.trim();
-    if (cleanUser.isEmpty) {
-      return (q['transcript'] as String?) ?? 'I would expand my answer by giving specific details and reasons.';
+    // 2. Personalize and fine-tune what the candidate ACTUALLY said
+    final String lower = clean.toLowerCase();
+
+    // Single words or simple confirmations
+    if (lower == 'yes' || lower == 'yeah' || lower == 'yep') {
+      return 'Yes, absolutely. In my perspective, this plays a fundamental role because it allows individuals to cultivate broader life skills and develop a deeper sense of self-discipline.';
+    }
+    if (lower == 'no' || lower == 'nope') {
+      return 'No, I cannot honestly say that I do. From my standpoint, there are far more practical and engaging alternatives that cater better to personal preferences.';
+    }
+    if (lower == 'ok' || lower == 'okay') {
+      return 'I completely acknowledge that perspective. However, when examining the issue closely, one must consider both the underlying advantages and potential drawbacks before arriving at a definitive conclusion.';
     }
 
-    final String userPhrase = cleanUser.endsWith('.') ? cleanUser.substring(0, cleanUser.length - 1) : cleanUser;
-    final String capUser = userPhrase.substring(0, 1).toUpperCase() + userPhrase.substring(1);
-    final int wordCount = cleanUser.split(RegExp(r'\s+')).length;
-
-    if (wordCount >= 15) {
-      return '$capUser. Furthermore, this experience provided great convenience and made the entire process much more enjoyable.';
+    // If candidate spoke about music genres
+    if (qText.contains('types of music') || qText.contains('music')) {
+      return 'To be completely honest, I have always gravitated toward $clean. I find that this genre possesses an invigorating rhythm that consistently elevates my mood and provides an instant boost of creative energy throughout the day.';
     }
 
-    return 'In terms of $userPhrase, I usually expand my response by giving direct reasons and personal examples to provide a comprehensive answer.';
+    // If candidate answered about time of day
+    if (qText.contains('times of day') || qText.contains('when')) {
+      return 'Without hesitation, I would say that $clean is my preferred time. Tuning in at that point provides a much-needed mental break and establishes a tranquil atmosphere to reflect and recharge.';
+    }
+
+    // If candidate answered about shopping / places / tourists
+    if (qText.contains('shop') || qText.contains('tourist') || qText.contains('place') || qText.contains('holiday')) {
+      final String formatted = clean.endsWith('.') ? clean.substring(0, clean.length - 1) : clean;
+      return 'I distinctly recall that $formatted. It was a remarkably memorable experience that offered genuine insight and convenience, leaving a thoroughly positive impression on me.';
+    }
+
+    // General response fine-tuning: elevate their own phrase into Band 8.5-9.0 syntax
+    String userPhrase = clean.endsWith('.') ? clean.substring(0, clean.length - 1) : clean;
+    if (userPhrase.isNotEmpty) {
+      userPhrase = userPhrase[0].toUpperCase() + userPhrase.substring(1);
+    }
+
+    final int wordCount = clean.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length;
+    if (wordCount >= 10) {
+      return '$userPhrase. Furthermore, this has had a profound impact on my perspective, and I consider it to be of paramount importance for anyone in a similar position.';
+    } else {
+      return 'Speaking from personal experience, $userPhrase. In my view, this is an essential consideration because it directly enhances personal well-being and daily effectiveness.';
+    }
   }
 
   Widget _buildYourMistakesSection() {
     final List<Map<String, String>> dynamicMistakes = [];
     final partQuestions = _getQuestionsForSelectedPart();
+    final List perQFeedback = (_examinerResults?['perQuestionFeedback'] as List?) ?? [];
 
     final int count = _userResponses.isEmpty ? partQuestions.length : _userResponses.length;
     for (int i = 0; i < count && i < partQuestions.length; i++) {
@@ -3080,12 +3419,29 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       final String userAns = (i < _userResponses.length) ? _userResponses[i].trim() : '';
 
       String wrongStr = userAns.isEmpty ? 'No verbal response recorded' : userAns;
-      String correctStr = _buildCorrectedAnswer(userAns, q);
+      String correctStr = '';
+      String critiqueStr = '';
+
+      // Check if AI provided per-question upgraded answer
+      if (i < perQFeedback.length && perQFeedback[i] is Map) {
+        final item = perQFeedback[i] as Map;
+        if (item['improvedAnswer'] != null && item['improvedAnswer'].toString().trim().isNotEmpty) {
+          correctStr = item['improvedAnswer'].toString().trim();
+        }
+        if (item['critique'] != null) {
+          critiqueStr = item['critique'].toString().trim();
+        }
+      }
+
+      if (correctStr.isEmpty) {
+        correctStr = _fineTuneStudentAnswer(userAns, q);
+      }
 
       dynamicMistakes.add({
         'question': qTitle,
         'wrong': wrongStr,
         'correct': correctStr,
+        'critique': critiqueStr,
       });
     }
 
@@ -3096,6 +3452,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.cardBorderLight),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.04),
@@ -3112,134 +3469,191 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               Container(
                 padding: const EdgeInsets.all(6),
                 decoration: const BoxDecoration(
-                  color: Color(0xFFFEF3C7),
+                  color: Color(0xFFFEE2E2),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
-                  Icons.warning_amber_rounded,
-                  color: Color(0xFFD97706),
+                  Icons.auto_fix_high,
+                  color: Color(0xFFDC2626),
                   size: 20,
                 ),
               ),
               const SizedBox(width: 10),
-              const Text(
-                'Your Mistakes',
-                style: TextStyle(
-                  color: Color(0xFF0F172A),
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
+              const Expanded(
+                child: Text(
+                  'Fine-Tuned Band 8.5–9.0 Answers',
+                  style: TextStyle(
+                    color: AppColors.textPrimaryLight,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFEE2E2),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: const Text(
-                  'ab  Wrong',
-                  style: TextStyle(
-                    color: Color(0xFFDC2626),
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.lineThrough,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFDCFCE7),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: const Text(
-                  'ab  Correct',
-                  style: TextStyle(
-                    color: Color(0xFF16A34A),
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
+          const SizedBox(height: 6),
+          const Text(
+            'Your actual spoken words upgraded with high-band vocabulary and complex structures:',
+            style: TextStyle(
+              color: AppColors.textSecondaryLight,
+              fontSize: 13,
+            ),
           ),
           const SizedBox(height: 18),
           ...List.generate(dynamicMistakes.length, (i) {
             final item = dynamicMistakes[i];
             final String displayWrong = item['wrong'] ?? '';
+            final String critique = item['critique'] ?? '';
 
             return Padding(
-              padding: const EdgeInsets.only(bottom: 18.0),
+              padding: const EdgeInsets.only(bottom: 20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    item['question']!,
-                    style: const TextStyle(
-                      color: Color(0xFFC62828),
-                      fontSize: 14.5,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: AppColors.primary,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          'Q${i + 1}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          item['question']!,
+                          style: const TextStyle(
+                            color: AppColors.textPrimaryLight,
+                            fontSize: 14.5,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 10),
+                  // What You Said (Red tint container)
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(14),
+                    padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF8FAFC),
+                      color: const Color(0xFFFEF2F2),
                       borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: const Color(0xFFFECACA)),
                     ),
-                    child: Wrap(
-                      spacing: 4,
-                      runSpacing: 6,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (displayWrong.isNotEmpty)
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFFEE2E2),
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Text(
-                              displayWrong,
-                              style: const TextStyle(
+                        Row(
+                          children: [
+                            const Icon(Icons.mic_none, size: 15, color: Color(0xFFDC2626)),
+                            const SizedBox(width: 6),
+                            const Text(
+                              'What You Said',
+                              style: TextStyle(
                                 color: Color(0xFFDC2626),
-                                fontSize: 13,
-                                decoration: TextDecoration.lineThrough,
+                                fontSize: 11.5,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                            const Spacer(),
+                            if (displayWrong.isNotEmpty && displayWrong != 'No verbal response recorded')
+                              Text(
+                                '${displayWrong.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length} words',
+                                style: const TextStyle(
+                                  color: Color(0xFFDC2626),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          displayWrong,
+                          style: TextStyle(
+                            color: displayWrong == 'No verbal response recorded' ? const Color(0xFF991B1B) : const Color(0xFF7F1D1D),
+                            fontSize: 13,
+                            height: 1.4,
+                            fontStyle: displayWrong == 'No verbal response recorded' ? FontStyle.italic : FontStyle.normal,
+                            decoration: (displayWrong.isNotEmpty && displayWrong != 'No verbal response recorded') ? TextDecoration.lineThrough : TextDecoration.none,
                           ),
-                        ...item['correct']!.split(' ').map((word) {
-                          return Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFDCFCE7),
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Text(
-                              word,
-                              style: const TextStyle(
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  // Band 8.5-9.0 Fine-Tuned Version (Green tint container)
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF0FDF4),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: const Color(0xFFBBF7D0)),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Row(
+                          children: [
+                            Icon(Icons.auto_awesome, size: 15, color: Color(0xFF16A34A)),
+                            SizedBox(width: 6),
+                            Text(
+                              'Band 8.5–9.0 Fine-Tuned Answer',
+                              style: TextStyle(
                                 color: Color(0xFF16A34A),
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
+                                fontSize: 11.5,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                          );
-                        }),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          item['correct']!,
+                          style: const TextStyle(
+                            color: Color(0xFF14532D),
+                            fontSize: 13.5,
+                            height: 1.45,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        if (critique.isNotEmpty) ...[
+                          const SizedBox(height: 8),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.8),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: Text(
+                              'Examiner Note: $critique',
+                              style: const TextStyle(
+                                color: Color(0xFF15803D),
+                                fontSize: 11.5,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
+                          ),
+                        ],
                       ],
                     ),
                   ),
                   if (i < dynamicMistakes.length - 1)
                     const Padding(
-                      padding: EdgeInsets.only(top: 14.0),
-                      child: Divider(color: Color(0xFFE2E8F0)),
+                      padding: EdgeInsets.only(top: 16.0),
+                      child: Divider(color: AppColors.cardBorderLight),
                     ),
                 ],
               ),
@@ -3270,6 +3684,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.cardBorderLight),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.04),
@@ -3284,7 +3699,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           const Text(
             'Your Responses',
             style: TextStyle(
-              color: Color(0xFF0F172A),
+              color: AppColors.textPrimaryLight,
               fontSize: 18,
               fontWeight: FontWeight.w800,
             ),
@@ -3304,9 +3719,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 width: double.infinity,
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF8FAFC),
+                  color: AppColors.surfaceTint,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: const Color(0xFFF1F5F9)),
+                  border: Border.all(color: AppColors.cardBorderLight),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -3317,7 +3732,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFC62828),
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text(
@@ -3334,7 +3749,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           child: Text(
                             'Q$qNum: ${q['question']}',
                             style: const TextStyle(
-                              color: Color(0xFF0F172A),
+                              color: AppColors.textPrimaryLight,
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
@@ -3346,7 +3761,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     Text(
                       responseText.isEmpty ? 'No response recorded' : responseText,
                       style: TextStyle(
-                        color: responseText.isEmpty ? Colors.black38 : const Color(0xFF334155),
+                        color: responseText.isEmpty ? AppColors.textSecondaryLight : AppColors.textPrimaryLight,
                         fontSize: 13.5,
                         fontStyle: responseText.isEmpty ? FontStyle.italic : FontStyle.normal,
                       ),
@@ -3358,7 +3773,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         Text(
                           '$wCount words',
                           style: const TextStyle(
-                            color: Color(0xFFC62828),
+                            color: AppColors.primary,
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                           ),
@@ -3391,8 +3806,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             child: CircularProgressIndicator(
               value: (band / 9.0).clamp(0.1, 1.0),
               strokeWidth: 8,
-              backgroundColor: const Color(0xFFF1F5F9),
-              valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFC62828)),
+              backgroundColor: AppColors.surfaceTint,
+              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
             ),
           ),
           Column(
@@ -3401,7 +3816,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               Text(
                 band.toStringAsFixed(1),
                 style: const TextStyle(
-                  color: Color(0xFF0F172A),
+                  color: AppColors.textPrimaryLight,
                   fontSize: 34,
                   fontWeight: FontWeight.w900,
                 ),
@@ -3409,7 +3824,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               const Text(
                 'Band',
                 style: TextStyle(
-                  color: Color(0xFF64748B),
+                  color: AppColors.textSecondaryLight,
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
                 ),
@@ -3427,10 +3842,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     required int score,
     required String feedbackText,
   }) {
-    Color dotColor = const Color(0xFF3B82F6);
-    if (dotColorHex == 'purple') dotColor = const Color(0xFFA855F7);
-    if (dotColorHex == 'orange') dotColor = const Color(0xFFF97316);
-    if (dotColorHex == 'green') dotColor = const Color(0xFF22C55E);
+    Color dotColor = AppColors.primary;
+    if (dotColorHex == 'purple') dotColor = const Color(0xFF0D9488); // Teal
+    if (dotColorHex == 'orange') dotColor = AppColors.accent; // Coral
+    if (dotColorHex == 'green') dotColor = const Color(0xFF059669); // Minty green
 
     return Container(
       width: double.infinity,
@@ -3439,6 +3854,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.cardBorderLight),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.04),
@@ -3464,7 +3880,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   Text(
                     title,
                     style: const TextStyle(
-                      color: Color(0xFF0F172A),
+                      color: AppColors.textPrimaryLight,
                       fontSize: 16,
                       fontWeight: FontWeight.w800,
                     ),
@@ -3474,7 +3890,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFEF4444),
+                  color: AppColors.primary,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -3492,7 +3908,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           Text(
             feedbackText,
             style: const TextStyle(
-              color: Color(0xFF475569),
+              color: AppColors.textSecondaryLight,
               fontSize: 13.5,
               height: 1.5,
               fontWeight: FontWeight.w400,
@@ -3503,7 +3919,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             width: 90,
             height: 3.5,
             decoration: BoxDecoration(
-              color: const Color(0xFFEF4444),
+              color: AppColors.primary,
               borderRadius: BorderRadius.circular(2),
             ),
           ),

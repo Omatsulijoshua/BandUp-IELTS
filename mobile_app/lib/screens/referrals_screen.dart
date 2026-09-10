@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../services/api_service.dart';
+import '../theme/app_colors.dart';
 
 class ReferralsScreen extends StatefulWidget {
   const ReferralsScreen({super.key});
@@ -215,9 +216,10 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
     });
 
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0B1E36),
+        backgroundColor: AppColors.primary,
+        elevation: 0,
         title: const Text('Referrals & Earnings', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
@@ -225,7 +227,7 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
         ),
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator(color: Color(0xFFD4AF37)))
+          ? const Center(child: CircularProgressIndicator(color: AppColors.primary))
           : SingleChildScrollView(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -236,18 +238,18 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                     padding: const EdgeInsets.all(14),
                     margin: const EdgeInsets.only(bottom: 16),
                     decoration: BoxDecoration(
-                      color: Colors.amber.withOpacity(0.08),
+                      color: AppColors.surfaceTint,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Colors.amber.withOpacity(0.2)),
+                      border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
                     ),
                     child: Row(
                       children: [
-                        const Icon(Icons.campaign_rounded, color: Color(0xFFD4AF37), size: 24),
+                        const Icon(Icons.campaign_rounded, color: AppColors.primary, size: 24),
                         const SizedBox(width: 12),
                         Expanded(
                           child: Text(
                             'Notice: Payment of referral earnings is processed on the 21st of every month.',
-                            style: TextStyle(color: Colors.amber[200], fontSize: 11, fontWeight: FontWeight.w600, height: 1.3),
+                            style: TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.w600, height: 1.3),
                           ),
                         ),
                       ],
@@ -259,9 +261,16 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                     padding: const EdgeInsets.all(14),
                     margin: const EdgeInsets.only(bottom: 16),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF0B1E36),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: const Color(0xFF1E3E6E)),
+                      border: Border.all(color: AppColors.cardBorderLight),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.03),
+                          blurRadius: 6,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -274,16 +283,16 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFF050E1A),
+                                    color: AppColors.backgroundLight,
                                     borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(color: const Color(0xFF1E3E6E)),
+                                    border: Border.all(color: AppColors.cardBorderLight),
                                   ),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      const Text('START DATE', style: TextStyle(color: Colors.white38, fontSize: 8, fontWeight: FontWeight.bold)),
+                                      const Text('START DATE', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 8, fontWeight: FontWeight.bold)),
                                       const SizedBox(height: 2),
-                                      Text(_formatDateYMD(_startDateInput), style: const TextStyle(color: Colors.white, fontSize: 11)),
+                                      Text(_formatDateYMD(_startDateInput), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 11)),
                                     ],
                                   ),
                                 ),
@@ -296,16 +305,16 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFF050E1A),
+                                    color: AppColors.backgroundLight,
                                     borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(color: const Color(0xFF1E3E6E)),
+                                    border: Border.all(color: AppColors.cardBorderLight),
                                   ),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      const Text('END DATE', style: TextStyle(color: Colors.white38, fontSize: 8, fontWeight: FontWeight.bold)),
+                                      const Text('END DATE', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 8, fontWeight: FontWeight.bold)),
                                       const SizedBox(height: 2),
-                                      Text(_formatDateYMD(_endDateInput), style: const TextStyle(color: Colors.white, fontSize: 11)),
+                                      Text(_formatDateYMD(_endDateInput), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 11)),
                                     ],
                                   ),
                                 ),
@@ -326,12 +335,12 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                                   _filterEnd = null;
                                 });
                               },
-                              child: const Text('Clear', style: TextStyle(color: Colors.white60, fontSize: 12)),
+                              child: const Text('Clear', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12)),
                             ),
                             const SizedBox(width: 8),
                             ElevatedButton.icon(
-                              icon: const Icon(Icons.search_rounded, size: 14, color: Colors.black),
-                              label: const Text('Filter', style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold)),
+                              icon: const Icon(Icons.search_rounded, size: 14, color: Colors.white),
+                              label: const Text('Filter', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
                               onPressed: () {
                                 setState(() {
                                   _filterStart = _startDateInput;
@@ -339,7 +348,8 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                                 });
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFFD4AF37),
+                                backgroundColor: AppColors.accent,
+                                elevation: 0,
                                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                               ),
@@ -365,12 +375,11 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
-                          colors: [Color(0xFF0B1E36), Color(0xFF1E3E6E)],
+                          colors: [AppColors.primary, Color(0xFF115E59)],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
                       ),
                       child: Column(
                         children: [
@@ -380,26 +389,26 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(earningsLabel, style: const TextStyle(color: Color(0xFF94A3B8), fontSize: 11, fontWeight: FontWeight.bold)),
+                                  Text(earningsLabel, style: const TextStyle(color: Colors.white70, fontSize: 11, fontWeight: FontWeight.bold)),
                                   const SizedBox(height: 4),
-                                  Text('₦${displayBalance.toStringAsFixed(0)}', style: const TextStyle(color: Color(0xFFD4AF37), fontSize: 24, fontWeight: FontWeight.bold)),
+                                  Text('₦${displayBalance.toStringAsFixed(0)}', style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
                                 ],
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Text(monthOrCountLabel, style: const TextStyle(color: Color(0xFF94A3B8), fontSize: 11, fontWeight: FontWeight.bold)),
+                                  Text(monthOrCountLabel, style: const TextStyle(color: Colors.white70, fontSize: 11, fontWeight: FontWeight.bold)),
                                   const SizedBox(height: 4),
                                   Text(
                                     isFiltered ? '${filteredCount.toInt()} users' : '₦${thisMonth.toStringAsFixed(0)}',
-                                    style: TextStyle(color: isFiltered ? Colors.greenAccent : Colors.greenAccent, fontSize: isFiltered ? 18 : 20, fontWeight: FontWeight.bold),
+                                    style: const TextStyle(color: Color(0xFF6EE7B7), fontSize: 20, fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
                             ],
                           ),
                           const SizedBox(height: 16),
-                          const Divider(color: Colors.white10),
+                          const Divider(color: Colors.white24),
                           const SizedBox(height: 8),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -407,7 +416,7 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(withdrawableLabel, style: const TextStyle(color: Colors.white54, fontSize: 10)),
+                                  Text(withdrawableLabel, style: const TextStyle(color: Colors.white70, fontSize: 10)),
                                   const SizedBox(height: 2),
                                   Text('₦${displayWithdrawable.toStringAsFixed(0)}', style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
                                 ],
@@ -415,9 +424,9 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Text(pendingLabel, style: const TextStyle(color: Colors.white54, fontSize: 10)),
+                                  Text(pendingLabel, style: const TextStyle(color: Colors.white70, fontSize: 10)),
                                   const SizedBox(height: 2),
-                                  Text('₦${displayPending.toStringAsFixed(0)}', style: const TextStyle(color: Colors.amberAccent, fontSize: 14, fontWeight: FontWeight.bold)),
+                                  Text('₦${displayPending.toStringAsFixed(0)}', style: const TextStyle(color: Color(0xFFFED7AA), fontSize: 14, fontWeight: FontWeight.bold)),
                                 ],
                               ),
                             ],
@@ -432,35 +441,42 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF0B1E36),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: const Color(0xFF1E3E6E)),
+                      border: Border.all(color: AppColors.cardBorderLight),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.03),
+                          blurRadius: 6,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Your Master Referral Link', style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+                        const Text('Your Master Referral Link', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold)),
                         const SizedBox(height: 4),
-                        const Text('Share this link to earn per referred user once they subscribe to any plan.', style: TextStyle(color: Colors.white38, fontSize: 10)),
+                        const Text('Share this link to earn per referred user once they subscribe to any plan.', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                         const SizedBox(height: 12),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF050E1A),
+                            color: AppColors.backgroundLight,
                             borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: const Color(0xFF152A4A)),
+                            border: Border.all(color: AppColors.cardBorderLight),
                           ),
                           child: Row(
                             children: [
                               Expanded(
                                 child: Text(
                                   refLink,
-                                  style: const TextStyle(color: Colors.white70, fontSize: 11),
+                                  style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 11),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               IconButton(
-                                icon: const Icon(Icons.copy_rounded, color: Color(0xFFD4AF37), size: 18),
+                                icon: const Icon(Icons.copy_rounded, color: AppColors.primary, size: 18),
                                 onPressed: () {
                                   Clipboard.setData(ClipboardData(text: refLink));
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -480,18 +496,18 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Invited Friends & Status', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                      const Text('Invited Friends & Status', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 15, fontWeight: FontWeight.bold)),
                       if (isFiltered)
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFD4AF37).withOpacity(0.1),
+                            color: AppColors.surfaceTint,
                             borderRadius: BorderRadius.circular(6),
-                            border: Border.all(color: const Color(0xFFD4AF37).withOpacity(0.2)),
+                            border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
                           ),
                           child: const Text(
                             'Filtered Range',
-                            style: TextStyle(color: Color(0xFFD4AF37), fontSize: 9, fontWeight: FontWeight.bold),
+                            style: TextStyle(color: AppColors.primary, fontSize: 9, fontWeight: FontWeight.bold),
                           ),
                         ),
                     ],
@@ -501,31 +517,38 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                       ? Container(
                           padding: const EdgeInsets.all(24),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF0B1E36),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(16),
-                            border: Border.all(color: const Color(0xFF1E3E6E)),
+                            border: Border.all(color: AppColors.cardBorderLight),
                           ),
                           child: const Center(
                             child: Column(
                               children: [
-                                Icon(Icons.people_outline_rounded, color: Colors.white24, size: 36),
+                                Icon(Icons.people_outline_rounded, color: AppColors.textSecondaryLight, size: 36),
                                 SizedBox(height: 8),
-                                Text('No referrals yet. Share your link to start earning!', style: TextStyle(color: Colors.white38, fontSize: 11)),
+                                Text('No referrals yet. Share your link to start earning!', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                               ],
                             ),
                           ),
                         )
                       : Container(
                           decoration: BoxDecoration(
-                            color: const Color(0xFF0B1E36),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(16),
-                            border: Border.all(color: const Color(0xFF1E3E6E)),
+                            border: Border.all(color: AppColors.cardBorderLight),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: 0.03),
+                                blurRadius: 6,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
                           ),
                           child: ListView.separated(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount: referralsList.length,
-                            separatorBuilder: (context, index) => const Divider(color: Colors.white10, height: 1),
+                            separatorBuilder: (context, index) => const Divider(color: AppColors.cardBorderLight, height: 1),
                             itemBuilder: (context, idx) {
                               final item = referralsList[idx];
                               final isPaid = item['isPaidUser'] == true;
@@ -538,10 +561,10 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                                   children: [
                                     CircleAvatar(
                                       radius: 16,
-                                      backgroundColor: isPaid ? Colors.green.withOpacity(0.1) : Colors.white10,
+                                      backgroundColor: isPaid ? AppColors.surfaceTint : Colors.grey.withValues(alpha: 0.1),
                                       child: Text(
                                         (item['name'] as String? ?? 'S').substring(0, 1).toUpperCase(),
-                                        style: TextStyle(color: isPaid ? Colors.greenAccent : Colors.white54, fontSize: 12, fontWeight: FontWeight.bold),
+                                        style: TextStyle(color: isPaid ? AppColors.primary : AppColors.textSecondaryLight, fontSize: 12, fontWeight: FontWeight.bold),
                                       ),
                                     ),
                                     const SizedBox(width: 12),
@@ -551,12 +574,12 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                                         children: [
                                           Text(
                                             item['name'] ?? 'Invited User',
-                                            style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                                            style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.bold),
                                           ),
                                           const SizedBox(height: 2),
                                           Text(
                                             'Invited: $dateStr',
-                                            style: const TextStyle(color: Colors.white38, fontSize: 9),
+                                            style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 9),
                                           ),
                                         ],
                                       ),
@@ -567,19 +590,19 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                                         Container(
                                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                                           decoration: BoxDecoration(
-                                            color: isPaid ? Colors.green.withOpacity(0.08) : Colors.amber.withOpacity(0.08),
+                                            color: isPaid ? AppColors.surfaceTint : Colors.grey.withValues(alpha: 0.1),
                                             borderRadius: BorderRadius.circular(6),
-                                            border: Border.all(color: isPaid ? Colors.green.withOpacity(0.2) : Colors.amber.withOpacity(0.2)),
+                                            border: Border.all(color: isPaid ? AppColors.primary.withValues(alpha: 0.3) : Colors.grey.withValues(alpha: 0.2)),
                                           ),
                                           child: Text(
                                             isPaid ? 'Paid' : 'Unpaid',
-                                            style: TextStyle(color: isPaid ? Colors.greenAccent : Colors.amberAccent, fontSize: 9, fontWeight: FontWeight.bold),
+                                            style: TextStyle(color: isPaid ? AppColors.primary : AppColors.textSecondaryLight, fontSize: 9, fontWeight: FontWeight.bold),
                                           ),
                                         ),
                                         const SizedBox(height: 4),
                                         Text(
                                           isPaid ? '+₦${earned.toStringAsFixed(0)}' : '₦0 (Pending)',
-                                          style: TextStyle(color: isPaid ? Colors.greenAccent : Colors.white38, fontSize: 10, fontWeight: FontWeight.bold),
+                                          style: TextStyle(color: isPaid ? AppColors.primary : AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold),
                                         ),
                                       ],
                                     ),
@@ -592,14 +615,21 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                   const SizedBox(height: 24),
 
                   // 4. Payout Bank Details
-                  const Text('Payout Bank Account Details', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                  const Text('Payout Bank Account Details', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 15, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 12),
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF0B1E36),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: const Color(0xFF1E3E6E)),
+                      border: Border.all(color: AppColors.cardBorderLight),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.03),
+                          blurRadius: 6,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -612,11 +642,13 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                         const SizedBox(height: 14),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF10B981),
+                            backgroundColor: AppColors.primary,
+                            elevation: 0,
+                            padding: const EdgeInsets.symmetric(vertical: 12),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                           ),
                           onPressed: _verifying ? null : _verifyDetails,
-                          child: Text(_verifying ? 'Saving details...' : 'Save Bank Account', style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                          child: Text(_verifying ? 'Saving details...' : 'Save Bank Account', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                         ),
                       ],
                     ),
@@ -625,14 +657,21 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
 
                   // 5. Request Payout Section
                   if (_stats?['isReferralVerified'] == true) ...[
-                    const Text('Request Payout', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                    const Text('Request Payout', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 15, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 12),
                     Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0B1E36),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
+                        border: Border.all(color: AppColors.cardBorderLight),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.03),
+                            blurRadius: 6,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -641,24 +680,26 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                             padding: const EdgeInsets.all(12),
                             margin: const EdgeInsets.only(bottom: 12),
                             decoration: BoxDecoration(
-                              color: Colors.blue.withOpacity(0.08),
+                              color: AppColors.surfaceTint,
                               borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.blue.withOpacity(0.15)),
+                              border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
                             ),
                             child: const Text(
                               'ℹ️ Payout Schedule Notice: Payout requests are verified and paid on the 21st of every month. You can only request one payout at a time.',
-                              style: TextStyle(color: Colors.blueAccent, fontSize: 10, height: 1.4),
+                              style: TextStyle(color: AppColors.primary, fontSize: 11, height: 1.4),
                             ),
                           ),
                           _buildTextField(_amountController, 'Amount (₦)', keyboardType: TextInputType.number),
                           const SizedBox(height: 14),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFFD4AF37),
+                              backgroundColor: AppColors.accent,
+                              elevation: 0,
+                              padding: const EdgeInsets.symmetric(vertical: 12),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                             ),
                             onPressed: _withdrawing ? null : _requestWithdrawal,
-                            child: Text(_withdrawing ? 'Processing payout...' : 'Request Payout', style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                            child: Text(_withdrawing ? 'Processing payout...' : 'Request Payout', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                           ),
                         ],
                       ),
@@ -667,11 +708,11 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Colors.yellow.withOpacity(0.08),
+                        color: Colors.amber.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.yellow.withOpacity(0.15)),
+                        border: Border.all(color: Colors.amber.withValues(alpha: 0.3)),
                       ),
-                      child: const Text('⚠️ Save and verify your payout bank details above to enable withdrawals request.', style: TextStyle(color: Colors.yellowAccent, fontSize: 11)),
+                      child: const Text('⚠️ Save and verify your payout bank details above to enable withdrawals request.', style: TextStyle(color: Color(0xFFB45309), fontSize: 11)),
                     ),
                   ],
                 ],
@@ -684,15 +725,23 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
     return TextField(
       controller: controller,
       keyboardType: keyboardType,
-      style: const TextStyle(color: Colors.white, fontSize: 13),
+      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13),
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: const TextStyle(color: Color(0xFF64748B), fontSize: 12),
+        labelStyle: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
         filled: true,
-        fillColor: const Color(0xFF050E1A),
+        fillColor: AppColors.backgroundLight,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xFF1E3E6E)),
+          borderSide: const BorderSide(color: AppColors.cardBorderLight),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: AppColors.cardBorderLight),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
         ),
       ),
     );

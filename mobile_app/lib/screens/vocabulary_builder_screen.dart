@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
 import '../providers/auth_provider.dart';
+import '../theme/app_colors.dart';
 import 'subscription_screen.dart';
 
 class VocabularyBuilderScreen extends ConsumerStatefulWidget {
@@ -77,16 +78,20 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            backgroundColor: const Color(0xFF0B1E36),
-            title: const Text('Free Limit Reached', style: TextStyle(color: Colors.white)),
-            content: const Text('You have used all 3 free vocabulary generations. Upgrade to Premium for unlimited access!', style: TextStyle(color: Colors.white70)),
+            backgroundColor: Colors.white,
+            title: const Text('Free Limit Reached', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold)),
+            content: const Text('You have used all 3 free vocabulary generations. Upgrade to Premium for unlimited access!', style: TextStyle(color: AppColors.textSecondaryLight)),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel', style: TextStyle(color: Colors.white54)),
+                child: const Text('Cancel', style: TextStyle(color: AppColors.textSecondaryLight)),
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFC62828)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.accent,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
@@ -148,17 +153,17 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
     final bool showResults = _words != null && _words!.isNotEmpty;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: const Color(0xFFF9FBFA),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color(0xFF0F766E),
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xFFC62828), size: 16),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 16),
           label: const Text(
             'Back',
-            style: TextStyle(color: Color(0xFFC62828), fontSize: 14, fontWeight: FontWeight.bold),
+            style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ),
         title: const Text(
@@ -180,14 +185,14 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
                 Center(
                   child: Text(
                     '$_freeUses free uses remaining',
-                    style: const TextStyle(color: Colors.white38, fontSize: 11),
+                    style: const TextStyle(color: Color(0xFF6B7280), fontSize: 11),
                   ),
                 ),
               ],
               const SizedBox(height: 24),
               Text(
                 '$_activeTopicTitle Vocabulary',
-                style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
+                style: const TextStyle(color: Color(0xFF1F2937), fontSize: 14, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
               _buildWordsList(),
@@ -195,7 +200,7 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
               // Choose a Topic
               const Text(
                 'Choose a Topic',
-                style: TextStyle(color: Colors.white60, fontSize: 11, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Color(0xFF4B5563), fontSize: 11, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 12),
 
@@ -222,14 +227,14 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color: isSelected ? const Color(0xFFC62828) : Colors.white,
+                        color: isSelected ? const Color(0xFF0F766E) : const Color(0xFFE6F4F1),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       alignment: Alignment.center,
                       child: Text(
                         topic,
                         style: TextStyle(
-                          color: isSelected ? Colors.white : Colors.black54,
+                          color: isSelected ? Colors.white : const Color(0xFF1F2937),
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
                         ),
@@ -246,18 +251,19 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: const Color(0xFFE2E8F0)),
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.edit, color: Color(0xFFC62828), size: 16),
+                    const Icon(Icons.edit, color: Color(0xFF0F766E), size: 16),
                     const SizedBox(width: 8),
                     Expanded(
                       child: TextField(
                         controller: _customTopicController,
-                        style: const TextStyle(color: Colors.black87, fontSize: 12),
+                        style: const TextStyle(color: Color(0xFF1F2937), fontSize: 12),
                         decoration: const InputDecoration(
                           hintText: 'Or type your own topic...',
-                          hintStyle: TextStyle(color: Colors.black26),
+                          hintStyle: TextStyle(color: Color(0xFF9CA3AF)),
                           border: InputBorder.none,
                         ),
                       ),
@@ -274,7 +280,7 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
                 Center(
                   child: Text(
                     '$_freeUses free uses remaining',
-                    style: const TextStyle(color: Colors.white38, fontSize: 11),
+                    style: const TextStyle(color: Color(0xFF6B7280), fontSize: 11),
                   ),
                 ),
               ],
@@ -292,7 +298,7 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
       child: ElevatedButton.icon(
         onPressed: _isGenerateEnabled ? _generateVocabulary : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: _isGenerateEnabled ? const Color(0xFFC62828) : const Color(0xFFE2E8F0),
+          backgroundColor: _isGenerateEnabled ? const Color(0xFFF97316) : const Color(0xFFE2E8F0),
           foregroundColor: _isGenerateEnabled ? Colors.white : Colors.black38,
           disabledBackgroundColor: const Color(0xFFE2E8F0),
           disabledForegroundColor: Colors.black38,
@@ -340,18 +346,18 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
         final String example = w['example'] ?? '';
         final List<dynamic> synonyms = w['synonyms'] as List? ?? [];
 
-        // Determine Band badge color: Green for Band 7/8+, Orange/Amber for lower
+        // Determine Band badge color: Deep Teal for Band 7/8+, Coral for lower
         final bool isHighBand = band.contains('7+') || band.contains('8+') || band.contains('9');
-        final Color badgeBg = isHighBand ? const Color(0xFFDCFCE7) : const Color(0xFFFEF3C7);
-        final Color badgeText = isHighBand ? const Color(0xFF16A34A) : const Color(0xFFD97706);
+        final Color badgeBg = isHighBand ? const Color(0xFF0F766E) : const Color(0xFFF97316);
+        const Color badgeText = Colors.white;
 
         return Container(
           margin: const EdgeInsets.only(bottom: 16),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: const Color(0xFF0B1E36),
+            color: const Color(0xFFE6F4F1), // Soft Sage / Mint card
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: const Color(0xFF1E3E6E)),
+            border: Border.all(color: const Color(0xFF0F766E).withValues(alpha: 0.1)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -361,18 +367,18 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
                 children: [
                   Text(
                     word,
-                    style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(color: Color(0xFF1F2937), fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFFEE2E2),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: Text(
                       partOfSpeech,
-                      style: const TextStyle(color: Color(0xFFEF4444), fontSize: 9, fontWeight: FontWeight.bold),
+                      style: const TextStyle(color: Color(0xFF0F766E), fontSize: 9, fontWeight: FontWeight.bold),
                     ),
                   ),
                   const Spacer(),
@@ -384,7 +390,7 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
                     ),
                     child: Text(
                       band,
-                      style: TextStyle(color: badgeText, fontSize: 10, fontWeight: FontWeight.bold),
+                      style: const TextStyle(color: badgeText, fontSize: 10, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -394,7 +400,7 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
               // Definition text
               Text(
                 definition,
-                style: const TextStyle(color: Colors.white70, fontSize: 12, height: 1.4),
+                style: const TextStyle(color: Color(0xFF1F2937), fontSize: 12, height: 1.4),
               ),
               const SizedBox(height: 12),
 
@@ -403,19 +409,19 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
                 width: double.infinity,
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFC62828).withValues(alpha: 0.05),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: const Color(0xFFC62828).withValues(alpha: 0.1)),
+                  border: Border.all(color: const Color(0xFF0F766E).withValues(alpha: 0.1)),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(Icons.format_quote, color: Color(0xFFC62828), size: 16),
+                    const Icon(Icons.format_quote, color: Color(0xFF0F766E), size: 16),
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(
                         example,
-                        style: const TextStyle(color: Colors.white70, fontSize: 11, fontStyle: FontStyle.italic, height: 1.4),
+                        style: const TextStyle(color: Color(0xFF4B5563), fontSize: 11, fontStyle: FontStyle.italic, height: 1.4),
                       ),
                     ),
                   ],
@@ -429,7 +435,7 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
                   children: [
                     const Text(
                       'Synonyms: ',
-                      style: TextStyle(color: Colors.white38, fontSize: 10),
+                      style: TextStyle(color: Color(0xFF6B7280), fontSize: 10),
                     ),
                     Expanded(
                       child: Wrap(
@@ -438,12 +444,12 @@ class _VocabularyBuilderScreenState extends ConsumerState<VocabularyBuilderScree
                           return Container(
                             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                             decoration: BoxDecoration(
-                              color: const Color(0xFFF1F5F9).withValues(alpha: 0.1),
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(6),
                             ),
                             child: Text(
                               s.toString(),
-                              style: const TextStyle(color: Colors.white70, fontSize: 9),
+                              style: const TextStyle(color: Color(0xFF1F2937), fontSize: 9),
                             ),
                           );
                         }).toList(),

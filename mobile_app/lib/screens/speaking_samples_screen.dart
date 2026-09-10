@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
 import '../providers/auth_provider.dart';
+import '../theme/app_colors.dart';
 import 'subscription_screen.dart';
 
 class SpeakingSamplesScreen extends ConsumerStatefulWidget {
@@ -51,16 +52,20 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            backgroundColor: const Color(0xFF0B1E36),
-            title: const Text('Free Limit Reached', style: TextStyle(color: Colors.white)),
-            content: const Text('You have used all 3 free speaking sample generations. Upgrade to Premium for unlimited access!', style: TextStyle(color: Colors.white70)),
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            title: const Text('Free Limit Reached', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold)),
+            content: const Text('You have used all 3 free speaking sample generations. Upgrade to Premium for unlimited access!', style: TextStyle(color: AppColors.textSecondaryLight)),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel', style: TextStyle(color: Colors.white54)),
+                child: const Text('Cancel', style: TextStyle(color: AppColors.textSecondaryLight)),
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFC62828)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.accent,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
@@ -127,8 +132,7 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
     final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
 
     // Theme values
-    final bool isLightTheme = true; // Match clean white/grey layout from screenshots
-    final Color bgColor = const Color(0xFFF4F6FB);
+    final Color bgColor = AppColors.backgroundLight;
     final Color cardColor = Colors.white;
 
     String bannerText = '';
@@ -150,12 +154,12 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black87, size: 20),
+          icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 20),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
           'Speaking Samples',
-          style: TextStyle(color: Colors.black87, fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -170,9 +174,10 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.cardBorderLight),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.02),
+                    color: Colors.black.withValues(alpha: 0.02),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -192,19 +197,19 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const Color(0xFFFDF2E9), // Light orange/brown banner bg
+                color: AppColors.surfaceTint,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: const Color(0xFFFDE8D0)),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.lightbulb, color: Colors.orange, size: 18),
+                  const Icon(Icons.lightbulb, color: AppColors.primary, size: 18),
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
                       bannerText,
-                      style: const TextStyle(color: Color(0xFF7A4515), fontSize: 11, height: 1.4, fontWeight: FontWeight.w500),
+                      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 11, height: 1.4, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
@@ -215,7 +220,7 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
             // Question input section title
             const Text(
               'Enter your topic or question',
-              style: TextStyle(color: Colors.black87, fontSize: 13, fontWeight: FontWeight.bold),
+              style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
 
@@ -225,9 +230,10 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
               decoration: BoxDecoration(
                 color: cardColor,
                 borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppColors.cardBorderLight),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.02),
+                    color: Colors.black.withValues(alpha: 0.02),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -236,10 +242,10 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
               child: TextField(
                 controller: _topicController,
                 maxLines: 4,
-                style: const TextStyle(color: Colors.black87, fontSize: 14),
+                style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 14),
                 decoration: InputDecoration(
                   hintText: placeholderText,
-                  hintStyle: const TextStyle(color: Colors.black26),
+                  hintStyle: const TextStyle(color: AppColors.textSecondaryLight),
                   border: InputBorder.none,
                 ),
               ),
@@ -253,16 +259,16 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
               child: ElevatedButton.icon(
                 onPressed: _isGenerateEnabled ? _generateAnswer : null,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: _isGenerateEnabled ? const Color(0xFFC62828) : const Color(0xFFE2E8F0),
-                  foregroundColor: _isGenerateEnabled ? Colors.white : Colors.black38,
+                  backgroundColor: _isGenerateEnabled ? AppColors.accent : const Color(0xFFE2E8F0),
+                  foregroundColor: _isGenerateEnabled ? Colors.white : AppColors.textSecondaryLight,
                   disabledBackgroundColor: const Color(0xFFE2E8F0),
-                  disabledForegroundColor: Colors.black38,
+                  disabledForegroundColor: AppColors.textSecondaryLight,
                   elevation: 0,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
                 icon: _submitting
                     ? const SizedBox.shrink()
-                    : Icon(Icons.auto_awesome, size: 16, color: _isGenerateEnabled ? Colors.white : Colors.black26),
+                    : Icon(Icons.auto_awesome, size: 16, color: _isGenerateEnabled ? Colors.white : AppColors.textSecondaryLight),
                 label: _submitting
                     ? const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -291,7 +297,7 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
               Center(
                 child: Text(
                   '$_freeTriesRemaining free uses remaining',
-                  style: const TextStyle(color: Colors.black45, fontSize: 11, fontWeight: FontWeight.w500),
+                  style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, fontWeight: FontWeight.w500),
                 ),
               ),
             ],
@@ -301,7 +307,7 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
             if (_sampleAnswer != null) ...[
               const Text(
                 'Model Answer (Band 9)',
-                style: TextStyle(color: Colors.black87, fontSize: 13, fontWeight: FontWeight.bold),
+                style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 12),
               Container(
@@ -310,9 +316,10 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: AppColors.cardBorderLight),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.02),
+                      color: Colors.black.withValues(alpha: 0.02),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -323,7 +330,7 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
                   children: [
                     SelectableText(
                       _sampleAnswer!,
-                      style: const TextStyle(color: Colors.black87, fontSize: 13, height: 1.4),
+                      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, height: 1.4),
                     ),
                     const SizedBox(height: 14),
                     GestureDetector(
@@ -331,11 +338,11 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
                       child: const Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.copy, color: Color(0xFFC62828), size: 14),
+                          Icon(Icons.copy, color: AppColors.primary, size: 14),
                           SizedBox(width: 4),
                           Text(
                             'Copy text',
-                            style: TextStyle(color: Color(0xFFC62828), fontSize: 12, fontWeight: FontWeight.bold),
+                            style: TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -363,14 +370,14 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
       child: Container(
         height: 38,
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFC62828) : Colors.transparent,
+          color: isSelected ? AppColors.primary : Colors.transparent,
           borderRadius: BorderRadius.circular(10),
         ),
         alignment: Alignment.center,
         child: Text(
           label,
           style: TextStyle(
-            color: isSelected ? Colors.white : Colors.black54,
+            color: isSelected ? Colors.white : AppColors.textSecondaryLight,
             fontSize: 12,
             fontWeight: FontWeight.bold,
           ),

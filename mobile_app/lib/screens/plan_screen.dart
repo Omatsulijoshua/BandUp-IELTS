@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../theme/app_colors.dart';
 import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 import '../services/localization.dart';
@@ -168,10 +169,10 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
           ];
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F6FB),
+      backgroundColor: AppColors.backgroundLight,
       body: SafeArea(
         child: _isLoading
-            ? const Center(child: CircularProgressIndicator(color: Color(0xFFC62828)))
+            ? const Center(child: CircularProgressIndicator(color: AppColors.primary))
             : SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 14.0),
                 child: Column(
@@ -186,7 +187,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                         const Text(
                           'Your Study Plan',
                           style: TextStyle(
-                            color: Color(0xFF0F172A),
+                            color: AppColors.textPrimaryLight,
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
@@ -213,7 +214,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                             ),
                             child: const Icon(
                               Icons.refresh_rounded,
-                              color: Color(0xFF64748B),
+                              color: AppColors.textSecondaryLight,
                               size: 18,
                             ),
                           ),
@@ -225,23 +226,23 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                     // Badges Row
                     Row(
                       children: [
-                        const Icon(Icons.track_changes_rounded, color: Color(0xFFC62828), size: 16),
+                        const Icon(Icons.track_changes_rounded, color: AppColors.primary, size: 16),
                         const SizedBox(width: 6),
                         Text(
                           'Band $targetBandStr',
                           style: const TextStyle(
-                            color: Color(0xFFC62828),
+                            color: AppColors.primary,
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         const SizedBox(width: 16),
-                        const Icon(Icons.calendar_month_rounded, color: Color(0xFF64748B), size: 16),
+                        const Icon(Icons.calendar_month_rounded, color: AppColors.textSecondaryLight, size: 16),
                         const SizedBox(width: 6),
                         Text(
                           examDateFormatted,
                           style: const TextStyle(
-                            color: Color(0xFF64748B),
+                            color: AppColors.textSecondaryLight,
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                           ),
@@ -270,12 +271,12 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                             width: 44,
                             height: 44,
                             decoration: BoxDecoration(
-                              color: const Color(0xFFF1F5F9),
+                              color: AppColors.accentBgLight,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: const Icon(
                               Icons.local_fire_department_rounded,
-                              color: Color(0xFF64748B),
+                              color: AppColors.accent,
                               size: 22,
                             ),
                           ),
@@ -286,7 +287,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                               Text(
                                 '${user?['streak'] ?? 0}',
                                 style: const TextStyle(
-                                  color: Color(0xFF0F172A),
+                                  color: AppColors.textPrimaryLight,
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -294,7 +295,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                               const Text(
                                 'day streak',
                                 style: TextStyle(
-                                  color: Color(0xFF64748B),
+                                  color: AppColors.textSecondaryLight,
                                   fontSize: 11,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -326,7 +327,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                           const Text(
                             'Band Progress',
                             style: TextStyle(
-                              color: Color(0xFF0F172A),
+                              color: AppColors.textPrimaryLight,
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
@@ -338,12 +339,12 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                           const SizedBox(height: 14),
                           _buildBandProgressRow('Writing', Icons.edit_rounded, const Color(0xFFD97706), targetBand),
                           const SizedBox(height: 14),
-                          _buildBandProgressRow('Speaking', Icons.mic_rounded, const Color(0xFF16A34A), targetBand),
+                          _buildBandProgressRow('Speaking', Icons.mic_rounded, AppColors.primary, targetBand),
                           const SizedBox(height: 14),
                           const Text(
                             'Complete practice tests to see your estimated band per skill.',
                             style: TextStyle(
-                              color: Color(0xFF94A3B8),
+                              color: AppColors.textSecondaryLight,
                               fontSize: 10.5,
                             ),
                           ),
@@ -359,7 +360,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                         const Text(
                           'Today',
                           style: TextStyle(
-                            color: Color(0xFF0F172A),
+                            color: AppColors.textPrimaryLight,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
@@ -367,7 +368,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                         Text(
                           '$todayDone/$todayTotal • ~125 min left',
                           style: const TextStyle(
-                            color: Color(0xFF64748B),
+                            color: AppColors.textSecondaryLight,
                             fontSize: 11,
                             fontWeight: FontWeight.w600,
                           ),
@@ -445,7 +446,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                         Text(
                                           task['title'] ?? '',
                                           style: const TextStyle(
-                                            color: Color(0xFF0F172A),
+                                            color: AppColors.textPrimaryLight,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 13,
                                           ),
@@ -455,12 +456,12 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                         const SizedBox(height: 4),
                                         Row(
                                           children: [
-                                            const Icon(Icons.access_time_rounded, size: 12, color: Color(0xFF94A3B8)),
+                                            const Icon(Icons.access_time_rounded, size: 12, color: AppColors.textSecondaryLight),
                                             const SizedBox(width: 4),
                                             Text(
                                               duration,
                                               style: const TextStyle(
-                                                color: Color(0xFF94A3B8),
+                                                color: AppColors.textSecondaryLight,
                                                 fontSize: 11,
                                               ),
                                             ),
@@ -472,7 +473,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                   const SizedBox(width: 8),
 
                                   if (isCompleted)
-                                    const Icon(Icons.check_circle_rounded, color: Color(0xFF16A34A), size: 18)
+                                    const Icon(Icons.check_circle_rounded, color: AppColors.primary, size: 18)
                                   else
                                     const Icon(
                                       Icons.arrow_forward_ios_rounded,
@@ -510,7 +511,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                           _buildModuleCounterColumn('Listening', listeningDone, Icons.headset_rounded, const Color(0xFF0284C7), const Color(0xFFE0F2FE)),
                           _buildModuleCounterColumn('Reading', readingDone, Icons.menu_book_rounded, const Color(0xFF9333EA), const Color(0xFFF3E8FF)),
                           _buildModuleCounterColumn('Writing', writingDone, Icons.edit_rounded, const Color(0xFFD97706), const Color(0xFFFEF3C7)),
-                          _buildModuleCounterColumn('Speaking', speakingDone, Icons.mic_rounded, const Color(0xFF16A34A), const Color(0xFFDCFCE7)),
+                          _buildModuleCounterColumn('Speaking', speakingDone, Icons.mic_rounded, AppColors.primary, AppColors.secondary),
                         ],
                       ),
                     ),
@@ -542,7 +543,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                   const Text(
                                     'This Week',
                                     style: TextStyle(
-                                      color: Color(0xFF0F172A),
+                                      color: AppColors.textPrimaryLight,
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -551,7 +552,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                   Text(
                                     '$weekCompleted/$weekTotal tasks done',
                                     style: const TextStyle(
-                                      color: Color(0xFF64748B),
+                                      color: AppColors.textSecondaryLight,
                                       fontSize: 11,
                                     ),
                                   ),
@@ -560,7 +561,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                               Text(
                                 '$weekPercent%',
                                 style: const TextStyle(
-                                  color: Color(0xFFC62828),
+                                  color: AppColors.primary,
                                   fontSize: 22,
                                   fontWeight: FontWeight.w900,
                                 ),
@@ -572,8 +573,8 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                             borderRadius: BorderRadius.circular(4),
                             child: LinearProgressIndicator(
                               value: weekTotal > 0 ? (weekCompleted / weekTotal) : 0.0,
-                              backgroundColor: const Color(0xFFF1F5F9),
-                              valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFC62828)),
+                              backgroundColor: AppColors.secondary,
+                              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
                               minHeight: 5,
                             ),
                           ),
@@ -590,41 +591,41 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
 
                       String paceTitle = 'Ahead of Schedule';
                       String paceSubtitle = 'Great pace — keep it up!';
-                      Color paceColor = const Color(0xFF16A34A);
-                      Color paceBg = const Color(0xFFDCFCE7);
+                      Color paceColor = AppColors.primary;
+                      Color paceBg = AppColors.secondary;
                       IconData paceIcon = Icons.arrow_upward_rounded;
 
                       if (weekCompleted == 0) {
                         if (dayOfWeek >= 3) {
                           paceTitle = 'Behind Schedule';
                           paceSubtitle = 'You haven\'t started your tasks for this week yet.';
-                          paceColor = const Color(0xFFEA580C);
-                          paceBg = const Color(0xFFFFEDD5);
+                          paceColor = AppColors.accent;
+                          paceBg = AppColors.accentBgLight;
                           paceIcon = Icons.warning_rounded;
                         } else {
                           paceTitle = 'Ahead of Schedule';
                           paceSubtitle = 'Great pace — keep it up!';
-                          paceColor = const Color(0xFF16A34A);
-                          paceBg = const Color(0xFFDCFCE7);
+                          paceColor = AppColors.primary;
+                          paceBg = AppColors.secondary;
                           paceIcon = Icons.arrow_upward_rounded;
                         }
                       } else if (actualPercent >= targetPercent + 15) {
                         paceTitle = 'Ahead of Schedule';
                         paceSubtitle = 'Great pace — keep it up!';
-                        paceColor = const Color(0xFF16A34A);
-                        paceBg = const Color(0xFFDCFCE7);
+                        paceColor = AppColors.primary;
+                        paceBg = AppColors.secondary;
                         paceIcon = Icons.arrow_upward_rounded;
                       } else if (actualPercent < targetPercent - 15) {
                         paceTitle = 'Behind Schedule';
                         paceSubtitle = 'Catch up on your pending tasks to stay on track.';
-                        paceColor = const Color(0xFFDC2626);
-                        paceBg = const Color(0xFFFEE2E2);
+                        paceColor = AppColors.accent;
+                        paceBg = AppColors.accentBgLight;
                         paceIcon = Icons.warning_rounded;
                       } else {
                         paceTitle = 'On Track';
                         paceSubtitle = 'Good progress — keep it up!';
-                        paceColor = const Color(0xFF16A34A);
-                        paceBg = const Color(0xFFDCFCE7);
+                        paceColor = AppColors.primary;
+                        paceBg = AppColors.secondary;
                         paceIcon = Icons.check_circle_outline_rounded;
                       }
 
@@ -663,7 +664,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                   Text(
                                     paceTitle,
                                     style: const TextStyle(
-                                      color: Color(0xFF0F172A),
+                                      color: AppColors.textPrimaryLight,
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -672,7 +673,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                   Text(
                                     paceSubtitle,
                                     style: const TextStyle(
-                                      color: Color(0xFF64748B),
+                                      color: AppColors.textSecondaryLight,
                                       fontSize: 10.5,
                                     ),
                                   ),
@@ -689,7 +690,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                     const Text(
                       'Upcoming',
                       style: TextStyle(
-                        color: Color(0xFF0F172A),
+                        color: AppColors.textPrimaryLight,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
@@ -734,7 +735,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                       Text(
                                         dayShort,
                                         style: const TextStyle(
-                                          color: Color(0xFF64748B),
+                                          color: AppColors.textSecondaryLight,
                                           fontSize: 9.5,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -743,7 +744,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                       Text(
                                         dayNumber,
                                         style: const TextStyle(
-                                          color: Color(0xFF0F172A),
+                                          color: AppColors.textPrimaryLight,
                                           fontSize: 14,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -788,8 +789,8 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                       iconBg = const Color(0xFFFEF3C7);
                                     } else {
                                       icon = Icons.mic_rounded;
-                                      iconColor = const Color(0xFF16A34A);
-                                      iconBg = const Color(0xFFDCFCE7);
+                                      iconColor = AppColors.primary;
+                                      iconBg = AppColors.secondary;
                                     }
 
                                     return Container(
@@ -831,7 +832,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                                       Text(
                                                         task['title'] ?? '',
                                                         style: const TextStyle(
-                                                          color: Color(0xFF0F172A),
+                                                          color: AppColors.textPrimaryLight,
                                                           fontWeight: FontWeight.bold,
                                                           fontSize: 12.5,
                                                         ),
@@ -842,7 +843,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
                                                       const Text(
                                                         'Upcoming',
                                                         style: TextStyle(
-                                                          color: Color(0xFF94A3B8),
+                                                          color: AppColors.textSecondaryLight,
                                                           fontSize: 10,
                                                           fontWeight: FontWeight.w500,
                                                         ),
@@ -885,7 +886,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
           child: Text(
             label,
             style: const TextStyle(
-              color: Color(0xFF0F172A),
+              color: AppColors.textPrimaryLight,
               fontSize: 12,
               fontWeight: FontWeight.bold,
             ),
@@ -899,7 +900,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
               Container(
                 height: 6,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F5F9),
+                  color: AppColors.secondary,
                   borderRadius: BorderRadius.circular(3),
                 ),
               ),
@@ -919,7 +920,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
         const Text(
           '—',
           style: TextStyle(
-            color: Color(0xFF64748B),
+            color: AppColors.textSecondaryLight,
             fontSize: 14,
             fontWeight: FontWeight.bold,
           ),
@@ -944,7 +945,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
         Text(
           '$val',
           style: const TextStyle(
-            color: Color(0xFF0F172A),
+            color: AppColors.textPrimaryLight,
             fontSize: 15,
             fontWeight: FontWeight.bold,
           ),
@@ -953,7 +954,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
         Text(
           label,
           style: const TextStyle(
-            color: Color(0xFF64748B),
+            color: AppColors.textSecondaryLight,
             fontSize: 10,
           ),
         ),

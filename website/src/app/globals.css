@@ -1,30 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0B1E36;
-  --color-primary-light: #1E3E6E;
-  --color-gold: #D4AF37;
-  --color-gold-dark: #B3922E;
-  --color-emerald: #10B981;
-  --color-navy: #050E1A;
-  --color-accent-blue: #3B82F6;
+  --color-primary: #0F766E;
+  --color-primary-light: #14B8A6;
+  --color-primary-dark: #115E59;
+  --color-secondary: #E6F4F1;
+  --color-accent: #F97316;
+  --color-accent-light: #FB923C;
+  --color-accent-dark: #EA580C;
+  --color-gold: #F97316;
+  --color-gold-dark: #EA580C;
+  --color-emerald: #0F766E;
+  --color-navy: #0A1E1D;
+  --color-accent-blue: #0F766E;
+  --color-soft-sage: #E6F4F1;
+  --color-charcoal: #1F2937;
 }
 
 :root {
-  --background: #fbfcfd;
-  --foreground: #0B1E36;
+  --background: #F9FBFA;
+  --foreground: #1F2937;
   --card: #ffffff;
-  --card-foreground: #0B1E36;
-  --border: #e2e8f0;
+  --card-foreground: #1F2937;
+  --border: #E2E8F0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #050E1A;
-    --foreground: #f1f5f9;
-    --card: #0B1E36;
-    --card-foreground: #f1f5f9;
-    --border: #1E3E6E;
+    --background: #0A1E1D;
+    --foreground: #F9FBFA;
+    --card: #132F2D;
+    --card-foreground: #F9FBFA;
+    --border: #1D423F;
   }
 }
 

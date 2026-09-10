@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
 import '../providers/auth_provider.dart';
+import '../theme/app_colors.dart';
 import 'subscription_screen.dart';
 
 class ParaphraseScreen extends ConsumerStatefulWidget {
@@ -36,16 +37,20 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            backgroundColor: const Color(0xFF0B1E36),
-            title: const Text('Free Limit Reached', style: TextStyle(color: Colors.white)),
-            content: const Text('You have used all 3 free paraphrases. Upgrade to Premium for unlimited access!', style: TextStyle(color: Colors.white70)),
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            title: const Text('Free Limit Reached', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold)),
+            content: const Text('You have used all 3 free paraphrases. Upgrade to Premium for unlimited access!', style: TextStyle(color: AppColors.textSecondaryLight)),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel', style: TextStyle(color: Colors.white54)),
+                child: const Text('Cancel', style: TextStyle(color: AppColors.textSecondaryLight)),
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFC62828)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.accent,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
@@ -117,22 +122,22 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
     final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
 
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xFFC62828), size: 16),
+          icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 16),
           label: const Text(
             'Back',
-            style: TextStyle(color: Color(0xFFC62828), fontSize: 14, fontWeight: FontWeight.bold),
+            style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ),
         title: const Text(
           'Paraphrase Tool',
-          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -145,19 +150,19 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const Color(0xFF0284C7).withValues(alpha: 0.1),
+                color: AppColors.surfaceTint,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: const Color(0xFF0284C7).withValues(alpha: 0.2)),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
               ),
               child: const Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.info_outline, color: Color(0xFF0284C7), size: 18),
+                  Icon(Icons.info_outline, color: AppColors.primary, size: 18),
                   SizedBox(width: 10),
                   Expanded(
                     child: Text(
                       'Enter a sentence and get 3 different paraphrased versions. Great for IELTS Writing & Speaking.',
-                      style: TextStyle(color: Color(0xFFBAE6FD), fontSize: 11, height: 1.4),
+                      style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 11, height: 1.4),
                     ),
                   ),
                 ],
@@ -168,7 +173,7 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
             // Your Sentence Label
             const Text(
               'Your Sentence',
-              style: TextStyle(color: Colors.white60, fontSize: 11, fontWeight: FontWeight.bold),
+              style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
 
@@ -178,17 +183,18 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: TextField(
                 controller: _sentenceController,
                 maxLines: 4,
-                style: const TextStyle(color: Colors.black87, fontSize: 14),
+                style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 14),
                 onChanged: (val) {
                   setState(() {});
                 },
                 decoration: const InputDecoration(
                   hintText: 'Type or paste a sentence to paraphrase...',
-                  hintStyle: TextStyle(color: Colors.black26),
+                  hintStyle: TextStyle(color: AppColors.textSecondaryLight),
                   border: InputBorder.none,
                 ),
               ),
@@ -202,17 +208,17 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
               child: ElevatedButton.icon(
                 onPressed: _isParaphraseEnabled ? _paraphrase : null,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: _isParaphraseEnabled ? const Color(0xFFC62828) : const Color(0xFFE2E8F0),
-                  foregroundColor: _isParaphraseEnabled ? Colors.white : Colors.black38,
+                  backgroundColor: _isParaphraseEnabled ? AppColors.accent : const Color(0xFFE2E8F0),
+                  foregroundColor: _isParaphraseEnabled ? Colors.white : AppColors.textSecondaryLight,
                   disabledBackgroundColor: const Color(0xFFE2E8F0),
-                  disabledForegroundColor: Colors.black38,
+                  disabledForegroundColor: AppColors.textSecondaryLight,
                   elevation: 0,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
                 icon: Icon(
                   Icons.sync,
                   size: 18,
-                  color: _isParaphraseEnabled ? Colors.white : Colors.black26,
+                  color: _isParaphraseEnabled ? Colors.white : AppColors.textSecondaryLight,
                 ),
                 label: _submitting
                     ? const SizedBox(
@@ -233,7 +239,7 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
               Center(
                 child: Text(
                   '$_freeTriesRemaining free uses remaining',
-                  style: const TextStyle(color: Colors.white38, fontSize: 11),
+                  style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                 ),
               ),
             const SizedBox(height: 30),
@@ -242,7 +248,7 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
             if (_versions != null && _versions!.isNotEmpty) ...[
               const Text(
                 'Paraphrased Versions',
-                style: TextStyle(color: Colors.white70, fontSize: 13, fontWeight: FontWeight.bold),
+                style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 12),
               ...List.generate(_versions!.length, (index) {
@@ -252,9 +258,16 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
                   child: Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF0B1E36),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: const Color(0xFF1E3E6E)),
+                      border: Border.all(color: AppColors.cardBorderLight),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.04),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -263,7 +276,7 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
                         Container(
                           padding: const EdgeInsets.all(6),
                           decoration: const BoxDecoration(
-                            color: Color(0xFFC62828),
+                            color: AppColors.primary,
                             shape: BoxShape.circle,
                           ),
                           child: Text(
@@ -279,7 +292,7 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
                             children: [
                               Text(
                                 versionText,
-                                style: const TextStyle(color: Colors.white, fontSize: 13, height: 1.4),
+                                style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, height: 1.4),
                               ),
                               const SizedBox(height: 10),
                               GestureDetector(
@@ -287,11 +300,11 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
                                 child: const Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Icon(Icons.copy, color: Color(0xFFD4AF37), size: 13),
+                                    Icon(Icons.copy, color: AppColors.primary, size: 13),
                                     SizedBox(width: 4),
                                     Text(
                                       'Copy text',
-                                      style: TextStyle(color: Color(0xFFD4AF37), fontSize: 11, fontWeight: FontWeight.bold),
+                                      style: TextStyle(color: AppColors.primary, fontSize: 11, fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),

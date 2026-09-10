@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
 import '../services/localization.dart';
 
 class BandCalculatorScreen extends StatefulWidget {
@@ -9,9 +10,9 @@ class BandCalculatorScreen extends StatefulWidget {
 }
 
 class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
-  double _listeningScore = 6.5;
+  double _listeningScore = 6.0;
   double _readingScore = 6.5;
-  double _writingScore = 6.5;
+  double _writingScore = 6.0;
   double _speakingScore = 6.5;
   double _overallBand = 6.5;
 
@@ -22,17 +23,20 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
   }
 
   void _calculateOverall() {
-    final double avg = (_listeningScore + _readingScore + _writingScore + _speakingScore) / 4.0;
-    // IELTS Rounding Rules: round to nearest half band
-    final double fraction = avg - avg.toInt();
-    double rounded = avg.toInt().toDouble();
-    if (fraction >= 0.75) {
-      rounded += 1.0;
-    } else if (fraction >= 0.25) {
-      rounded += 0.5;
+    final double rawAverage = (_listeningScore + _readingScore + _writingScore + _speakingScore) / 4.0;
+    final double decimalPart = rawAverage - rawAverage.floor();
+
+    double rounded;
+    if (decimalPart < 0.25) {
+      rounded = rawAverage.floorToDouble();
+    } else if (decimalPart < 0.75) {
+      rounded = rawAverage.floorToDouble() + 0.5;
+    } else {
+      rounded = rawAverage.floorToDouble() + 1.0;
     }
+
     setState(() {
-      _overallBand = rounded;
+      _overallBand = rounded.clamp(0.0, 9.0);
     });
   }
 
@@ -46,7 +50,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
     if (band >= 3.0) return 'Extremely Limited User';
     if (band >= 2.0) return 'Intermittent User';
     if (band >= 1.0) return 'Non User';
-    return 'Did not attempt';
+    return 'Did Not Attempt';
   }
 
   String _t(String key) => LocalizationService.translate(key);
@@ -54,7 +58,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAFC),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -63,14 +67,14 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
           child: CircleAvatar(
             backgroundColor: Colors.white,
             child: IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black, size: 18),
+              icon: const Icon(Icons.arrow_back_ios_new_rounded, color: AppColors.textPrimaryLight, size: 18),
               onPressed: () => Navigator.pop(context),
             ),
           ),
         ),
         title: Text(
           _t('band_calculator'),
-          style: const TextStyle(color: Color(0xFF0F172A), fontWeight: FontWeight.bold, fontSize: 18),
+          style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 18),
         ),
         centerTitle: true,
       ),
@@ -95,7 +99,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
                           Text(
                             _overallBand.toStringAsFixed(1),
                             style: const TextStyle(
-                              color: Color(0xFF0F172A),
+                              color: AppColors.textPrimaryLight,
                               fontSize: 50,
                               fontWeight: FontWeight.w900,
                               height: 1.0,
@@ -105,7 +109,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
                           const Text(
                             'Overall Band',
                             style: TextStyle(
-                              color: Color(0xFF64748B),
+                              color: AppColors.textSecondaryLight,
                               fontSize: 11,
                               fontWeight: FontWeight.bold,
                             ),
@@ -118,7 +122,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
                   Text(
                     _getBandDescriptor(_overallBand),
                     style: const TextStyle(
-                      color: Color(0xFF475569),
+                      color: AppColors.textSecondaryLight,
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
@@ -178,32 +182,32 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFFEFF6FF),
+                color: AppColors.surfaceTint,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFFDBEAFE)),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
               ),
-              child: const Row(
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.info_rounded, color: Color(0xFF1D4ED8), size: 20),
-                  SizedBox(width: 12),
+                  const Icon(Icons.info_rounded, color: AppColors.primary, size: 20),
+                  const SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'How IELTS calculates overall band',
                           style: TextStyle(
-                            color: Color(0xFF1E3A8A),
+                            color: AppColors.primary,
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         Text(
                           'The overall band score is the average of all four skill scores, rounded to the nearest whole or half band. For example, if your scores are L:7.0, R:6.5, W:6.0, S:7.0, the average is 6.625, which rounds to 6.5.',
                           style: TextStyle(
-                            color: Color(0xFF1E40AF),
+                            color: AppColors.textPrimaryLight.withValues(alpha: 0.85),
                             fontSize: 11,
                             height: 1.4,
                           ),
@@ -236,7 +240,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
                   Text(
                     '(${_listeningScore.toStringAsFixed(1)} + ${_readingScore.toStringAsFixed(1)} + ${_writingScore.toStringAsFixed(1)} + ${_speakingScore.toStringAsFixed(1)}) ÷ 4 = ${((_listeningScore + _readingScore + _writingScore + _speakingScore) / 4.0).toStringAsFixed(2)}',
                     style: const TextStyle(
-                      color: Color(0xFF334155),
+                      color: AppColors.textPrimaryLight,
                       fontSize: 13,
                       fontWeight: FontWeight.bold,
                     ),
@@ -246,7 +250,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
                   Text(
                     '→ ${_overallBand.toStringAsFixed(1)}',
                     style: const TextStyle(
-                      color: Color(0xFFFF9800),
+                      color: AppColors.primary,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -301,7 +305,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
                   Text(
                     title,
                     style: const TextStyle(
-                      color: Color(0xFF0F172A),
+                      color: AppColors.textPrimaryLight,
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
@@ -326,7 +330,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
                 child: SliderTheme(
                   data: SliderThemeData(
                     activeTrackColor: activeColor,
-                    inactiveTrackColor: const Color(0xFFF1F5F9),
+                    inactiveTrackColor: AppColors.surfaceTint,
                     thumbColor: Colors.white,
                     overlayColor: activeColor.withOpacity(0.12),
                     trackHeight: 4,
@@ -366,7 +370,7 @@ class GaugePainter extends CustomPainter {
     final double sweepAngle = 3.14159 * 1.5;
 
     final Paint bgPaint = Paint()
-      ..color = const Color(0xFFF1F5F9)
+      ..color = AppColors.surfaceTint
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;
@@ -381,7 +385,7 @@ class GaugePainter extends CustomPainter {
 
     final double activeSweepAngle = sweepAngle * (value / 9.0);
     final Paint activePaint = Paint()
-      ..color = const Color(0xFFFF9800)
+      ..color = AppColors.primary
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..strokeCap = StrokeCap.round;

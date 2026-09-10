@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../providers/auth_provider.dart';
+import '../theme/app_colors.dart';
 import 'dashboard_screen.dart';
 import 'login_screen.dart';
 import 'subscription_screen.dart';
@@ -58,7 +59,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           const SnackBar(
             content: Row(
               children: [
-                Icon(Icons.check_circle_rounded, color: Color(0xFFD4AF37)),
+                Icon(Icons.check_circle_rounded, color: Colors.white),
                 SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -71,7 +72,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 ),
               ],
             ),
-            backgroundColor: Color(0xFF0F1E36),
+            backgroundColor: AppColors.primary,
             duration: Duration(seconds: 2),
           ),
         );
@@ -103,14 +104,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     final authState = ref.watch(authProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A), // Deep Navy
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.white,
+            color: AppColors.textPrimaryLight,
           ),
           onPressed: () => Navigator.pop(context),
         ),
@@ -135,7 +136,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                           style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: AppColors.textPrimaryLight,
                             letterSpacing: 1.1,
                           ),
                         ),
@@ -144,14 +145,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                           'Join BandUp IELTS and start scoring higher.',
                           style: TextStyle(
                             fontSize: 14,
-                            color: Color(0xFF94A3B8),
+                            color: AppColors.textSecondaryLight,
                           ),
                           textAlign: TextAlign.center,
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 36),
+                  const SizedBox(height: 32),
 
                   // Error notification
                   if (authState.errorMessage != null) ...[
@@ -179,21 +180,23 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   // Full name input
                   TextFormField(
                     controller: _nameController,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: AppColors.textPrimaryLight),
                     decoration: InputDecoration(
                       labelText: 'Full Name',
-                      labelStyle: const TextStyle(color: Color(0xFF94A3B8)),
+                      labelStyle: const TextStyle(color: AppColors.textSecondaryLight),
                       prefixIcon: const Icon(
                         Icons.person_outline,
-                        color: Color(0xFFD4AF37),
+                        color: AppColors.primary,
                       ),
+                      filled: true,
+                      fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFF1E3E6E)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.cardBorderLight),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFFD4AF37)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
                       ),
                     ),
                     validator: (value) {
@@ -203,27 +206,29 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
 
                   // Email input
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: AppColors.textPrimaryLight),
                     decoration: InputDecoration(
                       labelText: 'Email Address',
-                      labelStyle: const TextStyle(color: Color(0xFF94A3B8)),
+                      labelStyle: const TextStyle(color: AppColors.textSecondaryLight),
                       prefixIcon: const Icon(
                         Icons.email_outlined,
-                        color: Color(0xFFD4AF37),
+                        color: AppColors.primary,
                       ),
+                      filled: true,
+                      fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFF1E3E6E)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.cardBorderLight),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFFD4AF37)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
                       ),
                     ),
                     validator: (value) {
@@ -236,27 +241,29 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
 
                   // Password input
                   TextFormField(
                     controller: _passwordController,
                     obscureText: true,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: AppColors.textPrimaryLight),
                     decoration: InputDecoration(
                       labelText: 'Password (min 6 characters)',
-                      labelStyle: const TextStyle(color: Color(0xFF94A3B8)),
+                      labelStyle: const TextStyle(color: AppColors.textSecondaryLight),
                       prefixIcon: const Icon(
                         Icons.lock_outline_rounded,
-                        color: Color(0xFFD4AF37),
+                        color: AppColors.primary,
                       ),
+                      filled: true,
+                      fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFF1E3E6E)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.cardBorderLight),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFFD4AF37)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
                       ),
                     ),
                     validator: (value) {
@@ -269,13 +276,13 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 20),
 
                   // Target Exam Selector
                   const Text(
                     'Target IELTS Exam Type',
                     style: TextStyle(
-                      color: Color(0xFFCBD5E1),
+                      color: AppColors.textPrimaryLight,
                       fontSize: 13,
                       fontWeight: FontWeight.bold,
                     ),
@@ -292,12 +299,15 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                               setState(() => _targetExam = 'ACADEMIC');
                             }
                           },
-                          selectedColor: const Color(0xFFD4AF37),
-                          backgroundColor: const Color(0xFF0B1E36),
+                          selectedColor: AppColors.surfaceTint,
+                          backgroundColor: Colors.white,
+                          side: BorderSide(
+                            color: _targetExam == 'ACADEMIC' ? AppColors.primary : AppColors.cardBorderLight,
+                          ),
                           labelStyle: TextStyle(
                             color: _targetExam == 'ACADEMIC'
-                                ? const Color(0xFF050E1A)
-                                : Colors.white,
+                                ? AppColors.primary
+                                : AppColors.textSecondaryLight,
                             fontWeight: FontWeight.bold,
                           ),
                           shape: RoundedRectangleBorder(
@@ -315,12 +325,15 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                               setState(() => _targetExam = 'GENERAL');
                             }
                           },
-                          selectedColor: const Color(0xFFD4AF37),
-                          backgroundColor: const Color(0xFF0B1E36),
+                          selectedColor: AppColors.surfaceTint,
+                          backgroundColor: Colors.white,
+                          side: BorderSide(
+                            color: _targetExam == 'GENERAL' ? AppColors.primary : AppColors.cardBorderLight,
+                          ),
                           labelStyle: TextStyle(
                             color: _targetExam == 'GENERAL'
-                                ? const Color(0xFF050E1A)
-                                : Colors.white,
+                                ? AppColors.primary
+                                : AppColors.textSecondaryLight,
                             fontWeight: FontWeight.bold,
                           ),
                           shape: RoundedRectangleBorder(
@@ -334,7 +347,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   const Text(
                     'Target Band Score',
                     style: TextStyle(
-                      color: Color(0xFFCBD5E1),
+                      color: AppColors.textPrimaryLight,
                       fontSize: 13,
                       fontWeight: FontWeight.bold,
                     ),
@@ -346,17 +359,17 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       vertical: 4,
                     ),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF0B1E36),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: const Color(0xFF1E3E6E)),
+                      border: Border.all(color: AppColors.cardBorderLight),
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<double>(
                         value: _targetBand,
-                        dropdownColor: const Color(0xFF0B1E36),
-                        iconEnabledColor: const Color(0xFFD4AF37),
+                        dropdownColor: Colors.white,
+                        iconEnabledColor: AppColors.primary,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: AppColors.textPrimaryLight,
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
@@ -377,7 +390,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                             ].map((band) {
                               return DropdownMenuItem<double>(
                                 value: band,
-                                child: Text('Band $band'),
+                                child: Text('Band $band', style: const TextStyle(color: AppColors.textPrimaryLight)),
                               );
                             }).toList(),
                         onChanged: (val) {
@@ -388,41 +401,44 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
 
                   // Referral input
                   TextFormField(
                     controller: _referralController,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: AppColors.textPrimaryLight),
                     decoration: InputDecoration(
                       labelText: 'Referral ID (Optional)',
-                      labelStyle: const TextStyle(color: Color(0xFF94A3B8)),
+                      labelStyle: const TextStyle(color: AppColors.textSecondaryLight),
                       prefixIcon: const Icon(
                         Icons.card_giftcard_outlined,
-                        color: Color(0xFFD4AF37),
+                        color: AppColors.primary,
                       ),
+                      filled: true,
+                      fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFF1E3E6E)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.cardBorderLight),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0xFFD4AF37)),
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 36),
+                  const SizedBox(height: 32),
 
                   // Submit button
                   ElevatedButton(
                     onPressed: authState.isLoading ? null : _submit,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFD4AF37),
-                      foregroundColor: const Color(0xFF0B1E36),
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
                       ),
+                      elevation: 0,
                     ),
                     child: authState.isLoading
                         ? const SizedBox(
@@ -430,7 +446,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                             width: 20,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              color: Color(0xFF0B1E36),
+                              color: Colors.white,
                             ),
                           )
                         : const Text(
@@ -449,7 +465,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       const Text(
                         'Already have an account? ',
                         style: TextStyle(
-                          color: Color(0xFF94A3B8),
+                          color: AppColors.textSecondaryLight,
                           fontSize: 14,
                         ),
                       ),
@@ -465,7 +481,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                         child: const Text(
                           'Sign In',
                           style: TextStyle(
-                            color: Color(0xFFD4AF37),
+                            color: AppColors.primary,
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
                             decoration: TextDecoration.underline,

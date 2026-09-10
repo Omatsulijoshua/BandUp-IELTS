@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
+import '../theme/app_colors.dart';
 import '../widgets/premium_paywall.dart';
 import '../widgets/times_up_dialog.dart';
+import 'history_screen.dart';
+
 
 class WritingPracticeScreen extends ConsumerStatefulWidget {
   const WritingPracticeScreen({super.key});
@@ -167,11 +170,42 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
 
       if (response.statusCode == 201) {
         final data = jsonDecode(response.body);
+        final fb = (data['feedbackJson'] as Map<String, dynamic>?) ?? {};
         if (_mode == 'EXAM') {
           setState(() => _examSuccess = true);
         } else {
-          setState(() => _feedback = data['feedbackJson']);
+          setState(() => _feedback = fb);
         }
+
+        final double band = (fb['overallBand'] as num?)?.toDouble() ??
+            (fb['overall'] as num?)?.toDouble() ??
+            (fb['estimatedBand'] as num?)?.toDouble() ??
+            6.0;
+
+        final title = _selectedPrompt['id'] == 'CUSTOM'
+            ? 'Custom Writing Task'
+            : (_selectedPrompt['title'] ?? 'IELTS Book $_selectedBook Test $_selectedTestNum');
+
+        HistoryScreen.recordAttempt(
+          title: title,
+          module: 'Writing',
+          score: band,
+          details: {
+            'overallBand': band,
+            'taskAchievement': fb['taskAchievement'] ?? {'score': band.toInt(), 'feedback': 'Good task fulfillment.'},
+            'coherenceCohesion': fb['coherenceCohesion'] ?? {'score': band.toInt(), 'feedback': 'Logical organization of paragraphs.'},
+            'lexicalResource': fb['lexicalResource'] ?? {'score': band.toInt(), 'feedback': 'Varied vocabulary and precise lexical choices.'},
+            'grammaticalRange': fb['grammaticalRange'] ?? {'score': band.toInt(), 'feedback': 'Good range of complex grammatical structures.'},
+            'tips': (fb['tips'] as List?)?.map((t) => t.toString()).toList() ?? [
+              'Ensure each paragraph has a clear topic sentence.',
+              'Support arguments with relevant concrete real-world examples.',
+              'Review article usage and punctuation accuracy.',
+            ],
+            'userEssay': _textController.text,
+            'wordCount': _wordCount,
+          },
+          timestamp: DateTime.now(),
+        );
       }
     } catch (e) {
       if (!mounted) return;
@@ -204,10 +238,41 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
 
       if (response.statusCode == 201) {
         final data = jsonDecode(response.body);
+        final fb = (data['feedbackJson'] as Map<String, dynamic>?) ?? {};
         setState(() {
-          _examinerFeedback = data['feedbackJson'];
+          _examinerFeedback = fb;
           _draft2Controller.text = _textController.text;
         });
+
+        final double band = (fb['overallBand'] as num?)?.toDouble() ??
+            (fb['overall'] as num?)?.toDouble() ??
+            (fb['estimatedBand'] as num?)?.toDouble() ??
+            6.0;
+
+        final title = _selectedPrompt['id'] == 'CUSTOM'
+            ? 'Custom Writing Task (Draft 1)'
+            : ('${_selectedPrompt['title'] ?? 'IELTS Book $_selectedBook Test $_selectedTestNum'} (Draft 1)');
+
+        HistoryScreen.recordAttempt(
+          title: title,
+          module: 'Writing',
+          score: band,
+          details: {
+            'overallBand': band,
+            'taskAchievement': fb['taskAchievement'] ?? {'score': band.toInt(), 'feedback': 'Good task fulfillment.'},
+            'coherenceCohesion': fb['coherenceCohesion'] ?? {'score': band.toInt(), 'feedback': 'Logical organization of paragraphs.'},
+            'lexicalResource': fb['lexicalResource'] ?? {'score': band.toInt(), 'feedback': 'Varied vocabulary and precise lexical choices.'},
+            'grammaticalRange': fb['grammaticalRange'] ?? {'score': band.toInt(), 'feedback': 'Good range of complex grammatical structures.'},
+            'tips': (fb['tips'] as List?)?.map((t) => t.toString()).toList() ?? [
+              'Ensure each paragraph has a clear topic sentence.',
+              'Support arguments with relevant concrete real-world examples.',
+              'Review article usage and punctuation accuracy.',
+            ],
+            'userEssay': _textController.text,
+            'wordCount': _wordCount,
+          },
+          timestamp: DateTime.now(),
+        );
       }
     } catch (e) {
       if (!mounted) return;
@@ -367,7 +432,7 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                       height: 44,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC62828), // solid red
+                          backgroundColor: AppColors.primary,
                           foregroundColor: Colors.white,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
@@ -1327,9 +1392,9 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
   Widget build(BuildContext context) {
     final bool isPractice = _viewState == 'PRACTICE';
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F6FB), // Light Grey background
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
-        backgroundColor: isPractice ? Colors.white : const Color(0xFFF4F6FB),
+        backgroundColor: isPractice ? Colors.white : AppColors.backgroundLight,
         elevation: isPractice ? 1 : 0,
         shadowColor: isPractice ? Colors.black.withOpacity(0.1) : Colors.transparent,
         centerTitle: true,
@@ -1450,7 +1515,7 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
             : null,
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator(color: Color(0xFFD4AF37)))
+          ? const Center(child: CircularProgressIndicator(color: AppColors.primary))
           : SingleChildScrollView(
               padding: const EdgeInsets.all(20.0),
               child: _viewState == 'BOOKS'
@@ -1468,8 +1533,8 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: _mode == 'PRACTICE' ? const Color(0xFFEF4444) : const Color(0xFFE2E8F0),
-                            foregroundColor: _mode == 'PRACTICE' ? Colors.white : const Color(0xFF64748B),
+                            backgroundColor: _mode == 'PRACTICE' ? AppColors.primary : const Color(0xFFE2E8F0),
+                            foregroundColor: _mode == 'PRACTICE' ? Colors.white : AppColors.textSecondaryLight,
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             elevation: 0,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -1482,8 +1547,8 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: _mode == 'EXAMINER' ? const Color(0xFFEF4444) : const Color(0xFFE2E8F0),
-                            foregroundColor: _mode == 'EXAMINER' ? Colors.white : const Color(0xFF64748B),
+                            backgroundColor: _mode == 'EXAMINER' ? AppColors.primary : const Color(0xFFE2E8F0),
+                            foregroundColor: _mode == 'EXAMINER' ? Colors.white : AppColors.textSecondaryLight,
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             elevation: 0,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -1501,8 +1566,8 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: _mode == 'EXAM' ? const Color(0xFFEF4444) : const Color(0xFFE2E8F0),
-                            foregroundColor: _mode == 'EXAM' ? Colors.white : const Color(0xFF64748B),
+                            backgroundColor: _mode == 'EXAM' ? AppColors.primary : const Color(0xFFE2E8F0),
+                            foregroundColor: _mode == 'EXAM' ? Colors.white : AppColors.textSecondaryLight,
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             elevation: 0,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -1520,20 +1585,20 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0B1E36),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
+                        border: Border.all(color: AppColors.cardBorderLight),
                       ),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<dynamic>(
-                          dropdownColor: const Color(0xFF0B1E36),
+                          dropdownColor: Colors.white,
                           value: _selectedPrompt,
                           items: _prompts.map((p) {
                             return DropdownMenuItem<dynamic>(
                               value: p,
                               child: Text(
                                 p['title'],
-                                style: const TextStyle(color: Colors.white, fontSize: 13),
+                                style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13),
                               ),
                             );
                           }).toList(),
@@ -1564,29 +1629,29 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF0B1E36),
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: const Color(0xFF1E3E6E)),
+                          border: Border.all(color: AppColors.cardBorderLight),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             const Text(
                               'Custom Essay Specifications',
-                              style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+                              style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(height: 12),
                             Row(
                               children: [
                                 Expanded(
                                   child: DropdownButtonFormField<String>(
-                                    dropdownColor: const Color(0xFF0B1E36),
+                                    dropdownColor: Colors.white,
                                     value: _customTaskType,
                                     decoration: const InputDecoration(
                                       labelText: 'Task Type',
-                                      labelStyle: TextStyle(color: Color(0xFF94A3B8), fontSize: 11),
+                                      labelStyle: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                                     ),
-                                    style: const TextStyle(color: Colors.white, fontSize: 12),
+                                    style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12),
                                     items: const [
                                       DropdownMenuItem(value: 'TASK_1', child: Text('Task 1 (Report/Letter)')),
                                       DropdownMenuItem(value: 'TASK_2', child: Text('Task 2 (Essay)')),
@@ -1599,13 +1664,13 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                                 const SizedBox(width: 16),
                                 Expanded(
                                   child: DropdownButtonFormField<String>(
-                                    dropdownColor: const Color(0xFF0B1E36),
+                                    dropdownColor: Colors.white,
                                     value: _customExamType,
                                     decoration: const InputDecoration(
                                       labelText: 'Exam Format',
-                                      labelStyle: TextStyle(color: Color(0xFF94A3B8), fontSize: 11),
+                                      labelStyle: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                                     ),
-                                    style: const TextStyle(color: Colors.white, fontSize: 12),
+                                    style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12),
                                     items: const [
                                       DropdownMenuItem(value: 'ACADEMIC', child: Text('Academic')),
                                       DropdownMenuItem(value: 'GENERAL', child: Text('General')),
@@ -1694,23 +1759,35 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                           Text('Words: $_wordCount', style: const TextStyle(color: Color(0xFF94A3B8), fontSize: 12)),
                           if (_mode == 'EXAMINER')
                             ElevatedButton(
-                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFF59E0B)),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.accent,
+                                foregroundColor: Colors.white,
+                                elevation: 0,
+                              ),
                               onPressed: (_submitting || (_selectedPrompt['id'] == 'CUSTOM' && _customQuestionController.text.trim().isEmpty))
                                   ? null
                                   : _submitDraft1,
-                              child: Text(_submitting ? 'Analyzing...' : '🤖 Analyze Draft 1', style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                              child: Text(_submitting ? 'Analyzing...' : '🤖 Analyze Draft 1', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                             )
                           else if (!_timerActive && _mode == 'EXAM')
                             ElevatedButton(
-                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFD4AF37)),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.accent,
+                                foregroundColor: Colors.white,
+                                elevation: 0,
+                              ),
                               onPressed: (_selectedPrompt['id'] == 'CUSTOM' && _customQuestionController.text.trim().isEmpty) ? null : _startTimer,
-                              child: const Text('Start Exam Timer', style: TextStyle(color: Colors.black)),
+                              child: const Text('Start Exam Timer', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                             )
                           else
                             ElevatedButton(
-                              style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF10B981)),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.accent,
+                                foregroundColor: Colors.white,
+                                elevation: 0,
+                              ),
                               onPressed: (_submitting || (_selectedPrompt['id'] == 'CUSTOM' && _customQuestionController.text.trim().isEmpty)) ? null : _submitEssay,
-                              child: Text(_submitting ? 'Submitting...' : 'Submit Essay', style: const TextStyle(color: Colors.black)),
+                              child: Text(_submitting ? 'Submitting...' : 'Submit Essay', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                             ),
                         ],
                       ),
@@ -1724,40 +1801,40 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0B1E36),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
+                        border: Border.all(color: AppColors.cardBorderLight),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('AI Detailed Feedback', style: TextStyle(color: Color(0xFFD4AF37), fontSize: 16, fontWeight: FontWeight.bold)),
-                          const Divider(color: Color(0xFF1E3E6E), height: 24),
+                          const Text('AI Detailed Feedback', style: TextStyle(color: AppColors.primary, fontSize: 16, fontWeight: FontWeight.bold)),
+                          const Divider(color: AppColors.cardBorderLight, height: 24),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Estimated Band Score:', style: TextStyle(color: Colors.white, fontSize: 13)),
-                              Text('Band ${_feedback['estimatedBand']}', style: const TextStyle(color: Color(0xFFD4AF37), fontSize: 16, fontWeight: FontWeight.w900)),
+                              const Text('Estimated Band Score:', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 13)),
+                              Text('Band ${_feedback['estimatedBand']}', style: const TextStyle(color: AppColors.primary, fontSize: 16, fontWeight: FontWeight.w900)),
                             ],
                           ),
                           const SizedBox(height: 16),
-                          const Text('Strengths:', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
+                          const Text('Strengths:', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 13)),
                           const SizedBox(height: 4),
-                          Text(_feedback['wellDone'] ?? '', style: const TextStyle(color: Color(0xFFCBD5E1), fontSize: 12, height: 1.4)),
+                          Text(_feedback['wellDone'] ?? '', style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12, height: 1.4)),
                           const SizedBox(height: 16),
-                          const Text('Answering & Time Strategy Strategy:', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
+                          const Text('Answering & Time Strategy Strategy:', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 13)),
                           const SizedBox(height: 4),
-                          const Text('Task 1 target duration: 20 minutes. Spend 3 minutes brainstorming, 15 minutes drafting, and 2 minutes correcting subject-verb agreements.', style: TextStyle(color: Color(0xFFCBD5E1), fontSize: 12, height: 1.4)),
+                          const Text('Task 1 target duration: 20 minutes. Spend 3 minutes brainstorming, 15 minutes drafting, and 2 minutes correcting subject-verb agreements.', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12, height: 1.4)),
                           const SizedBox(height: 16),
-                          const Text('Model Essay Rewrite:', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
+                          const Text('Model Essay Rewrite:', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 13)),
                           const SizedBox(height: 6),
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF050E1A),
+                              color: AppColors.surfaceTint,
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: Text(_feedback['improvedAnswer'] ?? '', style: const TextStyle(color: Color(0xFFCBD5E1), fontSize: 11, height: 1.5)),
+                            child: Text(_feedback['improvedAnswer'] ?? '', style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 11, height: 1.5)),
                           ),
                         ],
                       ),
@@ -1770,19 +1847,19 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: Colors.green.withValues(alpha: 0.1),
+                        color: AppColors.surfaceTint,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Colors.green.withValues(alpha: 0.2)),
+                        border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
                       ),
                       child: const Column(
                         children: [
-                          Icon(Icons.check_circle_rounded, color: Colors.green, size: 40),
+                          Icon(Icons.check_circle_rounded, color: AppColors.primary, size: 40),
                           SizedBox(height: 12),
-                          Text('Exam Submitted Successfully!', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                          Text('Exam Submitted Successfully!', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 15, fontWeight: FontWeight.bold)),
                           SizedBox(height: 8),
                           Text(
                             'Your writing response has been saved under Exam Mode. Official tutor grades will be logged shortly.',
-                            style: TextStyle(color: Color(0xFF94A3B8), fontSize: 11, height: 1.4),
+                            style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4),
                             textAlign: TextAlign.center,
                           ),
                         ],
@@ -1796,26 +1873,26 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0B1E36),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
+                        border: Border.all(color: AppColors.cardBorderLight),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Row(
                             children: [
-                              Icon(Icons.psychology_rounded, color: Color(0xFFF59E0B)),
+                              Icon(Icons.psychology_rounded, color: AppColors.primary),
                               SizedBox(width: 8),
-                              Text('AI Examiner Draft 1 Evaluation', style: TextStyle(color: Color(0xFFF59E0B), fontSize: 15, fontWeight: FontWeight.bold)),
+                              Text('AI Examiner Draft 1 Evaluation', style: TextStyle(color: AppColors.primary, fontSize: 15, fontWeight: FontWeight.bold)),
                             ],
                           ),
-                          const Divider(color: Color(0xFF1E3E6E), height: 24),
+                          const Divider(color: AppColors.cardBorderLight, height: 24),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Estimated Band:', style: TextStyle(color: Colors.white, fontSize: 13)),
-                              Text('Band ${_examinerFeedback['estimatedBand']}', style: const TextStyle(color: Color(0xFFF59E0B), fontSize: 16, fontWeight: FontWeight.w900)),
+                              const Text('Estimated Band:', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 13)),
+                              Text('Band ${_examinerFeedback['estimatedBand']}', style: const TextStyle(color: AppColors.primary, fontSize: 16, fontWeight: FontWeight.w900)),
                             ],
                           ),
                           const SizedBox(height: 16),
@@ -1832,16 +1909,16 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: Colors.amber.withValues(alpha: 0.1),
+                              color: AppColors.surfaceTint,
                               borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.amber.withValues(alpha: 0.2)),
+                              border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('💡 Coaching Tip for Draft 2:', style: TextStyle(color: Color(0xFFF59E0B), fontWeight: FontWeight.bold, fontSize: 12)),
+                                const Text('💡 Coaching Tip for Draft 2:', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 12)),
                                 const SizedBox(height: 4),
-                                Text(_examinerFeedback['coachingTip'] ?? '', style: const TextStyle(color: Color(0xFFCBD5E1), fontSize: 11, height: 1.4)),
+                                Text(_examinerFeedback['coachingTip'] ?? '', style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 11, height: 1.4)),
                               ],
                             ),
                           ),
@@ -1854,29 +1931,29 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                     Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0B1E36),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
+                        border: Border.all(color: AppColors.cardBorderLight),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Sentence Breakdown', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                          const Text('Sentence Breakdown', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 14, fontWeight: FontWeight.bold)),
                           const SizedBox(height: 6),
-                          const Text('Tap any colored sentence to view improvement details.', style: TextStyle(color: Color(0xFF94A3B8), fontSize: 11)),
+                          const Text('Tap any colored sentence to view improvement details.', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                           const SizedBox(height: 12),
                           Wrap(
                             spacing: 4,
                             runSpacing: 4,
                             children: (_examinerFeedback['sentences'] as List<dynamic>).map<Widget>((s) {
-                              Color textColor = Colors.greenAccent;
-                              Color bgColor = Colors.green.withValues(alpha: 0.1);
+                              Color textColor = const Color(0xFF0F766E);
+                              Color bgColor = AppColors.surfaceTint;
                               if (s['strength'] == 'OKAY') {
-                                textColor = Colors.amberAccent;
-                                bgColor = Colors.amber.withValues(alpha: 0.1);
+                                textColor = const Color(0xFFD97706);
+                                bgColor = const Color(0xFFFEF3C7);
                               } else if (s['strength'] == 'WEAK') {
-                                textColor = Colors.redAccent;
-                                bgColor = Colors.red.withValues(alpha: 0.1);
+                                textColor = const Color(0xFFDC2626);
+                                bgColor = const Color(0xFFFEE2E2);
                               }
                               return GestureDetector(
                                 onTap: () => setState(() => _selectedSentence = s),
@@ -1885,7 +1962,7 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                                   decoration: BoxDecoration(
                                     color: bgColor,
                                     borderRadius: BorderRadius.circular(6),
-                                    border: Border.all(color: textColor.withValues(alpha: 0.2)),
+                                    border: Border.all(color: textColor.withValues(alpha: 0.3)),
                                   ),
                                   child: Text(s['text'] ?? '', style: TextStyle(color: textColor, fontSize: 11, height: 1.3)),
                                 ),
@@ -1899,9 +1976,9 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                             Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF050E1A),
+                                color: AppColors.surfaceTint,
                                 borderRadius: BorderRadius.circular(10),
-                                border: Border.all(color: const Color(0xFF1E3E6E)),
+                                border: Border.all(color: AppColors.cardBorderLight),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -1909,26 +1986,26 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                                   Text(
                                     '${_selectedSentence['strength']} SENTENCE',
                                     style: TextStyle(
-                                      color: _selectedSentence['strength'] == 'STRONG' ? Colors.green :
-                                             _selectedSentence['strength'] == 'OKAY' ? Colors.amber : Colors.red,
+                                      color: _selectedSentence['strength'] == 'STRONG' ? const Color(0xFF0F766E) :
+                                             _selectedSentence['strength'] == 'OKAY' ? const Color(0xFFD97706) : const Color(0xFFDC2626),
                                       fontWeight: FontWeight.bold,
                                       fontSize: 10,
                                     ),
                                   ),
                                   const SizedBox(height: 8),
-                                  const Text('Critique:', style: TextStyle(color: Color(0xFF94A3B8), fontSize: 10, fontWeight: FontWeight.bold)),
-                                  Text(_selectedSentence['critique'] ?? '', style: const TextStyle(color: Colors.white, fontSize: 12, height: 1.4)),
+                                  const Text('Critique:', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold)),
+                                  Text(_selectedSentence['critique'] ?? '', style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, height: 1.4)),
                                   const SizedBox(height: 8),
-                                  const Text('Suggested Rewrite:', style: TextStyle(color: Color(0xFF94A3B8), fontSize: 10, fontWeight: FontWeight.bold)),
-                                  Text(_selectedSentence['rewrite'] ?? '', style: const TextStyle(color: Color(0xFFF59E0B), fontSize: 12, fontStyle: FontStyle.italic, height: 1.4)),
+                                  const Text('Suggested Rewrite:', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold)),
+                                  Text(_selectedSentence['rewrite'] ?? '', style: const TextStyle(color: AppColors.primary, fontSize: 12, fontStyle: FontStyle.italic, height: 1.4)),
                                   const SizedBox(height: 12),
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xFFF59E0B),
+                                      backgroundColor: AppColors.primary,
                                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                                     ),
                                     onPressed: () => _applySentenceRewrite(_selectedSentence),
-                                    child: const Text('Apply Rewrite to Draft 2', style: TextStyle(color: Colors.black, fontSize: 11, fontWeight: FontWeight.bold)),
+                                    child: const Text('Apply Rewrite to Draft 2', style: TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold)),
                                   ),
                                 ],
                               ),
@@ -1940,22 +2017,22 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                     const SizedBox(height: 24),
 
                     // Draft 2 Workspace
-                    const Text('Draft 2 Workspace', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                    const Text('Draft 2 Workspace', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 14, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 8),
                     TextField(
                       controller: _draft2Controller,
                       maxLines: 12,
                       autocorrect: true,
                       enableSuggestions: true,
-                      style: const TextStyle(color: Colors.white, fontSize: 13, height: 1.5),
+                      style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, height: 1.5),
                       decoration: InputDecoration(
                         hintText: 'Improve your essay here... You can apply rewrites from weak sentences above.',
-                        hintStyle: const TextStyle(color: Color(0xFF475569)),
+                        hintStyle: const TextStyle(color: AppColors.textSecondaryLight),
                         filled: true,
-                        fillColor: const Color(0xFF0B1E36),
+                        fillColor: Colors.white,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: const BorderSide(color: Color(0xFF1E3E6E)),
+                          borderSide: const BorderSide(color: AppColors.cardBorderLight),
                         ),
                       ),
                     ),
@@ -1963,11 +2040,11 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Words: ${_draft2Controller.text.trim().isEmpty ? 0 : _draft2Controller.text.trim().split(RegExp(r"\s+")).length}', style: const TextStyle(color: Color(0xFF94A3B8), fontSize: 12)),
+                        Text('Words: ${_draft2Controller.text.trim().isEmpty ? 0 : _draft2Controller.text.trim().split(RegExp(r"\s+")).length}', style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12)),
                         ElevatedButton(
-                          style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF10B981)),
+                          style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
                           onPressed: _comparing ? null : _submitDraft2,
-                          child: Text(_comparing ? 'Comparing...' : 'Submit Draft 2', style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                          child: Text(_comparing ? 'Comparing...' : 'Submit Draft 2', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                         ),
                       ],
                     ),
@@ -1979,34 +2056,34 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0B1E36),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: const Color(0xFF1E3E6E)),
+                        border: Border.all(color: AppColors.cardBorderLight),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Row(
                             children: [
-                              Icon(Icons.trending_up_rounded, color: Color(0xFF10B981)),
+                              Icon(Icons.trending_up_rounded, color: AppColors.primary),
                               SizedBox(width: 8),
-                              Text('Progress Comparison Result', style: TextStyle(color: Color(0xFF10B981), fontSize: 15, fontWeight: FontWeight.bold)),
+                              Text('Progress Comparison Result', style: TextStyle(color: AppColors.primary, fontSize: 15, fontWeight: FontWeight.bold)),
                             ],
                           ),
-                          const Divider(color: Color(0xFF1E3E6E), height: 24),
+                          const Divider(color: AppColors.cardBorderLight, height: 24),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Draft 1 Band Score:', style: TextStyle(color: Colors.white70, fontSize: 12)),
-                              Text('Band ${_comparisonResult['draft1Band']}', style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+                              const Text('Draft 1 Band Score:', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12)),
+                              Text('Band ${_comparisonResult['draft1Band']}', style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 14, fontWeight: FontWeight.bold)),
                             ],
                           ),
                           const SizedBox(height: 8),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Draft 2 Band Score:', style: TextStyle(color: Colors.white70, fontSize: 12)),
-                              Text('Band ${_comparisonResult['draft2Band']}', style: const TextStyle(color: Color(0xFF10B981), fontSize: 14, fontWeight: FontWeight.bold)),
+                              const Text('Draft 2 Band Score:', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12)),
+                              Text('Band ${_comparisonResult['draft2Band']}', style: const TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.bold)),
                             ],
                           ),
                           const SizedBox(height: 12),
@@ -2014,38 +2091,38 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                             child: Container(
                               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                               decoration: BoxDecoration(
-                                color: Colors.green.withValues(alpha: 0.1),
+                                color: AppColors.surfaceTint,
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Colors.green.withValues(alpha: 0.2)),
+                                border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
                               ),
                               child: Text(
                                 '+${_comparisonResult['improvement']} Band Score Improvement! 🎉',
-                                style: const TextStyle(color: Colors.greenAccent, fontSize: 13, fontWeight: FontWeight.bold),
+                                style: const TextStyle(color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
-                          const Divider(color: Color(0xFF1E3E6E), height: 24),
-                          const Text('Lexical Improvements:', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+                          const Divider(color: AppColors.cardBorderLight, height: 24),
+                          const Text('Lexical Improvements:', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 12)),
                           const SizedBox(height: 4),
-                          Text(_comparisonResult['lexicalImprovements'] ?? '', style: const TextStyle(color: Color(0xFFCBD5E1), fontSize: 11, height: 1.4)),
+                          Text(_comparisonResult['lexicalImprovements'] ?? '', style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4)),
                           const SizedBox(height: 12),
-                          const Text('Grammatical Improvements:', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+                          const Text('Grammatical Improvements:', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 12)),
                           const SizedBox(height: 4),
-                          Text(_comparisonResult['grammarImprovements'] ?? '', style: const TextStyle(color: Color(0xFFCBD5E1), fontSize: 11, height: 1.4)),
+                          Text(_comparisonResult['grammarImprovements'] ?? '', style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4)),
                           const SizedBox(height: 12),
-                          const Text('Coherence Improvements:', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+                          const Text('Coherence Improvements:', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 12)),
                           const SizedBox(height: 4),
-                          Text(_comparisonResult['coherenceImprovements'] ?? '', style: const TextStyle(color: Color(0xFFCBD5E1), fontSize: 11, height: 1.4)),
+                          Text(_comparisonResult['coherenceImprovements'] ?? '', style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4)),
                           const SizedBox(height: 12),
-                          const Text('Examiner Summary:', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+                          const Text('Examiner Summary:', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 12)),
                           const SizedBox(height: 4),
-                          Text(_comparisonResult['summary'] ?? '', style: const TextStyle(color: Color(0xFFCBD5E1), fontSize: 11, height: 1.4)),
+                          Text(_comparisonResult['summary'] ?? '', style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11, height: 1.4)),
                         ],
                       ),
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
-                      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFD4AF37)),
+                      style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
                       onPressed: () {
                         setState(() {
                           _textController.clear();
@@ -2055,7 +2132,7 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                           _selectedSentence = null;
                         });
                       },
-                      child: const Text('Start New Session', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                      child: const Text('Start New Session', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ],
@@ -2067,9 +2144,9 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
   Widget _buildMetricItem(String label, String score) {
     return Column(
       children: [
-        Text(label, style: const TextStyle(color: Color(0xFF94A3B8), fontSize: 10, fontWeight: FontWeight.bold)),
+        Text(label, style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold)),
         const SizedBox(height: 4),
-        Text(score, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+        Text(score, style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold)),
       ],
     );
   }
@@ -2080,12 +2157,12 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
       children: [
         Text(
           title,
-          style: const TextStyle(color: Color(0xFFEAB308), fontSize: 10, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: AppColors.primary, fontSize: 10, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 2),
         Text(
           body,
-          style: const TextStyle(color: Color(0xFF94A3B8), fontSize: 9, height: 1.4),
+          style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 9, height: 1.4),
         ),
       ],
     );

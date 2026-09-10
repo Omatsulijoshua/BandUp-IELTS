@@ -5,9 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:audioplayers/audioplayers.dart';
 import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
+import '../theme/app_colors.dart';
 import '../widgets/times_up_dialog.dart';
 import '../widgets/premium_paywall.dart';
 import '../services/localization.dart';
+import 'history_screen.dart';
+
 
 class ListeningPracticeScreen extends ConsumerStatefulWidget {
   const ListeningPracticeScreen({super.key});
@@ -420,6 +423,8 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
         }
       }
 
+      final double band = _calculateListeningBand(correctCount, questions.length);
+
       if (_mode == 'EXAM') {
         setState(() {
           _examSuccess = true;
@@ -433,6 +438,19 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
           };
         });
       }
+
+      HistoryScreen.recordAttempt(
+        title: _selectedAudio['title'] ?? 'IELTS Listening Practice',
+        module: 'Listening',
+        score: band,
+        details: {
+          'overallBand': band,
+          'correctCount': correctCount,
+          'totalCount': questions.length,
+          'questions': results,
+        },
+        timestamp: DateTime.now(),
+      );
     } catch (e) {
       debugPrint('Error submitting answers: $e');
       ScaffoldMessenger.of(context).showSnackBar(
@@ -441,6 +459,27 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
     } finally {
       setState(() => _submitting = false);
     }
+  }
+
+  double _calculateListeningBand(int correct, int total) {
+    if (total <= 0) return 1.0;
+    final ratio = correct / total;
+    if (ratio >= 39 / 40) return 9.0;
+    if (ratio >= 37 / 40) return 8.5;
+    if (ratio >= 35 / 40) return 8.0;
+    if (ratio >= 32 / 40) return 7.5;
+    if (ratio >= 30 / 40) return 7.0;
+    if (ratio >= 26 / 40) return 6.5;
+    if (ratio >= 23 / 40) return 6.0;
+    if (ratio >= 18 / 40) return 5.5;
+    if (ratio >= 16 / 40) return 5.0;
+    if (ratio >= 13 / 40) return 4.5;
+    if (ratio >= 10 / 40) return 4.0;
+    if (ratio >= 8 / 40) return 3.5;
+    if (ratio >= 6 / 40) return 3.0;
+    if (ratio >= 4 / 40) return 2.5;
+    if (ratio >= 2 / 40) return 2.0;
+    return 1.0;
   }
 
   String _formatTime(int seconds) {
@@ -545,7 +584,7 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                       height: 44,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC62828),
+                          backgroundColor: AppColors.primary,
                           foregroundColor: Colors.white,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
@@ -657,7 +696,7 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                       height: 44,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC62828),
+                          backgroundColor: AppColors.primary,
                           foregroundColor: Colors.white,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
@@ -756,7 +795,7 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                       height: 44,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC62828),
+                          backgroundColor: AppColors.accent,
                           foregroundColor: Colors.white,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
@@ -997,7 +1036,7 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
         currentIndex: 0,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
-        selectedItemColor: const Color(0xFFC62828),
+        selectedItemColor: AppColors.primary,
         unselectedItemColor: Colors.black38,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
         unselectedLabelStyle: const TextStyle(fontSize: 10),
@@ -1206,7 +1245,7 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFC62828),
+                  backgroundColor: AppColors.accent,
                   elevation: 2,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../theme/app_colors.dart';
 import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 import '../services/localization.dart';
@@ -54,7 +55,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       context: context,
       builder: (context) {
         return Dialog(
-          backgroundColor: const Color(0xFFF8FAFC),
+          backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Padding(
             padding: const EdgeInsets.all(24.0),
@@ -66,7 +67,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   width: 60,
                   height: 60,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFC62828),
+                    color: AppColors.primary,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: const Center(
@@ -82,12 +83,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 const SizedBox(height: 16),
                 const Text(
                   'Enjoying IELTS?',
-                  style: TextStyle(color: Color(0xFF0F172A), fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 const Text(
                   'Tap a star to rate it on the App Store.',
-                  style: TextStyle(color: Colors.black54, fontSize: 12),
+                  style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20),
@@ -103,7 +104,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       },
                       child: const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 4.0),
-                        child: Icon(Icons.star_outline_rounded, color: Colors.blueAccent, size: 36),
+                        child: Icon(Icons.star_rounded, color: AppColors.accent, size: 36),
                       ),
                     );
                   }),
@@ -112,7 +113,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 const Divider(height: 1),
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('Not Now', style: TextStyle(color: Colors.blueAccent, fontSize: 14, fontWeight: FontWeight.bold)),
+                  child: const Text('Not Now', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 14, fontWeight: FontWeight.bold)),
                 ),
               ],
             ),
@@ -160,9 +161,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     final targetBand = (user?['targetBand'] as num? ?? 7.0).toDouble();
 
     return Scaffold(
-      backgroundColor: const Color(0xFF050E1A),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0B1E36),
+        backgroundColor: AppColors.primary,
         title: Text(_t('menu_settings'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         elevation: 0,
       ),
@@ -177,29 +178,29 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               padding: const EdgeInsets.all(20),
               margin: const EdgeInsets.only(bottom: 20),
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFF1E3E6E)),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     user?['name'] ?? 'Student Name',
-                    style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     user?['email'] ?? 'student@example.com',
-                    style: const TextStyle(color: Colors.white54, fontSize: 11),
+                    style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
                   ),
                   const SizedBox(height: 14),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF050E1A),
+                      color: AppColors.surfaceTint,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: const Color(0xFF152A4A)),
+                      border: Border.all(color: AppColors.primary.withValues(alpha: 0.15)),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -207,7 +208,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         Expanded(
                           child: Text(
                             'ID: ${user?['id'] ?? ''}',
-                            style: const TextStyle(color: Colors.white70, fontSize: 9, fontFamily: 'monospace'),
+                            style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 9, fontFamily: 'monospace'),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -222,7 +223,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           },
                           child: const Text(
                             'Copy',
-                            style: TextStyle(color: Color(0xFFD4AF37), fontSize: 11, fontWeight: FontWeight.bold),
+                            style: TextStyle(color: AppColors.primary, fontSize: 11, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -263,6 +264,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: AppColors.cardBorderLight),
                     ),
                     child: Row(
                       children: [
@@ -273,8 +275,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                             shape: BoxShape.circle,
                             gradient: LinearGradient(
                               colors: [
-                                Color(0xFFD81B60), // Crimson / Pink
-                                Color(0xFF8E24AA), // Purple
+                                AppColors.primary,
+                                AppColors.primaryDark,
                               ],
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
@@ -289,23 +291,23 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           ),
                         ),
                         const SizedBox(width: 16),
-                        const Expanded(
+                        Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'Premium Active',
-                                style: TextStyle(
-                                  color: Color(0xFF0F172A),
+                                style: const TextStyle(
+                                  color: AppColors.textPrimaryLight,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(height: 4),
+                              const SizedBox(height: 4),
                               Text(
                                 'All features unlocked',
-                                style: TextStyle(
-                                  color: Color(0xFF64748B),
+                                style: const TextStyle(
+                                  color: AppColors.textSecondaryLight,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -322,21 +324,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               return Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF0B1E36),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: const Color(0xFF1E3E6E)),
+                  border: Border.all(color: AppColors.cardBorderLight),
                 ),
                 child: Row(
                   children: [
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: const BoxDecoration(
-                        color: Color(0xFF152A4A),
+                        color: AppColors.surfaceTint,
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
                         Icons.lock_open,
-                        color: Color(0xFFD4AF37),
+                        color: AppColors.primary,
                         size: 28,
                       ),
                     ),
@@ -345,9 +347,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(planName, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15)),
+                          Text(planName, style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 15)),
                           const SizedBox(height: 4),
-                          Text(planSubtitle, style: const TextStyle(color: Colors.white54, fontSize: 11)),
+                          Text(planSubtitle, style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                         ],
                       ),
                     ),
@@ -356,13 +358,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFD4AF37),
+                        backgroundColor: AppColors.accent,
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                       ),
                       child: Text(
                         _t('upgrade'),
-                        style: const TextStyle(color: Color(0xFF050E1A), fontWeight: FontWeight.bold, fontSize: 12),
+                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
                       ),
                     ),
                   ],
@@ -372,37 +374,37 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 24),
 
             // General Settings
-            const Text('GENERAL', style: TextStyle(color: Colors.white30, fontSize: 10, fontWeight: FontWeight.bold)),
+            const Text('GENERAL', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8)),
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFF1E3E6E)),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: Column(
                 children: [
                   SwitchListTile(
-                    title: const Text('Notifications', style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
-                    subtitle: Text(_t('daily_reminders'), style: const TextStyle(color: Colors.white38, fontSize: 10)),
+                    title: const Text('Notifications', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.w600)),
+                    subtitle: Text(_t('daily_reminders'), style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 10)),
                     value: _notifications,
-                    activeColor: const Color(0xFFD4AF37),
+                    activeColor: AppColors.primary,
                     onChanged: (val) {
                       _saveNotificationPreference(val);
                     },
                   ),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   ListTile(
-                    title: const Text('App Language', style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
-                    subtitle: const Text('Select layout language switcher', style: TextStyle(color: Colors.white38, fontSize: 10)),
+                    title: const Text('App Language', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.w600)),
+                    subtitle: const Text('Select layout language switcher', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10)),
                     trailing: DropdownButton<String>(
                       value: _preferredLanguage,
                       underline: const SizedBox(),
-                      dropdownColor: const Color(0xFF0B1E36),
+                      dropdownColor: Colors.white,
                       items: LocalizationService.languagesList.map((lang) {
                         return DropdownMenuItem<String>(
                           value: lang['code'],
-                          child: Text(lang['name'] ?? '', style: const TextStyle(color: Colors.white, fontSize: 12)),
+                          child: Text(lang['name'] ?? '', style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12)),
                         );
                       }).toList(),
                       onChanged: (val) async {
@@ -418,48 +420,50 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ),
             ),
 
+            const SizedBox(height: 24),
+
             // My Account Section
-            const Text('MY ACCOUNT', style: TextStyle(color: Colors.white30, fontSize: 10, fontWeight: FontWeight.bold)),
+            const Text('MY ACCOUNT', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8)),
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFF1E3E6E)),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: Column(
                 children: [
                   ListTile(
-                    leading: const Icon(Icons.analytics, color: Color(0xFFD4AF37), size: 20),
-                    title: const Text('AI Progress Report', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600)),
-                    trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white24, size: 14),
+                    leading: const Icon(Icons.analytics, color: AppColors.primary, size: 20),
+                    title: const Text('AI Progress Report', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.w600)),
+                    trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.textSecondaryLight, size: 14),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => const ProgressReportScreen()));
                     },
                   ),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   ListTile(
-                    leading: const Icon(Icons.history, color: Color(0xFFD4AF37), size: 20),
-                    title: const Text('Attempt History', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600)),
-                    trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white24, size: 14),
+                    leading: const Icon(Icons.history, color: AppColors.primary, size: 20),
+                    title: const Text('Attempt History', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.w600)),
+                    trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.textSecondaryLight, size: 14),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => const HistoryScreen()));
                     },
                   ),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   ListTile(
-                    leading: const Icon(Icons.share, color: Color(0xFFD4AF37), size: 20),
-                    title: const Text('Referral Program', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600)),
-                    trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white24, size: 14),
+                    leading: const Icon(Icons.share, color: AppColors.primary, size: 20),
+                    title: const Text('Referral Program', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.w600)),
+                    trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.textSecondaryLight, size: 14),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => const ReferralsScreen()));
                     },
                   ),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   ListTile(
-                    leading: const Icon(Icons.credit_card, color: Color(0xFFD4AF37), size: 20),
-                    title: const Text('Billing History', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600)),
-                    trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white24, size: 14),
+                    leading: const Icon(Icons.credit_card, color: AppColors.primary, size: 20),
+                    title: const Text('Billing History', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.w600)),
+                    trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.textSecondaryLight, size: 14),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionHistoryScreen()));
                     },
@@ -471,25 +475,25 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 24),
 
             // Study Settings
-            const Text('STUDY', style: TextStyle(color: Colors.white30, fontSize: 10, fontWeight: FontWeight.bold)),
+            const Text('STUDY', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8)),
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFF1E3E6E)),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: Column(
                 children: [
                   ListTile(
-                    title: Text(_t('exam_type'), style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
+                    title: Text(_t('exam_type'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.w600)),
                     trailing: DropdownButton<String>(
                       value: targetExam,
                       underline: const SizedBox(),
-                      dropdownColor: const Color(0xFF0B1E36),
+                      dropdownColor: Colors.white,
                       items: const [
-                        DropdownMenuItem(value: 'ACADEMIC', child: Text('Academic', style: TextStyle(color: Colors.white, fontSize: 12))),
-                        DropdownMenuItem(value: 'GENERAL', child: Text('General Training', style: TextStyle(color: Colors.white, fontSize: 12))),
+                        DropdownMenuItem(value: 'ACADEMIC', child: Text('Academic', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12))),
+                        DropdownMenuItem(value: 'GENERAL', child: Text('General Training', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12))),
                       ],
                       onChanged: (val) {
                         if (val != null) {
@@ -498,17 +502,17 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       },
                     ),
                   ),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   ListTile(
-                    title: Text(_t('target_band'), style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
+                    title: Text(_t('target_band'), style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.w600)),
                     trailing: DropdownButton<double>(
                       value: targetBand,
                       underline: const SizedBox(),
-                      dropdownColor: const Color(0xFF0B1E36),
+                      dropdownColor: Colors.white,
                       items: [5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5].map((double band) {
                         return DropdownMenuItem<double>(
                           value: band,
-                          child: Text('Band $band', style: const TextStyle(color: Colors.white, fontSize: 12)),
+                          child: Text('Band $band', style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12)),
                         );
                       }).toList(),
                       onChanged: (val) {
@@ -518,10 +522,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       },
                     ),
                   ),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   ListTile(
-                    title: Text(_t('reset_plan'), style: const TextStyle(color: Colors.orangeAccent, fontSize: 13, fontWeight: FontWeight.w600)),
-                    trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white24, size: 14),
+                    title: Text(_t('reset_plan'), style: const TextStyle(color: AppColors.accent, fontSize: 13, fontWeight: FontWeight.w600)),
+                    trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.textSecondaryLight, size: 14),
                     onTap: () {
                       _updateSettings(examType: 'ACADEMIC', targetBand: 7.0);
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -536,24 +540,24 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 24),
 
             // Support Settings
-            const Text('SUPPORT', style: TextStyle(color: Colors.white30, fontSize: 10, fontWeight: FontWeight.bold)),
+            const Text('SUPPORT', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8)),
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFF1E3E6E)),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: Column(
                 children: [
                   _buildSupportItem(_t('send_feedback'), Icons.mail, () {
                     Navigator.push(context, MaterialPageRoute(builder: (_) => const SupportScreen()));
                   }),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   _buildSupportItem(_t('rate_app'), Icons.star, () {
                     _showRateAppDialog();
                   }),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   _buildSupportItem('Restore Purchases', Icons.restore_rounded, () async {
                     setState(() => _isSaving = true);
                     try {
@@ -583,13 +587,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       setState(() => _isSaving = false);
                     }
                   }),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   _buildSupportItem(_t('privacy_policy'), Icons.security, () {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Privacy Policy loaded successfully.')),
                     );
                   }),
-                  const Divider(color: Color(0xFF1E3E6E), height: 1),
+                  const Divider(color: AppColors.cardBorderLight, height: 1),
                   _buildSupportItem(_t('terms_of_use'), Icons.description, () {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Terms of Use loaded successfully.')),
@@ -601,18 +605,18 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 24),
 
             // Session Settings
-            const Text('SESSION', style: TextStyle(color: Colors.white30, fontSize: 10, fontWeight: FontWeight.bold)),
+            const Text('SESSION', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8)),
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFF1E3E6E)),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: ListTile(
-                leading: const Icon(Icons.logout_rounded, color: Colors.redAccent, size: 20),
-                title: const Text('Log Out', style: TextStyle(color: Colors.redAccent, fontSize: 12, fontWeight: FontWeight.w600)),
-                trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white24, size: 14),
+                leading: const Icon(Icons.logout_rounded, color: AppColors.error, size: 20),
+                title: const Text('Log Out', style: TextStyle(color: AppColors.error, fontSize: 12, fontWeight: FontWeight.w600)),
+                trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.textSecondaryLight, size: 14),
                 onTap: () async {
                   await ref.read(authProvider.notifier).logout();
                   if (context.mounted) {
@@ -628,18 +632,18 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 24),
 
             // About Settings
-            const Text('ABOUT', style: TextStyle(color: Colors.white30, fontSize: 10, fontWeight: FontWeight.bold)),
+            const Text('ABOUT', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 0.8)),
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF0B1E36),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFF1E3E6E)),
+                border: Border.all(color: AppColors.cardBorderLight),
               ),
               child: const ListTile(
-                leading: Icon(Icons.info_outline_rounded, color: Color(0xFFD4AF37), size: 20),
-                title: Text('Version', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600)),
-                trailing: Text('1.0.0', style: TextStyle(color: Colors.white54, fontSize: 12, fontWeight: FontWeight.w500)),
+                leading: Icon(Icons.info_outline_rounded, color: AppColors.primary, size: 20),
+                title: Text('Version', style: TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.w600)),
+                trailing: Text('1.0.0', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 12, fontWeight: FontWeight.w500)),
               ),
             ),
             const SizedBox(height: 40),
@@ -651,9 +655,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   Widget _buildSupportItem(String title, IconData icon, VoidCallback onTap) {
     return ListTile(
-      leading: Icon(icon, color: const Color(0xFFD4AF37), size: 20),
-      title: Text(title, style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500)),
-      trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white24, size: 14),
+      leading: Icon(icon, color: AppColors.primary, size: 20),
+      title: Text(title, style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 12, fontWeight: FontWeight.w500)),
+      trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.textSecondaryLight, size: 14),
       onTap: onTap,
     );
   }

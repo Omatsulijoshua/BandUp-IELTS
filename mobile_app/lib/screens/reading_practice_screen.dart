@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
+import '../theme/app_colors.dart';
 import '../widgets/premium_paywall.dart';
 import '../widgets/times_up_dialog.dart';
+import 'history_screen.dart';
+
 
 class ReadingPracticeScreen extends ConsumerStatefulWidget {
   const ReadingPracticeScreen({super.key});
@@ -125,6 +128,8 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
         });
       }
 
+      final double band = _calculateReadingBand(correctCount, questions.length);
+
       setState(() {
         _submitting = false;
         if (_mode == 'EXAM') {
@@ -137,6 +142,19 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
           };
         }
       });
+
+      HistoryScreen.recordAttempt(
+        title: 'IELTS Book $_selectedBook Test $_selectedTest',
+        module: 'Reading',
+        score: band,
+        details: {
+          'overallBand': band,
+          'correctCount': correctCount,
+          'totalCount': questions.length,
+          'questions': resultsList,
+        },
+        timestamp: DateTime.now(),
+      );
       return;
     }
 
@@ -172,6 +190,8 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
         }
       }
 
+      final double band = _calculateReadingBand(correctCount, questions.length);
+
       if (_mode == 'EXAM') {
         setState(() {
           _examSuccess = true;
@@ -185,6 +205,19 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
           };
         });
       }
+
+      HistoryScreen.recordAttempt(
+        title: 'IELTS Book $_selectedBook Test $_selectedTest',
+        module: 'Reading',
+        score: band,
+        details: {
+          'overallBand': band,
+          'correctCount': correctCount,
+          'totalCount': questions.length,
+          'questions': results,
+        },
+        timestamp: DateTime.now(),
+      );
     } catch (e) {
       debugPrint('Error submitting answers: $e');
       ScaffoldMessenger.of(context).showSnackBar(
@@ -193,6 +226,27 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
     } finally {
       setState(() => _submitting = false);
     }
+  }
+
+  double _calculateReadingBand(int correct, int total) {
+    if (total <= 0) return 1.0;
+    final ratio = correct / total;
+    if (ratio >= 39 / 40) return 9.0;
+    if (ratio >= 37 / 40) return 8.5;
+    if (ratio >= 35 / 40) return 8.0;
+    if (ratio >= 33 / 40) return 7.5;
+    if (ratio >= 30 / 40) return 7.0;
+    if (ratio >= 27 / 40) return 6.5;
+    if (ratio >= 23 / 40) return 6.0;
+    if (ratio >= 19 / 40) return 5.5;
+    if (ratio >= 15 / 40) return 5.0;
+    if (ratio >= 13 / 40) return 4.5;
+    if (ratio >= 10 / 40) return 4.0;
+    if (ratio >= 8 / 40) return 3.5;
+    if (ratio >= 6 / 40) return 3.0;
+    if (ratio >= 4 / 40) return 2.5;
+    if (ratio >= 2 / 40) return 2.0;
+    return 1.0;
   }
 
   void _showPremiumDialog() {
@@ -284,7 +338,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                       height: 44,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC62828), // solid red
+                          backgroundColor: AppColors.primary,
                           foregroundColor: Colors.white,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
@@ -321,9 +375,9 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
   Widget build(BuildContext context) {
     if (_loading) {
       return const Scaffold(
-        backgroundColor: Color(0xFFF4F6FB),
+        backgroundColor: AppColors.backgroundLight,
         body: Center(
-          child: CircularProgressIndicator(color: Color(0xFFEF4444)),
+          child: CircularProgressIndicator(color: AppColors.primary),
         ),
       );
     }
@@ -337,9 +391,9 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
     final int answeredCount = _userAnswers.keys.where((k) => _userAnswers[k] != null && _userAnswers[k]!.isNotEmpty).length;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F6FB), // Light Grey background
+      backgroundColor: AppColors.backgroundLight, // Pale mist canvas
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF4F6FB),
+        backgroundColor: AppColors.backgroundLight,
         elevation: 0,
         centerTitle: true,
         leading: isPractice
@@ -801,7 +855,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
           height: 48,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFC62828),
+              backgroundColor: AppColors.accent,
               foregroundColor: Colors.white,
               elevation: 0,
               shape: RoundedRectangleBorder(
@@ -868,7 +922,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
       borderRadius: BorderRadius.circular(12),
       child: Container(
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFC62828) : Colors.transparent,
+          color: isSelected ? AppColors.primary : Colors.transparent,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -1253,7 +1307,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                       height: 44,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC62828),
+                          backgroundColor: AppColors.accent,
                           foregroundColor: Colors.white,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
@@ -1308,7 +1362,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                 decoration: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: isPassageSelected ? const Color(0xFFC62828) : Colors.transparent,
+                      color: isPassageSelected ? AppColors.primary : Colors.transparent,
                       width: 2.5,
                     ),
                   ),
@@ -1316,7 +1370,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                 child: Text(
                   'Passage',
                   style: TextStyle(
-                    color: isPassageSelected ? const Color(0xFFC62828) : const Color(0xFF64748B),
+                    color: isPassageSelected ? AppColors.primary : const Color(0xFF64748B),
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -1333,7 +1387,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                 decoration: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: isQuestionsSelected ? const Color(0xFFC62828) : Colors.transparent,
+                      color: isQuestionsSelected ? AppColors.primary : Colors.transparent,
                       width: 2.5,
                     ),
                   ),
@@ -1341,7 +1395,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                 child: Text(
                   'Questions',
                   style: TextStyle(
-                    color: isQuestionsSelected ? const Color(0xFFC62828) : const Color(0xFF64748B),
+                    color: isQuestionsSelected ? AppColors.primary : const Color(0xFF64748B),
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -1357,7 +1411,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                 Text(
                   'Answers',
                   style: TextStyle(
-                    color: _showAnswers ? const Color(0xFFC62828) : const Color(0xFF64748B),
+                    color: _showAnswers ? AppColors.primary : const Color(0xFF64748B),
                     fontWeight: FontWeight.bold,
                     fontSize: 11,
                   ),
@@ -1435,7 +1489,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                                 Text(
                                   label,
                                   style: const TextStyle(
-                                    color: Color(0xFFC62828),
+                                    color: AppColors.primary,
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -1697,7 +1751,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                                         Container(
                                           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFC62828),
+                                            color: AppColors.primary,
                                             borderRadius: BorderRadius.circular(8),
                                           ),
                                           child: Text(
@@ -1851,18 +1905,18 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                           width: double.infinity,
                           height: 48,
                           child: OutlinedButton.icon(
-                            icon: const Icon(Icons.assignment_turned_in_outlined, color: Color(0xFFC62828), size: 18),
+                            icon: const Icon(Icons.assignment_turned_in_outlined, color: AppColors.primary, size: 18),
                             label: const Text(
                               'See Results',
                               style: TextStyle(
-                                color: Color(0xFFC62828),
+                                color: AppColors.primary,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
                               ),
                             ),
                             style: OutlinedButton.styleFrom(
-                              backgroundColor: const Color(0xFFFFE4E6),
-                              side: const BorderSide(color: Color(0xFFFECDD3)),
+                              backgroundColor: AppColors.surfaceTint,
+                              side: BorderSide(color: AppColors.primary.withValues(alpha: 0.2)),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
                               ),
@@ -1882,7 +1936,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                           height: 48,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFFC62828),
+                              backgroundColor: AppColors.accent,
                               foregroundColor: Colors.white,
                               elevation: 0,
                               shape: RoundedRectangleBorder(

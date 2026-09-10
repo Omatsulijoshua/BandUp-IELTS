@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
 
 void showTimesUpDialog(BuildContext context, VoidCallback onConfirm) {
   showDialog(
@@ -18,12 +19,12 @@ void showTimesUpDialog(BuildContext context, VoidCallback onConfirm) {
               width: 72,
               height: 72,
               decoration: const BoxDecoration(
-                color: Color(0xFFFFF3E0), // light orange
+                color: AppColors.accentBgLight,
                 shape: BoxShape.circle,
               ),
               child: const Icon(
                 Icons.access_time_rounded,
-                color: Color(0xFFFF9800), // solid orange
+                color: AppColors.accent,
                 size: 38,
               ),
             ),
@@ -31,7 +32,7 @@ void showTimesUpDialog(BuildContext context, VoidCallback onConfirm) {
             const Text(
               "Time's Up!",
               style: TextStyle(
-                color: Color(0xFF1E293B),
+                color: AppColors.textPrimaryLight,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -41,7 +42,7 @@ void showTimesUpDialog(BuildContext context, VoidCallback onConfirm) {
               "Your allocated time has ended. Your answers for this part have been automatically submitted.",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Color(0xFF64748B),
+                color: AppColors.textSecondaryLight,
                 fontSize: 13,
                 height: 1.4,
               ),
@@ -52,7 +53,7 @@ void showTimesUpDialog(BuildContext context, VoidCallback onConfirm) {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFC62828), // solid red
+                  backgroundColor: AppColors.accent,
                   foregroundColor: Colors.white,
                   elevation: 0,
                   shape: RoundedRectangleBorder(

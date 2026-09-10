@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
 import '../services/localization.dart';
 import 'essay_checker_screen.dart';
 import 'grammar_checker_screen.dart';
@@ -22,7 +23,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F6FB),
+      backgroundColor: AppColors.backgroundLight,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -38,7 +39,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
               const Text(
                 'AI Tools',
                 style: TextStyle(
-                  color: Color(0xFF0F172A),
+                  color: AppColors.textPrimaryLight,
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
@@ -47,7 +48,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
               const Text(
                 'Powerful tools to boost your IELTS preparation',
                 style: TextStyle(
-                  color: Color(0xFF64748B),
+                  color: AppColors.textSecondaryLight,
                   fontSize: 12,
                 ),
               ),
@@ -57,7 +58,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
               const Text(
                 'AI Analysis',
                 style: TextStyle(
-                  color: Color(0xFF475569),
+                  color: AppColors.textSecondaryLight,
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
                 ),
@@ -129,7 +130,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
               const Text(
                 'AI Sample Generators',
                 style: TextStyle(
-                  color: Color(0xFF475569),
+                  color: AppColors.textSecondaryLight,
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
                 ),
@@ -177,7 +178,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
               const Text(
                 'Exam Simulation',
                 style: TextStyle(
-                  color: Color(0xFF475569),
+                  color: AppColors.textSecondaryLight,
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
                 ),
@@ -189,14 +190,14 @@ class _ToolsScreenState extends State<ToolsScreen> {
                 margin: const EdgeInsets.only(bottom: 28),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color(0xFF0F172A), Color(0xFF1E293B)],
+                    colors: [AppColors.primary, AppColors.primaryDark],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF0F172A).withValues(alpha: 0.15),
+                      color: AppColors.primary.withValues(alpha: 0.25),
                       blurRadius: 15,
                       offset: const Offset(0, 8),
                     ),
@@ -222,12 +223,12 @@ class _ToolsScreenState extends State<ToolsScreen> {
                               Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFD4AF37).withValues(alpha: 0.15),
+                                  color: Colors.white.withValues(alpha: 0.15),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: const Icon(
                                   Icons.assignment_turned_in_rounded,
-                                  color: Color(0xFFD4AF37),
+                                  color: Colors.white,
                                   size: 20,
                                 ),
                               ),
@@ -248,7 +249,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
                                     const Text(
                                       'Real IELTS Conditions',
                                       style: TextStyle(
-                                        color: Color(0xFFD4AF37),
+                                        color: AppColors.surfaceTint,
                                         fontSize: 10,
                                         fontWeight: FontWeight.bold,
                                         letterSpacing: 0.5,
@@ -318,7 +319,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
               const Text(
                 'Utilities',
                 style: TextStyle(
-                  color: Color(0xFF475569),
+                  color: AppColors.textSecondaryLight,
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
                 ),
@@ -356,7 +357,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
                             width: 44,
                             height: 44,
                             decoration: const BoxDecoration(
-                              color: Color(0xFFC62828),
+                              color: AppColors.primary,
                               shape: BoxShape.circle,
                             ),
                             child: const Center(
@@ -378,7 +379,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
                                 Text(
                                   'Overall Band Calculator',
                                   style: TextStyle(
-                                    color: Color(0xFF0F172A),
+                                    color: AppColors.textPrimaryLight,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 14,
                                   ),
@@ -387,7 +388,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
                                 Text(
                                   'Calculate your overall IELTS band from 4 skill scores',
                                   style: TextStyle(
-                                    color: Color(0xFF64748B),
+                                    color: AppColors.textSecondaryLight,
                                     fontSize: 10,
                                   ),
                                 ),
@@ -396,7 +397,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
                           ),
                           const Icon(
                             Icons.arrow_forward_ios_rounded,
-                            color: Color(0xFF64748B),
+                            color: AppColors.textSecondaryLight,
                             size: 14,
                           ),
                         ],
@@ -458,7 +459,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
                 Text(
                   title,
                   style: const TextStyle(
-                    color: Color(0xFF0F172A),
+                    color: AppColors.textPrimaryLight,
                     fontWeight: FontWeight.bold,
                     fontSize: 13,
                   ),
@@ -469,7 +470,7 @@ class _ToolsScreenState extends State<ToolsScreen> {
                   child: Text(
                     desc,
                     style: const TextStyle(
-                      color: Color(0xFF64748B),
+                      color: AppColors.textSecondaryLight,
                       fontSize: 10,
                       height: 1.3,
                     ),
@@ -482,12 +483,12 @@ class _ToolsScreenState extends State<ToolsScreen> {
                     width: 24,
                     height: 24,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFC62828).withValues(alpha: 0.08),
+                      color: AppColors.primary.withValues(alpha: 0.08),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: const Icon(
                       Icons.arrow_forward,
-                      color: Color(0xFFC62828),
+                      color: AppColors.primary,
                       size: 13,
                     ),
                   ),

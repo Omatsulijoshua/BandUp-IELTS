@@ -1,18 +1,43 @@
-# BandUp IELTS PrepPro (IELTS PrepPro)
+# BandUp IELTS PrepPro
 
-BandUp IELTS is a production-ready, premium IELTS preparation platform helping students prepare for both **IELTS Academic** and **IELTS General Training** exams. It features automated AI grading, timed mock exams, study streak trackers, personalized tutor feedback overrides, and subscription plans.
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
+  <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" />
+  <img src="https://img.shields.io/badge/Groq_Cloud-F55036?style=for-the-badge&logo=fastapi&logoColor=white" alt="Groq" />
+  <img src="https://img.shields.io/badge/Google_Gemini-8E75C2?style=for-the-badge&logo=google&logoColor=white" alt="Gemini" />
+</p>
+
+BandUp IELTS is a production-ready, premium IELTS preparation platform helping students prepare for both **IELTS Academic** and **IELTS General Training** exams. It features automated AI grading across all 4 skills (Speaking, Reading, Writing, Listening), timed mock exams, study streak trackers, personalized tutor feedback overrides, and subscription plans.
 
 ---
 
 ## 🏗️ Technical Architecture
 
 ```mermaid
-graph TD
-    A[Flutter Mobile App] -->|HTTPS / JWT| C[NestJS API Server]
-    B[Next.js Student & Landing Web] -->|HTTPS / JWT| C
-    D[Next.js Admin & Tutor Panel] -->|HTTPS / JWT| C
-    C -->|Prisma ORM| E[(PostgreSQL Database)]
-    C -->|Secure Integration| F[AI Models: OpenAI / Gemini / Ollama]
+flowchart TD
+    subgraph Clients["Frontend Clients"]
+        A["Flutter Mobile App (iOS / Android)"]
+        B["Next.js Web (Student Portal)"]
+        C["Next.js Web (Admin & Tutor Panel)"]
+    end
+
+    subgraph Core["Backend API & Services"]
+        D["NestJS API Gateway & Controller"]
+        E["Prisma ORM & Business Logic"]
+        D --> E
+    end
+
+    subgraph Ecosystem["Data & AI Ecosystem"]
+        F[("PostgreSQL Database")]
+        G["AI Providers (Groq / Gemini / OpenAI)"]
+    end
+
+    Clients -->|"HTTPS / REST API"| D
+    E -->|"Prisma ORM Queries"| F
+    E -->|"Multi-Key LLM Router"| G
 ```
 
 ---
@@ -103,15 +128,20 @@ To keep the platform's running costs at **₦0** while maintaining 100% online a
 *   **Multi-Key Loop (Same Provider)**: You can combine multiple API keys from the same provider (created across different Google/Groq accounts) by separating them with commas (e.g., `key_1, key_2, key_3`). The router will loop through each key individually before escalating to the next provider.
 
 ```mermaid
-graph TD
-    A[AI Request: Grade/Spin Questions] --> B[Retrieve Encrypted Keys from Settings]
-    B --> C[Order Candidates: Active Provider First]
-    C --> D{Loop Candidate Key List}
-    D -->|Get Next Key| E{Send HTTP Request}
-    E -- Success --> F[Return AI Response]
-    E -- Rate Limit / Error --> G[Log Warning & Try Fallback]
-    G --> D
-    D -- All Keys Exhausted --> H[Return Error to Admin/User]
+flowchart TD
+    A["Student Submits Practice Response"] --> B["Load AI Provider Settings & Keys"]
+    B --> C["Build Prioritized Candidate Queue"]
+    C --> D{"Keys Available in Queue?"}
+
+    D -->|"Yes"| E["Execute Request with Next API Key"]
+    D -->|"All Keys Exhausted"| H["Engage Dynamic Local Evaluator"]
+
+    E --> F{"API Response Status"}
+    F -->|"200 OK"| G["Return Formatted Evaluation"]
+    F -->|"Rate Limit / Error"| K["Log Warning & Advance Queue"]
+    K --> D
+
+    H --> G
 ```
 
 ---
@@ -120,7 +150,8 @@ graph TD
 
 To verify that all components are syntax-error free and build correctly:
 
-*   **Backend**: `cd backend && npm run build`
+*   **Backend**: `cd backend && npx nest build`
 *   **Website**: `cd website && npm run build`
 *   **Admin**: `cd admin && npm run build`
-*   **Mobile App**: `cd mobile_app && flutter analyze`
+*   **Mobile App**: `cd mobile_app && flutter analyze --no-pub`
+
