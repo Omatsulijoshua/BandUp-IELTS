@@ -9,12 +9,21 @@ export class SubscriptionService implements OnModuleInit {
   async onModuleInit() {
     console.log('[SubscriptionService] Synchronizing subscription plans...');
     try {
-      // 1. Clean up old subscription plans that are not FREE, BASIC, PRO, or PREMIUM
+      // 1. Migrate any previous PREMIUM subscriptions to PRO if PRO exists
+      const proPlan = await this.prisma.subscriptionPlan.findUnique({ where: { code: 'PRO' } });
+      const premiumPlan = await this.prisma.subscriptionPlan.findUnique({ where: { code: 'PREMIUM' } });
+      if (premiumPlan && proPlan) {
+        await this.prisma.subscription.updateMany({
+          where: { planId: premiumPlan.id },
+          data: { planId: proPlan.id },
+        });
+      }
+
       await this.prisma.subscription.deleteMany({
         where: {
           plan: {
             code: {
-              notIn: ['FREE', 'BASIC', 'PRO', 'PREMIUM'],
+              notIn: ['FREE', 'BASIC', 'PRO'],
             },
           },
         },
@@ -22,12 +31,12 @@ export class SubscriptionService implements OnModuleInit {
       await this.prisma.subscriptionPlan.deleteMany({
         where: {
           code: {
-            notIn: ['FREE', 'BASIC', 'PRO', 'PREMIUM'],
+            notIn: ['FREE', 'BASIC', 'PRO'],
           },
         },
       });
 
-      // 2. Define target plans matching the third image
+      // 2. Define target plans matching 20k all-inclusive plan
       const plans = [
         {
           name: 'Free Starter',
@@ -56,30 +65,25 @@ export class SubscriptionService implements OnModuleInit {
           hasTutorReview: false,
         },
         {
-          name: 'Pro AI Intensive',
+          name: 'Pro All-Inclusive',
           code: 'PRO',
-          price: 35000.00,
+          price: 20000.00,
           interval: 'MONTHLY' as const,
-          features: ['Unlimited Practice & Lessons', 'Unlimited Mock Tests', 'AI Writing corrections', 'AI Speaking evaluations', 'Priority Support'],
+          features: [
+            'All Platform Benefits Included',
+            'Unlimited Practice & Lessons',
+            'Unlimited Full Mock Tests',
+            'AI Writing corrections & Band 9 rewrite',
+            'AI Speaking evaluations & pronunciation',
+            'Personalized Study Plans',
+            'Priority 24/7 Support',
+          ],
           limitLessons: -1,
           limitDailyPractice: -1,
           limitMockTests: -1,
           hasAiWriting: true,
           hasAiSpeaking: true,
           hasTutorReview: false,
-        },
-        {
-          name: 'Premium Tutor',
-          code: 'PREMIUM',
-          price: 75000.00,
-          interval: 'MONTHLY' as const,
-          features: ['Everything in Pro AI', '1-on-1 Tutor feedback', 'Personalized Study Plans', 'Completion Certificates'],
-          limitLessons: -1,
-          limitDailyPractice: -1,
-          limitMockTests: -1,
-          hasAiWriting: true,
-          hasAiSpeaking: true,
-          hasTutorReview: true,
         },
       ];
 

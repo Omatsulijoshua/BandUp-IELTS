@@ -54,7 +54,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
           if (_plans.isNotEmpty) {
             _selectedPlanId = _plans[0]['id'];
             if (pendingPlan != null) {
-              final targetCode = pendingPlan == '12_MONTHS' ? 'PREMIUM' : 'PRO';
+              final targetCode = 'PRO';
               for (final plan in _plans) {
                 if (plan['code'] == targetCode) {
                   _selectedPlanId = plan['id'];
@@ -107,7 +107,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
               backgroundColor: Colors.white,
               title: const Text('Payment Submitted', style: TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold)),
               content: const Text(
-                'Proof of payment submitted successfully! Tutors will review and activate your account shortly.',
+                'Proof of payment submitted successfully! Our team will review and activate your account shortly.',
                 style: TextStyle(color: AppColors.textSecondaryLight),
               ),
               actions: [

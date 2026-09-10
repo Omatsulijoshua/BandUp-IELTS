@@ -45,22 +45,21 @@ export default function MarketingLandingPage() {
       popular: false,
     },
     {
-      name: 'Pro AI Intensive',
-      price: '₦35,000',
-      description: 'Maximize your band score using instant AI evaluations.',
-      features: ['Unlimited Practice & Lessons', 'Unlimited Mock Tests', 'AI Writing corrections', 'AI Speaking evaluations', 'Priority Support'],
-      cta: 'Go Pro AI',
+      name: 'Pro All-Inclusive',
+      price: '₦20,000',
+      description: 'Complete all-in-one preparation with all platform benefits and AI tools included.',
+      features: [
+        'All Platform Benefits Included',
+        'Unlimited Practice & Lessons',
+        'Unlimited Full Mock Tests',
+        'AI Writing corrections & Band 9 rewrite',
+        'AI Speaking evaluations & pronunciation',
+        'Personalized Study Plans',
+        'Priority 24/7 Support',
+      ],
+      cta: 'Go Pro All-Inclusive',
       link: '/auth/register',
       popular: true,
-    },
-    {
-      name: 'Premium Tutor',
-      price: '₦75,000',
-      description: 'Complete package with personalized tutor review.',
-      features: ['Everything in Pro AI', '1-on-1 Tutor feedback', 'Personalized Study Plans', 'Completion Certificates'],
-      cta: 'Get Premium',
-      link: '/auth/register',
-      popular: false,
     },
   ];
 
@@ -183,7 +182,7 @@ export default function MarketingLandingPage() {
             <p className="text-slate-400 text-sm">Choose the preparation level that matches your target band timeline.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pricingPlans.map((plan) => (
               <div
                 key={plan.name}

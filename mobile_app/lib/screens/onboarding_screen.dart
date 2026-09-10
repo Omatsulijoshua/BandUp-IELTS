@@ -8,7 +8,6 @@ import '../services/api_service.dart';
 import '../services/localization.dart';
 import '../theme/app_colors.dart';
 import 'dashboard_screen.dart';
-import 'login_screen.dart';
 import 'register_screen.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
@@ -1204,11 +1203,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       children: [
                         Text(_t('paywall_sub2'), style: const TextStyle(color: AppColors.textPrimaryLight, fontWeight: FontWeight.bold, fontSize: 13)),
                         const SizedBox(height: 4),
-                        const Text('Only ₦19,900.00/mo', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
+                        const Text('Only ₦20,000.00/mo', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 11)),
                       ],
                     ),
                   ),
-                  const Text('₦ 19,900.00', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 14)),
+                  const Text('₦ 20,000.00', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 14)),
                 ],
               ),
             ),

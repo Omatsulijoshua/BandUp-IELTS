@@ -214,7 +214,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                                 ),
                                 const SizedBox(height: 2),
                                 const Text(
-                                  'Only ₦19,900.00/mo',
+                                  'Only ₦20,000.00/mo',
                                   style: TextStyle(
                                     color: AppColors.textSecondaryLight,
                                     fontSize: 11,
@@ -224,7 +224,7 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                             ),
                           ),
                           const Text(
-                            '₦ 19,900.00',
+                            '₦ 20,000.00',
                             style: TextStyle(
                               color: AppColors.textPrimaryLight,
                               fontSize: 14,

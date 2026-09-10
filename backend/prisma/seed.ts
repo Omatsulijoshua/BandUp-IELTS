@@ -28,7 +28,7 @@ async function main() {
     where: {
       plan: {
         code: {
-          notIn: ['FREE', 'BASIC', 'PRO', 'PREMIUM'],
+          notIn: ['FREE', 'BASIC', 'PRO'],
         },
       },
     },
@@ -36,7 +36,7 @@ async function main() {
   await prisma.subscriptionPlan.deleteMany({
     where: {
       code: {
-        notIn: ['FREE', 'BASIC', 'PRO', 'PREMIUM'],
+        notIn: ['FREE', 'BASIC', 'PRO'],
       },
     },
   });
@@ -70,30 +70,25 @@ async function main() {
       hasTutorReview: false,
     },
     {
-      name: 'Pro AI Intensive Plan',
+      name: 'Pro All-Inclusive Plan',
       code: 'PRO',
-      price: 35000.00,
+      price: 20000.00,
       interval: 'MONTHLY' as const,
-      features: ['Unlimited Practice & Lessons', 'Unlimited Mock Tests', 'AI writing corrections', 'AI speaking evaluations'],
+      features: [
+        'All Benefits Included',
+        'Unlimited Practice & Lessons',
+        'Unlimited Mock Tests',
+        'AI writing corrections & Band 9 rewrite',
+        'AI speaking evaluations & pronunciation',
+        'Personalized Study Plans',
+        'Priority 24/7 Support',
+      ],
       limitLessons: -1,
       limitDailyPractice: -1,
       limitMockTests: -1,
       hasAiWriting: true,
       hasAiSpeaking: true,
       hasTutorReview: false,
-    },
-    {
-      name: 'Premium Tutor Plan',
-      code: 'PREMIUM',
-      price: 75000.00,
-      interval: 'MONTHLY' as const,
-      features: ['Unlimited Practice, Lessons, & AI tools', 'Personalized Study Plans', '1-on-1 human tutor writing & speaking review'],
-      limitLessons: -1,
-      limitDailyPractice: -1,
-      limitMockTests: -1,
-      hasAiWriting: true,
-      hasAiSpeaking: true,
-      hasTutorReview: true,
     },
   ];
 
