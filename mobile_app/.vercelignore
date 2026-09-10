@@ -1,6 +1,8 @@
 # Ignore everything
 *
 
+!vercel.json
+
 # Allow build/web
 !build
 !build/web
