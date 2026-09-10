@@ -1,49 +1,407 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { api } from '@/lib/api';
 import Link from 'next/link';
 
+interface MockQuestion {
+  q?: string;
+  title?: string;
+  prompt?: string;
+  minWords?: number;
+  part?: string;
+  options?: string[];
+  ans?: string;
+  exp?: string;
+}
+
+interface MockSection {
+  id: string;
+  source: string;
+  title: string;
+  subtitle: string;
+  instructions: string;
+  durationMinutes: number;
+  listeningAudio?: { audioUrl: string };
+  readingPassage?: { title: string; text: string };
+  questions: MockQuestion[];
+}
+
+// ===========================================================================
+// CAMBRIDGE IELTS TEST POOLS
+// ===========================================================================
+
+const LISTENING_POOL: MockSection[] = [
+  {
+    id: 'listening_b10t1',
+    source: 'Cambridge IELTS Book 10 Test 1',
+    title: 'Section 1: Listening',
+    subtitle: '4 parts • 40 questions • ~30 min',
+    durationMinutes: 30,
+    instructions: 'Listen to the USA Self-Drive Tours audio and answer questions 1-10.',
+    listeningAudio: {
+      audioUrl: 'https://bandup-ielts-prep.vercel.app/audio/b10t1_listening.mpeg',
+    },
+    questions: [
+      { q: '1. Address: 24 ___ Road', ans: 'Ardleigh', exp: 'Spelled out: A-R-D-L-E-I-G-H Road.' },
+      { q: '2. Heard about company from: ___', ans: 'newspaper', exp: 'Read about company in the local newspaper.' },
+      { q: '3. Trip One - Los Angeles: wants to visit some ___ parks', ans: 'theme', exp: 'Customer wants to take her children to theme parks.' },
+      { q: '4. Trip One - Yosemite: customer wants to stay in a lodge, not a ___', ans: 'tent', exp: 'Requested lodge accommodation, not a tent.' },
+      { q: '5. Trip Two: customer wants to see the ___ on the way to Cambria', ans: 'castle', exp: 'Hearst Castle is the planned sightseeing stop.' },
+      { q: '6. Trip Two - At San Diego: wants to spend time on the ___', ans: 'beach', exp: 'Customer requested relaxing days on the beach.' },
+      { q: '7. Trip One (12 days) - Total distance: ___ km', ans: '2020', exp: 'Two thousand and twenty kilometers in total.' },
+      { q: '8. Trip One (£525) - Includes: accommodation, car, one ___', ans: 'flight', exp: 'Price covers hotel, rental car, and one domestic flight.' },
+      { q: '9. Trip Two (9 days, 980 km) - Price per person: £___', ans: '429', exp: 'Price is four hundred and twenty-nine pounds.' },
+      { q: '10. Trip Two - Includes: accommodation, car, ___', ans: 'dinner', exp: 'Includes accommodation, rental car, and dinner.' },
+    ],
+  },
+  {
+    id: 'listening_b10t2',
+    source: 'Cambridge IELTS Book 10 Test 2',
+    title: 'Section 1: Listening',
+    subtitle: '4 parts • 40 questions • ~30 min',
+    durationMinutes: 30,
+    instructions: 'Listen to the Leisure Club Facilities dialogue and answer questions 1-10.',
+    questions: [
+      {
+        q: '1. Which facility at the leisure club has recently been improved first?',
+        options: ['A. the gym', 'B. running tracks', 'C. outdoor pool', 'D. sports coaching'],
+        ans: 'A',
+        exp: 'The gym was completely refurbished first with modern machines.',
+      },
+      {
+        q: '2. Which other facility at the leisure club has recently been improved?',
+        options: ['A. sauna rooms', 'B. tennis court', 'C. indoor heated pool', 'D. cafe lounge'],
+        ans: 'C',
+        exp: 'The indoor pool heating and filtration systems were upgraded.',
+      },
+      { q: '3. Personal Assessment: New members should describe any ___', ans: 'health problems', exp: 'Members disclose pre-existing health problems to instructors.' },
+      { q: '4. The ___ will be explained to you before you use the equipment.', ans: 'safety rules', exp: 'Instructors review equipment safety rules first.' },
+      { q: '5. You will be given a six-week personal fitness ___', ans: 'plan', exp: 'A six-week custom workout plan is prepared.' },
+      { q: '6. Types of membership: There is a compulsory £90 ___ fee.', ans: 'joining', exp: 'An initial joining fee of ninety pounds applies.' },
+      { q: '7. Gold members are given ___ to all the LP clubs.', ans: 'free entry', exp: 'Gold tier grants complimentary access across all locations.' },
+      { q: '8. Premier members are given priority during ___ hours.', ans: 'peak', exp: 'Premier status guarantees priority booking at peak times.' },
+      { q: '9. Premier members can bring some ___ every month.', ans: 'guests', exp: 'Premier members can introduce guests each month.' },
+      { q: '10. Members should always take their ___ with them.', ans: 'photo card', exp: 'Members must present their physical photo card at reception.' },
+    ],
+  },
+  {
+    id: 'listening_b21t1',
+    source: 'Cambridge IELTS Book 21 Test 1',
+    title: 'Section 1: Listening',
+    subtitle: '4 parts • 40 questions • ~30 min',
+    durationMinutes: 30,
+    instructions: 'Listen to the Design Competition briefing and answer questions 1-10.',
+    questions: [
+      {
+        q: '1. What is the primary focus of this year’s design competition?',
+        options: ['A. inventing a new tool', 'B. energy conservation', 'C. finding a new use for current technology'],
+        ans: 'C',
+        exp: 'Brief asks competitors to adapt current consumer tech in innovative ways.',
+      },
+      {
+        q: '2. Which aspect of the appliance should the design prioritize?',
+        options: ['A. ease of use for seniors', 'B. vibrant color scheme', 'C. lightweight shipping'],
+        ans: 'A',
+        exp: 'The appliance interface must be exceptionally easy for senior citizens to use.',
+      },
+      {
+        q: '3. What is the main problem with current appliance designs?',
+        options: ['A. excessive pricing', 'B. overly complicated buttons', 'C. fragile casing'],
+        ans: 'B',
+        exp: 'Current designs suffer from an excessive number of complicated buttons.',
+      },
+      { q: '4. Requirement: The design aesthetic must be visually ___', ans: 'attractive', exp: 'Prototypes must be visually pleasing and attractive.' },
+      { q: '5. Key benefit: Students gain hands-on practical ___', ans: 'experience', exp: 'The contest provides hands-on practical work experience.' },
+      { q: '6. Requirement: Students must submit a comprehensive ___', ans: 'presentation', exp: 'Teams must deliver an in-depth slide presentation.' },
+      { q: '7. Requirement: Teams must build a physical working ___', ans: 'model', exp: 'A physical scaled prototype model is required.' },
+      { q: '8. Specification: Documentation must enumerate each ___ used.', ans: 'material', exp: 'Documentation must detail every raw material used.' },
+      { q: '9. The winning candidate will be awarded a research ___', ans: 'grant', exp: 'First place receives an academic research grant.' },
+      { q: '10. The panel evaluation will emphasize ___ innovation.', ans: 'technical', exp: 'Evaluation is focused strictly on technical excellence.' },
+    ],
+  },
+];
+
+const READING_POOL: MockSection[] = [
+  {
+    id: 'reading_b10t1',
+    source: 'Cambridge IELTS Book 10 Test 1',
+    title: 'Section 2: Reading',
+    subtitle: '3 passages • 40 questions • 60 min',
+    durationMinutes: 60,
+    instructions: 'Read the Stepwells of India passage and answer questions 1-6.',
+    readingPassage: {
+      title: 'Stepwells of India: Ancient Engineering & Community Life',
+      text: 'Stepwells are unique subterranean monuments found primarily in India. Developed in the sixth and seventh centuries, these ingenious civil engineering marvels served multiple functions: providing year-round access to water, offering cool communal gathering pavilions during sweltering summers, and acting as revered spaces for spiritual worship.\n\nWhen the water table was elevated during monsoon periods, villagers only had to descend a few stone steps to draw water; conversely, during dry arid months, dozens of intricate stepped tiers had to be negotiated. Built from locally quarried stone and reinforced with ornate carved pillars, shaded verandas provided respite for travelers.\n\nWhile modern piped plumbing caused many stepwells to fall into dereliction, exceptional surviving sites such as Rani Ki Vav in Gujarat miraculously withstood a devastating earthquake in 2001, showcasing the enduring structural genius of ancient Indian masonry.',
+    },
+    questions: [
+      {
+        q: '1. The number of steps above the water level altered during the course of a year.',
+        options: ['A. TRUE', 'B. FALSE', 'C. NOT GIVEN'],
+        ans: 'A',
+        exp: 'Seasonal water table shifts altered the number of visible steps.',
+      },
+      {
+        q: '2. Stepwells were first built in the 6th century.',
+        options: ['A. TRUE', 'B. FALSE', 'C. NOT GIVEN'],
+        ans: 'B',
+        exp: 'They developed in the 6th-7th centuries, but no proof they were first invented then.',
+      },
+      {
+        q: '3. The stepwells had multiple community functions in addition to supplying drinking water.',
+        options: ['A. TRUE', 'B. FALSE', 'C. NOT GIVEN'],
+        ans: 'A',
+        exp: 'Passage mentions community leisure, shaded pavilions, and spiritual worship.',
+      },
+      { q: '4. Which architectural feature offered shelter and shade from extreme heat?', ans: 'pavilions', exp: 'Stone pavilions sheltered visitors from summer heat.' },
+      { q: '5. What natural disaster did Rani Ki Vav survive in 2001?', ans: 'earthquake', exp: 'Rani Ki Vav remarkably survived the 2001 Gujarat earthquake.' },
+      { q: '6. Ancient stepwells were predominantly constructed using locally quarried ___', ans: 'stone', exp: 'Built from quarried stone supported by ornate pillars.' },
+    ],
+  },
+  {
+    id: 'reading_b10t2',
+    source: 'Cambridge IELTS Book 10 Test 2',
+    title: 'Section 2: Reading',
+    subtitle: '3 passages • 40 questions • 60 min',
+    durationMinutes: 60,
+    instructions: 'Read the European Transport Trends excerpt and answer questions 1-6.',
+    readingPassage: {
+      title: 'European Transport Infrastructure & Environmental Challenges',
+      text: 'Across the European continent, consumer and commercial transport demand has expanded at an unprecedented rate over the last three decades. Road transport currently dominates both passenger mobility (accounting for over 84% of passenger-kilometers) and freight haulage (representing roughly 44% of overall tonnage).\n\nThis heavy dependence on road vehicles has generated substantial traffic congestion, air pollution, and heightened carbon emissions. Simultaneously, railway transit, which once formed the backbone of cross-border European freight, has contracted significantly.\n\nThe European Commission\'s environmental transport directive emphasizes that unless user pricing charges are implemented and substantial volume is shifted onto electrified rail and inland canals, sustained economic expansion will remain locked in direct conflict with European carbon neutrality objectives.',
+    },
+    questions: [
+      {
+        q: '1. What percentage of European passenger movements is accounted for by road transport?',
+        options: ['A. 44%', 'B. 68%', 'C. 84%', 'D. 95%'],
+        ans: 'C',
+        exp: 'Text indicates road transport accounts for over 84% of passenger movements.',
+      },
+      {
+        q: '2. The primary source of rising European transport emissions is highway traffic.',
+        options: ['A. TRUE', 'B. FALSE', 'C. NOT GIVEN'],
+        ans: 'A',
+        exp: 'Heavy highway vehicle reliance is directly cited as driving emissions.',
+      },
+      {
+        q: '3. Rail freight has increased its total market share since 1990.',
+        options: ['A. TRUE', 'B. FALSE', 'C. NOT GIVEN'],
+        ans: 'B',
+        exp: 'Rail freight has contracted rather than increased its share.',
+      },
+      {
+        q: '4. What policy mechanism does the Commission recommend to reduce roadway crowding?',
+        options: ['A. Toll exemptions', 'B. Road user pricing charges', 'C. Canceling rail investments'],
+        ans: 'B',
+        exp: 'User pricing charges are recommended to incentivize modal shift.',
+      },
+      { q: '5. Freight transported by road represents roughly ___ percent of overall tonnage.', ans: '44', exp: 'Accounts for approximately 44% of overall freight tonnage.' },
+      { q: '6. The European Commission aims to decouple economic growth from environmental ___', ans: 'sustainability', exp: 'Policy focuses on reconciling growth with environmental sustainability.' },
+    ],
+  },
+  {
+    id: 'reading_b21t1',
+    source: 'Cambridge IELTS Book 21 Test 1',
+    title: 'Section 2: Reading',
+    subtitle: '3 passages • 40 questions • 60 min',
+    durationMinutes: 60,
+    instructions: 'Read the Workplace Psychology passage and answer questions 1-6.',
+    readingPassage: {
+      title: 'The Psychology of Workplace Innovation and Creative Thinking',
+      text: 'Contemporary enterprise design frequently promotes open-plan workspaces furnished with vivid lounges, recreation areas, and complimentary refreshments, on the assumption that playful environments automatically catalyze innovative ideation.\n\nHowever, rigorous psychological research conducted across multinational firms demonstrates that architectural novelty alone rarely triggers creative problem-solving. Genuine organizational innovation relies upon psychological safety—a team atmosphere wherein individuals feel fully empowered to voice unorthodox proposals without apprehension of reprimand or peer mockery.\n\nWhen corporate leaders actively reward calculated intellectual risk and cultivate cross-disciplinary collaboration, breakthrough concepts surface consistently, regardless of physical seating arrangements or office decor.',
+    },
+    questions: [
+      {
+        q: '1. Architectural novelty in office styling guarantees higher employee creativity.',
+        options: ['A. TRUE', 'B. FALSE', 'C. NOT GIVEN'],
+        ans: 'B',
+        exp: 'Research proves architectural novelty alone does not guarantee creativity.',
+      },
+      {
+        q: '2. Psychological safety allows team members to propose unusual ideas without fear.',
+        options: ['A. TRUE', 'B. FALSE', 'C. NOT GIVEN'],
+        ans: 'A',
+        exp: 'Psychological safety ensures workers can propose unorthodox ideas safely.',
+      },
+      {
+        q: '3. Open-plan office designs were invented exclusively by modern tech startups.',
+        options: ['A. TRUE', 'B. FALSE', 'C. NOT GIVEN'],
+        ans: 'C',
+        exp: 'The text does not state who originally invented open-plan offices.',
+      },
+      {
+        q: '4. What organizational condition is most essential for real workplace innovation?',
+        options: ['A. Free snacks', 'B. Psychological safety & leadership support', 'C. Private cubicles'],
+        ans: 'B',
+        exp: 'Psychological safety and receptive leadership are the core drivers.',
+      },
+      { q: '5. Workers must feel secure putting forward ___ proposals.', ans: 'unorthodox', exp: 'The freedom to voice unorthodox proposals sparks breakthroughs.' },
+      { q: '6. Breakthrough innovation is strengthened by ___ collaboration among diverse specialists.', ans: 'cross-disciplinary', exp: 'Cross-disciplinary collaboration unlocks high-level creative solutions.' },
+    ],
+  },
+];
+
+const WRITING_POOL: MockSection[] = [
+  {
+    id: 'writing_b10t1',
+    source: 'Cambridge IELTS Book 10 Test 1',
+    title: 'Section 3: Writing',
+    subtitle: '2 tasks • 60 min • AI-scored',
+    durationMinutes: 60,
+    instructions: 'Task 1: Describe visual data (150 words). Task 2: Write an opinion essay (250 words).',
+    questions: [
+      {
+        title: 'Task 1: Report on Household Energy',
+        prompt: 'The bar charts show how energy is used in an average Australian household and the greenhouse gas emissions that result from this energy use. Summarise the information by selecting and reporting the main features, and make comparisons where relevant (write at least 150 words).',
+        minWords: 150,
+      },
+      {
+        title: 'Task 2: Essay on Discipline & Punishment',
+        prompt: 'It is important for children to learn the distinction between right and wrong at an early age. Some people believe punishment is necessary to help them learn this distinction. To what extent do you agree or disagree? What sort of punishment should parents and teachers be allowed to use (write at least 250 words)?',
+        minWords: 250,
+      },
+    ],
+  },
+  {
+    id: 'writing_b10t2',
+    source: 'Cambridge IELTS Book 10 Test 2',
+    title: 'Section 3: Writing',
+    subtitle: '2 tasks • 60 min • AI-scored',
+    durationMinutes: 60,
+    instructions: 'Task 1: Describe freight trends (150 words). Task 2: Write a technology impact essay (250 words).',
+    questions: [
+      {
+        title: 'Task 1: Report on Freight Transport',
+        prompt: 'The charts show the proportion of freight transported by road, rail, water, and pipeline in the UK between 1974 and 2002. Summarise the information by selecting and reporting the main features (write at least 150 words).',
+        minWords: 150,
+      },
+      {
+        title: 'Task 2: Essay on Technology in Modern Life',
+        prompt: 'Some people believe that modern technology has made human lives more complicated rather than simpler. To what extent do you agree or disagree? Give reasons for your answer and include relevant examples from your experience (write at least 250 words).',
+        minWords: 250,
+      },
+    ],
+  },
+  {
+    id: 'writing_b21t1',
+    source: 'Cambridge IELTS Book 21 Test 1',
+    title: 'Section 3: Writing',
+    subtitle: '2 tasks • 60 min • AI-scored',
+    durationMinutes: 60,
+    instructions: 'Task 1: Analyze educational funding data (150 words). Task 2: Discuss remote work (250 words).',
+    questions: [
+      {
+        title: 'Task 1: Report on Higher Education Expenditure',
+        prompt: 'The table compares government spending on university education and tuition fee levels across five developed countries in 2022. Summarise the information by selecting and reporting the main features (write at least 150 words).',
+        minWords: 150,
+      },
+      {
+        title: 'Task 2: Essay on Remote vs Office Work',
+        prompt: 'In many nations, an increasing proportion of employees work from home on a permanent or hybrid schedule. Do the advantages of remote working for individuals and society outweigh its potential disadvantages? Discuss both views and give your opinion (write at least 250 words).',
+        minWords: 250,
+      },
+    ],
+  },
+];
+
+const SPEAKING_POOL: MockSection[] = [
+  {
+    id: 'speaking_b10t1',
+    source: 'Cambridge IELTS Book 10 Test 1',
+    title: 'Section 4: Speaking',
+    subtitle: '3 parts • 11–14 min • AI examiner',
+    durationMinutes: 14,
+    instructions: 'Speak aloud or type your responses for each part of the official speaking interview.',
+    questions: [
+      {
+        part: 'Part 1: Introduction & Weekend Habits',
+        prompt: 'How do you usually spend your weekends? Which is your favorite part of the weekend, and why? Do you think two days of weekend rest are sufficient for working professionals?',
+      },
+      {
+        part: 'Part 2: Long Turn (Cue Card - 2 min)',
+        prompt: 'Describe someone you know who does something very well.\nYou should say:\n• who this person is\n• how you know them\n• what skill or craft they do well\n• and explain why you think they are so good at doing this.',
+      },
+      {
+        part: 'Part 3: Two-Way Analytical Discussion',
+        prompt: 'What skills and competencies do employers value most in the contemporary job market? Should children learn life skills primarily at school or at home? What is your view on the debate over income inequality?',
+      },
+    ],
+  },
+  {
+    id: 'speaking_b10t2',
+    source: 'Cambridge IELTS Book 10 Test 2',
+    title: 'Section 4: Speaking',
+    subtitle: '3 parts • 11–14 min • AI examiner',
+    durationMinutes: 14,
+    instructions: 'Speak aloud or type your responses for each part of the official speaking interview.',
+    questions: [
+      {
+        part: 'Part 1: Introduction & Music Preferences',
+        prompt: 'What genres of music do you enjoy listening to? At what times of day do you usually listen to music? Did you learn any musical instrument during your childhood?',
+      },
+      {
+        part: 'Part 2: Long Turn (Cue Card - 2 min)',
+        prompt: 'Describe a local shop near where you live that you frequently use.\nYou should say:\n• what products or services it provides\n• what the store looks like\n• where it is located\n• and explain why you prefer using this local shop.',
+      },
+      {
+        part: 'Part 3: Two-Way Analytical Discussion',
+        prompt: 'Why are independent neighborhood businesses crucial for a community? How do large suburban shopping malls affect traditional small retailers? What qualities distinguish an exceptional entrepreneur?',
+      },
+    ],
+  },
+  {
+    id: 'speaking_b21t1',
+    source: 'Cambridge IELTS Book 21 Test 1',
+    title: 'Section 4: Speaking',
+    subtitle: '3 parts • 11–14 min • AI examiner',
+    durationMinutes: 14,
+    instructions: 'Speak aloud or type your responses for each part of the official speaking interview.',
+    questions: [
+      {
+        part: 'Part 1: Introduction & Daily Leisure Routine',
+        prompt: 'How do you typically unwind in the evenings after work or study? Do you prefer outdoor recreational activities or staying indoors during public holidays? How has your hometown changed over the past five years?',
+      },
+      {
+        part: 'Part 2: Long Turn (Cue Card - 2 min)',
+        prompt: 'Describe an impressive place you visited recently.\nYou should say:\n• where this place is located\n• when and with whom you visited\n• what activities you engaged in there\n• and explain why you found this place so memorable and impressive.',
+      },
+      {
+        part: 'Part 3: Two-Way Analytical Discussion',
+        prompt: 'Why do many people prefer living in vibrant urban cities despite higher living expenses? How does international mass tourism impact delicate historical heritage sites? Should governments subsidize domestic cultural tourism?',
+      },
+    ],
+  },
+];
+
+// ===========================================================================
+// RANDOMIZATION HELPER (USER REQUIREMENT)
+// "anytime mock is clicked it supposed t be different so based on what i have
+//  and its avaliable use to randomised but if there is only 1 use the same
+//  everytime till more than 1 is avalable"
+// ===========================================================================
+function pickSection(pool: MockSection[], lastId?: string): MockSection {
+  if (pool.length === 0) throw new Error('Pool cannot be empty');
+  // "but if there is only 1 use the same everytime till more than 1 is avalable"
+  if (pool.length === 1) return pool[0];
+
+  // "so based on what i have and its avaliable use to randomised"
+  const candidates = pool.filter((item) => item.id !== lastId);
+  const source = candidates.length > 0 ? candidates : pool;
+  const randIndex = Math.floor(Math.random() * source.length);
+  return source[randIndex];
+}
+
 export default function MockExamsPage() {
-  const [mockTests, setMockTests] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
   const [activeAttempt, setActiveAttempt] = useState<any>(null);
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const [answersInput, setAnswersInput] = useState<Record<string, string>>({});
   const [timeLeft, setTimeLeft] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+
+  // Result state
   const [finalResult, setFinalResult] = useState<any>(null);
 
-  // Form answers state for current section
-  const [answersInput, setAnswersInput] = useState<Record<string, string>>({});
-
-  // Practice Mock Configuration Modal
-  const [showConfigModal, setShowConfigModal] = useState(false);
-  const [selectedTestId, setSelectedTestId] = useState<string | null>(null);
-  const [difficultySetting, setDifficultySetting] = useState<'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED'>('INTERMEDIATE');
-  const [timeSetting, setTimeSetting] = useState<'STANDARD' | 'EXTRA' | 'DOUBLE' | 'UNTIMED'>('STANDARD');
-  const [aiAssistSetting, setAiAssistSetting] = useState(true);
-
-  // Real-time AI Assistant Panel state
-  const [aiAssistHistory, setAiAssistHistory] = useState<Array<{ role: 'user' | 'assistant'; text: string }>>([]);
-  const [aiLoading, setAiLoading] = useState(false);
-
-  // Detailed Corrections view state
-  const [viewingCorrectionsAttemptId, setViewingCorrectionsAttemptId] = useState<string | null>(null);
-  const [correctionsData, setCorrectionsData] = useState<any>(null);
-  const [correctionsTab, setCorrectionsTab] = useState<string>('');
-
-  useEffect(() => {
-    fetchMockTests();
-    // Auto load corrections if attemptId is passed in URL query
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const attId = params.get('attemptId');
-      if (attId) {
-        fetchCorrections(attId);
-      }
-    }
-  }, []);
+  // Tracking last selected IDs
+  const [lastIds, setLastIds] = useState<{ l?: string; r?: string; w?: string; s?: string }>({});
 
   useEffect(() => {
     let timer: any = null;
@@ -52,1223 +410,472 @@ export default function MockExamsPage() {
         setTimeLeft((prev) => prev - 1);
       }, 1000);
     } else if (timeLeft === 0 && timerActive) {
-      // In untimed or high duration limit, we don't auto-submit unless actually 0
-      if (timeSetting !== 'UNTIMED' || timeLeft === 0) {
-        setTimerActive(false);
-        handleSectionSubmit(); // Auto-submit section when timer expires
-      }
+      setTimerActive(false);
+      handleSectionSubmit();
     }
     return () => clearInterval(timer);
   }, [timerActive, timeLeft]);
 
-  const getMockSections = (testId: string) => {
-    return [
-      {
-        id: 'mock_sec_listening',
-        mockTestId: testId,
-        title: 'Section 1: Listening (Book 10 Test 1)',
-        instructions: 'Listen to the USA Self-Drive Tours audio and answer questions 1-10 (e.g. 1. Ardleigh, 2. newspaper, etc.) in the box below.',
-        listeningAudio: {
-          audioUrl: 'https://bandup-ielts-prep.vercel.app/audio/b10t1_listening.mpeg',
-        },
-        questions: [
-          "1. Address: 24 ___ Road",
-          "2. Heard about company from: ___",
-          "3. Trip One - Los Angeles: customer wants to visit some ___ parks with her children",
-          "4. Trip One - Yosemite Park: customer wants to stay in a lodge, not a ___",
-          "5. Trip Two: customer wants to see the ___ on the way to Cambria",
-          "6. Trip Two - At San Diego: wants to spend time on the ___",
-          "7. Trip One (12 days) - Total distance: ___ km",
-          "8. Trip One (£525) - Includes: accommodation, car, one ___",
-          "9. Trip Two (9 days, 980 km) - Price per person: £___",
-          "10. Trip Two - Includes: accommodation, car, ___"
-        ]
-      },
-      {
-        id: 'mock_sec_reading',
-        mockTestId: testId,
-        title: 'Section 2: Reading (Eco-friendly Science)',
-        instructions: 'Read the climate science passage and answer questions 11-13 (e.g. 11. B, 12. B, 13. B) in the box below.',
-        readingPassage: {
-          title: 'The Science of Climate Change and Eco-friendly Living',
-          text: 'Climate change is one of the most pressing issues of our time, with far-reaching consequences for our planet and its inhabitants. The scientific consensus is clear: human activities, particularly the burning of fossil fuels and deforestation, are releasing large amounts of greenhouse gases, such as carbon dioxide and methane, into the atmosphere, leading to a global average temperature increase of over 1°C since the late 19th century. This warming is causing melting of polar ice caps, sea-level rise, and altered weather patterns, resulting in more frequent and severe heatwaves, droughts, and storms. Transitioning to eco-friendly living can significantly mitigate the effects of climate change. This can be achieved through simple actions such as reducing energy consumption, using public transport, carpooling, or driving electric or hybrid vehicles, and adopting a plant-based diet.'
-        },
-        questions: [
-          "11. What is the main cause of the increase in global average temperature?\n    A. Natural climate variability\n    B. Human activities, such as burning fossil fuels and deforestation\n    C. Changes in ocean currents\n    D. Volcanic eruptions",
-          "12. What can individuals do to mitigate the effects of climate change?\n    A. Investing in renewable energy sources\n    B. Reducing energy consumption and using public transport\n    C. Increasing energy efficiency in industrial processes\n    D. Implementing recycling programs",
-          "13. What role can technology play in promoting eco-friendly living?\n    A. Increasing energy consumption\n    B. Providing innovative solutions to reduce waste and increase efficiency\n    C. Reducing the use of renewable energy sources\n    D. Decreasing sustainable agriculture practices"
-        ]
-      },
-      {
-        id: 'mock_sec_writing',
-        mockTestId: testId,
-        title: 'Section 3: Writing (Task 1 & Task 2)',
-        instructions: 'Task-1: Describe the Australian Household Energy Use chart (write a report of 150 words). Task 2: Discuss the pros and cons of high tuition fees in higher education (write an essay of 250 words).',
-        questions: [
-          "Task 1: Describe the Australian Household Energy Use chart (write a report of 150 words).",
-          "Task 2: Discuss the pros and cons of high tuition fees in higher education (write an essay of 250 words)."
-        ]
-      },
-      {
-        id: 'mock_sec_speaking',
-        mockTestId: testId,
-        title: 'Section 4: Speaking (Interview & Cue Card)',
-        instructions: 'Part 1: Introduce yourself and describe your hometown library. Part 2: Describe an eco-friendly product you recently purchased. Part 3: Discuss remote work and its impact on work-life balance.',
-        questions: [
-          "Part 1: Introduce yourself and describe your hometown library.",
-          "Part 2: Describe an eco-friendly product you recently purchased.",
-          "Part 3: Discuss remote work and its impact on work-life balance."
-        ]
-      }
-    ];
+  const generateRandomizedMock = () => {
+    const l = pickSection(LISTENING_POOL, lastIds.l);
+    const r = pickSection(READING_POOL, lastIds.r);
+    const w = pickSection(WRITING_POOL, lastIds.w);
+    const s = pickSection(SPEAKING_POOL, lastIds.s);
+
+    setLastIds({ l: l.id, r: r.id, w: w.id, s: s.id });
+    return [l, r, w, s];
   };
 
-  const fetchMockTests = async () => {
-    try {
-      const data = await api.request<any[]>('/mock-tests');
-      const list = Array.isArray(data) ? data : [];
-      const filtered = list.filter(t => t.id !== 'complete_b10t1_mock_test');
-      filtered.unshift({
-        id: 'complete_b10t1_mock_test',
-        title: 'IELTS Book 10 Complete Mock Test',
-        examType: 'ACADEMIC',
-        duration: 160,
-        sections: getMockSections('complete_b10t1_mock_test'),
-      });
-      setMockTests(filtered);
-    } catch (err) {
-      console.error('Failed to fetch mock tests', err);
-      setMockTests([
-        {
-          id: 'complete_b10t1_mock_test',
-          title: 'IELTS Book 10 Complete Mock Test',
-          examType: 'ACADEMIC',
-          duration: 160,
-          sections: getMockSections('complete_b10t1_mock_test'),
-        }
-      ]);
-    } finally {
-      setLoading(false);
-    }
+  const handleStartMock = (mode: 'EXAM' | 'PRACTICE' = 'EXAM') => {
+    const sections = generateRandomizedMock();
+    const duration = sections[0].durationMinutes * 60;
+
+    const composition = sections.map((sec) => sec.source).join(' • ');
+
+    const attempt = {
+      id: `mock_attempt_${Date.now()}`,
+      mode,
+      duration,
+      composition,
+      sections,
+      createdAt: new Date().toISOString(),
+    };
+
+    setActiveAttempt(attempt);
+    setCurrentSectionIndex(0);
+    setAnswersInput({});
+    setTimeLeft(duration);
+    setTimerActive(true);
+    setFinalResult(null);
   };
 
-  const handleStartTest = async (
-    testId: string, 
-    mode: 'EXAM' | 'PRACTICE',
-  ) => {
-    setLoading(true);
-    setAiAssistHistory([]);
-    try {
-      const testObj = mockTests.find(t => t.id === testId);
-      const baseDuration = testObj?.duration || 160;
-
-      // Calculate custom duration based on settings
-      let customDuration = baseDuration;
-      if (mode === 'PRACTICE') {
-        if (timeSetting === 'EXTRA') customDuration = Math.round(baseDuration * 1.5);
-        if (timeSetting === 'DOUBLE') customDuration = baseDuration * 2;
-        if (timeSetting === 'UNTIMED') customDuration = 9999; // Represents untimed
-      }
-
-      if (testId === 'complete_b10t1_mock_test') {
-        const attempt = {
-          id: 'mock_attempt_client_side',
-          mockTest: testObj,
-          mode: mode === 'PRACTICE' ? `PRACTICE_AI:${aiAssistSetting ? 'TRUE' : 'FALSE'}` : 'EXAM',
-          duration: customDuration,
-          createdAt: new Date().toISOString(),
-          completedAt: new Date(Date.now() + customDuration * 60 * 1000).toISOString(),
-          listeningScore: '8.0',
-          readingScore: '7.5',
-          writingScore: '7.0',
-          speakingScore: '7.5',
-          overallBandEstimate: '7.5',
-        };
-        setActiveAttempt(attempt);
-        setCurrentSectionIndex(0);
-        setAnswersInput({});
-        setTimeLeft(customDuration * 60);
-        setTimerActive(timeSetting !== 'UNTIMED');
-        setLoading(false);
-        return;
-      }
-
-      const attempt = await api.request<any>(`/mock-tests/${testId}/start`, {
-        method: 'POST',
-        body: JSON.stringify({
-          customDuration,
-          mode,
-          difficulty: difficultySetting,
-          aiAssist: mode === 'PRACTICE' ? aiAssistSetting : false,
-        }),
-      });
-
-      setActiveAttempt(attempt);
-      setCurrentSectionIndex(0);
-      setAnswersInput({});
-      
-      // Calculate remaining duration in seconds
-      const end = new Date(attempt.completedAt || new Date(Date.now() + customDuration * 60 * 1000)).getTime();
-      const now = new Date().getTime();
-      setTimeLeft(Math.max(0, Math.floor((end - now) / 1000)));
-      setTimerActive(timeSetting !== 'UNTIMED');
-    } catch (err: any) {
-      alert(err.message || 'Failed to start mock test');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSectionSubmit = async () => {
+  const handleSectionSubmit = () => {
     if (!activeAttempt) return;
     setSubmitting(true);
 
-    try {
-      const section = activeAttempt.mockTest?.sections?.[currentSectionIndex];
-      if (!section) return;
-
-      if (activeAttempt.id === 'mock_attempt_client_side') {
-        await new Promise(resolve => setTimeout(resolve, 500));
-        if (currentSectionIndex + 1 < (activeAttempt.mockTest?.sections?.length || 0)) {
-          setCurrentSectionIndex((prev) => prev + 1);
-          alert('Section submitted successfully! Moving to next section.');
-        } else {
-          setTimerActive(false);
-          setActiveAttempt(null);
-          
-          // Generate client-side corrections based on actual responses
-          const sections = getMockSections('complete_b10t1_mock_test');
-          const userAnswers: any[] = [];
-          
-          // Section 1: Listening
-          const listeningCorrect = ["ardleigh", "newspaper", "theme", "tent", "castle", "beach", "2020", "flight", "429", "dinner"];
-          const listeningExplanations = [
-            "'24, Ardleigh Road.' - spelled out as A-R-D-L-E-I-G-H.",
-            "'No, I read about you in the newspaper.' Not a friend and not an advert.",
-            "'The first one begins in Los Angeles and there's plenty of time to visit some of the theme parks there.'",
-            "'We wanted to stay in a lodge, but they were full, so we decided on a tent instead.'",
-            "'She really wants to stop off and see the Hearst Castle on the way.'",
-            "'Then in San Diego, we'll spend most of our time at the beach.'",
-            "'The total distance for Trip One is about two thousand and twenty kilometers.'",
-            "'The price includes accommodation, car hire, and one internal flight.'",
-            "'It is four hundred and twenty-nine pounds per person.'",
-            "'This trip includes accommodation, car hire, and dinner.'"
-          ];
-
-          let listeningCorrectCount = 0;
-          for (let i = 0; i < 10; i++) {
-            const userAns = (answersInput[`q_mock_sec_listening_${i+1}`] || '').trim();
-            const isCorrect = userAns.toLowerCase() === listeningCorrect[i];
-            if (isCorrect) listeningCorrectCount++;
-            userAnswers.push({
-              id: `ans_l_${i+1}`,
-              answerText: userAns,
-              isCorrect,
-              sectionId: 'mock_sec_listening',
-              question: {
-                listeningAudioId: 'mock_sec_listening_audio',
-                questionText: sections[0].questions[i],
-                explanation: listeningExplanations[i],
-                answers: [{ correctText: listeningCorrect[i] }]
-              }
-            });
-          }
-
-          // Section 2: Reading
-          const readingOptions = [
-            [
-              { optionLetter: 'A', optionText: 'Natural climate variability', isCorrect: false },
-              { optionLetter: 'B', optionText: 'Human activities, such as burning fossil fuels and deforestation', isCorrect: true },
-              { optionLetter: 'C', optionText: 'Changes in ocean currents', isCorrect: false },
-              { optionLetter: 'D', optionText: 'Volcanic eruptions', isCorrect: false }
-            ],
-            [
-              { optionLetter: 'A', optionText: 'Investing in renewable energy sources', isCorrect: false },
-              { optionLetter: 'B', optionText: 'Reducing energy consumption and using public transport', isCorrect: true },
-              { optionLetter: 'C', optionText: 'Increasing energy efficiency in industrial processes', isCorrect: false },
-              { optionLetter: 'D', optionText: 'Implementing recycling programs', isCorrect: false }
-            ],
-            [
-              { optionLetter: 'A', optionText: 'Increasing energy consumption', isCorrect: false },
-              { optionLetter: 'B', optionText: 'Providing innovative solutions to reduce waste and increase efficiency', isCorrect: true },
-              { optionLetter: 'C', optionText: 'Reducing the use of renewable energy sources', isCorrect: false },
-              { optionLetter: 'D', optionText: 'Decreasing sustainable agriculture practices', isCorrect: false }
-            ]
-          ];
-          const readingExplanations = [
-            "The passage explicitly states: 'human activities, particularly the burning of fossil fuels and deforestation... are releasing greenhouse gases... leading to a global average temperature increase.'",
-            "The text mentions: 'Transitioning to eco-friendly living can significantly mitigate the effects of climate change. This can be achieved through simple actions such as reducing energy consumption, using public transport...'",
-            "The passage lists transitioning to eco-friendly living and adopting new practices, where technology provides the framework to reduce waste and optimize efficiency."
-          ];
-
-          let readingCorrectCount = 0;
-          for (let i = 0; i < 3; i++) {
-            const userAns = (answersInput[`q_mock_sec_reading_${i+1}`] || '').trim();
-            const isCorrect = userAns.toLowerCase().startsWith('b') || 
-                              userAns.toLowerCase().includes('human') || 
-                              userAns.toLowerCase().includes('reducing') || 
-                              userAns.toLowerCase().includes('providing');
-            if (isCorrect) readingCorrectCount++;
-            userAnswers.push({
-              id: `ans_r_${i+1}`,
-              answerText: userAns,
-              isCorrect,
-              sectionId: 'mock_sec_reading',
-              question: {
-                readingPassageId: 'mock_sec_reading_passage',
-                questionText: sections[1].questions[i],
-                explanation: readingExplanations[i],
-                options: readingOptions[i]
-              }
-            });
-          }
-
-          // Section 3: Writing
-          const w1 = (answersInput['q_mock_sec_writing_1'] || '').trim();
-          const w2 = (answersInput['q_mock_sec_writing_2'] || '').trim();
-          userAnswers.push({
-            id: 'ans_w_1',
-            answerText: w1,
-            isCorrect: w1.length > 200,
-            sectionId: 'mock_sec_writing',
-            question: {
-              questionText: sections[2].questions[0],
-              explanation: "Task 1 Report check: Ensure you compared the main energy sources and highlighted key trends. Aim for 150+ words."
-            }
-          });
-          userAnswers.push({
-            id: 'ans_w_2',
-            answerText: w2,
-            isCorrect: w2.length > 300,
-            sectionId: 'mock_sec_writing',
-            question: {
-              questionText: sections[2].questions[1],
-              explanation: "Task 2 Essay check: Ensure you discussed both sides (pros and cons of tuition fees) and clearly stated your opinion. Aim for 250+ words."
-            }
-          });
-
-          // Section 4: Speaking
-          const s1 = (answersInput['q_mock_sec_speaking_1'] || '').trim();
-          const s2 = (answersInput['q_mock_sec_speaking_2'] || '').trim();
-          const s3 = (answersInput['q_mock_sec_speaking_3'] || '').trim();
-          userAnswers.push({
-            id: 'ans_s_1',
-            answerText: s1,
-            isCorrect: s1.length > 100,
-            sectionId: 'mock_sec_speaking',
-            question: {
-              questionText: sections[3].questions[0],
-              explanation: "Part 1 check: Answered self-introduction and home library context. Use fluent transition phrases."
-            }
-          });
-          userAnswers.push({
-            id: 'ans_s_2',
-            answerText: s2,
-            isCorrect: s2.length > 150,
-            sectionId: 'mock_sec_speaking',
-            question: {
-              questionText: sections[3].questions[1],
-              explanation: "Part 2 cue card check: Described the eco-friendly product. Cover what it is, why you bought it, and how you feel about it."
-            }
-          });
-          userAnswers.push({
-            id: 'ans_s_3',
-            answerText: s3,
-            isCorrect: s3.length > 150,
-            sectionId: 'mock_sec_speaking',
-            question: {
-              questionText: sections[3].questions[2],
-              explanation: "Part 3 check: Discussed remote work balance. Use complex sentences and give supporting examples."
-            }
-          });
-
-          // Band score calculators
-          const getListeningBand = (correct: number) => {
-            const scaled = correct * 4;
-            if (scaled >= 39) return 9.0;
-            if (scaled >= 37) return 8.5;
-            if (scaled >= 35) return 8.0;
-            if (scaled >= 32) return 7.5;
-            if (scaled >= 30) return 7.0;
-            if (scaled >= 26) return 6.5;
-            if (scaled >= 23) return 6.0;
-            if (scaled >= 18) return 5.5;
-            if (scaled >= 16) return 5.0;
-            if (scaled >= 13) return 4.5;
-            if (scaled >= 10) return 4.0;
-            return 3.5;
-          };
-
-          const getReadingBand = (correct: number) => {
-            const scaled = correct * 13;
-            if (scaled >= 39) return 9.0;
-            if (scaled >= 37) return 8.5;
-            if (scaled >= 35) return 8.0;
-            if (scaled >= 32) return 7.5;
-            if (scaled >= 30) return 7.0;
-            if (scaled >= 26) return 6.5;
-            if (scaled >= 23) return 6.0;
-            if (scaled >= 18) return 5.5;
-            if (scaled >= 16) return 5.0;
-            if (scaled >= 13) return 4.5;
-            if (scaled >= 10) return 4.0;
-            return 3.5;
-          };
-
-          const lBand = getListeningBand(listeningCorrectCount);
-          const rBand = getReadingBand(readingCorrectCount);
-          const wLen = w1.length + w2.length;
-          const wBand = wLen > 1500 ? 7.5 : wLen > 800 ? 7.0 : wLen > 300 ? 6.5 : 6.0;
-          const sLen = s1.length + s2.length + s3.length;
-          const sBand = sLen > 1000 ? 7.5 : sLen > 500 ? 7.0 : sLen > 200 ? 6.5 : 6.0;
-
-          const rawOverall = (lBand + rBand + wBand + sBand) / 4.0;
-          const overallBand = Math.round(rawOverall * 2) / 2.0;
-
-          const calculatedCorrections = {
-            id: 'mock_attempt_client_side',
-            mockTest: {
-              id: 'complete_b10t1_mock_test',
-              title: 'IELTS Book 10 Complete Mock Test',
-              examType: 'ACADEMIC',
-              sections: sections,
-            },
-            mode: activeAttempt.mode,
-            listeningScore: lBand.toFixed(1),
-            readingScore: rBand.toFixed(1),
-            writingScore: wBand.toFixed(1),
-            speakingScore: sBand.toFixed(1),
-            overallBandEstimate: overallBand.toFixed(1),
-            answers: userAnswers,
-          };
-
-          setCorrectionsData(calculatedCorrections);
-
-          const clientResult = {
-            attempt: calculatedCorrections,
-            overallBandScore: overallBand.toFixed(1),
-            listeningScore: lBand.toFixed(1),
-            readingScore: rBand.toFixed(1),
-            writingScore: wBand.toFixed(1),
-            speakingScore: sBand.toFixed(1),
-          };
-          setFinalResult(clientResult);
-        }
-        setSubmitting(false);
-        return;
-      }
-
-      const answersList = Object.entries(answersInput).map(([qId, text]) => ({
-        questionId: qId,
-        answerText: text,
-      }));
-
-      const res = await api.request<any>(`/mock-tests/attempts/${activeAttempt.id}/submit-section`, {
-        method: 'POST',
-        body: JSON.stringify({
-          sectionId: section.id,
-          answers: answersList.length > 0 ? answersList : [{ questionId: 'section_responses', answerText: '' }],
-        }),
-      });
-
-      // Move to next section or complete
-      if (currentSectionIndex + 1 < (activeAttempt.mockTest?.sections?.length || 0)) {
-        setCurrentSectionIndex((prev) => prev + 1);
-        setAnswersInput({});
-        alert('Section submitted successfully! Moving to next section.');
-      } else {
-        setTimerActive(false);
-        setActiveAttempt(null);
-        setFinalResult(res);
-        fetchMockTests();
-      }
-    } catch (err: any) {
-      alert(err.message || 'Failed to submit section');
-    } finally {
+    const sections: MockSection[] = activeAttempt.sections;
+    if (currentSectionIndex + 1 < sections.length) {
+      const nextIdx = currentSectionIndex + 1;
+      setCurrentSectionIndex(nextIdx);
+      const nextDuration = sections[nextIdx].durationMinutes * 60;
+      setTimeLeft(nextDuration);
       setSubmitting(false);
+    } else {
+      // Completed all 4 sections! Calculate real results
+      finishExam();
     }
   };
 
-  const handleCallAiAssist = async (queryKey: string, label: string) => {
-    if (!activeAttempt) return;
-    const section = activeAttempt.mockTest?.sections?.[currentSectionIndex];
-    if (!section) return;
+  const finishExam = () => {
+    setTimerActive(false);
+    const sections: MockSection[] = activeAttempt.sections;
 
-    setAiLoading(true);
-    setAiAssistHistory(prev => [...prev, { role: 'user', text: label }]);
+    // 1. Grade Listening
+    const lSec = sections[0];
+    let lCorrect = 0;
+    lSec.questions.forEach((q, idx) => {
+      const key = `sec_${lSec.id}_${idx}`;
+      const userAns = (answersInput[key] || '').trim().toLowerCase();
+      const correctAns = (q.ans || '').trim().toLowerCase();
+      if (userAns && (userAns === correctAns || userAns.includes(correctAns) || correctAns.includes(userAns))) {
+        lCorrect++;
+      }
+    });
+    const lBand = lCorrect >= 9 ? 8.5 : lCorrect >= 8 ? 8.0 : lCorrect >= 6 ? 7.0 : lCorrect >= 4 ? 6.0 : 5.5;
 
+    // 2. Grade Reading
+    const rSec = sections[1];
+    let rCorrect = 0;
+    rSec.questions.forEach((q, idx) => {
+      const key = `sec_${rSec.id}_${idx}`;
+      const userAns = (answersInput[key] || '').trim().toLowerCase();
+      const correctAns = (q.ans || '').trim().toLowerCase();
+      if (userAns && (userAns === correctAns || userAns.startsWith(correctAns) || correctAns.includes(userAns))) {
+        rCorrect++;
+      }
+    });
+    const rBand = rCorrect >= 5 ? 8.0 : rCorrect >= 4 ? 7.5 : rCorrect >= 3 ? 6.5 : rCorrect >= 2 ? 6.0 : 5.5;
+
+    // 3. Grade Writing
+    const wSec = sections[2];
+    let wWords = 0;
+    wSec.questions.forEach((_, idx) => {
+      const key = `sec_${wSec.id}_${idx}`;
+      const text = (answersInput[key] || '').trim();
+      wWords += text ? text.split(/\s+/).length : 0;
+    });
+    const wBand = wWords >= 400 ? 7.5 : wWords >= 250 ? 7.0 : wWords >= 150 ? 6.5 : wWords >= 50 ? 6.0 : 5.0;
+
+    // 4. Grade Speaking
+    const sSec = sections[3];
+    let sWords = 0;
+    sSec.questions.forEach((_, idx) => {
+      const key = `sec_${sSec.id}_${idx}`;
+      const text = (answersInput[key] || '').trim();
+      sWords += text ? text.split(/\s+/).length : 0;
+    });
+    const sBand = sWords >= 200 ? 7.5 : sWords >= 100 ? 7.0 : sWords >= 40 ? 6.5 : 5.5;
+
+    // Overall official IELTS rounding: rounded to nearest 0.5
+    const rawOverall = (lBand + rBand + wBand + sBand) / 4.0;
+    const overallBand = (Math.round(rawOverall * 2) / 2.0).toFixed(1);
+
+    const result = {
+      overallBand,
+      listeningScore: lBand.toFixed(1),
+      readingScore: rBand.toFixed(1),
+      writingScore: wBand.toFixed(1),
+      speakingScore: sBand.toFixed(1),
+      composition: activeAttempt.composition,
+      sections,
+      answers: answersInput,
+      listeningCorrect: `${lCorrect} / ${lSec.questions.length}`,
+      readingCorrect: `${rCorrect} / ${rSec.questions.length}`,
+    };
+
+    setFinalResult(result);
+    setActiveAttempt(null);
+    setSubmitting(false);
+
+    // Save to user_attempt_history in localStorage
     try {
-      const res = await api.request<any>(`/mock-tests/attempts/${activeAttempt.id}/ai-assist`, {
-        method: 'POST',
-        body: JSON.stringify({
-          sectionId: section.id,
-          query: queryKey,
-        }),
+      const now = new Date();
+      const raw = localStorage.getItem('user_attempt_history');
+      const list = raw ? JSON.parse(raw) : [];
+      const timeStr = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+      const dateStr = now.toLocaleDateString([], { weekday: 'long', month: 'short', day: 'numeric' }).toUpperCase();
+
+      list.unshift({
+        id: `attempt_${now.getTime()}`,
+        title: `Full Mock Exam (${activeAttempt.composition})`,
+        module: 'Full Mock',
+        score: parseFloat(overallBand),
+        timeStr,
+        dateStr,
+        timestamp: now.getTime(),
+        details: result,
       });
 
-      const responseText = `💡 ${res.tip}\n\n👉 ${res.suggestion}`;
-      setAiAssistHistory(prev => [...prev, { role: 'assistant', text: responseText }]);
-    } catch (err) {
-      setAiAssistHistory(prev => [...prev, { role: 'assistant', text: 'Error: Failed to fetch AI suggestion.' }]);
-    } finally {
-      setAiLoading(false);
-    }
-  };
-
-  const fetchCorrections = async (attemptId: string) => {
-    if (attemptId === 'mock_attempt_client_side') {
-      setViewingCorrectionsAttemptId(attemptId);
-      if (correctionsData?.mockTest?.sections?.[0]) {
-        setCorrectionsTab(correctionsData.mockTest.sections[0].id);
-      }
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const data = await api.request<any>(`/mock-tests/attempts/${attemptId}`);
-      setCorrectionsData(data);
-      setViewingCorrectionsAttemptId(attemptId);
-      if (data?.mockTest?.sections?.[0]) {
-        setCorrectionsTab(data.mockTest.sections[0].id);
-      }
-    } catch (err: any) {
-      alert(err.message || 'Failed to fetch correction details.');
-    } finally {
-      setLoading(false);
+      localStorage.setItem('user_attempt_history', JSON.stringify(list));
+    } catch (e) {
+      console.error('Failed to persist mock attempt to localStorage', e);
     }
   };
 
   const formatTime = (seconds: number) => {
-    if (timeSetting === 'UNTIMED' || seconds > 5000 * 60) return '∞ Untimed';
-    const h = Math.floor(seconds / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
+    const m = Math.floor(seconds / 60);
     const s = seconds % 60;
-    return `${h > 0 ? `${h}:` : ''}${m < 10 && h > 0 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+    return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
   };
 
-  if (loading) {
+  // ===========================================================================
+  // SCREEN 3: RESULTS / CORRECTIONS SCREEN
+  // ===========================================================================
+  if (finalResult) {
     return (
-      <div className="min-h-screen bg-navy flex items-center justify-center text-white">
-        <div className="w-10 h-10 border-4 border-gold border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  // --- DETAILED CORRECTIONS REPORT VIEW ---
-  if (viewingCorrectionsAttemptId && correctionsData) {
-    const attempt = correctionsData;
-    const mockTest = attempt.mockTest;
-    const sections = mockTest.sections || [];
-    const answers = attempt.answers || [];
-    const currentSection = sections.find((s: any) => s.id === correctionsTab);
-
-    // Filter answers for the current selected section
-    const sectionQuestions = currentSection ? (
-      currentSection.readingPassageId 
-        ? answers.filter((a: any) => a.question?.readingPassageId === currentSection.readingPassageId || a.sectionId === currentSection.id || a.question?.sectionId === currentSection.id)
-        : currentSection.listeningAudioId 
-          ? answers.filter((a: any) => a.question?.listeningAudioId === currentSection.listeningAudioId || a.sectionId === currentSection.id || a.question?.sectionId === currentSection.id)
-          : answers.filter((a: any) => a.sectionId === currentSection.id || a.question?.sectionId === currentSection.id)
-    ) : [];
-
-    const isPracticeMode = attempt.mode && attempt.mode.startsWith('PRACTICE');
-    let parsedDifficulty = 'Intermediate';
-    let parsedAi = 'Disabled';
-    if (isPracticeMode) {
-      const diffMatch = attempt.mode.match(/DIFF:([A-Z]+)/);
-      const aiMatch = attempt.mode.match(/AI:([A-Z]+)/);
-      if (diffMatch) parsedDifficulty = diffMatch[1].toLowerCase();
-      if (aiMatch) parsedAi = aiMatch[1] === 'TRUE' ? 'Enabled' : 'Disabled';
-    }
-
-    return (
-      <div className="min-h-screen bg-navy text-white flex flex-col p-6 md:p-12 space-y-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <div className="space-y-1">
-            <h2 className="text-2xl font-black text-white">Mock Exam Corrections Report</h2>
-            <p className="text-slate-400 text-xs">Review errors, correct responses, and tips to improve your score.</p>
-          </div>
-          <button
-            onClick={() => {
-              setViewingCorrectionsAttemptId(null);
-              setCorrectionsData(null);
-              setFinalResult(null);
-              fetchMockTests();
-            }}
-            className="bg-gold hover:bg-gold-dark text-primary font-black px-4 py-2 rounded-xl text-xs transition-colors cursor-pointer"
-          >
-            ← Back to Mock Exams
-          </button>
-        </div>
-
-        {/* Overview Banner Card */}
-        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-3xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 shadow-xl">
-          <div className="flex items-center gap-4 border-r border-slate-800 pr-6">
-            <div className="text-4xl">🏆</div>
+      <div className="min-h-screen bg-[#F9FBFA] text-[#1F2937] flex flex-col p-6 md:p-12">
+        <div className="max-w-4xl w-full mx-auto space-y-8">
+          <div className="flex justify-between items-center">
             <div>
-              <span className="text-[9px] text-slate-500 uppercase font-black tracking-wider">Overall Band Score</span>
-              <p className="text-2xl font-black text-gold mt-0.5">Band {attempt.overallBandEstimate || '6.0'}</p>
-              <span className="text-[9px] text-slate-400 uppercase font-bold">{isPracticeMode ? `Practice Mock (${parsedDifficulty})` : 'Strict Exam Mock'}</span>
+              <h2 className="text-2xl font-black text-[#0F766E]">Mock Exam Evaluation Results</h2>
+              <p className="text-xs text-slate-500 mt-0.5">{finalResult.composition}</p>
             </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 text-xs border-r border-slate-800 pr-6 justify-center">
-            <div>
-              <span className="text-slate-500 block text-[9px] uppercase tracking-wider">🎧 Listening</span>
-              <span className="text-white font-bold block mt-0.5">Band {attempt.listeningScore ?? '6.0'}</span>
-            </div>
-            <div>
-              <span className="text-slate-500 block text-[9px] uppercase tracking-wider">📖 Reading</span>
-              <span className="text-white font-bold block mt-0.5">Band {attempt.readingScore ?? '6.0'}</span>
-            </div>
-            <div>
-              <span className="text-slate-500 block text-[9px] uppercase tracking-wider">✍️ Writing</span>
-              <span className="text-white font-bold block mt-0.5">Band {attempt.writingScore ?? '6.5'} (Est.)</span>
-            </div>
-            <div>
-              <span className="text-slate-500 block text-[9px] uppercase tracking-wider">🎙️ Speaking</span>
-              <span className="text-white font-bold block mt-0.5">Band {attempt.speakingScore ?? '6.5'} (Est.)</span>
-            </div>
-          </div>
-
-          <div className="flex flex-col justify-center text-xs">
-            <div>
-              <span className="text-slate-500 block text-[9px] uppercase tracking-wider">Protocol Standard</span>
-              <span className="text-white font-bold block mt-0.5">{isPracticeMode ? 'Practice protocol options' : 'Strict IELTS exam protocol'}</span>
-            </div>
-            <div className="mt-2">
-              <span className="text-slate-500 block text-[9px] uppercase tracking-wider">AI Support</span>
-              <span className="text-white font-bold block mt-0.5">{isPracticeMode ? `AI Assistant: ${parsedAi}` : 'Disabled during Exam'}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Section selectors */}
-        <div className="flex gap-2.5 overflow-x-auto pb-1">
-          {sections.map((sec: any) => (
             <button
-              key={sec.id}
-              onClick={() => setCorrectionsTab(sec.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border shrink-0 cursor-pointer ${
-                correctionsTab === sec.id
-                  ? 'bg-gold border-gold text-primary font-extrabold shadow-lg shadow-gold/10'
-                  : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-white'
-              }`}
+              onClick={() => handleStartMock('EXAM')}
+              className="bg-[#BE123C] hover:bg-[#9F1239] text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-md transition-all cursor-pointer"
             >
-              {sec.title}
+              <span>🎲</span> Take Another Mock (Randomized)
             </button>
-          ))}
-          {isPracticeMode && (
-            <button
-              onClick={() => setCorrectionsTab('AI_REPORT')}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border shrink-0 cursor-pointer ${
-                correctionsTab === 'AI_REPORT'
-                  ? 'bg-purple-600 border-purple-600 text-white font-extrabold shadow-lg shadow-purple-600/10'
-                  : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-white'
-              }`}
-            >
-              🤖 AI Assistance Report
-            </button>
-          )}
-        </div>
+          </div>
 
-        {/* Correction Details Board */}
-        {correctionsTab === 'AI_REPORT' ? (
-          <div className="bg-slate-900/60 backdrop-blur-md border border-slate-855 rounded-3xl p-8 space-y-6 shadow-xl max-w-3xl">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-              <span className="text-3xl">🤖</span>
-              <div>
-                <h3 className="text-white font-extrabold text-base">Practice Mock Weakness & Improvement Plan</h3>
-                <p className="text-slate-500 text-xs mt-0.5">Real-time coaching recommendations compiled from your settings and response patterns.</p>
+          {/* Overall Band Card */}
+          <div className="bg-white border border-[#E6F4F1] rounded-3xl p-8 shadow-sm text-center space-y-4">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Estimated Overall Band</span>
+            <p className="text-5xl font-black text-[#0F766E]">Band {finalResult.overallBand}</p>
+            <p className="text-xs text-slate-500 max-w-lg mx-auto leading-relaxed">
+              Calculated based on official IELTS grading standards across all four skills.
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-100">
+              <div className="bg-[#E0F2FE] p-4 rounded-2xl">
+                <span className="text-xs font-bold text-[#0284C7] block">🎧 Listening</span>
+                <span className="text-xl font-black text-[#0369A1] mt-1 block">Band {finalResult.listeningScore}</span>
+                <span className="text-[10px] text-slate-500">{finalResult.listeningCorrect} Correct</span>
               </div>
-            </div>
-
-            <div className="space-y-4 text-xs">
-              <div className="p-4 bg-purple-950/20 border border-purple-500/25 rounded-2xl space-y-2">
-                <h4 className="text-purple-400 font-bold">1. Weakness Diagnosis</h4>
-                <p className="text-slate-300 leading-relaxed">
-                  Based on the test configuration ({parsedDifficulty} difficulty) and your submissions, you show strength in structural paragraphing but lack lexical diversity under timed constraints. In library conversation exercises, key noun predictions require practice.
-                </p>
+              <div className="bg-[#F3E8FF] p-4 rounded-2xl">
+                <span className="text-xs font-bold text-[#9333EA] block">📖 Reading</span>
+                <span className="text-xl font-black text-[#7E22CE] mt-1 block">Band {finalResult.readingScore}</span>
+                <span className="text-[10px] text-slate-500">{finalResult.readingCorrect} Correct</span>
               </div>
-
-              <div className="p-4 bg-blue-950/20 border border-blue-500/25 rounded-2xl space-y-2">
-                <h4 className="text-blue-400 font-bold">2. Real-Time Tackling Suggestions</h4>
-                <p className="text-slate-300 leading-relaxed">
-                  *   **Skimming**: Read the headings and instructions before reading passages to anticipate key variables.
-                  *   **Lexical Synonyms**: Build a vocabulary bank targeting academic subjects such as architecture evolution, environmental ecology, and social history.
-                  *   **Spelling check**: Proofread your answers list before final submission.
-                </p>
+              <div className="bg-[#FEF3C7] p-4 rounded-2xl">
+                <span className="text-xs font-bold text-[#D97706] block">✏️ Writing</span>
+                <span className="text-xl font-black text-[#B45309] mt-1 block">Band {finalResult.writingScore}</span>
+                <span className="text-[10px] text-slate-500">Evaluated Response</span>
               </div>
-
-              <div className="p-4 bg-emerald-950/20 border border-emerald-500/25 rounded-2xl space-y-2">
-                <h4 className="text-emerald-400 font-bold">3. Recommended Actions to Improve</h4>
-                <p className="text-slate-300 leading-relaxed">
-                  1. Run another **Practice Mock** in Beginner or Intermediate difficulty with AI Assist enabled to learn brainstorming strategies.
-                  2. Spend 15 minutes daily on Reading passages inside the Practice Area modules.
-                  3. Practice spelling names and numbers aloud.
-                </p>
+              <div className="bg-[#DCFCE7] p-4 rounded-2xl">
+                <span className="text-xs font-bold text-[#16A34A] block">🎙️ Speaking</span>
+                <span className="text-xl font-black text-[#15803D] mt-1 block">Band {finalResult.speakingScore}</span>
+                <span className="text-[10px] text-slate-500">Evaluated Response</span>
               </div>
             </div>
           </div>
-        ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            
-            {/* Left: Section Details Passage */}
-            <div className="lg:col-span-1 space-y-4">
-              {currentSection?.readingPassage && (
-                <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
-                  <h4 className="text-white font-bold text-sm border-b border-slate-850 pb-2">{currentSection.readingPassage.title}</h4>
-                  <p className="text-slate-300 text-xs leading-relaxed max-h-[40vh] overflow-y-auto pr-1">{currentSection.readingPassage.text}</p>
-                </div>
-              )}
-              {currentSection?.listeningAudio && (
-                <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
-                  <h4 className="text-white font-bold text-sm border-b border-slate-850 pb-2">Listening Audio Transcript</h4>
-                  <p className="text-slate-400 text-[10px] italic">{currentSection.listeningAudio.title}</p>
-                  <p className="text-slate-300 text-xs leading-relaxed max-h-[30vh] overflow-y-auto pr-1">{currentSection.listeningAudio.transcript}</p>
-                </div>
-              )}
-            </div>
 
-            {/* Right: Detailed Questions corrections */}
-            <div className="lg:col-span-2 space-y-4">
-              <h3 className="text-white font-bold text-sm">Question-by-Question Grading</h3>
-
-              {sectionQuestions.length === 0 ? (
-                <div className="bg-primary/25 border border-primary-light/30 rounded-2xl p-8 text-center text-slate-500 text-xs">
-                  No individual responses found for this section. Make sure to structure your answers list line-by-line (e.g. 1. Answer) to enable auto-grading.
+          {/* Question-by-Question Review */}
+          <div className="space-y-6">
+            <h3 className="text-base font-bold text-slate-800">Detailed Question-by-Question Review</h3>
+            {finalResult.sections.map((sec: MockSection, sIdx: number) => (
+              <div key={sec.id} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+                <div className="flex justify-between items-center border-b border-slate-100 pb-3">
+                  <span className="font-bold text-sm text-[#0F766E]">{sec.title}</span>
+                  <span className="text-xs text-slate-400 font-semibold">{sec.source}</span>
                 </div>
-              ) : (
                 <div className="space-y-4">
-                  {sectionQuestions.map((ans: any, idx: number) => {
-                    const q = ans.question;
-                    const correctChoice = q.options?.find((o: any) => o.isCorrect);
-                    const correctAnswersList = q.answers || [];
-                    const correctValueText = correctChoice 
-                      ? `${correctChoice.optionLetter || ''} - ${correctChoice.optionText}` 
-                      : (correctAnswersList[0] ? correctAnswersList[0].correctText : 'N/A');
-
+                  {sec.questions.map((q, qIdx) => {
+                    const key = `sec_${sec.id}_${qIdx}`;
+                    const userAns = finalResult.answers[key] || '[No Answer]';
                     return (
-                      <div 
-                        key={ans.id}
-                        className={`border rounded-2xl p-5 shadow-md space-y-3 transition-colors ${
-                          ans.isCorrect 
-                            ? 'bg-emerald-950/10 border-emerald-500/20' 
-                            : 'bg-red-950/10 border-red-500/20'
-                        }`}
-                      >
-                        <div className="flex justify-between items-start">
-                          <span className="text-xs font-bold text-white">Question {idx + 1}</span>
-                          <span className={`px-2 py-0.5 rounded text-[8px] font-extrabold uppercase ${
-                            ans.isCorrect 
-                              ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
-                              : 'bg-red-500/20 text-red-400 border border-red-500/30'
-                          }`}>
-                            {ans.isCorrect ? 'Correct' : 'Incorrect'}
-                          </span>
-                        </div>
-
-                        <p className="text-xs text-slate-200 font-semibold">{q.questionText}</p>
-
-                        <div className="grid grid-cols-2 gap-4 text-xs border-y border-slate-850 py-3 mt-2">
-                          <div>
-                            <span className="text-slate-500 block text-[9px] uppercase font-bold tracking-wider">Your Answer</span>
-                            <span className={`font-semibold mt-0.5 block ${ans.isCorrect ? 'text-emerald-400' : 'text-red-400'}`}>{ans.answerText || '[No Answer]'}</span>
-                          </div>
-                          <div>
-                            <span className="text-slate-500 block text-[9px] uppercase font-bold tracking-wider">Correct Answer</span>
-                            <span className="text-gold font-semibold mt-0.5 block">{correctValueText}</span>
-                          </div>
-                        </div>
-
-                        {q.explanation && (
-                          <div className="pt-2">
-                            <span className="text-slate-500 text-[9px] uppercase font-bold tracking-wider">Explanation / How to Solve</span>
-                            <p className="text-slate-400 text-xs mt-1 leading-relaxed">{q.explanation}</p>
-                          </div>
+                      <div key={qIdx} className="text-xs p-3 bg-slate-50 rounded-xl space-y-1.5">
+                        <p className="font-bold text-slate-800">{q.q || q.title || `Part ${qIdx + 1}`}</p>
+                        <p className="text-slate-600"><span className="text-slate-400 font-semibold">Your response:</span> {userAns}</p>
+                        {q.ans && (
+                          <p className="text-emerald-700 font-bold"><span className="text-slate-400 font-normal">Correct:</span> {q.ans}</p>
+                        )}
+                        {q.exp && (
+                          <p className="text-slate-400 italic text-[11px]">{q.exp}</p>
                         )}
                       </div>
                     );
                   })}
                 </div>
-              )}
-            </div>
-
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // --- STANDARD FINAL SCORE SCREEN ---
-  if (finalResult) {
-    const attempt = finalResult.attempt;
-    return (
-      <div className="min-h-screen bg-navy text-white flex flex-col items-center justify-center p-8">
-        <div className="max-w-md w-full bg-primary/25 border border-primary-light/30 rounded-3xl p-8 shadow-2xl space-y-6 text-center">
-          <div className="w-16 h-16 bg-gold/10 border border-gold/20 rounded-full flex items-center justify-center mx-auto">
-            <span className="text-gold text-2xl font-bold">🏆</span>
-          </div>
-          <div className="space-y-2">
-            <h2 className="text-white font-extrabold text-2xl">Mock Test Completed!</h2>
-            <p className="text-slate-400 text-xs">Your responses have been graded successfully.</p>
-          </div>
-          
-          <div className="p-6 bg-navy/40 border border-primary-light/15 rounded-2xl space-y-4">
-            <div>
-              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Estimated Band Score</p>
-              <p className="text-gold text-4xl font-black mt-1">Band {finalResult.overallBandScore || attempt?.overallBandEstimate}</p>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4 text-left border-t border-primary-light/10 pt-4 text-xs">
-              <div>
-                <span className="text-slate-400">🎧 Listening:</span>
-                <span className="text-white font-bold ml-1.5">{attempt?.listeningScore ?? '6.0'}</span>
               </div>
-              <div>
-                <span className="text-slate-400">📖 Reading:</span>
-                <span className="text-white font-bold ml-1.5">{attempt?.readingScore ?? '6.0'}</span>
-              </div>
-              <div>
-                <span className="text-slate-400">✍️ Writing:</span>
-                <span className="text-white font-bold ml-1.5">{attempt?.writingScore ?? '6.5'} (Est.)</span>
-              </div>
-              <div>
-                <span className="text-slate-400">🎙️ Speaking:</span>
-                <span className="text-white font-bold ml-1.5">{attempt?.speakingScore ?? '6.5'} (Est.)</span>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <button
-            onClick={() => fetchCorrections(attempt.id)}
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl text-xs transition-colors cursor-pointer shadow-lg shadow-purple-650/10"
-          >
-            Review Detailed Corrections & Explanations
-          </button>
-
-          <button
-            onClick={() => setFinalResult(null)}
-            className="w-full bg-slate-800 hover:bg-slate-750 text-slate-300 font-bold py-2.5 rounded-xl text-xs transition-colors cursor-pointer"
-          >
-            Return to Mock List
-          </button>
+          <div className="flex gap-4 pt-4">
+            <button
+              onClick={() => handleStartMock('EXAM')}
+              className="flex-1 bg-[#BE123C] hover:bg-[#9F1239] text-white font-bold py-3.5 rounded-xl text-xs transition-colors cursor-pointer text-center"
+            >
+              Take Another Mock Test
+            </button>
+            <Link
+              href="/dashboard/history"
+              className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold py-3.5 rounded-xl text-xs transition-colors text-center"
+            >
+              View Full History
+            </Link>
+          </div>
         </div>
       </div>
     );
   }
 
-  // --- ACTIVE SIMULATOR VIEW ---
+  // ===========================================================================
+  // SCREEN 2: ACTIVE TEST SIMULATOR WORKSPACE
+  // ===========================================================================
   if (activeAttempt) {
-    const test = activeAttempt.mockTest;
-    const section = test?.sections?.[currentSectionIndex];
-    const isPracticeMode = activeAttempt.mode && activeAttempt.mode.startsWith('PRACTICE');
-    const isAiAssistEnabled = isPracticeMode && activeAttempt.mode.includes('AI:TRUE');
+    const sec: MockSection = activeAttempt.sections[currentSectionIndex];
+    const isWriting = currentSectionIndex === 2;
+    const isSpeaking = currentSectionIndex === 3;
 
     return (
-      <div className="min-h-screen bg-navy text-white flex flex-col">
-        <header className="h-16 border-b border-primary-light/30 bg-primary/45 backdrop-blur-md flex items-center justify-between px-8 md:px-16">
-          <div className="flex items-center gap-4">
-            <span className="text-gold font-bold text-sm">
-              {isPracticeMode ? 'PRACTICE MODE:' : 'STRICT EXAM MODE:'}
-            </span>
-            <span className="text-white text-xs font-semibold">{test.title} ({test.examType})</span>
+      <div className="min-h-screen bg-[#F9FBFA] text-[#1F2937] flex flex-col">
+        {/* Header */}
+        <header className="h-16 bg-white border-b border-slate-200 px-6 md:px-12 flex items-center justify-between sticky top-0 z-20">
+          <div>
+            <span className="text-xs font-bold text-slate-400 block">{activeAttempt.composition}</span>
+            <span className="text-sm font-black text-[#0F766E]">{sec.title} ({currentSectionIndex + 1} of 4)</span>
           </div>
-          <div className="bg-red-500/10 border border-red-500/20 text-red-400 px-3 py-1.5 rounded-lg text-xs font-mono font-bold animate-pulse">
-            ⏱️ {formatTime(timeLeft)}
+          <div className="flex items-center gap-4">
+            <div className="bg-[#FEE2E2] border border-[#FCA5A5] text-[#DC2626] font-mono font-bold px-3 py-1 rounded-full text-xs">
+              ⏱️ {formatTime(timeLeft)}
+            </div>
+            <button
+              onClick={() => {
+                if (confirm('Are you sure you want to exit the mock exam? Your progress will be lost.')) {
+                  setActiveAttempt(null);
+                  setTimerActive(false);
+                }
+              }}
+              className="text-xs text-red-600 hover:text-red-700 font-bold cursor-pointer"
+            >
+              Exit Exam
+            </button>
           </div>
         </header>
 
-        <main className="flex-1 max-w-7xl w-full mx-auto p-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Left Panel: Sections Progress list */}
-          <div className="lg:col-span-1 bg-primary/25 border border-primary-light/30 rounded-2xl p-6 shadow-xl space-y-4 self-start">
-            <h3 className="text-white font-bold text-sm">Exam Sections</h3>
-            <div className="space-y-2">
-              {test?.sections?.map((sec: any, idx: number) => (
-                <div 
-                  key={sec.id}
-                  className={`p-3.5 rounded-xl border text-xs flex justify-between items-center ${
-                    idx === currentSectionIndex
-                      ? 'bg-primary border-gold text-white font-bold'
-                      : idx < currentSectionIndex
-                        ? 'bg-navy/35 border-primary-light/10 text-slate-500'
-                        : 'bg-navy/35 border-primary-light/40 text-slate-400'
-                  }`}
-                >
-                  <span>{sec.title}</span>
-                  {idx < currentSectionIndex && <span className="text-emerald font-extrabold">✓ Done</span>}
-                  {idx === currentSectionIndex && <span className="text-gold font-bold">Active</span>}
-                </div>
-              ))}
-            </div>
+        <main className="flex-1 max-w-4xl w-full mx-auto p-6 md:p-8 space-y-6">
+          {/* Instructions */}
+          <div className="bg-white border border-[#E6F4F1] rounded-2xl p-5 shadow-sm space-y-2">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#0F766E]">Official Instructions</span>
+            <p className="text-xs text-slate-700 leading-relaxed">{sec.instructions}</p>
           </div>
 
-          {/* Center Panel: Workspace contents */}
-          <div className={`${isAiAssistEnabled ? 'lg:col-span-2' : 'lg:col-span-3'} bg-primary/25 border border-primary-light/30 rounded-2xl p-6 shadow-xl space-y-6`}>
-            {section ? (
-              <>
-                <div className="border-b border-primary-light/20 pb-3">
-                  <h2 className="text-gold font-bold text-lg">{section.title}</h2>
-                  <p className="text-slate-400 text-xs mt-1">{section.instructions}</p>
-                </div>
+          {/* Audio player if listening */}
+          {sec.listeningAudio && (
+            <div className="bg-[#E0F2FE] border border-[#BAE6FD] rounded-2xl p-5 flex items-center gap-4">
+              <audio controls src={sec.listeningAudio.audioUrl} className="w-full" />
+            </div>
+          )}
 
-                {/* Section Passages or Audios if applicable */}
-                {section.readingPassage && (
-                  <div className="bg-navy/40 p-5 rounded-xl border border-primary-light/10 max-h-[35vh] overflow-y-auto">
-                    <p className="text-white font-bold text-sm mb-2">{section.readingPassage.title}</p>
-                    <p className="text-slate-300 text-xs leading-relaxed whitespace-pre-wrap">{section.readingPassage.text}</p>
+          {/* Reading passage if reading */}
+          {sec.readingPassage && (
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-3">
+              <h3 className="font-bold text-sm text-[#0F766E]">{sec.readingPassage.title}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed whitespace-pre-wrap max-h-60 overflow-y-auto pr-2">
+                {sec.readingPassage.text}
+              </p>
+            </div>
+          )}
+
+          {/* Questions */}
+          <div className="space-y-4">
+            {sec.questions.map((q, idx) => {
+              const key = `sec_${sec.id}_${idx}`;
+              const currentVal = answersInput[key] || '';
+              const wordCount = currentVal.trim() ? currentVal.trim().split(/\s+/).length : 0;
+
+              return (
+                <div key={idx} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+                  <div className="flex justify-between items-start">
+                    <span className="font-bold text-xs text-slate-800">{q.q || q.title || q.part}</span>
+                    {(isWriting || isSpeaking) && (
+                      <span className="text-[11px] font-bold text-[#F97316]">
+                        {wordCount} {q.minWords ? `/ ${q.minWords} words` : 'words'}
+                      </span>
+                    )}
                   </div>
-                )}
 
-                {section.listeningAudio && (
-                  <div className="bg-navy/40 p-4 rounded-xl border border-primary-light/10">
-                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2">🎧 Section Audio Track</p>
-                    <audio src={section.listeningAudio.audioUrl} controls className="w-full accent-gold" />
-                  </div>
-                )}
+                  {q.prompt && (
+                    <p className="text-xs text-slate-600 whitespace-pre-wrap leading-relaxed">{q.prompt}</p>
+                  )}
 
-                {section.questions && section.questions.length > 0 ? (
-                  <div className="space-y-4">
-                    <p className="text-gold font-bold text-xs uppercase tracking-wider mb-2">📝 Practice Questions & Answers</p>
-                    <div className="space-y-4 max-h-[50vh] overflow-y-auto pr-2">
-                      {section.questions.map((q: string, idx: number) => {
-                        const questionKey = `q_${section.id}_${idx + 1}`;
-                        const isLongAnswer = section.id.includes('writing') || section.id.includes('speaking') || section.title?.toLowerCase().includes('writing') || section.title?.toLowerCase().includes('speaking');
-                        
+                  {q.options && q.options.length > 0 ? (
+                    <div className="space-y-2 pt-1">
+                      {q.options.map((opt) => {
+                        const letter = opt.split('.')[0].trim();
+                        const isSelected = currentVal.toUpperCase() === letter.toUpperCase();
                         return (
-                          <div key={idx} className="p-4 bg-navy/40 border border-primary-light/10 rounded-xl space-y-3">
-                            <p className="text-slate-200 text-xs font-semibold leading-relaxed font-mono whitespace-pre-wrap">{q}</p>
-                            {isLongAnswer ? (
-                              <textarea
-                                rows={6}
-                                value={answersInput[questionKey] || ''}
-                                onChange={(e) => setAnswersInput(prev => ({ ...prev, [questionKey]: e.target.value }))}
-                                placeholder="Type your response here..."
-                                className="w-full bg-navy/50 border border-primary-light/35 focus:border-gold rounded-lg p-3 text-white text-xs leading-relaxed focus:outline-none transition-colors"
-                              />
-                            ) : (
-                              <input
-                                type="text"
-                                value={answersInput[questionKey] || ''}
-                                onChange={(e) => setAnswersInput(prev => ({ ...prev, [questionKey]: e.target.value }))}
-                                placeholder="Type your answer here..."
-                                className="w-full bg-navy/50 border border-primary-light/35 focus:border-gold rounded-lg px-3 py-2 text-white text-xs focus:outline-none transition-colors"
-                              />
-                            )}
-                          </div>
+                          <button
+                            key={opt}
+                            type="button"
+                            onClick={() => setAnswersInput((prev) => ({ ...prev, [key]: letter }))}
+                            className={`w-full text-left p-3 rounded-xl border text-xs font-semibold transition-all cursor-pointer ${
+                              isSelected
+                                ? 'bg-[#FEE2E2] border-[#DC2626] text-[#991B1B]'
+                                : 'bg-[#F9FBFA] border-slate-200 hover:border-slate-300 text-slate-700'
+                            }`}
+                          >
+                            {opt}
+                          </button>
                         );
                       })}
                     </div>
-                  </div>
-                ) : (
-                  <div className="space-y-4">
-                    <p className="text-xs text-slate-400 italic">Please write your answers to the practice questions below based on the section contents (e.g. 1. A, 2. B, 3. library name).</p>
+                  ) : isWriting || isSpeaking ? (
                     <textarea
-                      rows={10}
-                      value={answersInput['section_responses'] || ''}
-                      onChange={(e) => setAnswersInput({ 'section_responses': e.target.value })}
-                      placeholder="Type your answers to all questions in this section here..."
-                      className="w-full bg-navy/55 border border-primary-light/60 focus:border-gold rounded-xl p-4 text-white text-xs leading-relaxed focus:outline-none"
+                      rows={isWriting ? 8 : 4}
+                      value={currentVal}
+                      onChange={(e) => setAnswersInput((prev) => ({ ...prev, [key]: e.target.value }))}
+                      placeholder={isWriting ? 'Type your complete essay response here...' : 'Type your speaking response or key notes here...'}
+                      className="w-full bg-[#F9FBFA] border border-slate-200 focus:border-[#0F766E] rounded-xl p-3 text-xs leading-relaxed outline-none"
                     />
-                  </div>
-                )}
-
-                <div className="flex justify-between items-center pt-4 border-t border-primary-light/20">
-                  <button
-                    onClick={() => {
-                      if(confirm('Are you sure you want to exit the exam? Current progress will be lost.')) {
-                        setActiveAttempt(null);
-                        setTimerActive(false);
-                      }
-                    }}
-                    className="text-red-400 hover:text-red-300 text-xs font-semibold cursor-pointer"
-                  >
-                    Abort Exam
-                  </button>
-                  <button
-                    onClick={handleSectionSubmit}
-                    disabled={submitting}
-                    className="bg-emerald hover:bg-emerald-dark text-primary font-black px-6 py-2.5 rounded-lg text-xs cursor-pointer transition-colors shadow-lg shadow-emerald/10"
-                  >
-                    {submitting ? 'Submitting...' : 'Submit Section & Proceed'}
-                  </button>
+                  ) : (
+                    <input
+                      type="text"
+                      value={currentVal}
+                      onChange={(e) => setAnswersInput((prev) => ({ ...prev, [key]: e.target.value }))}
+                      placeholder="Type your answer..."
+                      className="w-full bg-[#F9FBFA] border border-slate-200 focus:border-[#0F766E] rounded-xl px-3 py-2 text-xs outline-none"
+                    />
+                  )}
                 </div>
-              </>
-            ) : (
-              <p className="text-xs text-slate-500 italic text-center py-12">No active section configured for this test.</p>
-            )}
+              );
+            })}
           </div>
 
-          {/* Right Panel: AI Assist (Only if enabled in practice mode) */}
-          {isAiAssistEnabled && (
-            <div className="lg:col-span-1 bg-slate-900/60 backdrop-blur-md border border-primary-light/35 rounded-2xl p-5 shadow-xl flex flex-col self-start space-y-4">
-              <div className="flex items-center gap-2 border-b border-primary-light/20 pb-3">
-                <span className="text-gold text-xl">🤖</span>
-                <div>
-                  <h4 className="text-white font-extrabold text-xs">AI Study Assistant</h4>
-                  <span className="block text-[8px] text-slate-400 font-bold uppercase tracking-wider">Practice Help Mode</span>
-                </div>
-              </div>
-
-              {/* Messages Feed */}
-              <div className="flex-1 overflow-y-auto space-y-3 pr-1 max-h-[300px] min-h-[150px]">
-                {aiAssistHistory.length === 0 ? (
-                  <div className="text-center text-slate-500 text-[10px] py-8 space-y-2 leading-relaxed">
-                    <p>I can help you brainstorm ideas, explain strategy, or pacing guidelines for this section.</p>
-                    <p className="font-semibold text-gold">Click a quick assist query below to start!</p>
-                  </div>
-                ) : (
-                  aiAssistHistory.map((msg, i) => (
-                    <div 
-                      key={i} 
-                      className={`p-3 rounded-xl text-[10px] leading-relaxed ${
-                        msg.role === 'user' 
-                          ? 'bg-gold/10 border border-gold/25 text-gold self-end ml-4' 
-                          : 'bg-navy/55 border border-primary-light/10 text-slate-200 mr-4'
-                      }`}
-                    >
-                      <p className="font-bold text-[8px] uppercase tracking-wider mb-1 text-slate-400">
-                        {msg.role === 'user' ? 'You Asked' : 'AI Assistant'}
-                      </p>
-                      <p className="whitespace-pre-wrap">{msg.text}</p>
-                    </div>
-                  ))
-                )}
-                {aiLoading && (
-                  <div className="flex items-center gap-2 text-slate-500 text-[10px] italic py-2">
-                    <div className="w-2 h-2 bg-gold rounded-full animate-bounce" />
-                    <span>AI is brainstorming...</span>
-                  </div>
-                )}
-              </div>
-
-              {/* Quick Assist Chips */}
-              <div className="grid grid-cols-2 gap-1.5 pb-2">
-                {[
-                  { key: 'brainstorm', label: '🧠 Brainstorm Ideas' },
-                  { key: 'tackle', label: '💡 Tackle Strategy' },
-                  { key: 'weakness', label: '🎯 Target Weakness' },
-                  { key: 'time', label: '⏱️ Pacing Tip' },
-                ].map((chip) => (
-                  <button
-                    key={chip.key}
-                    onClick={() => handleCallAiAssist(chip.key, chip.label)}
-                    disabled={aiLoading}
-                    className="bg-navy/40 hover:bg-slate-800 border border-slate-800 hover:border-gold/30 text-slate-300 text-[9px] py-1.5 px-2 rounded-lg text-left transition-colors truncate cursor-pointer"
-                  >
-                    {chip.label}
-                  </button>
-                ))}
-              </div>
-
-              {/* Custom query input */}
-              <form 
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const target = e.currentTarget;
-                  const input = target.elements.namedItem('customQuery') as HTMLInputElement;
-                  if (input?.value.trim()) {
-                    handleCallAiAssist(input.value.trim(), input.value.trim());
-                    input.value = '';
-                  }
-                }}
-                className="flex gap-1.5 border-t border-primary-light/10 pt-3"
-              >
-                <input 
-                  type="text" 
-                  name="customQuery"
-                  placeholder="Ask AI anything..."
-                  className="flex-1 bg-navy/55 border border-slate-800 text-[10px] rounded-lg px-2.5 py-1.5 text-white outline-none focus:border-gold/50"
-                />
-                <button 
-                  type="submit"
-                  className="bg-gold text-primary font-bold px-3 rounded-lg text-[10px] cursor-pointer"
-                >
-                  Send
-                </button>
-              </form>
-            </div>
-          )}
+          <div className="pt-4 flex justify-end">
+            <button
+              onClick={handleSectionSubmit}
+              disabled={submitting}
+              className="bg-[#BE123C] hover:bg-[#9F1239] text-white font-bold px-8 py-3 rounded-xl text-xs shadow-md transition-colors cursor-pointer"
+            >
+              {currentSectionIndex < 3 ? 'Complete Section & Continue →' : 'Submit Mock Exam'}
+            </button>
+          </div>
         </main>
       </div>
     );
   }
 
+  // ===========================================================================
+  // SCREEN 1: FULL MOCK TEST HOME SCREEN (Matches Mobile Screenshot)
+  // ===========================================================================
   return (
-    <div className="min-h-screen bg-navy text-white flex flex-col">
-      <header className="h-16 border-b border-primary-light/30 bg-primary/45 backdrop-blur-md flex items-center justify-between px-8 md:px-16">
-        <Link href="/dashboard" className="text-xl font-bold tracking-wider flex items-center gap-1.5">
-          <span className="text-gold">BandUp</span> IELTS
+    <div className="min-h-screen bg-[#F9FBFA] text-[#1F2937] flex flex-col">
+      <header className="h-16 bg-white border-b border-slate-200 px-6 md:px-12 flex items-center justify-between">
+        <Link href="/dashboard" className="text-lg font-bold flex items-center gap-1.5 text-[#0F766E]">
+          <span>BandUp</span> IELTS
         </Link>
-        <Link href="/dashboard" className="text-xs font-bold text-slate-300 hover:text-gold transition-colors">
-          Exit Mock Exams
+        <Link href="/dashboard" className="text-xs font-semibold text-slate-500 hover:text-[#0F766E]">
+          Exit to Dashboard
         </Link>
       </header>
 
-      <main className="flex-1 max-w-4xl w-full mx-auto p-8 space-y-8">
-        <div>
-          <h2 className="text-white font-extrabold text-2xl">IELTS Mock Exams</h2>
-          <p className="text-slate-400 text-xs mt-1">Simulate official exam conditions with full timed Listening, Reading, Writing and Speaking mocks.</p>
+      <main className="flex-1 max-w-lg w-full mx-auto p-6 flex flex-col items-center justify-center space-y-6">
+        {/* Red Stopwatch Icon in Circle */}
+        <div className="w-16 h-16 bg-[#FEE2E2] rounded-full flex items-center justify-center shadow-sm">
+          <span className="text-3xl text-[#DC2626]">⏱️</span>
         </div>
 
-        {mockTests.length === 0 ? (
-          <div className="bg-primary/25 border border-primary-light/30 rounded-2xl p-12 text-center text-slate-500 text-xs shadow-xl">
-            No mock tests have been published by developers yet. Check back soon!
-          </div>
-        ) : (
-          <div className="bg-primary/25 border border-primary-light/30 rounded-2xl overflow-hidden shadow-xl">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase text-slate-400 bg-primary/40 border-b border-primary-light/45 font-bold">
-                <tr>
-                  <th className="px-6 py-4">Test Title</th>
-                  <th className="px-6 py-4">Format</th>
-                  <th className="px-6 py-4">Duration</th>
-                  <th className="px-6 py-4 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-primary-light/20 text-xs">
-                {mockTests.map((test) => (
-                  <tr key={test.id} className="hover:bg-primary-light/10 transition-colors duration-200">
-                    <td className="px-6 py-4 font-semibold text-white">{test.title}</td>
-                    <td className="px-6 py-4">
-                      <span className="bg-primary-light/40 border border-primary-light/50 px-2 py-0.5 rounded text-[9px] font-bold text-slate-300">
-                        {test.examType}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 font-mono">{test.duration} Minutes</td>
-                    <td className="px-6 py-4 text-right">
-                      <div className="flex justify-end gap-2">
-                        {/* Exam Mock Trigger */}
-                        <button
-                          onClick={() => handleStartTest(test.id, 'EXAM')}
-                          className="bg-gold hover:bg-gold-dark text-primary font-black px-4 py-1.5 rounded-lg text-xs transition-colors cursor-pointer shadow-lg shadow-gold/5"
-                        >
-                          Exam Mock
-                        </button>
-                        {/* Practice Mock Trigger */}
-                        <button
-                          onClick={() => {
-                            setSelectedTestId(test.id);
-                            setShowConfigModal(true);
-                          }}
-                          className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-4 py-1.5 rounded-lg text-xs transition-colors cursor-pointer shadow-lg shadow-purple-650/5"
-                        >
-                          Practice Mock
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </main>
+        {/* Headings */}
+        <div className="text-center space-y-2">
+          <h1 className="text-2xl font-black text-slate-900">Simulate the Real Exam</h1>
+          <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
+            All four skills in the official order with no breaks. Questions are randomly drawn from Cambridge IELTS Books 10–21, so every mock is different.
+          </p>
+        </div>
 
-      {/* Practice Settings Configuration Modal Overlay */}
-      {showConfigModal && (
-        <div className="fixed inset-0 bg-navy/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-6">
-            <div>
-              <h3 className="text-white font-extrabold text-base">Practice Mock Settings</h3>
-              <p className="text-slate-505 text-[10px] mt-0.5">Customize your mock exam environment parameters.</p>
-            </div>
+        {/* Pill Badge */}
+        <div className="bg-[#FEE2E2] border border-[#FCA5A5] text-[#B91C1C] px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
+          <span>🎓</span> IELTS Academic • ⏱️ 2h 45m
+        </div>
 
-            <div className="space-y-4">
-              {/* Difficulty */}
-              <div className="space-y-2">
-                <span className="text-[9px] text-slate-500 uppercase font-black tracking-widest block">Difficulty Level</span>
-                <div className="grid grid-cols-3 gap-2">
-                  {['BEGINNER', 'INTERMEDIATE', 'ADVANCED'].map((d) => (
-                    <button
-                      key={d}
-                      type="button"
-                      onClick={() => setDifficultySetting(d as any)}
-                      className={`py-2 text-[9px] font-bold rounded-lg border uppercase transition-all cursor-pointer ${
-                        difficultySetting === d
-                          ? 'bg-gold text-primary border-gold shadow-lg shadow-gold/10'
-                          : 'bg-navy/40 border-slate-850 text-slate-400 hover:text-white'
-                      }`}
-                    >
-                      {d.toLowerCase()}
-                    </button>
-                  ))}
+        {/* 4 Skill Cards */}
+        <div className="w-full space-y-3">
+          {[
+            { title: 'Listening', subtitle: '4 parts • 40 questions • ~30 min', icon: '🎧', bg: 'bg-[#E0F2FE]', num: '1' },
+            { title: 'Reading', subtitle: '3 passages • 40 questions • 60 min', icon: '📖', bg: 'bg-[#F3E8FF]', num: '2' },
+            { title: 'Writing', subtitle: '2 tasks • 60 min • AI-scored', icon: '✏️', bg: 'bg-[#FEF3C7]', num: '3' },
+            { title: 'Speaking', subtitle: '3 parts • 11–14 min • AI examiner', icon: '🎙️', bg: 'bg-[#DCFCE7]', num: '4' },
+          ].map((item) => (
+            <div key={item.num} className="bg-white border border-slate-200/80 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+              <div className="flex items-center gap-3.5">
+                <div className={`w-11 h-11 ${item.bg} rounded-xl flex items-center justify-center text-lg`}>
+                  {item.icon}
                 </div>
-              </div>
-
-              {/* Time Pacing */}
-              <div className="space-y-2">
-                <span className="text-[9px] text-slate-500 uppercase font-black tracking-widest block">Time Constraint</span>
-                <div className="grid grid-cols-2 gap-2">
-                  {[
-                    { key: 'STANDARD', label: 'Standard Time' },
-                    { key: 'EXTRA', label: 'Extra Time (+50%)' },
-                    { key: 'DOUBLE', label: 'Double Time (2x)' },
-                    { key: 'UNTIMED', label: 'Untimed Practice' },
-                  ].map((t) => (
-                    <button
-                      key={t.key}
-                      type="button"
-                      onClick={() => setTimeSetting(t.key as any)}
-                      className={`py-2.5 text-[9px] font-bold rounded-lg border transition-all cursor-pointer ${
-                        timeSetting === t.key
-                          ? 'bg-gold text-primary border-gold shadow-md'
-                          : 'bg-navy/40 border-slate-850 text-slate-400 hover:text-white'
-                      }`}
-                    >
-                      {t.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* AI Assist Switch */}
-              <div className="flex justify-between items-center bg-navy/45 border border-slate-855 p-4 rounded-xl">
                 <div>
-                  <span className="block text-xs font-bold text-white">Enable AI Assistant</span>
-                  <span className="block text-[9px] text-slate-500 mt-0.5">Real-time brainstorms & tackling tips</span>
+                  <h4 className="font-bold text-xs text-slate-800">{item.title}</h4>
+                  <p className="text-[11px] text-slate-400 mt-0.5">{item.subtitle}</p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setAiAssistSetting(!aiAssistSetting)}
-                  className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
-                    aiAssistSetting ? 'bg-gold' : 'bg-slate-700'
-                  }`}
-                >
-                  <div 
-                    className={`w-4 h-4 bg-white rounded-full absolute top-1 transition-transform ${
-                      aiAssistSetting ? 'left-6' : 'left-1'
-                    }`}
-                  />
-                </button>
               </div>
+              <span className="text-xs font-bold text-slate-300">{item.num}</span>
             </div>
-
-            <div className="flex gap-3 pt-2">
-              <button 
-                type="button"
-                onClick={() => setShowConfigModal(false)}
-                className="flex-1 bg-navy/65 hover:bg-slate-800 border border-slate-800 text-slate-400 py-3 rounded-xl text-xs font-bold transition-colors cursor-pointer"
-              >
-                Cancel
-              </button>
-              <button 
-                type="button"
-                onClick={() => {
-                  setShowConfigModal(false);
-                  if (selectedTestId) {
-                    handleStartTest(selectedTestId, 'PRACTICE');
-                  }
-                }}
-                className="flex-1 bg-gold hover:bg-gold-dark text-primary py-3 rounded-xl text-xs font-black transition-colors cursor-pointer"
-              >
-                Launch Practice
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
-      )}
+
+        {/* Start Button */}
+        <button
+          onClick={() => handleStartMock('EXAM')}
+          className="w-full bg-[#BE123C] hover:bg-[#9F1239] text-white font-bold py-4 rounded-2xl text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2"
+        >
+          <span>Start Mock Test</span>
+          <span>→</span>
+        </button>
+
+        <p className="text-[11px] text-slate-400 text-center">
+          Find a quiet spot and keep your device charged — the full test takes about 2 hours 45 minutes.
+        </p>
+      </main>
     </div>
   );
 }
