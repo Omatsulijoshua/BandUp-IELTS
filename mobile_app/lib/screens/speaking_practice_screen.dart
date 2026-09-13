@@ -1294,7 +1294,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 2.8,
       'end': 2.8,
       'part': 3,
-      'transcript': 'People should always arrive early for crucial appointments such as job interviews, medical consultations, and international flights. Arriving early allows individuals to complete necessary security checks or administrative paperwork calmly without the stress of missing deadlines.',
+      'transcript': "People should always strive to arrive early for professional commitments, such as job interviews or business meetings, as it demonstrates respect for others' time and professionalism. Additionally, arriving early for travel, like at airports or train stations, is crucial to avoid missing departures due to unexpected delays. In social settings, punctuality is also a sign of courtesy, ensuring that plans can proceed as scheduled without inconveniencing the group.",
     },
     {
       'question': 'How important it is to arrive early in your country?',
@@ -1304,7 +1304,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 2.5,
       'end': 2.5,
       'part': 3,
-      'transcript': 'In my country, punctuality is generally highly valued, especially in professional, educational, and official contexts. Being early or on time demonstrates respect for others and professional commitment, though social gatherings tend to have a slightly more relaxed attitude towards timing.',
+      'transcript': "In my country, punctuality is generally considered a sign of reliability and respect. While social expectations can be somewhat relaxed depending on the region, arriving on time for work or formal appointments is strictly expected. Being late is often perceived as unprofessional or dismissive of the other person's time. Therefore, most people make a conscious effort to be punctual in formal contexts.",
     },
     {
       'question': 'How can modern technology help people to arrive early?',
@@ -1314,7 +1314,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 3.1,
       'end': 3.1,
       'part': 3,
-      'transcript': 'Modern technology assists people in staying punctual through real-time GPS navigation apps like Google Maps, which calculate optimal routes and warn about traffic congestion. Additionally, digital calendars send automatic reminders and push notifications to help users manage their schedules effectively.',
+      'transcript': 'Modern technology has significantly improved our ability to be punctual. GPS navigation apps and real-time traffic updates allow people to plan their routes more efficiently and avoid congestion. Furthermore, digital calendar alerts and alarm systems help individuals manage their schedules more effectively. These tools provide reminders that help people prepare for their departures well in advance.',
     },
     {
       'question': 'What kinds of jobs require the most patience?',
@@ -1324,7 +1324,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 2.7,
       'end': 2.7,
       'part': 3,
-      'transcript': 'Jobs in healthcare, teaching, and customer service require an immense amount of patience. Medical professionals and educators regularly deal with challenging individuals and complex situations, where maintaining composure and active listening is essential for providing effective care and guidance.',
+      'transcript': 'Jobs that require the highest level of patience are often those in healthcare, such as nursing or geriatric care, where professionals must attend to the needs of vulnerable patients over long periods. Teaching, especially with young children, also demands immense patience to handle the daily challenges of a classroom environment. Additionally, roles in customer service or technical support require patience when dealing with frustrated individuals or complex, repetitive problems.',
     },
     {
       'question': 'Is it always better to be patient in work (or studies)?',
@@ -1334,7 +1334,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 3.3,
       'end': 3.3,
       'part': 3,
-      'transcript': 'While patience is generally a virtue that fosters thoroughness and high-quality results, there are times when quick decision-making and urgency are necessary. In fast-paced business environments or emergency situations, excessive patience can lead to missed opportunities or delays.',
+      'transcript': 'While patience is generally a virtue, it is not always the best approach in every situation. In a professional setting, there are times when taking decisive, immediate action is more important than waiting patiently. For example, in a fast-paced business environment, waiting too long to address a critical issue could lead to significant losses. Therefore, one must balance patience with the ability to act promptly when circumstances demand it.',
     },
     {
       'question': 'Do you agree or disagree that the older people are, the more patient they are?',
@@ -1344,7 +1344,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 3.6,
       'end': 3.6,
       'part': 3,
-      'transcript': "I generally agree that older people tend to be more patient because life experience teaches them to handle unexpected delays with greater emotional maturity. However, patience also depends on an individual's personality traits and health condition rather than age alone.",
+      'transcript': 'I generally agree with this statement, as life experience often teaches people the value of perspective and emotional regulation. Younger individuals may feel more pressure to achieve quick results, which can lead to impatience. As people age, they often encounter more complex challenges, which helps them develop a more measured and stoic response to stressors. However, individual personality traits also play a significant role in how patient a person is, regardless of their age.',
     },
   ];
 
