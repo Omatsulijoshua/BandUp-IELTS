@@ -1348,6 +1348,150 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 12 TEST 2 (Singing & Films/Theater)
+  // ==========================================
+  final List<Map<String, dynamic>> _book12Test2Questions = [
+    // Part 1: Questions 1-4 (Singing & Songs)
+    {
+      'question': 'Did you enjoy singing when you were younger? [Why/why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.0,
+      'start': 0.0,
+      'promptEnd': 2.0,
+      'end': 2.0,
+      'part': 1,
+      'transcript':
+          'Yes, I actually loved singing when I was a child. I used to participate in my school choir and it was a great way for me to express myself. I found it incredibly joyful, especially when learning new melodies with my friends.',
+    },
+    {
+      'question': 'How often do you sing now? [Why?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.0,
+      'start': 0.0,
+      'promptEnd': 2.0,
+      'end': 2.0,
+      'part': 1,
+      'transcript':
+          "I don't sing very often these days, unfortunately. My current schedule is quite demanding with work and studies, so I rarely find the time. However, I sometimes hum along to music when I am commuting or doing household chores.",
+    },
+    {
+      'question':
+          'Do you have a favorite song you like listening to? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.0,
+      'start': 0.0,
+      'promptEnd': 2.0,
+      'end': 2.0,
+      'part': 1,
+      'transcript':
+          "I do have a favorite song, which is 'Bohemian Rhapsody' by Queen. I really appreciate the complexity of the composition and the vocal harmonies. Every time I listen to it, I discover something new and interesting about the arrangement.",
+    },
+    {
+      'question': 'How important is singing in your culture? [Why?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 2.0,
+      'start': 0.0,
+      'promptEnd': 2.0,
+      'end': 2.0,
+      'part': 1,
+      'transcript':
+          'Singing is quite significant in my culture as it is deeply tied to our traditional festivals and celebrations. We have many folk songs that tell stories about our history and heritage. It is a vital way for us to maintain our cultural identity.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Film/Movie Actor)
+    {
+      'question':
+          'Describe a film/movie actor from your country who is very popular.',
+      'audioAsset': 'q5.mp3',
+      'duration': 4.0,
+      'start': 0.0,
+      'promptEnd': 4.0,
+      'end': 4.0,
+      'part': 2,
+      'youShouldSay': [
+        'who this actor is',
+        'what kinds of films/movies he/she acts in',
+        "what you know about this actor's life",
+        'and explain why this actor is so popular'
+      ],
+      'transcript':
+          "A highly popular actor from my country is Shah Rukh Khan, who is widely regarded as the 'King of Bollywood.' He has an incredible ability to portray diverse characters, ranging from romantic leads to intense, complex roles. His influence extends far beyond the cinema, as he is known for his immense charisma and philanthropic work. Many people admire him not just for his acting talent, but also for his rags-to-riches story, which serves as a great inspiration to millions. He is undoubtedly a cultural icon in India.",
+    },
+
+    // Part 3: Questions 6-11 (Discussion - Films & Theatre)
+    {
+      'question':
+          'What are the most popular types of films in your country?',
+      'audioAsset': 'q6.mp3',
+      'duration': 2.5,
+      'start': 0.0,
+      'promptEnd': 2.5,
+      'end': 2.5,
+      'part': 3,
+      'transcript':
+          'In my country, action movies and romantic comedies are the most popular genres. People often flock to cinemas to watch big-budget blockbusters, especially during holiday periods. Additionally, there is a growing interest in local independent films that reflect our culture.',
+    },
+    {
+      'question':
+          'What is the difference between watching a film in the cinema and watching a film at home?',
+      'audioAsset': 'q7.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 3,
+      'transcript':
+          'The main difference is the atmosphere and the immersion. In a cinema, the large screen and high-quality sound system provide an unparalleled experience, whereas watching at home offers comfort and convenience. At home, you can pause or snack, but you lose the shared excitement of a crowd.',
+    },
+    {
+      'question': 'Do you think cinemas will close in the future?',
+      'audioAsset': 'q8.mp3',
+      'duration': 2.5,
+      'start': 0.0,
+      'promptEnd': 2.5,
+      'end': 2.5,
+      'part': 3,
+      'transcript':
+          'I do not believe cinemas will disappear entirely. While streaming services are very convenient, the cinema offers a unique social experience that cannot be replicated at home. As long as people value the collective experience of watching a film on a massive screen, cinemas will remain relevant.',
+    },
+    {
+      'question': 'How important is the theatre in your country\'s history?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.5,
+      'start': 0.0,
+      'promptEnd': 2.5,
+      'end': 2.5,
+      'part': 3,
+      'transcript':
+          "The theatre is deeply rooted in our country's history as a primary form of storytelling and public entertainment. For centuries, it has served as a platform for cultural expression and social commentary. It remains a significant part of our national heritage and identity.",
+    },
+    {
+      'question':
+          'How strong a tradition is it today in your country to go to the theater?',
+      'audioAsset': 'q10.mp3',
+      'duration': 2.8,
+      'start': 0.0,
+      'promptEnd': 2.8,
+      'end': 2.8,
+      'part': 3,
+      'transcript':
+          'Going to the theatre is still a strong tradition, particularly among the older generation and those in urban areas. While younger people have many digital entertainment options, the theatre is still viewed as a special, high-culture event. It is often a popular choice for celebrations and formal outings.',
+    },
+    {
+      'question':
+          'Do you think the theatre should be run as a business or as a public service?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 3,
+      'transcript':
+          'I believe the theatre should be supported as a public service. While it must be managed efficiently, relying solely on profit can lead to a decline in artistic quality and accessibility. Government funding or arts grants are essential to ensure that theatre remains inclusive and culturally diverse.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
     if (_selectedTestTitle.contains('Book 10 Test 4')) {
@@ -1368,6 +1512,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book11Test1Questions;
     } else if (_selectedTestTitle.contains('Book 12 Test 1')) {
       return _book12Test1Questions;
+    } else if (_selectedTestTitle.contains('Book 12 Test 2')) {
+      return _book12Test2Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
