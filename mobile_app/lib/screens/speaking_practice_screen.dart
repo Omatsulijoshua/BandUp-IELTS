@@ -29,7 +29,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   // Screen routing states: 'HOME', 'TALK_WITH_AI', 'TEST_DETAIL', 'PRACTICE_WORKSPACE'
   String _currentScreen = 'HOME';
-  String _selectedTestTitle = 'IELTS Book 21 Test 1';
+  String _selectedTestTitle = 'IELTS Book 11 Test 1';
 
   // Interactive Examiner Session States
   int _currentQuestionIndex = 0;
@@ -559,9 +559,138 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 11 TEST 1 (Food & Cooking / Historic Buildings)
+  // ==========================================
+  final List<Map<String, dynamic>> _book11Test1Questions = [
+    // Part 1: Questions 1-4 (Food & Cooking)
+    {
+      'question': 'What sorts of food do you like eating most? [Why?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'I enjoy eating a wide variety of fresh, home-cooked Mediterranean and Asian dishes, particularly those rich in herbs, vegetables, and lean proteins. I love these foods because they are nutritious, flavorful, and leave me feeling energized rather than sluggish.',
+    },
+    {
+      'question': 'Who normally does the cooking in your home? [Why/Why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'In my household, cooking is a shared responsibility, though my mother does most of the daily preparation. She truly enjoys experimenting with traditional recipes, whereas I step in on weekends to cook modern international meals for the family.',
+    },
+    {
+      'question': 'Do you watch cookery programmes on TV? [Why/Why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'Yes, I occasionally watch culinary shows and cooking competitions on television. I find them visually engaging and educational, as they provide great culinary inspiration and teach useful techniques for improving my own kitchen skills.',
+    },
+    {
+      'question': 'In general, do you prefer eating out or eating at home? [Why?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'Generally speaking, I prefer eating at home because it allows complete control over ingredient quality, hygiene, and nutrition. However, I do enjoy dining out periodically to socialize with friends and try authentic cuisines that are complex to prepare.',
+    },
+
+    // Part 2: Question 5 (Cue Card - House/Apartment)
+    {
+      'question': 'Describe a house/apartment that someone you know lives in.',
+      'audioAsset': 'q5.mp3',
+      'duration': 8.0,
+      'start': 0.0,
+      'promptEnd': 8.0,
+      'end': 8.0,
+      'part': 2,
+      'youShouldSay': [
+        'whose house/apartment this is',
+        'where the house/apartment is',
+        'what it looks like inside',
+        'and explain what you like or dislike about this person\'s house/apartment.'
+      ],
+      'transcript': 'I would like to describe my close friend\'s apartment, which is located in a modern high-rise in the city center. Inside, it features an open-plan layout with large floor-to-ceiling windows that fill the living space with natural light. What I particularly love about her apartment is the cozy minimalist interior design and the breathtaking panoramic view of the city skyline, though it can occasionally be noisy due to downtown traffic.',
+    },
+
+    // Part 3: Questions 6-11 (Discussion - Housing & Accommodation)
+    {
+      'question': 'What kinds of accommodation are most popular in your country?',
+      'audioAsset': 'q6.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'In my country, multi-story apartment complexes are extremely popular in major urban centers due to space constraints, whereas detached family homes with gardens remain the preferred choice in suburban and rural areas.',
+    },
+    {
+      'question': 'Do you think it is better to live in a house or an apartment?',
+      'audioAsset': 'q7.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'It depends on individual lifestyle and priorities. Houses offer superior privacy, private outdoor space, and room for expansion. Conversely, apartments provide enhanced security, low maintenance demands, and shared facilities like gyms.',
+    },
+    {
+      'question': 'How will housing design change in the future?',
+      'audioAsset': 'q8.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Future housing design will increasingly incorporate smart home automation, energy-efficient solar integration, and eco-friendly sustainable materials. Additionally, micro-apartments with multi-functional furniture will gain popularity in dense cities.',
+    },
+    {
+      'question': 'Why do some people prefer to rent rather than buy a home?',
+      'audioAsset': 'q9.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Renting provides financial flexibility without long-term mortgage commitments or property maintenance costs. It also allows individuals to relocate easily for career opportunities without the burden of selling real estate.',
+    },
+    {
+      'question': 'Do you think government should build more affordable housing for citizens?',
+      'audioAsset': 'q10.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Yes, government intervention is essential to address housing affordability crises. Constructing subsidized public housing ensures low- and middle-income families have access to safe, dignified shelter.',
+    },
+    {
+      'question': 'What impact does rapid urbanization have on residential living spaces?',
+      'audioAsset': 'q11.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Rapid urbanization leads to higher population density, elevated property prices, and reduced average living square footage. It also puts pressure on municipal infrastructure and public green spaces.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
-    if (_selectedTestTitle.contains('Book 10 Test 3')) {
+    if (_selectedTestTitle.contains('Book 11 Test 1')) {
+      return _book11Test1Questions;
+    } else if (_selectedTestTitle.contains('Book 10 Test 3')) {
       return _book10Test3Questions;
     } else if (_selectedTestTitle.contains('Book 10 Test 2')) {
       return _book10Test2Questions;
@@ -570,7 +699,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
-    return _book10Test3Questions;
+    return _book11Test1Questions;
   }
 
   /// Backward-compatible alias for any legacy references
