@@ -625,7 +625,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
     // Part 3: Questions 6-11 (Discussion - Housing & Accommodation)
     {
-      'question': 'What kinds of accommodation are most popular in your country?',
+      'question': 'What kinds of home are most popular in your country? Why is this?',
       'audioAsset': 'q6.mp3',
       'duration': 5.0,
       'start': 0.0,
