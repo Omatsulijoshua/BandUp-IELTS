@@ -1140,9 +1140,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'transcript': 'I would not change my name even if I had the chance. I have become very attached to it over the years, and it is a core part of my identity. Changing it would feel like losing a connection to my family and my own personal history.',
     },
 
-    // Part 2: Question 5 (Cue Card - TV Program)
+    // Part 2: Question 5 (Cue Card - TV Documentary)
     {
-      'question': 'Describe a TV program that you like to watch.',
+      'question': 'Describe a TV documentary you watched that was particularly interesting.',
       'audioAsset': 'q5.mp3',
       'duration': 3.7,
       'start': 0.0,
@@ -1150,12 +1150,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.7,
       'part': 2,
       'youShouldSay': [
-        'what kind of program it is',
-        'what it is about',
-        'how often you watch it',
-        'and explain why you like watching this TV program.'
+        'what the documentary was about',
+        'why you decided to watch it',
+        'what you learnt during the documentary',
+        'and explain why the TV documentary was particularly interesting.'
       ],
-      'transcript': 'I would like to describe a high-quality nature documentary series called Planet Earth. It features breathtaking cinematography of wildlife and ecosystems around the globe, narrated by David Attenborough. I watch it whenever a new season airs or during relaxing weekend evenings. I love it because it is both educational and visually stunning, raising awareness about environmental conservation.',
+      'transcript': "I recently watched a fascinating documentary on Netflix titled 'Our Planet'. It was a visually stunning series that explored the impact of climate change on various ecosystems across the globe. What I found particularly interesting was the high-definition cinematography, which captured animal behaviors that had never been filmed before. It really opened my eyes to the fragility of our environment and the urgent need for conservation efforts. I would highly recommend it to anyone who enjoys nature and wants to learn more about the world.",
     },
 
     // Part 3: Questions 6-11 (Discussion - Television & Media)
