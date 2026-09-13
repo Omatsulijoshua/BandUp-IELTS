@@ -1266,6 +1266,24 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'part': 1,
       'transcript': 'To have a healthier lifestyle, I could start by incorporating more physical exercise into my daily routine, such as jogging or swimming for thirty minutes. Additionally, I should try to reduce my intake of processed sugars and ensure I get at least seven hours of sleep every night to improve my overall well-being.',
     },
+
+    // Part 2: Question 5 (Cue Card - Waiting)
+    {
+      'question': 'Describe an occasion when you had to wait a long time for someone or something to arrive.',
+      'audioAsset': 'q5.mp3',
+      'duration': 4.0,
+      'start': 0.0,
+      'promptEnd': 4.0,
+      'end': 4.0,
+      'part': 2,
+      'youShouldSay': [
+        'who or what you were waiting for',
+        'how long you had to wait',
+        'why you had to wait a long time',
+        'and explain how you felt about waiting a long time.'
+      ],
+      'transcript': 'I remember a time when I had to wait for nearly two hours for a friend at a busy train station. We had planned to meet for lunch, but he got stuck in a massive traffic jam due to a road accident. I spent the time observing the people passing by and reading a book on my phone to stay occupied. Although I felt a bit frustrated initially, I eventually understood that it was beyond his control. When he finally arrived, we were both so hungry that we ended up having a great meal and laughing about the whole ordeal.',
+    },
   ];
 
   /// Dynamically resolves the questions based on the currently selected test
@@ -3009,7 +3027,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       _wordCount = 0;
     });
 
-    if (_currentQuestionIndex == 3 || _currentQuestionIndex == 4 || _currentQuestionIndex >= 10) {
+    final bool isLastOfPart1 = _selectedPart == 1 && _currentQuestionIndex == 3;
+    final bool isLastOfPart2 = _selectedPart == 2 && _currentQuestionIndex == 4;
+    final bool isLastOfPart3 = _selectedPart == 3 && _currentQuestionIndex >= (_examinerQuestions.length - 1);
+
+    if (isLastOfPart1 || isLastOfPart2 || isLastOfPart3) {
       _audioPlayer?.stop();
       _sessionTimer?.cancel();
       _flutterTts.stop();
@@ -3798,15 +3820,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
       if (isSingleWordOrMinimal) {
         if (_selectedPart == 3) {
-          fluencyFeedback = "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-          lexicalFeedback = "There is no vocabulary to assess.";
-          grammarFeedback = "There is no grammar to assess.";
-          pronunciationFeedback = "There is no speech to assess.";
+          fluencyFeedback = "Your answers were completely inadequate. By providing only the word 'No' to every question, you failed to address the task. These responses are essentially empty and do not demonstrate any English language proficiency.";
+          lexicalFeedback = "There is no lexical resource to evaluate as you only provided a single-word response repeatedly.";
+          grammarFeedback = "There is no grammatical range to evaluate.";
+          pronunciationFeedback = "No speech content provided to evaluate pronunciation.";
           tipsList = [
-            "You must actually answer the questions asked in the IELTS test.",
-            "Providing 'No' as an answer is an automatic failure of the task.",
-            "Practice speaking in full, extended sentences rather than one-word responses.",
-            "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
+            "You must provide full, descriptive sentences to answer IELTS questions. A one-word answer is an automatic fail.",
+            "Practice the 'Answer, Reason, Example' (ARE) method to expand your responses.",
+            "Ensure you understand the question before answering; if you do not understand, ask the examiner to repeat it rather than saying 'No'.",
+            "Record yourself speaking for at least 30-45 seconds per question to build fluency and confidence.",
+            "Engage with the topic; the IELTS Speaking test requires you to express opinions and provide justifications."
           ];
         } else if (_selectedPart == 2) {
           fluencyFeedback = _selectedTestTitle.contains('Book 10 Test 4')
