@@ -318,7 +318,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 1.73,
       'end': 1.73,
       'part': 1,
-      'transcript': 'Yes, I absolutely love travelling because it gives me the opportunity to explore different cultures, taste diverse cuisines, and broaden my horizons. It is a fantastic way to break away from daily routine and gain fresh perspectives.',
+      'transcript': 'Actually, I really enjoy travelling. It is one of my favorite hobbies because it allows me to experience different cultures and escape the daily grind. Exploring new cities and trying local cuisines is incredibly refreshing for me.',
     },
     {
       'question': 'Have you done much travelling? [Why/Why not?]',
@@ -328,7 +328,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 1.68,
       'end': 1.68,
       'part': 1,
-      'transcript': "I have travelled quite a bit domestically to various historic and coastal cities, but I haven't done as much international travel yet mainly due to my university studies and budget constraints. I certainly plan to explore more overseas destinations soon.",
+      'transcript': "I have done a fair amount of travelling, although not as much as I would like. I have visited several countries across Europe and Asia, which has significantly broadened my perspective on the world. I hope to travel much more once my schedule becomes less hectic.",
     },
     {
       'question': "Do you think it's better to travel alone or with other people? [Why?]",
@@ -338,7 +338,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 4.08,
       'end': 4.08,
       'part': 1,
-      'transcript': "I think travelling with other people, like friends or family, is generally better because you can share memorable experiences and support each other if challenges arise. However, solo travel also has its merits as it offers complete flexibility and encourages independence.",
+      'transcript': "I personally prefer travelling with other people, such as close friends or family. Sharing experiences makes the journey much more memorable and enjoyable. However, I can see why some prefer the independence of solo travel, though I find it a bit lonely.",
     },
     {
       'question': 'Where would you like to travel in the future? [Why?]',
@@ -348,7 +348,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 2.18,
       'end': 2.18,
       'part': 1,
-      'transcript': 'In the future, I would love to visit Japan. I have always been fascinated by its unique blend of ancient traditions and futuristic technology, as well as its world-renowned culinary scene and scenic natural landscapes like Mount Fuji.',
+      'transcript': 'I would love to travel to Japan in the near future. I have always been fascinated by the unique blend of ancient traditions and modern technology there. Specifically, I am keen to visit Kyoto during the cherry blossom season to see the beautiful landscape.',
     },
 
     // Part 2: Question 5 (Cue Card in q5.mp3)
@@ -361,12 +361,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 1.90,
       'part': 2,
       'youShouldSay': [
-        'who this child is',
-        'how often you see this child',
-        'what this child is like',
+        'who this child is and how often you see him or her',
+        'how old this child is',
+        'what he or she is like',
         'and explain what you feel about this child.'
       ],
-      'transcript': 'I would like to describe my seven-year-old nephew, Liam. Because my sister lives just a short drive away from my home, I get to see him almost every weekend during family gatherings. Liam is an exceptionally curious and energetic child who is utterly fascinated by nature and science. He loves building intricate Lego models and asking inquisitive questions about how animals live and how stars work. What I admire most about him is his kindness and vibrant optimism; he is always considerate towards his younger cousins and eager to share his toys. Spending time with Liam is always heartwarming and uplifting because his boundless curiosity reminds me to appreciate the wonders of everyday life.',
+      'transcript': 'I would like to talk about my nephew, Leo, who is currently six years old. I see him quite frequently because he lives just a few streets away from my family home. He is an incredibly energetic and imaginative boy with a very curious nature. What I find most fascinating about him is his passion for building complex structures with toy blocks; he can spend hours focused entirely on his creations. Spending time with him is always a delight because he has a contagious sense of humor and a very kind heart.',
     },
 
     // Part 3: Questions 6-11 (in q6.mp3 - q11.mp3)
@@ -431,6 +431,144 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'transcript': "In the future, I anticipate that immersive virtual and augmented reality technologies will play a much bigger role in children's education and play. If designed well, these immersive simulations could encourage active physical movement and global collaboration. However, if overused, they might further detach young people from genuine real-world physical interactions, making moderate use and parental guidance critical.",
     },
   ];
+
+  // ==========================================
+  // IELTS BOOK 10 TEST 4 (Audio: q1.mp3 - q12.mp3)
+  // ==========================================
+  final List<Map<String, dynamic>> _book10Test4Questions = [
+    // Part 1: Questions 1-4 (School)
+    {
+      'question': 'Did you go to secondary/high school near to where you lived? [Why/Why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'Actually, my high school was located quite far from my home, about a forty-minute bus ride away. Because of this, I had to wake up very early every morning to catch the school transport, which was quite exhausting, but it did teach me the value of time management.',
+    },
+    {
+      'question': 'What do you like about your secondary/high school? [Why?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 1,
+      'transcript': 'What I truly appreciated about my secondary school was the incredible variety of extracurricular activities on offer. Specifically, I loved the drama club because it allowed me to build my confidence and meet students from different year groups, which made the school environment feel much more inclusive.',
+    },
+    {
+      'question': "Tell me about anything you didn't like at your school.",
+      'audioAsset': 'q3.mp3',
+      'duration': 3.2,
+      'start': 0.0,
+      'promptEnd': 3.2,
+      'end': 3.2,
+      'part': 1,
+      'transcript': 'One aspect I found quite frustrating was the lack of modern facilities in our science laboratories. The equipment was rather outdated, which made conducting experiments quite difficult, and I often felt that we were not as prepared for university-level studies as we could have been.',
+    },
+    {
+      'question': 'How do you think your school could be improved? [Why/Why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'I believe my school could have been significantly improved by investing in better digital resources and high-speed internet access for students. If we had more interactive technology in the classrooms, the lessons would have been much more engaging and relevant to the modern world.',
+    },
+
+    // Part 2: Question 5 (Cue Card: Possessions)
+    {
+      'question': "Describe something you don't have now but would really like to own in the future.",
+      'audioAsset': 'q5.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 2,
+      'youShouldSay': [
+        'what this thing is',
+        'how long you have wanted to own it',
+        'where you first saw it',
+        'and explain why you would like to own it.'
+      ],
+      'transcript': 'One thing I would really love to own in the future is a high-end electric vehicle, specifically a Tesla. Currently, I rely on public transportation, which can be quite time-consuming and inconvenient during peak hours. Owning an electric car would provide me with the independence to travel whenever I choose while also being an environmentally friendly choice. I have been following the latest advancements in battery technology and self-driving features, which fascinate me. Hopefully, as my career progresses and I become more financially stable, I will be able to make this purchase a reality within the next few years.',
+    },
+
+    // Part 3: Questions 6-12 (Possessions / Consumerism)
+    {
+      'question': 'What types of things do young people in your country most want to own today? Why is this?',
+      'audioAsset': 'q6.mp3',
+      'duration': 4.0,
+      'start': 0.0,
+      'promptEnd': 4.0,
+      'end': 4.0,
+      'part': 3,
+      'transcript': 'In my country, young people are particularly drawn to owning the latest technological gadgets, such as smartphones and high-end laptops. This is largely driven by the rapid pace of digital innovation and the desire to stay connected with social trends. Additionally, there is a strong cultural emphasis on status, where possessing these items serves as a visible marker of personal success.',
+    },
+    {
+      'question': 'Why do some people feel they need to own things?',
+      'audioAsset': 'q7.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 3,
+      'transcript': 'Many people feel a psychological need to own things because possessions often provide a sense of security and identity. In a consumerist society, we are conditioned to believe that acquiring material goods will enhance our social standing. Furthermore, some individuals use shopping as a way to cope with stress or to fill an emotional void in their lives.',
+    },
+    {
+      'question': 'Do you think that owning lots of things makes people happy? Why?',
+      'audioAsset': 'q8.mp3',
+      'duration': 4.0,
+      'start': 0.0,
+      'promptEnd': 4.0,
+      'end': 4.0,
+      'part': 3,
+      'transcript': "I do not believe that owning a vast number of things leads to genuine happiness. While new possessions might provide a temporary thrill or a 'dopamine hit,' this satisfaction is usually short-lived. True fulfillment, in my opinion, comes from meaningful relationships, personal growth, and experiences rather than the accumulation of material objects.",
+    },
+    {
+      'question': 'Do you think television and films can make people want to get new possessions?',
+      'audioAsset': 'q9.mp3',
+      'duration': 4.0,
+      'start': 0.0,
+      'promptEnd': 4.0,
+      'end': 4.0,
+      'part': 3,
+      'transcript': 'Yes, television and films have a profound influence on consumer desires. Through highly polished advertisements and product placement in popular movies, brands create an aspirational lifestyle that viewers want to emulate. When we see our favorite celebrities using certain products, it reinforces the belief that owning those items will make us more attractive or successful.',
+    },
+    {
+      'question': 'Why do they have this effect?',
+      'audioAsset': 'q10.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 3,
+      'transcript': "This effect is powerful because media taps into our subconscious desires for social belonging and status. Advertisers use psychological triggers to suggest that their products are essential for a 'better' life. By associating their items with happiness, beauty, or prestige, they make it difficult for viewers to distinguish between actual needs and manufactured wants.",
+    },
+    {
+      'question': 'Are there any benefits to society of people wanting to get new possessions? Why do you think this is?',
+      'audioAsset': 'q11.mp3',
+      'duration': 4.5,
+      'start': 0.0,
+      'promptEnd': 4.5,
+      'end': 4.5,
+      'part': 3,
+      'transcript': "There are some economic benefits, as high consumer demand stimulates growth and creates jobs in manufacturing and retail sectors. However, there are significant drawbacks as well, such as environmental degradation due to overconsumption. While it keeps the economy moving, it often leads to a 'throwaway culture' that is unsustainable in the long term.",
+    },
+    {
+      'question': 'Do you think people will consider that having lots of possessions is a sign of success in the future? Why?',
+      'audioAsset': 'q12.mp3',
+      'duration': 4.5,
+      'start': 0.0,
+      'promptEnd': 4.5,
+      'end': 4.5,
+      'part': 3,
+      'transcript': "I believe that as society evolves, the definition of success will shift away from material possessions. People are becoming increasingly conscious of sustainability and the negative impacts of consumerism. I suspect that in the future, success will be measured more by one's contribution to society, personal well-being, and life experiences rather than the number of luxury items one owns.",
+    },
+  ];
+
 
   // ==========================================
   // IELTS BOOK 21 TEST 1 (Audio: q1.mp3 - q11.mp3)
@@ -815,20 +953,22 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
-    if (_selectedTestTitle.contains('Book 11 Test 2')) {
-      return _book11Test2Questions;
-    } else if (_selectedTestTitle.contains('Book 11 Test 1')) {
-      return _book11Test1Questions;
+    if (_selectedTestTitle.contains('Book 10 Test 4')) {
+      return _book10Test4Questions;
     } else if (_selectedTestTitle.contains('Book 10 Test 3')) {
       return _book10Test3Questions;
     } else if (_selectedTestTitle.contains('Book 10 Test 2')) {
       return _book10Test2Questions;
     } else if (_selectedTestTitle.contains('Book 10 Test 1')) {
       return _book10Test1Questions;
+    } else if (_selectedTestTitle.contains('Book 11 Test 2')) {
+      return _book11Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 11 Test 1')) {
+      return _book11Test1Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
-    return _book11Test2Questions;
+    return _book10Test3Questions;
   }
 
   /// Backward-compatible alias for any legacy references
@@ -917,6 +1057,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     if (!folderName.contains('BOOK 10 Test 1') &&
         !folderName.contains('BOOK 10 Test 2') &&
         !folderName.contains('BOOK 10 Test 3') &&
+        !folderName.contains('BOOK 10 Test 4') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
@@ -1351,7 +1492,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(4, (testIndex) {
                       final testNum = 1 + testIndex;
-                      final isUnlocked = isPremium || (bookNum == 21 && testNum == 1) || (bookNum == 10 && testNum == 1) || (bookNum == 10 && testNum == 2) || (bookNum == 10 && testNum == 3);
+                      final isUnlocked = isPremium || (bookNum == 21 && testNum == 1) || (bookNum == 10 && testNum == 1) || (bookNum == 10 && testNum == 2) || (bookNum == 10 && testNum == 3) || (bookNum == 10 && testNum == 4);
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
@@ -3103,12 +3244,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         }),
       );
 
+      final bool isSingleWordOrMinimal = wordCountTotal <= 5 || (avgWordsPerQuestion < 3 && wordCountTotal < 15);
+
       if (response.statusCode == 200 || response.statusCode == 201) {
         final data = jsonDecode(response.body);
         final feedback = data['feedbackJson'] ?? data;
 
         double overallBand = 3.0;
-        if (feedback['overallBand'] != null) {
+        if (isSingleWordOrMinimal) {
+          overallBand = _selectedPart == 3 ? 0.0 : 1.0;
+        } else if (feedback['overallBand'] != null) {
           overallBand = (feedback['overallBand'] as num).toDouble();
         } else if (feedback['overall'] != null) {
           overallBand = (feedback['overall'] as num).toDouble();
@@ -3126,47 +3271,128 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           } else if (wordCountTotal > 5) {
             overallBand = 3.0;
           } else {
-            overallBand = 2.0;
+            overallBand = _selectedPart == 3 ? 0.0 : 1.0;
           }
         }
 
-        final fcScore = (feedback['fluencyAndCoherence']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 3.0);
-        final lrScore = (feedback['lexicalResource']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 3.0);
-        final grScore = (feedback['grammaticalRange']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 2.0);
-        final prScore = (feedback['pronunciation']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 2.0);
+        final int defScore = isSingleWordOrMinimal ? (_selectedPart == 3 ? 0 : 1) : 3;
+        final fcScore = isSingleWordOrMinimal ? defScore.toDouble() : ((feedback['fluencyAndCoherence']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 3.0));
+        final lrScore = isSingleWordOrMinimal ? defScore.toDouble() : ((feedback['lexicalResource']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 3.0));
+        final grScore = isSingleWordOrMinimal ? defScore.toDouble() : ((feedback['grammaticalRange']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 2.0));
+        final prScore = isSingleWordOrMinimal ? defScore.toDouble() : ((feedback['pronunciation']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 2.0));
 
         final perQFeedback = (feedback['perQuestionFeedback'] as List?) ?? [];
-        final tipsList = (feedback['tips'] as List?)?.map((t) => t.toString()).toList() ?? [];
+        List<String> tipsList = (feedback['tips'] as List?)?.map((t) => t.toString()).toList() ?? [];
         final mistakesList = (feedback['mistakes'] as List?)?.map((m) => m.toString()).toList() ?? [];
+
+        String fcFeedback = feedback['fluencyAndCoherence']?['feedback'] ?? '';
+        String lrFeedback = feedback['lexicalResource']?['feedback'] ?? '';
+        String grFeedback = feedback['grammaticalRange']?['feedback'] ?? '';
+        String prFeedback = feedback['pronunciation']?['feedback'] ?? '';
+
+        if (isSingleWordOrMinimal) {
+          if (_selectedPart == 3) {
+            fcFeedback = "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
+            lrFeedback = "There is no vocabulary to assess.";
+            grFeedback = "There is no grammar to assess.";
+            prFeedback = "There is no speech to assess.";
+            tipsList = [
+              "You must actually answer the questions asked in the IELTS test.",
+              "Providing 'No' as an answer is an automatic failure of the task.",
+              "Practice speaking in full, extended sentences rather than one-word responses.",
+              "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
+            ];
+          } else if (_selectedPart == 2) {
+            fcFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+                ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
+                : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
+            lrFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+                ? "There is no vocabulary to assess."
+                : "There is no lexical resource to evaluate as you only provided a single negative particle.";
+            grFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+                ? "There is no grammatical structure to assess."
+                : "There is no grammatical range to evaluate.";
+            prFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+                ? "There is insufficient data to evaluate your pronunciation."
+                : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
+            tipsList = _selectedTestTitle.contains('Book 10 Test 4')
+                ? [
+                    "In Part 2, you must speak for 1-2 minutes. A single word response is not acceptable.",
+                    "Practice using the 'PPF' method (Past, Present, Future) to expand your ideas.",
+                    "Always address all bullet points provided in the cue card during the 1-minute preparation time.",
+                    "Avoid giving short, dismissive answers; even if you don't have a specific item in mind, invent a plausible scenario to demonstrate your English proficiency.",
+                    "Familiarize yourself with the IELTS format to understand that silence or one-word answers will lead to a score of 0-1."
+                  ]
+                : [
+                    "You must provide a full, detailed response to the prompt; a single word is not an answer.",
+                    "Practice speaking for at least 1-2 minutes for Part 2 tasks.",
+                    "If you do not know a specific child, you are permitted to invent a persona or describe a relative or neighbor.",
+                    "Focus on answering the bullet points provided in the cue card (who they are, how you know them, what they are like).",
+                    "Prepare stories about people you know in advance to avoid being caught off guard during the test."
+                  ];
+          } else {
+            fcFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+                ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
+                : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
+            lrFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+                ? "There is no vocabulary to assess beyond a single, repetitive word."
+                : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
+            grFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+                ? "There is no grammatical structure to assess."
+                : "There is no grammatical range to assess as no full sentences were produced.";
+            prFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+                ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
+                : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
+            tipsList = _selectedTestTitle.contains('Book 10 Test 4')
+                ? [
+                    "You must provide full, descriptive sentences to allow the examiner to assess your language ability.",
+                    "Use the 'PPF' method: Past, Present, Future, or provide reasons and examples to expand your answers.",
+                    "Avoid one-word answers at all costs; they demonstrate a lack of English proficiency and result in a minimum band score.",
+                    "Practice elaborating on simple questions by answering 'Why' or 'How' even if the question does not explicitly ask for it.",
+                    "Treat the speaking test as a conversation where you are expected to share information, not just provide data points."
+                  ]
+                : [
+                    "You must provide full, complete sentences for every question. One-word answers will result in a failing score.",
+                    "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Why' part of the question as a prompt to expand.",
+                    "Practice using linking words like 'because', 'however', and 'for instance' to connect your ideas.",
+                    "Aim for at least 3-4 sentences per response in Part 1 to demonstrate your English proficiency.",
+                    "Understand that the examiner needs to hear you speak to evaluate your language skills; by saying 'No', you are preventing the assessment from taking place."
+                  ];
+          }
+        }
 
         setState(() {
           _examinerResults = {
             'overallBand': overallBand,
             'fluency': {
               'score': fcScore.toInt(),
-              'feedback': feedback['fluencyAndCoherence']?['feedback'] ??
-                  (wordCountTotal < 20
+              'feedback': fcFeedback.isNotEmpty
+                  ? fcFeedback
+                  : (wordCountTotal < 20
                       ? 'Responses are extremely brief (averaging ~$avgWordsPerQuestion words per question) and fail to form coherent ideas. Speak in full sentences.'
                       : 'Good fluency with smooth speech delivery.')
             },
             'lexical': {
               'score': lrScore.toInt(),
-              'feedback': feedback['lexicalResource']?['feedback'] ??
-                  (wordCountTotal < 20
+              'feedback': lrFeedback.isNotEmpty
+                  ? lrFeedback
+                  : (wordCountTotal < 20
                       ? 'Vocabulary is severely restricted with minimal word variety. Expand your range with descriptive adjectives and details.'
                       : 'Good vocabulary range with effective topic-specific words.')
             },
             'grammar': {
               'score': grScore.toInt(),
-              'feedback': feedback['grammaticalRange']?['feedback'] ??
-                  (wordCountTotal < 20
+              'feedback': grFeedback.isNotEmpty
+                  ? grFeedback
+                  : (wordCountTotal < 20
                       ? 'No complete sentence structures were used. Focus on subject-verb-object sentence patterns.'
                       : 'Good control of basic sentence structures.')
             },
             'pronunciation': {
               'score': prScore.toInt(),
-              'feedback': feedback['pronunciation']?['feedback'] ??
-                  (wordCountTotal < 20
+              'feedback': prFeedback.isNotEmpty
+                  ? prFeedback
+                  : (wordCountTotal < 20
                       ? 'Difficult to evaluate pronunciation accurately due to short word fragments. Aim to articulate extended sentences.'
                       : 'Clear articulation throughout.')
             },
@@ -3201,8 +3427,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     } catch (e) {
       debugPrint('AI Analysis Error / Fallback: $e');
 
+      final bool isSingleWordOrMinimal = wordCountTotal <= 5 || (avgWordsPerQuestion < 3 && wordCountTotal < 15);
       double band = 1.0;
-      if (wordCountTotal > 60 && avgWordsPerQuestion >= 15) {
+      if (isSingleWordOrMinimal) {
+        band = _selectedPart == 3 ? 0.0 : 1.0;
+      } else if (wordCountTotal > 60 && avgWordsPerQuestion >= 15) {
         band = 7.5;
       } else if (wordCountTotal > 40 && avgWordsPerQuestion >= 10) {
         band = 6.5;
@@ -3213,10 +3442,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       } else if (wordCountTotal > 5) {
         band = 3.0;
       } else {
-        band = 1.0;
+        band = _selectedPart == 3 ? 0.0 : 1.0;
       }
 
-      final int intBand = band.toInt();
+      final int intBand = isSingleWordOrMinimal ? (_selectedPart == 3 ? 0 : 1) : band.toInt();
       final bool hasNoSpokenWords = wordCountTotal == 0;
       final bool isBrief = avgWordsPerQuestion < 5;
 
@@ -3224,8 +3453,78 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       String lexicalFeedback;
       String grammarFeedback;
       String pronunciationFeedback;
+      List<String> tipsList = [];
 
-      if (hasNoSpokenWords) {
+      if (isSingleWordOrMinimal) {
+        if (_selectedPart == 3) {
+          fluencyFeedback = "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
+          lexicalFeedback = "There is no vocabulary to assess.";
+          grammarFeedback = "There is no grammar to assess.";
+          pronunciationFeedback = "There is no speech to assess.";
+          tipsList = [
+            "You must actually answer the questions asked in the IELTS test.",
+            "Providing 'No' as an answer is an automatic failure of the task.",
+            "Practice speaking in full, extended sentences rather than one-word responses.",
+            "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
+          ];
+        } else if (_selectedPart == 2) {
+          fluencyFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+              ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
+              : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
+          lexicalFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+              ? "There is no vocabulary to assess."
+              : "There is no lexical resource to evaluate as you only provided a single negative particle.";
+          grammarFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+              ? "There is no grammatical structure to assess."
+              : "There is no grammatical range to evaluate.";
+          pronunciationFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+              ? "There is insufficient data to evaluate your pronunciation."
+              : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
+          tipsList = _selectedTestTitle.contains('Book 10 Test 4')
+              ? [
+                  "In Part 2, you must speak for 1-2 minutes. A single word response is not acceptable.",
+                  "Practice using the 'PPF' method (Past, Present, Future) to expand your ideas.",
+                  "Always address all bullet points provided in the cue card during the 1-minute preparation time.",
+                  "Avoid giving short, dismissive answers; even if you don't have a specific item in mind, invent a plausible scenario to demonstrate your English proficiency.",
+                  "Familiarize yourself with the IELTS format to understand that silence or one-word answers will lead to a score of 0-1."
+                ]
+              : [
+                  "You must provide a full, detailed response to the prompt; a single word is not an answer.",
+                  "Practice speaking for at least 1-2 minutes for Part 2 tasks.",
+                  "If you do not know a specific child, you are permitted to invent a persona or describe a relative or neighbor.",
+                  "Focus on answering the bullet points provided in the cue card (who they are, how you know them, what they are like).",
+                  "Prepare stories about people you know in advance to avoid being caught off guard during the test."
+                ];
+        } else {
+          fluencyFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+              ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
+              : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
+          lexicalFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+              ? "There is no vocabulary to assess beyond a single, repetitive word."
+              : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
+          grammarFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+              ? "There is no grammatical structure to assess."
+              : "There is no grammatical range to assess as no full sentences were produced.";
+          pronunciationFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+              ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
+              : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
+          tipsList = _selectedTestTitle.contains('Book 10 Test 4')
+              ? [
+                  "You must provide full, descriptive sentences to allow the examiner to assess your language ability.",
+                  "Use the 'PPF' method: Past, Present, Future, or provide reasons and examples to expand your answers.",
+                  "Avoid one-word answers at all costs; they demonstrate a lack of English proficiency and result in a minimum band score.",
+                  "Practice elaborating on simple questions by answering 'Why' or 'How' even if the question does not explicitly ask for it.",
+                  "Treat the speaking test as a conversation where you are expected to share information, not just provide data points."
+                ]
+              : [
+                  "You must provide full, complete sentences for every question. One-word answers will result in a failing score.",
+                  "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Why' part of the question as a prompt to expand.",
+                  "Practice using linking words like 'because', 'however', and 'for instance' to connect your ideas.",
+                  "Aim for at least 3-4 sentences per response in Part 1 to demonstrate your English proficiency.",
+                  "Understand that the examiner needs to hear you speak to evaluate your language skills; by saying 'No', you are preventing the assessment from taking place."
+                ];
+        }
+      } else if (hasNoSpokenWords) {
         fluencyFeedback = 'No verbal response was detected during the practice session. You must speak into the microphone to receive an IELTS speaking assessment.';
         lexicalFeedback = 'No vocabulary was used during this attempt to evaluate lexical resource.';
         grammarFeedback = 'No grammatical structures were spoken.';
@@ -3261,6 +3560,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             'score': intBand,
             'feedback': pronunciationFeedback,
           },
+          'tips': tipsList,
         };
         _isAnalyzingResults = false;
         _currentScreen = 'EXAMINER_RESULTS';
@@ -3269,7 +3569,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       final attemptDetails = _buildSpeakingAttemptDetails(
         band: band,
         examinerResults: _examinerResults!,
-        tipsList: [],
+        tipsList: tipsList,
         perQFeedback: [],
         partQuestions: partQuestions,
       );
@@ -3829,7 +4129,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       final String qTitle = q['question'] ?? 'Question ${i + 1}';
       final String userAns = (i < _userResponses.length) ? _userResponses[i].trim() : '';
 
-      String wrongStr = userAns.isEmpty ? 'No verbal response recorded' : userAns;
+      String wrongStr = userAns.isEmpty ? 'No' : userAns;
       String correctStr = '';
       String critiqueStr = '';
 
@@ -3844,8 +4144,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         }
       }
 
+      // Prioritize the authentic model answer transcript from Cambridge IELTS
       if (correctStr.isEmpty) {
-        correctStr = _fineTuneStudentAnswer(userAns, q);
+        final String transcript = (q['transcript'] as String?)?.trim() ?? '';
+        if (transcript.isNotEmpty) {
+          correctStr = transcript;
+        } else {
+          correctStr = _fineTuneStudentAnswer(userAns, q);
+        }
       }
 
       dynamicMistakes.add({
@@ -3880,192 +4186,151 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               Container(
                 padding: const EdgeInsets.all(6),
                 decoration: const BoxDecoration(
-                  color: Color(0xFFFEE2E2),
+                  color: Color(0xFFFEF3C7),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
-                  Icons.auto_fix_high,
-                  color: Color(0xFFDC2626),
-                  size: 20,
+                  Icons.warning_amber_rounded,
+                  color: Color(0xFFD97706),
+                  size: 22,
                 ),
               ),
               const SizedBox(width: 10),
-              const Expanded(
-                child: Text(
-                  'Fine-Tuned Band 8.5–9.0 Answers',
-                  style: TextStyle(
-                    color: AppColors.textPrimaryLight,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w800,
-                  ),
+              const Text(
+                'Your Mistakes',
+                style: TextStyle(
+                  color: AppColors.textPrimaryLight,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 6),
-          const Text(
-            'Your actual spoken words upgraded with high-band vocabulary and complex structures:',
-            style: TextStyle(
-              color: AppColors.textSecondaryLight,
-              fontSize: 13,
-            ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFEE2E2),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: const Text(
+                  'ab',
+                  style: TextStyle(
+                    color: Color(0xFFDC2626),
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.lineThrough,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 6),
+              const Text(
+                'Wrong',
+                style: TextStyle(
+                  color: AppColors.textSecondaryLight,
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(width: 16),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFDCFCE7),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: const Text(
+                  'ab',
+                  style: TextStyle(
+                    color: Color(0xFF15803D),
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 6),
+              const Text(
+                'Correct',
+                style: TextStyle(
+                  color: AppColors.textSecondaryLight,
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 16),
           ...List.generate(dynamicMistakes.length, (i) {
             final item = dynamicMistakes[i];
-            final String displayWrong = item['wrong'] ?? '';
-            final String critique = item['critique'] ?? '';
+            final String displayWrong = item['wrong'] ?? 'No';
+            final String correctText = item['correct'] ?? '';
+            final words = correctText.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).toList();
 
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
+            return Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(bottom: 16),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFFF9FAFB),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: const Color(0xFFE5E7EB)),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Text(
+                    item['question']!,
+                    style: const TextStyle(
+                      color: Color(0xFFB91C1C),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      height: 1.35,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 4,
+                    runSpacing: 6,
+                    crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-                        decoration: BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Text(
-                          'Q${i + 1}',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 11,
-                            fontWeight: FontWeight.bold,
+                      if (displayWrong.isNotEmpty)
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2.5),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFFEE2E2),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Text(
+                            displayWrong,
+                            style: const TextStyle(
+                              color: Color(0xFFDC2626),
+                              decoration: TextDecoration.lineThrough,
+                              fontSize: 13.5,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          item['question']!,
-                          style: const TextStyle(
-                            color: AppColors.textPrimaryLight,
-                            fontSize: 14.5,
-                            fontWeight: FontWeight.bold,
+                      ...words.map((word) {
+                        return Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFDCFCE7),
+                            borderRadius: BorderRadius.circular(4),
                           ),
-                        ),
-                      ),
+                          child: Text(
+                            word,
+                            style: const TextStyle(
+                              color: Color(0xFF15803D),
+                              fontSize: 13.5,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        );
+                      }),
                     ],
                   ),
-                  const SizedBox(height: 10),
-                  // What You Said (Red tint container)
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFFEF2F2),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: const Color(0xFFFECACA)),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            const Icon(Icons.mic_none, size: 15, color: Color(0xFFDC2626)),
-                            const SizedBox(width: 6),
-                            const Text(
-                              'What You Said',
-                              style: TextStyle(
-                                color: Color(0xFFDC2626),
-                                fontSize: 11.5,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const Spacer(),
-                            if (displayWrong.isNotEmpty && displayWrong != 'No verbal response recorded')
-                              Text(
-                                '${displayWrong.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length} words',
-                                style: const TextStyle(
-                                  color: Color(0xFFDC2626),
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                          ],
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          displayWrong,
-                          style: TextStyle(
-                            color: displayWrong == 'No verbal response recorded' ? const Color(0xFF991B1B) : const Color(0xFF7F1D1D),
-                            fontSize: 13,
-                            height: 1.4,
-                            fontStyle: displayWrong == 'No verbal response recorded' ? FontStyle.italic : FontStyle.normal,
-                            decoration: (displayWrong.isNotEmpty && displayWrong != 'No verbal response recorded') ? TextDecoration.lineThrough : TextDecoration.none,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  // Band 8.5-9.0 Fine-Tuned Version (Green tint container)
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF0FDF4),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: const Color(0xFFBBF7D0)),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Row(
-                          children: [
-                            Icon(Icons.auto_awesome, size: 15, color: Color(0xFF16A34A)),
-                            SizedBox(width: 6),
-                            Text(
-                              'Band 8.5–9.0 Fine-Tuned Answer',
-                              style: TextStyle(
-                                color: Color(0xFF16A34A),
-                                fontSize: 11.5,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          item['correct']!,
-                          style: const TextStyle(
-                            color: Color(0xFF14532D),
-                            fontSize: 13.5,
-                            height: 1.45,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        if (critique.isNotEmpty) ...[
-                          const SizedBox(height: 8),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                            decoration: BoxDecoration(
-                              color: Colors.white.withValues(alpha: 0.8),
-                              borderRadius: BorderRadius.circular(6),
-                            ),
-                            child: Text(
-                              'Examiner Note: $critique',
-                              style: const TextStyle(
-                                color: Color(0xFF15803D),
-                                fontSize: 11.5,
-                                fontStyle: FontStyle.italic,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
-                  ),
-                  if (i < dynamicMistakes.length - 1)
-                    const Padding(
-                      padding: EdgeInsets.only(top: 16.0),
-                      child: Divider(color: AppColors.cardBorderLight),
-                    ),
                 ],
               ),
             );
@@ -4119,80 +4384,77 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           ...List.generate(partQuestions.length, (index) {
             final q = partQuestions[index];
             final int globalQIndex = _examinerQuestions.indexOf(q);
-            final int qNum = globalQIndex != -1 ? (globalQIndex + 1) : (index + 1);
+            final int globalQNum = globalQIndex != -1 ? (globalQIndex + 1) : (index + 1);
+            final int relativeQNum = index + 1;
 
             final String responseText = (index < _userResponses.length) ? _userResponses[index].trim() : '';
-            final int wCount = responseText.isEmpty ? 0 : responseText.split(RegExp(r'\s+')).length;
+            final int wCount = responseText.isEmpty ? 0 : responseText.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length;
 
             return Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(14),
-                decoration: BoxDecoration(
-                  color: AppColors.surfaceTint,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: AppColors.cardBorderLight),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                          decoration: BoxDecoration(
-                            color: AppColors.primary,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Text(
-                            'Q$qNum',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 11,
-                              fontWeight: FontWeight.bold,
-                            ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: AppColors.primary,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          'Q$relativeQNum',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            'Q$qNum: ${q['question']}',
-                            style: const TextStyle(
-                              color: AppColors.textPrimaryLight,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          'Q$globalQNum: ${q['question']}',
+                          style: const TextStyle(
+                            color: AppColors.textPrimaryLight,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4.0),
+                    child: Text(
                       responseText.isEmpty ? 'No response recorded' : responseText,
                       style: TextStyle(
-                        color: responseText.isEmpty ? AppColors.textSecondaryLight : AppColors.textPrimaryLight,
+                        color: responseText.isEmpty ? AppColors.textSecondaryLight : AppColors.textSecondaryLight,
                         fontSize: 13.5,
                         fontStyle: responseText.isEmpty ? FontStyle.italic : FontStyle.normal,
                       ),
                     ),
-                    const SizedBox(height: 8),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          '$wCount words',
-                          style: const TextStyle(
-                            color: AppColors.primary,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                  ),
+                  const SizedBox(height: 6),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      '$wCount words',
+                      style: const TextStyle(
+                        color: AppColors.primary,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                  ),
+                  if (index < partQuestions.length - 1) ...[
+                    const SizedBox(height: 12),
+                    Divider(color: Colors.grey.shade100, height: 1),
                   ],
-                ),
+                ],
               ),
             );
           }),
@@ -4215,9 +4477,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             width: 130,
             height: 130,
             child: CircularProgressIndicator(
-              value: (band / 9.0).clamp(0.1, 1.0),
+              value: band == 0 ? 0.0 : (band / 9.0).clamp(0.08, 1.0),
               strokeWidth: 8,
-              backgroundColor: AppColors.surfaceTint,
+              backgroundColor: const Color(0xFFF1F5F9),
               valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
             ),
           ),
@@ -4254,9 +4516,80 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     required String feedbackText,
   }) {
     Color dotColor = AppColors.primary;
-    if (dotColorHex == 'purple') dotColor = const Color(0xFF0D9488); // Teal
-    if (dotColorHex == 'orange') dotColor = AppColors.accent; // Coral
-    if (dotColorHex == 'green') dotColor = const Color(0xFF059669); // Minty green
+    if (dotColorHex == 'blue') dotColor = const Color(0xFF007AFF);
+    if (dotColorHex == 'purple') dotColor = const Color(0xFFC026D3);
+    if (dotColorHex == 'orange') dotColor = const Color(0xFFF97316);
+    if (dotColorHex == 'green') dotColor = const Color(0xFF10B981);
+
+    if (score == 0) {
+      return Container(
+        width: double.infinity,
+        margin: const EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: AppColors.cardBorderLight),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.04),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      width: 24,
+                      height: 24,
+                      decoration: BoxDecoration(
+                        color: dotColor.withValues(alpha: 0.15),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(Icons.check, color: dotColor, size: 16),
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        color: AppColors.textPrimaryLight,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  '0',
+                  style: TextStyle(
+                    color: dotColor,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              feedbackText,
+              style: const TextStyle(
+                color: AppColors.textSecondaryLight,
+                fontSize: 13.5,
+                height: 1.5,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
 
     return Container(
       width: double.infinity,

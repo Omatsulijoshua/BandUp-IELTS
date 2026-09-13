@@ -466,7 +466,7 @@ class _MockExamsScreenState extends ConsumerState<MockExamsScreen> {
         },
         {
           'part': 'Part 2: Long Turn (Cue Card - 2 min)',
-          'prompt': 'Describe a child that you know.\\n\\nYou should say:\\n• who this child is\\n• how often you see this child\\n• what this child is like\\n• and explain what you feel about this child.',
+          'prompt': 'Describe a child that you know.\\n\\nYou should say:\\n• who this child is and how often you see him or her\\n• how old this child is\\n• what he or she is like\\n• and explain what you feel about this child.',
         },
         {
           'part': 'Part 3: Two-Way Analytical Discussion',

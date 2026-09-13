@@ -190,28 +190,28 @@ const book10Test3Questions: Question[] = [
     audioAsset: 'q1.mp3',
     duration: 1.73,
     part: 1,
-    transcript: 'Yes, I absolutely love travelling because it gives me the opportunity to explore different cultures, taste diverse cuisines, and broaden my horizons. It is a fantastic way to break away from daily routine and gain fresh perspectives.',
+    transcript: 'Actually, I really enjoy travelling. It is one of my favorite hobbies because it allows me to experience different cultures and escape the daily grind. Exploring new cities and trying local cuisines is incredibly refreshing for me.',
   },
   {
     question: 'Have you done much travelling? [Why/Why not?]',
     audioAsset: 'q2.mp3',
     duration: 1.68,
     part: 1,
-    transcript: "I have travelled quite a bit domestically to various historic and coastal cities, but I haven't done as much international travel yet mainly due to my university studies and budget constraints. I certainly plan to explore more overseas destinations soon.",
+    transcript: "I have done a fair amount of travelling, although not as much as I would like. I have visited several countries across Europe and Asia, which has significantly broadened my perspective on the world. I hope to travel much more once my schedule becomes less hectic.",
   },
   {
     question: "Do you think it's better to travel alone or with other people? [Why?]",
     audioAsset: 'q3.mp3',
     duration: 4.08,
     part: 1,
-    transcript: 'I think travelling with other people, like friends or family, is generally better because you can share memorable experiences and support each other if challenges arise. However, solo travel also has its merits as it offers complete flexibility and encourages independence.',
+    transcript: "I personally prefer travelling with other people, such as close friends or family. Sharing experiences makes the journey much more memorable and enjoyable. However, I can see why some prefer the independence of solo travel, though I find it a bit lonely.",
   },
   {
     question: 'Where would you like to travel in the future? [Why?]',
     audioAsset: 'q4.mp3',
     duration: 2.18,
     part: 1,
-    transcript: 'In the future, I would love to visit Japan. I have always been fascinated by its unique blend of ancient traditions and futuristic technology, as well as its world-renowned culinary scene and scenic natural landscapes like Mount Fuji.',
+    transcript: 'I would love to travel to Japan in the near future. I have always been fascinated by the unique blend of ancient traditions and modern technology there. Specifically, I am keen to visit Kyoto during the cherry blossom season to see the beautiful landscape.',
   },
   {
     question: 'Describe a child that you know.',
@@ -219,12 +219,12 @@ const book10Test3Questions: Question[] = [
     duration: 1.90,
     part: 2,
     youShouldSay: [
-      'who this child is',
-      'how often you see this child',
-      'what this child is like',
+      'who this child is and how often you see him or her',
+      'how old this child is',
+      'what he or she is like',
       'and explain what you feel about this child.',
     ],
-    transcript: 'I would like to describe my seven-year-old nephew, Liam. Because my sister lives just a short drive away from my home, I get to see him almost every weekend during family gatherings. Liam is an exceptionally curious and energetic child who is utterly fascinated by nature and science. He loves building intricate Lego models and asking inquisitive questions about how animals live and how stars work. What I admire most about him is his kindness and vibrant optimism; he is always considerate towards his younger cousins and eager to share his toys. Spending time with Liam is always heartwarming and uplifting because his boundless curiosity reminds me to appreciate the wonders of everyday life.',
+    transcript: 'I would like to talk about my nephew, Leo, who is currently six years old. I see him quite frequently because he lives just a few streets away from my family home. He is an incredibly energetic and imaginative boy with a very curious nature. What I find most fascinating about him is his passion for building complex structures with toy blocks; he can spend hours focused entirely on his creations. Spending time with him is always a delight because he has a contagious sense of humor and a very kind heart.',
   },
   {
     question: 'How much time do children spend with their parents in your country? [Do you think that is enough?]',
@@ -267,6 +267,104 @@ const book10Test3Questions: Question[] = [
     duration: 5.04,
     part: 3,
     transcript: "In the future, I anticipate that immersive virtual and augmented reality technologies will play a much bigger role in children's education and play. If designed well, these immersive simulations could encourage active physical movement and global collaboration. However, if overused, they might further detach young people from genuine real-world physical interactions, making moderate use and parental guidance critical.",
+  },
+];
+
+const book10Test4Questions: Question[] = [
+  // Part 1: Questions 1-4 (School)
+  {
+    question: 'Did you go to secondary/high school near to where you lived? [Why/Why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 3.5,
+    part: 1,
+    transcript: 'Actually, my high school was located quite far from my home, about a forty-minute bus ride away. Because of this, I had to wake up very early every morning to catch the school transport, which was quite exhausting, but it did teach me the value of time management.',
+  },
+  {
+    question: 'What do you like about your secondary/high school? [Why?]',
+    audioAsset: 'q2.mp3',
+    duration: 3.0,
+    part: 1,
+    transcript: 'What I truly appreciated about my secondary school was the incredible variety of extracurricular activities on offer. Specifically, I loved the drama club because it allowed me to build my confidence and meet students from different year groups, which made the school environment feel much more inclusive.',
+  },
+  {
+    question: "Tell me about anything you didn't like at your school.",
+    audioAsset: 'q3.mp3',
+    duration: 3.2,
+    part: 1,
+    transcript: 'One aspect I found quite frustrating was the lack of modern facilities in our science laboratories. The equipment was rather outdated, which made conducting experiments quite difficult, and I often felt that we were not as prepared for university-level studies as we could have been.',
+  },
+  {
+    question: 'How do you think your school could be improved? [Why/Why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 3.5,
+    part: 1,
+    transcript: 'I believe my school could have been significantly improved by investing in better digital resources and high-speed internet access for students. If we had more interactive technology in the classrooms, the lessons would have been much more engaging and relevant to the modern world.',
+  },
+
+  // Part 2: Question 5 (Cue Card: Possessions)
+  {
+    question: "Describe something you don't have now but would really like to own in the future.",
+    audioAsset: 'q5.mp3',
+    duration: 3.0,
+    part: 2,
+    youShouldSay: [
+      'what this thing is',
+      'how long you have wanted to own it',
+      'where you first saw it',
+      'and explain why you would like to own it.',
+    ],
+    transcript: 'One thing I would really love to own in the future is a high-end electric vehicle, specifically a Tesla. Currently, I rely on public transportation, which can be quite time-consuming and inconvenient during peak hours. Owning an electric car would provide me with the independence to travel whenever I choose while also being an environmentally friendly choice. I have been following the latest advancements in battery technology and self-driving features, which fascinate me. Hopefully, as my career progresses and I become more financially stable, I will be able to make this purchase a reality within the next few years.',
+  },
+
+  // Part 3: Questions 6-12 (Possessions / Consumerism)
+  {
+    question: 'What types of things do young people in your country most want to own today? Why is this?',
+    audioAsset: 'q6.mp3',
+    duration: 4.0,
+    part: 3,
+    transcript: 'In my country, young people are particularly drawn to owning the latest technological gadgets, such as smartphones and high-end laptops. This is largely driven by the rapid pace of digital innovation and the desire to stay connected with social trends. Additionally, there is a strong cultural emphasis on status, where possessing these items serves as a visible marker of personal success.',
+  },
+  {
+    question: 'Why do some people feel they need to own things?',
+    audioAsset: 'q7.mp3',
+    duration: 3.5,
+    part: 3,
+    transcript: 'Many people feel a psychological need to own things because possessions often provide a sense of security and identity. In a consumerist society, we are conditioned to believe that acquiring material goods will enhance our social standing. Furthermore, some individuals use shopping as a way to cope with stress or to fill an emotional void in their lives.',
+  },
+  {
+    question: 'Do you think that owning lots of things makes people happy? Why?',
+    audioAsset: 'q8.mp3',
+    duration: 4.0,
+    part: 3,
+    transcript: "I do not believe that owning a vast number of things leads to genuine happiness. While new possessions might provide a temporary thrill or a 'dopamine hit,' this satisfaction is usually short-lived. True fulfillment, in my opinion, comes from meaningful relationships, personal growth, and experiences rather than the accumulation of material objects.",
+  },
+  {
+    question: 'Do you think television and films can make people want to get new possessions?',
+    audioAsset: 'q9.mp3',
+    duration: 4.0,
+    part: 3,
+    transcript: 'Yes, television and films have a profound influence on consumer desires. Through highly polished advertisements and product placement in popular movies, brands create an aspirational lifestyle that viewers want to emulate. When we see our favorite celebrities using certain products, it reinforces the belief that owning those items will make us more attractive or successful.',
+  },
+  {
+    question: 'Why do they have this effect?',
+    audioAsset: 'q10.mp3',
+    duration: 3.0,
+    part: 3,
+    transcript: "This effect is powerful because media taps into our subconscious desires for social belonging and status. Advertisers use psychological triggers to suggest that their products are essential for a 'better' life. By associating their items with happiness, beauty, or prestige, they make it difficult for viewers to distinguish between actual needs and manufactured wants.",
+  },
+  {
+    question: 'Are there any benefits to society of people wanting to get new possessions? Why do you think this is?',
+    audioAsset: 'q11.mp3',
+    duration: 4.5,
+    part: 3,
+    transcript: "There are some economic benefits, as high consumer demand stimulates growth and creates jobs in manufacturing and retail sectors. However, there are significant drawbacks as well, such as environmental degradation due to overconsumption. While it keeps the economy moving, it often leads to a 'throwaway culture' that is unsustainable in the long term.",
+  },
+  {
+    question: 'Do you think people will consider that having lots of possessions is a sign of success in the future? Why?',
+    audioAsset: 'q12.mp3',
+    duration: 4.5,
+    part: 3,
+    transcript: "I believe that as society evolves, the definition of success will shift away from material possessions. People are becoming increasingly conscious of sustainability and the negative impacts of consumerism. I suspect that in the future, success will be measured more by one's contribution to society, personal well-being, and life experiences rather than the number of luxury items one owns.",
   },
 ];
 
@@ -357,6 +455,7 @@ const book21Test1Questions: Question[] = [
 ];
 
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 10 Test 4': book10Test4Questions,
   'IELTS Book 10 Test 3': book10Test3Questions,
   'IELTS Book 10 Test 2': book10Test2Questions,
   'IELTS Book 10 Test 1': book10Test1Questions,
@@ -533,19 +632,116 @@ export default function SpeakingPracticePage() {
     const totalWords = responsesList.reduce((acc, r) => acc + (r ? r.trim().split(/\s+/).filter(Boolean).length : 0), 0);
     const avgWords = partQuestions.length > 0 ? totalWords / partQuestions.length : 0;
 
+    const isSingleWordOrMinimal = totalWords <= 5 || (avgWords < 3 && totalWords < 15);
+
     let band = 1.0;
-    if (totalWords > 60 && avgWords >= 15) band = 7.5;
-    else if (totalWords > 40 && avgWords >= 10) band = 6.5;
-    else if (totalWords > 25 && avgWords >= 6) band = 5.0;
-    else if (totalWords > 14 && avgWords >= 4) band = 4.0;
-    else if (totalWords > 5) band = 3.0;
+    if (isSingleWordOrMinimal) {
+      band = selectedPart === 3 ? 0.0 : 1.0;
+    } else if (totalWords > 60 && avgWords >= 15) {
+      band = 7.5;
+    } else if (totalWords > 40 && avgWords >= 10) {
+      band = 6.5;
+    } else if (totalWords > 25 && avgWords >= 6) {
+      band = 5.0;
+    } else if (totalWords > 14 && avgWords >= 4) {
+      band = 4.0;
+    } else if (totalWords > 5) {
+      band = 3.0;
+    } else {
+      band = selectedPart === 3 ? 0.0 : 1.0;
+    }
+
+    const intBand = isSingleWordOrMinimal ? (selectedPart === 3 ? 0 : 1) : Math.round(band);
+
+    let fluencyFeedback = '';
+    let lexicalFeedback = '';
+    let grammarFeedback = '';
+    let pronunciationFeedback = '';
+    let tipsList: string[] = [];
+
+    if (isSingleWordOrMinimal) {
+      if (selectedPart === 3) {
+        fluencyFeedback = "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
+        lexicalFeedback = "There is no vocabulary to assess.";
+        grammarFeedback = "There is no grammar to assess.";
+        pronunciationFeedback = "There is no speech to assess.";
+        tipsList = [
+          "You must actually answer the questions asked in the IELTS test.",
+          "Providing 'No' as an answer is an automatic failure of the task.",
+          "Practice speaking in full, extended sentences rather than one-word responses.",
+          "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
+        ];
+      } else if (selectedPart === 2) {
+        fluencyFeedback = selectedTestTitle.includes('Book 10 Test 4')
+          ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
+          : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
+        lexicalFeedback = selectedTestTitle.includes('Book 10 Test 4')
+          ? "There is no vocabulary to assess."
+          : "There is no lexical resource to evaluate as you only provided a single negative particle.";
+        grammarFeedback = selectedTestTitle.includes('Book 10 Test 4')
+          ? "There is no grammatical structure to assess."
+          : "There is no grammatical range to evaluate.";
+        pronunciationFeedback = selectedTestTitle.includes('Book 10 Test 4')
+          ? "There is insufficient data to evaluate your pronunciation."
+          : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
+        tipsList = selectedTestTitle.includes('Book 10 Test 4')
+          ? [
+              "In Part 2, you must speak for 1-2 minutes. A single word response is not acceptable.",
+              "Practice using the 'PPF' method (Past, Present, Future) to expand your ideas.",
+              "Always address all bullet points provided in the cue card during the 1-minute preparation time.",
+              "Avoid giving short, dismissive answers; even if you don't have a specific item in mind, invent a plausible scenario to demonstrate your English proficiency.",
+              "Familiarize yourself with the IELTS format to understand that silence or one-word answers will lead to a score of 0-1."
+            ]
+          : [
+              "You must provide a full, detailed response to the prompt; a single word is not an answer.",
+              "Practice speaking for at least 1-2 minutes for Part 2 tasks.",
+              "If you do not know a specific child, you are permitted to invent a persona or describe a relative or neighbor.",
+              "Focus on answering the bullet points provided in the cue card (who they are, how you know them, what they are like).",
+              "Prepare stories about people you know in advance to avoid being caught off guard during the test."
+            ];
+      } else {
+        fluencyFeedback = selectedTestTitle.includes('Book 10 Test 4')
+          ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
+          : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
+        lexicalFeedback = selectedTestTitle.includes('Book 10 Test 4')
+          ? "There is no vocabulary to assess beyond a single, repetitive word."
+          : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
+        grammarFeedback = selectedTestTitle.includes('Book 10 Test 4')
+          ? "There is no grammatical structure to assess."
+          : "There is no grammatical range to assess as no full sentences were produced.";
+        pronunciationFeedback = selectedTestTitle.includes('Book 10 Test 4')
+          ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
+          : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
+        tipsList = selectedTestTitle.includes('Book 10 Test 4')
+          ? [
+              "You must provide full, descriptive sentences to allow the examiner to assess your language ability.",
+              "Use the 'PPF' method: Past, Present, Future, or provide reasons and examples to expand your answers.",
+              "Avoid one-word answers at all costs; they demonstrate a lack of English proficiency and result in a minimum band score.",
+              "Practice elaborating on simple questions by answering 'Why' or 'How' even if the question does not explicitly ask for it.",
+              "Treat the speaking test as a conversation where you are expected to share information, not just provide data points."
+            ]
+          : [
+              "You must provide full, complete sentences for every question. One-word answers will result in a failing score.",
+              "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Why' part of the question as a prompt to expand.",
+              "Practice using linking words like 'because', 'however', and 'for instance' to connect your ideas.",
+              "Aim for at least 3-4 sentences per response in Part 1 to demonstrate your English proficiency.",
+              "Understand that the examiner needs to hear you speak to evaluate your language skills; by saying 'No', you are preventing the assessment from taking place."
+            ];
+      }
+    } else {
+      fluencyFeedback = totalWords > 30 ? 'Good speech delivery with consistent elaboration.' : 'Responses were brief. Focus on expanding your answers.';
+      lexicalFeedback = totalWords > 30 ? 'Appropriate functional vocabulary used.' : 'Vocabulary range was limited. Introduce more descriptive collocations.';
+      grammarFeedback = totalWords > 30 ? 'Good control of basic sentence structures.' : 'Practice forming full compound and complex sentences.';
+      pronunciationFeedback = 'Clear speech delivery throughout the recorded session.';
+      tipsList = generateDynamicTips(responsesList);
+    }
 
     const mistakes = partQuestions.map((q, i) => {
       const userAns = responsesList[i] || 'No verbal response recorded';
       return {
         question: q.question,
         wrong: userAns,
-        correct: fineTuneAnswer(userAns, q),
+        correct: q.transcript || fineTuneAnswer(userAns, q),
       };
     });
 
@@ -563,22 +759,22 @@ export default function SpeakingPracticePage() {
     const results = {
       overallBand: band,
       fluency: {
-        score: Math.max(1, Math.round(band)),
-        feedback: totalWords > 30 ? 'Good speech delivery with consistent elaboration.' : 'Responses were brief. Focus on expanding your answers.',
+        score: intBand,
+        feedback: fluencyFeedback,
       },
       lexical: {
-        score: Math.max(1, Math.round(band)),
-        feedback: totalWords > 30 ? 'Appropriate functional vocabulary used.' : 'Vocabulary range was limited. Introduce more descriptive collocations.',
+        score: intBand,
+        feedback: lexicalFeedback,
       },
       grammar: {
-        score: Math.max(1, Math.round(band)),
-        feedback: totalWords > 30 ? 'Good control of basic sentence structures.' : 'Practice forming full compound and complex sentences.',
+        score: intBand,
+        feedback: grammarFeedback,
       },
       pronunciation: {
-        score: Math.max(1, Math.round(band)),
-        feedback: 'Clear speech delivery throughout the recorded session.',
+        score: intBand,
+        feedback: pronunciationFeedback,
       },
-      tips: generateDynamicTips(responsesList),
+      tips: tipsList,
       mistakes,
       responses: detailedResponses,
     };
@@ -669,20 +865,38 @@ export default function SpeakingPracticePage() {
               { title: 'Lexical Resource', color: '#C026D3', data: examinerResults.lexical },
               { title: 'Grammatical Range', color: '#F97316', data: examinerResults.grammar },
               { title: 'Pronunciation', color: '#10B981', data: examinerResults.pronunciation },
-            ].map((crit, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-sm space-y-2">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: crit.color }} />
-                    <span className="text-xs font-bold text-[#1F2937]">{crit.title}</span>
+            ].map((crit, idx) => {
+              const isZero = crit.data?.score === 0;
+              return (
+                <div key={idx} className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-sm space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      {isZero ? (
+                        <div
+                          className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
+                          style={{ backgroundColor: `${crit.color}20`, color: crit.color }}
+                        >
+                          ✓
+                        </div>
+                      ) : (
+                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: crit.color }} />
+                      )}
+                      <span className="text-xs font-bold text-[#1F2937]">{crit.title}</span>
+                    </div>
+                    {isZero ? (
+                      <span className="text-xl font-extrabold" style={{ color: crit.color }}>
+                        0
+                      </span>
+                    ) : (
+                      <span className="bg-[#DC2626] text-white px-2 py-0.5 rounded text-xs font-extrabold">
+                        {crit.data?.score ?? 1}
+                      </span>
+                    )}
                   </div>
-                  <span className="bg-[#FEE2E2] text-[#DC2626] px-2 py-0.5 rounded text-xs font-extrabold">
-                    {crit.data?.score ?? 1}
-                  </span>
+                  <p className="text-xs text-[#4B5563] leading-relaxed">{crit.data?.feedback}</p>
                 </div>
-                <p className="text-xs text-[#4B5563] leading-relaxed">{crit.data?.feedback}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Improvement Tips */}
@@ -716,11 +930,13 @@ export default function SpeakingPracticePage() {
               {examinerResults.mistakes.map((m: any, idx: number) => (
                 <div key={idx} className="border-b border-[#F3F4F6] pb-5 last:border-0 last:pb-0 space-y-2">
                   <p className="text-xs font-bold text-[#B91C1C]">{m.question}</p>
-                  <div className="bg-[#FEF2F2] border border-[#FEE2E2] rounded-lg p-2.5 text-xs text-[#DC2626] line-through">
-                    {m.wrong}
+                  <div>
+                    <span className="inline-block bg-[#FEF2F2] border border-[#FEE2E2] rounded-lg px-2.5 py-1 text-xs text-[#DC2626] line-through font-medium">
+                      {m.wrong}
+                    </span>
                   </div>
                   <div className="flex flex-wrap gap-1.5 pt-1">
-                    {m.correct.split(/\s+/).map((word: string, wIdx: number) => (
+                    {m.correct.split(/\s+/).filter(Boolean).map((word: string, wIdx: number) => (
                       <span key={wIdx} className="bg-[#DCFCE7] text-[#15803D] px-2 py-0.5 rounded text-xs font-medium">
                         {word}
                       </span>
@@ -784,7 +1000,9 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 10 Test 3')
+                    {title.includes('Book 10 Test 4')
+                      ? 'School memories, Future possessions (Tesla) & Consumerism'
+                      : title.includes('Book 10 Test 3')
                       ? 'Travelling, Family relationships & Children activities'
                       : title.includes('Book 10 Test 2')
                       ? 'Music, Local shops & Shopping malls discussion'
