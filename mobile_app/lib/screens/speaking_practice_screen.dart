@@ -564,7 +564,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'transcript': "This effect is powerful because media taps into our subconscious desires for social belonging and status. Advertisers use psychological triggers to suggest that their products are essential for a 'better' life. By associating their items with happiness, beauty, or prestige, they make it difficult for viewers to distinguish between actual needs and manufactured wants.",
     },
     {
-      'question': 'Are there any benefits to society of people wanting to get new possessions? Why do you think this is?',
+      'question': 'Are there any benefits to society of people wanting to get new possessions? Why do you think that is?',
       'audioAsset': 'q11.mp3',
       'duration': 4.5,
       'start': 0.0,
@@ -574,7 +574,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'transcript': "There are some economic benefits, as high consumer demand stimulates growth and creates jobs in manufacturing and retail sectors. However, there are significant drawbacks as well, such as environmental degradation due to overconsumption. While it keeps the economy moving, it often leads to a 'throwaway culture' that is unsustainable in the long term.",
     },
     {
-      'question': 'Do you think people will consider that having lots of possessions is a sign of success in the future? Why?',
+      'question': 'Do you think people will consider that having lots of possessions is a sign of success in the future?',
       'audioAsset': 'q12.mp3',
       'duration': 4.5,
       'start': 0.0,
@@ -1221,6 +1221,53 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 12 TEST 1 (Health & Lifestyle)
+  // ==========================================
+  final List<Map<String, dynamic>> _book12Test1Questions = [
+    // Part 1: Questions 1-4 (Health & Lifestyle)
+    {
+      'question': 'Is it important to you to eat healthy food? [Why/Why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.0,
+      'start': 0.0,
+      'promptEnd': 2.0,
+      'end': 2.0,
+      'part': 1,
+      'transcript': 'Yes, it is very important to me. I believe that maintaining a balanced diet is the foundation of good health, as it provides the energy I need for my daily activities and helps prevent long-term illnesses. Eating nutritious food makes me feel more focused and physically active throughout the day.',
+    },
+    {
+      'question': 'If you catch a cold, what do you do to help you feel better? [Why?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.5,
+      'start': 0.0,
+      'promptEnd': 2.5,
+      'end': 2.5,
+      'part': 1,
+      'transcript': 'When I catch a cold, I usually prioritize getting plenty of rest and staying hydrated by drinking herbal teas or warm water. I also try to increase my intake of vitamin C through fresh fruits. If the symptoms persist, I might take over-the-counter medicine to manage the discomfort.',
+    },
+    {
+      'question': 'Do you pay attention to public information about health? [Why/Why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.5,
+      'start': 0.0,
+      'promptEnd': 2.5,
+      'end': 2.5,
+      'part': 1,
+      'transcript': 'I do pay attention to public health information, especially when it comes to seasonal health advice or vaccination campaigns. I think it is essential to stay informed about community health standards to protect not only myself but also those around me. I usually check official government health websites for reliable updates.',
+    },
+    {
+      'question': 'What could you do to have a healthier lifestyle?',
+      'audioAsset': 'q4.mp3',
+      'duration': 2.2,
+      'start': 0.0,
+      'promptEnd': 2.2,
+      'end': 2.2,
+      'part': 1,
+      'transcript': 'To have a healthier lifestyle, I could start by incorporating more physical exercise into my daily routine, such as jogging or swimming for thirty minutes. Additionally, I should try to reduce my intake of processed sugars and ensure I get at least seven hours of sleep every night to improve my overall well-being.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
     if (_selectedTestTitle.contains('Book 10 Test 4')) {
@@ -1239,6 +1286,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book11Test2Questions;
     } else if (_selectedTestTitle.contains('Book 11 Test 1')) {
       return _book11Test1Questions;
+    } else if (_selectedTestTitle.contains('Book 12 Test 1')) {
+      return _book12Test1Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
@@ -1336,6 +1385,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 11 Test 2') &&
         !folderName.contains('BOOK 11 Test 3') &&
         !folderName.contains('BOOK 11 Test 4') &&
+        !folderName.contains('BOOK 12 Test 1') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
