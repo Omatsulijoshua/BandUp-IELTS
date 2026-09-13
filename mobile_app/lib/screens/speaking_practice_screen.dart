@@ -1107,7 +1107,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 1.6,
       'end': 1.6,
       'part': 1,
-      'transcript': 'My parents chose my name after consulting with my grandparents, as it is traditional in our culture to select a name with strong cultural significance and positive blessings. They wanted a name that represents wisdom and prosperity.',
+      'transcript': 'My parents chose my name because it has been passed down through several generations in my family. They wanted to honor my grandfather, who was a very respected figure, so they decided to name me after him to keep the family tradition alive.',
     },
     {
       'question': 'Does your name have any special meaning?',
@@ -1117,7 +1117,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 2.1,
       'end': 2.1,
       'part': 1,
-      'transcript': 'Yes, my name carries a special meaning of grace and perseverance. In our native language, it symbolizes resilience and strength, which my parents hoped would guide me throughout my life journey.',
+      'transcript': "Yes, my name actually has a significant meaning. In my native language, it translates to 'bright light' or 'hope,' which is something my parents wished for me when I was born. It is a very positive name that I am quite proud to carry.",
     },
     {
       'question': 'Is your name common or unusual in your country?',
@@ -1127,7 +1127,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 2.4,
       'end': 2.4,
       'part': 1,
-      'transcript': 'My first name is quite traditional, though not overly common among younger generations. It is well-recognized across my country, but I rarely meet people of my exact age who share the same name.',
+      'transcript': 'My name is actually quite common in my country. You will find that many people in my generation share this name because it was very popular during the decade I was born. It is not unusual at all, and I often meet others with the same name.',
     },
     {
       'question': 'If you could change your name, would you? [Why/Why not?]',
@@ -1137,7 +1137,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 1.8,
       'end': 1.8,
       'part': 1,
-      'transcript': 'No, I would never change my name because it forms a core part of my identity and connects me deeply to my heritage and family roots. I take great pride in the name my parents lovingly chose for me.',
+      'transcript': 'I would not change my name even if I had the chance. I have become very attached to it over the years, and it is a core part of my identity. Changing it would feel like losing a connection to my family and my own personal history.',
     },
 
     // Part 2: Question 5 (Cue Card - TV Program)
