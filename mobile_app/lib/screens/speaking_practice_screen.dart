@@ -672,7 +672,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'Deciding whether to rent or buy largely depends on an individual\'s financial situation and long-term plans. Buying a property is often viewed as a wise long-term investment that provides stability and equity. In contrast, renting offers flexibility and fewer responsibilities regarding maintenance and property taxes, making it ideal for those who value mobility.',
+      'transcript': 'Deciding between renting and buying is a complex choice that depends heavily on an individual\'s financial situation and long-term goals. Buying a property is often viewed as a sound investment that provides stability and potential equity growth over time. On the other hand, renting offers greater flexibility, as it allows people to move easily for career opportunities without the burden of property maintenance or high upfront costs.',
     },
     {
       'question': 'Do you agree that there is a right age for young adults to stop living with their parents? Why is that?',
@@ -682,7 +682,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'I don\'t think there is a specific age that applies to everyone, as it largely depends on individual maturity, financial independence, and cultural context. In many Western societies, moving out around the age of 18 or after university is customary to foster self-reliance. However, in many other cultures, young adults remain with their parents until marriage, which helps them save money and maintain close family ties.',
+      'transcript': 'I believe there is no universal \'right\' age, as it depends entirely on the cultural norms and economic conditions of the country. In many societies, it is common for young adults to live with their parents until they are financially stable or married, which helps them save money. However, moving out at a younger age can be a vital step toward developing independence, self-reliance, and personal responsibility.',
     },
   ];
 
