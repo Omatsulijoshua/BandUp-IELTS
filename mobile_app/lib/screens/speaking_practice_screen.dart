@@ -43,7 +43,23 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   final FlutterTts _flutterTts = FlutterTts();
   late stt.SpeechToText _speech;
   bool _speechAvailable = false;
-  List<double> _waveformHeights = List.generate(20, (index) => 3.0);
+  static const List<Color> _pastelWaveColors = [
+    Color(0xFFFCA5A5), Color(0xFFFCA5A5), Color(0xFFFCA5A5),
+    Color(0xFFFDBA74), Color(0xFFFDBA74), Color(0xFFFDBA74),
+    Color(0xFFFDE047), Color(0xFFFDE047), Color(0xFFFDE047),
+    Color(0xFF86EFAC), Color(0xFF86EFAC), Color(0xFF86EFAC),
+    Color(0xFF4ADE80), Color(0xFF4ADE80),
+    Color(0xFF2DD4BF), Color(0xFF2DD4BF),
+    Color(0xFF38BDF8), Color(0xFF38BDF8),
+    Color(0xFF60A5FA), Color(0xFF60A5FA),
+    Color(0xFF818CF8), Color(0xFF818CF8),
+    Color(0xFFA78BFA), Color(0xFFA78BFA),
+    Color(0xFFC084FC), Color(0xFFC084FC),
+  ];
+  List<double> _waveformHeights = List.generate(26, (i) {
+    final double envelope = sin((i / 25.0) * pi);
+    return 6.0 + 14.0 * envelope;
+  });
   Timer? _waveformTimer;
   Timer? _recordingSimulationTimer;
   Timer? _examinerSpeakingTimer;
@@ -705,40 +721,40 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     {
       'question': 'What sorts of food do you like eating most? [Why?]',
       'audioAsset': 'q1.mp3',
-      'duration': 3.5,
+      'duration': 1.9,
       'start': 0.0,
-      'promptEnd': 3.5,
-      'end': 3.5,
+      'promptEnd': 1.9,
+      'end': 1.9,
       'part': 1,
       'transcript': 'I enjoy eating a wide variety of fresh, home-cooked Mediterranean and Asian dishes, particularly those rich in herbs, vegetables, and lean proteins. I love these foods because they are nutritious, flavorful, and leave me feeling energized rather than sluggish.',
     },
     {
       'question': 'Who normally does the cooking in your home? [Why/Why not?]',
       'audioAsset': 'q2.mp3',
-      'duration': 3.5,
+      'duration': 1.9,
       'start': 0.0,
-      'promptEnd': 3.5,
-      'end': 3.5,
+      'promptEnd': 1.9,
+      'end': 1.9,
       'part': 1,
       'transcript': 'In my household, cooking is a shared responsibility, though my mother does most of the daily preparation. She truly enjoys experimenting with traditional recipes, whereas I step in on weekends to cook modern international meals for the family.',
     },
     {
       'question': 'Do you watch cookery programmes on TV? [Why/Why not?]',
       'audioAsset': 'q3.mp3',
-      'duration': 3.5,
+      'duration': 2.2,
       'start': 0.0,
-      'promptEnd': 3.5,
-      'end': 3.5,
+      'promptEnd': 2.2,
+      'end': 2.2,
       'part': 1,
       'transcript': 'Yes, I occasionally watch culinary shows and cooking competitions on television. I find them visually engaging and educational, as they provide great culinary inspiration and teach useful techniques for improving my own kitchen skills.',
     },
     {
       'question': 'In general, do you prefer eating out or eating at home? [Why?]',
       'audioAsset': 'q4.mp3',
-      'duration': 3.5,
+      'duration': 2.7,
       'start': 0.0,
-      'promptEnd': 3.5,
-      'end': 3.5,
+      'promptEnd': 2.7,
+      'end': 2.7,
       'part': 1,
       'transcript': 'Generally speaking, I prefer eating at home because it allows complete control over ingredient quality, hygiene, and nutrition. However, I do enjoy dining out periodically to socialize with friends and try authentic cuisines that are complex to prepare.',
     },
@@ -747,10 +763,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     {
       'question': 'Describe a house/apartment that someone you know lives in.',
       'audioAsset': 'q5.mp3',
-      'duration': 8.0,
+      'duration': 3.2,
       'start': 0.0,
-      'promptEnd': 8.0,
-      'end': 8.0,
+      'promptEnd': 3.2,
+      'end': 3.2,
       'part': 2,
       'youShouldSay': [
         'whose house/apartment this is',
@@ -765,60 +781,60 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     {
       'question': 'What kinds of home are most popular in your country? Why is this?',
       'audioAsset': 'q6.mp3',
-      'duration': 5.0,
+      'duration': 2.7,
       'start': 0.0,
-      'promptEnd': 5.0,
-      'end': 5.0,
+      'promptEnd': 2.7,
+      'end': 2.7,
       'part': 3,
       'transcript': 'In my country, detached houses are the most popular choice, particularly for families, because they offer more privacy and outdoor space. Many people aspire to own a house with a garden, as it is seen as a sign of success and provides a better environment for raising children. Recently, however, high-rise apartments have become more common in urban centers due to rapid population growth and limited land availability.',
     },
     {
       'question': 'What do you think are the advantages of living in a house rather than an apartment?',
       'audioAsset': 'q7.mp3',
-      'duration': 5.0,
+      'duration': 3.8,
       'start': 0.0,
-      'promptEnd': 5.0,
-      'end': 5.0,
+      'promptEnd': 3.8,
+      'end': 3.8,
       'part': 3,
       'transcript': 'Living in a house offers several significant advantages, most notably the sense of independence and direct access to private outdoor areas like a yard or patio. Unlike apartments, houses generally do not share walls with neighbors, which significantly reduces noise disturbances. Furthermore, home ownership often provides more flexibility for renovations and personal customization, allowing residents to create a space that truly reflects their lifestyle.',
     },
     {
       'question': 'Do you think that everyone would like to live in a larger home? Why is that?',
       'audioAsset': 'q8.mp3',
-      'duration': 5.0,
+      'duration': 2.7,
       'start': 0.0,
-      'promptEnd': 5.0,
-      'end': 5.0,
+      'promptEnd': 2.7,
+      'end': 2.7,
       'part': 3,
       'transcript': 'I believe that most people do aspire to live in a larger home, primarily because it offers more comfort and better storage for personal belongings. A spacious environment can significantly reduce stress and improve one\'s quality of life, especially for those working from home or raising a family. However, some individuals might prefer a smaller, more manageable space to minimize maintenance efforts and utility costs.',
     },
     {
       'question': 'How easy is it to find a place to live in your country?',
       'audioAsset': 'q9.mp3',
-      'duration': 5.0,
+      'duration': 2.7,
       'start': 0.0,
-      'promptEnd': 5.0,
-      'end': 5.0,
+      'promptEnd': 2.7,
+      'end': 2.7,
       'part': 3,
       'transcript': 'Finding suitable accommodation in my country has become increasingly challenging in recent years. In major cities, the demand for housing far outstrips supply, which has led to a sharp rise in both property prices and rental rates. Consequently, many young people struggle to find affordable housing, often having to compromise on location or living space to stay within their budgets.',
     },
     {
       'question': 'Do you think it\'s better to rent or to buy a place to live in? Why?',
       'audioAsset': 'q10.mp3',
-      'duration': 5.0,
+      'duration': 3.2,
       'start': 0.0,
-      'promptEnd': 5.0,
-      'end': 5.0,
+      'promptEnd': 3.2,
+      'end': 3.2,
       'part': 3,
       'transcript': 'Deciding between renting and buying is a complex choice that depends heavily on an individual\'s financial situation and long-term goals. Buying a property is often viewed as a sound investment that provides stability and potential equity growth over time. On the other hand, renting offers greater flexibility, as it allows people to move easily for career opportunities without the burden of property maintenance or high upfront costs.',
     },
     {
       'question': 'Do you agree that there is a right age for young adults to stop living with their parents? Why is that?',
       'audioAsset': 'q11.mp3',
-      'duration': 5.0,
+      'duration': 4.3,
       'start': 0.0,
-      'promptEnd': 5.0,
-      'end': 5.0,
+      'promptEnd': 4.3,
+      'end': 4.3,
       'part': 3,
       'transcript': 'I believe there is no universal \'right\' age, as it depends entirely on the cultural norms and economic conditions of the country. In many societies, it is common for young adults to live with their parents until they are financially stable or married, which helps them save money. However, moving out at a younger age can be a vital step toward developing independence, self-reliance, and personal responsibility.',
     },
@@ -2580,8 +2596,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     _waveformTimer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
       if (_currentScreen == 'EXAMINER_SESSION' && _isExaminerSpeaking) {
         setState(() {
-          _waveformHeights = List.generate(20, (i) {
-            return 8.0 + 22.0 * (1.0 + sin((cycle + i) * 0.4)).abs();
+          _waveformHeights = List.generate(26, (i) {
+            final double envelope = sin((i / 25.0) * pi);
+            return 8.0 + (16.0 * envelope) * (0.6 + 0.4 * sin((cycle + i) * 0.4).abs());
           });
           cycle++;
         });
@@ -2625,7 +2642,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     _waveformTimer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
       if (_currentScreen == 'EXAMINER_SESSION' && _isRecording) {
         setState(() {
-          _waveformHeights = List.generate(20, (i) => 4.0 + 12.0 * (1.0 + sin((timer.tick + i) * 0.7)).abs());
+          _waveformHeights = List.generate(26, (i) {
+            final double envelope = sin((i / 25.0) * pi);
+            return 6.0 + (14.0 * envelope) * (0.5 + 0.5 * sin((timer.tick + i) * 0.7).abs());
+          });
         });
       } else {
         timer.cancel();
