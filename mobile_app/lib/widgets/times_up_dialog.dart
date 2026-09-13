@@ -61,7 +61,9 @@ void showTimesUpDialog(BuildContext context, VoidCallback onConfirm) {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pop(context); // close dialog
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context); // close dialog
+                  }
                   onConfirm(); // execute action (e.g. submit answers)
                 },
                 child: const Row(

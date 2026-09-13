@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../services/api_service.dart';
+import '../utils/nav_utils.dart';
 
 class SupportScreen extends StatefulWidget {
   const SupportScreen({super.key});
@@ -110,7 +111,7 @@ class _SupportScreenState extends State<SupportScreen> {
         ),
         centerTitle: true,
         leading: GestureDetector(
-          onTap: () => Navigator.pop(context),
+          onTap: () => context.safePop(),
           child: Container(
             margin: const EdgeInsets.all(12),
             decoration: const BoxDecoration(

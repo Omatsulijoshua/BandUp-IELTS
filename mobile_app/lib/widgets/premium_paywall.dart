@@ -312,7 +312,9 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context);
+                  }
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       backgroundColor: AppColors.primary,
@@ -339,7 +341,9 @@ class _PremiumPaywallSheetState extends State<PremiumPaywallSheet> {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Purchases restored.')),
                     );

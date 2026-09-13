@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
 import '../providers/auth_provider.dart';
 import '../theme/app_colors.dart';
+import '../utils/nav_utils.dart';
 import 'subscription_screen.dart';
 
 class ParaphraseScreen extends ConsumerStatefulWidget {
@@ -21,6 +22,16 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
   List<dynamic>? _versions;
   int _freeTriesRemaining = 3;
 
+  @override
+  void initState() {
+    super.initState();
+    _loadFreeTries();
+  }
+
+  void _loadFreeTries() {
+    // default 3 tries
+  }
+
   bool get _isParaphraseEnabled {
     return _sentenceController.text.trim().isNotEmpty && !_submitting;
   }
@@ -28,8 +39,8 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
   Future<void> _paraphrase() async {
     if (!_isParaphraseEnabled) return;
 
-    final user = ref.read(authProvider).user;
-    final List subs = user?['subscriptions'] as List? ?? [];
+    final auth = ref.read(authProvider);
+    final subs = auth.user?['subscriptions'] as List? ?? [];
     final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
 
     if (!hasActiveSub) {
@@ -43,7 +54,11 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
             content: const Text('You have used all 3 free paraphrases. Upgrade to Premium for unlimited access!', style: TextStyle(color: AppColors.textSecondaryLight)),
             actions: [
               TextButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context);
+                  }
+                },
                 child: const Text('Cancel', style: TextStyle(color: AppColors.textSecondaryLight)),
               ),
               ElevatedButton(
@@ -52,7 +67,9 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context);
+                  }
                   Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
                 },
                 child: const Text('Upgrade', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
@@ -128,7 +145,7 @@ class _ParaphraseScreenState extends ConsumerState<ParaphraseScreen> {
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.safePop(),
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 16),
           label: const Text(
             'Back',

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
 import '../providers/auth_provider.dart';
 import '../theme/app_colors.dart';
+import '../utils/nav_utils.dart';
 import 'subscription_screen.dart';
 
 class SpeakingSamplesScreen extends ConsumerStatefulWidget {
@@ -58,7 +59,11 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
             content: const Text('You have used all 3 free speaking sample generations. Upgrade to Premium for unlimited access!', style: TextStyle(color: AppColors.textSecondaryLight)),
             actions: [
               TextButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context);
+                  }
+                },
                 child: const Text('Cancel', style: TextStyle(color: AppColors.textSecondaryLight)),
               ),
               ElevatedButton(
@@ -67,7 +72,9 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context);
+                  }
                   Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
                 },
                 child: const Text('Upgrade', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
@@ -155,7 +162,7 @@ class _SpeakingSamplesScreenState extends ConsumerState<SpeakingSamplesScreen> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 20),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.safePop(),
         ),
         title: const Text(
           'Speaking Samples',

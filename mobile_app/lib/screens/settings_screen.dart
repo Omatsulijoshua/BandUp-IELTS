@@ -97,7 +97,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   children: List.generate(5, (index) {
                     return GestureDetector(
                       onTap: () {
-                        Navigator.pop(context);
+                        if (Navigator.canPop(context)) {
+                          Navigator.pop(context);
+                        }
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Thank you for rating!')),
                         );
@@ -112,7 +114,11 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 const SizedBox(height: 24),
                 const Divider(height: 1),
                 TextButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
+                  },
                   child: const Text('Not Now', style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 14, fontWeight: FontWeight.bold)),
                 ),
               ],

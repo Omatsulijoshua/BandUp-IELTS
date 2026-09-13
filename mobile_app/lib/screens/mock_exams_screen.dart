@@ -6,6 +6,7 @@ import 'package:audioplayers/audioplayers.dart';
 import '../providers/auth_provider.dart';
 import '../theme/app_colors.dart';
 import '../widgets/premium_paywall.dart';
+import '../utils/nav_utils.dart';
 import 'history_screen.dart';
 
 class MockExamsScreen extends ConsumerStatefulWidget {
@@ -751,7 +752,9 @@ class _MockExamsScreenState extends ConsumerState<MockExamsScreen> {
                         height: 46,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pop(dialogContext);
+                            if (Navigator.canPop(dialogContext)) {
+                              Navigator.pop(dialogContext);
+                            }
                             _timer?.cancel();
                             _audioPlayer.stop();
                             setState(() {
@@ -781,7 +784,11 @@ class _MockExamsScreenState extends ConsumerState<MockExamsScreen> {
                       child: SizedBox(
                         height: 46,
                         child: ElevatedButton(
-                          onPressed: () => Navigator.pop(dialogContext),
+                          onPressed: () {
+                            if (Navigator.canPop(dialogContext)) {
+                              Navigator.pop(dialogContext);
+                            }
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.primary,
                             foregroundColor: Colors.white,
@@ -817,14 +824,29 @@ class _MockExamsScreenState extends ConsumerState<MockExamsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Widget currentWidget;
     if (_currentView == 'SECTION_INTRO') {
-      return _buildSectionIntroScreen();
+      currentWidget = _buildSectionIntroScreen();
     } else if (_currentView == 'SECTION_TEST') {
-      return _buildSectionTestScreen();
+      currentWidget = _buildSectionTestScreen();
     } else if (_currentView == 'CORRECTIONS') {
-      return _buildCorrectionsScreen();
+      currentWidget = _buildCorrectionsScreen();
+    } else {
+      currentWidget = _buildIntroScreen();
     }
-    return _buildIntroScreen();
+
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (_currentView != 'INTRO') {
+          _showEndTestDialog();
+        } else {
+          context.safePop();
+        }
+      },
+      child: currentWidget,
+    );
   }
 
   // ===========================================================================
@@ -878,7 +900,7 @@ class _MockExamsScreenState extends ConsumerState<MockExamsScreen> {
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFF0F172A), size: 18),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.safePop(),
         ),
       ),
       body: SingleChildScrollView(

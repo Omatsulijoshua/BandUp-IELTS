@@ -16,6 +16,7 @@ import 'history_screen.dart';
 import 'settings_screen.dart';
 import 'support_screen.dart';
 import 'mock_exams_screen.dart';
+import '../utils/nav_utils.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -129,13 +130,26 @@ class DashboardScreenState extends ConsumerState<DashboardScreen> {
       return const OnboardingScreen();
     }
 
-    return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FB),
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _screens,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (_currentIndex != 0) {
+          setState(() {
+            _currentIndex = 0;
+          });
+        } else if (Navigator.canPop(context)) {
+          context.safePop();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xFFF8F9FB),
+        body: IndexedStack(
+          index: _currentIndex,
+          children: _screens,
+        ),
+        bottomNavigationBar: _buildCustomBottomBar(),
       ),
-      bottomNavigationBar: _buildCustomBottomBar(),
     );
   }
 }

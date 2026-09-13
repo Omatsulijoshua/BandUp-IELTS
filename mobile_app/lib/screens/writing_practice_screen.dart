@@ -7,6 +7,7 @@ import '../services/api_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/premium_paywall.dart';
 import '../widgets/times_up_dialog.dart';
+import '../utils/nav_utils.dart';
 import 'history_screen.dart';
 
 
@@ -409,7 +410,9 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pop(context); // Close dialog
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context); // Close dialog
+                          }
                           setState(() {
                             _timerActive = false;
                             _timer?.cancel();
@@ -439,7 +442,11 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
+                        },
                         child: const Text(
                           'Continue',
                           style: TextStyle(
@@ -1391,67 +1398,85 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
   @override
   Widget build(BuildContext context) {
     final bool isPractice = _viewState == 'PRACTICE';
-    return Scaffold(
-      backgroundColor: AppColors.backgroundLight,
-      appBar: AppBar(
-        backgroundColor: isPractice ? Colors.white : AppColors.backgroundLight,
-        elevation: isPractice ? 1 : 0,
-        shadowColor: isPractice ? Colors.black.withOpacity(0.1) : Colors.transparent,
-        centerTitle: true,
-        leadingWidth: isPractice ? 180 : 90,
-        leading: isPractice
-            ? Row(
-                children: [
-                  const SizedBox(width: 12),
-                  GestureDetector(
-                    onTap: () {
-                      if (_timerActive) {
-                        _showExitConfirmation();
-                      } else {
-                        setState(() => _viewState = 'BOOK_DETAIL');
-                      }
-                    },
-                    child: const Row(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (_viewState == 'PRACTICE') {
+          if (_timerActive) {
+            _showExitConfirmation();
+          } else {
+            setState(() => _viewState = 'BOOK_DETAIL');
+          }
+        } else if (_viewState == 'TASK_DETAILS') {
+          setState(() => _viewState = 'BOOK_DETAIL');
+        } else if (_viewState == 'BOOK_DETAIL') {
+          setState(() => _viewState = 'BOOKS');
+        } else {
+          context.safePop();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: AppColors.backgroundLight,
+        appBar: AppBar(
+          backgroundColor: isPractice ? Colors.white : AppColors.backgroundLight,
+          elevation: isPractice ? 1 : 0,
+          shadowColor: isPractice ? Colors.black.withOpacity(0.1) : Colors.transparent,
+          centerTitle: true,
+          leadingWidth: isPractice ? 180 : 90,
+          leading: isPractice
+              ? Row(
+                  children: [
+                    const SizedBox(width: 12),
+                    GestureDetector(
+                      onTap: () {
+                        if (_timerActive) {
+                          _showExitConfirmation();
+                        } else {
+                          setState(() => _viewState = 'BOOK_DETAIL');
+                        }
+                      },
+                      child: const Row(
+                        children: [
+                          Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFFEF4444), size: 14),
+                          SizedBox(width: 4),
+                          Text(
+                            'Back',
+                            style: TextStyle(color: Color(0xFFEF4444), fontSize: 13, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFFEF4444), size: 14),
-                        SizedBox(width: 4),
                         Text(
-                          'Back',
-                          style: TextStyle(color: Color(0xFFEF4444), fontSize: 13, fontWeight: FontWeight.bold),
+                          _currentPart == 1 ? 'Part 1' : 'Part 2',
+                          style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 13),
+                        ),
+                        Text(
+                          _selectedPrompt?['id'] == 'academic-w1' ? 'Pie Chart' : 'Opinion Essay',
+                          style: const TextStyle(color: Color(0xFF64748B), fontSize: 9),
                         ),
                       ],
                     ),
-                  ),
-                  const SizedBox(width: 16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        _currentPart == 1 ? 'Part 1' : 'Part 2',
-                        style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 13),
-                      ),
-                      Text(
-                        _selectedPrompt?['id'] == 'academic-w1' ? 'Pie Chart' : 'Opinion Essay',
-                        style: const TextStyle(color: Color(0xFF64748B), fontSize: 9),
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            : TextButton.icon(
-                onPressed: () {
-                  if (_viewState == 'TASK_DETAILS') {
-                    setState(() => _viewState = 'BOOK_DETAIL');
-                  } else if (_viewState == 'BOOK_DETAIL') {
-                    setState(() => _viewState = 'BOOKS');
-                  } else {
-                    Navigator.pop(context);
-                  }
-                },
-                icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFFEF4444), size: 14),
-                label: const Text(
-                  'Back',
+                  ],
+                )
+              : TextButton.icon(
+                  onPressed: () {
+                    if (_viewState == 'TASK_DETAILS') {
+                      setState(() => _viewState = 'BOOK_DETAIL');
+                    } else if (_viewState == 'BOOK_DETAIL') {
+                      setState(() => _viewState = 'BOOKS');
+                    } else {
+                      context.safePop();
+                    }
+                  },
+                  icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFFEF4444), size: 14),
+                  label: const Text(
+                    'Back',
                   style: TextStyle(color: Color(0xFFEF4444), fontSize: 13, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -2138,6 +2163,7 @@ class _WritingPracticeScreenState extends ConsumerState<WritingPracticeScreen> {
                 ],
               ),
             ),
+      ),
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../services/localization.dart';
+import '../utils/nav_utils.dart';
 
 class BandCalculatorScreen extends StatefulWidget {
   const BandCalculatorScreen({super.key});
@@ -68,7 +69,7 @@ class _BandCalculatorScreenState extends State<BandCalculatorScreen> {
             backgroundColor: Colors.white,
             child: IconButton(
               icon: const Icon(Icons.arrow_back_ios_new_rounded, color: AppColors.textPrimaryLight, size: 18),
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => context.safePop(),
             ),
           ),
         ),

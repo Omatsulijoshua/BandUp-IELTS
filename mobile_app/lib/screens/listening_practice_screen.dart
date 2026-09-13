@@ -9,6 +9,7 @@ import '../theme/app_colors.dart';
 import '../widgets/times_up_dialog.dart';
 import '../widgets/premium_paywall.dart';
 import '../services/localization.dart';
+import '../utils/nav_utils.dart';
 import 'history_screen.dart';
 
 
@@ -570,7 +571,11 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
+                        },
                         child: const Text(
                           'Cancel',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -592,7 +597,9 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pop(context);
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
                           setState(() {
                             _enableAudioControls = true;
                           });
@@ -675,7 +682,9 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pop(context);
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
                           _audioPlayer.stop();
                           _timer?.cancel();
                           setState(() {
@@ -703,7 +712,11 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
+                        },
                         child: const Text(
                           'Cancel',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -781,7 +794,11 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
+                        },
                         child: const Text(
                           'Cancel',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -803,7 +820,9 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pop(context);
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
                           _submitAnswers();
                         },
                         child: const Text(
@@ -870,15 +889,31 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
       );
     }
 
+    Widget content;
     if (_viewState == 'TESTS') {
-      return _buildTestsView();
+      content = _buildTestsView();
     } else if (_viewState == 'DETAILS') {
-      return _buildDetailsView();
+      content = _buildDetailsView();
     } else if (_viewState == 'RESULTS') {
-      return _buildResultsView();
+      content = _buildResultsView();
     } else {
-      return _buildPracticeView();
+      content = _buildPracticeView();
     }
+
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (_viewState == 'PRACTICE') {
+          _showExitConfirmation();
+        } else if (_viewState == 'DETAILS' || _viewState == 'RESULTS') {
+          setState(() => _viewState = 'TESTS');
+        } else {
+          context.safePop();
+        }
+      },
+      child: content,
+    );
   }
 
   Widget _buildTestsView() {
@@ -898,7 +933,7 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
         leading: TextButton.icon(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFFEF4444), size: 16),
           label: const Text('Back', style: TextStyle(color: Color(0xFFEF4444), fontWeight: FontWeight.bold, fontSize: 14)),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.safePop(),
         ),
       ),
       body: SingleChildScrollView(
@@ -1042,7 +1077,7 @@ class _ListeningPracticeScreenState extends ConsumerState<ListeningPracticeScree
         unselectedLabelStyle: const TextStyle(fontSize: 10),
         onTap: (index) {
           if (index != 0) {
-            Navigator.pop(context, index);
+            context.safePop(index);
           }
         },
         items: [

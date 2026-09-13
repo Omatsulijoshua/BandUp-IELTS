@@ -11,6 +11,7 @@ import '../services/api_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/premium_paywall.dart';
 import '../widgets/times_up_dialog.dart';
+import '../utils/nav_utils.dart';
 import 'history_screen.dart';
 
 class SpeakingPracticeScreen extends ConsumerStatefulWidget {
@@ -768,21 +769,39 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       );
     }
 
+    Widget content;
     if (_currentScreen == 'TALK_WITH_AI') {
-      return _buildTalkWithAiScreen();
+      content = _buildTalkWithAiScreen();
     } else if (_currentScreen == 'TEST_DETAIL') {
-      return _buildTestDetailScreen();
+      content = _buildTestDetailScreen();
     } else if (_currentScreen == 'PRACTICE_WORKSPACE') {
-      return _buildPracticeWorkspaceScreen();
+      content = _buildPracticeWorkspaceScreen();
     } else if (_currentScreen == 'EXAMINER_SESSION') {
-      return _buildExaminerSessionScreen();
+      content = _buildExaminerSessionScreen();
     } else if (_currentScreen == 'TEST_COMPLETE') {
-      return _buildTestCompleteScreen();
+      content = _buildTestCompleteScreen();
     } else if (_currentScreen == 'EXAMINER_RESULTS') {
-      return _buildExaminerResultsScreen();
+      content = _buildExaminerResultsScreen();
+    } else {
+      content = _buildHomeScreen();
     }
 
-    return _buildHomeScreen();
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (_currentScreen == 'EXAMINER_SESSION') {
+          _showEndTestDialog();
+        } else if (_currentScreen == 'TALK_WITH_AI' || _currentScreen == 'TEST_DETAIL' || _currentScreen == 'TEST_COMPLETE' || _currentScreen == 'EXAMINER_RESULTS') {
+          setState(() => _currentScreen = 'HOME');
+        } else if (_currentScreen == 'PRACTICE_WORKSPACE') {
+          setState(() => _currentScreen = 'TEST_DETAIL');
+        } else {
+          context.safePop();
+        }
+      },
+      child: content,
+    );
   }
 
   // --- SCREEN 1: SPEAKING HOME PAGE (Image 1) ---
@@ -794,7 +813,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.safePop(),
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 16),
           label: const Text('Back', style: TextStyle(color: AppColors.primary, fontSize: 14, fontWeight: FontWeight.bold)),
         ),
@@ -2206,7 +2225,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     Expanded(
                       child: TextButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
                           _audioPlayer?.stop();
                           _flutterTts.stop();
                           _sessionTimer?.cancel();
@@ -2239,7 +2260,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.accent,

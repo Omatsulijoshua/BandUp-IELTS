@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../services/api_service.dart';
 import '../theme/app_colors.dart';
+import '../utils/nav_utils.dart';
 
 class ReferralsScreen extends StatefulWidget {
   const ReferralsScreen({super.key});
@@ -223,7 +224,7 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
         title: const Text('Referrals & Earnings', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.safePop(),
         ),
       ),
       body: _loading

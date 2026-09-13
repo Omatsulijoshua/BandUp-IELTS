@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/api_service.dart';
 import '../theme/app_colors.dart';
+import '../utils/nav_utils.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({super.key});
@@ -212,7 +213,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
         leading: Navigator.canPop(context)
             ? IconButton(
                 icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFF111827), size: 18),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => context.safePop(),
               )
             : null,
       ),
@@ -828,7 +829,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () => Navigator.pop(ctx),
+                    onPressed: () {
+                      if (Navigator.canPop(ctx)) {
+                        Navigator.pop(ctx);
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       padding: const EdgeInsets.symmetric(vertical: 14),

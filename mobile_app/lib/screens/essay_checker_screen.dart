@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../theme/app_colors.dart';
+import '../utils/nav_utils.dart';
 
 
 class EssayCheckerScreen extends StatefulWidget {
@@ -122,7 +123,7 @@ class _EssayCheckerScreenState extends State<EssayCheckerScreen> {
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.safePop(),
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 16),
           label: const Text(
             'Back',

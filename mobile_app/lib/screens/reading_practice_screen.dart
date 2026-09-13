@@ -7,6 +7,7 @@ import '../services/api_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/premium_paywall.dart';
 import '../widgets/times_up_dialog.dart';
+import '../utils/nav_utils.dart';
 import 'history_screen.dart';
 
 
@@ -315,7 +316,9 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pop(context); // Close dialog
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context); // Close dialog
+                          }
                           setState(() {
                             _timerActive = false;
                             _timer?.cancel();
@@ -345,7 +348,11 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
+                        },
                         child: const Text(
                           'Continue',
                           style: TextStyle(
@@ -390,39 +397,55 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
         : 13;
     final int answeredCount = _userAnswers.keys.where((k) => _userAnswers[k] != null && _userAnswers[k]!.isNotEmpty).length;
 
-    return Scaffold(
-      backgroundColor: AppColors.backgroundLight, // Pale mist canvas
-      appBar: AppBar(
-        backgroundColor: AppColors.backgroundLight,
-        elevation: 0,
-        centerTitle: true,
-        leading: isPractice
-            ? IconButton(
-                icon: const Icon(Icons.close, color: Color(0xFF1E293B)),
-                onPressed: () {
-                  if (_timerActive) {
-                    _showExitConfirmation();
-                  } else {
-                    setState(() => _viewState = 'OVERVIEW');
-                  }
-                },
-              )
-            : TextButton.icon(
-                onPressed: () {
-                  if (isOverview) {
-                    setState(() => _viewState = 'TESTS');
-                  } else {
-                    Navigator.pop(context);
-                  }
-                },
-                icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFFEF4444), size: 14),
-                label: const Text(
-                  'Back',
-                  style: TextStyle(color: Color(0xFFEF4444), fontSize: 13, fontWeight: FontWeight.bold),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (isPractice) {
+          if (_timerActive) {
+            _showExitConfirmation();
+          } else {
+            setState(() => _viewState = 'OVERVIEW');
+          }
+        } else if (isOverview) {
+          setState(() => _viewState = 'TESTS');
+        } else {
+          context.safePop();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: AppColors.backgroundLight, // Pale mist canvas
+        appBar: AppBar(
+          backgroundColor: AppColors.backgroundLight,
+          elevation: 0,
+          centerTitle: true,
+          leading: isPractice
+              ? IconButton(
+                  icon: const Icon(Icons.close, color: Color(0xFF1E293B)),
+                  onPressed: () {
+                    if (_timerActive) {
+                      _showExitConfirmation();
+                    } else {
+                      setState(() => _viewState = 'OVERVIEW');
+                    }
+                  },
+                )
+              : TextButton.icon(
+                  onPressed: () {
+                    if (isOverview) {
+                      setState(() => _viewState = 'TESTS');
+                    } else {
+                      context.safePop();
+                    }
+                  },
+                  icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Color(0xFFEF4444), size: 14),
+                  label: const Text(
+                    'Back',
+                    style: TextStyle(color: Color(0xFFEF4444), fontSize: 13, fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-        leadingWidth: isPractice ? 56 : 90,
-        title: isOverview
+          leadingWidth: isPractice ? 56 : 90,
+          title: isOverview
             ? Text(
                 'IELTS Book $_selectedBook Test $_selectedTest',
                 style: const TextStyle(
@@ -495,6 +518,7 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                   child: _buildOverviewView(),
                 )
               : _buildPracticeView()),
+      ),
     );
   }
 
@@ -1293,7 +1317,11 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
+                        },
                         child: const Text(
                           'Cancel',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -1315,7 +1343,9 @@ class _ReadingPracticeScreenState extends ConsumerState<ReadingPracticeScreen> {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pop(context);
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          }
                           _submitAnswers();
                         },
                         child: const Text(

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
 import '../providers/auth_provider.dart';
 import '../theme/app_colors.dart';
+import '../utils/nav_utils.dart';
 import 'subscription_screen.dart';
 
 class GrammarCheckerScreen extends ConsumerStatefulWidget {
@@ -17,8 +18,18 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
   final ApiService _apiService = ApiService();
   final TextEditingController _textController = TextEditingController();
   bool _submitting = false;
-  dynamic _result;
+  Map<String, dynamic>? _result;
   int _freeTriesRemaining = 3;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadFreeTries();
+  }
+
+  void _loadFreeTries() {
+    // default 3 tries
+  }
 
   bool get _isCheckEnabled {
     return _textController.text.trim().isNotEmpty && !_submitting;
@@ -27,8 +38,8 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
   Future<void> _checkGrammar() async {
     if (!_isCheckEnabled) return;
 
-    final user = ref.read(authProvider).user;
-    final List subs = user?['subscriptions'] as List? ?? [];
+    final auth = ref.read(authProvider);
+    final subs = auth.user?['subscriptions'] as List? ?? [];
     final hasActiveSub = subs.any((sub) => sub['status'] == 'ACTIVE');
 
     if (!hasActiveSub) {
@@ -42,7 +53,11 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
             content: const Text('You have used all 3 free grammar checks. Upgrade to Premium for unlimited access!', style: TextStyle(color: AppColors.textSecondaryLight)),
             actions: [
               TextButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context);
+                  }
+                },
                 child: const Text('Cancel', style: TextStyle(color: AppColors.textSecondaryLight)),
               ),
               ElevatedButton(
@@ -51,7 +66,9 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context);
+                  }
                   Navigator.push(context, MaterialPageRoute(builder: (_) => const SubscriptionScreen()));
                 },
                 child: const Text('Upgrade', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
@@ -116,7 +133,7 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
         elevation: 0,
         leadingWidth: 100,
         leading: TextButton.icon(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.safePop(),
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.primary, size: 16),
           label: const Text(
             'Back',
@@ -219,8 +236,9 @@ class _GrammarCheckerScreenState extends ConsumerState<GrammarCheckerScreen> {
   }
 
   Widget _buildGrammarResultWidget() {
-    final corrected = _result['correctedText'] ?? '';
-    final corrections = _result['corrections'] as List? ?? [];
+    if (_result == null) return const SizedBox();
+    final corrected = _result!['correctedText'] ?? '';
+    final corrections = _result!['corrections'] as List? ?? [];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

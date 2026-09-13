@@ -5,6 +5,7 @@ import '../services/api_service.dart';
 import '../theme/app_colors.dart';
 import 'subscription_history_screen.dart';
 import 'dashboard_screen.dart';
+import '../utils/nav_utils.dart';
 
 class SubscriptionScreen extends StatefulWidget {
   final bool isRegisterFlow;
@@ -113,14 +114,16 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
               actions: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pop(context); // Pop dialog
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context); // Pop dialog
+                    }
                     if (widget.isRegisterFlow) {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (_) => const DashboardScreen()),
                       );
                     } else {
-                      Navigator.pop(context); // Pop screen
+                      context.safePop(); // Pop screen safely
                     }
                   },
                   child: const Text('OK', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold)),
@@ -158,7 +161,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
             ? const SizedBox()
             : IconButton(
                 icon: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => context.safePop(),
               ),
         actions: [
           if (widget.isRegisterFlow)
