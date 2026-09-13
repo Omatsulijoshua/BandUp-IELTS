@@ -759,7 +759,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'In my country, fiction novels, self-help books, and biographies are incredibly popular. Younger readers tend to favor fantasy and young adult fiction, whereas working professionals often seek personal development and business literature.',
+      'transcript': 'In my country, children are particularly drawn to fantasy novels and comic books, as these genres offer an escape into imaginative worlds. I believe this popularity stems from the vibrant illustrations and the sense of adventure that captivates a young reader\'s mind, making the reading experience far more engaging than traditional textbooks.',
     },
     {
       'question': 'Why do you think some children do not read books very often?',
@@ -769,7 +769,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'I believe many children today read less frequently primarily due to the overwhelming presence of digital entertainment, such as video games, social media, and short-form video streaming. These digital mediums provide instant gratification and high visual stimulation, making traditional reading feel comparatively slow or demanding. Additionally, if parents or schools do not cultivate a reading culture early on, children might view reading as a tedious academic chore rather than an enjoyable leisure activity.',
+      'transcript': 'I think many children struggle to find time for reading due to the overwhelming pressure of school assignments and extracurricular activities. Furthermore, the constant distraction of digital media and video games often makes the slower pace of reading seem less appealing compared to the instant gratification provided by screens.',
     },
     {
       'question': 'How do you think children can be encouraged to read more?',
@@ -779,7 +779,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'Encouraging children to read requires a combination of parental modeling, interactive environments, and freedom of choice. Parents and teachers can set dedicated daily reading times and share story sessions with younger kids. Moreover, allowing children to choose books that align with their personal interests—whether comics, graphic novels, or adventure series—makes the experience far more engaging. Schools can also host reading challenges or book clubs to make reading a fun and collaborative experience.',
+      'transcript': 'To encourage more reading, schools and parents could create dedicated, comfortable reading corners that are free from digital distractions. Additionally, introducing interactive book clubs where children can discuss stories with their peers can transform reading from a solitary task into a fun, social experience.',
     },
     {
       'question': 'Are there any occasions when reading at speed is a useful skill to have? What are they?',
@@ -789,7 +789,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'Yes, speed reading is extremely useful in academic and professional contexts where large volumes of information must be digested quickly. For instance, students preparing for exams or synthesizing research papers need to scan through articles efficiently to locate relevant data. Similarly, professionals such as lawyers, analysts, and journalists often skim through extensive reports or emails under tight deadlines to extract key insights without getting bogged down in minor details.',
+      'transcript': 'Yes, speed reading is an invaluable skill, particularly in professional or academic environments where one must process large volumes of information quickly. For instance, when reviewing lengthy legal contracts or academic research papers, the ability to scan for key concepts and data is essential for efficiency.',
     },
     {
       'question': 'Are there any jobs where people need to read a lot? What are they?',
@@ -799,7 +799,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'Certainly, numerous professions demand extensive reading on a daily basis. Legal practitioners, such as lawyers and judges, must examine vast case law, contracts, and legal precedents. Academic researchers and scientists spend considerable time reviewing literature and scientific journals to keep up with developments in their fields. Additionally, editors, policy analysts, and journalists rely heavily on thorough reading to fact-check, verify information, and craft well-reasoned reports.',
+      'transcript': 'Yes, there are many professions that demand high levels of reading proficiency. For example, lawyers and journalists must constantly read reports, case files, and news articles to stay informed and build their arguments. Similarly, medical professionals need to read extensive research journals to keep up with the latest developments in healthcare.',
     },
     {
       'question': 'Do you think that reading novels is more interesting than reading factual books? Why is that?',
@@ -809,7 +809,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'Whether novels are more captivating than factual books largely comes down to individual preference. Novels often appeal to people because they offer an immersive escape into imaginative worlds, complex character dynamics, and emotional narratives. On the other hand, non-fiction and factual books provide intellectual satisfaction by deepening one\'s understanding of real-world history, science, or philosophy. Ultimately, both genres possess distinct merits depending on what the reader seeks at a given moment.',
+      'transcript': 'While factual books are excellent for acquiring specific knowledge, I find novels more interesting because they explore the depth of human emotion and complex character development. Novels allow readers to experience different perspectives and cultures, which creates a more immersive and thought-provoking experience than simply absorbing raw data.',
     },
   ];
 
