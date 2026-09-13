@@ -967,6 +967,133 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 11 TEST 3 (Photography / Websites / Online Shopping)
+  // ==========================================
+  final List<Map<String, dynamic>> _book11Test3Questions = [
+    // Part 1: Questions 1-4 (Photography)
+    {
+      'question': 'What type of photos do you like taking? [Why/Why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.6,
+      'start': 0.0,
+      'promptEnd': 1.6,
+      'end': 1.6,
+      'part': 1,
+      'transcript': 'I enjoy taking candid photos of nature, landscapes, and special moments with friends and family. Nature photography allows me to capture the beauty of the outdoors, while photos of loved ones preserve cherished memories that I can look back on in the future.',
+    },
+    {
+      'question': 'What do you do with photos you take? [Why/Why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 1.6,
+      'start': 0.0,
+      'promptEnd': 1.6,
+      'end': 1.6,
+      'part': 1,
+      'transcript': 'Most of the photos I take are backed up on cloud storage so they are safely stored. I also like sharing my best shots on social media platforms or sending them directly to family members so everyone can stay connected.',
+    },
+    {
+      'question': 'When do you visit other places, do you take photos or buy postcards? [Why/Why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 3.2,
+      'start': 0.0,
+      'promptEnd': 3.2,
+      'end': 3.2,
+      'part': 1,
+      'transcript': 'I generally prefer taking my own photographs when traveling because personal photos capture my authentic perspective and unique experiences. However, I occasionally buy postcards if they feature professional architectural angles or historical artwork that is difficult to photograph myself.',
+    },
+    {
+      'question': 'Do you like people taking photos of you? [Why/Why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 1.9,
+      'start': 0.0,
+      'promptEnd': 1.9,
+      'end': 1.9,
+      'part': 1,
+      'transcript': 'To be honest, I am somewhat camera-shy, so I prefer being behind the camera rather than in front of it. That said, I do appreciate group photos on celebratory occasions like birthdays or reunions, as they are wonderful keepsakes.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Website)
+    {
+      'question': 'Describe a website that you use that helps you a lot in your work or studies.',
+      'audioAsset': 'q5.mp3',
+      'duration': 2.6,
+      'start': 0.0,
+      'promptEnd': 2.6,
+      'end': 2.6,
+      'part': 2,
+      'youShouldSay': [
+        'what the website is',
+        'how often you use the website',
+        'what information or service it provides',
+        'and explain how this website helps you in your work or studies.'
+      ],
+      'transcript': 'I would like to talk about Wikipedia and Google Scholar, which are indispensable digital platforms for my research and studies. I use Google Scholar almost daily to access peer-reviewed journals, academic articles, and literature reviews. It helps me stay up-to-date with scientific findings and synthesize credible information efficiently for academic assignments.',
+    },
+
+    // Part 3: Questions 6-11 (Discussion - Internet & Shopping)
+    {
+      'question': 'What kinds of website are most popular in your country? Why is that?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.2,
+      'start': 0.0,
+      'promptEnd': 3.2,
+      'end': 3.2,
+      'part': 3,
+      'transcript': 'Social media portals, e-commerce platforms, and news outlets are by far the most popular websites in my country. People rely on social media like YouTube and Instagram for daily communication and entertainment, while online marketplaces have revolutionized the way citizens shop for groceries and consumer electronics.',
+    },
+    {
+      'question': 'Do you think that the internet is safe for children to use?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.9,
+      'start': 0.0,
+      'promptEnd': 2.9,
+      'end': 2.9,
+      'part': 3,
+      'transcript': 'The internet contains vast educational resources, but it poses significant risks for children if unmonitored. Kids can easily encounter inappropriate content, cyberbullying, or online scams. Therefore, strong parental controls and digital safety education in schools are essential to ensure a secure online environment.',
+    },
+    {
+      'question': 'How has the internet changed the way people shop?',
+      'audioAsset': 'q8.mp3',
+      'duration': 4.7,
+      'start': 0.0,
+      'promptEnd': 4.7,
+      'end': 4.7,
+      'part': 3,
+      'transcript': 'The internet has transformed shopping from a physical errand into an effortless digital experience. Consumers can now compare prices instantly across multiple global retailers, read customer reviews, and have items delivered directly to their doorstep, saving significant time and effort.',
+    },
+    {
+      'question': 'What are the advantages and disadvantages of shopping online?',
+      'audioAsset': 'q9.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'The major advantages of online shopping include 24/7 accessibility, competitive pricing, and a vast selection of goods. On the downside, shoppers cannot physically inspect or try on products before purchasing, and there are occasional delays in delivery or risk of security breaches.',
+    },
+    {
+      'question': 'Do you think traditional shops will disappear in the future?',
+      'audioAsset': 'q10.mp3',
+      'duration': 3.2,
+      'start': 0.0,
+      'promptEnd': 3.2,
+      'end': 3.2,
+      'part': 3,
+      'transcript': 'Although e-commerce continues to grow rapidly, I do not believe brick-and-mortar stores will completely disappear. Physical retail offers tactile experiences, immediate product availability, and social interaction that online platforms cannot duplicate.',
+    },
+    {
+      'question': 'What can shop owners do to attract more customers?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.6,
+      'start': 0.0,
+      'promptEnd': 3.6,
+      'end': 3.6,
+      'part': 3,
+      'transcript': 'To stay competitive, store owners can enhance the in-store customer experience by offering personalized customer service, exclusive in-store discounts, and creating interactive product demonstrations that engage shoppers visually.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
     if (_selectedTestTitle.contains('Book 10 Test 4')) {
@@ -977,6 +1104,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book10Test2Questions;
     } else if (_selectedTestTitle.contains('Book 10 Test 1')) {
       return _book10Test1Questions;
+    } else if (_selectedTestTitle.contains('Book 11 Test 3')) {
+      return _book11Test3Questions;
     } else if (_selectedTestTitle.contains('Book 11 Test 2')) {
       return _book11Test2Questions;
     } else if (_selectedTestTitle.contains('Book 11 Test 1')) {
@@ -1076,6 +1205,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 10 Test 4') &&
         !folderName.contains('BOOK 11 Test 1') &&
         !folderName.contains('BOOK 11 Test 2') &&
+        !folderName.contains('BOOK 11 Test 3') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
@@ -2846,59 +2976,83 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   Widget _buildExaminerSessionScreen() {
     final safeIndex = _currentQuestionIndex.clamp(0, _examinerQuestions.length - 1);
     final currentQ = _examinerQuestions[safeIndex];
-    final waveColors = [
-      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981),
-      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981),
-      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981),
-      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981),
-      const Color(0xFF0F766E), const Color(0xFF14B8A6), const Color(0xFFF97316), const Color(0xFF10B981)
-    ];
+
+    final double progressFactor;
+    final String capsuleText;
+    if (_selectedPart == 3 || _currentQuestionIndex >= 5) {
+      final int part3Total = (_examinerQuestions.length - 5).clamp(1, 10);
+      final int part3Current = (_currentQuestionIndex - 4).clamp(1, part3Total);
+      final int endQ = 5 + part3Total;
+      capsuleText = 'Part 3: Questions 6-$endQ · $part3Current/$part3Total Questions';
+      progressFactor = part3Current / part3Total.toDouble();
+    } else if (_selectedPart == 2 || _currentQuestionIndex == 4) {
+      capsuleText = 'Part 2: Question 5 · 1/1 Questions';
+      progressFactor = 1.0;
+    } else {
+      const int p1Total = 4;
+      final int p1Current = (_currentQuestionIndex + 1).clamp(1, p1Total);
+      capsuleText = 'Part 1: Questions 1-4 · $p1Current/$p1Total Questions';
+      progressFactor = p1Current / p1Total.toDouble();
+    }
 
     return Scaffold(
-      backgroundColor: AppColors.backgroundLight,
+      backgroundColor: const Color(0xFFF9FBFA),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
           child: Column(
             children: [
-              // Top Bar
+              // Top Bar (Close button on left, timer pill on right)
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.close, color: AppColors.primary, size: 28),
-                    onPressed: _showEndTestDialog,
+                  GestureDetector(
+                    onTap: _showEndTestDialog,
+                    child: Container(
+                      width: 38,
+                      height: 38,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFF3F4F6),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.close, color: Color(0xFF4B5563), size: 18),
+                    ),
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: AppColors.cardBorderLight),
+                      border: Border.all(color: const Color(0xFFE5E7EB)),
                     ),
                     child: Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
-                          width: 8,
-                          height: 8,
-                          decoration: BoxDecoration(
-                            color: (_isRecording || _isExaminerSpeaking) ? AppColors.accent : AppColors.textSecondaryLight,
+                          width: 7,
+                          height: 7,
+                          decoration: const BoxDecoration(
+                            color: Color(0xFFEF4444),
                             shape: BoxShape.circle,
                           ),
                         ),
-                        const SizedBox(width: 8),
+                        const SizedBox(width: 6),
                         Text(
                           _formatTime(_sessionTime),
-                          style: const TextStyle(color: AppColors.textPrimaryLight, fontSize: 13, fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                            color: Color(0xFF374151),
+                            fontSize: 12.5,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 50),
 
-              // Examiner Card
+              // Examiner Card with floating avatar overlapping the top
               Expanded(
                 child: Center(
                   child: Stack(
@@ -2906,16 +3060,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     children: [
                       Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        padding: const EdgeInsets.fromLTRB(22, 54, 22, 22),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(24),
-                          border: Border.all(color: AppColors.cardBorderLight),
+                          borderRadius: BorderRadius.circular(28),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.05),
+                              color: Colors.black.withValues(alpha: 0.04),
                               blurRadius: 20,
-                              offset: const Offset(0, 10),
+                              offset: const Offset(0, 8),
                             ),
                           ],
                         ),
@@ -2923,222 +3077,203 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              // Status indicator
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    width: 6,
-                                    height: 6,
-                                    decoration: const BoxDecoration(color: AppColors.accent, shape: BoxShape.circle),
-                                  ),
-                                  const SizedBox(width: 6),
-                                  Text(
-                                    _isExaminerSpeaking ? 'Speaking' : _isRecording ? 'Recording' : 'Idle',
-                                    style: const TextStyle(color: AppColors.accent, fontSize: 11, fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 14),
-
-                              // Question Title Banner with Replay Audio Button
-                              Container(
-                                width: double.infinity,
-                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                                decoration: BoxDecoration(
-                                  color: AppColors.surfaceTint,
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
-                                ),
-                                child: Column(
+                              // Status indicator on top right (Three red dots + "Speaking")
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text(
-                                      'Q${_currentQuestionIndex + 1}: ${currentQ['question']}',
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                        color: AppColors.textPrimaryLight,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w800,
-                                        height: 1.4,
-                                      ),
+                                    Row(
+                                      children: [
+                                        Container(width: 4, height: 4, decoration: const BoxDecoration(color: Color(0xFFEF4444), shape: BoxShape.circle)),
+                                        const SizedBox(width: 3),
+                                        Container(width: 4, height: 4, decoration: const BoxDecoration(color: Color(0xFFEF4444), shape: BoxShape.circle)),
+                                        const SizedBox(width: 3),
+                                        Container(width: 5, height: 5, decoration: const BoxDecoration(color: Color(0xFFEF4444), shape: BoxShape.circle)),
+                                      ],
                                     ),
-                                    if (currentQ['youShouldSay'] != null) ...[
-                                      const SizedBox(height: 12),
-                                      Container(
-                                        width: double.infinity,
-                                        padding: const EdgeInsets.all(14),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(14),
-                                          border: Border.all(color: AppColors.cardBorderLight),
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            const Text(
-                                              'You should say:',
-                                              style: TextStyle(
-                                                color: AppColors.textSecondaryLight,
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                            const SizedBox(height: 8),
-                                            ...(currentQ['youShouldSay'] as List).map((bullet) {
-                                              return Padding(
-                                                padding: const EdgeInsets.only(bottom: 4.0),
-                                                child: Row(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: [
-                                                    const Text(
-                                                      '• ',
-                                                      style: TextStyle(color: AppColors.primary, fontSize: 13, fontWeight: FontWeight.bold),
-                                                    ),
-                                                    Expanded(
-                                                      child: Text(
-                                                        bullet.toString(),
-                                                        style: const TextStyle(
-                                                          color: AppColors.textPrimaryLight,
-                                                          fontSize: 13,
-                                                          height: 1.4,
-                                                          fontWeight: FontWeight.w500,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            }),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                    const SizedBox(height: 10),
-                                    InkWell(
-                                      onTap: () {
-                                        _playCurrentQuestion();
-                                      },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                                        decoration: BoxDecoration(
-                                          color: AppColors.primary.withValues(alpha: 0.1),
-                                          borderRadius: BorderRadius.circular(12),
-                                        ),
-                                        child: const Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Icon(Icons.volume_up, size: 16, color: AppColors.primary),
-                                            SizedBox(width: 6),
-                                            Text(
-                                              'Tap to Listen / Replay Audio',
-                                              style: TextStyle(color: AppColors.primary, fontSize: 11, fontWeight: FontWeight.bold),
-                                            ),
-                                          ],
-                                        ),
+                                    const SizedBox(width: 6),
+                                    Text(
+                                      _isExaminerSpeaking ? 'Speaking' : (_isRecording ? 'Recording' : 'Speaking'),
+                                      style: const TextStyle(
+                                        color: Color(0xFF6B7280),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 18),
 
-                              // Waveform visualizer
+                              // Question Text (Centered, bold, dark grey)
+                              Text(
+                                'Q${_currentQuestionIndex + 1}: ${currentQ['question']}',
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  color: Color(0xFF1F2937),
+                                  fontSize: 21,
+                                  fontWeight: FontWeight.w800,
+                                  height: 1.35,
+                                ),
+                              ),
+
+                              // Part 2 Cue Card Bullets (if Part 2)
+                              if (currentQ['youShouldSay'] != null) ...[
+                                const SizedBox(height: 16),
+                                Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.all(14),
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFF9FAFB),
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: const Color(0xFFE5E7EB)),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'You should say:',
+                                        style: TextStyle(
+                                          color: Color(0xFF4B5563),
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8),
+                                      ...(currentQ['youShouldSay'] as List).map((bullet) {
+                                        return Padding(
+                                          padding: const EdgeInsets.only(bottom: 4.0),
+                                          child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              const Text('• ', style: TextStyle(color: Color(0xFFB91C1C), fontSize: 13, fontWeight: FontWeight.bold)),
+                                              Expanded(
+                                                child: Text(
+                                                  bullet.toString(),
+                                                  style: const TextStyle(color: Color(0xFF374151), fontSize: 13, height: 1.4, fontWeight: FontWeight.w500),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      }),
+                                    ],
+                                  ),
+                                ),
+                              ],
+
+                              const SizedBox(height: 28),
+
+                              // Colorful Pastel Waveform
                               SizedBox(
-                                height: 50,
+                                height: 32,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: List.generate(20, (i) {
+                                  children: List.generate(_pastelWaveColors.length, (i) {
+                                    final double h = (i < _waveformHeights.length) ? _waveformHeights[i] : 12.0;
                                     return Container(
                                       width: 3.5,
-                                      height: _waveformHeights[i],
+                                      height: h.clamp(6.0, 26.0),
                                       margin: const EdgeInsets.symmetric(horizontal: 1.5),
                                       decoration: BoxDecoration(
-                                        color: (_isExaminerSpeaking || _isRecording) ? waveColors[i] : Colors.grey.shade300,
-                                        borderRadius: BorderRadius.circular(2),
+                                        color: _pastelWaveColors[i],
+                                        borderRadius: BorderRadius.circular(3),
                                       ),
                                     );
                                   }),
                                 ),
                               ),
-                              const SizedBox(height: 16),
 
-                              // Live Read-Only Voice Transcript Area
-                              if (!_isExaminerSpeaking) ...[
-                                Container(
-                                  width: double.infinity,
-                                  constraints: const BoxConstraints(minHeight: 60),
-                                  padding: const EdgeInsets.all(12),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.surfaceTint,
-                                    borderRadius: BorderRadius.circular(16),
-                                    border: Border.all(color: AppColors.cardBorderLight),
+                              const SizedBox(height: 28),
+
+                              // Progress Capsule
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFF3F4F6),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Text(
+                                  capsuleText,
+                                  style: const TextStyle(
+                                    color: Color(0xFF4B5563),
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  child: Text(
-                                    _recordedText.isEmpty
-                                        ? (_isRecording
-                                            ? 'Listening to your voice... speak into microphone'
-                                            : 'Tap microphone below to record answer')
-                                        : _recordedText,
-                                    style: TextStyle(
-                                      color: _recordedText.isEmpty ? AppColors.textSecondaryLight : AppColors.textPrimaryLight,
-                                      fontSize: 14,
-                                      height: 1.4,
-                                      fontStyle: _recordedText.isEmpty ? FontStyle.italic : FontStyle.normal,
-                                      fontWeight: _recordedText.isEmpty ? FontWeight.normal : FontWeight.w500,
+                                ),
+                              ),
+
+                              const SizedBox(height: 12),
+
+                              // Thin Red Progress Bar
+                              SizedBox(
+                                width: double.infinity,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(2),
+                                  child: Container(
+                                    height: 3.5,
+                                    color: const Color(0xFFF3F4F6),
+                                    child: FractionallySizedBox(
+                                      alignment: Alignment.centerLeft,
+                                      widthFactor: progressFactor.clamp(0.0, 1.0),
+                                      child: Container(
+                                        color: const Color(0xFFB91C1C),
+                                      ),
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 6),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      '$_wordCount words',
-                                      style: const TextStyle(color: AppColors.primary, fontSize: 12, fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 12),
-                              ],
-
-                              const Divider(color: Colors.black12),
-                              const SizedBox(height: 6),
-
-                              // Footer details
-                              Text(
-                                _selectedPart == 3 || _currentQuestionIndex >= 5
-                                    ? 'Part 3: Questions 6-11  ·  ${(_currentQuestionIndex - 4).clamp(1, 6)}/6 Questions'
-                                    : (_selectedPart == 2 || _currentQuestionIndex == 4
-                                        ? 'Part 2: Question 5  ·  1/1 Questions'
-                                        : 'Part 1: Questions 1-4  ·  ${_currentQuestionIndex + 1}/4 Questions'),
-                                style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 12, fontWeight: FontWeight.w500),
                               ),
                             ],
                           ),
                         ),
                       ),
-                      // Floating Avatar
+
+                      // Floating Avatar overlapping card top
                       Positioned(
-                        top: -40,
+                        top: -46,
                         left: 0,
                         right: 0,
                         child: Center(
                           child: Container(
+                            width: 86,
+                            height: 86,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border: Border.all(color: AppColors.primary, width: 3),
+                              gradient: const LinearGradient(
+                                colors: [
+                                  Color(0xFFF472B6), // pink
+                                  Color(0xFFA855F7), // purple
+                                  Color(0xFF60A5FA), // blue
+                                ],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withValues(alpha: 0.1),
+                                  color: Colors.purple.withValues(alpha: 0.12),
                                   blurRadius: 10,
                                   offset: const Offset(0, 4),
                                 ),
                               ],
                             ),
-                            child: const CircleAvatar(
-                              radius: 40,
-                              backgroundColor: AppColors.surfaceTint,
-                              backgroundImage: NetworkImage('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200'),
+                            padding: const EdgeInsets.all(2.5),
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              padding: const EdgeInsets.all(1.5),
+                              child: ClipOval(
+                                child: Image.asset(
+                                  'assets/examiner_avatar.png',
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) => Image.network(
+                                    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -3150,7 +3285,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
               // Bottom control area
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 30.0),
+                padding: const EdgeInsets.symmetric(vertical: 24.0),
                 child: Column(
                   children: [
                     if (_isExaminerSpeaking) ...[
@@ -3163,21 +3298,25 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                             _isExaminerSpeaking = false;
                           });
                         },
-                        child: const Column(
+                        child: Column(
                           children: [
-                            Text(
+                            const Text(
                               'Examiner is speaking...',
-                              style: TextStyle(color: AppColors.textSecondaryLight, fontSize: 14),
+                              style: TextStyle(
+                                color: Color(0xFF6B7280),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 18),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(Icons.circle, color: AppColors.primary, size: 10),
-                                SizedBox(width: 8),
-                                Icon(Icons.circle, color: AppColors.primary, size: 10),
-                                SizedBox(width: 8),
-                                Icon(Icons.circle, color: AppColors.primary, size: 10),
+                                Container(width: 9, height: 9, decoration: const BoxDecoration(color: Color(0xFFDC2626), shape: BoxShape.circle)),
+                                const SizedBox(width: 8),
+                                Container(width: 9, height: 9, decoration: const BoxDecoration(color: Color(0xFFDC2626), shape: BoxShape.circle)),
+                                const SizedBox(width: 8),
+                                Container(width: 9, height: 9, decoration: const BoxDecoration(color: Color(0xFFDC2626), shape: BoxShape.circle)),
                               ],
                             ),
                           ],
@@ -3186,7 +3325,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     ] else ...[
                       Text(
                         _isRecording ? 'Recording your answer...' : 'Tap the microphone to answer',
-                        style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 14),
+                        style: const TextStyle(color: Color(0xFF6B7280), fontSize: 14, fontWeight: FontWeight.w500),
                       ),
                       const SizedBox(height: 16),
                       GestureDetector(
@@ -3201,12 +3340,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           width: 72,
                           height: 72,
                           decoration: BoxDecoration(
-                            color: AppColors.accent,
+                            color: const Color(0xFFDC2626),
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.accent.withValues(alpha: 0.35),
-                                blurRadius: 12,
+                                color: const Color(0xFFDC2626).withValues(alpha: 0.35),
+                                blurRadius: 16,
                                 spreadRadius: 4,
                               ),
                             ],
@@ -3221,7 +3360,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       const SizedBox(height: 8),
                       Text(
                         _isRecording ? 'Tap when finished' : 'Tap to answer',
-                        style: const TextStyle(color: AppColors.textSecondaryLight, fontSize: 11),
+                        style: const TextStyle(color: Color(0xFF9CA3AF), fontSize: 12),
                       ),
                     ],
                   ],
