@@ -747,12 +747,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         'what you would like to find out about him/her',
         'and explain why you would like to meet this writer.'
       ],
-      'transcript': 'I would love to meet J.K. Rowling, the world-renowned author of the Harry Potter series. I have read all her books and admire her extraordinary imagination and storytelling ability. If I had the chance to meet her, I would ask about her creative process and how she developed such intricate plot structures. Meeting her would be an unforgettable experience because her literature inspired my lifelong love for reading.',
+      'transcript': 'I would love to meet J.K. Rowling, the author of the Harry Potter series. I have been a fan of her writing style since I was a child, as she has an incredible ability to build immersive worlds. I am particularly interested in learning about her creative process and how she manages to develop such complex character arcs over multiple books. Meeting her would be a dream come true, as her work has had a significant impact on my passion for literature. I would ask her how she stays motivated to write even when facing writer\'s block.',
     },
 
     // Part 3: Questions 6-11 (Discussion - Books, Reading & Authors)
     {
-      'question': 'What kinds of books are most popular in your country?',
+      'question': 'What kinds of book are most popular with children in your country? Why do you think that is?',
       'audioAsset': 'q6.mp3',
       'duration': 5.0,
       'start': 0.0,
