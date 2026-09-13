@@ -348,6 +348,28 @@ const SPEAKING_POOL: MockSection[] = [
     ],
   },
   {
+    id: 'speaking_b10t3',
+    source: 'Cambridge IELTS Book 10 Test 3',
+    title: 'Section 4: Speaking',
+    subtitle: '3 parts • 11–14 min • AI examiner',
+    durationMinutes: 14,
+    instructions: 'Speak aloud or type your responses for each part of the official speaking interview.',
+    questions: [
+      {
+        part: 'Part 1: Introduction & Travelling',
+        prompt: "Do you enjoy travelling? Have you done much travelling? Do you think it's better to travel alone or with other people? Where would you like to travel in the future?",
+      },
+      {
+        part: 'Part 2: Long Turn (Cue Card - 2 min)',
+        prompt: 'Describe a child that you know.\n\nYou should say:\n• who this child is\n• how often you see this child\n• what this child is like\n• and explain what you feel about this child.',
+      },
+      {
+        part: 'Part 3: Two-Way Analytical Discussion',
+        prompt: 'How much time do children spend with their parents in your country? How important is spending time together for parent-child bonds? What are the most popular free-time activities for children today, and how might they change in the future?',
+      },
+    ],
+  },
+  {
     id: 'speaking_b21t1',
     source: 'Cambridge IELTS Book 21 Test 1',
     title: 'Section 4: Speaking',

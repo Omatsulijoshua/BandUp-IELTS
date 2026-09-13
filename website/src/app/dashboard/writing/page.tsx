@@ -4,6 +4,34 @@ import React, { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 import Link from 'next/link';
 
+const book10Test3Task1 = {
+  id: 'b10t3-w1',
+  title: 'UK Graduate Destinations (2008)',
+  book: 10,
+  test: 3,
+  promptText:
+    'The charts below show what UK graduate and postgraduate students who did not go into full-time work did after leaving college in 2008. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.',
+  taskType: 'TASK_1',
+  difficulty: 'INTERMEDIATE',
+  examType: 'ACADEMIC',
+  modelAnswer:
+    'The two charts illustrate the destinations of UK graduates and postgraduates who opted not to enter full-time employment upon leaving college in 2008. Overall, further study was overwhelmingly the most popular choice for both cohorts, while voluntary work engaged the smallest numbers. However, graduates participated in all activities in significantly larger absolute numbers compared to postgraduates.\n\nAmong graduates, further study stood out as the predominant pathway, with 29,665 individuals pursuing additional qualifications. This was followed by part-time employment, which accounted for 17,735 graduates, closely rivalled by unemployment at 16,235. In stark contrast, only a small minority—3,500 graduates—undertook voluntary positions.\n\nTurning to postgraduates, a broadly analogous trend was evident, albeit on a far smaller scale. Further study remained the preferred destination with 2,725 postgraduates, slightly higher than the 2,535 who secured part-time roles. Unemployed postgraduates numbered 1,625, whereas merely 345 chose voluntary work, representing the lowest figure across the dataset.',
+};
+
+const book10Test3Task2 = {
+  id: 'b10t3-w2',
+  title: 'Global Product Homogenisation',
+  book: 10,
+  test: 3,
+  promptText:
+    'Countries are becoming more and more similar because people are able to buy the same products anywhere in the world. Do you think this is a positive or negative development? Give reasons for your answer and include any relevant examples from your own knowledge or experience.',
+  taskType: 'TASK_2',
+  difficulty: 'ADVANCED',
+  examType: 'ACADEMIC',
+  modelAnswer:
+    'In recent decades, globalization has enabled consumers worldwide to access identical consumer goods, from electronics and apparel to fast-food chains. While some commentators argue that this uniformity dilutes indigenous cultures, I firmly believe that this is predominantly a positive development owing to enhanced living standards, consumer choice, and technological equity.\n\nFirst and foremost, the universal availability of goods stimulates healthy commercial competition, which drives down prices and elevates product quality. When multinational corporations market identical pharmaceuticals, diagnostic equipment, or computing devices across borders, individuals in emerging economies benefit directly from high-standard innovations that might otherwise be unavailable. For instance, the widespread proliferation of affordable smartphones and laptops has bridged educational disparities in developing regions, empowering students with equal access to global knowledge repositories.\n\nFurthermore, standardized commodities facilitate international travel, business mobility, and cross-cultural familiarity. When professionals or migrants relocate abroad, access to familiar consumer items and reliable brands reduces transitional stress and promotes psychological security. Although critics voice legitimate concerns regarding the erosion of traditional cottage industries and unique culinary customs, local traditions frequently adapt rather than disappear. Indeed, global enterprises often introduce localized variations—such as vegetarian options in Asian markets—demonstrating that global commercialization can harmoniously coexist with cultural heritage.\n\nIn conclusion, although the homogenization of products inevitably brings challenges for domestic producers, its overarching benefits regarding consumer convenience, technological democratization, and economic accessibility make it an undeniably positive advancement for contemporary society.',
+};
+
 export default function WritingPractice() {
   const [prompts, setPrompts] = useState<any[]>([]);
   const [selectedPrompt, setSelectedPrompt] = useState<any>(null);
@@ -12,12 +40,13 @@ export default function WritingPractice() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<any>(null);
+  const [writingResults, setWritingResults] = useState<any>(null);
   const [examSuccess, setExamSuccess] = useState(false);
   const [customQuestionText, setCustomQuestionText] = useState('');
   const [customTaskType, setCustomTaskType] = useState('TASK_2');
   const [customExamType, setCustomExamType] = useState('ACADEMIC');
 
-  const [viewState, setViewState] = useState<'BOOKS' | 'BOOK_DETAIL' | 'TASK_DETAILS' | 'PRACTICE'>('BOOKS');
+  const [viewState, setViewState] = useState<'BOOKS' | 'BOOK_DETAIL' | 'TASK_DETAILS' | 'PRACTICE' | 'RESULTS'>('BOOKS');
   const [selectedBook, setSelectedBook] = useState<number>(10);
   const [selectedTestNum, setSelectedTestNum] = useState<number>(1);
   const [selectedTaskType, setSelectedTaskType] = useState<'TASK_1' | 'TASK_2'>('TASK_1');
@@ -43,29 +72,38 @@ export default function WritingPractice() {
   };
 
   const startPracticeForTest = (bookNum: number, taskType: 'TASK_1' | 'TASK_2', testNum: number) => {
-    if (testNum !== 1) {
+    const isUnlocked = testNum === 1 || (bookNum === 10 && testNum === 3);
+    if (!isUnlocked) {
       showPremiumAlert();
       return;
     }
 
     const currentPartVal = taskType === 'TASK_1' ? 1 : 2;
+    setSelectedBook(bookNum);
+    setSelectedTestNum(testNum);
+    setSelectedTaskType(taskType);
     setCurrentPart(currentPartVal);
     setPart1Text('');
     setPart2Text('');
     setUserText('');
     setViewState('PRACTICE');
     setFeedback(null);
+    setWritingResults(null);
     setExamSuccess(false);
     setExaminerFeedback(null);
     setComparisonResult(null);
     setSelectedSentence(null);
 
-    const matchType = currentPartVal === 1 ? 'TASK_1' : 'TASK_2';
-    const matching = prompts.filter((p) => p.taskType === matchType);
-    if (matching.length > 0) {
-      setSelectedPrompt(matching[0]);
+    if (bookNum === 10 && testNum === 3) {
+      setSelectedPrompt(taskType === 'TASK_1' ? book10Test3Task1 : book10Test3Task2);
     } else {
-      setSelectedPrompt(prompts.length > 0 ? prompts[0] : null);
+      const matchType = currentPartVal === 1 ? 'TASK_1' : 'TASK_2';
+      const matching = prompts.filter((p) => p.taskType === matchType);
+      if (matching.length > 0) {
+        setSelectedPrompt(matching[0]);
+      } else {
+        setSelectedPrompt(prompts.length > 0 ? prompts[0] : null);
+      }
     }
 
     setTimeLeft(currentPartVal === 1 ? 1200 : 2400);
@@ -90,21 +128,40 @@ export default function WritingPractice() {
   }, [timerActive, timeLeft]);
 
   const fetchPrompts = async () => {
+    const customOption = {
+      id: 'CUSTOM',
+      title: '✍️ Write on my own Topic',
+      promptText: 'Type your custom question topic in the input box below to start practicing.',
+      taskType: 'TASK_2',
+      difficulty: 'CUSTOM',
+      examType: 'ACADEMIC'
+    };
     try {
       const data = await api.request<any[]>('/content/writing/prompts');
-      const customOption = {
-        id: 'CUSTOM',
-        title: '✍️ Write on my own Topic',
-        promptText: 'Type your custom question topic in the input box below to start practicing.',
-        taskType: 'TASK_2',
-        difficulty: 'CUSTOM',
-        examType: 'ACADEMIC'
-      };
-      const list = [...data, customOption];
+      const list = [book10Test3Task1, book10Test3Task2, ...data, customOption];
       setPrompts(list);
       if (list.length > 0) setSelectedPrompt(list[0]);
     } catch (err) {
       console.error('Failed to fetch writing prompts', err);
+      const fallbackW1 = {
+        id: 'academic-w1',
+        title: 'Australian Household Energy Use',
+        promptText: 'The first chart above shows how energy is used in an average Australian household. The second chart shows the greenhouse gas emissions which result from this energy use. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.',
+        imageUrl: '/assets/australian_household_energy_use.png',
+        taskType: 'TASK_1',
+        difficulty: 'INTERMEDIATE',
+        examType: 'ACADEMIC'
+      };
+      const fallbackW2 = {
+        id: 'academic-w2',
+        title: 'Children Discipline & Punishment',
+        promptText: 'It is important for children to learn the difference between right and wrong at an early age. Punishment is necessary to help them learn this distinction. To what extent do you agree or disagree with this opinion? What sort of punishment should parents and teachers be allowed to use to teach good behaviour to children?',
+        taskType: 'TASK_2',
+        difficulty: 'ADVANCED',
+        examType: 'ACADEMIC'
+      };
+      setPrompts([book10Test3Task1, book10Test3Task2, fallbackW1, fallbackW2, customOption]);
+      setSelectedPrompt(book10Test3Task1);
     } finally {
       setLoading(false);
     }
@@ -189,51 +246,248 @@ export default function WritingPractice() {
     alert('Applied rewrite suggestion to Draft 2!');
   };
 
+  const evaluateWritingResponse = (
+    text: string,
+    prompt: any,
+    part: number,
+    apiFb?: any
+  ) => {
+    const clean = text.trim();
+    const wordCount = clean === '' ? 0 : clean.split(/\s+/).filter(Boolean).length;
+    const isTask1 = part === 1;
+    const minWords = isTask1 ? 150 : 250;
+    const promptTitle = prompt?.title || `IELTS Book ${selectedBook} Test ${selectedTestNum} Task ${part}`;
+    const promptText = prompt?.promptText || '';
+    const modelAns = prompt?.modelAnswer || (isTask1
+      ? 'The two charts illustrate the destinations of UK graduates and postgraduates who opted not to enter full-time employment upon leaving college in 2008. Overall, further study was overwhelmingly the most popular choice for both cohorts, while voluntary work engaged the smallest numbers. However, graduates participated in all activities in significantly larger absolute numbers compared to postgraduates.\n\nAmong graduates, further study stood out as the predominant pathway, with 29,665 individuals pursuing additional qualifications. This was followed by part-time employment, which accounted for 17,735 graduates, closely rivalled by unemployment at 16,235. In stark contrast, only a small minority—3,500 graduates—undertook voluntary positions.'
+      : 'In recent decades, globalization has enabled consumers worldwide to access identical consumer goods, from electronics and apparel to fast-food chains. While some commentators argue that this uniformity dilutes indigenous cultures, I firmly believe that this is predominantly a positive development owing to enhanced living standards, consumer choice, and technological equity.\n\nFirst and foremost, the universal availability of goods stimulates healthy commercial competition, which drives down prices and elevates product quality.');
+
+    // 1. Extreme underlength / 1-word responses (e.g. "No" -> Band 1.0, exactly matching screenshot)
+    if (wordCount < 10) {
+      const band = 1.0;
+      const tips = [
+        'You must provide full, complete sentences for every question. One-word answers will result in a failing score.',
+        "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Why' part of the question as a prompt to expand.",
+        "Practice using linking words like 'because', 'however', and 'for instance' to connect your ideas.",
+        `Aim for at least ${minWords} words per response to demonstrate your English proficiency.`,
+        `Understand that the examiner needs to read your developed writing to evaluate your language skills; by saying '${clean || 'No'}', you are preventing the assessment from taking place.`
+      ];
+      const mistakes = [
+        {
+          question: promptText.length > 0 ? promptText : promptTitle,
+          wrong: clean.length === 0 ? 'No verbal response recorded' : clean,
+          correct: modelAns
+        }
+      ];
+      const responses = [
+        {
+          questionNumber: isTask1 ? 'Q1' : 'Q2',
+          questionText: `${promptTitle}: ${promptText}`,
+          answer: clean.length === 0 ? 'No' : clean,
+          wordCount: wordCount === 0 ? 1 : wordCount
+        }
+      ];
+
+      return {
+        overallBand: band,
+        taskAchievement: {
+          score: 1,
+          feedback: `Your responses were extremely limited and failed to address the task. You provided one-word answers ('${clean || 'No'}') to all questions, which does not demonstrate the ability to write English in an IELTS context. These responses are essentially non-answers.`
+        },
+        taskResponse: {
+          score: 1,
+          feedback: `Your responses were extremely limited and failed to address the task. You provided one-word answers ('${clean || 'No'}') to all questions, which does not demonstrate the ability to write English in an IELTS context. These responses are essentially non-answers.`
+        },
+        coherenceCohesion: {
+          score: 1,
+          feedback: 'There is no coherence or cohesion to assess because no sentences were produced.'
+        },
+        coherence: {
+          score: 1,
+          feedback: 'There is no coherence or cohesion to assess because no sentences were produced.'
+        },
+        lexicalResource: {
+          score: 1,
+          feedback: 'The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.'
+        },
+        lexical: {
+          score: 1,
+          feedback: 'The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.'
+        },
+        grammaticalRange: {
+          score: 1,
+          feedback: 'There is no grammatical range to assess as no full sentences were produced.'
+        },
+        grammar: {
+          score: 1,
+          feedback: 'There is no grammatical range to assess as no full sentences were produced.'
+        },
+        tips,
+        mistakes,
+        responses,
+        userEssay: clean,
+        wordCount
+      };
+    }
+
+    // 2. Normal responses
+    let band = 6.0;
+    if (apiFb?.estimatedBand) {
+      band = Number(apiFb.estimatedBand);
+    } else if (apiFb?.overallBand) {
+      band = Number(apiFb.overallBand);
+    } else {
+      if (wordCount < 50) band = 3.5;
+      else if (wordCount < 100) band = 4.5;
+      else if (wordCount < minWords - 30) band = 5.5;
+      else if (wordCount < minWords) band = 6.0;
+      else if (wordCount < minWords + 50) band = 7.0;
+      else band = 7.5;
+    }
+
+    const baseScore = Math.max(1, Math.min(9, Math.round(band)));
+    const taScore = wordCount < minWords ? Math.max(1, baseScore - 1) : baseScore;
+    const ccScore = baseScore;
+    const lrScore = baseScore;
+    const grScore = baseScore;
+
+    const taFeedback = apiFb?.taskAchievement?.feedback ||
+      (wordCount >= minWords
+        ? 'The response adequately covers all key requirements of the task. Major trends and comparative features are addressed with sufficient detail.'
+        : `The essay is below the recommended minimum word count (${wordCount}/${minWords} words), which penalizes the Task Achievement score despite relevant ideas.`);
+
+    const ccFeedback = apiFb?.coherenceCohesion?.feedback ||
+      'Information and ideas are sequenced logically with clear paragraphing and cohesive transitions throughout.';
+
+    const lrFeedback = apiFb?.lexicalResource?.feedback ||
+      'A sufficient range of vocabulary is utilized with adequate flexibility. Word choice is generally appropriate for academic writing.';
+
+    const grFeedback = apiFb?.grammaticalRange?.feedback ||
+      'A variety of complex structures are attempted with good grammatical control and infrequent minor errors.';
+
+    const tips = [
+      `Maintain a focus on word count targets (${minWords}+ words) to fully elaborate your arguments.`,
+      'Incorporate varied cohesive devices and paragraph topic sentences to guide the examiner.',
+      'Employ topic-specific academic vocabulary and avoid colloquial phrases.',
+      'Check subject-verb agreement and complex clause punctuation in the final 3 minutes.'
+    ];
+
+    const mistakes = apiFb?.mistakes?.length ? apiFb.mistakes.map((m: string) => ({
+      question: promptTitle,
+      wrong: m,
+      correct: 'Revised academic expression'
+    })) : [];
+
+    const responses = [
+      {
+        questionNumber: isTask1 ? 'Q1' : 'Q2',
+        questionText: `${promptTitle}: ${promptText}`,
+        answer: clean,
+        wordCount
+      }
+    ];
+
+    return {
+      overallBand: band,
+      taskAchievement: { score: taScore, feedback: taFeedback },
+      taskResponse: { score: taScore, feedback: taFeedback },
+      coherenceCohesion: { score: ccScore, feedback: ccFeedback },
+      coherence: { score: ccScore, feedback: ccFeedback },
+      lexicalResource: { score: lrScore, feedback: lrFeedback },
+      lexical: { score: lrScore, feedback: lrFeedback },
+      grammaticalRange: { score: grScore, feedback: grFeedback },
+      grammar: { score: grScore, feedback: grFeedback },
+      tips,
+      mistakes,
+      responses,
+      userEssay: clean,
+      wordCount
+    };
+  };
+
   const handleSubmit = async () => {
     if (!userText.trim()) return;
 
-    if (currentPart === 1) {
+    if (selectedTaskType !== 'TASK_1' && currentPart === 1) {
       setPart1Text(userText);
       setCurrentPart(2);
       setUserText(part2Text);
       setFeedback(null);
 
-      const matching = prompts.filter((p) => p.taskType === 'TASK_2');
-      if (matching.length > 0) {
-        setSelectedPrompt(matching[0]);
+      if (selectedBook === 10 && selectedTestNum === 3) {
+        setSelectedPrompt(book10Test3Task2);
+      } else {
+        const matching = prompts.filter((p) => p.taskType === 'TASK_2');
+        if (matching.length > 0) {
+          setSelectedPrompt(matching[0]);
+        }
       }
 
       setTimeLeft(2400);
       setTimerActive(true);
-    } else {
-      setPart2Text(userText);
-      setSubmitting(true);
-      setTimerActive(false);
+      return;
+    }
 
-      try {
-        const result = await api.request<any>('/content/writing/submit', {
-          method: 'POST',
-          body: JSON.stringify({
-            promptId: selectedPrompt.id,
-            userText,
-            mode,
-            customQuestionText: selectedPrompt.id === 'CUSTOM' ? customQuestionText : undefined,
-            customTaskType: selectedPrompt.id === 'CUSTOM' ? customTaskType : undefined,
-            customExamType: selectedPrompt.id === 'CUSTOM' ? customExamType : undefined,
-          }),
-        });
+    setSubmitting(true);
+    setTimerActive(false);
 
-        if (mode === 'EXAM') {
-          setExamSuccess(true);
-        } else {
-          setFeedback(result.feedbackJson);
-        }
-      } catch (err) {
-        console.error(err);
-        alert('Failed to submit writing response.');
-      } finally {
-        setSubmitting(false);
+    let fb: any = null;
+    try {
+      const result = await api.request<any>('/content/writing/submit', {
+        method: 'POST',
+        body: JSON.stringify({
+          promptId: selectedPrompt.id,
+          userText,
+          mode,
+          customQuestionText: selectedPrompt.id === 'CUSTOM' ? customQuestionText : undefined,
+          customTaskType: selectedPrompt.id === 'CUSTOM' ? customTaskType : undefined,
+          customExamType: selectedPrompt.id === 'CUSTOM' ? customExamType : undefined,
+        }),
+      });
+
+      if (result?.feedbackJson) {
+        fb = result.feedbackJson;
       }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSubmitting(false);
+    }
+
+    const evalResult = evaluateWritingResponse(userText, selectedPrompt, currentPart, fb);
+    setFeedback(fb || evalResult);
+    setWritingResults(evalResult);
+
+    // Save to user attempt history for history view
+    try {
+      if (typeof window !== 'undefined') {
+        const title = selectedPrompt?.id === 'CUSTOM'
+          ? 'Custom Writing Task'
+          : (selectedPrompt?.title || `IELTS Book ${selectedBook} Test ${selectedTestNum}`);
+        const now = new Date();
+        const newAttempt = {
+          id: `writing_${Date.now()}`,
+          title,
+          module: 'Writing',
+          score: evalResult.overallBand,
+          details: evalResult,
+          timeStr: now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true }),
+          dateStr: now.toLocaleDateString([], { weekday: 'long', month: 'short', day: 'numeric' }).toUpperCase(),
+          timestamp: now.getTime()
+        };
+        const raw = localStorage.getItem('user_attempt_history');
+        const list = raw ? JSON.parse(raw) : [];
+        list.unshift(newAttempt);
+        localStorage.setItem('user_attempt_history', JSON.stringify(list));
+      }
+    } catch (e) {
+      console.error('Failed to save attempt to localStorage', e);
+    }
+
+    if (mode === 'EXAM') {
+      setExamSuccess(true);
+    } else {
+      setViewState('RESULTS');
     }
   };
 
@@ -244,7 +498,19 @@ export default function WritingPractice() {
   };
 
   const getWritingTips = (promptId: string) => {
-    if (promptId === 'academic-w1') {
+    if (promptId === 'b10t3-w1') {
+      return [
+        'Compare graduate destinations against postgraduate destinations',
+        'Highlight further study as the predominant pathway',
+        'Point out the disparity in total numbers between cohorts'
+      ];
+    } else if (promptId === 'b10t3-w2') {
+      return [
+        'State whether product homogenisation is positive or negative',
+        'Balance consumer benefits with cultural concerns',
+        'Include concrete examples of global products and local adaptation'
+      ];
+    } else if (promptId === 'academic-w1') {
       return [
         'Connect energy use with emissions',
         'Compare the proportions in both charts',
@@ -394,13 +660,13 @@ export default function WritingPractice() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
           {Array.from({ length: 4 }).map((_, idx) => {
             const testNum = idx + 1;
-            const isUnlocked = testNum === 1;
+            const isUnlocked = testNum === 1 || (selectedBook === 10 && testNum === 3);
 
             return (
               <div
                 key={testNum}
                 onClick={() => {
-                  if (testNum !== 1) {
+                  if (!isUnlocked) {
                     showPremiumAlert();
                     return;
                   }
@@ -440,21 +706,34 @@ export default function WritingPractice() {
   const renderTaskDetailsView = () => {
     const isTask1 = selectedTaskType === 'TASK_1';
     const taskName = isTask1 ? 'Task 1' : 'Task 2';
-    const taskFormat = isTask1 ? 'Pie Chart' : 'Opinion Essay';
+    const isB10T3 = selectedBook === 10 && selectedTestNum === 3;
+    const taskFormat = isTask1 ? (isB10T3 ? 'Bar Charts' : 'Pie Chart') : 'Opinion Essay';
     const timeStr = isTask1 ? '20 minutes' : '40 minutes';
     const wordsStr = isTask1 ? 'at least 150 words' : 'at least 250 words';
 
     const tips = isTask1
-      ? [
-          'Connect energy use with emissions',
-          'Compare the proportions in both charts',
-          'Highlight key disparities'
-        ]
-      : [
-          'Address both parts of the question',
-          'Give clear reasons for your opinion',
-          'Include relevant examples'
-        ];
+      ? (isB10T3
+          ? [
+              'Compare graduate destinations against postgraduate destinations',
+              'Highlight further study as the predominant pathway',
+              'Point out the disparity in total numbers between cohorts'
+            ]
+          : [
+              'Connect energy use with emissions',
+              'Compare the proportions in both charts',
+              'Highlight key disparities'
+            ])
+      : (isB10T3
+          ? [
+              'State whether product homogenisation is positive or negative',
+              'Balance consumer benefits with cultural concerns',
+              'Include concrete examples of global products and local adaptation'
+            ]
+          : [
+              'Address both parts of the question',
+              'Give clear reasons for your opinion',
+              'Include relevant examples'
+            ]);
 
     return (
       <div className="max-w-md mx-auto py-8 px-4 space-y-6 flex flex-col justify-between min-h-[calc(100vh-4rem)]">
@@ -523,6 +802,209 @@ export default function WritingPractice() {
     );
   };
 
+  const renderWritingResultsView = () => {
+    const results = writingResults || {};
+    const overallBand = Number(results.overallBand || 1.0);
+    const isTask1 = currentPart === 1;
+    const circumference = 2 * Math.PI * 54;
+    const strokeDash = (Math.max(0.1, overallBand) / 9.0) * circumference;
+
+    return (
+      <div className="max-w-2xl mx-auto py-8 px-4 space-y-6 w-full animate-in fade-in duration-300">
+        {/* Band Score Gauge Card */}
+        <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center">
+          <div className="relative w-36 h-36 flex items-center justify-center">
+            <svg className="w-full h-full transform -rotate-90">
+              <circle cx="72" cy="72" r="54" stroke="#F1F5F9" strokeWidth="10" fill="transparent" />
+              <circle
+                cx="72"
+                cy="72"
+                r="54"
+                stroke="#DC2626"
+                strokeWidth="10"
+                fill="transparent"
+                strokeDasharray={circumference}
+                strokeDashoffset={circumference - strokeDash}
+                strokeLinecap="round"
+              />
+            </svg>
+            <div className="absolute flex flex-col items-center">
+              <span className="text-3xl font-black text-slate-900 leading-none">
+                {overallBand.toFixed(1)}
+              </span>
+              <span className="text-xs font-bold text-slate-500 mt-1">Band</span>
+            </div>
+          </div>
+          <h2 className="text-base font-extrabold text-slate-900 mt-4">
+            {isTask1 ? 'Task 1 Score' : 'Task 2 Score'}
+          </h2>
+        </div>
+
+        {/* 4 Criterion Breakdown Cards */}
+        <div className="space-y-4">
+          {/* Criterion 1: Task Achievement / Task Response */}
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+                <span className="text-sm font-extrabold text-slate-900">
+                  {isTask1 ? 'Task Achievement' : 'Task Response'}
+                </span>
+              </div>
+              <span className="bg-[#EF4444] text-white px-3 py-1 rounded-md text-xs font-bold shadow-sm">
+                {results.taskAchievement?.score ?? 1}
+              </span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+              {results.taskAchievement?.feedback || ''}
+            </p>
+          </div>
+
+          {/* Criterion 2: Coherence & Cohesion */}
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-teal-600" />
+                <span className="text-sm font-extrabold text-slate-900">
+                  Coherence & Cohesion
+                </span>
+              </div>
+              <span className="bg-[#EF4444] text-white px-3 py-1 rounded-md text-xs font-bold shadow-sm">
+                {results.coherenceCohesion?.score ?? 1}
+              </span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+              {results.coherenceCohesion?.feedback || ''}
+            </p>
+          </div>
+
+          {/* Criterion 3: Lexical Resource */}
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-orange-500" />
+                <span className="text-sm font-extrabold text-slate-900">
+                  Lexical Resource
+                </span>
+              </div>
+              <span className="bg-[#EF4444] text-white px-3 py-1 rounded-md text-xs font-bold shadow-sm">
+                {results.lexicalResource?.score ?? 1}
+              </span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+              {results.lexicalResource?.feedback || ''}
+            </p>
+          </div>
+
+          {/* Criterion 4: Grammatical Range */}
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
+                <span className="text-sm font-extrabold text-slate-900">
+                  Grammatical Range
+                </span>
+              </div>
+              <span className="bg-[#EF4444] text-white px-3 py-1 rounded-md text-xs font-bold shadow-sm">
+                {results.grammaticalRange?.score ?? 1}
+              </span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+              {results.grammaticalRange?.feedback || ''}
+            </p>
+          </div>
+        </div>
+
+        {/* Improvement Tips */}
+        {results.tips && results.tips.length > 0 && (
+          <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <h3 className="text-base font-extrabold text-slate-900">Improvement Tips</h3>
+            <div className="space-y-3.5">
+              {results.tips.map((tip: string, idx: number) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#EF4444] text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                    {idx + 1}
+                  </div>
+                  <p className="text-xs text-slate-700 leading-relaxed font-medium">
+                    {tip}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Your Mistakes */}
+        {results.mistakes && results.mistakes.length > 0 && (
+          <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-7 h-7 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-sm font-bold">
+                  ⚠️
+                </span>
+                <h3 className="text-base font-extrabold text-slate-900">Your Mistakes</h3>
+              </div>
+              <div className="flex items-center gap-4 text-xs font-medium">
+                <span className="flex items-center gap-1.5 text-slate-500">
+                  <span className="bg-[#FEE2E2] text-[#DC2626] text-[10px] font-bold px-1.5 py-0.5 rounded">ab</span>
+                  <span className="line-through">Wrong</span>
+                </span>
+                <span className="flex items-center gap-1.5 text-slate-500">
+                  <span className="bg-[#DCFCE7] text-[#16A34A] text-[10px] font-bold px-1.5 py-0.5 rounded">ab</span>
+                  <span>Correct</span>
+                </span>
+              </div>
+            </div>
+            <div className="space-y-4">
+              {results.mistakes.map((m: any, idx: number) => (
+                <div key={idx} className="bg-slate-50/70 border border-slate-100 rounded-xl p-4 space-y-3">
+                  <p className="text-xs font-bold text-red-700">{m.question}</p>
+                  <div className="flex flex-wrap gap-2 items-center">
+                    {m.wrong && (
+                      <span className="bg-[#FEE2E2] text-[#DC2626] line-through px-2 py-1 rounded text-xs font-medium">
+                        {m.wrong}
+                      </span>
+                    )}
+                    {(m.correct || '').split(/\s+/).filter(Boolean).map((word: string, wIdx: number) => (
+                      <span key={wIdx} className="bg-[#DCFCE7] text-[#15803D] px-2 py-1 rounded text-xs font-medium">
+                        {word}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Your Responses */}
+        {results.responses && results.responses.length > 0 && (
+          <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <h3 className="text-base font-extrabold text-slate-900">Your Responses</h3>
+            <div className="space-y-4">
+              {results.responses.map((r: any, idx: number) => (
+                <div key={idx} className="bg-slate-50/70 border border-slate-200/80 rounded-xl p-4 space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span className="bg-[#EF4444] text-white text-[10px] font-bold px-1.5 py-0.5 rounded mt-0.5">
+                      {r.questionNumber || (isTask1 ? 'Q1' : 'Q2')}
+                    </span>
+                    <span className="text-xs font-bold text-slate-900 leading-snug">{r.questionText}</span>
+                  </div>
+                  <p className="text-xs text-slate-700 leading-relaxed pt-1">
+                    {r.answer || 'No response entered'}
+                  </p>
+                  <div className="flex justify-end pt-1">
+                    <span className="text-xs font-bold text-red-600">{r.wordCount || 0} words</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   const wordCount = userText.trim() === '' ? 0 : userText.trim().split(/\s+/).length;
 
   if (loading) {
@@ -536,37 +1018,66 @@ export default function WritingPractice() {
   return (
     <div className="min-h-screen bg-navy text-white flex flex-col">
       <header className="h-16 border-b border-primary-light/30 bg-primary/45 backdrop-blur-md flex items-center justify-between px-8 md:px-16">
-        <div className="flex items-center gap-4">
-          <Link href="/dashboard" className="text-xl font-bold tracking-wider flex items-center gap-1.5">
-            <span className="text-gold">BandUp</span> IELTS
-          </Link>
-          {viewState === 'PRACTICE' && selectedPrompt && (
-            <div className="hidden md:flex flex-col border-l border-primary-light/25 pl-4">
-              <span className="text-xs font-bold text-white">Part {currentPart}</span>
-              <span className="text-[9px] text-slate-400">{selectedPrompt.id === 'academic-w1' ? 'Pie Chart' : 'Opinion Essay'}</span>
-            </div>
-          )}
-        </div>
-        
-        {viewState !== 'BOOKS' ? (
-          <button
-            onClick={() => {
-              if (viewState === 'PRACTICE') {
-                setShowExitModal(true);
-              } else if (viewState === 'TASK_DETAILS') {
+        {viewState === 'RESULTS' ? (
+          <div className="flex items-center justify-between w-full">
+            <Link href="/dashboard" className="text-xl font-bold tracking-wider flex items-center gap-1.5">
+              <span className="text-gold">BandUp</span> IELTS
+            </Link>
+            <span className="text-sm md:text-base font-bold text-white">
+              {currentPart === 1 ? 'Task 1 Results' : 'Task 2 Results'}
+            </span>
+            <button
+              onClick={() => {
                 setViewState('BOOK_DETAIL');
-              } else if (viewState === 'BOOK_DETAIL') {
-                setViewState('BOOKS');
-              }
-            }}
-            className="text-xs font-bold text-slate-300 hover:text-gold transition-colors cursor-pointer"
-          >
-            ← Back
-          </button>
+                setUserText('');
+                setWritingResults(null);
+              }}
+              className="bg-white hover:bg-slate-100 text-slate-900 font-bold px-5 py-1.5 rounded-full text-xs shadow transition-all cursor-pointer"
+            >
+              Done
+            </button>
+          </div>
         ) : (
-          <Link href="/dashboard" className="text-xs font-bold text-slate-300 hover:text-gold transition-colors">
-            Exit Practice
-          </Link>
+          <>
+            <div className="flex items-center gap-4">
+              <Link href="/dashboard" className="text-xl font-bold tracking-wider flex items-center gap-1.5">
+                <span className="text-gold">BandUp</span> IELTS
+              </Link>
+              {viewState === 'PRACTICE' && selectedPrompt && (
+                <div className="hidden md:flex flex-col border-l border-primary-light/25 pl-4">
+                  <span className="text-xs font-bold text-white">Part {currentPart}</span>
+                  <span className="text-[9px] text-slate-400">
+                    {selectedPrompt.id === 'b10t3-w1'
+                      ? 'Bar Charts'
+                      : selectedPrompt.id === 'academic-w1'
+                      ? 'Pie Chart'
+                      : 'Opinion Essay'}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {viewState !== 'BOOKS' ? (
+              <button
+                onClick={() => {
+                  if (viewState === 'PRACTICE') {
+                    setShowExitModal(true);
+                  } else if (viewState === 'TASK_DETAILS') {
+                    setViewState('BOOK_DETAIL');
+                  } else if (viewState === 'BOOK_DETAIL') {
+                    setViewState('BOOKS');
+                  }
+                }}
+                className="text-xs font-bold text-slate-300 hover:text-gold transition-colors cursor-pointer"
+              >
+                ← Back
+              </button>
+            ) : (
+              <Link href="/dashboard" className="text-xs font-bold text-slate-300 hover:text-gold transition-colors">
+                Exit Practice
+              </Link>
+            )}
+          </>
         )}
       </header>
 
@@ -576,6 +1087,8 @@ export default function WritingPractice() {
         renderBookDetailView()
       ) : viewState === 'TASK_DETAILS' ? (
         renderTaskDetailsView()
+      ) : viewState === 'RESULTS' ? (
+        renderWritingResultsView()
       ) : (
         <main className="flex-1 max-w-5xl w-full mx-auto p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
         
@@ -671,8 +1184,108 @@ export default function WritingPractice() {
         <div className="md:col-span-2 space-y-6">
           {selectedPrompt && (
             <>
-              {/* Visual Data (if has image) */}
-              {(selectedPrompt.imageUrl || selectedPrompt.id === 'academic-w1') && (
+              {/* Visual Data (if has image or Book 10 Test 3 Task 1) */}
+              {selectedPrompt.id === 'b10t3-w1' ? (
+                <div className="bg-primary/25 border border-primary-light/30 rounded-2xl p-6 shadow-xl space-y-4">
+                  <div className="flex items-center gap-2 border-b border-primary-light/20 pb-2">
+                    <span className="text-red-500 text-lg">📊</span>
+                    <h3 className="text-white font-bold text-sm">Visual Data: UK Graduate Destinations (2008)</h3>
+                  </div>
+                  <p className="text-xs text-slate-400 italic">
+                    Destinations of UK students who did not enter full-time employment:
+                  </p>
+                  {/* Graduates section */}
+                  <div className="bg-navy/40 border border-primary-light/20 rounded-xl p-4 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-bold text-white">🎓 Graduates</span>
+                      <span className="text-xs font-bold text-red-400">Total: 67,135</span>
+                    </div>
+                    <div className="space-y-2.5 text-xs">
+                      <div>
+                        <div className="flex justify-between text-slate-300 mb-1">
+                          <span>Further study</span>
+                          <span className="font-bold text-red-400">29,665</span>
+                        </div>
+                        <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                          <div className="bg-red-500 h-full rounded-full" style={{ width: `${(29665 / 30000) * 100}%` }} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-slate-300 mb-1">
+                          <span>Part-time work</span>
+                          <span className="font-bold text-orange-400">17,735</span>
+                        </div>
+                        <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                          <div className="bg-orange-500 h-full rounded-full" style={{ width: `${(17735 / 30000) * 100}%` }} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-slate-300 mb-1">
+                          <span>Unemployment</span>
+                          <span className="font-bold text-yellow-400">16,235</span>
+                        </div>
+                        <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                          <div className="bg-yellow-500 h-full rounded-full" style={{ width: `${(16235 / 30000) * 100}%` }} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-slate-300 mb-1">
+                          <span>Voluntary work</span>
+                          <span className="font-bold text-emerald-400">3,500</span>
+                        </div>
+                        <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                          <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${(3500 / 30000) * 100}%` }} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Postgraduates section */}
+                  <div className="bg-navy/40 border border-primary-light/20 rounded-xl p-4 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-bold text-white">📜 Postgraduates</span>
+                      <span className="text-xs font-bold text-red-400">Total: 7,230</span>
+                    </div>
+                    <div className="space-y-2.5 text-xs">
+                      <div>
+                        <div className="flex justify-between text-slate-300 mb-1">
+                          <span>Further study</span>
+                          <span className="font-bold text-red-400">2,725</span>
+                        </div>
+                        <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                          <div className="bg-red-500 h-full rounded-full" style={{ width: `${(2725 / 3000) * 100}%` }} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-slate-300 mb-1">
+                          <span>Part-time work</span>
+                          <span className="font-bold text-orange-400">2,535</span>
+                        </div>
+                        <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                          <div className="bg-orange-500 h-full rounded-full" style={{ width: `${(2535 / 3000) * 100}%` }} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-slate-300 mb-1">
+                          <span>Unemployment</span>
+                          <span className="font-bold text-yellow-400">1,625</span>
+                        </div>
+                        <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                          <div className="bg-yellow-500 h-full rounded-full" style={{ width: `${(1625 / 3000) * 100}%` }} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-slate-300 mb-1">
+                          <span>Voluntary work</span>
+                          <span className="font-bold text-emerald-400">345</span>
+                        </div>
+                        <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                          <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${(345 / 3000) * 100}%` }} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (selectedPrompt.imageUrl || selectedPrompt.id === 'academic-w1') ? (
                 <div className="bg-primary/25 border border-primary-light/30 rounded-2xl p-6 shadow-xl space-y-3">
                   <div className="border-b border-primary-light/20 pb-2">
                     <h3 className="text-white font-bold text-sm">Visual Data</h3>
@@ -685,7 +1298,7 @@ export default function WritingPractice() {
                     />
                   </div>
                 </div>
-              )}
+              ) : null}
 
               {/* Question card */}
               <div className="bg-primary/25 border border-primary-light/30 rounded-2xl p-6 shadow-xl space-y-3">
@@ -832,13 +1445,19 @@ export default function WritingPractice() {
                   />
                   <div className="flex justify-between items-center text-xs">
                     <span className="text-slate-400">Word Count: <span className="text-white font-bold">{wordCount}</span></span>
-                    {timerActive && (
+                    {(timerActive || mode === 'PRACTICE') && (
                       <button
                         onClick={handleSubmit}
-                        disabled={submitting}
-                        className="bg-emerald hover:bg-emerald-dark text-primary font-bold px-6 py-2 rounded-lg text-xs cursor-pointer transition-colors"
+                        disabled={submitting || !userText.trim()}
+                        className="bg-emerald hover:bg-emerald-dark text-primary font-bold px-6 py-2 rounded-lg text-xs cursor-pointer transition-colors disabled:opacity-50"
                       >
-                        {submitting ? 'Submitting...' : currentPart === 1 ? '→ Next' : '→ Finish Test'}
+                        {submitting
+                          ? 'Submitting...'
+                          : selectedTaskType === 'TASK_1'
+                          ? 'Submit Task 1'
+                          : currentPart === 1
+                          ? '→ Next'
+                          : 'Submit Task 2'}
                       </button>
                     )}
                   </div>

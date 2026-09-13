@@ -924,7 +924,12 @@ class AttemptDetailScreen extends StatelessWidget {
                 const SizedBox(height: 18),
                 _buildImprovementTipsCard(details, score),
                 const SizedBox(height: 18),
-                _buildWritingEssayCard(details),
+                _buildYourMistakesCard(details),
+                const SizedBox(height: 18),
+                _buildYourResponsesCard(details),
+                if ((details?['mistakes'] as List?)?.isEmpty ?? true) ...[
+                  _buildWritingEssayCard(details),
+                ],
               ] else if (isReading || isListening) ...[
                 _buildObjectiveSummaryCards(details, module),
                 const SizedBox(height: 18),

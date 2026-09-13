@@ -306,6 +306,133 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 10 TEST 3 (Audio: q1.mp3 - q11.mp3)
+  // ==========================================
+  final List<Map<String, dynamic>> _book10Test3Questions = [
+    // Part 1: Questions 1-4 (in q1.mp3 - q4.mp3)
+    {
+      'question': 'Do you enjoy travelling? [Why/Why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.73,
+      'start': 0.0,
+      'promptEnd': 1.73,
+      'end': 1.73,
+      'part': 1,
+      'transcript': 'Yes, I absolutely love travelling because it gives me the opportunity to explore different cultures, taste diverse cuisines, and broaden my horizons. It is a fantastic way to break away from daily routine and gain fresh perspectives.',
+    },
+    {
+      'question': 'Have you done much travelling? [Why/Why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 1.68,
+      'start': 0.0,
+      'promptEnd': 1.68,
+      'end': 1.68,
+      'part': 1,
+      'transcript': "I have travelled quite a bit domestically to various historic and coastal cities, but I haven't done as much international travel yet mainly due to my university studies and budget constraints. I certainly plan to explore more overseas destinations soon.",
+    },
+    {
+      'question': "Do you think it's better to travel alone or with other people? [Why?]",
+      'audioAsset': 'q3.mp3',
+      'duration': 4.08,
+      'start': 0.0,
+      'promptEnd': 4.08,
+      'end': 4.08,
+      'part': 1,
+      'transcript': "I think travelling with other people, like friends or family, is generally better because you can share memorable experiences and support each other if challenges arise. However, solo travel also has its merits as it offers complete flexibility and encourages independence.",
+    },
+    {
+      'question': 'Where would you like to travel in the future? [Why?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 2.18,
+      'start': 0.0,
+      'promptEnd': 2.18,
+      'end': 2.18,
+      'part': 1,
+      'transcript': 'In the future, I would love to visit Japan. I have always been fascinated by its unique blend of ancient traditions and futuristic technology, as well as its world-renowned culinary scene and scenic natural landscapes like Mount Fuji.',
+    },
+
+    // Part 2: Question 5 (Cue Card in q5.mp3)
+    {
+      'question': 'Describe a child that you know.',
+      'audioAsset': 'q5.mp3',
+      'duration': 1.90,
+      'start': 0.0,
+      'promptEnd': 1.90,
+      'end': 1.90,
+      'part': 2,
+      'youShouldSay': [
+        'who this child is',
+        'how often you see this child',
+        'what this child is like',
+        'and explain what you feel about this child.'
+      ],
+      'transcript': 'I would like to describe my seven-year-old nephew, Liam. Because my sister lives just a short drive away from my home, I get to see him almost every weekend during family gatherings. Liam is an exceptionally curious and energetic child who is utterly fascinated by nature and science. He loves building intricate Lego models and asking inquisitive questions about how animals live and how stars work. What I admire most about him is his kindness and vibrant optimism; he is always considerate towards his younger cousins and eager to share his toys. Spending time with Liam is always heartwarming and uplifting because his boundless curiosity reminds me to appreciate the wonders of everyday life.',
+    },
+
+    // Part 3: Questions 6-11 (in q6.mp3 - q11.mp3)
+    {
+      'question': 'How much time do children spend with their parents in your country? [Do you think that is enough?]',
+      'audioAsset': 'q6.mp3',
+      'duration': 5.14,
+      'start': 0.0,
+      'promptEnd': 5.14,
+      'end': 5.14,
+      'part': 3,
+      'transcript': 'In my country, many parents work long hours, so children often spend weekdays at school or after-school care, leaving only evenings and weekends for family interaction. While many families try their best to spend quality time together on weekends, I feel it is often insufficient because children thrive when they have regular, stress-free parental engagement every day.',
+    },
+    {
+      'question': 'How important do you think spending time together is for the relationships between parents and children?',
+      'audioAsset': 'q7.mp3',
+      'duration': 6.10,
+      'start': 0.0,
+      'promptEnd': 6.10,
+      'end': 6.10,
+      'part': 3,
+      'transcript': 'I believe spending time together is fundamentally crucial for developing emotional security and strong bonds of trust. When parents actively converse and engage in shared activities with their children, children feel valued, communicate more openly, and develop higher self-esteem and social empathy.',
+    },
+    {
+      'question': 'Have relationships between parents and children changed in recent years? [Why do you think that is?]',
+      'audioAsset': 'q8.mp3',
+      'duration': 4.94,
+      'start': 0.0,
+      'promptEnd': 4.94,
+      'end': 4.94,
+      'part': 3,
+      'transcript': "Yes, family dynamics have shifted noticeably. Today, relationships tend to be more democratic and less authoritarian than in the past, with parents listening more closely to their children's opinions. On the other hand, the pervasive use of smartphones and digital devices has created digital barriers where family members might be in the same room but absorbed in separate screens.",
+    },
+    {
+      'question': 'What are the most popular free-time activities for children today?',
+      'audioAsset': 'q9.mp3',
+      'duration': 3.70,
+      'start': 0.0,
+      'promptEnd': 3.70,
+      'end': 3.70,
+      'part': 3,
+      'transcript': "Nowadays, the most popular free-time activities are heavily centered around digital media, such as video gaming, watching video streams on tablets, and interacting on social media apps. While outdoor sports like football, swimming, and cycling remain popular, screen-based entertainment definitely dominates children's recreation today.",
+    },
+    {
+      'question': 'Do you think free-time activities children do today are good for their health? [Why is that?]',
+      'audioAsset': 'q10.mp3',
+      'duration': 5.14,
+      'start': 0.0,
+      'promptEnd': 5.14,
+      'end': 5.14,
+      'part': 3,
+      'transcript': 'Generally speaking, many contemporary activities are detrimental to physical health because sedentary screen time can lead to poor posture, reduced physical stamina, and increased risks of childhood obesity. However, some digital games do stimulate strategic thinking and problem-solving skills, so a healthy balance between screen time and active outdoor play is essential.',
+    },
+    {
+      'question': "How do you think children's activities will change in the future? [Will this be a positive change?]",
+      'audioAsset': 'q11.mp3',
+      'duration': 5.04,
+      'start': 0.0,
+      'promptEnd': 5.04,
+      'end': 5.04,
+      'part': 3,
+      'transcript': "In the future, I anticipate that immersive virtual and augmented reality technologies will play a much bigger role in children's education and play. If designed well, these immersive simulations could encourage active physical movement and global collaboration. However, if overused, they might further detach young people from genuine real-world physical interactions, making moderate use and parental guidance critical.",
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 21 TEST 1 (Audio: q1.mp3 - q11.mp3)
   // ==========================================
   final List<Map<String, dynamic>> _book21Test1Questions = [
@@ -434,14 +561,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
-    if (_selectedTestTitle.contains('Book 10 Test 2')) {
+    if (_selectedTestTitle.contains('Book 10 Test 3')) {
+      return _book10Test3Questions;
+    } else if (_selectedTestTitle.contains('Book 10 Test 2')) {
       return _book10Test2Questions;
     } else if (_selectedTestTitle.contains('Book 10 Test 1')) {
       return _book10Test1Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
-    return _book10Test2Questions;
+    return _book10Test3Questions;
   }
 
   /// Backward-compatible alias for any legacy references
@@ -529,6 +658,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     String folderName = _selectedTestTitle.replaceAll('Book', 'BOOK').trim();
     if (!folderName.contains('BOOK 10 Test 1') &&
         !folderName.contains('BOOK 10 Test 2') &&
+        !folderName.contains('BOOK 10 Test 3') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
@@ -963,7 +1093,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(4, (testIndex) {
                       final testNum = 1 + testIndex;
-                      final isUnlocked = isPremium || (bookNum == 21 && testNum == 1) || (bookNum == 10 && testNum == 1) || (bookNum == 10 && testNum == 2);
+                      final isUnlocked = isPremium || (bookNum == 21 && testNum == 1) || (bookNum == 10 && testNum == 1) || (bookNum == 10 && testNum == 2) || (bookNum == 10 && testNum == 3);
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
