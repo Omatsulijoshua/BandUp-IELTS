@@ -29,7 +29,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   // Screen routing states: 'HOME', 'TALK_WITH_AI', 'TEST_DETAIL', 'PRACTICE_WORKSPACE'
   String _currentScreen = 'HOME';
-  String _selectedTestTitle = 'IELTS Book 11 Test 1';
+  String _selectedTestTitle = 'IELTS Book 11 Test 2';
 
   // Interactive Examiner Session States
   int _currentQuestionIndex = 0;
@@ -686,9 +686,138 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 11 TEST 2 (Friends, Neighbours & Family / Product Cue Card)
+  // ==========================================
+  final List<Map<String, dynamic>> _book11Test2Questions = [
+    // Part 1: Questions 1-4 (Friends, Neighbours & Family)
+    {
+      'question': 'How often do you go out with friends? [Why/Why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'I usually go out with my close friends once or twice a week, typically on weekends. We enjoy grabbing coffee, having dinner, or watching movies together to relax and catch up after a busy week of work.',
+    },
+    {
+      'question': 'Tell me about your best friend at school.',
+      'audioAsset': 'q2.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'My best friend at school was a classmate named Alex. We shared a passion for sports and mathematics, sat next to each other in class, and constantly helped each other with homework and exam preparation.',
+    },
+    {
+      'question': 'How friendly are you with your neighbours? [Why/Why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'I am very friendly with my neighbours. We frequently greet each other, exchange pleasantries, and lend a hand whenever someone needs assistance or is away on vacation.',
+    },
+    {
+      'question': 'Which is more important to you, friends or family? [Why?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript': 'While both hold a special place in my life, I consider family to be more important because they offer unconditional support and a lifelong emotional bond through all circumstances.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Product)
+    {
+      'question': 'Describe a product you bought that you were pleased with.',
+      'audioAsset': 'q5.mp3',
+      'duration': 8.0,
+      'start': 0.0,
+      'promptEnd': 8.0,
+      'end': 8.0,
+      'part': 2,
+      'youShouldSay': [
+        'what product you bought',
+        'where you bought it',
+        'what you use it for',
+        'and explain why you were pleased with this product.'
+      ],
+      'transcript': 'I would like to describe my noise-canceling headphones, which I purchased online six months ago. I use them daily for studying, attending online meetings, and listening to music. I am extremely pleased with this purchase because the sound quality is crisp, the battery life is long-lasting, and the active noise cancellation creates a peaceful working environment.',
+    },
+
+    // Part 3: Questions 6-11 (Discussion - Consumer Goods & Shopping)
+    {
+      'question': 'What influence does advertising have on consumers\' buying decisions?',
+      'audioAsset': 'q6.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Advertising plays a powerful role in shaping consumer preferences by highlighting product benefits, building brand awareness, and triggering emotional desires through persuasive visual storytelling.',
+    },
+    {
+      'question': 'Do you think online shopping will replace traditional shopping in physical stores?',
+      'audioAsset': 'q7.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Although online shopping offers unprecedented convenience and wide product selection, physical stores will not disappear completely because many customers value the sensory experience of testing products before buying.',
+    },
+    {
+      'question': 'What factors do people consider before purchasing expensive items?',
+      'audioAsset': 'q8.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Before making a major purchase, consumers typically evaluate product quality, brand reputation, warranty coverage, user reviews, and whether the item offers genuine value for money.',
+    },
+    {
+      'question': 'Is it common for people in your country to return products they have bought?',
+      'audioAsset': 'q9.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Yes, returning products has become increasingly common due to flexible e-commerce return policies and consumer protection laws that guarantee refunds for defective or unsatisfactory goods.',
+    },
+    {
+      'question': 'Why do some people enjoy shopping for luxury brands?',
+      'audioAsset': 'q10.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Luxury goods are often perceived as status symbols that project success, social prestige, and refined taste. Furthermore, consumers appreciate the premium materials and craftsmanship associated with high-end brands.',
+    },
+    {
+      'question': 'How can consumers avoid making impulse buys when shopping?',
+      'audioAsset': 'q11.mp3',
+      'duration': 5.0,
+      'start': 0.0,
+      'promptEnd': 5.0,
+      'end': 5.0,
+      'part': 3,
+      'transcript': 'Consumers can practice disciplined shopping by creating a pre-planned budget list, observing a 24-hour waiting rule before non-essential purchases, and avoiding shopping during emotional highs or stress.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
-    if (_selectedTestTitle.contains('Book 11 Test 1')) {
+    if (_selectedTestTitle.contains('Book 11 Test 2')) {
+      return _book11Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 11 Test 1')) {
       return _book11Test1Questions;
     } else if (_selectedTestTitle.contains('Book 10 Test 3')) {
       return _book10Test3Questions;
@@ -699,7 +828,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
-    return _book11Test1Questions;
+    return _book11Test2Questions;
   }
 
   /// Backward-compatible alias for any legacy references
