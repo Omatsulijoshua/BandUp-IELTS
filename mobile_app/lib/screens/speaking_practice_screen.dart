@@ -1094,6 +1094,133 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 11 TEST 4 (Names / TV Program / Media)
+  // ==========================================
+  final List<Map<String, dynamic>> _book11Test4Questions = [
+    // Part 1: Questions 1-4 (Names)
+    {
+      'question': 'How did you parents choose your name(s)?',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.6,
+      'start': 0.0,
+      'promptEnd': 1.6,
+      'end': 1.6,
+      'part': 1,
+      'transcript': 'My parents chose my name after consulting with my grandparents, as it is traditional in our culture to select a name with strong cultural significance and positive blessings. They wanted a name that represents wisdom and prosperity.',
+    },
+    {
+      'question': 'Does your name have any special meaning?',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.1,
+      'start': 0.0,
+      'promptEnd': 2.1,
+      'end': 2.1,
+      'part': 1,
+      'transcript': 'Yes, my name carries a special meaning of grace and perseverance. In our native language, it symbolizes resilience and strength, which my parents hoped would guide me throughout my life journey.',
+    },
+    {
+      'question': 'Is your name common or unusual in your country?',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.4,
+      'start': 0.0,
+      'promptEnd': 2.4,
+      'end': 2.4,
+      'part': 1,
+      'transcript': 'My first name is quite traditional, though not overly common among younger generations. It is well-recognized across my country, but I rarely meet people of my exact age who share the same name.',
+    },
+    {
+      'question': 'If you could change your name, would you? [Why/Why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 1.8,
+      'start': 0.0,
+      'promptEnd': 1.8,
+      'end': 1.8,
+      'part': 1,
+      'transcript': 'No, I would never change my name because it forms a core part of my identity and connects me deeply to my heritage and family roots. I take great pride in the name my parents lovingly chose for me.',
+    },
+
+    // Part 2: Question 5 (Cue Card - TV Program)
+    {
+      'question': 'Describe a TV program that you like to watch.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.7,
+      'start': 0.0,
+      'promptEnd': 3.7,
+      'end': 3.7,
+      'part': 2,
+      'youShouldSay': [
+        'what kind of program it is',
+        'what it is about',
+        'how often you watch it',
+        'and explain why you like watching this TV program.'
+      ],
+      'transcript': 'I would like to describe a high-quality nature documentary series called Planet Earth. It features breathtaking cinematography of wildlife and ecosystems around the globe, narrated by David Attenborough. I watch it whenever a new season airs or during relaxing weekend evenings. I love it because it is both educational and visually stunning, raising awareness about environmental conservation.',
+    },
+
+    // Part 3: Questions 6-11 (Discussion - Television & Media)
+    {
+      'question': 'What kinds of TV program are most popular in your country? Why is that?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.4,
+      'start': 0.0,
+      'promptEnd': 3.4,
+      'end': 3.4,
+      'part': 3,
+      'transcript': 'In my country, reality talent shows, drama serials, and live sports broadcasts are immensely popular. People enjoy reality TV for its engaging entertainment value and human interest stories, while sports broadcasts bring friends and families together.',
+    },
+    {
+      'question': 'Why do you think some people enjoy watching educational programs?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.9,
+      'start': 0.0,
+      'promptEnd': 2.9,
+      'end': 2.9,
+      'part': 3,
+      'transcript': 'Many people enjoy educational programming because it satisfies their natural curiosity and desire for intellectual stimulation. Documentaries about history, science, and nature offer meaningful learning experiences without leaving the comfort of home.',
+    },
+    {
+      'question': 'How has television changed in your country in recent years?',
+      'audioAsset': 'q8.mp3',
+      'duration': 4.1,
+      'start': 0.0,
+      'promptEnd': 4.1,
+      'end': 4.1,
+      'part': 3,
+      'transcript': 'Television has undergone a major transformation due to the rise of streaming services and smart TVs. Traditional scheduled broadcasting is being replaced by on-demand viewing, allowing audiences to watch their favorite shows anytime without commercial interruptions.',
+    },
+    {
+      'question': 'Do you think people will watch TV in the same way in the future?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.9,
+      'start': 0.0,
+      'promptEnd': 2.9,
+      'end': 2.9,
+      'part': 3,
+      'transcript': 'I believe traditional TV consumption will continue to decline as interactive media, short-form video apps, and virtual reality experiences evolve. Future audiences will likely prefer personalized, interactive content over linear broadcast channels.',
+    },
+    {
+      'question': 'What are the benefits of watching foreign TV programs?',
+      'audioAsset': 'q10.mp3',
+      'duration': 3.9,
+      'start': 0.0,
+      'promptEnd': 3.9,
+      'end': 3.9,
+      'part': 3,
+      'transcript': 'Watching foreign shows provides valuable cultural exposure, helping viewers gain broader perspectives and foster empathy for different lifestyles. Additionally, it serves as an excellent tool for language learners to improve their listening comprehension and colloquial vocabulary.',
+    },
+    {
+      'question': 'Should governments control the content of TV programs?',
+      'audioAsset': 'q11.mp3',
+      'duration': 2.1,
+      'start': 0.0,
+      'promptEnd': 2.1,
+      'end': 2.1,
+      'part': 3,
+      'transcript': 'While governments should enforce age-appropriate ratings and prevent harmful or hate speech, creative expression and journalistic freedom must be protected. Content regulation should aim to protect minors without censoring independent artistic voices.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
     if (_selectedTestTitle.contains('Book 10 Test 4')) {
@@ -1104,6 +1231,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book10Test2Questions;
     } else if (_selectedTestTitle.contains('Book 10 Test 1')) {
       return _book10Test1Questions;
+    } else if (_selectedTestTitle.contains('Book 11 Test 4')) {
+      return _book11Test4Questions;
     } else if (_selectedTestTitle.contains('Book 11 Test 3')) {
       return _book11Test3Questions;
     } else if (_selectedTestTitle.contains('Book 11 Test 2')) {
@@ -1206,6 +1335,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 11 Test 1') &&
         !folderName.contains('BOOK 11 Test 2') &&
         !folderName.contains('BOOK 11 Test 3') &&
+        !folderName.contains('BOOK 11 Test 4') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
