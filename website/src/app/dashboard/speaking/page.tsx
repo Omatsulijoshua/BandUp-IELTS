@@ -353,18 +353,382 @@ const book10Test4Questions: Question[] = [
     transcript: "This effect is powerful because media taps into our subconscious desires for social belonging and status. Advertisers use psychological triggers to suggest that their products are essential for a 'better' life. By associating their items with happiness, beauty, or prestige, they make it difficult for viewers to distinguish between actual needs and manufactured wants.",
   },
   {
-    question: 'Are there any benefits to society of people wanting to get new possessions? Why do you think this is?',
+    question: 'Are there any benefits to society of people wanting to get new possessions? Why do you think that is?',
     audioAsset: 'q11.mp3',
     duration: 4.5,
     part: 3,
     transcript: "There are some economic benefits, as high consumer demand stimulates growth and creates jobs in manufacturing and retail sectors. However, there are significant drawbacks as well, such as environmental degradation due to overconsumption. While it keeps the economy moving, it often leads to a 'throwaway culture' that is unsustainable in the long term.",
   },
   {
-    question: 'Do you think people will consider that having lots of possessions is a sign of success in the future? Why?',
+    question: 'Do you think people will consider that having lots of possessions is a sign of success in the future?',
     audioAsset: 'q12.mp3',
     duration: 4.5,
     part: 3,
     transcript: "I believe that as society evolves, the definition of success will shift away from material possessions. People are becoming increasingly conscious of sustainability and the negative impacts of consumerism. I suspect that in the future, success will be measured more by one's contribution to society, personal well-being, and life experiences rather than the number of luxury items one owns.",
+  },
+];
+
+const book11Test1Questions: Question[] = [
+  // Part 1: Questions 1-4 (Food & Cooking)
+  {
+    question: 'What sorts of food do you like eating most? [Why?]',
+    audioAsset: 'q1.mp3',
+    duration: 1.9,
+    part: 1,
+    transcript: 'I enjoy eating a wide variety of fresh, home-cooked Mediterranean and Asian dishes, particularly those rich in herbs, vegetables, and lean proteins. I love these foods because they are nutritious, flavorful, and leave me feeling energized rather than sluggish.',
+  },
+  {
+    question: 'Who normally does the cooking in your home? [Why/Why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 1.9,
+    part: 1,
+    transcript: 'In my household, cooking is a shared responsibility, though my mother does most of the daily preparation. She truly enjoys experimenting with traditional recipes, whereas I step in on weekends to cook modern international meals for the family.',
+  },
+  {
+    question: 'Do you watch cookery programmes on TV? [Why/Why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.2,
+    part: 1,
+    transcript: 'Yes, I occasionally watch culinary shows and cooking competitions on television. I find them visually engaging and educational, as they provide great culinary inspiration and teach useful techniques for improving my own kitchen skills.',
+  },
+  {
+    question: 'In general, do you prefer eating out or eating at home? [Why?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.7,
+    part: 1,
+    transcript: 'Generally speaking, I prefer eating at home because it allows complete control over ingredient quality, hygiene, and nutrition. However, I do enjoy dining out periodically to socialize with friends and try authentic cuisines that are complex to prepare.',
+  },
+
+  // Part 2: Question 5 (Cue Card - House/Apartment)
+  {
+    question: 'Describe a house/apartment that someone you know lives in.',
+    audioAsset: 'q5.mp3',
+    duration: 3.2,
+    part: 2,
+    youShouldSay: [
+      'whose house/apartment this is',
+      'where the house/apartment is',
+      'what it looks like inside',
+      "and explain what you like or dislike about this person's house/apartment.",
+    ],
+    transcript: "I would like to describe my close friend's apartment, which is located in a modern high-rise in the city center. Inside, it features an open-plan layout with large floor-to-ceiling windows that fill the living space with natural light. What I particularly love about her apartment is the cozy minimalist interior design and the breathtaking panoramic view of the city skyline, though it can occasionally be noisy due to downtown traffic.",
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Housing & Accommodation)
+  {
+    question: 'What kinds of home are most popular in your country? Why is this?',
+    audioAsset: 'q6.mp3',
+    duration: 2.7,
+    part: 3,
+    transcript: 'In my country, detached houses are the most popular choice, particularly for families, because they offer more privacy and outdoor space. Many people aspire to own a house with a garden, as it is seen as a sign of success and provides a better environment for raising children. Recently, however, high-rise apartments have become more common in urban centers due to rapid population growth and limited land availability.',
+  },
+  {
+    question: 'What do you think are the advantages of living in a house rather than an apartment?',
+    audioAsset: 'q7.mp3',
+    duration: 3.8,
+    part: 3,
+    transcript: 'Living in a house offers several significant advantages, most notably the sense of independence and direct access to private outdoor areas like a yard or patio. Unlike apartments, houses generally do not share walls with neighbors, which significantly reduces noise disturbances. Furthermore, home ownership often provides more flexibility for renovations and personal customization, allowing residents to create a space that truly reflects their lifestyle.',
+  },
+  {
+    question: 'Do you think that everyone would like to live in a larger home? Why is that?',
+    audioAsset: 'q8.mp3',
+    duration: 2.7,
+    part: 3,
+    transcript: "I believe that most people do aspire to live in a larger home, primarily because it offers more comfort and better storage for personal belongings. A spacious environment can significantly reduce stress and improve one's quality of life, especially for those working from home or raising a family. However, some individuals might prefer a smaller, more manageable space to minimize maintenance efforts and utility costs.",
+  },
+  {
+    question: 'How easy is it to find a place to live in your country?',
+    audioAsset: 'q9.mp3',
+    duration: 2.7,
+    part: 3,
+    transcript: 'Finding suitable accommodation in my country has become increasingly challenging in recent years. In major cities, the demand for housing far outstrips supply, which has led to a sharp rise in both property prices and rental rates. Consequently, many young people struggle to find affordable housing, often having to compromise on location or living space to stay within their budgets.',
+  },
+  {
+    question: "Do you think it's better to rent or to buy a place to live in? Why?",
+    audioAsset: 'q10.mp3',
+    duration: 3.2,
+    part: 3,
+    transcript: "Deciding between renting and buying is a complex choice that depends heavily on an individual's financial situation and long-term goals. Buying a property is often viewed as a sound investment that provides stability and potential equity growth over time. On the other hand, renting offers greater flexibility, as it allows people to move easily for career opportunities without the burden of property maintenance or high upfront costs.",
+  },
+  {
+    question: 'Do you agree that there is a right age for young adults to stop living with their parents? Why is that?',
+    audioAsset: 'q11.mp3',
+    duration: 4.3,
+    part: 3,
+    transcript: "I believe there is no universal 'right' age, as it depends entirely on the cultural norms and economic conditions of the country. In many societies, it is common for young adults to live with their parents until they are financially stable or married, which helps them save money. However, moving out at a younger age can be a vital step toward developing independence, self-reliance, and personal responsibility.",
+  },
+];
+
+const book11Test2Questions: Question[] = [
+  // Part 1: Questions 1-4 (Friends, Neighbours & Family)
+  {
+    question: 'How often do you go out with friends? [Why/Why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.0,
+    part: 1,
+    transcript: 'I try to go out with my friends at least once or twice a week, usually on the weekends. We enjoy going to local cafes or catching the latest movies together. It is a great way for me to de-stress after a busy week of work or study. I believe maintaining these social connections is essential for my overall well-being.',
+  },
+  {
+    question: 'Tell me about your best friend at school.',
+    audioAsset: 'q2.mp3',
+    duration: 2.0,
+    part: 1,
+    transcript: 'My best friend from school is named Sarah. We have been close since we were about ten years old and we shared a desk in our primary school classroom. She is incredibly kind and has always supported me through difficult times. Even though we live in different cities now, we still make an effort to call each other every weekend.',
+  },
+  {
+    question: 'How friendly are you with your neighbours? [Why/Why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.2,
+    part: 1,
+    transcript: "I have a very friendly relationship with my neighbors. We often greet each other when we leave for work in the morning and occasionally look after each other's homes when someone is away. It creates a safe and welcoming environment, and I feel quite lucky to live in such a supportive community.",
+  },
+  {
+    question: 'Which is more important to you, friends or family? [Why?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.6,
+    part: 1,
+    transcript: 'Personally, I find family to be more important because they are the foundation of my life. While friends are wonderful for companionship and fun, my family has always been my primary support system through every stage of my life. That said, I do consider close friends to be like a second family, so I value both deeply.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Writer)
+  {
+    question: 'Describe a writer you would like to meet.',
+    audioAsset: 'q5.mp3',
+    duration: 2.2,
+    part: 2,
+    youShouldSay: [
+      'who the writer is',
+      'what you know about this writer already',
+      'what you would like to find out about him/her',
+      'and explain why you would like to meet this writer.',
+    ],
+    transcript: "I would love to meet J.K. Rowling, the author of the Harry Potter series. I have been a fan of her writing style since I was a child, as she has an incredible ability to build immersive worlds. I am particularly interested in learning about her creative process and how she manages to develop such complex character arcs over multiple books. Meeting her would be a dream come true, as her work has had a significant impact on my passion for literature. I would ask her how she stays motivated to write even when facing writer's block.",
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Books, Reading & Authors)
+  {
+    question: 'What kinds of book are most popular with children in your country? Why do you think that is?',
+    audioAsset: 'q6.mp3',
+    duration: 4.8,
+    part: 3,
+    transcript: "In my country, children are particularly drawn to fantasy novels and comic books, as these genres offer an escape into imaginative worlds. I believe this popularity stems from the vibrant illustrations and the sense of adventure that captivates a young reader's mind, making the reading experience far more engaging than traditional textbooks.",
+  },
+  {
+    question: 'Why do you think some children do not read books very often?',
+    audioAsset: 'q7.mp3',
+    duration: 3.1,
+    part: 3,
+    transcript: 'I think many children struggle to find time for reading due to the overwhelming pressure of school assignments and extracurricular activities. Furthermore, the constant distraction of digital media and video games often makes the slower pace of reading seem less appealing compared to the instant gratification provided by screens.',
+  },
+  {
+    question: 'How do you think children can be encouraged to read more?',
+    audioAsset: 'q8.mp3',
+    duration: 3.0,
+    part: 3,
+    transcript: 'To encourage more reading, schools and parents could create dedicated, comfortable reading corners that are free from digital distractions. Additionally, introducing interactive book clubs where children can discuss stories with their peers can transform reading from a solitary task into a fun, social experience.',
+  },
+  {
+    question: 'Are there any occasions when reading at speed is a useful skill to have? What are they?',
+    audioAsset: 'q9.mp3',
+    duration: 3.8,
+    part: 3,
+    transcript: 'Yes, speed reading is an invaluable skill, particularly in professional or academic environments where one must process large volumes of information quickly. For instance, when reviewing lengthy legal contracts or academic research papers, the ability to scan for key concepts and data is essential for efficiency.',
+  },
+  {
+    question: 'Are there any jobs where people need to read a lot? What are they?',
+    audioAsset: 'q10.mp3',
+    duration: 3.1,
+    part: 3,
+    transcript: 'Yes, there are many professions that demand high levels of reading proficiency. For example, lawyers and journalists must constantly read reports, case files, and news articles to stay informed and build their arguments. Similarly, medical professionals need to read extensive research journals to keep up with the latest developments in healthcare.',
+  },
+  {
+    question: 'Do you think that reading novels is more interesting than reading factual books? Why is that?',
+    audioAsset: 'q11.mp3',
+    duration: 4.2,
+    part: 3,
+    transcript: 'While factual books are excellent for acquiring specific knowledge, I find novels more interesting because they explore the depth of human emotion and complex character development. Novels allow readers to experience different perspectives and cultures, which creates a more immersive and thought-provoking experience than simply absorbing raw data.',
+  },
+];
+
+const book11Test3Questions: Question[] = [
+  // Part 1: Questions 1-4 (Photography)
+  {
+    question: 'What type of photos do you like taking? [Why/Why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 1.6,
+    part: 1,
+    transcript: 'I generally prefer taking landscape photos because I enjoy capturing the beauty of nature while I am traveling. Occasionally, I also like taking candid shots of my friends, as these photos feel more authentic and preserve special memories better than posed pictures.',
+  },
+  {
+    question: 'What do you do with photos you take? [Why/Why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 1.6,
+    part: 1,
+    transcript: 'I usually store my photos in digital folders on my computer or upload them to a cloud storage service to ensure they are safe. Sometimes, I select the best ones to share on social media platforms so that my friends and family can see what I have been up to.',
+  },
+  {
+    question: 'When do you visit other places, do you take photos or buy postcards? [Why/Why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 3.2,
+    part: 1,
+    transcript: 'When I travel, I prefer taking my own photos rather than buying postcards. I feel that personal photographs are more meaningful because they capture my specific perspective and the unique experiences I had during the trip, whereas postcards are quite generic.',
+  },
+  {
+    question: 'Do you like people taking photos of you? [Why/Why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 1.9,
+    part: 1,
+    transcript: 'To be honest, I am quite camera-shy, so I generally do not like people taking photos of me. I often feel a bit awkward when I am the center of attention, though I do make exceptions if it is a special occasion like a birthday or a wedding.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Perfect Weather)
+  {
+    question: 'Describe a day when you thought the weather was perfect.',
+    audioAsset: 'q5.mp3',
+    duration: 2.6,
+    part: 2,
+    youShouldSay: [
+      'where you were on this day',
+      'what the weather was like on this day',
+      'what you did during the day',
+      'and explain why you thought the weather was perfect on this day.',
+    ],
+    transcript: "One day that stands out in my memory was a crisp autumn afternoon last October. The sky was a brilliant, cloudless blue, and the air had just enough of a chill to make wearing a light sweater feel perfectly cozy. I spent the entire day hiking through a nearby forest where the leaves had turned vibrant shades of amber and gold. The sunlight filtering through the canopy created a warm, golden glow that made everything look picturesque. It was the perfect weather because it wasn't too hot to exert myself, yet it was bright enough to lift my spirits completely.",
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Weather & Seasons)
+  {
+    question: 'What types of weather do people in your country dislike most? Why is that?',
+    audioAsset: 'q6.mp3',
+    duration: 3.2,
+    part: 3,
+    transcript: 'In my country, people generally dislike extreme heat and humidity during the summer months because it makes outdoor activities exhausting and uncomfortable. Additionally, prolonged rainy weather is often disliked because it causes traffic congestion and disrupts daily commutes.',
+  },
+  {
+    question: 'What jobs can be affected by different weather conditions? Why?',
+    audioAsset: 'q7.mp3',
+    duration: 2.9,
+    part: 3,
+    transcript: 'Many outdoor professions are significantly affected by weather, such as construction workers, farmers, and delivery drivers. For example, heavy rainfall or extreme temperatures can halt construction projects, while farmers rely on specific weather patterns to ensure their crops grow properly.',
+  },
+  {
+    question: 'Are there any important festivals in your country that celebrate a season or type of weather?',
+    audioAsset: 'q8.mp3',
+    duration: 4.7,
+    part: 3,
+    transcript: 'Yes, we have several festivals that are linked to the seasons. For instance, the harvest festival is celebrated to mark the end of the agricultural season, and there are various traditional holidays that welcome the arrival of spring after a cold winter.',
+  },
+  {
+    question: "How important do you think it is for everyone to check what the next day's weather will be? Why?",
+    audioAsset: 'q9.mp3',
+    duration: 5.0,
+    part: 3,
+    transcript: 'I believe it is quite important because checking the weather allows people to plan their day effectively. For instance, knowing if it will rain helps individuals decide whether to carry an umbrella or choose appropriate clothing, which helps them avoid getting sick or being caught in a storm.',
+  },
+  {
+    question: 'What is the best way to get accurate information about the weather?',
+    audioAsset: 'q10.mp3',
+    duration: 3.2,
+    part: 3,
+    transcript: 'The most reliable way to get accurate information is through official meteorological websites or government-backed weather apps. These sources use satellite data and professional forecasting, which are far more dependable than informal social media reports or word-of-mouth.',
+  },
+  {
+    question: 'How easy or difficult is it to predict the weather in your country? Why is that?',
+    audioAsset: 'q11.mp3',
+    duration: 3.6,
+    part: 3,
+    transcript: 'Predicting the weather in my country is quite challenging due to our diverse geography. Because we have both coastal and mountainous regions, weather patterns can shift very rapidly, making it difficult for even professional meteorologists to provide perfectly accurate long-term forecasts.',
+  },
+];
+
+const book11Test4Questions: Question[] = [
+  // Part 1: Questions 1-4 (Names)
+  {
+    question: 'How did you parents choose your name(s)?',
+    audioAsset: 'q1.mp3',
+    duration: 1.6,
+    part: 1,
+    transcript: 'My parents chose my name because it has been passed down through several generations in my family. They wanted to honor my grandfather, who was a very respected figure, so they decided to name me after him to keep the family tradition alive.',
+  },
+  {
+    question: 'Does your name have any special meaning?',
+    audioAsset: 'q2.mp3',
+    duration: 2.1,
+    part: 1,
+    transcript: "Yes, my name actually has a significant meaning. In my native language, it translates to 'bright light' or 'hope,' which is something my parents wished for me when I was born. It is a very positive name that I am quite proud to carry.",
+  },
+  {
+    question: 'Is your name common or unusual in your country?',
+    audioAsset: 'q3.mp3',
+    duration: 2.4,
+    part: 1,
+    transcript: 'My name is actually quite common in my country. You will find that many people in my generation share this name because it was very popular during the decade I was born. It is not unusual at all, and I often meet others with the same name.',
+  },
+  {
+    question: 'If you could change your name, would you? [Why/Why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 1.8,
+    part: 1,
+    transcript: 'I would not change my name even if I had the chance. I have become very attached to it over the years, and it is a core part of my identity. Changing it would feel like losing a connection to my family and my own personal history.',
+  },
+
+  // Part 2: Question 5 (Cue Card - TV Documentary)
+  {
+    question: 'Describe a TV documentary you watched that was particularly interesting.',
+    audioAsset: 'q5.mp3',
+    duration: 3.7,
+    part: 2,
+    youShouldSay: [
+      'what the documentary was about',
+      'why you decided to watch it',
+      'what you learnt during the documentary',
+      'and explain why the TV documentary was particularly interesting.',
+    ],
+    transcript: "I recently watched a fascinating documentary on Netflix titled 'Our Planet'. It was a visually stunning series that explored the impact of climate change on various ecosystems across the globe. What I found particularly interesting was the high-definition cinematography, which captured animal behaviors that had never been filmed before. It really opened my eyes to the fragility of our environment and the urgent need for conservation efforts. I would highly recommend it to anyone who enjoys nature and wants to learn more about the world.",
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Television & Advertising)
+  {
+    question: 'What are the most popular kinds of TV programmes in your country? Why is this?',
+    audioAsset: 'q6.mp3',
+    duration: 3.4,
+    part: 3,
+    transcript: 'In my country, reality shows and talent competitions are incredibly popular. This is largely because they offer a form of escapism and allow viewers to feel a personal connection with the contestants as they progress through the show.',
+  },
+  {
+    question: 'Do you think there are too many game shows on TV nowadays? Why?',
+    audioAsset: 'q7.mp3',
+    duration: 2.9,
+    part: 3,
+    transcript: 'I believe there is an oversaturation of game shows on television today. This is likely because they are relatively inexpensive to produce and have proven to be highly effective at keeping audiences engaged through interactive elements.',
+  },
+  {
+    question: 'Do you think TV is the main way for people to get the news in your country? What other ways are there?',
+    audioAsset: 'q8.mp3',
+    duration: 4.1,
+    part: 3,
+    transcript: 'While traditional television remains a primary source of news for the older generation, younger people now predominantly rely on social media and news websites. These digital platforms provide real-time updates that TV broadcasts often cannot match.',
+  },
+  {
+    question: 'What types of products are advertised most often on TV?',
+    audioAsset: 'q9.mp3',
+    duration: 2.9,
+    part: 3,
+    transcript: 'Products related to health, beauty, and household cleaning are advertised most frequently. These items are targeted at a wide demographic, and companies invest heavily in TV slots to ensure their brand remains at the forefront of consumer awareness.',
+  },
+  {
+    question: 'Do you think that people pay attention to adverts on TV? Why do you think that is?',
+    audioAsset: 'q10.mp3',
+    duration: 3.9,
+    part: 3,
+    transcript: 'Most people tend to ignore or mute adverts because they find them intrusive and repetitive. In the digital age, viewers are accustomed to on-demand content, so they view traditional commercial breaks as an unnecessary disruption to their viewing experience.',
+  },
+  {
+    question: 'How important are regulations on TV advertising?',
+    audioAsset: 'q11.mp3',
+    duration: 2.1,
+    part: 3,
+    transcript: 'Regulations are essential to ensure that advertising remains ethical and honest. Without these rules, companies might promote harmful products or use misleading information, which could significantly impact the wellbeing and trust of the general public.',
   },
 ];
 
@@ -454,13 +818,123 @@ const book21Test1Questions: Question[] = [
   },
 ];
 
+const book12Test1Questions: Question[] = [
+  // Part 1: Questions 1-4 (Health & Lifestyle)
+  {
+    question: 'Is it important to you to eat healthy food? [Why/Why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.0,
+    part: 1,
+    transcript: 'Yes, it is very important to me. I believe that maintaining a balanced diet is the foundation of good health, as it provides the energy I need for my daily activities and helps prevent long-term illnesses. Eating nutritious food makes me feel more focused and physically active throughout the day.',
+  },
+  {
+    question: 'If you catch a cold, what do you do to help you feel better? [Why?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.5,
+    part: 1,
+    transcript: 'When I catch a cold, I usually prioritize getting plenty of rest and staying hydrated by drinking herbal teas or warm water. I also try to increase my intake of vitamin C through fresh fruits. If the symptoms persist, I might take over-the-counter medicine to manage the discomfort.',
+  },
+  {
+    question: 'Do you pay attention to public information about health? [Why/Why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.5,
+    part: 1,
+    transcript: 'I do pay attention to public health information, especially when it comes to seasonal health advice or vaccination campaigns. I think it is essential to stay informed about community health standards to protect not only myself but also those around me. I usually check official government health websites for reliable updates.',
+  },
+  {
+    question: 'What could you do to have a healthier lifestyle?',
+    audioAsset: 'q4.mp3',
+    duration: 2.2,
+    part: 1,
+    transcript: 'To have a healthier lifestyle, I could start by incorporating more physical exercise into my daily routine, such as jogging or swimming for thirty minutes. Additionally, I should try to reduce my intake of processed sugars and ensure I get at least seven hours of sleep every night to improve my overall well-being.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Waiting)
+  {
+    question: 'Describe an occasion when you had to wait a long time for someone or something to arrive.',
+    audioAsset: 'q5.mp3',
+    duration: 4.0,
+    part: 2,
+    youShouldSay: [
+      'who or what you were waiting for',
+      'how long you had to wait',
+      'why you had to wait a long time',
+      'and explain how you felt about waiting a long time.'
+    ],
+    transcript: 'I remember a time when I had to wait for nearly two hours for a friend at a busy train station. We had planned to meet for lunch, but he got stuck in a massive traffic jam due to a road accident. I spent the time observing the people passing by and reading a book on my phone to stay occupied. Although I felt a bit frustrated initially, I eventually understood that it was beyond his control. When he finally arrived, we were both so hungry that we ended up having a great meal and laughing about the whole ordeal.',
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Arriving Early & Patience)
+  {
+    question: 'In what kinds of situations should people always arrive early?',
+    audioAsset: 'q6.mp3',
+    duration: 2.8,
+    part: 3,
+    transcript: 'People should always arrive early for crucial appointments such as job interviews, medical consultations, and international flights. Arriving early allows individuals to complete necessary security checks or administrative paperwork calmly without the stress of missing deadlines.',
+  },
+  {
+    question: 'How important it is to arrive early in your country?',
+    audioAsset: 'q7.mp3',
+    duration: 2.5,
+    part: 3,
+    transcript: 'In my country, punctuality is generally highly valued, especially in professional, educational, and official contexts. Being early or on time demonstrates respect for others and professional commitment, though social gatherings tend to have a slightly more relaxed attitude towards timing.',
+  },
+  {
+    question: 'How can modern technology help people to arrive early?',
+    audioAsset: 'q8.mp3',
+    duration: 3.1,
+    part: 3,
+    transcript: 'Modern technology assists people in staying punctual through real-time GPS navigation apps like Google Maps, which calculate optimal routes and warn about traffic congestion. Additionally, digital calendars send automatic reminders and push notifications to help users manage their schedules effectively.',
+  },
+  {
+    question: 'What kinds of jobs require the most patience?',
+    audioAsset: 'q9.mp3',
+    duration: 2.7,
+    part: 3,
+    transcript: 'Jobs in healthcare, teaching, and customer service require an immense amount of patience. Medical professionals and educators regularly deal with challenging individuals and complex situations, where maintaining composure and active listening is essential for providing effective care and guidance.',
+  },
+  {
+    question: 'Is it always better to be patient in work (or studies)?',
+    audioAsset: 'q10.mp3',
+    duration: 3.3,
+    part: 3,
+    transcript: 'While patience is generally a virtue that fosters thoroughness and high-quality results, there are times when quick decision-making and urgency are necessary. In fast-paced business environments or emergency situations, excessive patience can lead to missed opportunities or delays.',
+  },
+  {
+    question: 'Do you agree or disagree that the older people are, the more patient they are?',
+    audioAsset: 'q11.mp3',
+    duration: 3.6,
+    part: 3,
+    transcript: "I generally agree that older people tend to be more patient because life experience teaches them to handle unexpected delays with greater emotional maturity. However, patience also depends on an individual's personality traits and health condition rather than age alone.",
+  },
+];
+
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 12 Test 1': book12Test1Questions,
+  'IELTS Book 11 Test 4': book11Test4Questions,
+  'IELTS Book 11 Test 3': book11Test3Questions,
+  'IELTS Book 11 Test 2': book11Test2Questions,
+  'IELTS Book 11 Test 1': book11Test1Questions,
   'IELTS Book 10 Test 4': book10Test4Questions,
   'IELTS Book 10 Test 3': book10Test3Questions,
   'IELTS Book 10 Test 2': book10Test2Questions,
   'IELTS Book 10 Test 1': book10Test1Questions,
   'IELTS Book 21 Test 1': book21Test1Questions,
 };
+
+const PASTEL_WAVE_COLORS = [
+  '#FCA5A5', '#FCA5A5', '#FCA5A5',
+  '#FDBA74', '#FDBA74', '#FDBA74',
+  '#FDE047', '#FDE047', '#FDE047',
+  '#86EFAC', '#86EFAC', '#86EFAC',
+  '#4ADE80', '#4ADE80',
+  '#2DD4BF', '#2DD4BF',
+  '#38BDF8', '#38BDF8',
+  '#60A5FA', '#60A5FA',
+  '#818CF8', '#818CF8',
+  '#A78BFA', '#A78BFA',
+  '#C084FC', '#C084FC',
+];
 
 export default function SpeakingPracticePage() {
   const [selectedTestTitle, setSelectedTestTitle] = useState('IELTS Book 10 Test 3');
@@ -549,9 +1023,34 @@ export default function SpeakingPracticePage() {
     }
   };
 
+  const [waveformHeights, setWaveformHeights] = useState<number[]>(() =>
+    Array.from({ length: 26 }, (_, i) => 6.0 + 14.0 * Math.sin((i / 25.0) * Math.PI))
+  );
+
+  useEffect(() => {
+    let interval: any = null;
+    if (isPlayingAudio || isRecording) {
+      interval = setInterval(() => {
+        setWaveformHeights(
+          Array.from({ length: 26 }, (_, i) => {
+            const envelope = Math.sin((i / 25.0) * Math.PI);
+            const jitter = Math.random() * 16.0 * (envelope + 0.2);
+            return Math.max(6, Math.min(26, 6.0 + jitter));
+          })
+        );
+      }, 120);
+    } else {
+      setWaveformHeights(
+        Array.from({ length: 26 }, (_, i) => 6.0 + 14.0 * Math.sin((i / 25.0) * Math.PI))
+      );
+    }
+    return () => clearInterval(interval);
+  }, [isPlayingAudio, isRecording]);
+
   const playQuestionAudio = () => {
     if (!currentQuestion) return;
-    const audioUrl = `/audio/speaking/${selectedTestTitle}/${currentQuestion.audioAsset}`;
+    const folderName = selectedTestTitle.replace('Book', 'BOOK').trim();
+    const audioUrl = `/audio/speaking/${folderName}/${currentQuestion.audioAsset}`;
 
     if (audioRef.current) {
       audioRef.current.pause();
@@ -824,10 +1323,12 @@ export default function SpeakingPracticePage() {
             >
               ← Back to Test
             </button>
-            <h1 className="text-xl font-extrabold text-[#1F2937]">{selectedTestTitle} - AI Results</h1>
+            <h1 className="text-lg md:text-xl font-extrabold text-[#1F2937]">
+              {selectedPart === 3 ? 'AI Feedback' : `Part ${selectedPart === 2 ? '2' : '1'} Results`}
+            </h1>
             <button
               onClick={() => setViewState('TESTS')}
-              className="bg-[#0F766E] text-white px-4 py-1.5 rounded-full text-xs font-bold hover:bg-[#115E59] transition-all cursor-pointer"
+              className="bg-white border border-[#E2E8F0] shadow-sm text-[#DC2626] px-4 py-1.5 rounded-full text-xs font-bold hover:bg-gray-50 transition-all cursor-pointer"
             >
               Done
             </button>
@@ -852,10 +1353,12 @@ export default function SpeakingPracticePage() {
               </svg>
               <div className="absolute flex flex-col items-center">
                 <span className="text-4xl font-extrabold text-[#DC2626]">{score}</span>
-                <span className="text-[11px] font-bold text-[#6B7280]">Band Score</span>
+                <span className="text-[11px] font-bold text-[#6B7280]">Band</span>
               </div>
             </div>
-            <h2 className="text-base font-extrabold text-[#1F2937] mt-4">Part {selectedPart} Speaking Score</h2>
+            <h2 className="text-base font-extrabold text-[#1F2937] mt-4">
+              {selectedPart === 3 ? 'Speaking Score' : `Part ${selectedPart === 2 ? '2' : '1'} Score`}
+            </h2>
           </div>
 
           {/* 4 Criteria Cards */}
@@ -868,32 +1371,35 @@ export default function SpeakingPracticePage() {
             ].map((crit, idx) => {
               const isZero = crit.data?.score === 0;
               return (
-                <div key={idx} className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-sm space-y-2">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                <div key={idx} className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-sm flex flex-col justify-between space-y-3">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        {isZero ? (
+                          <div
+                            className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                            style={{ backgroundColor: `${crit.color}20`, color: crit.color }}
+                          >
+                            ✓
+                          </div>
+                        ) : (
+                          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: crit.color }} />
+                        )}
+                        <span className="text-sm font-bold text-[#1F2937]">{crit.title}</span>
+                      </div>
                       {isZero ? (
-                        <div
-                          className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
-                          style={{ backgroundColor: `${crit.color}20`, color: crit.color }}
-                        >
-                          ✓
-                        </div>
+                        <span className="text-2xl font-bold" style={{ color: crit.color }}>
+                          0
+                        </span>
                       ) : (
-                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: crit.color }} />
+                        <span className="bg-[#DC2626] text-white px-2 py-0.5 rounded text-xs font-extrabold">
+                          {crit.data?.score ?? 1}
+                        </span>
                       )}
-                      <span className="text-xs font-bold text-[#1F2937]">{crit.title}</span>
                     </div>
-                    {isZero ? (
-                      <span className="text-xl font-extrabold" style={{ color: crit.color }}>
-                        0
-                      </span>
-                    ) : (
-                      <span className="bg-[#DC2626] text-white px-2 py-0.5 rounded text-xs font-extrabold">
-                        {crit.data?.score ?? 1}
-                      </span>
-                    )}
+                    <p className="text-xs text-[#4B5563] leading-relaxed">{crit.data?.feedback}</p>
                   </div>
-                  <p className="text-xs text-[#4B5563] leading-relaxed">{crit.data?.feedback}</p>
+                  {!isZero && <div className="w-20 h-1 rounded bg-[#DC2626]" />}
                 </div>
               );
             })}
@@ -965,6 +1471,48 @@ export default function SpeakingPracticePage() {
               ))}
             </div>
           </div>
+
+          {/* Bottom Actions: Next Part or Done */}
+          <div className="flex items-center justify-between pt-4 pb-8">
+            <button
+              onClick={() => setViewState('TESTS')}
+              className="bg-white border border-[#E2E8F0] shadow-sm text-[#4B5563] px-6 py-2.5 rounded-full text-xs font-bold hover:bg-gray-50 transition-all cursor-pointer"
+            >
+              Done
+            </button>
+            {selectedPart === 1 ? (
+              <button
+                onClick={() => {
+                  setSelectedPart(2);
+                  setCurrentQuestionIndex(0);
+                  setExaminerResults(null);
+                  setViewState('PRACTICE');
+                }}
+                className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-6 py-2.5 rounded-full text-xs font-bold transition-all shadow-md cursor-pointer flex items-center gap-1.5"
+              >
+                Start Part 2 →
+              </button>
+            ) : selectedPart === 2 ? (
+              <button
+                onClick={() => {
+                  setSelectedPart(3);
+                  setCurrentQuestionIndex(0);
+                  setExaminerResults(null);
+                  setViewState('PRACTICE');
+                }}
+                className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-6 py-2.5 rounded-full text-xs font-bold transition-all shadow-md cursor-pointer flex items-center gap-1.5"
+              >
+                Start Part 3 →
+              </button>
+            ) : (
+              <button
+                onClick={() => setViewState('TESTS')}
+                className="bg-[#0F766E] hover:bg-[#115E59] text-white px-6 py-2.5 rounded-full text-xs font-bold transition-all shadow-md cursor-pointer"
+              >
+                Finish Test
+              </button>
+            )}
+          </div>
         </div>
       </div>
     );
@@ -1000,7 +1548,17 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 10 Test 4')
+                    {title.includes('Book 12 Test 1')
+                      ? 'Health & Lifestyle, Waiting occasions & Punctuality / Patience'
+                      : title.includes('Book 11 Test 4')
+                      ? 'Names, TV Documentaries & Advertising Media'
+                      : title.includes('Book 11 Test 3')
+                      ? 'Photography, Perfect Weather & Meteorological Insights'
+                      : title.includes('Book 11 Test 2')
+                      ? 'Friends, J.K. Rowling & Reading Habit Discussion'
+                      : title.includes('Book 11 Test 1')
+                      ? 'Food & Cooking, Modern Apartment & Housing Market'
+                      : title.includes('Book 10 Test 4')
                       ? 'School memories, Future possessions (Tesla) & Consumerism'
                       : title.includes('Book 10 Test 3')
                       ? 'Travelling, Family relationships & Children activities'
@@ -1042,6 +1600,16 @@ export default function SpeakingPracticePage() {
   const currentAnswer = userResponses[currentQuestionIndex] || '';
   const wordCount = currentAnswer ? currentAnswer.trim().split(/\s+/).filter(Boolean).length : 0;
 
+  const globalQIndex = activeQuestions.findIndex((q) => q.question === currentQuestion?.question);
+  const globalQNum = globalQIndex !== -1 ? globalQIndex + 1 : currentQuestionIndex + 1;
+
+  const startQ = selectedPart === 1 ? 1 : selectedPart === 2 ? 5 : 6;
+  const endQ = selectedPart === 1 ? 4 : selectedPart === 2 ? 5 : activeQuestions.length;
+  const currentQInPart = currentQuestionIndex + 1;
+  const totalQInPart = partQuestions.length;
+  const capsuleText = `Part ${selectedPart}: Questions ${startQ}-${endQ} · ${currentQInPart}/${totalQInPart} Questions`;
+  const progressFactor = totalQInPart > 0 ? currentQInPart / totalQInPart : 0;
+
   return (
     <div className="min-h-screen bg-[#F9FBFA] text-[#1F2937] p-6 md:p-12">
       <div className="max-w-3xl mx-auto space-y-6">
@@ -1049,145 +1617,226 @@ export default function SpeakingPracticePage() {
         <div className="flex items-center justify-between">
           <button
             onClick={() => setViewState('TESTS')}
-            className="text-xs font-bold text-[#4B5563] hover:text-[#0F766E] transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center text-sm font-bold text-[#4B5563] hover:text-[#111827] shadow-sm transition-colors cursor-pointer"
+            title="Exit Test"
           >
-            ← Exit Test
+            ✕
           </button>
-          <div className="text-center">
-            <h2 className="text-sm font-bold text-[#1F2937]">{selectedTestTitle}</h2>
-            <div className="flex justify-center gap-2 mt-1">
-              {[1, 2, 3].map((p) => (
-                <button
-                  key={p}
-                  onClick={() => {
-                    setSelectedPart(p);
-                    setCurrentQuestionIndex(0);
-                  }}
-                  className={`px-3 py-0.5 rounded-full text-[11px] font-bold transition-all cursor-pointer ${
-                    selectedPart === p
-                      ? 'bg-[#0F766E] text-white'
-                      : 'bg-[#E6F4F1] text-[#0F766E] hover:bg-[#CCECE6]'
-                  }`}
-                >
-                  Part {p}
-                </button>
-              ))}
-            </div>
+          <div className="flex items-center gap-1.5 bg-white border border-[#E5E7EB] px-3.5 py-1.5 rounded-full shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[#DC2626] animate-pulse" />
+            <span className="text-xs font-bold text-[#374151]">00:01</span>
           </div>
-          <button
-            onClick={handleFinishTest}
-            disabled={submitting}
-            className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer"
-          >
-            {submitting ? 'Evaluating...' : 'Finish & Grade'}
-          </button>
         </div>
 
-        {/* Question Card */}
-        <div className="bg-white rounded-3xl p-8 border border-[#E2E8F0] shadow-sm space-y-6">
-          <div className="flex items-center justify-between">
-            <span className="bg-[#E6F4F1] text-[#0F766E] px-3 py-1 rounded-full text-xs font-bold">
-              Question {currentQuestionIndex + 1} of {partQuestions.length}
-            </span>
-            <button
-              onClick={playQuestionAudio}
-              className="flex items-center gap-1.5 bg-[#0F766E] hover:bg-[#115E59] text-white px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer"
-            >
-              <span>{isPlayingAudio ? '🔊 Playing...' : '▶️ Play Audio'}</span>
-            </button>
-          </div>
-
-          <h3 className="text-lg font-bold text-[#1F2937] leading-snug">
-            {currentQuestion?.question}
-          </h3>
-
-          {/* Part 2 Cue Card Bullets */}
-          {currentQuestion?.youShouldSay && (
-            <div className="bg-[#F8F9FB] rounded-2xl p-5 border border-[#E5E7EB] space-y-2">
-              <p className="text-xs font-bold text-[#374151]">You should say:</p>
-              <ul className="list-disc pl-5 space-y-1 text-xs text-[#4B5563]">
-                {currentQuestion.youShouldSay.map((bullet, idx) => (
-                  <li key={idx}>{bullet}</li>
-                ))}
-              </ul>
-              <div className="pt-2 flex items-center gap-3">
-                <button
-                  onClick={() => {
-                    setIsPrepping(true);
-                    setPrepTimeLeft(60);
+        {/* Question Card with Floating Examiner Avatar */}
+        <div className="relative pt-12">
+          {/* Floating Examiner Avatar overlapping card top */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+            <div className="w-[86px] h-[86px] rounded-full p-[2.5px] bg-gradient-to-br from-[#F472B6] via-[#A855F7] to-[#60A5FA] shadow-lg shadow-purple-500/15">
+              <div className="w-full h-full rounded-full p-[1.5px] bg-white">
+                <img
+                  src="/examiner_avatar.png"
+                  alt="Examiner"
+                  className="w-full h-full object-cover rounded-full"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200';
                   }}
-                  disabled={isPrepping}
-                  className="bg-[#F97316] text-white px-3 py-1 rounded-lg text-xs font-bold cursor-pointer"
-                >
-                  {isPrepping ? `Prep Time: ${prepTimeLeft}s` : '1 Min Prep Timer'}
-                </button>
+                />
               </div>
             </div>
-          )}
-
-          {/* Transcript Toggle */}
-          <div>
-            <button
-              onClick={() => setShowTranscript(!showTranscript)}
-              className="text-[11px] font-bold text-[#0F766E] hover:underline cursor-pointer"
-            >
-              {showTranscript ? 'Hide Examiner Transcript' : 'Show Examiner Transcript'}
-            </button>
-            {showTranscript && (
-              <p className="mt-2 text-xs text-[#4B5563] bg-[#F9FBFA] p-3 rounded-xl border border-[#E2E8F0] italic">
-                "{currentQuestion?.transcript}"
-              </p>
-            )}
           </div>
 
-          {/* User Response Area */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-[#374151]">Your Spoken Response:</span>
-              <span className="text-[#0F766E] font-bold">{wordCount} words</span>
+          <div className="bg-white rounded-3xl p-6 sm:p-8 pt-14 border border-[#E2E8F0] shadow-sm space-y-6">
+            {/* Top Row: Part Badge & Status */}
+            <div className="flex items-center justify-between">
+              <span className="bg-[#E6F4F1] text-[#0F766E] px-3 py-1 rounded-full text-xs font-bold">
+                Part {selectedPart}
+              </span>
+
+              {isPlayingAudio || isRecording ? (
+                <span className="text-[#DC2626] text-xs font-bold flex items-center gap-1.5 animate-pulse">
+                  <span className="text-[10px]">●●●</span>
+                  <span>Speaking</span>
+                </span>
+              ) : (
+                <button
+                  onClick={playQuestionAudio}
+                  className="flex items-center gap-1.5 bg-[#0F766E] hover:bg-[#115E59] text-white px-3.5 py-1 rounded-full text-xs font-bold transition-all cursor-pointer shadow-sm"
+                >
+                  <span>▶️ Play Audio</span>
+                </button>
+              )}
             </div>
-            <textarea
-              rows={4}
-              value={currentAnswer}
-              onChange={(e) =>
-                setUserResponses({
-                  ...userResponses,
-                  [currentQuestionIndex]: e.target.value,
-                })
-              }
-              placeholder="Click the microphone to record your speech, or type your response here..."
-              className="w-full bg-[#F9FBFA] border border-[#E2E8F0] rounded-2xl p-4 text-xs text-[#1F2937] focus:outline-none focus:border-[#0F766E] transition-all leading-relaxed"
-            />
-          </div>
 
-          {/* Controls */}
-          <div className="flex items-center justify-between pt-2">
-            <button
-              onClick={toggleRecording}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                isRecording
-                  ? 'bg-[#DC2626] text-white animate-pulse shadow-md shadow-red-200'
-                  : 'bg-[#0F766E] hover:bg-[#115E59] text-white shadow-sm'
-              }`}
-            >
-              <span>{isRecording ? '⏹️ Stop Recording' : '🎙️ Record Speech'}</span>
-            </button>
+            {/* Question Text */}
+            <div className="text-center space-y-2">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#111827] leading-snug max-w-xl mx-auto">
+                {`Q${globalQNum}: ${currentQuestion?.question}`}
+              </h3>
+            </div>
 
-            <div className="flex items-center gap-2">
+            {/* Part 2 Cue Card Bullets */}
+            {currentQuestion?.youShouldSay && (
+              <div className="bg-[#F9FAFB] rounded-2xl p-5 border border-[#E5E7EB] text-left max-w-xl mx-auto space-y-2">
+                <p className="text-xs font-bold text-[#4B5563]">You should say:</p>
+                <ul className="space-y-1.5 text-xs text-[#374151]">
+                  {currentQuestion.youShouldSay.map((bullet, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-[#B91C1C] font-bold">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-2">
+                  <button
+                    onClick={() => {
+                      setIsPrepping(true);
+                      setPrepTimeLeft(60);
+                    }}
+                    disabled={isPrepping}
+                    className="bg-[#F97316] hover:bg-[#EA580C] text-white px-3.5 py-1.5 rounded-lg text-xs font-bold cursor-pointer transition-all"
+                  >
+                    {isPrepping ? `Prep Time: ${prepTimeLeft}s` : '⏱️ 1 Min Prep Timer'}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* 26-Bar Pastel Waveform */}
+            <div className="py-1 flex justify-center items-center gap-[3px] h-8">
+              {waveformHeights.map((h, idx) => (
+                <div
+                  key={idx}
+                  className="w-1 rounded-full transition-all duration-150"
+                  style={{
+                    height: `${h}px`,
+                    backgroundColor: PASTEL_WAVE_COLORS[idx % PASTEL_WAVE_COLORS.length],
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Progress Capsule & Thin Red Bar */}
+            <div className="space-y-2 text-center">
+              <div className="inline-block bg-[#F3F4F6] text-[#4B5563] text-xs font-semibold px-4 py-1.5 rounded-full">
+                {capsuleText}
+              </div>
+              <div className="w-full max-w-md mx-auto">
+                <div className="h-1 bg-[#F3F4F6] rounded-full overflow-hidden">
+                  <div
+                    className="bg-[#B91C1C] h-full transition-all duration-300 rounded-full"
+                    style={{ width: `${(progressFactor * 100).toFixed(1)}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Spoken Response / Live Transcript Area */}
+            <div className="space-y-2 text-left max-w-xl mx-auto">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-bold text-[#374151]">Your Spoken Response:</span>
+                <span className="text-[#0F766E] font-bold">{wordCount} words</span>
+              </div>
+              <textarea
+                rows={3}
+                value={currentAnswer}
+                onChange={(e) =>
+                  setUserResponses({
+                    ...userResponses,
+                    [currentQuestionIndex]: e.target.value,
+                  })
+                }
+                placeholder="Click the microphone below to record your speech, or type your response here..."
+                className="w-full bg-[#F9FBFA] border border-[#E2E8F0] rounded-2xl p-4 text-xs text-[#1F2937] focus:outline-none focus:border-[#0F766E] transition-all leading-relaxed"
+              />
+            </div>
+
+            {/* Transcript Toggle */}
+            <div className="text-center">
+              <button
+                onClick={() => setShowTranscript(!showTranscript)}
+                className="text-[11px] font-bold text-[#0F766E] hover:underline cursor-pointer"
+              >
+                {showTranscript ? 'Hide Examiner Transcript' : 'Show Examiner Transcript'}
+              </button>
+              {showTranscript && (
+                <p className="mt-2 text-xs text-[#4B5563] bg-[#F9FBFA] p-3 rounded-xl border border-[#E2E8F0] italic max-w-xl mx-auto">
+                  "{currentQuestion?.transcript}"
+                </p>
+              )}
+            </div>
+
+            {/* Bottom Control Area: Speaking status / 72px Mic button */}
+            <div className="pt-2 flex flex-col items-center justify-center space-y-3">
+              {isPlayingAudio ? (
+                <div
+                  onClick={() => {
+                    if (audioRef.current) audioRef.current.pause();
+                    setIsPlayingAudio(false);
+                  }}
+                  className="cursor-pointer text-center space-y-3"
+                >
+                  <p className="text-sm font-medium text-[#6B7280]">Examiner is speaking...</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626]" />
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <p className="text-sm font-medium text-[#6B7280]">
+                    {isRecording ? 'Recording your answer...' : 'Tap the microphone to answer'}
+                  </p>
+                  <button
+                    onClick={toggleRecording}
+                    className={`w-[72px] h-[72px] rounded-full flex items-center justify-center transition-all cursor-pointer shadow-xl ${
+                      isRecording
+                        ? 'bg-[#DC2626] shadow-red-500/40 animate-pulse scale-105'
+                        : 'bg-[#DC2626] hover:bg-[#B91C1C] shadow-red-500/30 hover:scale-105 active:scale-95'
+                    }`}
+                  >
+                    {isRecording ? (
+                      <div className="w-6 h-6 bg-white rounded-sm" />
+                    ) : (
+                      <span className="text-3xl text-white">🎙️</span>
+                    )}
+                  </button>
+                  <p className="text-xs text-[#9CA3AF]">
+                    {isRecording ? 'Tap when finished' : 'Tap to answer'}
+                  </p>
+                </>
+              )}
+            </div>
+
+            {/* Bottom Navigation */}
+            <div className="flex items-center justify-between pt-4 border-t border-[#F1F5F9]">
               <button
                 onClick={() => setCurrentQuestionIndex((prev) => Math.max(0, prev - 1))}
                 disabled={currentQuestionIndex === 0}
-                className="px-3 py-2 rounded-xl text-xs font-bold border border-[#E2E8F0] disabled:opacity-40 cursor-pointer"
+                className="px-4 py-2 rounded-xl text-xs font-bold border border-[#E2E8F0] hover:bg-gray-50 disabled:opacity-40 cursor-pointer"
               >
-                Previous
+                ← Previous
               </button>
-              <button
-                onClick={() => setCurrentQuestionIndex((prev) => Math.min(partQuestions.length - 1, prev + 1))}
-                disabled={currentQuestionIndex === partQuestions.length - 1}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-[#0F766E] text-white disabled:opacity-40 cursor-pointer"
-              >
-                Next
-              </button>
+              <div className="flex gap-2">
+                {currentQuestionIndex < partQuestions.length - 1 ? (
+                  <button
+                    onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}
+                    className="px-5 py-2 rounded-xl text-xs font-bold bg-[#0F766E] hover:bg-[#115E59] text-white cursor-pointer"
+                  >
+                    Next Question →
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleFinishTest}
+                    disabled={submitting}
+                    className="px-5 py-2 rounded-xl text-xs font-bold bg-[#DC2626] hover:bg-[#B91C1C] text-white cursor-pointer shadow-md"
+                  >
+                    {submitting ? 'Evaluating...' : 'Complete & See Results →'}
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
