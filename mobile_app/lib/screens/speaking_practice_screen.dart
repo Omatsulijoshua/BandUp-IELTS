@@ -632,7 +632,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'In my country, multi-story apartment complexes are extremely popular in major urban centers due to space constraints, whereas detached family homes with gardens remain the preferred choice in suburban and rural areas.',
+      'transcript': 'In my country, detached houses are the most popular choice, particularly for families, because they offer more privacy and outdoor space. Many people aspire to own a house with a garden, as it is seen as a sign of success and provides a better environment for raising children. Recently, however, high-rise apartments have become more common in urban centers due to rapid population growth and limited land availability.',
     },
     {
       'question': 'What do you think are the advantages of living in a house rather than an apartment?',
@@ -642,7 +642,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'Living in a house offers several key advantages, such as greater privacy, additional living space, and private outdoor areas like gardens or backyards. Furthermore, homeowners have full freedom to renovate or expand their property without needing permission from a building management association.',
+      'transcript': 'Living in a house offers several significant advantages, most notably the sense of independence and direct access to private outdoor areas like a yard or patio. Unlike apartments, houses generally do not share walls with neighbors, which significantly reduces noise disturbances. Furthermore, home ownership often provides more flexibility for renovations and personal customization, allowing residents to create a space that truly reflects their lifestyle.',
     },
     {
       'question': 'Do you think that everyone would like to live in a larger home? Why is that?',
@@ -652,7 +652,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'Not necessarily. While many people desire extra space for comfort, hobbies, or growing families, others prefer smaller homes because they require less maintenance, lower utility expenses, and are easier to keep clean. Minimalist lifestyles are also becoming increasingly popular.',
+      'transcript': 'I believe that most people do aspire to live in a larger home, primarily because it offers more comfort and better storage for personal belongings. A spacious environment can significantly reduce stress and improve one\'s quality of life, especially for those working from home or raising a family. However, some individuals might prefer a smaller, more manageable space to minimize maintenance efforts and utility costs.',
     },
     {
       'question': 'How easy is it to find a place to live in your country?',
@@ -662,7 +662,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'It varies depending on location and financial resources. In major metropolitan areas, finding affordable housing can be quite challenging due to high demand, rising rental prices, and competitive real estate markets. However, in suburban or regional towns, housing is generally more accessible and reasonably priced.',
+      'transcript': 'Finding suitable accommodation in my country has become increasingly challenging in recent years. In major cities, the demand for housing far outstrips supply, which has led to a sharp rise in both property prices and rental rates. Consequently, many young people struggle to find affordable housing, often having to compromise on location or living space to stay within their budgets.',
     },
     {
       'question': 'Do you think it\'s better to rent or to buy a place to live in? Why?',
@@ -672,7 +672,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'Both options have distinct benefits. Buying a home is a great long-term financial investment that provides stability and security. On the other hand, renting affords mobility and flexibility, allowing individuals to relocate easily without the burden of property taxes or maintenance costs.',
+      'transcript': 'Deciding whether to rent or buy largely depends on an individual\'s financial situation and long-term plans. Buying a property is often viewed as a wise long-term investment that provides stability and equity. In contrast, renting offers flexibility and fewer responsibilities regarding maintenance and property taxes, making it ideal for those who value mobility.',
     },
     {
       'question': 'Do you agree that there is a right age for young adults to stop living with their parents? Why is that?',
@@ -682,7 +682,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'promptEnd': 5.0,
       'end': 5.0,
       'part': 3,
-      'transcript': 'I don\'t believe there is a fixed age because personal independence depends on financial stability, cultural norms, and local economic conditions. While moving out encourages self-reliance and personal growth, living with parents longer is very common in many cultures to save money for future homeownership.',
+      'transcript': 'I don\'t think there is a specific age that applies to everyone, as it largely depends on individual maturity, financial independence, and cultural context. In many Western societies, moving out around the age of 18 or after university is customary to foster self-reliance. However, in many other cultures, young adults remain with their parents until marriage, which helps them save money and maintain close family ties.',
     },
   ];
 
