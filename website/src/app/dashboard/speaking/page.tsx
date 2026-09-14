@@ -2805,13 +2805,13 @@ export default function SpeakingPracticePage() {
               { title: 'Grammatical Range', color: '#F97316', data: examinerResults.grammar },
               { title: 'Pronunciation', color: '#10B981', data: examinerResults.pronunciation },
             ].map((crit, idx) => {
-              const isZero = crit.data?.score === 0;
+              const isCheckmarkStyle = crit.data?.score === 0 || selectedPart === 3;
               return (
                 <div key={idx} className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-sm flex flex-col justify-between space-y-3">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2.5">
-                        {isZero ? (
+                        {isCheckmarkStyle ? (
                           <div
                             className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
                             style={{ backgroundColor: `${crit.color}20`, color: crit.color }}
@@ -2823,9 +2823,9 @@ export default function SpeakingPracticePage() {
                         )}
                         <span className="text-sm font-bold text-[#1F2937]">{crit.title}</span>
                       </div>
-                      {isZero ? (
+                      {isCheckmarkStyle ? (
                         <span className="text-2xl font-bold" style={{ color: crit.color }}>
-                          0
+                          {crit.data?.score ?? 0}
                         </span>
                       ) : (
                         <span className="bg-[#DC2626] text-white px-2 py-0.5 rounded text-xs font-extrabold">
@@ -2835,7 +2835,7 @@ export default function SpeakingPracticePage() {
                     </div>
                     <p className="text-xs text-[#4B5563] leading-relaxed">{crit.data?.feedback}</p>
                   </div>
-                  {!isZero && <div className="w-20 h-1 rounded bg-[#DC2626]" />}
+                  {!isCheckmarkStyle && <div className="w-20 h-1 rounded bg-[#DC2626]" />}
                 </div>
               );
             })}
@@ -2900,15 +2900,19 @@ export default function SpeakingPracticePage() {
             <h3 className="text-base font-extrabold text-[#1F2937]">Your Responses</h3>
             <div className="space-y-4">
               {examinerResults.responses.map((resp: any, idx: number) => (
-                <div key={idx} className="border-b border-[#F3F4F6] pb-4 last:border-0 last:pb-0 space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="bg-[#DC2626] text-white px-2 py-0.5 rounded text-[10px] font-bold">
+                <div key={idx} className="border-b border-[#F3F4F6] pb-4 last:border-0 last:pb-0 space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span className="bg-[#DC2626] text-white px-2 py-0.5 rounded text-[11px] font-bold shrink-0">
                       {resp.questionNumber}
                     </span>
+                    <span className="text-xs font-bold text-[#1F2937] leading-tight">
+                      {resp.questionText}
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#4B5563] pl-1">{resp.answer}</p>
+                  <div className="flex justify-end">
                     <span className="text-[11px] font-bold text-[#DC2626]">{resp.wordCount} words</span>
                   </div>
-                  <p className="text-xs font-bold text-[#374151]">{resp.questionText}</p>
-                  <p className="text-xs text-[#4B5563] italic">"{resp.answer}"</p>
                 </div>
               ))}
             </div>
