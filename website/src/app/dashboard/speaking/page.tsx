@@ -1810,13 +1810,21 @@ export default function SpeakingPracticePage() {
     } else {
       if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
+      } else if (selectedTestTitle.includes('Book 13 Test 4')) {
+        band = selectedPart === 2 ? 0.0 : 1.0;
       } else {
         band = selectedPart === 3 ? 0.0 : 1.0;
       }
     }
 
     const intBand = isSingleWordOrMinimal
-      ? (selectedTestTitle.includes('Book 14 Test 2') ? (selectedPart === 1 ? 0 : 1) : (selectedTestTitle.includes('Book 13 Test 2') ? (selectedPart === 1 ? 2 : 1) : (selectedPart === 3 ? 0 : 1)))
+      ? (selectedTestTitle.includes('Book 14 Test 2')
+          ? (selectedPart === 1 ? 0 : 1)
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? (selectedPart === 2 ? 0 : 1)
+          : selectedTestTitle.includes('Book 13 Test 2')
+          ? (selectedPart === 1 ? 2 : 1)
+          : (selectedPart === 3 ? 0 : 1))
       : Math.round(band);
 
     let fluencyFeedback = '';
@@ -1829,6 +1837,10 @@ export default function SpeakingPracticePage() {
       if (selectedPart === 3) {
         fluencyFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "Your answers were completely irrelevant and failed to address the questions. Answering 'No' to complex, open-ended questions demonstrates a total failure to participate in the exam."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "Your responses were entirely irrelevant to the content of the questions. Providing a one-word answer ('No') to open-ended questions demonstrates a failure to engage with the test format."
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? "The candidate failed to provide any relevant answers. Every response was either a single word or a question ('What', 'Why'), which is completely irrelevant to the questions asked. This indicates a total failure to engage with the task."
           : selectedTestTitle.includes('Book 13 Test 3')
           ? "Your answers were almost entirely irrelevant or failed to address the task. Most responses were either single words ('No') or completely off-topic ('Video', 'You hear me'). You did not demonstrate the ability to maintain a conversation or answer questions."
           : selectedTestTitle.includes('Book 13 Test 2')
@@ -1836,6 +1848,10 @@ export default function SpeakingPracticePage() {
           : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
         lexicalFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no vocabulary range to assess as you only provided a single-word response for every question."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "There is no vocabulary range or usage to assess from repetitive one-word responses."
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? "There is no evidence of vocabulary range or usage. The candidate provided no substantive content to evaluate."
           : selectedTestTitle.includes('Book 13 Test 3')
           ? "There is no evidence of lexical resource as you did not provide any meaningful sentences."
           : selectedTestTitle.includes('Book 13 Test 2')
@@ -1843,6 +1859,10 @@ export default function SpeakingPracticePage() {
           : "There is no vocabulary to assess.";
         grammarFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "No grammatical structures were produced."
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? "There is no evidence of grammatical structure or range. The candidate provided no complete sentences."
           : selectedTestTitle.includes('Book 13 Test 3')
           ? "There is no evidence of grammatical range or accuracy."
           : selectedTestTitle.includes('Book 13 Test 2')
@@ -1850,6 +1870,10 @@ export default function SpeakingPracticePage() {
           : "There is no grammar to assess.";
         pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "Cannot assess pronunciation based on a single word; however, you must speak in full, coherent sentences to be evaluated."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "Insufficient speech to evaluate pronunciation."
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? "As the candidate did not produce meaningful speech, pronunciation cannot be assessed. Please practice speaking in full, coherent sentences."
           : selectedTestTitle.includes('Book 13 Test 3')
           ? "It is impossible to assess pronunciation due to the lack of spoken content. You must provide full, articulated sentences in response to the examiner's questions."
           : selectedTestTitle.includes('Book 13 Test 2')
@@ -1862,6 +1886,20 @@ export default function SpeakingPracticePage() {
               "Practice expanding your answers by using the 'Answer-Reason-Example' structure.",
               "Familiarize yourself with the IELTS Speaking format; it is a conversation, not a Yes/No questionnaire.",
               "Listen to sample band 7-9 responses to understand the depth and length required for Part 3 questions."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? [
+              "Stop answering with one-word responses. IELTS Part 3 requires in-depth discussion and detailed analysis.",
+              "Always explain your reasoning and provide concrete examples to support your point of view.",
+              "Practice connecting your thoughts using complex sentences and discourse markers like 'Furthermore', 'Consequently', and 'In contrast'.",
+              "Take time to fully understand the question and address all aspects of the discussion topic."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? [
+              "You must answer the specific question asked. Replying with 'Why' or 'What' is not an answer and will result in a failing score.",
+              "Practice speaking in full, complete sentences rather than single words.",
+              "Ensure you understand the topic of the question before speaking; if you do not understand, ask the examiner to repeat the question rather than giving an irrelevant response.",
+              "Record yourself answering IELTS practice questions and listen to ensure you are actually addressing the prompt provided."
             ]
           : selectedTestTitle.includes('Book 13 Test 3')
           ? [
@@ -1888,6 +1926,8 @@ export default function SpeakingPracticePage() {
       } else if (selectedPart === 2) {
         fluencyFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "Your answer was completely insufficient. You provided a one-word response ('No') to a Part 2 prompt, which requires a 1-2 minute descriptive talk. This is not a valid attempt at the task."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "Your answer was empty. You provided no response to the prompt, which makes it impossible to assess your fluency or coherence. This is a failure to complete the task."
           : selectedTestTitle.includes('Book 13 Test 1')
           ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a person who started a business, but you only provided a single, nonsensical word ('Where'). This fails to address the task entirely."
           : selectedTestTitle.includes('Book 13 Test 3')
@@ -1899,6 +1939,8 @@ export default function SpeakingPracticePage() {
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
         lexicalFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no vocabulary to assess."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "No vocabulary was produced to assess."
           : selectedTestTitle.includes('Book 13 Test 1')
           ? "There is no evidence of vocabulary range or accuracy as you only spoke one word."
           : selectedTestTitle.includes('Book 13 Test 3')
@@ -1910,6 +1952,8 @@ export default function SpeakingPracticePage() {
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
         grammarFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "No grammatical structures were produced to assess."
           : selectedTestTitle.includes('Book 13 Test 1')
           ? "There is no evidence of grammatical structure or range."
           : selectedTestTitle.includes('Book 13 Test 3')
@@ -1921,6 +1965,8 @@ export default function SpeakingPracticePage() {
           : "There is no grammatical range to evaluate.";
         pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no continuous speech to assess."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "No speech was produced to assess."
           : selectedTestTitle.includes('Book 13 Test 1')
           ? "Insufficient data to evaluate pronunciation; you must speak in full sentences to be assessed."
           : selectedTestTitle.includes('Book 13 Test 3')
@@ -1937,6 +1983,14 @@ export default function SpeakingPracticePage() {
               "Practice using the bullet points provided in the exam prompt to organize your thoughts.",
               "If you do not have an answer, you must still attempt to speak about a related topic to demonstrate language ability.",
               "Do not refuse to answer; the examiner needs to hear your English to provide a score."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? [
+              "You must provide a spoken response to the question; silence results in a band 0.",
+              "In Part 2, you are expected to speak for 1-2 minutes. Practice organizing your thoughts using the bullet points provided in the cue card.",
+              "If you do not know what to say, try to talk about a common website like Google, Wikipedia, or an online learning platform, and explain why it is useful.",
+              "Ensure you address every part of the prompt (the website name, how you use it, why it helps you, and why you find it useful).",
+              "Practice speaking continuously without long pauses to build your fluency."
             ]
           : selectedTestTitle.includes('Book 13 Test 1')
           ? [
@@ -1979,6 +2033,8 @@ export default function SpeakingPracticePage() {
       } else {
         fluencyFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "The candidate provided no responses to any of the questions. The answers were empty/refusals, which makes them completely incoherent and irrelevant to the task."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "The responses are extremely limited and fail to address the 'Why/why not' components of the questions. Providing one-word answers is not acceptable for an IELTS speaking test."
           : selectedTestTitle.includes('Book 13 Test 3')
           ? "Your answers were highly irrelevant and failed to address the task. Providing a one-word answer ('No') to open-ended questions that require explanation ('Why/why not?') demonstrates a complete inability to engage with the test format."
           : selectedTestTitle.includes('Book 13 Test 2')
@@ -1990,6 +2046,8 @@ export default function SpeakingPracticePage() {
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
         lexicalFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no vocabulary to assess."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "The vocabulary is non-existent beyond a single negative particle. There is no demonstration of range or ability to discuss topics."
           : selectedTestTitle.includes('Book 13 Test 3')
           ? "There is no vocabulary range to assess. Using a single word repeatedly is not indicative of language proficiency."
           : selectedTestTitle.includes('Book 13 Test 2')
@@ -2001,6 +2059,8 @@ export default function SpeakingPracticePage() {
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
         grammarFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "It is impossible to assess grammar based on single-word responses. You failed to provide any sentence structures."
           : selectedTestTitle.includes('Book 13 Test 3')
           ? "There is no grammatical structure to assess. You failed to form full sentences."
           : selectedTestTitle.includes('Book 13 Test 2')
@@ -2012,6 +2072,8 @@ export default function SpeakingPracticePage() {
           : "There is no grammatical range to assess as no full sentences were produced.";
         pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 2')
           ? "There was no speech to evaluate."
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? "The sample size is too small to evaluate pronunciation, but the lack of engagement suggests a failure to demonstrate communicative intent."
           : selectedTestTitle.includes('Book 13 Test 3')
           ? "Insufficient data to assess pronunciation; however, the lack of effort in providing a verbal response makes a score of 1 mandatory."
           : selectedTestTitle.includes('Book 13 Test 2')
@@ -2028,6 +2090,14 @@ export default function SpeakingPracticePage() {
               "If you do not know the answer to a question, try to explain why or talk about your general feelings on the topic rather than refusing to answer.",
               "Practice expanding your answers by using the 'Answer + Reason + Example' structure.",
               "Remember that the examiner cannot assess your level if you do not provide assessable language."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 4')
+          ? [
+              "Stop providing one-word answers. You must speak in full, developed sentences to demonstrate your language ability.",
+              "Always address the 'Why' or 'Why not' part of the question. This is a requirement for a passing score.",
+              "Practice the 'Extended Answer' technique: State your answer, give a reason, and provide an example or a personal detail.",
+              "Understand that the examiner needs to hear you speak to give you a score. By saying 'No', you are essentially refusing to take the test.",
+              "Review IELTS Part 1 strategies, which require you to elaborate on your experiences and opinions."
             ]
           : selectedTestTitle.includes('Book 13 Test 3')
           ? [
@@ -2088,9 +2158,11 @@ export default function SpeakingPracticePage() {
     const detailedResponses = partQuestions.map((q, i) => {
       const userAns = responsesList[i] || 'No verbal response recorded';
       const words = userAns === 'No verbal response recorded' ? 0 : userAns.split(/\s+/).filter(Boolean).length;
+      const globalQIndex = activeQuestions.indexOf(q);
+      const globalQNum = globalQIndex !== -1 ? globalQIndex + 1 : i + 1;
       return {
         questionNumber: `Q${i + 1}`,
-        questionText: q.question,
+        questionText: `Q${globalQNum}: ${q.question}`,
         answer: userAns,
         wordCount: words,
       };
@@ -2277,12 +2349,12 @@ export default function SpeakingPracticePage() {
               {examinerResults.mistakes.map((m: any, idx: number) => (
                 <div key={idx} className="border-b border-[#F3F4F6] pb-5 last:border-0 last:pb-0 space-y-2">
                   <p className="text-xs font-bold text-[#B91C1C]">{m.question}</p>
-                  <div>
-                    <span className="inline-block bg-[#FEF2F2] border border-[#FEE2E2] rounded-lg px-2.5 py-1 text-xs text-[#DC2626] line-through font-medium">
-                      {m.wrong}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 pt-1">
+                  <div className="flex flex-wrap gap-1.5 pt-1 items-center">
+                    {m.wrong && m.wrong !== 'No verbal response recorded' && (
+                      <span className="bg-[#FEE2E2] border border-[#FEE2E2] rounded px-2 py-0.5 text-xs text-[#DC2626] line-through font-medium">
+                        {m.wrong}
+                      </span>
+                    )}
                     {m.correct.split(/\s+/).filter(Boolean).map((word: string, wIdx: number) => (
                       <span key={wIdx} className="bg-[#DCFCE7] text-[#15803D] px-2 py-0.5 rounded text-xs font-medium">
                         {word}
@@ -2391,6 +2463,8 @@ export default function SpeakingPracticePage() {
                   <p className="text-xs text-[#6B7280] mt-1">
                     {title.includes('Book 14 Test 2')
                       ? 'Social Media Habits, Item Bought for Home & Accommodation Discussion'
+                      : title.includes('Book 13 Test 4')
+                      ? 'Animals & Birds, Useful Website Cue Card & The Internet / Social Media'
                       : title.includes('Book 13 Test 3')
                       ? 'Money & Shopping, Interesting Discussion Cue Card & Workplace Communication'
                       : title.includes('Book 13 Test 2')

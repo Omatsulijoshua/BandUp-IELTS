@@ -1692,9 +1692,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           'I generally prefer to have landscape photography or minimalist prints in my home. I find that these kinds of pictures create a calm and relaxing atmosphere, which is exactly what I want in my living space. I tend to avoid overly complex or abstract art because I find it a bit distracting.',
     },
 
-    // Part 2: Question 5 (Cue Card)
+    // Part 2: Question 5 (Cue Card - Visiting Workplace)
     {
-      'question': 'Describe a time when you saw a lot of plastic waste.',
+      'question':
+          'Describe a time when you visited a friend or family member at their workplace.',
       'audioAsset': 'q5.mp3',
       'duration': 3.7,
       'start': 0.0,
@@ -1702,18 +1703,18 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.7,
       'part': 2,
       'youShouldSay': [
-        'where and when you saw it',
-        'why there was so much plastic waste',
-        'what you did about it',
-        'and explain how you felt about seeing so much plastic waste'
+        'who you visited',
+        'where this person worked',
+        'why you visited this person\'s workplace',
+        'and explain how you felt about visiting this person\'s workplace'
       ],
       'transcript':
-          'I remember visiting a popular beach last summer and being shocked by the sheer amount of plastic waste scattered along the shoreline. There were plastic bottles, bags, and food containers left behind by visitors or washed ashore by ocean currents.',
+          'I remember a time when I visited my brother at his architecture firm. It was quite an eye-opening experience to see him in his professional environment, surrounded by blueprints and complex 3D models. The office had a very creative atmosphere, with everyone collaborating intensely on a new city project. I was particularly impressed by how he managed to balance his artistic vision with the strict technical requirements of the buildings. We ended up grabbing a quick lunch together nearby, where he told me more about the challenges of sustainable design.',
     },
 
-    // Part 3: Questions 6-11
+    // Part 3: Questions 6-11 (Workplace & Work Environment)
     {
-      'question': 'What are the main causes of environmental pollution?',
+      'question': 'What things make an office comfortable to work in?',
       'audioAsset': 'q6.mp3',
       'duration': 2.3,
       'start': 0.0,
@@ -1721,10 +1722,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.3,
       'part': 3,
       'transcript':
-          'Environmental pollution is primarily caused by industrial emissions, excessive use of single-use plastics, and vehicle exhaust fumes. Rapid urbanization and improper waste management also significantly contribute to the degradation of ecosystems.',
+          'A comfortable office requires ergonomic furniture, adequate natural lighting, and proper temperature control. Additionally, a quiet environment with minimal distractions and designated areas for relaxation or breaks can significantly enhance employee comfort and overall productivity.',
     },
     {
-      'question': 'How can individuals help reduce pollution in their daily lives?',
+      'question': 'Why do some people prefer to work outdoors?',
       'audioAsset': 'q7.mp3',
       'duration': 2.0,
       'start': 0.0,
@@ -1732,10 +1733,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.0,
       'part': 3,
       'transcript':
-          'Individuals can make a meaningful difference by adopting eco-friendly habits, such as reducing single-use plastic consumption, recycling household waste, using public transportation, and conserving energy and water at home.',
+          'Many individuals prefer working outdoors because it offers a sense of freedom and a connection with nature, avoiding the feeling of being confined in an office. Outdoor work can also be physically active and dynamically changing, which appeals to people who dislike repetitive desk jobs.',
     },
     {
-      'question': 'What role should governments play in protecting the environment?',
+      'question':
+          'Do you agree that the building people work in is more important than the colleagues they work with?',
       'audioAsset': 'q8.mp3',
       'duration': 4.7,
       'start': 0.0,
@@ -1743,10 +1745,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 4.7,
       'part': 3,
       'transcript':
-          'Governments play a vital role by enacting strict environmental regulations, penalizing industrial polluters, and investing in renewable energy infrastructure. They should also fund public awareness campaigns and support sustainable innovation.',
+          'I disagree with that view. While a well-equipped building provides physical comfort, colleagues play a far more vital role in day-to-day job satisfaction and team morale. Positive working relationships and mutual support foster a healthier work environment than a modern office building alone.',
     },
     {
-      'question': 'Do you think international cooperation is necessary to tackle global environmental issues?',
+      'question': 'What would life be like if people didn\'t have to work?',
       'audioAsset': 'q9.mp3',
       'duration': 2.7,
       'start': 0.0,
@@ -1754,10 +1756,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.7,
       'part': 3,
       'transcript':
-          'Yes, global environmental challenges like climate change and ocean pollution cross national borders, making international treaties and collaborative agreements essential for effective global action.',
+          'If people did not need to work for survival, society would likely shift its focus toward creative pursuits, lifelong learning, and leisure. However, without structured work, some individuals might struggle to find purpose and routine, making personal discipline and community engagement even more essential.',
     },
     {
-      'question': 'Will environmental conditions improve or worsen in the future?',
+      'question': 'Are all jobs of equal important?',
       'audioAsset': 'q10.mp3',
       'duration': 1.6,
       'start': 0.0,
@@ -1765,10 +1767,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 1.6,
       'part': 3,
       'transcript':
-          'While climate change poses severe threats, growing global awareness, advancements in green technology, and international environmental commitments offer hope for gradual improvement.',
+          'In terms of societal function, every job plays an essential role, whether it is manual labor or executive leadership. However, certain professions like healthcare and education are often viewed as more critical because they directly impact human life, safety, and societal development.',
     },
     {
-      'question': 'How can education foster environmental responsibility in young people?',
+      'question':
+          'Why do some people choose to do difficult or dangerous jobs?',
       'audioAsset': 'q11.mp3',
       'duration': 1.7,
       'start': 0.0,
@@ -1776,7 +1779,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 1.7,
       'part': 3,
       'transcript':
-          'Integrating environmental science and sustainability projects into school curricula teaches students the importance of ecological conservation and encourages lifelong eco-conscious habits.',
+          'People often choose high-risk or challenging careers due to higher financial compensation, a sense of duty, or personal fulfillment. For many, the unique thrills, specialized status, or desire to serve and protect their community outweigh the physical risks involved.',
     },
   ];
 
@@ -2203,6 +2206,146 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 13 TEST 4 (Animals & Birds / Useful Website Cue Card / The Internet & Social Media)
+  // ==========================================
+  final List<Map<String, dynamic>> _book13Test4Questions = [
+    // Part 1: Questions 1-4 (Animals & Birds)
+    {
+      'question': 'Are there many animals or birds where you live? [Why/why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.30,
+      'start': 0.0,
+      'promptEnd': 2.30,
+      'end': 2.30,
+      'part': 1,
+      'transcript':
+          'Actually, there are quite a few birds in my neighborhood, especially in the local park nearby. I often see pigeons and sparrows early in the morning. I enjoy having them around because their singing makes the environment feel much more peaceful and natural.',
+    },
+    {
+      'question': 'How often do you watch programmes or read articles about wild animals? [Why?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 3.80,
+      'start': 0.0,
+      'promptEnd': 3.80,
+      'end': 3.80,
+      'part': 1,
+      'transcript':
+          'I rarely watch programs about wild animals, to be honest. I tend to prefer watching documentaries about history or science instead. However, if a high-quality nature film comes out, I might watch it occasionally to learn more about different ecosystems.',
+    },
+    {
+      'question': 'Have you ever been to a zoo or a wildlife park? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.25,
+      'start': 0.0,
+      'promptEnd': 2.25,
+      'end': 2.25,
+      'part': 1,
+      'transcript':
+          'Yes, I have visited a large wildlife park a few times when I was younger. It was an interesting experience to see animals like lions and giraffes in a semi-natural habitat. I think it is a great way for people, especially children, to learn about conservation.',
+    },
+    {
+      'question': 'Would you like to have a job working with animals? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 1.85,
+      'start': 0.0,
+      'promptEnd': 1.85,
+      'end': 1.85,
+      'part': 1,
+      'transcript':
+          'I don\'t think I would want a career working with animals. While I find them fascinating, I am not trained in biology or veterinary medicine. I believe I am much better suited for a role in an office environment where I can use my organizational skills.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Useful Website)
+    {
+      'question': 'Describe a website you use that helps you a lot in your work or studies.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.35,
+      'start': 0.0,
+      'promptEnd': 3.35,
+      'end': 3.35,
+      'part': 2,
+      'youShouldSay': [
+        'what the website is',
+        'how often you use the website',
+        'what information the website gives you',
+        'and explain how your work or studies would change if this website didn\'t exist.'
+      ],
+      'transcript':
+          'One website that I rely on heavily for my studies is Google Scholar. It is an incredibly powerful search engine specifically designed for academic literature, including articles, theses, and books. I use it almost daily to find credible sources for my research papers and to stay updated with the latest findings in my field. What I find most helpful is the ability to filter results by date and relevance, which saves me a significant amount of time. Furthermore, the \'cite\' feature allows me to generate references in various formats instantly, which is a huge convenience when I am writing long essays.',
+    },
+
+    // Part 3: Questions 6-11 (Discussion - The Internet & Social Media)
+    {
+      'question': 'Why do some people find the internet addictive?',
+      'audioAsset': 'q6.mp3',
+      'duration': 1.85,
+      'start': 0.0,
+      'promptEnd': 1.85,
+      'end': 1.85,
+      'part': 3,
+      'transcript':
+          'Some people find the internet addictive because it offers an endless stream of personalized entertainment and social validation. The constant notifications from social media trigger dopamine releases, which keep users compulsively checking their devices. Furthermore, the internet provides a sense of escapism from daily stresses, making it difficult for some individuals to disconnect.',
+    },
+    {
+      'question': 'What would the world be like without the internet?',
+      'audioAsset': 'q7.mp3',
+      'duration': 1.60,
+      'start': 0.0,
+      'promptEnd': 1.60,
+      'end': 1.60,
+      'part': 3,
+      'transcript':
+          'Life without the internet would be significantly slower and more localized. Communication would rely heavily on traditional methods like physical mail or landline telephones, which would reduce the speed of global business. However, it might also lead to more face-to-face social interactions and a decrease in the digital distractions that currently fragment our attention spans.',
+    },
+    {
+      'question': 'Do you think that the way people use the internet may change in the future?',
+      'audioAsset': 'q8.mp3',
+      'duration': 4.20,
+      'start': 0.0,
+      'promptEnd': 4.20,
+      'end': 4.20,
+      'part': 3,
+      'transcript':
+          'Yes, I believe the way we use the internet will evolve toward more immersive experiences, such as the integration of augmented and virtual reality. As technology advances, the internet will likely become even more deeply embedded in our daily infrastructure, such as through smart homes and the Internet of Things. We will move from simply \'browsing\' content to living within interconnected digital environments.',
+    },
+    {
+      'question': 'What are the ways that social media can be used for positive purposes?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.70,
+      'start': 0.0,
+      'promptEnd': 2.70,
+      'end': 2.70,
+      'part': 3,
+      'transcript':
+          'Social media can be a powerful tool for social good when used to raise awareness for charitable causes or humanitarian crises. It allows communities to organize, share resources, and mobilize support much faster than traditional media. Additionally, it provides a platform for education, where experts can share knowledge and help people develop new skills regardless of their geographic location.',
+    },
+    {
+      'question':
+          'Why do some individuals post highly negative comments about other people on social media?',
+      'audioAsset': 'q10.mp3',
+      'duration': 4.75,
+      'start': 0.0,
+      'promptEnd': 4.75,
+      'end': 4.75,
+      'part': 3,
+      'transcript':
+          'Individuals often post negative comments due to the anonymity provided by the internet, which reduces their sense of accountability. This \'online disinhibition effect\' allows people to express aggression they would likely suppress in person. Some also seek attention or validation from like-minded groups by targeting others, turning negativity into a form of social currency within certain online subcultures.',
+    },
+    {
+      'question':
+          'Do you think that companies\' main form of advertising will be via social media in the future?',
+      'audioAsset': 'q11.mp3',
+      'duration': 4.80,
+      'start': 0.0,
+      'promptEnd': 4.80,
+      'end': 4.80,
+      'part': 3,
+      'transcript':
+          'I believe social media will certainly become a dominant, if not the primary, form of advertising for most companies. Its ability to provide hyper-targeted ads based on user behavior and preferences is far more cost-effective than traditional media like television or print. As algorithms become more sophisticated, companies will increasingly rely on social platforms to convert engagement directly into sales.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 14 TEST 1 (Future Plans & Career / Book that Made You Think Cue Card / Children's Books & Reading Discussion)
   // ==========================================
   final List<Map<String, dynamic>> _book14Test1Questions = [
@@ -2485,6 +2628,149 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 14 TEST 3 (Neighbours & Community / Difficult Task Succeeded At Cue Card / Difficult Jobs & Goals Discussion)
+  // ==========================================
+  final List<Map<String, dynamic>> _book14Test3Questions = [
+    // Part 1: Questions 1-4 (Neighbours & Community)
+    {
+      'question': 'How often do you see your neighbours? [Why/why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.65,
+      'start': 0.0,
+      'promptEnd': 1.65,
+      'end': 1.65,
+      'part': 1,
+      'transcript':
+          'I see my neighbours quite frequently, usually once or twice a week. We often bump into each other in the hallway or the communal garden, so we tend to stop and chat for a few minutes to catch up on how things are going.',
+    },
+    {
+      'question': 'Do you invite your neighbours to your home? [Why/why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 1.88,
+      'start': 0.0,
+      'promptEnd': 1.88,
+      'end': 1.88,
+      'part': 1,
+      'transcript':
+          'To be honest, I rarely invite my neighbours over to my home. While we are on friendly terms, I prefer to keep my home as a private space for my close family and friends rather than hosting formal social gatherings with neighbours.',
+    },
+    {
+      'question': 'Do you think you are a good neighbour? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 1.41,
+      'start': 0.0,
+      'promptEnd': 1.41,
+      'end': 1.41,
+      'part': 1,
+      'transcript':
+          'I believe I am a considerate neighbour because I always make sure to keep noise levels down, especially late at night. I also respect their privacy and always keep the shared areas of our building clean and tidy.',
+    },
+    {
+      'question': 'Has a neighbour ever helped you? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 1.57,
+      'start': 0.0,
+      'promptEnd': 1.57,
+      'end': 1.57,
+      'part': 1,
+      'transcript':
+          'I remember one instance when I was locked out of my apartment late at night. My neighbour kindly allowed me to use their phone to call a locksmith and even offered me a cup of tea while I waited for help.',
+    },
+
+    // Part 2: Question 5 (Cue Card: Difficult Task Succeeded At)
+    {
+      'question':
+          'Describe a very difficult task that you succeeded in doing as part of your work or studies.',
+      'audioAsset': 'q5.mp3',
+      'duration': 4.52,
+      'start': 0.0,
+      'promptEnd': 4.52,
+      'end': 4.52,
+      'part': 2,
+      'youShouldSay': [
+        'what task you did',
+        'why this task was very difficult',
+        'how you worked on this task',
+        'and explain how you felt when you had successfully completed this task.'
+      ],
+      'transcript':
+          'A particularly challenging task I faced during my final year of university was completing a comprehensive research project on climate change. The primary difficulty lay in gathering primary data from diverse sources and synthesizing it into a cohesive argument within a very tight deadline. To overcome this, I broke the project into smaller, manageable milestones and dedicated specific hours each day to data analysis. I successfully managed to submit the project two days early, and it ended up receiving the highest grade in my cohort. This experience taught me the importance of time management and persistence when tackling complex professional or academic challenges.',
+    },
+
+    // Part 3: Questions 6-11 (Difficult Jobs & Goals)
+    {
+      'question': 'What are the most difficult jobs that people do?',
+      'audioAsset': 'q6.mp3',
+      'duration': 1.59,
+      'start': 0.0,
+      'promptEnd': 1.59,
+      'end': 1.59,
+      'part': 3,
+      'transcript':
+          'Jobs that require high levels of physical labor or extreme mental pressure are often considered the most difficult. For example, surgeons face immense stress because they are responsible for human lives, while miners work in dangerous and physically exhausting environments. These roles demand not only specialized skill but also significant emotional resilience.',
+    },
+    {
+      'question': 'Why do you think some people choose to do difficult jobs?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.43,
+      'start': 0.0,
+      'promptEnd': 2.43,
+      'end': 2.43,
+      'part': 3,
+      'transcript':
+          'Many people are drawn to challenging careers because of the sense of personal fulfillment and the potential for high status. Others are motivated by the desire to solve complex problems or contribute to society in a meaningful way. Ultimately, the reward of overcoming difficult obstacles often outweighs the stress involved in these positions.',
+    },
+    {
+      'question':
+          'Do you agree or disagree that all jobs are difficult sometimes?',
+      'audioAsset': 'q8.mp3',
+      'duration': 2.95,
+      'start': 0.0,
+      'promptEnd': 2.95,
+      'end': 2.95,
+      'part': 3,
+      'transcript':
+          'I would agree with that statement to an extent. Every job has periods of high pressure, whether it involves meeting tight deadlines, managing difficult clients, or dealing with unexpected technical failures. Even routine jobs can become difficult if the environment is stressful or if the worker lacks the necessary support.',
+    },
+    {
+      'question':
+          'How important is it for everyone to have a goal in their personal life?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.77,
+      'start': 0.0,
+      'promptEnd': 2.77,
+      'end': 2.77,
+      'part': 3,
+      'transcript':
+          'Having a personal goal is fundamental to human motivation and direction. Without a goal, individuals often feel stagnant or lose their drive to improve. Goals provide a framework for decision-making and help people prioritize their time, which is essential for personal growth and long-term satisfaction.',
+    },
+    {
+      'question':
+          'Is it always necessary to work hard in order to achieve career success?',
+      'audioAsset': 'q10.mp3',
+      'duration': 4.18,
+      'start': 0.0,
+      'promptEnd': 4.18,
+      'end': 4.18,
+      'part': 3,
+      'transcript':
+          'Hard work is certainly a primary factor in career success, but it is not the only one. While dedication and persistence are necessary to master a craft, success also requires networking, adaptability, and sometimes a bit of luck. Relying solely on hard work without a strategy may not always lead to the desired results.',
+    },
+    {
+      'question':
+          'Do you think that successful people are always happy people?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.29,
+      'start': 0.0,
+      'promptEnd': 3.29,
+      'end': 3.29,
+      'part': 3,
+      'transcript':
+          'Not necessarily. While professional success often brings financial stability and recognition, it does not automatically equate to personal happiness. Many successful individuals experience high levels of stress and burnout. True happiness usually stems from a balance between professional achievements and personal well-being, such as healthy relationships and mental health.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
     if (_selectedTestTitle.contains('Book 10 Test 4')) {
@@ -2517,8 +2803,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book13Test2Questions;
     } else if (_selectedTestTitle.contains('Book 13 Test 3')) {
       return _book13Test3Questions;
+    } else if (_selectedTestTitle.contains('Book 13 Test 4')) {
+      return _book13Test4Questions;
+    } else if (_selectedTestTitle.contains('Book 14 Test 1')) {
+      return _book14Test1Questions;
     } else if (_selectedTestTitle.contains('Book 14 Test 2')) {
       return _book14Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 14 Test 3')) {
+      return _book14Test3Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
@@ -2623,7 +2915,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 13 Test 1') &&
         !folderName.contains('BOOK 13 Test 2') &&
         !folderName.contains('BOOK 13 Test 3') &&
+        !folderName.contains('BOOK 13 Test 4') &&
+        !folderName.contains('BOOK 14 Test 1') &&
         !folderName.contains('BOOK 14 Test 2') &&
+        !folderName.contains('BOOK 14 Test 3') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
@@ -3063,8 +3358,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           (bookNum == 10 && testNum >= 1 && testNum <= 4) ||
                           (bookNum == 11 && testNum >= 1 && testNum <= 4) ||
                           (bookNum == 12 && (testNum >= 1 && testNum <= 3)) ||
-                          (bookNum == 13 && (testNum >= 1 && testNum <= 3)) ||
-                          (bookNum == 14 && testNum == 2);
+                          (bookNum == 13 && (testNum >= 1 && testNum <= 4)) ||
+                          (bookNum == 14 && (testNum >= 1 && testNum <= 3));
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
@@ -4870,6 +5165,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           } else {
             overallBand = 1.0;
           }
+        } else if (isSingleWordOrMinimal && _selectedTestTitle.contains('Book 13 Test 4')) {
+          if (_selectedPart == 2) {
+            overallBand = 0.0;
+          } else {
+            overallBand = 1.0;
+          }
         } else if (isSingleWordOrMinimal && _selectedTestTitle.contains('Book 13 Test 2')) {
           if (_selectedPart == 1) {
             overallBand = 2.0;
@@ -4881,9 +5182,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         final int defScore = isSingleWordOrMinimal
             ? (_selectedTestTitle.contains('Book 14 Test 2')
                 ? (_selectedPart == 1 ? 0 : 1)
-                : _selectedTestTitle.contains('Book 13 Test 2')
-                    ? (_selectedPart == 1 ? 2 : 1)
-                    : (_selectedPart == 3 ? 0 : 1))
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                    ? (_selectedPart == 2 ? 0 : 1)
+                    : _selectedTestTitle.contains('Book 13 Test 2')
+                        ? (_selectedPart == 1 ? 2 : 1)
+                        : (_selectedPart == 3 ? 0 : 1))
             : 3;
         final fcScore = isSingleWordOrMinimal ? defScore.toDouble() : ((feedback['fluencyAndCoherence']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 3.0));
         final lrScore = isSingleWordOrMinimal ? defScore.toDouble() : ((feedback['lexicalResource']?['score'] as num?)?.toDouble() ?? (overallBand > 4 ? overallBand : 3.0));
@@ -4903,6 +5206,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           if (_selectedPart == 3) {
             fcFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "Your answers were completely irrelevant and failed to address the questions. Answering 'No' to complex, open-ended questions demonstrates a total failure to participate in the exam."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "Your responses were entirely irrelevant to the content of the questions. Providing a one-word answer ('No') to open-ended questions demonstrates a failure to engage with the test format."
+                : _selectedTestTitle.contains('Book 13 Test 1')
+                ? "The candidate failed to provide any relevant answers. Every response was either a single word or a question ('What', 'Why'), which is completely irrelevant to the questions asked. This indicates a total failure to engage with the task."
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? "Your answers were almost entirely irrelevant or failed to address the task. Most responses were either single words ('No') or completely off-topic ('Video', 'You hear me'). You did not demonstrate the ability to maintain a conversation or answer questions."
                 : _selectedTestTitle.contains('Book 13 Test 2')
@@ -4910,6 +5217,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
             lrFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "There is no vocabulary range to assess as you only provided a single-word response for every question."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "There is no vocabulary range or usage to assess from repetitive one-word responses."
+                : _selectedTestTitle.contains('Book 13 Test 1')
+                ? "There is no evidence of vocabulary range or usage. The candidate provided no substantive content to evaluate."
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? "There is no evidence of lexical resource as you did not provide any meaningful sentences."
                 : _selectedTestTitle.contains('Book 13 Test 2')
@@ -4917,6 +5228,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : "There is no vocabulary to assess.";
             grFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "There is no grammatical structure to assess."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "No grammatical structures were produced."
+                : _selectedTestTitle.contains('Book 13 Test 1')
+                ? "There is no evidence of grammatical structure or range. The candidate provided no complete sentences."
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? "There is no evidence of grammatical range or accuracy."
                 : _selectedTestTitle.contains('Book 13 Test 2')
@@ -4924,6 +5239,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : "There is no grammar to assess.";
             prFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "Cannot assess pronunciation based on a single word; however, you must speak in full, coherent sentences to be evaluated."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "Insufficient speech to evaluate pronunciation."
+                : _selectedTestTitle.contains('Book 13 Test 1')
+                ? "As the candidate did not produce meaningful speech, pronunciation cannot be assessed. Please practice speaking in full, coherent sentences."
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? "It is impossible to assess pronunciation due to the lack of spoken content. You must provide full, articulated sentences in response to the examiner's questions."
                 : _selectedTestTitle.contains('Book 13 Test 2')
@@ -4936,6 +5255,20 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     "Practice expanding your answers by using the 'Answer-Reason-Example' structure.",
                     "Familiarize yourself with the IELTS Speaking format; it is a conversation, not a Yes/No questionnaire.",
                     "Listen to sample band 7-9 responses to understand the depth and length required for Part 3 questions.",
+                  ]
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? [
+                    "Stop answering with one-word responses. IELTS Part 3 requires in-depth discussion and detailed analysis.",
+                    "Always explain your reasoning and provide concrete examples to support your point of view.",
+                    "Practice connecting your thoughts using complex sentences and discourse markers like 'Furthermore', 'Consequently', and 'In contrast'.",
+                    "Take time to fully understand the question and address all aspects of the discussion topic."
+                  ]
+                : _selectedTestTitle.contains('Book 13 Test 1')
+                ? [
+                    "You must answer the specific question asked. Replying with 'Why' or 'What' is not an answer and will result in a failing score.",
+                    "Practice speaking in full, complete sentences rather than single words.",
+                    "Ensure you understand the topic of the question before speaking; if you do not understand, ask the examiner to repeat the question rather than giving an irrelevant response.",
+                    "Record yourself answering IELTS practice questions and listen to ensure you are actually addressing the prompt provided."
                   ]
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? [
@@ -4962,6 +5295,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           } else if (_selectedPart == 2) {
             fcFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "Your answer was completely insufficient. You provided a one-word response ('No') to a Part 2 prompt, which requires a 1-2 minute descriptive talk. This is not a valid attempt at the task."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "Your answer was empty. You provided no response to the prompt, which makes it impossible to assess your fluency or coherence. This is a failure to complete the task."
                 : _selectedTestTitle.contains('Book 13 Test 1')
                 ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a person who started a business, but you only provided a single, nonsensical word ('Where'). This fails to address the task entirely."
                 : _selectedTestTitle.contains('Book 13 Test 3')
@@ -4973,6 +5308,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                             : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
             lrFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "There is no vocabulary to assess."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "No vocabulary was produced to assess."
                 : _selectedTestTitle.contains('Book 13 Test 1')
                 ? "There is no evidence of vocabulary range or accuracy as you only spoke one word."
                 : _selectedTestTitle.contains('Book 13 Test 3')
@@ -4984,6 +5321,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                             : "There is no lexical resource to evaluate as you only provided a single negative particle.";
             grFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "There is no grammatical structure to assess."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "No grammatical structures were produced to assess."
                 : _selectedTestTitle.contains('Book 13 Test 1')
                 ? "There is no evidence of grammatical structure or range."
                 : _selectedTestTitle.contains('Book 13 Test 3')
@@ -4995,6 +5334,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                             : "There is no grammatical range to evaluate.";
             prFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "There is no continuous speech to assess."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "No speech was produced to assess."
                 : _selectedTestTitle.contains('Book 13 Test 1')
                 ? "Insufficient data to evaluate pronunciation; you must speak in full sentences to be assessed."
                 : _selectedTestTitle.contains('Book 13 Test 3')
@@ -5011,6 +5352,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     "Practice using the bullet points provided in the exam prompt to organize your thoughts.",
                     "If you do not have an answer, you must still attempt to speak about a related topic to demonstrate language ability.",
                     "Do not refuse to answer; the examiner needs to hear your English to provide a score.",
+                  ]
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? [
+                    "You must provide a spoken response to the question; silence results in a band 0.",
+                    "In Part 2, you are expected to speak for 1-2 minutes. Practice organizing your thoughts using the bullet points provided in the cue card.",
+                    "If you do not know what to say, try to talk about a common website like Google, Wikipedia, or an online learning platform, and explain why it is useful.",
+                    "Ensure you address every part of the prompt (the website name, how you use it, why it helps you, and why you find it useful).",
+                    "Practice speaking continuously without long pauses to build your fluency."
                   ]
                 : _selectedTestTitle.contains('Book 13 Test 1')
                 ? [
@@ -5053,6 +5402,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           } else {
             fcFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "The candidate provided no responses to any of the questions. The answers were empty/refusals, which makes them completely incoherent and irrelevant to the task."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "The responses are extremely limited and fail to address the 'Why/why not' components of the questions. Providing one-word answers is not acceptable for an IELTS speaking test."
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? "Your answers were highly irrelevant and failed to address the task. Providing a one-word answer ('No') to open-ended questions that require explanation ('Why/why not?') demonstrates a complete inability to engage with the test format."
                 : _selectedTestTitle.contains('Book 13 Test 2')
@@ -5064,6 +5415,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
             lrFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "There is no vocabulary to assess."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "The vocabulary is non-existent beyond a single negative particle. There is no demonstration of range or ability to discuss topics."
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? "There is no vocabulary range to assess. Using a single word repeatedly is not indicative of language proficiency."
                 : _selectedTestTitle.contains('Book 13 Test 2')
@@ -5075,6 +5428,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
             grFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "There is no grammatical structure to assess."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "It is impossible to assess grammar based on single-word responses. You failed to provide any sentence structures."
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? "There is no grammatical structure to assess. You failed to form full sentences."
                 : _selectedTestTitle.contains('Book 13 Test 2')
@@ -5086,6 +5441,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : "There is no grammatical range to assess as no full sentences were produced.";
             prFeedback = _selectedTestTitle.contains('Book 14 Test 2')
                 ? "There was no speech to evaluate."
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? "The sample size is too small to evaluate pronunciation, but the lack of engagement suggests a failure to demonstrate communicative intent."
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? "Insufficient data to assess pronunciation; however, the lack of effort in providing a verbal response makes a score of 1 mandatory."
                 : _selectedTestTitle.contains('Book 13 Test 2')
@@ -5102,6 +5459,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     "If you do not know the answer to a question, try to explain why or talk about your general feelings on the topic rather than refusing to answer.",
                     "Practice expanding your answers by using the 'Answer + Reason + Example' structure.",
                     "Remember that the examiner cannot assess your level if you do not provide assessable language.",
+                  ]
+                : _selectedTestTitle.contains('Book 13 Test 4')
+                ? [
+                    "Stop providing one-word answers. You must speak in full, developed sentences to demonstrate your language ability.",
+                    "Always address the 'Why' or 'Why not' part of the question. This is a requirement for a passing score.",
+                    "Practice the 'Extended Answer' technique: State your answer, give a reason, and provide an example or a personal detail.",
+                    "Understand that the examiner needs to hear you speak to give you a score. By saying 'No', you are essentially refusing to take the test.",
+                    "Review IELTS Part 1 strategies, which require you to elaborate on your experiences and opinions."
                   ]
                 : _selectedTestTitle.contains('Book 13 Test 3')
                 ? [
@@ -5215,6 +5580,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       if (isSingleWordOrMinimal) {
         if (_selectedTestTitle.contains('Book 14 Test 2')) {
           band = _selectedPart == 1 ? 0.0 : 1.0;
+        } else if (_selectedTestTitle.contains('Book 13 Test 4')) {
+          band = _selectedPart == 2 ? 0.0 : 1.0;
         } else if (_selectedTestTitle.contains('Book 13 Test 2')) {
           band = _selectedPart == 1 ? 2.0 : 1.0;
         } else {
@@ -5233,6 +5600,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       } else {
         if (_selectedTestTitle.contains('Book 14 Test 2')) {
           band = _selectedPart == 1 ? 0.0 : 1.0;
+        } else if (_selectedTestTitle.contains('Book 13 Test 4')) {
+          band = _selectedPart == 2 ? 0.0 : 1.0;
         } else {
           band = _selectedPart == 3 ? 0.0 : 1.0;
         }
@@ -5241,9 +5610,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       final int intBand = isSingleWordOrMinimal
           ? (_selectedTestTitle.contains('Book 14 Test 2')
               ? (_selectedPart == 1 ? 0 : 1)
-              : _selectedTestTitle.contains('Book 13 Test 2')
-                  ? (_selectedPart == 1 ? 2 : 1)
-                  : (_selectedPart == 3 ? 0 : 1))
+              : _selectedTestTitle.contains('Book 13 Test 4')
+                  ? (_selectedPart == 2 ? 0 : 1)
+                  : _selectedTestTitle.contains('Book 13 Test 2')
+                      ? (_selectedPart == 1 ? 2 : 1)
+                      : (_selectedPart == 3 ? 0 : 1))
           : band.toInt();
       final bool hasNoSpokenWords = wordCountTotal == 0;
       final bool isBrief = avgWordsPerQuestion < 5;
@@ -5258,21 +5629,37 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         if (_selectedPart == 3) {
           fluencyFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "Your answers were completely irrelevant and failed to address the questions. Answering 'No' to complex, open-ended questions demonstrates a total failure to participate in the exam."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "Your responses were entirely irrelevant to the content of the questions. Providing a one-word answer ('No') to open-ended questions demonstrates a failure to engage with the test format."
+              : _selectedTestTitle.contains('Book 13 Test 1')
+              ? "The candidate failed to provide any relevant answers. Every response was either a single word or a question ('What', 'Why'), which is completely irrelevant to the questions asked. This indicates a total failure to engage with the task."
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? "Your answers were almost entirely irrelevant or failed to address the task. Most responses were either single words ('No') or completely off-topic ('Video', 'You hear me'). You did not demonstrate the ability to maintain a conversation or answer questions."
               : "Your answers were completely inadequate. By providing only the word 'No' to every question, you failed to address the task. These responses are essentially empty and do not demonstrate any English language proficiency.";
           lexicalFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no vocabulary range to assess as you only provided a single-word response for every question."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "There is no vocabulary range or usage to assess from repetitive one-word responses."
+              : _selectedTestTitle.contains('Book 13 Test 1')
+              ? "There is no evidence of vocabulary range or usage. The candidate provided no substantive content to evaluate."
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? "There is no evidence of lexical resource as you did not provide any meaningful sentences."
               : "There is no lexical resource to evaluate as you only provided a single-word response repeatedly.";
           grammarFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no grammatical structure to assess."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "No grammatical structures were produced."
+              : _selectedTestTitle.contains('Book 13 Test 1')
+              ? "There is no evidence of grammatical structure or range. The candidate provided no complete sentences."
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? "There is no evidence of grammatical range or accuracy."
               : "There is no grammatical range to evaluate.";
           pronunciationFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "Cannot assess pronunciation based on a single word; however, you must speak in full, coherent sentences to be evaluated."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "Insufficient speech to evaluate pronunciation."
+              : _selectedTestTitle.contains('Book 13 Test 1')
+              ? "As the candidate did not produce meaningful speech, pronunciation cannot be assessed. Please practice speaking in full, coherent sentences."
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? "It is impossible to assess pronunciation due to the lack of spoken content. You must provide full, articulated sentences in response to the examiner's questions."
               : "No speech content provided to evaluate pronunciation.";
@@ -5283,6 +5670,20 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   "Practice expanding your answers by using the 'Answer-Reason-Example' structure.",
                   "Familiarize yourself with the IELTS Speaking format; it is a conversation, not a Yes/No questionnaire.",
                   "Listen to sample band 7-9 responses to understand the depth and length required for Part 3 questions.",
+                ]
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? [
+                  "Stop answering with one-word responses. IELTS Part 3 requires in-depth discussion and detailed analysis.",
+                  "Always explain your reasoning and provide concrete examples to support your point of view.",
+                  "Practice connecting your thoughts using complex sentences and discourse markers like 'Furthermore', 'Consequently', and 'In contrast'.",
+                  "Take time to fully understand the question and address all aspects of the discussion topic."
+                ]
+              : _selectedTestTitle.contains('Book 13 Test 1')
+              ? [
+                  "You must answer the specific question asked. Replying with 'Why' or 'What' is not an answer and will result in a failing score.",
+                  "Practice speaking in full, complete sentences rather than single words.",
+                  "Ensure you understand the topic of the question before speaking; if you do not understand, ask the examiner to repeat the question rather than giving an irrelevant response.",
+                  "Record yourself answering IELTS practice questions and listen to ensure you are actually addressing the prompt provided."
                 ]
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? [
@@ -5302,6 +5703,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         } else if (_selectedPart == 2) {
           fluencyFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "Your answer was completely insufficient. You provided a one-word response ('No') to a Part 2 prompt, which requires a 1-2 minute descriptive talk. This is not a valid attempt at the task."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "Your answer was empty. You provided no response to the prompt, which makes it impossible to assess your fluency or coherence. This is a failure to complete the task."
               : _selectedTestTitle.contains('Book 13 Test 1')
               ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a person who started a business, but you only provided a single, nonsensical word ('Where'). This fails to address the task entirely."
               : _selectedTestTitle.contains('Book 13 Test 3')
@@ -5313,6 +5716,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
           lexicalFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no vocabulary to assess."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "No vocabulary was produced to assess."
               : _selectedTestTitle.contains('Book 13 Test 1')
               ? "There is no evidence of vocabulary range or accuracy as you only spoke one word."
               : _selectedTestTitle.contains('Book 13 Test 3')
@@ -5324,6 +5729,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
           grammarFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no grammatical structure to assess."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "No grammatical structures were produced to assess."
               : _selectedTestTitle.contains('Book 13 Test 1')
               ? "There is no evidence of grammatical structure or range."
               : _selectedTestTitle.contains('Book 13 Test 3')
@@ -5335,6 +5742,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           : "There is no grammatical range to evaluate.";
           pronunciationFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no continuous speech to assess."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "No speech was produced to assess."
               : _selectedTestTitle.contains('Book 13 Test 1')
               ? "Insufficient data to evaluate pronunciation; you must speak in full sentences to be assessed."
               : _selectedTestTitle.contains('Book 13 Test 3')
@@ -5351,6 +5760,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   "Practice using the bullet points provided in the exam prompt to organize your thoughts.",
                   "If you do not have an answer, you must still attempt to speak about a related topic to demonstrate language ability.",
                   "Do not refuse to answer; the examiner needs to hear your English to provide a score.",
+                ]
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? [
+                  "You must provide a spoken response to the question; silence results in a band 0.",
+                  "In Part 2, you are expected to speak for 1-2 minutes. Practice organizing your thoughts using the bullet points provided in the cue card.",
+                  "If you do not know what to say, try to talk about a common website like Google, Wikipedia, or an online learning platform, and explain why it is useful.",
+                  "Ensure you address every part of the prompt (the website name, how you use it, why it helps you, and why you find it useful).",
+                  "Practice speaking continuously without long pauses to build your fluency."
                 ]
               : _selectedTestTitle.contains('Book 13 Test 1')
               ? [
@@ -5393,6 +5810,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         } else {
           fluencyFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "The candidate provided no responses to any of the questions. The answers were empty/refusals, which makes them completely incoherent and irrelevant to the task."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "The responses are extremely limited and fail to address the 'Why/why not' components of the questions. Providing one-word answers is not acceptable for an IELTS speaking test."
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? "Your answers were highly irrelevant and failed to address the task. Providing a one-word answer ('No') to open-ended questions that require explanation ('Why/why not?') demonstrates a complete inability to engage with the test format."
               : _selectedTestTitle.contains('Book 13 Test 2')
@@ -5404,6 +5823,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
           lexicalFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no vocabulary to assess."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "The vocabulary is non-existent beyond a single negative particle. There is no demonstration of range or ability to discuss topics."
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? "There is no vocabulary range to assess. Using a single word repeatedly is not indicative of language proficiency."
               : _selectedTestTitle.contains('Book 13 Test 2')
@@ -5415,6 +5836,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
           grammarFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no grammatical structure to assess."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "It is impossible to assess grammar based on single-word responses. You failed to provide any sentence structures."
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? "There is no grammatical structure to assess. You failed to form full sentences."
               : _selectedTestTitle.contains('Book 13 Test 2')
@@ -5426,6 +5849,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : "There is no grammatical range to assess as no full sentences were produced.";
           pronunciationFeedback = _selectedTestTitle.contains('Book 14 Test 2')
               ? "There was no speech to evaluate."
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? "The sample size is too small to evaluate pronunciation, but the lack of engagement suggests a failure to demonstrate communicative intent."
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? "Insufficient data to assess pronunciation; however, the lack of effort in providing a verbal response makes a score of 1 mandatory."
               : _selectedTestTitle.contains('Book 13 Test 2')
@@ -5443,6 +5868,14 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   "Practice expanding your answers by using the 'Answer + Reason + Example' structure.",
                   "Remember that the examiner cannot assess your level if you do not provide assessable language.",
                 ]
+              : _selectedTestTitle.contains('Book 13 Test 4')
+              ? [
+                  "Stop providing one-word answers. You must speak in full, developed sentences to demonstrate your language ability.",
+                  "Always address the 'Why' or 'Why not' part of the question. This is a requirement for a passing score.",
+                  "Practice the 'Extended Answer' technique: State your answer, give a reason, and provide an example or a personal detail.",
+                  "Understand that the examiner needs to hear you speak to give you a score. By saying 'No', you are essentially refusing to take the test.",
+                  "Review IELTS Part 1 strategies, which require you to elaborate on your experiences and opinions."
+                ]
               : _selectedTestTitle.contains('Book 13 Test 3')
               ? [
                   "Stop answering with one-word responses. IELTS Part 1 requires you to provide full sentences and explain your reasoning.",
@@ -5451,36 +5884,36 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   "Understand that the examiner is looking for your ability to communicate in English; silence or one-word answers will result in a failing grade."
                 ]
               : _selectedTestTitle.contains('Book 13 Test 2')
+              ? [
+                  "Stop providing one-word answers. IELTS Speaking requires you to develop your ideas fully.",
+                  "Always address the 'Why' or 'Why not' part of the question. If a question asks for a reason, you must provide one.",
+                  "Aim to speak for at least 3-4 sentences per question in Part 1. Use the 'Answer + Extend' technique.",
+                  "Practice using linking words like 'because', 'however', or 'in addition' to connect your thoughts.",
+                  "Record yourself answering these questions and listen to see if you sound natural and fluent."
+                ]
+              : _selectedTestTitle.contains('Book 13 Test 1')
                   ? [
-                      "Stop providing one-word answers. IELTS Speaking requires you to develop your ideas fully.",
-                      "Always address the 'Why' or 'Why not' part of the question. If a question asks for a reason, you must provide one.",
-                      "Aim to speak for at least 3-4 sentences per question in Part 1. Use the 'Answer + Extend' technique.",
-                      "Practice using linking words like 'because', 'however', or 'in addition' to connect your thoughts.",
-                      "Record yourself answering these questions and listen to see if you sound natural and fluent."
+                      "You must answer the actual question asked. Repeating a question word like 'Why' or 'Where' is not an answer.",
+                      "Practice giving full, detailed sentences. Aim for 3-4 sentences per response in Part 1.",
+                      "Listen carefully to the question. If it asks 'Where', describe a location. If it asks 'What', describe an object or activity.",
+                      "Avoid using 'I don't know' or repeating the question words. If you are stuck, try to describe your feelings or experiences related to the topic.",
+                      "Your current performance is a failure to engage with the task; you must provide relevant content to be assessed."
                     ]
-                  : _selectedTestTitle.contains('Book 13 Test 1')
+                  : _selectedTestTitle.contains('Book 10 Test 4')
                       ? [
-                          "You must answer the actual question asked. Repeating a question word like 'Why' or 'Where' is not an answer.",
-                          "Practice giving full, detailed sentences. Aim for 3-4 sentences per response in Part 1.",
-                          "Listen carefully to the question. If it asks 'Where', describe a location. If it asks 'What', describe an object or activity.",
-                          "Avoid using 'I don't know' or repeating the question words. If you are stuck, try to describe your feelings or experiences related to the topic.",
-                          "Your current performance is a failure to engage with the task; you must provide relevant content to be assessed."
+                          "You must provide full, descriptive sentences to allow the examiner to assess your language ability.",
+                          "Use the 'PPF' method: Past, Present, Future, or provide reasons and examples to expand your answers.",
+                          "Avoid one-word answers at all costs; they demonstrate a lack of English proficiency and result in a minimum band score.",
+                          "Practice elaborating on simple questions by answering 'Why' or 'How' even if the question does not explicitly ask for it.",
+                          "Treat the speaking test as a conversation where you are expected to share information, not just provide data points."
                         ]
-                      : _selectedTestTitle.contains('Book 10 Test 4')
-                          ? [
-                              "You must provide full, descriptive sentences to allow the examiner to assess your language ability.",
-                              "Use the 'PPF' method: Past, Present, Future, or provide reasons and examples to expand your answers.",
-                              "Avoid one-word answers at all costs; they demonstrate a lack of English proficiency and result in a minimum band score.",
-                              "Practice elaborating on simple questions by answering 'Why' or 'How' even if the question does not explicitly ask for it.",
-                              "Treat the speaking test as a conversation where you are expected to share information, not just provide data points."
-                            ]
-                          : [
-                              "You must provide full, complete sentences for every question. One-word answers will result in a failing score.",
-                              "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Why' part of the question as a prompt to expand.",
-                              "Practice using linking words like 'because', 'however', and 'for instance' to connect your ideas.",
-                              "Aim for at least 3-4 sentences per response in Part 1 to demonstrate your English proficiency.",
-                              "Understand that the examiner needs to hear you speak to evaluate your language skills; by saying 'No', you are preventing the assessment from taking place."
-                            ];
+                      : [
+                          "You must provide full, complete sentences for every question. One-word answers will result in a failing score.",
+                          "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Why' part of the question as a prompt to expand.",
+                          "Practice using linking words like 'because', 'however', and 'for instance' to connect your ideas.",
+                          "Aim for at least 3-4 sentences per response in Part 1 to demonstrate your English proficiency.",
+                          "Understand that the examiner needs to hear you speak to evaluate your language skills; by saying 'No', you are preventing the assessment from taking place."
+                        ];
         }
       } else if (hasNoSpokenWords) {
         fluencyFeedback = 'No verbal response was detected during the practice session. You must speak into the microphone to receive an IELTS speaking assessment.';
