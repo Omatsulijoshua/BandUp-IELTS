@@ -1653,7 +1653,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.5,
       'part': 1,
       'transcript':
-          'Yes, I thoroughly enjoyed art lessons as a child because they provided a creative outlet where I could freely express my imagination. I loved experimenting with different colors and painting materials during school art classes.',
+          'To be honest, I didn\'t particularly enjoy art lessons as a child. I found it quite frustrating because I felt I lacked the natural creativity required to draw well, and I often struggled to follow the teacher\'s instructions. As a result, I usually felt quite discouraged whenever we had an art project to complete.',
     },
     {
       'question':
@@ -1665,7 +1665,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 1.9,
       'part': 1,
       'transcript':
-          'I rarely draw or paint these days due to a busy daily schedule. However, on occasional weekends when I want to unwind, I sometimes doodle or try basic watercolor painting as a relaxing hobby.',
+          'Not really, I rarely draw or paint these days. My current lifestyle is quite hectic, so I prefer to spend my limited free time on activities like reading or exercising. I suppose I simply lost interest in artistic hobbies as I grew older and focused more on my academic studies.',
     },
     {
       'question':
@@ -1677,7 +1677,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.7,
       'part': 1,
       'transcript':
-          'The last time I visited an art gallery was a couple of months ago when a special modern art exhibition opened in the city center. I went with a friend who appreciates visual arts, and we found the sculptures and paintings fascinating.',
+          'It has been quite a long time, actually. I think the last time I visited an art gallery was about three years ago when I was on vacation in Europe. I went there primarily to see some historical paintings, which I found surprisingly fascinating even though I am not an artist myself.',
     },
     {
       'question':
@@ -1689,7 +1689,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.2,
       'part': 1,
       'transcript':
-          'I prefer landscape artwork and framed family photographs in my home. Natural scenery paintings bring a sense of serenity to the living space, while family photos add warmth and meaningful memories.',
+          'I generally prefer to have landscape photography or minimalist prints in my home. I find that these kinds of pictures create a calm and relaxing atmosphere, which is exactly what I want in my living space. I tend to avoid overly complex or abstract art because I find it a bit distracting.',
     },
 
     // Part 2: Question 5 (Cue Card)
@@ -1851,7 +1851,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
     // Part 3: Questions 6-11 (Discussion - Choosing Work & Work-Life Balance)
     {
-      'question': 'What kinds of job do young people not want to do in your country?',
+      'question': 'What kinds of jobs do young people not want to do in your country?',
       'audioAsset': 'q6.mp3',
       'duration': 2.56,
       'start': 0.0,
@@ -1859,7 +1859,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.56,
       'part': 3,
       'transcript':
-          'In my country, younger generations tend to avoid manual labor, agricultural work, and repetitive factory jobs. These occupations are often perceived as physically exhausting, low-paying, and offering limited career progression. Instead, most young graduates aspire to secure roles in technology, finance, digital marketing, or creative media.',
+          'In my country, many young people tend to avoid manual labor or jobs that are perceived as having low social status. Positions in agriculture or factory work are often viewed as less desirable compared to modern office-based roles in technology or finance. There is a strong preference for careers that offer perceived prestige and higher starting salaries.',
     },
     {
       'question': 'Who is best at advising young people about choosing a job: teachers or parents?',
@@ -1870,7 +1870,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.66,
       'part': 3,
       'transcript':
-          'I believe both offer complementary perspectives, but teachers are often better positioned to provide objective career advice. Teachers observe a student\'s academic strengths, intellectual interests, and practical skills in relation to modern industry trends, whereas parents may sometimes project their own unfulfilled ambitions or prioritize financial security over the child\'s true calling.',
+          'I believe parents are often better equipped to advise because they understand their child\'s personality and long-term goals deeply. However, teachers can provide more objective information about the current job market and necessary academic qualifications. Ideally, a combination of both perspectives provides the most balanced guidance for a young person.',
     },
     {
       'question': 'Is money always the most important thing when choosing a job?',
@@ -1881,7 +1881,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.26,
       'part': 3,
       'transcript':
-          'While financial remuneration is undeniably essential for meeting living costs and achieving financial independence, it should not be the sole criterion. Long-term job satisfaction, opportunities for professional growth, a positive workplace culture, and work-life balance are equally critical in sustaining motivation and preventing burnout.',
+          'Money is certainly a significant factor, but it is rarely the only one. Many young professionals prioritize job satisfaction, work-life balance, and opportunities for personal growth over a high salary alone. If a job pays well but leads to burnout or unhappiness, it is rarely considered a sustainable or successful career choice.',
     },
     {
       'question': 'Do you agree that many people nowadays are under pressure to work longer hours and take less holiday?',
@@ -1892,10 +1892,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 5.30,
       'part': 3,
       'transcript':
-          'I strongly agree with this statement. In our hyper-competitive globalized economy, constant connectivity through smartphones and emails has blurred the boundary between professional and personal life. Many employees experience implicit expectations to remain accessible around the clock, leading to chronic stress and reluctance to take their entitled vacation time.',
+          'Yes, I completely agree. In our competitive culture, there is a prevailing expectation to prioritize productivity over personal time. Many employees feel that working long hours is the only way to prove their commitment or secure a promotion, which unfortunately leads to the erosion of holiday time and leisure.',
     },
     {
-      'question': 'What is the impact on society of people having a poor work-life balance?',
+      'question': 'What is the impact on society of people having a poor working-life balance?',
       'audioAsset': 'q10.mp3',
       'duration': 3.37,
       'start': 0.0,
@@ -1903,7 +1903,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.37,
       'part': 3,
       'transcript':
-          'When citizens suffer from poor work-life balance, the repercussions on society are profound. It leads to increased healthcare costs due to stress-related physical and mental illnesses, strained family relationships, and higher rates of marital breakdown. Furthermore, exhaustion diminishes community participation and civic engagement.',
+          'The impact is quite severe, often manifesting as increased stress, mental health issues, and reduced productivity in the long run. When society prioritizes constant work, family relationships can suffer, and the overall quality of life declines. This can lead to a less healthy and less creative workforce, which negatively affects the economy.',
     },
     {
       'question': 'Could you recommend some effective strategies for governments and employers to ensure people have a good work-life balance?',
@@ -1914,7 +1914,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 6.41,
       'part': 3,
       'transcript':
-          'Governments should enforce statutory maximum working hours and implement the \'right to disconnect\' legislation, which prohibits employers from contacting staff outside of contract hours. Employers, on their part, can introduce flexible working schedules, compressed four-day work weeks, and comprehensive mental health support to foster a sustainable and productive workplace.',
+          'Governments should implement stricter labor laws that limit maximum working hours and enforce mandatory rest periods. Meanwhile, employers could offer flexible working arrangements, such as remote work or a four-day work week. Encouraging a culture that values output over hours spent at a desk is the most effective strategy for improvement.',
     },
   ];
 
@@ -5139,7 +5139,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   "Engage with the topic; the IELTS Speaking test requires you to express opinions and provide justifications."
                 ];
         } else if (_selectedPart == 2) {
-          fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+          fluencyFeedback = _selectedTestTitle.contains('Book 14 Test 2')
+              ? "Your answer was completely insufficient. You provided a one-word response ('No') to a Part 2 prompt, which requires a 1-2 minute descriptive talk. This is not a valid attempt at the task."
+              : _selectedTestTitle.contains('Book 13 Test 1')
               ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a person who started a business, but you only provided a single, nonsensical word ('Where'). This fails to address the task entirely."
               : _selectedTestTitle.contains('Book 13 Test 3')
                   ? "Your answer was completely off-topic and failed to address the prompt. The question asked for a description of an interesting discussion, but you provided a single, unrelated word."
@@ -5148,7 +5150,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : _selectedTestTitle.contains('Book 10 Test 4')
                           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
                           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-          lexicalFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+          lexicalFeedback = _selectedTestTitle.contains('Book 14 Test 2')
+              ? "There is no vocabulary to assess."
+              : _selectedTestTitle.contains('Book 13 Test 1')
               ? "There is no evidence of vocabulary range or accuracy as you only spoke one word."
               : _selectedTestTitle.contains('Book 13 Test 3')
                   ? "There is no vocabulary range or evidence of communicative ability. A single word cannot be assessed for lexical resource in the context of an IELTS speaking task."
@@ -5157,7 +5161,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : _selectedTestTitle.contains('Book 10 Test 4')
                           ? "There is no vocabulary to assess."
                           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-          grammarFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+          grammarFeedback = _selectedTestTitle.contains('Book 14 Test 2')
+              ? "There is no grammatical structure to assess."
+              : _selectedTestTitle.contains('Book 13 Test 1')
               ? "There is no evidence of grammatical structure or range."
               : _selectedTestTitle.contains('Book 13 Test 3')
                   ? "No grammatical structures were used. It is impossible to assess range or accuracy from a single word."
@@ -5166,7 +5172,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : _selectedTestTitle.contains('Book 10 Test 4')
                           ? "There is no grammatical structure to assess."
                           : "There is no grammatical range to evaluate.";
-          pronunciationFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+          pronunciationFeedback = _selectedTestTitle.contains('Book 14 Test 2')
+              ? "There is no continuous speech to assess."
+              : _selectedTestTitle.contains('Book 13 Test 1')
               ? "Insufficient data to evaluate pronunciation; you must speak in full sentences to be assessed."
               : _selectedTestTitle.contains('Book 13 Test 3')
                   ? "There is insufficient speech to evaluate pronunciation."
@@ -5175,7 +5183,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : _selectedTestTitle.contains('Book 10 Test 4')
                           ? "There is insufficient data to evaluate your pronunciation."
                           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-          tipsList = _selectedTestTitle.contains('Book 13 Test 1')
+          tipsList = _selectedTestTitle.contains('Book 14 Test 2')
+              ? [
+                  "You must speak for 1-2 minutes for Part 2; one-word answers will result in a failing score.",
+                  "Understand the structure of Part 2: you are expected to tell a story or describe an object in detail.",
+                  "Practice using the bullet points provided in the exam prompt to organize your thoughts.",
+                  "If you do not have an answer, you must still attempt to speak about a related topic to demonstrate language ability.",
+                  "Do not refuse to answer; the examiner needs to hear your English to provide a score.",
+                ]
+              : _selectedTestTitle.contains('Book 13 Test 1')
               ? [
                   "You must answer the specific question asked; your current response was off-topic.",
                   "Practice speaking in full, coherent sentences rather than single words.",
@@ -5214,43 +5230,59 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       "Prepare stories about people you know in advance to avoid being caught off guard during the test."
                     ];
         } else {
-          fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+          fluencyFeedback = _selectedTestTitle.contains('Book 14 Test 2')
+              ? "The candidate provided no responses to any of the questions. The answers were empty/refusals, which makes them completely incoherent and irrelevant to the task."
+              : _selectedTestTitle.contains('Book 13 Test 3')
               ? "Your answers were highly irrelevant and failed to address the task. Providing a one-word answer ('No') to open-ended questions that require explanation ('Why/why not?') demonstrates a complete inability to engage with the test format."
               : _selectedTestTitle.contains('Book 13 Test 2')
-                  ? "Your answers are extremely short and fail to address the 'Why/why not' requirement of the questions. You are providing one-word answers which prevents any assessment of coherence."
-                  : _selectedTestTitle.contains('Book 13 Test 1')
-                      ? "Your answers were completely irrelevant. You did not answer the questions; instead, you repeated single words ('Why', 'Where') that were not meaningful responses to the prompts provided."
-                      : _selectedTestTitle.contains('Book 10 Test 4')
-                          ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
-                          : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-          lexicalFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "Your answers are extremely short and fail to address the 'Why/why not' requirement of the questions. You are providing one-word answers which prevents any assessment of coherence."
+              : _selectedTestTitle.contains('Book 13 Test 1')
+                  ? "Your answers were completely irrelevant. You did not answer the questions; instead, you repeated single words ('Why', 'Where') that were not meaningful responses to the prompts provided."
+                  : _selectedTestTitle.contains('Book 10 Test 4')
+                      ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
+                      : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
+          lexicalFeedback = _selectedTestTitle.contains('Book 14 Test 2')
+              ? "There is no vocabulary to assess."
+              : _selectedTestTitle.contains('Book 13 Test 3')
               ? "There is no vocabulary range to assess. Using a single word repeatedly is not indicative of language proficiency."
               : _selectedTestTitle.contains('Book 13 Test 2')
-                  ? "There is no vocabulary range to assess. A single word does not demonstrate the ability to use language to express ideas."
-                  : _selectedTestTitle.contains('Book 13 Test 1')
-                      ? "There is no evidence of lexical resource as you only provided single-word non-answers."
-                      : _selectedTestTitle.contains('Book 10 Test 4')
-                          ? "There is no vocabulary to assess beyond a single, repetitive word."
-                          : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-          grammarFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "There is no vocabulary range to assess. A single word does not demonstrate the ability to use language to express ideas."
+              : _selectedTestTitle.contains('Book 13 Test 1')
+                  ? "There is no evidence of lexical resource as you only provided single-word non-answers."
+                  : _selectedTestTitle.contains('Book 10 Test 4')
+                      ? "There is no vocabulary to assess beyond a single, repetitive word."
+                      : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
+          grammarFeedback = _selectedTestTitle.contains('Book 14 Test 2')
+              ? "There is no grammatical structure to assess."
+              : _selectedTestTitle.contains('Book 13 Test 3')
               ? "There is no grammatical structure to assess. You failed to form full sentences."
               : _selectedTestTitle.contains('Book 13 Test 2')
-                  ? "There is no grammatical structure to assess. You must produce full sentences to demonstrate grammatical control."
-                  : _selectedTestTitle.contains('Book 13 Test 1')
-                      ? "There is no evidence of grammatical range or accuracy as you did not form complete sentences."
-                      : _selectedTestTitle.contains('Book 10 Test 4')
-                          ? "There is no grammatical structure to assess."
-                          : "There is no grammatical range to assess as no full sentences were produced.";
-          pronunciationFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "There is no grammatical structure to assess. You must produce full sentences to demonstrate grammatical control."
+              : _selectedTestTitle.contains('Book 13 Test 1')
+                  ? "There is no evidence of grammatical range or accuracy as you did not form complete sentences."
+                  : _selectedTestTitle.contains('Book 10 Test 4')
+                      ? "There is no grammatical structure to assess."
+                      : "There is no grammatical range to assess as no full sentences were produced.";
+          pronunciationFeedback = _selectedTestTitle.contains('Book 14 Test 2')
+              ? "There was no speech to evaluate."
+              : _selectedTestTitle.contains('Book 13 Test 3')
               ? "Insufficient data to assess pronunciation; however, the lack of effort in providing a verbal response makes a score of 1 mandatory."
               : _selectedTestTitle.contains('Book 13 Test 2')
-                  ? "While you can articulate the word 'Yes', this is insufficient for an IELTS examiner to assess your pronunciation range, intonation, or connected speech."
-                  : _selectedTestTitle.contains('Book 13 Test 1')
-                      ? "It is impossible to evaluate pronunciation based on single-word responses that do not address the prompt."
-                      : _selectedTestTitle.contains('Book 10 Test 4')
-                          ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
-                          : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-          tipsList = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "While you can articulate the word 'Yes', this is insufficient for an IELTS examiner to assess your pronunciation range, intonation, or connected speech."
+              : _selectedTestTitle.contains('Book 13 Test 1')
+                  ? "It is impossible to evaluate pronunciation based on single-word responses that do not address the prompt."
+                  : _selectedTestTitle.contains('Book 10 Test 4')
+                      ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
+                      : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
+          tipsList = _selectedTestTitle.contains('Book 14 Test 2')
+              ? [
+                  "You must provide full, descriptive answers to all questions; saying 'No' or remaining silent results in a score of 0.",
+                  "In IELTS Speaking Part 1, you are expected to speak for 2-3 sentences per question to demonstrate your English proficiency.",
+                  "If you do not know the answer to a question, try to explain why or talk about your general feelings on the topic rather than refusing to answer.",
+                  "Practice expanding your answers by using the 'Answer + Reason + Example' structure.",
+                  "Remember that the examiner cannot assess your level if you do not provide assessable language.",
+                ]
+              : _selectedTestTitle.contains('Book 13 Test 3')
               ? [
                   "Stop answering with one-word responses. IELTS Part 1 requires you to provide full sentences and explain your reasoning.",
                   "Address the 'Why/why not?' component of every question. If you do not explain your answer, you cannot achieve a score above band 3.",
