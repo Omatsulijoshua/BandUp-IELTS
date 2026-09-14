@@ -1493,6 +1493,146 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 12 TEST 3 (Clothes & Shopping)
+  // ==========================================
+  final List<Map<String, dynamic>> _book12Test3Questions = [
+    // Part 1: Questions 1-4 (Clothes)
+    {
+      'question': 'Where do you buy most of your clothes? [Why?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.4,
+      'start': 0.0,
+      'promptEnd': 1.4,
+      'end': 1.4,
+      'part': 1,
+      'transcript':
+          'I buy most of my clothes from local shopping malls and popular high-street retail stores because they offer a wide variety of styles and sizes. Shopping in physical stores allows me to try on clothes before buying to ensure a good fit. Occasionally, I also shop online when looking for specific brands or discounts.',
+    },
+    {
+      'question': 'How often do you buy new clothes for yourself? [Why?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 1.8,
+      'start': 0.0,
+      'promptEnd': 1.8,
+      'end': 1.8,
+      'part': 1,
+      'transcript':
+          'I don\'t buy clothes very frequently, usually only every few months or when the seasons change. I prefer to buy items when I actually need them rather than following every fast-fashion trend. This helps me save money and make more mindful choices.',
+    },
+    {
+      'question': 'How do you decide which clothes to buy? [Why?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 1.6,
+      'start': 0.0,
+      'promptEnd': 1.6,
+      'end': 1.6,
+      'part': 1,
+      'transcript':
+          'When deciding on clothing, comfort and versatility are my primary criteria. I always choose garments made from comfortable fabrics that suit my daily activities. Additionally, I look for neutral colours and timeless designs that can easily be paired with other pieces in my wardrobe.',
+    },
+    {
+      'question':
+          'Have the kinds of clothes you like changed in recent years? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 2.6,
+      'start': 0.0,
+      'promptEnd': 2.6,
+      'end': 2.6,
+      'part': 1,
+      'transcript':
+          'Yes, my taste in clothing has evolved noticeably over recent years. In the past, I used to prioritize vibrant trends and eye-catching designs, but now I prefer minimalist and casual attire. As I have matured, I place far more value on practicality and personal comfort.',
+    },
+
+    // Part 2: Question 5 (Cue Card)
+    {
+      'question':
+          'Describe an activity you do when you are on your own in your free time.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.4,
+      'start': 0.0,
+      'promptEnd': 3.4,
+      'end': 3.4,
+      'part': 2,
+      'youShouldSay': [
+        'what you do',
+        'how often you do it',
+        'why you do it',
+        'and explain how you feel about spending your free time this way'
+      ],
+      'transcript':
+          'When I am on my own in my free time, I enjoy reading books and listening to music. It allows me to relax and recharge after a busy week. Solitary activities give me space to reflect and concentrate on my personal interests without any distractions.',
+    },
+
+    // Part 3: Questions 6-11
+    {
+      'question': 'How do people in your country usually spend their free time?',
+      'audioAsset': 'q6.mp3',
+      'duration': 2.9,
+      'start': 0.0,
+      'promptEnd': 2.9,
+      'end': 2.9,
+      'part': 3,
+      'transcript':
+          'In my country, people engage in a variety of leisure activities depending on their age and personal interests. Many enjoy socializing with family and friends at restaurants or local parks, while others prefer outdoor sports, watching movies, or engaging in creative hobbies at home.',
+    },
+    {
+      'question': 'Is it important for people to have free time? [Why/why not?]',
+      'audioAsset': 'q7.mp3',
+      'duration': 3.1,
+      'start': 0.0,
+      'promptEnd': 3.1,
+      'end': 3.1,
+      'part': 3,
+      'transcript':
+          'Having adequate free time is vital for maintaining physical and mental health. It allows individuals to recover from daily work stress, pursue personal passions, and spend quality time with loved ones, which ultimately enhances overall productivity and life satisfaction.',
+    },
+    {
+      'question': 'Do men and women spend their free time differently?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 3,
+      'transcript':
+          'While individual preferences vary greatly, there can be general differences in how men and women spend their free time. Men often participate more in competitive sports or gaming, whereas women may engage more in creative pursuits, shopping, or group social activities.',
+    },
+    {
+      'question': 'What are the main differences between leisure activities today and in the past?',
+      'audioAsset': 'q9.mp3',
+      'duration': 3.4,
+      'start': 0.0,
+      'promptEnd': 3.4,
+      'end': 3.4,
+      'part': 3,
+      'transcript':
+          'The primary difference lies in the integration of modern digital technology. Today, many leisure activities revolve around screens, such as online streaming and social media, whereas in the past, people relied much more on physical, outdoor, and face-to-face community activities.',
+    },
+    {
+      'question': 'Do you think people will have more free time in the future?',
+      'audioAsset': 'q10.mp3',
+      'duration': 4.3,
+      'start': 0.0,
+      'promptEnd': 4.3,
+      'end': 4.3,
+      'part': 3,
+      'transcript':
+          'With advancements in automation and artificial intelligence, routine tasks may take less time, potentially freeing up more leisure time. However, the blurring boundaries between work and personal life in our connected world could mean that people remain just as busy.',
+    },
+    {
+      'question': 'How can people achieve a better work-life balance?',
+      'audioAsset': 'q11.mp3',
+      'duration': 2.7,
+      'start': 0.0,
+      'promptEnd': 2.7,
+      'end': 2.7,
+      'part': 3,
+      'transcript':
+          'Achieving a good work-life balance requires setting clear professional boundaries and prioritizing personal well-being. Individuals should learn to manage their time effectively, disconnect from digital work channels outside office hours, and dedicate quality time to family and rest.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 13 TEST 1 (Television Programmes / Business Cue Card / Choosing Work & Work-Life Balance)
   // ==========================================
   final List<Map<String, dynamic>> _book13Test1Questions = [
@@ -1936,6 +2076,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book12Test1Questions;
     } else if (_selectedTestTitle.contains('Book 12 Test 2')) {
       return _book12Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 12 Test 3')) {
+      return _book12Test3Questions;
     } else if (_selectedTestTitle.contains('Book 13 Test 1')) {
       return _book13Test1Questions;
     } else if (_selectedTestTitle.contains('Book 13 Test 2')) {
