@@ -1007,28 +1007,28 @@ const book13Test1Questions: Question[] = [
     audioAsset: 'q1.mp3',
     duration: 2.44,
     part: 1,
-    transcript: 'I usually watch TV programmes in the living room on our smart television because it has a large, high-definition screen and comfortable seating. It allows me to fully immerse myself in the shows and relax with family members after a long day.',
+    transcript: 'I usually watch television programmes in my living room because it is the most comfortable place in my house. My family often gathers there in the evening, which makes the experience more enjoyable. Sometimes, I also watch shows on my laptop in my bedroom if I want to have a private viewing experience.',
   },
   {
     question: "What's your favorite TV programme/show? [Why?]",
     audioAsset: 'q2.mp3',
     duration: 1.95,
     part: 1,
-    transcript: 'My favorite show is an investigative science documentary series. I love it because it delves into fascinating natural phenomena and complex technology in an accessible way, which satisfies my intellectual curiosity and keeps me updated on recent scientific breakthroughs.',
+    transcript: 'My absolute favourite programme is a historical documentary series because I find learning about the past fascinating. I love how they use high-quality footage and expert interviews to bring history to life. It is not only entertaining but also very educational, which is Why I never miss an episode.',
   },
   {
     question: 'Are there any programmes/shows you don\'t like watching? [Why/why not?]',
     audioAsset: 'q3.mp3',
     duration: 3.65,
     part: 1,
-    transcript: 'Yes, I really dislike watching melodramatic soap operas and sensationalist reality TV shows. I find their storylines repetitive and predictable, and they often focus heavily on contrived drama rather than offering meaningful or educational value.',
+    transcript: 'I honestly do not like watching reality television shows because I find them quite artificial and repetitive. The drama in those programmes often feels staged rather than genuine, which makes it hard for me to stay interested. I much prefer scripted series or documentaries that offer more substance.',
   },
   {
     question: 'Do you think you will watch more TV or fewer TV programmes/shows in the future? [Why/why not?]',
     audioAsset: 'q4.mp3',
     duration: 3.52,
     part: 1,
-    transcript: 'I anticipate that I will watch fewer TV programmes in the future due to increasing professional commitments and personal projects. Furthermore, I find myself gravitating towards interactive digital media, podcasts, and reading, which offer more engaging and targeted learning opportunities.',
+    transcript: 'I think I will watch fewer television programmes in the future because I am becoming increasingly busy with my professional development. As my career progresses, I find that I have less leisure time to spend in front of a screen. I would rather spend my limited free time reading books or pursuing outdoor hobbies.',
   },
 
   // Part 2: Question 5 (Cue Card - Business Start-up)
@@ -1091,7 +1091,99 @@ const book13Test1Questions: Question[] = [
   },
 ];
 
+const book13Test2Questions: Question[] = [
+  // Part 1: Questions 1-4 (Age)
+  {
+    question: 'Are you happy to be the age you are now? [Why/Why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.14,
+    part: 1,
+    transcript: 'Yes, absolutely. I feel that my current age provides the perfect balance between youthful energy and mental maturity. I have achieved financial independence and a clear sense of life direction, while still possessing the physical vitality to pursue my goals and enjoy novel experiences.',
+  },
+  {
+    question: 'When you were a child, did you think a lot about your future? [Why/Why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.85,
+    part: 1,
+    transcript: 'Not particularly. As a child, I was mostly preoccupied with the immediate present—playing games, spending time with school friends, and exploring hobbies. I occasionally daydreamed about glamorous professions like being an astronaut or pilot, but I didn\'t engage in serious or realistic long-term planning.',
+  },
+  {
+    question: 'Do you think you have changed as you have got older? [Why/Why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.48,
+    part: 1,
+    transcript: 'Undoubtedly, yes. Over the years, I have become much more pragmatic, patient, and emotionally resilient. Experiencing various personal and professional challenges has taught me to remain composed under pressure and to prioritize meaningful relationships over superficial pursuits.',
+  },
+  {
+    question: 'What will be different about your life in the future? [Why?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.19,
+    part: 1,
+    transcript: 'In the coming years, I anticipate taking on substantially greater responsibilities, both professionally and within my family. I hope to advance into leadership roles in my career and perhaps settle down into family life, which will inevitably require wiser time management and long-term financial foresight.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Technological Device)
+  {
+    question: 'Describe a time when you started using a new technological device (e.g. a new computer or phone).',
+    audioAsset: 'q5.mp3',
+    duration: 5.54,
+    part: 2,
+    youShouldSay: [
+      'what device you started using',
+      'why you started using this device',
+      'how easy or difficult it was to use',
+      'and explain how helpful this device was to you.'
+    ],
+    transcript: 'I would like to describe the time I purchased and began using a digital tablet paired with a smart stylus, roughly two years ago. I made the decision to invest in this device because my university coursework and freelance projects required extensive reading, annotating complex PDF documents, and sketching conceptual diagrams, which had become cumbersome to manage on paper. Initially, transitioning to digital handwriting felt somewhat unnatural because the frictionless glass screen lacked the tactile resistance of paper. However, after customizing the palm rejection settings and downloading an intuitive note-taking application, the learning curve flattened within a matter of days. This tablet proved to be immensely helpful in my daily routine. It eliminated the necessity of carrying heavy textbooks, streamlined my study schedule through cloud synchronization across all my devices, and drastically cut down on paper waste. Overall, it revolutionized my personal productivity and organization.',
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Technology and Education / Society)
+  {
+    question: 'What is the best age for children to start computer lessons?',
+    audioAsset: 'q6.mp3',
+    duration: 3.08,
+    part: 3,
+    transcript: 'I believe around seven or eight years old is optimal. At this developmental stage, children already possess foundational literacy and numeracy skills, making them receptive to understanding basic computational logic, typing, and digital safety, without interfering with essential early physical and social play.',
+  },
+  {
+    question: 'Do you think that schools should use more technology to help children learn?',
+    audioAsset: 'q7.mp3',
+    duration: 4.28,
+    part: 3,
+    transcript: 'Yes, modern educational institutions should certainly integrate technology, provided it serves a clear pedagogical purpose. Interactive software and multimedia simulations can demystify abstract scientific or mathematical concepts and cater to diverse learning styles, though it should complement rather than entirely replace traditional instructional methods.',
+  },
+  {
+    question: 'Do you agree or disagree that computers will replace teachers one day?',
+    audioAsset: 'q8.mp3',
+    duration: 3.50,
+    part: 3,
+    transcript: 'I respectfully disagree with that assertion. While artificial intelligence and computers can efficiently deliver curriculum content and grade standardized assignments, they inherently lack human empathy, mentorship, emotional intuition, and the ability to inspire critical discourse and ethical thinking in students.',
+  },
+  {
+    question: 'How much has technology improved how we communicate with each other?',
+    audioAsset: 'q9.mp3',
+    duration: 3.03,
+    part: 3,
+    transcript: 'Technology has transformed human communication immeasurably by dismantling geographical barriers and enabling instant video conferencing and messaging worldwide. However, it is a double-edged sword; while speed and accessibility have surged, interpersonal depth and face-to-face social nuance have sometimes suffered in the process.',
+  },
+  {
+    question: 'Do you agree that there are still many more major technological innovations to be made?',
+    audioAsset: 'q10.mp3',
+    duration: 4.44,
+    part: 3,
+    transcript: 'Absolutely. We are merely at the threshold of transformative frontiers such as quantum computing, renewable clean energy storage, personalized genomic medicine, and advanced neurotechnology. These fields still hold boundless potential to tackle humanity\'s most daunting existential challenges.',
+  },
+  {
+    question: 'Could you suggest some reasons why some people are deciding to reduce their use of technology?',
+    audioAsset: 'q11.mp3',
+    duration: 5.36,
+    part: 3,
+    transcript: 'Many individuals are intentionally pursuing "digital detoxes" primarily to safeguard their mental health and alleviate cognitive overload caused by non-stop notifications and social media comparisons. Furthermore, concerns regarding data privacy, screen-induced insomnia, and a desire to cultivate deeper real-world presence and authentic human connection are prompting people to step back.',
+  },
+];
+
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 13 Test 2': book13Test2Questions,
   'IELTS Book 13 Test 1': book13Test1Questions,
   'IELTS Book 12 Test 2': book12Test2Questions,
   'IELTS Book 12 Test 1': book12Test1Questions,
@@ -1732,7 +1824,9 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 13 Test 1')
+                    {title.includes('Book 13 Test 2')
+                      ? 'Age & Life Stages, New Technological Device & Technology in Society'
+                      : title.includes('Book 13 Test 1')
                       ? 'Television Programmes, Starting a Business & Work-Life Balance'
                       : title.includes('Book 12 Test 2')
                       ? 'Singing & Music, Popular Film Actor & Cinema vs Theatre'
