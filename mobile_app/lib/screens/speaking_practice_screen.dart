@@ -1563,9 +1563,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           'I recall an interesting discussion I had with my father regarding my monthly budget. We were debating the merits of saving versus investing in stocks. He argued that I should prioritize long-term wealth, while I felt that spending on experiences was more valuable for my personal growth. The conversation was quite eye-opening because it forced me to reconsider my financial priorities and look at money as a tool for future security rather than just immediate consumption.',
     },
 
-    // Part 3: Questions 6-11
+    // Part 3: Questions 6-11 (Discussion - Money & Society)
     {
-      'question': 'How do people in your country usually spend their free time?',
+      'question':
+          'Why do some parents give their children money to spend each week?',
       'audioAsset': 'q6.mp3',
       'duration': 2.9,
       'start': 0.0,
@@ -1573,10 +1574,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.9,
       'part': 3,
       'transcript':
-          'In my country, people engage in a variety of leisure activities depending on their age and personal interests. Many enjoy socializing with family and friends at restaurants or local parks, while others prefer outdoor sports, watching movies, or engaging in creative hobbies at home.',
+          'Many parents give their children pocket money to help them learn basic financial responsibility from an early age. Receiving a weekly allowance allows children to make their own choices about saving and spending, which fosters independence and an understanding of the value of money.',
     },
     {
-      'question': 'Is it important for people to have free time? [Why/why not?]',
+      'question':
+          'Do you agree that schools should teach children how to manage money?',
       'audioAsset': 'q7.mp3',
       'duration': 3.1,
       'start': 0.0,
@@ -1584,10 +1586,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.1,
       'part': 3,
       'transcript':
-          'Having adequate free time is vital for maintaining physical and mental health. It allows individuals to recover from daily work stress, pursue personal passions, and spend quality time with loved ones, which ultimately enhances overall productivity and life satisfaction.',
+          'I strongly agree that financial literacy should be part of the school curriculum. Teaching students practical skills like budgeting, saving, and understanding interest equips them to make sound financial decisions as adults, reducing the likelihood of debt later in life.',
     },
     {
-      'question': 'Do men and women spend their free time differently?',
+      'question':
+          'Do you think it is a good idea for students to earn money while studying?',
       'audioAsset': 'q8.mp3',
       'duration': 3.0,
       'start': 0.0,
@@ -1595,10 +1598,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.0,
       'part': 3,
       'transcript':
-          'While individual preferences vary greatly, there can be general differences in how men and women spend their free time. Men often participate more in competitive sports or gaming, whereas women may engage more in creative pursuits, shopping, or group social activities.',
+          'Working part-time while studying can be very beneficial because it provides students with financial independence and practical work experience. However, it is essential that work commitments do not compromise their academic performance or personal well-being.',
     },
     {
-      'question': 'What are the main differences between leisure activities today and in the past?',
+      'question':
+          'Do you think it is true that in today\'s society money cannot buy happiness?',
       'audioAsset': 'q9.mp3',
       'duration': 3.4,
       'start': 0.0,
@@ -1606,10 +1610,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.4,
       'part': 3,
       'transcript':
-          'The primary difference lies in the integration of modern digital technology. Today, many leisure activities revolve around screens, such as online streaming and social media, whereas in the past, people relied much more on physical, outdoor, and face-to-face community activities.',
+          'While money provides financial security and access to comforts, true happiness often stems from meaningful relationships, health, and personal fulfillment. Wealth can reduce life stress to an extent, but it cannot replace emotional connection and purpose.',
     },
     {
-      'question': 'Do you think people will have more free time in the future?',
+      'question':
+          'What disadvantages are there in a society where the gap between the rich and poor is very large?',
       'audioAsset': 'q10.mp3',
       'duration': 4.3,
       'start': 0.0,
@@ -1617,7 +1622,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 4.3,
       'part': 3,
       'transcript':
-          'With advancements in automation and artificial intelligence, routine tasks may take less time, potentially freeing up more leisure time. However, the blurring boundaries between work and personal life in our connected world could mean that people remain just as busy.',
+          'A wide wealth gap can lead to social division, reduced social mobility, and unequal access to essential services like healthcare and education. It can also increase crime rates and create economic instability, undermining overall social cohesion.',
     },
     {
       'question': 'How can people achieve a better work-life balance?',
@@ -2030,7 +2035,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
     {
       'question':
-          'What are the possible effects of poor communication skills at work?',
+          'What are the possible effects of poor written communication skills at work?',
       'audioAsset': 'q10.mp3',
       'duration': 3.50,
       'start': 0.0,
@@ -2038,7 +2043,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.50,
       'part': 3,
       'transcript':
-          'Substandard communication in a workspace inevitably breeds ambiguity, operational errors, and costly project delays. When instructions or deliverables are conveyed vaguely, redundant effort and friction between team members quickly emerge. Over time, chronic miscommunication severely erodes workplace morale, fosters toxic resentment, and can even compromise client trust and organizational reputation.',
+          'Poor written communication in the workplace inevitably breeds ambiguity, operational errors, and costly project delays. When emails, briefs, or project specifications are poorly articulated, team members often misinterpret crucial requirements, resulting in wasted effort and unnecessary friction. Over time, recurring written misunderstandings undermine professional credibility and damage relationships with clients.',
     },
     {
       'question':
@@ -2625,7 +2630,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           (bookNum == 21 && testNum == 1) ||
                           (bookNum == 10 && testNum >= 1 && testNum <= 4) ||
                           (bookNum == 11 && testNum >= 1 && testNum <= 4) ||
-                          (bookNum == 12 && (testNum == 1 || testNum == 2)) ||
+                          (bookNum == 12 && (testNum >= 1 && testNum <= 3)) ||
                           (bookNum == 13 && (testNum >= 1 && testNum <= 3));
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
