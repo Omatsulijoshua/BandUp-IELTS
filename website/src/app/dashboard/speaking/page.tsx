@@ -1455,6 +1455,108 @@ const book13Test4Questions: Question[] = [
   },
 ];
 
+const book14Test1Questions: Question[] = [
+  // Part 1: Questions 1-4 (Future Plans & Career)
+  {
+    question: 'What job would you like to have ten years from now? [Why?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.30,
+    part: 1,
+    transcript:
+      'In ten years, I aspire to be working as a senior project manager in an international firm. I have always been passionate about leadership and coordinating complex tasks, so this role would allow me to utilize my organizational skills effectively. Furthermore, I hope this position will provide me with the financial stability to pursue my personal interests, such as traveling and volunteering.',
+  },
+  {
+    question: 'How useful will English be for your future? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.25,
+    part: 1,
+    transcript:
+      'English will be incredibly useful for my future because it is the global lingua franca of business and technology. Being proficient in English will grant me access to a wider range of career opportunities and international networking events. Without it, I believe it would be significantly more difficult to collaborate with colleagues from different cultural backgrounds in our globalized economy.',
+  },
+  {
+    question: 'How much travelling do you hope to do in the future? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.61,
+    part: 1,
+    transcript:
+      'I hope to do a substantial amount of travelling in the future, particularly exploring regions with rich histories and diverse cultures like South America and Southeast Asia. Travelling exposes you to different ways of living, fosters personal growth, and broadens your perspective on global issues. Whenever my work schedule and finances permit, I definitely plan to take extended trips to experience new environments firsthand.',
+  },
+  {
+    question: 'How do you think your life will change in the future? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 1.78,
+    part: 1,
+    transcript:
+      'In the future, I anticipate that my life will become much more structured and focused around long-term personal and professional commitments. As I advance in my career and potentially start a family, my daily priorities will naturally shift toward ensuring stability and financial security. Additionally, with advancements in technology, I expect remote work and digital automation will play a larger role in how I manage my daily routine.',
+  },
+
+  // Part 2: Question 5 (Cue Card: Book that Made You Think)
+  {
+    question: 'Describe a book that you enjoyed reading because you had to think a lot.',
+    audioAsset: 'q5.mp3',
+    duration: 3.40,
+    part: 2,
+    youShouldSay: [
+      'what this book was',
+      'why you decided to read it',
+      'what reading this book made you think about',
+      'and explain why you enjoyed reading this book.',
+    ],
+    transcript:
+      "One book that truly challenged my way of thinking is '1984' by George Orwell. I found it incredibly thought-provoking because it explores complex themes like surveillance, totalitarianism, and the manipulation of truth. Throughout the story, I had to constantly reflect on how these concepts relate to our modern society and the nature of freedom. It wasn't an easy read, but it forced me to analyze the power of language and political control. By the time I finished the final chapter, I felt I had gained a much deeper understanding of the fragility of democratic institutions.",
+  },
+
+  // Part 3: Questions 6-11 (Children's Books & Reading)
+  {
+    question: "What are the most popular types of children's books in your country?",
+    audioAsset: 'q6.mp3',
+    duration: 3.13,
+    part: 3,
+    transcript:
+      'In my country, illustrated storybooks for young children are incredibly popular. Additionally, educational books that incorporate interactive elements like pop-ups or textures are highly sought after by parents who want to stimulate their child\'s development.',
+  },
+  {
+    question: 'What are the benefits of parents reading books to their children?',
+    audioAsset: 'q7.mp3',
+    duration: 2.48,
+    part: 3,
+    transcript:
+      'Reading to children is immensely beneficial as it significantly enhances their vocabulary and language acquisition skills. Moreover, it fosters a strong emotional bond between the parent and the child, creating a comforting routine that encourages a lifelong love of reading.',
+  },
+  {
+    question: 'Should parents always let children choose the books they read?',
+    audioAsset: 'q8.mp3',
+    duration: 3.00,
+    part: 3,
+    transcript:
+      'While it is important to encourage autonomy, I believe parents should provide some guidance. Children might choose books that are too simple or repetitive, so parents should ensure a balance between the child\'s preferences and age-appropriate, challenging materials.',
+  },
+  {
+    question: 'How popular are electronic books in your country?',
+    audioAsset: 'q9.mp3',
+    duration: 2.38,
+    part: 3,
+    transcript:
+      'Electronic books have gained significant popularity in my country over the last few years. They are widely used by students and commuters due to their portability and the convenience of having an entire library on a single device.',
+  },
+  {
+    question: 'What are the advantages of parents reading electronic books (compared to printed books)?',
+    audioAsset: 'q10.mp3',
+    duration: 4.86,
+    part: 3,
+    transcript:
+      'The primary advantage of electronic books is their accessibility and the ability to adjust font sizes or use built-in dictionaries. Furthermore, many e-books for children include interactive features such as animations and audio narration, which can make the reading experience more engaging.',
+  },
+  {
+    question: 'Will electronic books ever completely replace printed books in the future?',
+    audioAsset: 'q11.mp3',
+    duration: 3.87,
+    part: 3,
+    transcript:
+      'I do not believe they will completely replace printed books. Many people still value the tactile experience of holding a physical book and the lack of digital distractions. I think they will continue to coexist, as each format serves different purposes for different readers.',
+  },
+];
+
 const book14Test2Questions: Question[] = [
   // Part 1: Questions 1-4 (Social Media)
   {
@@ -1557,8 +1659,113 @@ const book14Test2Questions: Question[] = [
   },
 ];
 
+const book14Test3Questions: Question[] = [
+  // Part 1: Questions 1-4 (Neighbours & Community)
+  {
+    question: 'How often do you see your neighbours? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 1.65,
+    part: 1,
+    transcript:
+      'I see my neighbours quite frequently, usually once or twice a week. We often bump into each other in the hallway or the communal garden, so we tend to stop and chat for a few minutes to catch up on how things are going.',
+  },
+  {
+    question: 'Do you invite your neighbours to your home? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 1.88,
+    part: 1,
+    transcript:
+      'To be honest, I rarely invite my neighbours over to my home. While we are on friendly terms, I prefer to keep my home as a private space for my close family and friends rather than hosting formal social gatherings with neighbours.',
+  },
+  {
+    question: 'Do you think you are a good neighbour? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 1.41,
+    part: 1,
+    transcript:
+      'I believe I am a considerate neighbour because I always make sure to keep noise levels down, especially late at night. I also respect their privacy and always keep the shared areas of our building clean and tidy.',
+  },
+  {
+    question: 'Has a neighbour ever helped you? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 1.57,
+    part: 1,
+    transcript:
+      'I remember one instance when I was locked out of my apartment late at night. My neighbour kindly allowed me to use their phone to call a locksmith and even offered me a cup of tea while I waited for help.',
+  },
+
+  // Part 2: Question 5 (Cue Card: Difficult Task Succeeded At)
+  {
+    question: 'Describe a very difficult task that you succeeded in doing as part of your work or studies.',
+    audioAsset: 'q5.mp3',
+    duration: 4.52,
+    part: 2,
+    youShouldSay: [
+      'what task you did',
+      'why this task was very difficult',
+      'how you worked on this task',
+      'and explain how you felt when you had successfully completed this task.',
+    ],
+    transcript:
+      'A particularly challenging task I faced during my final year of university was completing a comprehensive research project on climate change. The primary difficulty lay in gathering primary data from diverse sources and synthesizing it into a cohesive argument within a very tight deadline. To overcome this, I broke the project into smaller, manageable milestones and dedicated specific hours each day to data analysis. I successfully managed to submit the project two days early, and it ended up receiving the highest grade in my cohort. This experience taught me the importance of time management and persistence when tackling complex professional or academic challenges.',
+  },
+
+  // Part 3: Questions 6-11 (Difficult Jobs & Goals)
+  {
+    question: 'What are the most difficult jobs that people do?',
+    audioAsset: 'q6.mp3',
+    duration: 1.59,
+    part: 3,
+    transcript:
+      'Jobs that require high levels of physical labor or extreme mental pressure are often considered the most difficult. For example, surgeons face immense stress because they are responsible for human lives, while miners work in dangerous and physically exhausting environments. These roles demand not only specialized skill but also significant emotional resilience.',
+  },
+  {
+    question: 'Why do you think some people choose to do difficult jobs?',
+    audioAsset: 'q7.mp3',
+    duration: 2.43,
+    part: 3,
+    transcript:
+      'Many people are drawn to challenging careers because of the sense of personal fulfillment and the potential for high status. Others are motivated by the desire to solve complex problems or contribute to society in a meaningful way. Ultimately, the reward of overcoming difficult obstacles often outweighs the stress involved in these positions.',
+  },
+  {
+    question: 'Do you agree or disagree that all jobs are difficult sometimes?',
+    audioAsset: 'q8.mp3',
+    duration: 2.95,
+    part: 3,
+    transcript:
+      'I would agree with that statement to an extent. Every job has periods of high pressure, whether it involves meeting tight deadlines, managing difficult clients, or dealing with unexpected technical failures. Even routine jobs can become difficult if the environment is stressful or if the worker lacks the necessary support.',
+  },
+  {
+    question: 'How important is it for everyone to have a goal in their personal life?',
+    audioAsset: 'q9.mp3',
+    duration: 2.77,
+    part: 3,
+    transcript:
+      'Having a personal goal is fundamental to human motivation and direction. Without a goal, individuals often feel stagnant or lose their drive to improve. Goals provide a framework for decision-making and help people prioritize their time, which is essential for personal growth and long-term satisfaction.',
+  },
+  {
+    question: 'Is it always necessary to work hard in order to achieve career success?',
+    audioAsset: 'q10.mp3',
+    duration: 4.18,
+    part: 3,
+    transcript:
+      'Hard work is certainly a primary factor in career success, but it is not the only one. While dedication and persistence are necessary to master a craft, success also requires networking, adaptability, and sometimes a bit of luck. Relying solely on hard work without a strategy may not always lead to the desired results.',
+  },
+  {
+    question: 'Do you think that successful people are always happy people?',
+    audioAsset: 'q11.mp3',
+    duration: 3.29,
+    part: 3,
+    transcript:
+      'Not necessarily. While professional success often brings financial stability and recognition, it does not automatically equate to personal happiness. Many successful individuals experience high levels of stress and burnout. True happiness usually stems from a balance between professional achievements and personal well-being, such as healthy relationships and mental health.',
+  },
+];
+
+
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 14 Test 3': book14Test3Questions,
   'IELTS Book 14 Test 2': book14Test2Questions,
+  'IELTS Book 14 Test 1': book14Test1Questions,
   'IELTS Book 13 Test 4': book13Test4Questions,
   'IELTS Book 13 Test 3': book13Test3Questions,
   'IELTS Book 13 Test 2': book13Test2Questions,
@@ -1812,6 +2019,8 @@ export default function SpeakingPracticePage() {
         band = selectedPart === 1 ? 0.0 : 1.0;
       } else if (selectedTestTitle.includes('Book 13 Test 4')) {
         band = selectedPart === 2 ? 0.0 : 1.0;
+      } else if (selectedTestTitle.includes('Book 13 Test 2') || selectedTestTitle.includes('Book 14 Test 3')) {
+        band = selectedPart === 1 ? 2.0 : 1.0;
       } else {
         band = selectedPart === 3 ? 0.0 : 1.0;
       }
@@ -1822,7 +2031,7 @@ export default function SpeakingPracticePage() {
           ? (selectedPart === 1 ? 0 : 1)
           : selectedTestTitle.includes('Book 13 Test 4')
           ? (selectedPart === 2 ? 0 : 1)
-          : selectedTestTitle.includes('Book 13 Test 2')
+          : (selectedTestTitle.includes('Book 13 Test 2') || selectedTestTitle.includes('Book 14 Test 3'))
           ? (selectedPart === 1 ? 2 : 1)
           : (selectedPart === 3 ? 0 : 1))
       : Math.round(band);
@@ -1835,7 +2044,11 @@ export default function SpeakingPracticePage() {
 
     if (isSingleWordOrMinimal) {
       if (selectedPart === 3) {
-        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "The responses are extremely short, incoherent, and fail to address the questions. Your answers were consistently off-topic or lacked any meaningful content."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "Your answers were completely irrelevant and failed to address the questions. Providing one-word fillers like 'Yeah', 'Oh', or 'Hey' demonstrates no ability to communicate or develop a topic."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "Your answers were completely irrelevant and failed to address the questions. Answering 'No' to complex, open-ended questions demonstrates a total failure to participate in the exam."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "Your responses were entirely irrelevant to the content of the questions. Providing a one-word answer ('No') to open-ended questions demonstrates a failure to engage with the test format."
@@ -1846,7 +2059,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
           : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "There is virtually no vocabulary usage. The responses consist of single words or fragmented phrases that do not communicate ideas."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "There is no evidence of lexical resource as you did not provide any meaningful vocabulary or complete sentences."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no vocabulary range to assess as you only provided a single-word response for every question."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "There is no vocabulary range or usage to assess from repetitive one-word responses."
@@ -1857,7 +2074,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no lexical resource displayed, as you only used one word repeatedly."
           : "There is no vocabulary to assess.";
-        grammarFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        grammarFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "There is no evidence of grammatical structure. Responses are limited to single-word utterances."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "There is no evidence of grammatical range or accuracy as you did not produce any complete sentences."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no grammatical structure to assess."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "No grammatical structures were produced."
@@ -1868,7 +2089,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "No grammatical structures were demonstrated beyond a single word."
           : "There is no grammar to assess.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "It is impossible to judge pronunciation effectively as there is no connected speech, but the lack of effort to speak full sentences indicates a failure to demonstrate even basic speaking skills."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "While your individual words were audible, you failed to use any connected speech or intonation patterns suitable for an IELTS exam."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "Cannot assess pronunciation based on a single word; however, you must speak in full, coherent sentences to be evaluated."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "Insufficient speech to evaluate pronunciation."
@@ -1924,7 +2149,11 @@ export default function SpeakingPracticePage() {
               "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
             ];
       } else if (selectedPart === 2) {
-        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a difficult task you succeeded in at work or studies, but you provided a single, meaningless word ('This'). This fails the task entirely."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "Your answer was off-topic and extremely insufficient. The question asked you to describe a book that made you think, but you only provided a greeting ('Hey'). This does not address the task at all."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "Your answer was completely insufficient. You provided a one-word response ('No') to a Part 2 prompt, which requires a 1-2 minute descriptive talk. This is not a valid attempt at the task."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "Your answer was empty. You provided no response to the prompt, which makes it impossible to assess your fluency or coherence. This is a failure to complete the task."
@@ -1937,7 +2166,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "There is no vocabulary range to assess as you only provided one word."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "There is no vocabulary to assess. You must provide a full response to demonstrate your range."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no vocabulary to assess."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "No vocabulary was produced to assess."
@@ -1950,7 +2183,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess."
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        grammarFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no grammatical structure to assess."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "No grammatical structures were produced to assess."
@@ -1963,7 +2200,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to evaluate.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "Cannot assess pronunciation based on a single word. Ensure you speak in full, coherent sentences during the test."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "You must speak at length to allow for an assessment of your pronunciation, intonation, and rhythm."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no continuous speech to assess."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "No speech was produced to assess."
@@ -2031,7 +2272,11 @@ export default function SpeakingPracticePage() {
               "Prepare stories about people you know in advance to avoid being caught off guard during the test."
             ];
       } else {
-        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "Your answers were highly repetitive and failed to address the 'Why/why not' component of the questions. Simply saying 'Yes' to every question is not a valid response in an IELTS speaking test."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "The responses are either non-existent or consist of single words that do not address the questions. There is no coherence or development of ideas."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "The candidate provided no responses to any of the questions. The answers were empty/refusals, which makes them completely incoherent and irrelevant to the task."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "The responses are extremely limited and fail to address the 'Why/why not' components of the questions. Providing one-word answers is not acceptable for an IELTS speaking test."
@@ -2044,7 +2289,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "There is no vocabulary range demonstrated. You relied on a single word for all responses."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "There is no vocabulary range to assess. The provided input does not demonstrate any ability to communicate ideas."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no vocabulary to assess."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "The vocabulary is non-existent beyond a single negative particle. There is no demonstration of range or ability to discuss topics."
@@ -2057,7 +2306,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess beyond a single, repetitive word."
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        grammarFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "No grammatical structures were displayed beyond a single-word affirmative."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "There is no grammatical structure present to evaluate."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "There is no grammatical structure to assess."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "It is impossible to assess grammar based on single-word responses. You failed to provide any sentence structures."
@@ -2070,7 +2323,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to assess as no full sentences were produced.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 2')
+        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 3')
+          ? "While the word 'Yes' is clear, you failed to demonstrate any ability to form sentences, intonation, or connected speech."
+          : selectedTestTitle.includes('Book 14 Test 1')
+          ? "Unable to assess pronunciation due to the lack of spoken content. You must provide full, audible sentences to be evaluated."
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? "There was no speech to evaluate."
           : selectedTestTitle.includes('Book 13 Test 4')
           ? "The sample size is too small to evaluate pronunciation, but the lack of engagement suggests a failure to demonstrate communicative intent."
@@ -2146,8 +2403,12 @@ export default function SpeakingPracticePage() {
       tipsList = generateDynamicTips(responsesList);
     }
 
+    const defWrong = isSingleWordOrMinimal
+      ? (selectedTestTitle.includes('Book 13 Test 2') ? 'Yes' : 'No')
+      : 'No verbal response recorded';
+
     const mistakes = partQuestions.map((q, i) => {
-      const userAns = responsesList[i] || 'No verbal response recorded';
+      const userAns = responsesList[i] || defWrong;
       return {
         question: q.question,
         wrong: userAns,
@@ -2156,7 +2417,7 @@ export default function SpeakingPracticePage() {
     });
 
     const detailedResponses = partQuestions.map((q, i) => {
-      const userAns = responsesList[i] || 'No verbal response recorded';
+      const userAns = responsesList[i] || defWrong;
       const words = userAns === 'No verbal response recorded' ? 0 : userAns.split(/\s+/).filter(Boolean).length;
       const globalQIndex = activeQuestions.indexOf(q);
       const globalQNum = globalQIndex !== -1 ? globalQIndex + 1 : i + 1;
@@ -2340,16 +2601,22 @@ export default function SpeakingPracticePage() {
                 <span className="text-[#F59E0B] font-bold">⚠️</span>
                 <h3 className="text-base font-extrabold text-[#1F2937]">Your Mistakes</h3>
               </div>
-              <div className="flex items-center gap-4 text-xs">
-                <span className="text-[#DC2626] line-through font-semibold">ab Wrong</span>
-                <span className="text-[#10B981] font-semibold">ab Correct</span>
+              <div className="flex items-center gap-3 text-xs">
+                <div className="flex items-center gap-1.5">
+                  <span className="bg-[#FEE2E2] text-[#DC2626] line-through font-bold text-[11px] px-1.5 py-0.5 rounded">ab</span>
+                  <span className="text-[#6B7280] font-semibold">Wrong</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="bg-[#DCFCE7] text-[#15803D] font-bold text-[11px] px-1.5 py-0.5 rounded">ab</span>
+                  <span className="text-[#6B7280] font-semibold">Correct</span>
+                </div>
               </div>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {examinerResults.mistakes.map((m: any, idx: number) => (
-                <div key={idx} className="border-b border-[#F3F4F6] pb-5 last:border-0 last:pb-0 space-y-2">
-                  <p className="text-xs font-bold text-[#B91C1C]">{m.question}</p>
-                  <div className="flex flex-wrap gap-1.5 pt-1 items-center">
+                <div key={idx} className="bg-[#F9FAFB] rounded-2xl p-4 sm:p-5 border border-[#E5E7EB] space-y-2.5">
+                  <p className="text-xs sm:text-sm font-bold text-[#B91C1C] leading-snug">{m.question}</p>
+                  <div className="flex flex-wrap gap-1.5 pt-0.5 items-center">
                     {m.wrong && m.wrong !== 'No verbal response recorded' && (
                       <span className="bg-[#FEE2E2] border border-[#FEE2E2] rounded px-2 py-0.5 text-xs text-[#DC2626] line-through font-medium">
                         {m.wrong}
@@ -2461,8 +2728,12 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 14 Test 2')
+                    {title.includes('Book 14 Test 3')
+                      ? 'Neighbours & Community, Difficult Task Succeeded At & Difficult Jobs / Personal Goals'
+                      : title.includes('Book 14 Test 2')
                       ? 'Social Media Habits, Item Bought for Home & Accommodation Discussion'
+                      : title.includes('Book 14 Test 1')
+                      ? 'Future Plans & Career, Book that Made You Think & Children\'s Books / Reading'
                       : title.includes('Book 13 Test 4')
                       ? 'Animals & Birds, Useful Website Cue Card & The Internet / Social Media'
                       : title.includes('Book 13 Test 3')
