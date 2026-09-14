@@ -1094,39 +1094,39 @@ const book13Test1Questions: Question[] = [
 const book13Test2Questions: Question[] = [
   // Part 1: Questions 1-4 (Age)
   {
-    question: 'Are you happy to be the age you are now? [Why/Why not?]',
+    question: 'Are you happy to be the age you are now? [Why/why not?]',
     audioAsset: 'q1.mp3',
-    duration: 2.14,
+    duration: 2.10,
     part: 1,
-    transcript: 'Yes, absolutely. I feel that my current age provides the perfect balance between youthful energy and mental maturity. I have achieved financial independence and a clear sense of life direction, while still possessing the physical vitality to pursue my goals and enjoy novel experiences.',
+    transcript: 'I am quite happy with my current age. I feel that I have reached a stage in my life where I am more mature and independent, which allows me to make better decisions for my future. It is a very productive period for my personal and professional growth.',
   },
   {
-    question: 'When you were a child, did you think a lot about your future? [Why/Why not?]',
+    question: 'When you were a child, did you think a lot about your future? [Why/why not?]',
     audioAsset: 'q2.mp3',
-    duration: 2.85,
+    duration: 2.80,
     part: 1,
-    transcript: 'Not particularly. As a child, I was mostly preoccupied with the immediate present—playing games, spending time with school friends, and exploring hobbies. I occasionally daydreamed about glamorous professions like being an astronaut or pilot, but I didn\'t engage in serious or realistic long-term planning.',
+    transcript: 'Actually, I didn\'t spend much time thinking about the future when I was a child. Back then, I was mostly focused on playing with my friends and enjoying my school days. I think that is quite normal for a child, as the future felt like a very distant and abstract concept.',
   },
   {
-    question: 'Do you think you have changed as you have got older? [Why/Why not?]',
+    question: 'Do you think you have changed as you have got older? [Why/why not?]',
     audioAsset: 'q3.mp3',
-    duration: 2.48,
+    duration: 2.45,
     part: 1,
-    transcript: 'Undoubtedly, yes. Over the years, I have become much more pragmatic, patient, and emotionally resilient. Experiencing various personal and professional challenges has taught me to remain composed under pressure and to prioritize meaningful relationships over superficial pursuits.',
+    transcript: 'I believe I have changed significantly as I have grown older. My perspective on life has become more grounded, and I have learned to prioritize what is truly important to me. I am definitely more patient and thoughtful than I was a few years ago.',
   },
   {
     question: 'What will be different about your life in the future? [Why?]',
     audioAsset: 'q4.mp3',
-    duration: 2.19,
+    duration: 2.15,
     part: 1,
-    transcript: 'In the coming years, I anticipate taking on substantially greater responsibilities, both professionally and within my family. I hope to advance into leadership roles in my career and perhaps settle down into family life, which will inevitably require wiser time management and long-term financial foresight.',
+    transcript: 'I believe my life will be quite different because I plan to pursue a career in a new field. I expect to have more responsibilities and perhaps live in a different city, which will provide me with new challenges. I am looking forward to these changes as they will help me evolve as a person.',
   },
 
   // Part 2: Question 5 (Cue Card - Technological Device)
   {
     question: 'Describe a time when you started using a new technological device (e.g. a new computer or phone).',
     audioAsset: 'q5.mp3',
-    duration: 5.54,
+    duration: 5.50,
     part: 2,
     youShouldSay: [
       'what device you started using',
@@ -1134,51 +1134,51 @@ const book13Test2Questions: Question[] = [
       'how easy or difficult it was to use',
       'and explain how helpful this device was to you.'
     ],
-    transcript: 'I would like to describe the time I purchased and began using a digital tablet paired with a smart stylus, roughly two years ago. I made the decision to invest in this device because my university coursework and freelance projects required extensive reading, annotating complex PDF documents, and sketching conceptual diagrams, which had become cumbersome to manage on paper. Initially, transitioning to digital handwriting felt somewhat unnatural because the frictionless glass screen lacked the tactile resistance of paper. However, after customizing the palm rejection settings and downloading an intuitive note-taking application, the learning curve flattened within a matter of days. This tablet proved to be immensely helpful in my daily routine. It eliminated the necessity of carrying heavy textbooks, streamlined my study schedule through cloud synchronization across all my devices, and drastically cut down on paper waste. Overall, it revolutionized my personal productivity and organization.',
+    transcript: 'Last year, I decided to upgrade to a high-end smartphone because my old device was becoming incredibly slow and unreliable. When I first unboxed the new phone, I was immediately impressed by the sleek design and the vibrant display quality. However, the transition was initially challenging because the operating system had several new features that I wasn\'t familiar with. I spent the entire weekend exploring the settings, customizing the interface, and migrating my data from the old device. Eventually, I grew comfortable with the device, and it has since significantly improved my daily productivity.',
   },
 
   // Part 3: Questions 6-11 (Discussion - Technology and Education / Society)
   {
     question: 'What is the best age for children to start computer lessons?',
     audioAsset: 'q6.mp3',
-    duration: 3.08,
+    duration: 3.05,
     part: 3,
-    transcript: 'I believe around seven or eight years old is optimal. At this developmental stage, children already possess foundational literacy and numeracy skills, making them receptive to understanding basic computational logic, typing, and digital safety, without interfering with essential early physical and social play.',
+    transcript: 'I believe the ideal age is around seven or eight. At this stage, children have developed basic literacy and logical thinking skills, which makes it easier for them to grasp the fundamentals of coding and computer navigation without becoming overwhelmed.',
   },
   {
     question: 'Do you think that schools should use more technology to help children learn?',
     audioAsset: 'q7.mp3',
-    duration: 4.28,
+    duration: 4.25,
     part: 3,
-    transcript: 'Yes, modern educational institutions should certainly integrate technology, provided it serves a clear pedagogical purpose. Interactive software and multimedia simulations can demystify abstract scientific or mathematical concepts and cater to diverse learning styles, though it should complement rather than entirely replace traditional instructional methods.',
+    transcript: 'Absolutely. Integrating technology into the classroom can significantly enhance engagement and provide students with access to a wealth of information. It prepares them for a future where digital literacy is an essential skill for almost any career path.',
   },
   {
     question: 'Do you agree or disagree that computers will replace teachers one day?',
     audioAsset: 'q8.mp3',
-    duration: 3.50,
+    duration: 3.45,
     part: 3,
-    transcript: 'I respectfully disagree with that assertion. While artificial intelligence and computers can efficiently deliver curriculum content and grade standardized assignments, they inherently lack human empathy, mentorship, emotional intuition, and the ability to inspire critical discourse and ethical thinking in students.',
+    transcript: 'I strongly disagree with that notion. While computers are excellent at delivering information, they lack the emotional intelligence and ability to mentor students. A teacher\'s role involves fostering critical thinking and providing moral support, which technology simply cannot replicate.',
   },
   {
     question: 'How much has technology improved how we communicate with each other?',
     audioAsset: 'q9.mp3',
-    duration: 3.03,
+    duration: 3.00,
     part: 3,
-    transcript: 'Technology has transformed human communication immeasurably by dismantling geographical barriers and enabling instant video conferencing and messaging worldwide. However, it is a double-edged sword; while speed and accessibility have surged, interpersonal depth and face-to-face social nuance have sometimes suffered in the process.',
+    transcript: 'Technology has revolutionized communication by making it instantaneous and global. We can now connect with anyone across the world via video calls or messaging apps, which has effectively bridged the geographical divide that once limited our social and professional interactions.',
   },
   {
     question: 'Do you agree that there are still many more major technological innovations to be made?',
     audioAsset: 'q10.mp3',
-    duration: 4.44,
+    duration: 4.40,
     part: 3,
-    transcript: 'Absolutely. We are merely at the threshold of transformative frontiers such as quantum computing, renewable clean energy storage, personalized genomic medicine, and advanced neurotechnology. These fields still hold boundless potential to tackle humanity\'s most daunting existential challenges.',
+    transcript: 'I do. We are currently seeing rapid developments in fields like artificial intelligence, biotechnology, and renewable energy. These sectors are still in their infancy, and I believe we will witness breakthroughs that will fundamentally change how we live and work.',
   },
   {
     question: 'Could you suggest some reasons why some people are deciding to reduce their use of technology?',
     audioAsset: 'q11.mp3',
-    duration: 5.36,
+    duration: 5.45,
     part: 3,
-    transcript: 'Many individuals are intentionally pursuing "digital detoxes" primarily to safeguard their mental health and alleviate cognitive overload caused by non-stop notifications and social media comparisons. Furthermore, concerns regarding data privacy, screen-induced insomnia, and a desire to cultivate deeper real-world presence and authentic human connection are prompting people to step back.',
+    transcript: 'Some people are choosing a \'digital detox\' because they feel overwhelmed by constant connectivity. They often find that reducing technology use helps them improve their mental health, regain focus on physical tasks, and spend more quality time with family and friends.',
   },
 ];
 
@@ -1503,7 +1503,11 @@ export default function SpeakingPracticePage() {
 
     let band = 1.0;
     if (isSingleWordOrMinimal) {
-      band = selectedPart === 3 ? 0.0 : 1.0;
+      if (selectedTestTitle.includes('Book 13 Test 2')) {
+        band = selectedPart === 1 ? 2.0 : 1.0;
+      } else {
+        band = selectedPart === 3 ? 0.0 : 1.0;
+      }
     } else if (totalWords > 60 && avgWords >= 15) {
       band = 7.5;
     } else if (totalWords > 40 && avgWords >= 10) {
@@ -1518,7 +1522,9 @@ export default function SpeakingPracticePage() {
       band = selectedPart === 3 ? 0.0 : 1.0;
     }
 
-    const intBand = isSingleWordOrMinimal ? (selectedPart === 3 ? 0 : 1) : Math.round(band);
+    const intBand = isSingleWordOrMinimal
+      ? (selectedTestTitle.includes('Book 13 Test 2') ? (selectedPart === 1 ? 2 : 1) : (selectedPart === 3 ? 0 : 1))
+      : Math.round(band);
 
     let fluencyFeedback = '';
     let lexicalFeedback = '';
@@ -1528,30 +1534,62 @@ export default function SpeakingPracticePage() {
 
     if (isSingleWordOrMinimal) {
       if (selectedPart === 3) {
-        fluencyFeedback = "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-        lexicalFeedback = "There is no vocabulary to assess.";
-        grammarFeedback = "There is no grammar to assess.";
-        pronunciationFeedback = "There is no speech to assess.";
-        tipsList = [
-          "You must actually answer the questions asked in the IELTS test.",
-          "Providing 'No' as an answer is an automatic failure of the task.",
-          "Practice speaking in full, extended sentences rather than one-word responses.",
-          "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
-        ];
+        fluencyFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
+          : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
+        lexicalFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "There is no lexical resource displayed, as you only used one word repeatedly."
+          : "There is no vocabulary to assess.";
+        grammarFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "No grammatical structures were demonstrated beyond a single word."
+          : "There is no grammar to assess.";
+        pronunciationFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
+          : "There is no speech to assess.";
+        tipsList = selectedTestTitle.includes('Book 13 Test 2')
+          ? [
+              "You must provide full sentences and elaborate on your opinions; one-word answers are not acceptable in the IELTS exam.",
+              "Your answers were off-topic because you ignored the content of the questions entirely by saying 'Yes' to questions that were not Yes/No questions.",
+              "Listen to the question carefully. If it asks 'How' or 'Why', you must explain reasons and provide examples, not just agree or disagree.",
+              "Aim to speak for at least 3-4 sentences per question to demonstrate your English proficiency.",
+              "Practice answering 'Wh-' questions (Who, What, Where, When, Why) to build the habit of giving descriptive answers."
+            ]
+          : [
+              "You must actually answer the questions asked in the IELTS test.",
+              "Providing 'No' as an answer is an automatic failure of the task.",
+              "Practice speaking in full, extended sentences rather than one-word responses.",
+              "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
+            ];
       } else if (selectedPart === 2) {
-        fluencyFeedback = selectedTestTitle.includes('Book 10 Test 4')
+        fluencyFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "Your answer was completely insufficient. The question asked for a description of a time you started using a new technological device, but you provided a one-word confirmation ('Yes'). This is not a response; it fails to address the task entirely."
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-        lexicalFeedback = selectedTestTitle.includes('Book 10 Test 4')
+        lexicalFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "There is no vocabulary range to assess."
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess."
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 10 Test 4')
+        grammarFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to evaluate.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 10 Test 4')
+        pronunciationFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "Unable to assess pronunciation based on a single word."
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is insufficient data to evaluate your pronunciation."
           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-        tipsList = selectedTestTitle.includes('Book 10 Test 4')
+        tipsList = selectedTestTitle.includes('Book 13 Test 2')
+          ? [
+              "You must provide a full, detailed response for Part 2 tasks; a one-word answer will result in a near-zero score.",
+              "Follow the 'Who, What, Where, When, Why' structure to ensure you cover all aspects of the prompt.",
+              "Practice speaking for 1-2 minutes continuously as required for IELTS Part 2.",
+              "Do not answer 'Yes' or 'No' to a 'Describe' prompt; these questions require a narrative or descriptive response.",
+              "Expand your answers significantly to demonstrate your English proficiency."
+            ]
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? [
               "In Part 2, you must speak for 1-2 minutes. A single word response is not acceptable.",
               "Practice using the 'PPF' method (Past, Present, Future) to expand your ideas.",
@@ -1567,19 +1605,35 @@ export default function SpeakingPracticePage() {
               "Prepare stories about people you know in advance to avoid being caught off guard during the test."
             ];
       } else {
-        fluencyFeedback = selectedTestTitle.includes('Book 10 Test 4')
+        fluencyFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "Your answers are extremely short and fail to address the 'Why/why not' requirement of the questions. You are providing one-word answers which prevents any assessment of coherence."
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-        lexicalFeedback = selectedTestTitle.includes('Book 10 Test 4')
+        lexicalFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "There is no vocabulary range to assess. A single word does not demonstrate the ability to use language to express ideas."
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess beyond a single, repetitive word."
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 10 Test 4')
+        grammarFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "There is no grammatical structure to assess. You must produce full sentences to demonstrate grammatical control."
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to assess as no full sentences were produced.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 10 Test 4')
+        pronunciationFeedback = selectedTestTitle.includes('Book 13 Test 2')
+          ? "While you can articulate the word 'Yes', this is insufficient for an IELTS examiner to assess your pronunciation range, intonation, or connected speech."
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
           : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-        tipsList = selectedTestTitle.includes('Book 10 Test 4')
+        tipsList = selectedTestTitle.includes('Book 13 Test 2')
+          ? [
+              "Stop providing one-word answers. IELTS Speaking requires you to develop your ideas fully.",
+              "Always address the 'Why' or 'Why not' part of the question. If a question asks for a reason, you must provide one.",
+              "Aim to speak for at least 3-4 sentences per question in Part 1. Use the 'Answer + Extend' technique.",
+              "Practice using linking words like 'because', 'however', or 'in addition' to connect your thoughts.",
+              "Record yourself answering these questions and listen to see if you sound natural and fluent."
+            ]
+          : selectedTestTitle.includes('Book 10 Test 4')
           ? [
               "You must provide full, descriptive sentences to allow the examiner to assess your language ability.",
               "Use the 'PPF' method: Past, Present, Future, or provide reasons and examples to expand your answers.",
