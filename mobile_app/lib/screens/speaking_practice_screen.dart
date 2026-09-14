@@ -1506,7 +1506,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 1.4,
       'part': 1,
       'transcript':
-          'I buy most of my clothes from local shopping malls and popular high-street retail stores because they offer a wide variety of styles and sizes. Shopping in physical stores allows me to try on clothes before buying to ensure a good fit. Occasionally, I also shop online when looking for specific brands or discounts.',
+          'I generally prefer shopping at local boutique stores in the city center. I enjoy this because the quality is much higher than high-street brands, and the styles are more unique and suited to my personal taste.',
     },
     {
       'question': 'How often do you buy new clothes for yourself? [Why?]',
@@ -1517,7 +1517,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 1.8,
       'part': 1,
       'transcript':
-          'I don\'t buy clothes very frequently, usually only every few months or when the seasons change. I prefer to buy items when I actually need them rather than following every fast-fashion trend. This helps me save money and make more mindful choices.',
+          'I tend to purchase new clothes every few months, usually at the start of each season. This allows me to keep my wardrobe updated with appropriate attire for the changing weather conditions.',
     },
     {
       'question': 'How do you decide which clothes to buy? [Why?]',
@@ -1528,7 +1528,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 1.6,
       'part': 1,
       'transcript':
-          'When deciding on clothing, comfort and versatility are my primary criteria. I always choose garments made from comfortable fabrics that suit my daily activities. Additionally, I look for neutral colours and timeless designs that can easily be paired with other pieces in my wardrobe.',
+          'When deciding what to buy, I prioritize the fabric quality and the versatility of the item. I prefer to invest in classic, durable pieces that I can easily mix and match with my existing wardrobe, rather than following fast-fashion trends.',
     },
     {
       'question':
@@ -1540,7 +1540,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.6,
       'part': 1,
       'transcript':
-          'Yes, my taste in clothing has evolved noticeably over recent years. In the past, I used to prioritize vibrant trends and eye-catching designs, but now I prefer minimalist and casual attire. As I have matured, I place far more value on practicality and personal comfort.',
+          'Yes, my preferences have shifted significantly over the last few years. I used to favor trendy, colorful outfits, but now I gravitate toward a more minimalist style with neutral colors because I find it much more professional and timeless.',
     },
 
     // Part 2: Question 5 (Cue Card)
@@ -1698,7 +1698,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         'and explain whether you would like to do the same kind of work as this person.'
       ],
       'transcript':
-          'I would like to talk about my close friend and university classmate, David, who launched a boutique specialty coffee roastery and sustainable café two years ago. He oversees the entire operation, from ethically sourcing green beans from independent farmers to roasting and managing the customer experience. David worked in corporate finance for several years, but he grew disillusioned with the rigid corporate ladder and yearned to pursue his true passion for culinary craftsmanship and entrepreneurship. He wanted the autonomy to build a brand rooted in ethical commerce and environmental sustainability. While I deeply admire his courage, resilience, and vision, I personally would not want to do the exact same kind of work. Running a brick-and-mortar retail business requires tremendous sacrifice, 14-hour workdays, and substantial financial risk, whereas my own passions lie more in digital technology and software engineering. Nevertheless, seeing his café thrive has been genuinely inspiring.',
+          'I would like to talk about my close friend, Sarah, who recently launched a sustainable clothing business. She decided to start this venture because she is deeply passionate about environmental conservation and noticed a lack of eco-friendly options in our local market. She spent months researching ethical suppliers and building her brand identity from scratch. It was truly inspiring to watch her navigate the challenges of entrepreneurship, such as managing finances and marketing, while staying true to her values. Today, her business is thriving and has gained a loyal customer base who appreciate her commitment to sustainability.',
     },
 
     // Part 3: Questions 6-11 (Discussion - Choosing Work & Work-Life Balance)
@@ -1971,13 +1971,13 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.63,
       'part': 2,
       'youShouldSay': [
-        'what the discussion was about',
-        'who you discussed this with',
-        'what was the result of the discussion',
-        'and explain why the discussion was interesting to you.'
+        'what the subject of the discussion was',
+        'who you discussed the subject with',
+        'what opinions were expressed',
+        'and explain why you found the discussion interesting.'
       ],
       'transcript':
-          'I would like to recount an exceptionally stimulating discussion I had about six months ago during a collaborative academic project with my senior university peers and course supervisor. The core topic centered on the ethical ramifications of implementing generative artificial intelligence in higher education assessments. We debated whether universities should prohibit AI-generated coursework altogether to uphold academic integrity, or conversely redesign curricula to teach students how to harness AI tools productively and ethically. Two of my classmates argued vehemently that relying on automated tools dilutes authentic critical reasoning, while my supervisor and I maintained that AI literacy will soon be an indispensable workplace skill. Ultimately, the consensus of our roundtable was to propose a balanced policy draft: allowing AI tools for exploratory research and ideation, provided that students transparently cited prompts and critically reflected on the AI\'s outputs. This discussion was profoundly interesting to me because it forced us to reconsider the fundamental purpose of education in an increasingly automated world, and it demanded rigorous philosophical nuances rather than black-and-white answers.',
+          'During my final year of university, I had a fascinating discussion with my professor regarding the future of artificial intelligence in education. We debated whether digital tools could truly replace human mentorship. It was an incredibly thought-provoking conversation because it forced me to consider the ethical implications of technology. We explored various case studies, and the exchange of ideas helped me refine my own thesis. Ultimately, it was a memorable experience that significantly shaped my perspective on my future career path.',
     },
 
     // Part 3: Questions 6-11 (Discussion - Discussing Problems & Communication Skills)
@@ -4482,27 +4482,58 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
                   ];
           } else if (_selectedPart == 2) {
-            fcFeedback = _selectedTestTitle.contains('Book 13 Test 2')
-                ? "Your answer was completely insufficient. The question asked for a description of a time you started using a new technological device, but you provided a one-word confirmation ('Yes'). This is not a response; it fails to address the task entirely."
-                : _selectedTestTitle.contains('Book 10 Test 4')
-                    ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
-                    : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-            lrFeedback = _selectedTestTitle.contains('Book 13 Test 2')
-                ? "There is no vocabulary range to assess."
-                : _selectedTestTitle.contains('Book 10 Test 4')
-                    ? "There is no vocabulary to assess."
-                    : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-            grFeedback = _selectedTestTitle.contains('Book 13 Test 2')
-                ? "There is no grammatical structure to assess."
-                : _selectedTestTitle.contains('Book 10 Test 4')
-                    ? "There is no grammatical structure to assess."
-                    : "There is no grammatical range to evaluate.";
-            prFeedback = _selectedTestTitle.contains('Book 13 Test 2')
-                ? "Unable to assess pronunciation based on a single word."
-                : _selectedTestTitle.contains('Book 10 Test 4')
-                    ? "There is insufficient data to evaluate your pronunciation."
-                    : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-            tipsList = _selectedTestTitle.contains('Book 13 Test 2')
+            fcFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+                ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a person who started a business, but you only provided a single, nonsensical word ('Where'). This fails to address the task entirely."
+                : _selectedTestTitle.contains('Book 13 Test 3')
+                    ? "Your answer was completely off-topic and failed to address the prompt. The question asked for a description of an interesting discussion, but you provided a single, unrelated word."
+                    : _selectedTestTitle.contains('Book 13 Test 2')
+                        ? "Your answer was completely insufficient. The question asked for a description of a time you started using a new technological device, but you provided a one-word confirmation ('Yes'). This is not a response; it fails to address the task entirely."
+                        : _selectedTestTitle.contains('Book 10 Test 4')
+                            ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
+                            : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
+            lrFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+                ? "There is no evidence of vocabulary range or accuracy as you only spoke one word."
+                : _selectedTestTitle.contains('Book 13 Test 3')
+                    ? "There is no vocabulary range or evidence of communicative ability. A single word cannot be assessed for lexical resource in the context of an IELTS speaking task."
+                    : _selectedTestTitle.contains('Book 13 Test 2')
+                        ? "There is no vocabulary range to assess."
+                        : _selectedTestTitle.contains('Book 10 Test 4')
+                            ? "There is no vocabulary to assess."
+                            : "There is no lexical resource to evaluate as you only provided a single negative particle.";
+            grFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+                ? "There is no evidence of grammatical structure or range."
+                : _selectedTestTitle.contains('Book 13 Test 3')
+                    ? "No grammatical structures were used. It is impossible to assess range or accuracy from a single word."
+                    : _selectedTestTitle.contains('Book 13 Test 2')
+                        ? "There is no grammatical structure to assess."
+                        : _selectedTestTitle.contains('Book 10 Test 4')
+                            ? "There is no grammatical structure to assess."
+                            : "There is no grammatical range to evaluate.";
+            prFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+                ? "Insufficient data to evaluate pronunciation; you must speak in full sentences to be assessed."
+                : _selectedTestTitle.contains('Book 13 Test 3')
+                    ? "There is insufficient speech to evaluate pronunciation."
+                    : _selectedTestTitle.contains('Book 13 Test 2')
+                        ? "Unable to assess pronunciation based on a single word."
+                        : _selectedTestTitle.contains('Book 10 Test 4')
+                            ? "There is insufficient data to evaluate your pronunciation."
+                            : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
+            tipsList = _selectedTestTitle.contains('Book 13 Test 1')
+                ? [
+                    "You must answer the specific question asked; your current response was off-topic.",
+                    "Practice speaking in full, coherent sentences rather than single words.",
+                    "In Part 2, you are expected to speak for 1-2 minutes; aim to expand your ideas by describing the person, the business, and why they started it.",
+                    "Familiarize yourself with the IELTS Speaking criteria; failing to address the prompt results in a very low score regardless of language ability."
+                  ]
+                : _selectedTestTitle.contains('Book 13 Test 3')
+                ? [
+                    "You must speak in full, coherent sentences to be assessed for IELTS.",
+                    "Your response was completely irrelevant; ensure you listen to the question carefully before answering.",
+                    "Practice expanding your answers by using the '4 Ws' (Who, What, Where, Why) to provide detail.",
+                    "Do not provide one-word answers; IELTS Part 2 requires a 1-2 minute monologue.",
+                    "Review the prompt requirements for Part 2; you are expected to describe an experience, not state a random emotion."
+                  ]
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? [
                     "You must provide a full, detailed response for Part 2 tasks; a one-word answer will result in a near-zero score.",
                     "Follow the 'Who, What, Where, When, Why' structure to ensure you cover all aspects of the prompt.",
@@ -4526,35 +4557,50 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         "Prepare stories about people you know in advance to avoid being caught off guard during the test."
                       ];
           } else {
-            fcFeedback = _selectedTestTitle.contains('Book 13 Test 2')
+            fcFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+                ? "Your answers were highly irrelevant and failed to address the task. Providing a one-word answer ('No') to open-ended questions that require explanation ('Why/why not?') demonstrates a complete inability to engage with the test format."
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "Your answers are extremely short and fail to address the 'Why/why not' requirement of the questions. You are providing one-word answers which prevents any assessment of coherence."
                 : _selectedTestTitle.contains('Book 13 Test 1')
                     ? "Your answers were completely irrelevant. You did not answer the questions; instead, you repeated single words ('Why', 'Where') that were not meaningful responses to the prompts provided."
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
                         : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-            lrFeedback = _selectedTestTitle.contains('Book 13 Test 2')
+            lrFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+                ? "There is no vocabulary range to assess. Using a single word repeatedly is not indicative of language proficiency."
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "There is no vocabulary range to assess. A single word does not demonstrate the ability to use language to express ideas."
                 : _selectedTestTitle.contains('Book 13 Test 1')
                     ? "There is no evidence of lexical resource as you only provided single-word non-answers."
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "There is no vocabulary to assess beyond a single, repetitive word."
                         : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-            grFeedback = _selectedTestTitle.contains('Book 13 Test 2')
+            grFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+                ? "There is no grammatical structure to assess. You failed to form full sentences."
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "There is no grammatical structure to assess. You must produce full sentences to demonstrate grammatical control."
                 : _selectedTestTitle.contains('Book 13 Test 1')
                     ? "There is no evidence of grammatical range or accuracy as you did not form complete sentences."
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "There is no grammatical structure to assess."
                         : "There is no grammatical range to assess as no full sentences were produced.";
-            prFeedback = _selectedTestTitle.contains('Book 13 Test 2')
+            prFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+                ? "Insufficient data to assess pronunciation; however, the lack of effort in providing a verbal response makes a score of 1 mandatory."
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "While you can articulate the word 'Yes', this is insufficient for an IELTS examiner to assess your pronunciation range, intonation, or connected speech."
                 : _selectedTestTitle.contains('Book 13 Test 1')
                     ? "It is impossible to evaluate pronunciation based on single-word responses that do not address the prompt."
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
                         : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-            tipsList = _selectedTestTitle.contains('Book 13 Test 2')
+            tipsList = _selectedTestTitle.contains('Book 13 Test 3')
+                ? [
+                    "Stop answering with one-word responses. IELTS Part 1 requires you to provide full sentences and explain your reasoning.",
+                    "Address the 'Why/why not?' component of every question. If you do not explain your answer, you cannot achieve a score above band 3.",
+                    "Practice expanding your answers using the 'Answer + Reason + Example' structure.",
+                    "Understand that the examiner is looking for your ability to communicate in English; silence or one-word answers will result in a failing grade."
+                  ]
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? [
                     "Stop providing one-word answers. IELTS Speaking requires you to develop your ideas fully.",
                     "Always address the 'Why' or 'Why not' part of the question. If a question asks for a reason, you must provide one.",
@@ -4696,33 +4742,65 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             "Engage with the topic; the IELTS Speaking test requires you to express opinions and provide justifications."
           ];
         } else if (_selectedPart == 2) {
-          fluencyFeedback = _selectedTestTitle.contains('Book 10 Test 4')
-              ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
-              : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-          lexicalFeedback = _selectedTestTitle.contains('Book 10 Test 4')
-              ? "There is no vocabulary to assess."
-              : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-          grammarFeedback = _selectedTestTitle.contains('Book 10 Test 4')
+          fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "Your answer was completely off-topic and failed to address the prompt. The question asked for a description of an interesting discussion, but you provided a single, unrelated word."
+              : _selectedTestTitle.contains('Book 13 Test 2')
+              ? "Your answer was completely insufficient. The question asked for a description of a time you started using a new technological device, but you provided a one-word confirmation ('Yes'). This is not a response; it fails to address the task entirely."
+              : _selectedTestTitle.contains('Book 10 Test 4')
+                  ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
+                  : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
+          lexicalFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "There is no vocabulary range or evidence of communicative ability. A single word cannot be assessed for lexical resource in the context of an IELTS speaking task."
+              : _selectedTestTitle.contains('Book 13 Test 2')
+              ? "There is no vocabulary range to assess."
+              : _selectedTestTitle.contains('Book 10 Test 4')
+                  ? "There is no vocabulary to assess."
+                  : "There is no lexical resource to evaluate as you only provided a single negative particle.";
+          grammarFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "No grammatical structures were used. It is impossible to assess range or accuracy from a single word."
+              : _selectedTestTitle.contains('Book 13 Test 2')
               ? "There is no grammatical structure to assess."
-              : "There is no grammatical range to evaluate.";
-          pronunciationFeedback = _selectedTestTitle.contains('Book 10 Test 4')
-              ? "There is insufficient data to evaluate your pronunciation."
-              : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-          tipsList = _selectedTestTitle.contains('Book 10 Test 4')
+              : _selectedTestTitle.contains('Book 10 Test 4')
+                  ? "There is no grammatical structure to assess."
+                  : "There is no grammatical range to evaluate.";
+          pronunciationFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "There is insufficient speech to evaluate pronunciation."
+              : _selectedTestTitle.contains('Book 13 Test 2')
+              ? "Unable to assess pronunciation based on a single word."
+              : _selectedTestTitle.contains('Book 10 Test 4')
+                  ? "There is insufficient data to evaluate your pronunciation."
+                  : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
+          tipsList = _selectedTestTitle.contains('Book 13 Test 3')
               ? [
-                  "In Part 2, you must speak for 1-2 minutes. A single word response is not acceptable.",
-                  "Practice using the 'PPF' method (Past, Present, Future) to expand your ideas.",
-                  "Always address all bullet points provided in the cue card during the 1-minute preparation time.",
-                  "Avoid giving short, dismissive answers; even if you don't have a specific item in mind, invent a plausible scenario to demonstrate your English proficiency.",
-                  "Familiarize yourself with the IELTS format to understand that silence or one-word answers will lead to a score of 0-1."
+                  "You must speak in full, coherent sentences to be assessed for IELTS.",
+                  "Your response was completely irrelevant; ensure you listen to the question carefully before answering.",
+                  "Practice expanding your answers by using the '4 Ws' (Who, What, Where, Why) to provide detail.",
+                  "Do not provide one-word answers; IELTS Part 2 requires a 1-2 minute monologue.",
+                  "Review the prompt requirements for Part 2; you are expected to describe an experience, not state a random emotion."
                 ]
-              : [
-                  "You must provide a full, detailed response to the prompt; a single word is not an answer.",
-                  "Practice speaking for at least 1-2 minutes for Part 2 tasks.",
-                  "If you do not know a specific child, you are permitted to invent a persona or describe a relative or neighbor.",
-                  "Focus on answering the bullet points provided in the cue card (who they are, how you know them, what they are like).",
-                  "Prepare stories about people you know in advance to avoid being caught off guard during the test."
-                ];
+              : _selectedTestTitle.contains('Book 13 Test 2')
+              ? [
+                  "You must provide a full, detailed response for Part 2 tasks; a one-word answer will result in a near-zero score.",
+                  "Follow the 'Who, What, Where, When, Why' structure to ensure you cover all aspects of the prompt.",
+                  "Practice speaking for 1-2 minutes continuously as required for IELTS Part 2.",
+                  "Do not answer 'Yes' or 'No' to a 'Describe' prompt; these questions require a narrative or descriptive response.",
+                  "Expand your answers significantly to demonstrate your English proficiency."
+                ]
+              : _selectedTestTitle.contains('Book 10 Test 4')
+                  ? [
+                      "In Part 2, you must speak for 1-2 minutes. A single word response is not acceptable.",
+                      "Practice using the 'PPF' method (Past, Present, Future) to expand your ideas.",
+                      "Always address all bullet points provided in the cue card during the 1-minute preparation time.",
+                      "Avoid giving short, dismissive answers; even if you don't have a specific item in mind, invent a plausible scenario to demonstrate your English proficiency.",
+                      "Familiarize yourself with the IELTS format to understand that silence or one-word answers will lead to a score of 0-1."
+                    ]
+                  : [
+                      "You must provide a full, detailed response to the prompt; a single word is not an answer.",
+                      "Practice speaking for at least 1-2 minutes for Part 2 tasks.",
+                      "If you do not know a specific child, you are permitted to invent a persona or describe a relative or neighbor.",
+                      "Focus on answering the bullet points provided in the cue card (who they are, how you know them, what they are like).",
+                      "Prepare stories about people you know in advance to avoid being caught off guard during the test."
+                    ];
         } else {
           fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 3')
               ? "Your answers were highly irrelevant and failed to address the task. Providing a one-word answer ('No') to open-ended questions that require explanation ('Why/why not?') demonstrates a complete inability to engage with the test format."
