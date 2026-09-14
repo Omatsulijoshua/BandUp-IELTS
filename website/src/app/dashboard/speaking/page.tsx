@@ -1000,6 +1000,97 @@ const book12Test2Questions: Question[] = [
   },
 ];
 
+const book12Test3Questions: Question[] = [
+  // Part 1: Questions 1-4 (Clothes)
+  {
+    question: 'Where do you buy most of your clothes? [Why?]',
+    audioAsset: 'q1.mp3',
+    duration: 1.4,
+    part: 1,
+    transcript: 'I generally prefer shopping at local boutique stores in the city center. I enjoy this because the quality is much higher than high-street brands, and the styles are more unique and suited to my personal taste.',
+  },
+  {
+    question: 'How often do you buy new clothes for yourself? [Why?]',
+    audioAsset: 'q2.mp3',
+    duration: 1.8,
+    part: 1,
+    transcript: 'I tend to purchase new clothes every few months, usually at the start of each season. This allows me to keep my wardrobe updated with appropriate attire for the changing weather conditions.',
+  },
+  {
+    question: 'How do you decide which clothes to buy? [Why?]',
+    audioAsset: 'q3.mp3',
+    duration: 1.6,
+    part: 1,
+    transcript: 'When deciding what to buy, I prioritize the fabric quality and the versatility of the item. I prefer to invest in classic, durable pieces that I can easily mix and match with my existing wardrobe, rather than following fast-fashion trends.',
+  },
+  {
+    question: 'Have the kinds of clothes you like changed in recent years? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.6,
+    part: 1,
+    transcript: 'Yes, my preferences have shifted significantly over the last few years. I used to favor trendy, colorful outfits, but now I gravitate toward a more minimalist style with neutral colors because I find it much more professional and timeless.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Interesting Discussion About Money)
+  {
+    question: 'Describe an interesting discussion you had about how you spend your money.',
+    audioAsset: 'q5.mp3',
+    duration: 3.4,
+    part: 2,
+    youShouldSay: [
+      'who you had the discussion with',
+      'why you discussed this topic',
+      'what the result of the discussion was',
+      'and explain why this discussion was interesting for you'
+    ],
+    transcript: 'I recall an interesting discussion I had with my father regarding my monthly budget. We were debating the merits of saving versus investing in stocks. He argued that I should prioritize long-term wealth, while I felt that spending on experiences was more valuable for my personal growth. The conversation was quite eye-opening because it forced me to reconsider my financial priorities and look at money as a tool for future security rather than just immediate consumption.',
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Free Time & Work-Life Balance)
+  {
+    question: 'How do people in your country usually spend their free time?',
+    audioAsset: 'q6.mp3',
+    duration: 2.9,
+    part: 3,
+    transcript: 'In my country, people engage in a variety of leisure activities depending on their age and personal interests. Many enjoy socializing with family and friends at restaurants or local parks, while others prefer outdoor sports, watching movies, or engaging in creative hobbies at home.',
+  },
+  {
+    question: 'Is it important for people to have free time? [Why/why not?]',
+    audioAsset: 'q7.mp3',
+    duration: 3.1,
+    part: 3,
+    transcript: 'Having adequate free time is vital for maintaining physical and mental health. It allows individuals to recover from daily work stress, pursue personal passions, and spend quality time with loved ones, which ultimately enhances overall productivity and life satisfaction.',
+  },
+  {
+    question: 'Do men and women spend their free time differently?',
+    audioAsset: 'q8.mp3',
+    duration: 3.0,
+    part: 3,
+    transcript: 'While individual preferences vary greatly, there can be general differences in how men and women spend their free time. Men often participate more in competitive sports or gaming, whereas women may engage more in creative pursuits, shopping, or group social activities.',
+  },
+  {
+    question: 'What are the main differences between leisure activities today and in the past?',
+    audioAsset: 'q9.mp3',
+    duration: 3.4,
+    part: 3,
+    transcript: 'The primary difference lies in the integration of modern digital technology. Today, many leisure activities revolve around screens, such as online streaming and social media, whereas in the past, people relied much more on physical, outdoor, and face-to-face community activities.',
+  },
+  {
+    question: 'Do you think people will have more free time in the future?',
+    audioAsset: 'q10.mp3',
+    duration: 4.3,
+    part: 3,
+    transcript: 'With advancements in automation and artificial intelligence, routine tasks may take less time, potentially freeing up more leisure time. However, the blurring boundaries between work and personal life in our connected world could mean that people remain just as busy.',
+  },
+  {
+    question: 'How can people achieve a better work-life balance?',
+    audioAsset: 'q11.mp3',
+    duration: 2.7,
+    part: 3,
+    transcript: 'Achieving a good work-life balance requires setting clear professional boundaries and prioritizing personal well-being. Individuals should learn to manage their time effectively, disconnect from digital work channels outside office hours, and dedicate quality time to family and rest.',
+  },
+];
+
 const book13Test1Questions: Question[] = [
   // Part 1: Questions 1-4 (Television Programmes)
   {
@@ -1043,51 +1134,51 @@ const book13Test1Questions: Question[] = [
       'why this person decided to start a business',
       'and explain whether you would like to do the same kind of work as this person.'
     ],
-    transcript: 'I would like to talk about my close friend and university classmate, David, who launched a boutique specialty coffee roastery and sustainable café two years ago. He oversees the entire operation, from ethically sourcing green beans from independent farmers to roasting and managing the customer experience. David worked in corporate finance for several years, but he grew disillusioned with the rigid corporate ladder and yearned to pursue his true passion for culinary craftsmanship and entrepreneurship. He wanted the autonomy to build a brand rooted in ethical commerce and environmental sustainability. While I deeply admire his courage, resilience, and vision, I personally would not want to do the exact same kind of work. Running a brick-and-mortar retail business requires tremendous sacrifice, 14-hour workdays, and substantial financial risk, whereas my own passions lie more in digital technology and software engineering. Nevertheless, seeing his café thrive has been genuinely inspiring.',
+    transcript: 'I would like to talk about my close friend, Sarah, who recently launched a sustainable clothing business. She decided to start this venture because she is deeply passionate about environmental conservation and noticed a lack of eco-friendly options in our local market. She spent months researching ethical suppliers and building her brand identity from scratch. It was truly inspiring to watch her navigate the challenges of entrepreneurship, such as managing finances and marketing, while staying true to her values. Today, her business is thriving and has gained a loyal customer base who appreciate her commitment to sustainability.',
   },
 
   // Part 3: Questions 6-11 (Discussion - Choosing Work & Work-Life Balance)
   {
-    question: 'What kinds of job do young people not want to do in your country?',
+    question: 'What kinds of jobs do young people not want to do in your country?',
     audioAsset: 'q6.mp3',
     duration: 2.56,
     part: 3,
-    transcript: 'In my country, younger generations tend to avoid manual labor, agricultural work, and repetitive factory jobs. These occupations are often perceived as physically exhausting, low-paying, and offering limited career progression. Instead, most young graduates aspire to secure roles in technology, finance, digital marketing, or creative media.',
+    transcript: 'In my country, many young people tend to avoid manual labor or jobs that are perceived as having low social status. Positions in agriculture or factory work are often viewed as less desirable compared to modern office-based roles in technology or finance. There is a strong preference for careers that offer perceived prestige and higher starting salaries.',
   },
   {
     question: 'Who is best at advising young people about choosing a job: teachers or parents?',
     audioAsset: 'q7.mp3',
     duration: 3.66,
     part: 3,
-    transcript: 'I believe both offer complementary perspectives, but teachers are often better positioned to provide objective career advice. Teachers observe a student\'s academic strengths, intellectual interests, and practical skills in relation to modern industry trends, whereas parents may sometimes project their own unfulfilled ambitions or prioritize financial security over the child\'s true calling.',
+    transcript: 'I believe parents are often better equipped to advise because they understand their child\'s personality and long-term goals deeply. However, teachers can provide more objective information about the current job market and necessary academic qualifications. Ideally, a combination of both perspectives provides the most balanced guidance for a young person.',
   },
   {
     question: 'Is money always the most important thing when choosing a job?',
     audioAsset: 'q8.mp3',
     duration: 3.26,
     part: 3,
-    transcript: 'While financial remuneration is undeniably essential for meeting living costs and achieving financial independence, it should not be the sole criterion. Long-term job satisfaction, opportunities for professional growth, a positive workplace culture, and work-life balance are equally critical in sustaining motivation and preventing burnout.',
+    transcript: 'Money is certainly a significant factor, but it is rarely the only one. Many young professionals prioritize job satisfaction, work-life balance, and opportunities for personal growth over a high salary alone. If a job pays well but leads to burnout or unhappiness, it is rarely considered a sustainable or successful career choice.',
   },
   {
     question: 'Do you agree that many people nowadays are under pressure to work longer hours and take less holiday?',
     audioAsset: 'q9.mp3',
     duration: 5.30,
     part: 3,
-    transcript: 'I strongly agree with this statement. In our hyper-competitive globalized economy, constant connectivity through smartphones and emails has blurred the boundary between professional and personal life. Many employees experience implicit expectations to remain accessible around the clock, leading to chronic stress and reluctance to take their entitled vacation time.',
+    transcript: 'Yes, I completely agree. In our competitive culture, there is a prevailing expectation to prioritize productivity over personal time. Many employees feel that working long hours is the only way to prove their commitment or secure a promotion, which unfortunately leads to the erosion of holiday time and leisure.',
   },
   {
-    question: 'What is the impact on society of people having a poor work-life balance?',
+    question: 'What is the impact on society of people having a poor working-life balance?',
     audioAsset: 'q10.mp3',
     duration: 3.37,
     part: 3,
-    transcript: 'When citizens suffer from poor work-life balance, the repercussions on society are profound. It leads to increased healthcare costs due to stress-related physical and mental illnesses, strained family relationships, and higher rates of marital breakdown. Furthermore, exhaustion diminishes community participation and civic engagement.',
+    transcript: 'The impact is quite severe, often manifesting as increased stress, mental health issues, and reduced productivity in the long run. When society prioritizes constant work, family relationships can suffer, and the overall quality of life declines. This can lead to a less healthy and less creative workforce, which negatively affects the economy.',
   },
   {
     question: 'Could you recommend some effective strategies for governments and employers to ensure people have a good work-life balance?',
     audioAsset: 'q11.mp3',
     duration: 6.41,
     part: 3,
-    transcript: 'Governments should enforce statutory maximum working hours and implement the \'right to disconnect\' legislation, which prohibits employers from contacting staff outside of contract hours. Employers, on their part, can introduce flexible working schedules, compressed four-day work weeks, and comprehensive mental health support to foster a sustainable and productive workplace.',
+    transcript: 'Governments should implement stricter labor laws that limit maximum working hours and enforce mandatory rest periods. Meanwhile, employers could offer flexible working arrangements, such as remote work or a four-day work week. Encouraging a culture that values output over hours spent at a desk is the most effective strategy for improvement.',
   },
 ];
 
@@ -1234,49 +1325,245 @@ const book13Test3Questions: Question[] = [
     audioAsset: 'q6.mp3',
     duration: 2.69,
     part: 3,
-    transcript: 'Discussing dilemmas with others is tremendously beneficial because it provides objective outside perspectives that one cannot readily perceive when emotionally immersed in a crisis. Other individuals can pinpoint blind spots, challenge flawed assumptions, and suggest creative solutions drawn from their own life experiences. Moreover, the simple psychological act of verbalizing concerns often alleviates stress and clarifies one\'s thoughts.',
+    transcript: 'Discussing problems with others is highly beneficial because it allows us to gain a fresh perspective on a situation. Often, when we are stressed, we struggle to see a clear path forward, but a friend might offer a solution we hadn\'t considered. Furthermore, simply verbalizing our worries can act as an emotional release, significantly reducing our anxiety levels.',
   },
   {
-    question: 'Do you think that it\'s better to talk to friends and family about problems, or to professionals?',
+    question: 'Do you think that it\'s better to talk to friends and not family about problems?',
     audioAsset: 'q7.mp3',
     duration: 3.74,
     part: 3,
-    transcript: 'I believe it depends entirely on the nature and severity of the issue. For routine emotional distress, interpersonal misunderstandings, or general life encouragement, friends and family are ideal because their support is rooted in deep unconditional empathy. However, for specialized concerns such as clinical mental health conditions, complex financial disputes, or career crises, professional counselors or experts are far better equipped to provide unbiased, structured, and confidential intervention.',
+    transcript: 'I believe it depends on the nature of the problem. Friends are often better for social or personal issues because they can offer objective advice without the emotional baggage that family members might have. However, family is usually more supportive when it comes to long-term life decisions or serious crises, as they have a deeper understanding of your history and values.',
   },
   {
     question: 'Is it always a good idea to tell lots of people about a problem?',
     audioAsset: 'q8.mp3',
     duration: 4.05,
     part: 3,
-    transcript: 'No, sharing sensitive problems with a broad audience can frequently exacerbate the situation. Having too many conflicting opinions can create cognitive overload and confusion, preventing decisive action. Furthermore, oversharing can lead to unsolicited gossip, breach of confidentiality, or premature judgment from acquaintances who lack sufficient context. It is far wiser to confide selectively in a trusted inner circle.',
+    transcript: 'I don\'t think that is a good idea. Sharing personal problems with too many people can lead to rumors or unwanted judgment, which might make the situation worse. It is much better to be selective and only speak to a small circle of trusted individuals who you know have your best interests at heart.',
   },
   {
     question: 'Which communication skills are most important when taking part in meetings with colleagues?',
     audioAsset: 'q9.mp3',
     duration: 4.73,
     part: 3,
-    transcript: 'In a professional meeting environment, active listening is undoubtedly the foremost skill. One must genuinely comprehend colleagues\' viewpoints rather than merely waiting for a turn to speak. In addition, articulate brevity—the ability to express complex arguments concisely and without jargon—along with emotional intelligence to navigate disagreements diplomatically and maintain mutual respect are essential for collaborative success.',
+    transcript: 'In meetings, active listening is perhaps the most critical skill, as it ensures you fully understand the points being made by your colleagues. Additionally, being able to articulate your ideas clearly and concisely is essential to avoid misunderstandings. Finally, demonstrating diplomacy and respect when disagreeing with someone helps maintain a productive professional environment.',
   },
   {
-    question: 'What are the possible effects of poor communication skills at work?',
+    question: 'What are the possible effects of poor written communication skills at work?',
     audioAsset: 'q10.mp3',
     duration: 3.50,
     part: 3,
-    transcript: 'Substandard communication in a workspace inevitably breeds ambiguity, operational errors, and costly project delays. When instructions or deliverables are conveyed vaguely, redundant effort and friction between team members quickly emerge. Over time, chronic miscommunication severely erodes workplace morale, fosters toxic resentment, and can even compromise client trust and organizational reputation.',
+    transcript: 'Poor written communication can lead to significant confusion and delays in project completion, as instructions might be misinterpreted. It can also damage a person\'s professional reputation, making them appear less competent or disorganized to management. In the long run, it can hinder career progression because effective documentation is vital for most modern roles.',
   },
   {
     question: 'What do you think will be the future impact of technology on communication in the workplace?',
     audioAsset: 'q11.mp3',
     duration: 4.65,
     part: 3,
-    transcript: 'In the near future, emerging technologies such as immersive virtual reality meeting rooms, real-time neural translation, and AI-driven collaborative co-pilots will make distributed global teamwork virtually indistinguishable from in-person collaboration. However, the challenge will be preventing employee isolation and screen fatigue, meaning organizations will need to place an even higher premium on preserving genuine empathy and human connection amidst ubiquitous automation.',
+    transcript: 'Technology will likely continue to make communication more instantaneous, but it may also lead to a decrease in face-to-face interaction. While tools like video conferencing allow for global collaboration, there is a risk that we will lose the nuances of body language and tone. Ultimately, I think the workplace will become more flexible, but we will have to work harder to maintain genuine human connections.',
+  },
+];
+
+const book13Test4Questions: Question[] = [
+  // Part 1: Questions 1-4 (Animals & Birds)
+  {
+    question: 'Are there many animals or birds where you live? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.30,
+    part: 1,
+    transcript: 'Actually, there are quite a few birds in my neighborhood, especially in the local park nearby. I often see pigeons and sparrows early in the morning. I enjoy having them around because their singing makes the environment feel much more peaceful and natural.',
+  },
+  {
+    question: 'How often do you watch programmes or read articles about wild animals? [Why?]',
+    audioAsset: 'q2.mp3',
+    duration: 3.80,
+    part: 1,
+    transcript: 'I rarely watch programs about wild animals, to be honest. I tend to prefer watching documentaries about history or science instead. However, if a high-quality nature film comes out, I might watch it occasionally to learn more about different ecosystems.',
+  },
+  {
+    question: 'Have you ever been to a zoo or a wildlife park? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.25,
+    part: 1,
+    transcript: 'Yes, I have visited a large wildlife park a few times when I was younger. It was an interesting experience to see animals like lions and giraffes in a semi-natural habitat. I think it is a great way for people, especially children, to learn about conservation.',
+  },
+  {
+    question: 'Would you like to have a job working with animals? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 1.85,
+    part: 1,
+    transcript: 'I don\'t think I would want a career working with animals. While I find them fascinating, I am not trained in biology or veterinary medicine. I believe I am much better suited for a role in an office environment where I can use my organizational skills.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Useful Website)
+  {
+    question: 'Describe a website you use that helps you a lot in your work or studies.',
+    audioAsset: 'q5.mp3',
+    duration: 3.35,
+    part: 2,
+    youShouldSay: [
+      'what the website is',
+      'how often you use the website',
+      'what information the website gives you',
+      'and explain how your work or studies would change if this website didn\'t exist.'
+    ],
+    transcript: 'One website that I rely on heavily for my studies is Google Scholar. It is an incredibly powerful search engine specifically designed for academic literature, including articles, theses, and books. I use it almost daily to find credible sources for my research papers and to stay updated with the latest findings in my field. What I find most helpful is the ability to filter results by date and relevance, which saves me a significant amount of time. Furthermore, the \'cite\' feature allows me to generate references in various formats instantly, which is a huge convenience when I am writing long essays.',
+  },
+
+  // Part 3: Questions 6-11 (Discussion - The Internet & Social Media)
+  {
+    question: 'Why do some people find the internet addictive?',
+    audioAsset: 'q6.mp3',
+    duration: 1.85,
+    part: 3,
+    transcript: 'Some people find the internet addictive because it offers an endless stream of personalized entertainment and social validation. The constant notifications from social media trigger dopamine releases, which keep users compulsively checking their devices. Furthermore, the internet provides a sense of escapism from daily stresses, making it difficult for some individuals to disconnect.',
+  },
+  {
+    question: 'What would the world be like without the internet?',
+    audioAsset: 'q7.mp3',
+    duration: 1.60,
+    part: 3,
+    transcript: 'Life without the internet would be significantly slower and more localized. Communication would rely heavily on traditional methods like physical mail or landline telephones, which would reduce the speed of global business. However, it might also lead to more face-to-face social interactions and a decrease in the digital distractions that currently fragment our attention spans.',
+  },
+  {
+    question: 'Do you think that the way people use the internet may change in the future?',
+    audioAsset: 'q8.mp3',
+    duration: 4.20,
+    part: 3,
+    transcript: 'Yes, I believe the way we use the internet will evolve toward more immersive experiences, such as the integration of augmented and virtual reality. As technology advances, the internet will likely become even more deeply embedded in our daily infrastructure, such as through smart homes and the Internet of Things. We will move from simply \'browsing\' content to living within interconnected digital environments.',
+  },
+  {
+    question: 'What are the ways that social media can be used for positive purposes?',
+    audioAsset: 'q9.mp3',
+    duration: 2.70,
+    part: 3,
+    transcript: 'Social media can be a powerful tool for social good when used to raise awareness for charitable causes or humanitarian crises. It allows communities to organize, share resources, and mobilize support much faster than traditional media. Additionally, it provides a platform for education, where experts can share knowledge and help people develop new skills regardless of their geographic location.',
+  },
+  {
+    question: 'Why do some individuals post highly negative comments about other people on social media?',
+    audioAsset: 'q10.mp3',
+    duration: 4.75,
+    part: 3,
+    transcript: 'Individuals often post negative comments due to the anonymity provided by the internet, which reduces their sense of accountability. This \'online disinhibition effect\' allows people to express aggression they would likely suppress in person. Some also seek attention or validation from like-minded groups by targeting others, turning negativity into a form of social currency within certain online subcultures.',
+  },
+  {
+    question: 'Do you think that companies\' main form of advertising will be via social media in the future?',
+    audioAsset: 'q11.mp3',
+    duration: 4.80,
+    part: 3,
+    transcript: 'I believe social media will certainly become a dominant, if not the primary, form of advertising for most companies. Its ability to provide hyper-targeted ads based on user behavior and preferences is far more cost-effective than traditional media like television or print. As algorithms become more sophisticated, companies will increasingly rely on social platforms to convert engagement directly into sales.',
+  },
+];
+
+const book14Test2Questions: Question[] = [
+  // Part 1: Questions 1-4 (Social Media)
+  {
+    question: 'Which social media websites do you use?',
+    audioAsset: 'q1.mp3',
+    duration: 2.20,
+    part: 1,
+    transcript:
+      "I primarily use Instagram and LinkedIn. I find Instagram to be the most engaging platform for keeping up with friends' updates, while I use LinkedIn to stay informed about professional trends and network with people in my industry.",
+  },
+  {
+    question: 'How much time do you spend on social media sites? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.40,
+    part: 1,
+    transcript:
+      'I would estimate that I spend about an hour each day on social media. I usually check my notifications during my commute and again in the evening, as I believe it is important to limit my screen time to maintain a healthy work-life balance.',
+  },
+  {
+    question: 'What kind of information about yourself have you put on social media? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 3.95,
+    part: 1,
+    transcript:
+      'I am quite cautious about the information I share publicly. I only include basic professional details and a profile picture; I prefer to keep my private life, such as my home address or personal phone number, completely off these platforms for security reasons.',
+  },
+  {
+    question: "Is there anything you don't like about social media? [Why?]",
+    audioAsset: 'q4.mp3',
+    duration: 2.30,
+    part: 1,
+    transcript:
+      'Yes, there is. I particularly dislike the prevalence of misinformation and the addictive nature of the algorithms. It can be quite overwhelming to see so much negative content, which is why I often take breaks from these apps to focus on my mental well-being.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Something bought for home)
+  {
+    question: 'Describe something you liked very much which you bought for your home.',
+    audioAsset: 'q5.mp3',
+    duration: 3.40,
+    part: 2,
+    youShouldSay: [
+      'what you bought',
+      'when and where you bought it',
+      'why you chose this particular thing',
+      'and explain why you liked it so much.',
+    ],
+    transcript:
+      'One item I recently purchased for my home that I am particularly fond of is a high-quality ergonomic office chair. I decided to invest in it because I have been working remotely more often and noticed that my old chair was causing back pain. It features adjustable lumbar support and breathable mesh material, which makes a significant difference during long working hours. Not only does it improve my posture, but its sleek, modern design also complements the aesthetics of my home office perfectly. I feel that this was a highly beneficial purchase that combines both comfort and functionality.',
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Homes & Accommodation)
+  {
+    question: 'Why do some people buy lots of things for their home?',
+    audioAsset: 'q6.mp3',
+    duration: 2.95,
+    part: 3,
+    transcript:
+      "People often invest in their homes to reflect their personal identity and aesthetic preferences. Furthermore, creating a comfortable and organized living space significantly enhances one's psychological well-being and daily productivity.",
+  },
+  {
+    question: 'Do you think it is very expensive to make a home look nice?',
+    audioAsset: 'q7.mp3',
+    duration: 3.50,
+    part: 3,
+    transcript:
+      'Not necessarily. While high-end interior design can be costly, one can achieve a stylish home on a budget through creative DIY projects, upcycling furniture, or simply decluttering and rearranging existing items.',
+  },
+  {
+    question: "Why don't some people care about how their home looks?",
+    audioAsset: 'q8.mp3',
+    duration: 2.25,
+    part: 3,
+    transcript:
+      'Some individuals prioritize function over form, viewing a home merely as a place to sleep and eat rather than a space for self-expression. They may also be preoccupied with demanding careers or financial constraints, leaving them little time or energy to focus on interior decor.',
+  },
+  {
+    question: 'In what ways is living in a flat/apartment better than living in a house?',
+    audioAsset: 'q9.mp3',
+    duration: 4.15,
+    part: 3,
+    transcript:
+      'Apartments are often more advantageous due to their central locations, which reduce commuting time to work or city centers. Additionally, they typically require less maintenance and offer enhanced security features, making them a practical choice for busy professionals or those living alone.',
+  },
+  {
+    question: 'Do you think homes will look different in the future?',
+    audioAsset: 'q10.mp3',
+    duration: 2.80,
+    part: 3,
+    transcript:
+      'Yes, I believe homes will become increasingly integrated with smart technology, focusing on automation and energy efficiency. We will likely see more sustainable building materials and modular designs that can adapt to the changing needs of the occupants.',
+  },
+  {
+    question: 'Do you agree that the kinds of homes people prefer change as they get older?',
+    audioAsset: 'q11.mp3',
+    duration: 4.30,
+    part: 3,
+    transcript:
+      'I agree, because our priorities shift as we move through different life stages. For instance, young adults often seek proximity to social hubs, whereas families prioritize space and safety, and older individuals often prefer smaller, more accessible homes that are easier to maintain.',
   },
 ];
 
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 14 Test 2': book14Test2Questions,
+  'IELTS Book 13 Test 4': book13Test4Questions,
   'IELTS Book 13 Test 3': book13Test3Questions,
   'IELTS Book 13 Test 2': book13Test2Questions,
   'IELTS Book 13 Test 1': book13Test1Questions,
+  'IELTS Book 12 Test 3': book12Test3Questions,
   'IELTS Book 12 Test 2': book12Test2Questions,
   'IELTS Book 12 Test 1': book12Test1Questions,
   'IELTS Book 11 Test 4': book11Test4Questions,
@@ -1503,7 +1790,9 @@ export default function SpeakingPracticePage() {
 
     let band = 1.0;
     if (isSingleWordOrMinimal) {
-      if (selectedTestTitle.includes('Book 13 Test 2')) {
+      if (selectedTestTitle.includes('Book 14 Test 2')) {
+        band = selectedPart === 1 ? 0.0 : 1.0;
+      } else if (selectedTestTitle.includes('Book 13 Test 2')) {
         band = selectedPart === 1 ? 2.0 : 1.0;
       } else {
         band = selectedPart === 3 ? 0.0 : 1.0;
@@ -1519,11 +1808,15 @@ export default function SpeakingPracticePage() {
     } else if (totalWords > 5) {
       band = 3.0;
     } else {
-      band = selectedPart === 3 ? 0.0 : 1.0;
+      if (selectedTestTitle.includes('Book 14 Test 2')) {
+        band = selectedPart === 1 ? 0.0 : 1.0;
+      } else {
+        band = selectedPart === 3 ? 0.0 : 1.0;
+      }
     }
 
     const intBand = isSingleWordOrMinimal
-      ? (selectedTestTitle.includes('Book 13 Test 2') ? (selectedPart === 1 ? 2 : 1) : (selectedPart === 3 ? 0 : 1))
+      ? (selectedTestTitle.includes('Book 14 Test 2') ? (selectedPart === 1 ? 0 : 1) : (selectedTestTitle.includes('Book 13 Test 2') ? (selectedPart === 1 ? 2 : 1) : (selectedPart === 3 ? 0 : 1)))
       : Math.round(band);
 
     let fluencyFeedback = '';
@@ -1534,19 +1827,51 @@ export default function SpeakingPracticePage() {
 
     if (isSingleWordOrMinimal) {
       if (selectedPart === 3) {
-        fluencyFeedback = selectedTestTitle.includes('Book 13 Test 2')
+        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "Your answers were completely irrelevant and failed to address the questions. Answering 'No' to complex, open-ended questions demonstrates a total failure to participate in the exam."
+          : selectedTestTitle.includes('Book 13 Test 3')
+          ? "Your answers were almost entirely irrelevant or failed to address the task. Most responses were either single words ('No') or completely off-topic ('Video', 'You hear me'). You did not demonstrate the ability to maintain a conversation or answer questions."
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
           : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-        lexicalFeedback = selectedTestTitle.includes('Book 13 Test 2')
+        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "There is no vocabulary range to assess as you only provided a single-word response for every question."
+          : selectedTestTitle.includes('Book 13 Test 3')
+          ? "There is no evidence of lexical resource as you did not provide any meaningful sentences."
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no lexical resource displayed, as you only used one word repeatedly."
           : "There is no vocabulary to assess.";
-        grammarFeedback = selectedTestTitle.includes('Book 13 Test 2')
+        grammarFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 13 Test 3')
+          ? "There is no evidence of grammatical range or accuracy."
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? "No grammatical structures were demonstrated beyond a single word."
           : "There is no grammar to assess.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 13 Test 2')
+        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "Cannot assess pronunciation based on a single word; however, you must speak in full, coherent sentences to be evaluated."
+          : selectedTestTitle.includes('Book 13 Test 3')
+          ? "It is impossible to assess pronunciation due to the lack of spoken content. You must provide full, articulated sentences in response to the examiner's questions."
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
           : "There is no speech to assess.";
-        tipsList = selectedTestTitle.includes('Book 13 Test 2')
+        tipsList = selectedTestTitle.includes('Book 14 Test 2')
+          ? [
+              "You must provide full-sentence answers. One-word responses result in an automatic failing grade.",
+              "Your answers were off-topic. Every question asked for an explanation (Why, In what ways, Do you think), which cannot be answered with 'No'.",
+              "Practice expanding your answers by using the 'Answer-Reason-Example' structure.",
+              "Familiarize yourself with the IELTS Speaking format; it is a conversation, not a Yes/No questionnaire.",
+              "Listen to sample band 7-9 responses to understand the depth and length required for Part 3 questions."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 3')
+          ? [
+              "You must answer the actual question asked. Saying 'No' or 'Video' is not an answer and will result in a failing score.",
+              "Practice speaking in full, complete sentences. An IELTS response should be at least 3-5 sentences long to demonstrate your language ability.",
+              "Do not provide off-topic responses. If you do not understand a question, ask the examiner to 'please rephrase' rather than saying something unrelated.",
+              "Focus on building a vocabulary related to common IELTS topics like work, communication, and technology.",
+              "Record yourself answering these questions and aim for at least 30 seconds of continuous speech for each question."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? [
               "You must provide full sentences and elaborate on your opinions; one-word answers are not acceptable in the IELTS exam.",
               "Your answers were off-topic because you ignored the content of the questions entirely by saying 'Yes' to questions that were not Yes/No questions.",
@@ -1561,35 +1886,66 @@ export default function SpeakingPracticePage() {
               "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
             ];
       } else if (selectedPart === 2) {
-        fluencyFeedback = selectedTestTitle.includes('Book 13 Test 3')
+        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "Your answer was completely insufficient. You provided a one-word response ('No') to a Part 2 prompt, which requires a 1-2 minute descriptive talk. This is not a valid attempt at the task."
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a person who started a business, but you only provided a single, nonsensical word ('Where'). This fails to address the task entirely."
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? "Your answer was completely off-topic and failed to address the prompt. The question asked for a description of an interesting discussion, but you provided a single, unrelated word."
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answer was completely insufficient. The question asked for a description of a time you started using a new technological device, but you provided a one-word confirmation ('Yes'). This is not a response; it fails to address the task entirely."
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-        lexicalFeedback = selectedTestTitle.includes('Book 13 Test 3')
+        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "There is no vocabulary to assess."
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? "There is no evidence of vocabulary range or accuracy as you only spoke one word."
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? "There is no vocabulary range or evidence of communicative ability. A single word cannot be assessed for lexical resource in the context of an IELTS speaking task."
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no vocabulary range to assess."
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess."
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 13 Test 3')
+        grammarFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? "There is no evidence of grammatical structure or range."
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? "No grammatical structures were used. It is impossible to assess range or accuracy from a single word."
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no grammatical structure to assess."
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to evaluate.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 13 Test 3')
+        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "There is no continuous speech to assess."
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? "Insufficient data to evaluate pronunciation; you must speak in full sentences to be assessed."
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? "There is insufficient speech to evaluate pronunciation."
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Unable to assess pronunciation based on a single word."
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is insufficient data to evaluate your pronunciation."
           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-        tipsList = selectedTestTitle.includes('Book 13 Test 3')
+        tipsList = selectedTestTitle.includes('Book 14 Test 2')
+          ? [
+              "You must speak for 1-2 minutes for Part 2; one-word answers will result in a failing score.",
+              "Understand the structure of Part 2: you are expected to tell a story or describe an object in detail.",
+              "Practice using the bullet points provided in the exam prompt to organize your thoughts.",
+              "If you do not have an answer, you must still attempt to speak about a related topic to demonstrate language ability.",
+              "Do not refuse to answer; the examiner needs to hear your English to provide a score."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 1')
+          ? [
+              "You must answer the specific question asked; your current response was off-topic.",
+              "Practice speaking in full, coherent sentences rather than single words.",
+              "In Part 2, you are expected to speak for 1-2 minutes; aim to expand your ideas by describing the person, the business, and why they started it.",
+              "Familiarize yourself with the IELTS Speaking criteria; failing to address the prompt results in a very low score regardless of language ability."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? [
               "You must speak in full, coherent sentences to be assessed for IELTS.",
               "Your response was completely irrelevant; ensure you listen to the question carefully before answering.",
@@ -1621,7 +1977,9 @@ export default function SpeakingPracticePage() {
               "Prepare stories about people you know in advance to avoid being caught off guard during the test."
             ];
       } else {
-        fluencyFeedback = selectedTestTitle.includes('Book 13 Test 3')
+        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "The candidate provided no responses to any of the questions. The answers were empty/refusals, which makes them completely incoherent and irrelevant to the task."
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? "Your answers were highly irrelevant and failed to address the task. Providing a one-word answer ('No') to open-ended questions that require explanation ('Why/why not?') demonstrates a complete inability to engage with the test format."
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answers are extremely short and fail to address the 'Why/why not' requirement of the questions. You are providing one-word answers which prevents any assessment of coherence."
@@ -1630,7 +1988,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-        lexicalFeedback = selectedTestTitle.includes('Book 13 Test 3')
+        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "There is no vocabulary to assess."
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? "There is no vocabulary range to assess. Using a single word repeatedly is not indicative of language proficiency."
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no vocabulary range to assess. A single word does not demonstrate the ability to use language to express ideas."
@@ -1639,7 +1999,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess beyond a single, repetitive word."
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 13 Test 3')
+        grammarFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? "There is no grammatical structure to assess. You failed to form full sentences."
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no grammatical structure to assess. You must produce full sentences to demonstrate grammatical control."
@@ -1648,7 +2010,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to assess as no full sentences were produced.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 13 Test 3')
+        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 2')
+          ? "There was no speech to evaluate."
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? "Insufficient data to assess pronunciation; however, the lack of effort in providing a verbal response makes a score of 1 mandatory."
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "While you can articulate the word 'Yes', this is insufficient for an IELTS examiner to assess your pronunciation range, intonation, or connected speech."
@@ -1657,7 +2021,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
           : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-        tipsList = selectedTestTitle.includes('Book 13 Test 3')
+        tipsList = selectedTestTitle.includes('Book 14 Test 2')
+          ? [
+              "You must provide full, descriptive answers to all questions; saying 'No' or remaining silent results in a score of 0.",
+              "In IELTS Speaking Part 1, you are expected to speak for 2-3 sentences per question to demonstrate your English proficiency.",
+              "If you do not know the answer to a question, try to explain why or talk about your general feelings on the topic rather than refusing to answer.",
+              "Practice expanding your answers by using the 'Answer + Reason + Example' structure.",
+              "Remember that the examiner cannot assess your level if you do not provide assessable language."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 3')
           ? [
               "Stop answering with one-word responses. IELTS Part 1 requires you to provide full sentences and explain your reasoning.",
               "Address the 'Why/why not?' component of every question. If you do not explain your answer, you cannot achieve a score above band 3.",
@@ -2017,12 +2389,16 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 13 Test 3')
+                    {title.includes('Book 14 Test 2')
+                      ? 'Social Media Habits, Item Bought for Home & Accommodation Discussion'
+                      : title.includes('Book 13 Test 3')
                       ? 'Money & Shopping, Interesting Discussion Cue Card & Workplace Communication'
                       : title.includes('Book 13 Test 2')
                       ? 'Age & Life Stages, New Technological Device & Technology in Society'
                       : title.includes('Book 13 Test 1')
                       ? 'Television Programmes, Starting a Business & Work-Life Balance'
+                      : title.includes('Book 12 Test 3')
+                      ? 'Clothes & Fashion, Discussion about Money & Free Time / Work-Life'
                       : title.includes('Book 12 Test 2')
                       ? 'Singing & Music, Popular Film Actor & Cinema vs Theatre'
                       : title.includes('Book 12 Test 1')

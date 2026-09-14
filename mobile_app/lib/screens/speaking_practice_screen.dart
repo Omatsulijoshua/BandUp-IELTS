@@ -2203,6 +2203,151 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 14 TEST 1 (Future Plans & Career / Book that Made You Think Cue Card / Children's Books & Reading Discussion)
+  // ==========================================
+  final List<Map<String, dynamic>> _book14Test1Questions = [
+    // Part 1: Questions 1-4 (Future Plans & Career)
+    {
+      'question': 'What job would you like to have ten years from now? [Why?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.30,
+      'start': 0.0,
+      'promptEnd': 2.30,
+      'end': 2.30,
+      'part': 1,
+      'transcript':
+          'In ten years, I aspire to be working as a senior project manager in an international firm. I have always been passionate about leadership and coordinating complex tasks, so this role would allow me to utilize my organizational skills effectively. Furthermore, I hope this position will provide me with the financial stability to pursue my personal interests, such as traveling and volunteering.',
+    },
+    {
+      'question': 'How useful will English be for your future? [Why/why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.25,
+      'start': 0.0,
+      'promptEnd': 2.25,
+      'end': 2.25,
+      'part': 1,
+      'transcript':
+          'English will be incredibly useful for my future because it is the global lingua franca of business and technology. Being proficient in English will grant me access to a wider range of career opportunities and international networking events. Without it, I believe it would be significantly more difficult to collaborate with colleagues from different cultural backgrounds in our globalized economy.',
+    },
+    {
+      'question': 'How much travelling do you hope to do in the future? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.61,
+      'start': 0.0,
+      'promptEnd': 2.61,
+      'end': 2.61,
+      'part': 1,
+      'transcript':
+          'I hope to do a substantial amount of travelling in the future, particularly exploring regions with rich histories and diverse cultures like South America and Southeast Asia. Travelling exposes you to different ways of living, fosters personal growth, and broadens your perspective on global issues. Whenever my work schedule and finances permit, I definitely plan to take extended trips to experience new environments firsthand.',
+    },
+    {
+      'question': 'How do you think your life will change in the future? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 1.78,
+      'start': 0.0,
+      'promptEnd': 1.78,
+      'end': 1.78,
+      'part': 1,
+      'transcript':
+          'In the future, I anticipate that my life will become much more structured and focused around long-term personal and professional commitments. As I advance in my career and potentially start a family, my daily priorities will naturally shift toward ensuring stability and financial security. Additionally, with advancements in technology, I expect remote work and digital automation will play a larger role in how I manage my daily routine.',
+    },
+
+    // Part 2: Question 5 (Cue Card: Book that Made You Think)
+    {
+      'question':
+          'Describe a book that you enjoyed reading because you had to think a lot.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.40,
+      'start': 0.0,
+      'promptEnd': 3.40,
+      'end': 3.40,
+      'part': 2,
+      'youShouldSay': [
+        'what this book was',
+        'why you decided to read it',
+        'what reading this book made you think about',
+        'and explain why you enjoyed reading this book.'
+      ],
+      'transcript':
+          'One book that truly challenged my way of thinking is \'1984\' by George Orwell. I found it incredibly thought-provoking because it explores complex themes like surveillance, totalitarianism, and the manipulation of truth. Throughout the story, I had to constantly reflect on how these concepts relate to our modern society and the nature of freedom. It wasn\'t an easy read, but it forced me to analyze the power of language and political control. By the time I finished the final chapter, I felt I had gained a much deeper understanding of the fragility of democratic institutions.',
+    },
+
+    // Part 3: Questions 6-11 (Children\'s Books & Reading)
+    {
+      'question':
+          'What are the most popular types of children\'s books in your country?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.13,
+      'start': 0.0,
+      'promptEnd': 3.13,
+      'end': 3.13,
+      'part': 3,
+      'transcript':
+          'In my country, illustrated storybooks for young children are incredibly popular. Additionally, educational books that incorporate interactive elements like pop-ups or textures are highly sought after by parents who want to stimulate their child\'s development.',
+    },
+    {
+      'question':
+          'What are the benefits of parents reading books to their children?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.48,
+      'start': 0.0,
+      'promptEnd': 2.48,
+      'end': 2.48,
+      'part': 3,
+      'transcript':
+          'Reading to children is immensely beneficial as it significantly enhances their vocabulary and language acquisition skills. Moreover, it fosters a strong emotional bond between the parent and the child, creating a comforting routine that encourages a lifelong love of reading.',
+    },
+    {
+      'question':
+          'Should parents always let children choose the books they read?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.00,
+      'start': 0.0,
+      'promptEnd': 3.00,
+      'end': 3.00,
+      'part': 3,
+      'transcript':
+          'While it is important to encourage autonomy, I believe parents should provide some guidance. Children might choose books that are too simple or repetitive, so parents should ensure a balance between the child\'s preferences and age-appropriate, challenging materials.',
+    },
+    {
+      'question':
+          'How popular are electronic books in your country?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.38,
+      'start': 0.0,
+      'promptEnd': 2.38,
+      'end': 2.38,
+      'part': 3,
+      'transcript':
+          'Electronic books have gained significant popularity in my country over the last few years. They are widely used by students and commuters due to their portability and the convenience of having an entire library on a single device.',
+    },
+    {
+      'question':
+          'What are the advantages of parents reading electronic books (compared to printed books)?',
+      'audioAsset': 'q10.mp3',
+      'duration': 4.86,
+      'start': 0.0,
+      'promptEnd': 4.86,
+      'end': 4.86,
+      'part': 3,
+      'transcript':
+          'The primary advantage of electronic books is their accessibility and the ability to adjust font sizes or use built-in dictionaries. Furthermore, many e-books for children include interactive features such as animations and audio narration, which can make the reading experience more engaging.',
+    },
+    {
+      'question':
+          'Will electronic books ever completely replace printed books in the future?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.87,
+      'start': 0.0,
+      'promptEnd': 3.87,
+      'end': 3.87,
+      'part': 3,
+      'transcript':
+          'I do not believe they will completely replace printed books. Many people still value the tactile experience of holding a physical book and the lack of digital distractions. I think they will continue to coexist, as each format serves different purposes for different readers.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 14 TEST 2 (Social Media / Item Bought for Home Cue Card / Homes & Accommodation Discussion)
   // ==========================================
   final List<Map<String, dynamic>> _book14Test2Questions = [
@@ -5068,7 +5213,13 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       final bool isSingleWordOrMinimal = wordCountTotal <= 5 || (avgWordsPerQuestion < 3 && wordCountTotal < 15);
       double band = 1.0;
       if (isSingleWordOrMinimal) {
-        band = _selectedPart == 3 ? 0.0 : 1.0;
+        if (_selectedTestTitle.contains('Book 14 Test 2')) {
+          band = _selectedPart == 1 ? 0.0 : 1.0;
+        } else if (_selectedTestTitle.contains('Book 13 Test 2')) {
+          band = _selectedPart == 1 ? 2.0 : 1.0;
+        } else {
+          band = _selectedPart == 3 ? 0.0 : 1.0;
+        }
       } else if (wordCountTotal > 60 && avgWordsPerQuestion >= 15) {
         band = 7.5;
       } else if (wordCountTotal > 40 && avgWordsPerQuestion >= 10) {
@@ -5080,10 +5231,20 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       } else if (wordCountTotal > 5) {
         band = 3.0;
       } else {
-        band = _selectedPart == 3 ? 0.0 : 1.0;
+        if (_selectedTestTitle.contains('Book 14 Test 2')) {
+          band = _selectedPart == 1 ? 0.0 : 1.0;
+        } else {
+          band = _selectedPart == 3 ? 0.0 : 1.0;
+        }
       }
 
-      final int intBand = isSingleWordOrMinimal ? (_selectedPart == 3 ? 0 : 1) : band.toInt();
+      final int intBand = isSingleWordOrMinimal
+          ? (_selectedTestTitle.contains('Book 14 Test 2')
+              ? (_selectedPart == 1 ? 0 : 1)
+              : _selectedTestTitle.contains('Book 13 Test 2')
+                  ? (_selectedPart == 1 ? 2 : 1)
+                  : (_selectedPart == 3 ? 0 : 1))
+          : band.toInt();
       final bool hasNoSpokenWords = wordCountTotal == 0;
       final bool isBrief = avgWordsPerQuestion < 5;
 
