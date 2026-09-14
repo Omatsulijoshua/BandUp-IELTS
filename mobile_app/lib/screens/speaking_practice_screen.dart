@@ -1574,7 +1574,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.9,
       'part': 3,
       'transcript':
-          'Many parents give their children pocket money to help them learn basic financial responsibility from an early age. Receiving a weekly allowance allows children to make their own choices about saving and spending, which fosters independence and an understanding of the value of money.',
+          'Parents often give their children a weekly allowance to teach them the fundamentals of financial responsibility. By managing a small amount of money, children learn how to prioritize their spending and understand the concept of saving for items they desire, rather than relying solely on their parents.',
     },
     {
       'question':
@@ -1586,7 +1586,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.1,
       'part': 3,
       'transcript':
-          'I strongly agree that financial literacy should be part of the school curriculum. Teaching students practical skills like budgeting, saving, and understanding interest equips them to make sound financial decisions as adults, reducing the likelihood of debt later in life.',
+          'I strongly believe that financial literacy should be a core component of the school curriculum. Many young adults enter the workforce without understanding how to manage a budget, pay taxes, or handle credit cards. Teaching these skills early would help prevent significant financial struggles in their adult lives.',
     },
     {
       'question':
@@ -1598,7 +1598,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.0,
       'part': 3,
       'transcript':
-          'Working part-time while studying can be very beneficial because it provides students with financial independence and practical work experience. However, it is essential that work commitments do not compromise their academic performance or personal well-being.',
+          'It can be a highly beneficial experience for students to earn money part-time, as it fosters independence and time management skills. However, it is crucial that this does not interfere with their primary responsibility, which is their education. If a student can balance both, it prepares them well for the professional world.',
     },
     {
       'question':
@@ -1610,7 +1610,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.4,
       'part': 3,
       'transcript':
-          'While money provides financial security and access to comforts, true happiness often stems from meaningful relationships, health, and personal fulfillment. Wealth can reduce life stress to an extent, but it cannot replace emotional connection and purpose.',
+          'While it is a common saying that money cannot buy happiness, I believe it is more nuanced. Money provides security and access to opportunities, which reduces stress and improves quality of life. However, true happiness is derived from relationships, personal fulfillment, and health, which money alone cannot guarantee.',
     },
     {
       'question':
@@ -1622,10 +1622,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 4.3,
       'part': 3,
       'transcript':
-          'A wide wealth gap can lead to social division, reduced social mobility, and unequal access to essential services like healthcare and education. It can also increase crime rates and create economic instability, undermining overall social cohesion.',
+          'A large wealth gap often leads to increased social tension, higher crime rates, and a lack of social mobility. When a significant portion of the population struggles to meet basic needs while others have excess, it creates a sense of inequality that can destabilize the community and limit overall economic growth.',
     },
     {
-      'question': 'How can people achieve a better work-life balance?',
+      'question':
+          'Do you think richer countries have a responsibility to help poorer countries?',
       'audioAsset': 'q11.mp3',
       'duration': 2.7,
       'start': 0.0,
@@ -1633,7 +1634,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.7,
       'part': 3,
       'transcript':
-          'Achieving a good work-life balance requires setting clear professional boundaries and prioritizing personal well-being. Individuals should learn to manage their time effectively, disconnect from digital work channels outside office hours, and dedicate quality time to family and rest.',
+          'I believe that wealthier nations have a moral obligation to assist developing countries, particularly in areas like healthcare, education, and infrastructure. By helping these nations build a stronger foundation, we contribute to global stability and reduce the humanitarian crises that often arise from extreme poverty.',
     },
   ];
 
@@ -1995,11 +1996,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.69,
       'part': 3,
       'transcript':
-          'Discussing dilemmas with others is tremendously beneficial because it provides objective outside perspectives that one cannot readily perceive when emotionally immersed in a crisis. Other individuals can pinpoint blind spots, challenge flawed assumptions, and suggest creative solutions drawn from their own life experiences. Moreover, the simple psychological act of verbalizing concerns often alleviates stress and clarifies one\'s thoughts.',
+          'Discussing problems with others is highly beneficial because it allows us to gain a fresh perspective on a situation. Often, when we are stressed, we struggle to see a clear path forward, but a friend might offer a solution we hadn\'t considered. Furthermore, simply verbalizing our worries can act as an emotional release, significantly reducing our anxiety levels.',
     },
     {
       'question':
-          'Do you think that it\'s better to talk to friends and family about problems, or to professionals?',
+          'Do you think that it\'s better to talk to friends and not family about problems?',
       'audioAsset': 'q7.mp3',
       'duration': 3.74,
       'start': 0.0,
@@ -2007,7 +2008,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.74,
       'part': 3,
       'transcript':
-          'I believe it depends entirely on the nature and severity of the issue. For routine emotional distress, interpersonal misunderstandings, or general life encouragement, friends and family are ideal because their support is rooted in deep unconditional empathy. However, for specialized concerns such as clinical mental health conditions, complex financial disputes, or career crises, professional counselors or experts are far better equipped to provide unbiased, structured, and confidential intervention.',
+          'I believe it depends on the nature of the problem. Friends are often better for social or personal issues because they can offer objective advice without the emotional baggage that family members might have. However, family is usually more supportive when it comes to long-term life decisions or serious crises, as they have a deeper understanding of your history and values.',
     },
     {
       'question':
@@ -2019,7 +2020,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 4.05,
       'part': 3,
       'transcript':
-          'No, sharing sensitive problems with a broad audience can frequently exacerbate the situation. Having too many conflicting opinions can create cognitive overload and confusion, preventing decisive action. Furthermore, oversharing can lead to unsolicited gossip, breach of confidentiality, or premature judgment from acquaintances who lack sufficient context. It is far wiser to confide selectively in a trusted inner circle.',
+          'I don\'t think that is a good idea. Sharing personal problems with too many people can lead to rumors or unwanted judgment, which might make the situation worse. It is much better to be selective and only speak to a small circle of trusted individuals who you know have your best interests at heart.',
     },
     {
       'question':
@@ -2031,7 +2032,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 4.73,
       'part': 3,
       'transcript':
-          'In a professional meeting environment, active listening is undoubtedly the foremost skill. One must genuinely comprehend colleagues\' viewpoints rather than merely waiting for a turn to speak. In addition, articulate brevity—the ability to express complex arguments concisely and without jargon—along with emotional intelligence to navigate disagreements diplomatically and maintain mutual respect are essential for collaborative success.',
+          'In meetings, active listening is perhaps the most critical skill, as it ensures you fully understand the points being made by your colleagues. Additionally, being able to articulate your ideas clearly and concisely is essential to avoid misunderstandings. Finally, demonstrating diplomacy and respect when disagreeing with someone helps maintain a productive professional environment.',
     },
     {
       'question':
@@ -2043,7 +2044,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.50,
       'part': 3,
       'transcript':
-          'Poor written communication in the workplace inevitably breeds ambiguity, operational errors, and costly project delays. When emails, briefs, or project specifications are poorly articulated, team members often misinterpret crucial requirements, resulting in wasted effort and unnecessary friction. Over time, recurring written misunderstandings undermine professional credibility and damage relationships with clients.',
+          'Poor written communication can lead to significant confusion and delays in project completion, as instructions might be misinterpreted. It can also damage a person\'s professional reputation, making them appear less competent or disorganized to management. In the long run, it can hinder career progression because effective documentation is vital for most modern roles.',
     },
     {
       'question':
@@ -2055,7 +2056,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 4.65,
       'part': 3,
       'transcript':
-          'In the near future, emerging technologies such as immersive virtual reality meeting rooms, real-time neural translation, and AI-driven collaborative co-pilots will make distributed global teamwork virtually indistinguishable from in-person collaboration. However, the challenge will be preventing employee isolation and screen fatigue, meaning organizations will need to place an even higher premium on preserving genuine empathy and human connection amidst ubiquitous automation.',
+          'Technology will likely continue to make communication more instantaneous, but it may also lead to a decrease in face-to-face interaction. While tools like video conferencing allow for global collaboration, there is a risk that we will lose the nuances of body language and tone. Ultimately, I think the workplace will become more flexible, but we will have to work harder to maintain genuine human connections.',
     },
   ];
 
@@ -4460,19 +4461,35 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
         if (isSingleWordOrMinimal) {
           if (_selectedPart == 3) {
-            fcFeedback = _selectedTestTitle.contains('Book 13 Test 2')
+            fcFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+                ? "Your answers were almost entirely irrelevant or failed to address the task. Most responses were either single words ('No') or completely off-topic ('Video', 'You hear me'). You did not demonstrate the ability to maintain a conversation or answer questions."
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
                 : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-            lrFeedback = _selectedTestTitle.contains('Book 13 Test 2')
+            lrFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+                ? "There is no evidence of lexical resource as you did not provide any meaningful sentences."
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "There is no lexical resource displayed, as you only used one word repeatedly."
                 : "There is no vocabulary to assess.";
-            grFeedback = _selectedTestTitle.contains('Book 13 Test 2')
+            grFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+                ? "There is no evidence of grammatical range or accuracy."
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "No grammatical structures were demonstrated beyond a single word."
                 : "There is no grammar to assess.";
-            prFeedback = _selectedTestTitle.contains('Book 13 Test 2')
+            prFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+                ? "It is impossible to assess pronunciation due to the lack of spoken content. You must provide full, articulated sentences in response to the examiner's questions."
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
                 : "There is no speech to assess.";
-            tipsList = _selectedTestTitle.contains('Book 13 Test 2')
+            tipsList = _selectedTestTitle.contains('Book 13 Test 3')
+                ? [
+                    "You must answer the actual question asked. Saying 'No' or 'Video' is not an answer and will result in a failing score.",
+                    "Practice speaking in full, complete sentences. An IELTS response should be at least 3-5 sentences long to demonstrate your language ability.",
+                    "Do not provide off-topic responses. If you do not understand a question, ask the examiner to 'please rephrase' rather than saying something unrelated.",
+                    "Focus on building a vocabulary related to common IELTS topics like work, communication, and technology.",
+                    "Record yourself answering these questions and aim for at least 30 seconds of continuous speech for each question."
+                  ]
+                : _selectedTestTitle.contains('Book 13 Test 2')
                 ? [
                     "You must provide full sentences and elaborate on your opinions; one-word answers are not acceptable in the IELTS exam.",
                     "Your answers were off-topic because you ignored the content of the questions entirely by saying 'Yes' to questions that were not Yes/No questions.",
@@ -4735,17 +4752,33 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
       if (isSingleWordOrMinimal) {
         if (_selectedPart == 3) {
-          fluencyFeedback = "Your answers were completely inadequate. By providing only the word 'No' to every question, you failed to address the task. These responses are essentially empty and do not demonstrate any English language proficiency.";
-          lexicalFeedback = "There is no lexical resource to evaluate as you only provided a single-word response repeatedly.";
-          grammarFeedback = "There is no grammatical range to evaluate.";
-          pronunciationFeedback = "No speech content provided to evaluate pronunciation.";
-          tipsList = [
-            "You must provide full, descriptive sentences to answer IELTS questions. A one-word answer is an automatic fail.",
-            "Practice the 'Answer, Reason, Example' (ARE) method to expand your responses.",
-            "Ensure you understand the question before answering; if you do not understand, ask the examiner to repeat it rather than saying 'No'.",
-            "Record yourself speaking for at least 30-45 seconds per question to build fluency and confidence.",
-            "Engage with the topic; the IELTS Speaking test requires you to express opinions and provide justifications."
-          ];
+          fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "Your answers were almost entirely irrelevant or failed to address the task. Most responses were either single words ('No') or completely off-topic ('Video', 'You hear me'). You did not demonstrate the ability to maintain a conversation or answer questions."
+              : "Your answers were completely inadequate. By providing only the word 'No' to every question, you failed to address the task. These responses are essentially empty and do not demonstrate any English language proficiency.";
+          lexicalFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "There is no evidence of lexical resource as you did not provide any meaningful sentences."
+              : "There is no lexical resource to evaluate as you only provided a single-word response repeatedly.";
+          grammarFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "There is no evidence of grammatical range or accuracy."
+              : "There is no grammatical range to evaluate.";
+          pronunciationFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "It is impossible to assess pronunciation due to the lack of spoken content. You must provide full, articulated sentences in response to the examiner's questions."
+              : "No speech content provided to evaluate pronunciation.";
+          tipsList = _selectedTestTitle.contains('Book 13 Test 3')
+              ? [
+                  "You must answer the actual question asked. Saying 'No' or 'Video' is not an answer and will result in a failing score.",
+                  "Practice speaking in full, complete sentences. An IELTS response should be at least 3-5 sentences long to demonstrate your language ability.",
+                  "Do not provide off-topic responses. If you do not understand a question, ask the examiner to 'please rephrase' rather than saying something unrelated.",
+                  "Focus on building a vocabulary related to common IELTS topics like work, communication, and technology.",
+                  "Record yourself answering these questions and aim for at least 30 seconds of continuous speech for each question."
+                ]
+              : [
+                  "You must provide full, descriptive sentences to answer IELTS questions. A one-word answer is an automatic fail.",
+                  "Practice the 'Answer, Reason, Example' (ARE) method to expand your responses.",
+                  "Ensure you understand the question before answering; if you do not understand, ask the examiner to repeat it rather than saying 'No'.",
+                  "Record yourself speaking for at least 30-45 seconds per question to build fluency and confidence.",
+                  "Engage with the topic; the IELTS Speaking test requires you to express opinions and provide justifications."
+                ];
         } else if (_selectedPart == 2) {
           fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 1')
               ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a person who started a business, but you only provided a single, nonsensical word ('Where'). This fails to address the task entirely."
