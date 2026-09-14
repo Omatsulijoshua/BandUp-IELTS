@@ -3934,7 +3934,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         padding: const EdgeInsets.only(bottom: 8.0),
         child: Row(
           children: [
-            const Icon(Icons.lightbulb, color: AppColors.primary, size: 16),
+            const Icon(Icons.lightbulb, color: Color(0xFFF59E0B), size: 16),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
