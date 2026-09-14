@@ -909,7 +909,191 @@ const book12Test1Questions: Question[] = [
   },
 ];
 
+const book12Test2Questions: Question[] = [
+  // Part 1: Questions 1-4 (Singing & Songs)
+  {
+    question: 'Did you enjoy singing when you were younger? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.0,
+    part: 1,
+    transcript: 'Yes, I actually loved singing when I was a child. I used to participate in my school choir and it was a great way for me to express myself. I found it incredibly joyful, especially when learning new melodies with my friends.',
+  },
+  {
+    question: 'How often do you sing now? [Why?]',
+    audioAsset: 'q2.mp3',
+    duration: 1.5,
+    part: 1,
+    transcript: "I don't sing very often these days, unfortunately. My current schedule is quite demanding with work and studies, so I rarely find the time. However, I sometimes hum along to music when I am commuting or doing household chores.",
+  },
+  {
+    question: 'Do you have a favorite song you like listening to? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.2,
+    part: 1,
+    transcript: "I do have a favorite song, which is 'Bohemian Rhapsody' by Queen. I really appreciate the complexity of the composition and the vocal harmonies. Every time I listen to it, I discover something new and interesting about the arrangement.",
+  },
+  {
+    question: 'How important is singing in your culture? [Why?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.2,
+    part: 1,
+    transcript: 'Singing is quite significant in my culture as it is deeply tied to our traditional festivals and celebrations. We have many folk songs that tell stories about our history and heritage. It is a vital way for us to maintain our cultural identity.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Film/Movie Actor)
+  {
+    question: 'Describe a film/movie actor from your country who is very popular.',
+    audioAsset: 'q5.mp3',
+    duration: 3.2,
+    part: 2,
+    youShouldSay: [
+      'who this actor is',
+      'what kinds of films/movies he/she acts in',
+      "what you know about this actor's life",
+      'and explain why this actor is so popular'
+    ],
+    transcript: "A highly popular actor from my country is Shah Rukh Khan, who is widely regarded as the 'King of Bollywood.' He has an incredible ability to portray diverse characters, ranging from romantic leads to intense, complex roles. His influence extends far beyond the cinema, as he is known for his immense charisma and philanthropic work. Many people admire him not just for his acting talent, but also for his rags-to-riches story, which serves as a great inspiration to millions. He is undoubtedly a cultural icon.",
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Films & Theatre)
+  {
+    question: 'What are the most popular types of films in your country?',
+    audioAsset: 'q6.mp3',
+    duration: 2.3,
+    part: 3,
+    transcript: 'In my country, action movies and romantic comedies are the most popular genres. People often flock to cinemas to watch big-budget blockbusters, especially during holiday periods. Additionally, there is a growing interest in local independent films that reflect our culture.',
+  },
+  {
+    question: 'What is the difference between watching a film in the cinema and watching a film at home?',
+    audioAsset: 'q7.mp3',
+    duration: 4.5,
+    part: 3,
+    transcript: 'The main difference is the atmosphere and the immersion. In a cinema, the large screen and high-quality sound system provide an unparalleled experience, whereas watching at home offers comfort and convenience. At home, you can pause or snack, but you lose the shared excitement of a crowd.',
+  },
+  {
+    question: 'Do you think cinemas will close in the future?',
+    audioAsset: 'q8.mp3',
+    duration: 2.0,
+    part: 3,
+    transcript: 'I do not believe cinemas will disappear entirely. While streaming services are very convenient, the cinema offers a unique social experience that cannot be replicated at home. As long as people value the collective experience of watching a film on a massive screen, cinemas will remain relevant.',
+  },
+  {
+    question: 'How important is the theatre in your country\'s history?',
+    audioAsset: 'q9.mp3',
+    duration: 2.3,
+    part: 3,
+    transcript: "The theatre is deeply rooted in our country's history as a primary form of storytelling and public entertainment. For centuries, it has served as a platform for cultural expression and social commentary. It remains a significant part of our national heritage and identity.",
+  },
+  {
+    question: 'How strong a tradition is it today in your country to go to the theater?',
+    audioAsset: 'q10.mp3',
+    duration: 2.8,
+    part: 3,
+    transcript: 'Going to the theatre is still a strong tradition, particularly among the older generation and those in urban areas. While younger people have many digital entertainment options, the theatre is still viewed as a special, high-culture event. It is often a popular choice for celebrations and formal outings.',
+  },
+  {
+    question: 'Do you think the theatre should be run as a business or as a public service?',
+    audioAsset: 'q11.mp3',
+    duration: 3.9,
+    part: 3,
+    transcript: 'I believe the theatre should be supported as a public service. While it must be managed efficiently, relying solely on profit can lead to a decline in artistic quality and accessibility. Government funding or arts grants are essential to ensure that theatre remains inclusive and culturally diverse.',
+  },
+];
+
+const book13Test1Questions: Question[] = [
+  // Part 1: Questions 1-4 (Television Programmes)
+  {
+    question: 'Where do you usually watch TV programmes/shows? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.44,
+    part: 1,
+    transcript: 'I usually watch TV programmes in the living room on our smart television because it has a large, high-definition screen and comfortable seating. It allows me to fully immerse myself in the shows and relax with family members after a long day.',
+  },
+  {
+    question: "What's your favorite TV programme/show? [Why?]",
+    audioAsset: 'q2.mp3',
+    duration: 1.95,
+    part: 1,
+    transcript: 'My favorite show is an investigative science documentary series. I love it because it delves into fascinating natural phenomena and complex technology in an accessible way, which satisfies my intellectual curiosity and keeps me updated on recent scientific breakthroughs.',
+  },
+  {
+    question: 'Are there any programmes/shows you don\'t like watching? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 3.65,
+    part: 1,
+    transcript: 'Yes, I really dislike watching melodramatic soap operas and sensationalist reality TV shows. I find their storylines repetitive and predictable, and they often focus heavily on contrived drama rather than offering meaningful or educational value.',
+  },
+  {
+    question: 'Do you think you will watch more TV or fewer TV programmes/shows in the future? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 3.52,
+    part: 1,
+    transcript: 'I anticipate that I will watch fewer TV programmes in the future due to increasing professional commitments and personal projects. Furthermore, I find myself gravitating towards interactive digital media, podcasts, and reading, which offer more engaging and targeted learning opportunities.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Business Start-up)
+  {
+    question: 'Describe someone you know who has started a business.',
+    audioAsset: 'q5.mp3',
+    duration: 2.32,
+    part: 2,
+    youShouldSay: [
+      'who this person is',
+      'what work this person does',
+      'why this person decided to start a business',
+      'and explain whether you would like to do the same kind of work as this person.'
+    ],
+    transcript: 'I would like to talk about my close friend and university classmate, David, who launched a boutique specialty coffee roastery and sustainable café two years ago. He oversees the entire operation, from ethically sourcing green beans from independent farmers to roasting and managing the customer experience. David worked in corporate finance for several years, but he grew disillusioned with the rigid corporate ladder and yearned to pursue his true passion for culinary craftsmanship and entrepreneurship. He wanted the autonomy to build a brand rooted in ethical commerce and environmental sustainability. While I deeply admire his courage, resilience, and vision, I personally would not want to do the exact same kind of work. Running a brick-and-mortar retail business requires tremendous sacrifice, 14-hour workdays, and substantial financial risk, whereas my own passions lie more in digital technology and software engineering. Nevertheless, seeing his café thrive has been genuinely inspiring.',
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Choosing Work & Work-Life Balance)
+  {
+    question: 'What kinds of job do young people not want to do in your country?',
+    audioAsset: 'q6.mp3',
+    duration: 2.56,
+    part: 3,
+    transcript: 'In my country, younger generations tend to avoid manual labor, agricultural work, and repetitive factory jobs. These occupations are often perceived as physically exhausting, low-paying, and offering limited career progression. Instead, most young graduates aspire to secure roles in technology, finance, digital marketing, or creative media.',
+  },
+  {
+    question: 'Who is best at advising young people about choosing a job: teachers or parents?',
+    audioAsset: 'q7.mp3',
+    duration: 3.66,
+    part: 3,
+    transcript: 'I believe both offer complementary perspectives, but teachers are often better positioned to provide objective career advice. Teachers observe a student\'s academic strengths, intellectual interests, and practical skills in relation to modern industry trends, whereas parents may sometimes project their own unfulfilled ambitions or prioritize financial security over the child\'s true calling.',
+  },
+  {
+    question: 'Is money always the most important thing when choosing a job?',
+    audioAsset: 'q8.mp3',
+    duration: 3.26,
+    part: 3,
+    transcript: 'While financial remuneration is undeniably essential for meeting living costs and achieving financial independence, it should not be the sole criterion. Long-term job satisfaction, opportunities for professional growth, a positive workplace culture, and work-life balance are equally critical in sustaining motivation and preventing burnout.',
+  },
+  {
+    question: 'Do you agree that many people nowadays are under pressure to work longer hours and take less holiday?',
+    audioAsset: 'q9.mp3',
+    duration: 5.30,
+    part: 3,
+    transcript: 'I strongly agree with this statement. In our hyper-competitive globalized economy, constant connectivity through smartphones and emails has blurred the boundary between professional and personal life. Many employees experience implicit expectations to remain accessible around the clock, leading to chronic stress and reluctance to take their entitled vacation time.',
+  },
+  {
+    question: 'What is the impact on society of people having a poor work-life balance?',
+    audioAsset: 'q10.mp3',
+    duration: 3.37,
+    part: 3,
+    transcript: 'When citizens suffer from poor work-life balance, the repercussions on society are profound. It leads to increased healthcare costs due to stress-related physical and mental illnesses, strained family relationships, and higher rates of marital breakdown. Furthermore, exhaustion diminishes community participation and civic engagement.',
+  },
+  {
+    question: 'Could you recommend some effective strategies for governments and employers to ensure people have a good work-life balance?',
+    audioAsset: 'q11.mp3',
+    duration: 6.41,
+    part: 3,
+    transcript: 'Governments should enforce statutory maximum working hours and implement the \'right to disconnect\' legislation, which prohibits employers from contacting staff outside of contract hours. Employers, on their part, can introduce flexible working schedules, compressed four-day work weeks, and comprehensive mental health support to foster a sustainable and productive workplace.',
+  },
+];
+
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 13 Test 1': book13Test1Questions,
+  'IELTS Book 12 Test 2': book12Test2Questions,
   'IELTS Book 12 Test 1': book12Test1Questions,
   'IELTS Book 11 Test 4': book11Test4Questions,
   'IELTS Book 11 Test 3': book11Test3Questions,
@@ -1548,7 +1732,11 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 12 Test 1')
+                    {title.includes('Book 13 Test 1')
+                      ? 'Television Programmes, Starting a Business & Work-Life Balance'
+                      : title.includes('Book 12 Test 2')
+                      ? 'Singing & Music, Popular Film Actor & Cinema vs Theatre'
+                      : title.includes('Book 12 Test 1')
                       ? 'Health & Lifestyle, Waiting occasions & Punctuality / Patience'
                       : title.includes('Book 11 Test 4')
                       ? 'Names, TV Documentaries & Advertising Media'

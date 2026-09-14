@@ -1492,6 +1492,144 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 13 TEST 1 (Television Programmes / Business Cue Card / Choosing Work & Work-Life Balance)
+  // ==========================================
+  final List<Map<String, dynamic>> _book13Test1Questions = [
+    // Part 1: Questions 1-4 (Television Programmes)
+    {
+      'question': 'Where do you usually watch TV programmes/shows? [Why/why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.44,
+      'start': 0.0,
+      'promptEnd': 2.44,
+      'end': 2.44,
+      'part': 1,
+      'transcript':
+          'I usually watch TV programmes in the living room on our smart television because it has a large, high-definition screen and comfortable seating. It allows me to fully immerse myself in the shows and relax with family members after a long day.',
+    },
+    {
+      'question': "What's your favorite TV programme/show? [Why?]",
+      'audioAsset': 'q2.mp3',
+      'duration': 1.95,
+      'start': 0.0,
+      'promptEnd': 1.95,
+      'end': 1.95,
+      'part': 1,
+      'transcript':
+          'My favorite show is an investigative science documentary series. I love it because it delves into fascinating natural phenomena and complex technology in an accessible way, which satisfies my intellectual curiosity and keeps me updated on recent scientific breakthroughs.',
+    },
+    {
+      'question': 'Are there any programmes/shows you don\'t like watching? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 3.65,
+      'start': 0.0,
+      'promptEnd': 3.65,
+      'end': 3.65,
+      'part': 1,
+      'transcript':
+          'Yes, I really dislike watching melodramatic soap operas and sensationalist reality TV shows. I find their storylines repetitive and predictable, and they often focus heavily on contrived drama rather than offering meaningful or educational value.',
+    },
+    {
+      'question': 'Do you think you will watch more TV or fewer TV programmes/shows in the future? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 3.52,
+      'start': 0.0,
+      'promptEnd': 3.52,
+      'end': 3.52,
+      'part': 1,
+      'transcript':
+          'I anticipate that I will watch fewer TV programmes in the future due to increasing professional commitments and personal projects. Furthermore, I find myself gravitating towards interactive digital media, podcasts, and reading, which offer more engaging and targeted learning opportunities.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Business Start-up)
+    {
+      'question': 'Describe someone you know who has started a business.',
+      'audioAsset': 'q5.mp3',
+      'duration': 2.32,
+      'start': 0.0,
+      'promptEnd': 2.32,
+      'end': 2.32,
+      'part': 2,
+      'youShouldSay': [
+        'who this person is',
+        'what work this person does',
+        'why this person decided to start a business',
+        'and explain whether you would like to do the same kind of work as this person.'
+      ],
+      'transcript':
+          'I would like to talk about my close friend and university classmate, David, who launched a boutique specialty coffee roastery and sustainable café two years ago. He oversees the entire operation, from ethically sourcing green beans from independent farmers to roasting and managing the customer experience. David worked in corporate finance for several years, but he grew disillusioned with the rigid corporate ladder and yearned to pursue his true passion for culinary craftsmanship and entrepreneurship. He wanted the autonomy to build a brand rooted in ethical commerce and environmental sustainability. While I deeply admire his courage, resilience, and vision, I personally would not want to do the exact same kind of work. Running a brick-and-mortar retail business requires tremendous sacrifice, 14-hour workdays, and substantial financial risk, whereas my own passions lie more in digital technology and software engineering. Nevertheless, seeing his café thrive has been genuinely inspiring.',
+    },
+
+    // Part 3: Questions 6-11 (Discussion - Choosing Work & Work-Life Balance)
+    {
+      'question': 'What kinds of job do young people not want to do in your country?',
+      'audioAsset': 'q6.mp3',
+      'duration': 2.56,
+      'start': 0.0,
+      'promptEnd': 2.56,
+      'end': 2.56,
+      'part': 3,
+      'transcript':
+          'In my country, younger generations tend to avoid manual labor, agricultural work, and repetitive factory jobs. These occupations are often perceived as physically exhausting, low-paying, and offering limited career progression. Instead, most young graduates aspire to secure roles in technology, finance, digital marketing, or creative media.',
+    },
+    {
+      'question': 'Who is best at advising young people about choosing a job: teachers or parents?',
+      'audioAsset': 'q7.mp3',
+      'duration': 3.66,
+      'start': 0.0,
+      'promptEnd': 3.66,
+      'end': 3.66,
+      'part': 3,
+      'transcript':
+          'I believe both offer complementary perspectives, but teachers are often better positioned to provide objective career advice. Teachers observe a student\'s academic strengths, intellectual interests, and practical skills in relation to modern industry trends, whereas parents may sometimes project their own unfulfilled ambitions or prioritize financial security over the child\'s true calling.',
+    },
+    {
+      'question': 'Is money always the most important thing when choosing a job?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.26,
+      'start': 0.0,
+      'promptEnd': 3.26,
+      'end': 3.26,
+      'part': 3,
+      'transcript':
+          'While financial remuneration is undeniably essential for meeting living costs and achieving financial independence, it should not be the sole criterion. Long-term job satisfaction, opportunities for professional growth, a positive workplace culture, and work-life balance are equally critical in sustaining motivation and preventing burnout.',
+    },
+    {
+      'question': 'Do you agree that many people nowadays are under pressure to work longer hours and take less holiday?',
+      'audioAsset': 'q9.mp3',
+      'duration': 5.30,
+      'start': 0.0,
+      'promptEnd': 5.30,
+      'end': 5.30,
+      'part': 3,
+      'transcript':
+          'I strongly agree with this statement. In our hyper-competitive globalized economy, constant connectivity through smartphones and emails has blurred the boundary between professional and personal life. Many employees experience implicit expectations to remain accessible around the clock, leading to chronic stress and reluctance to take their entitled vacation time.',
+    },
+    {
+      'question': 'What is the impact on society of people having a poor work-life balance?',
+      'audioAsset': 'q10.mp3',
+      'duration': 3.37,
+      'start': 0.0,
+      'promptEnd': 3.37,
+      'end': 3.37,
+      'part': 3,
+      'transcript':
+          'When citizens suffer from poor work-life balance, the repercussions on society are profound. It leads to increased healthcare costs due to stress-related physical and mental illnesses, strained family relationships, and higher rates of marital breakdown. Furthermore, exhaustion diminishes community participation and civic engagement.',
+    },
+    {
+      'question': 'Could you recommend some effective strategies for governments and employers to ensure people have a good work-life balance?',
+      'audioAsset': 'q11.mp3',
+      'duration': 6.41,
+      'start': 0.0,
+      'promptEnd': 6.41,
+      'end': 6.41,
+      'part': 3,
+      'transcript':
+          'Governments should enforce statutory maximum working hours and implement the \'right to disconnect\' legislation, which prohibits employers from contacting staff outside of contract hours. Employers, on their part, can introduce flexible working schedules, compressed four-day work weeks, and comprehensive mental health support to foster a sustainable and productive workplace.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
     if (_selectedTestTitle.contains('Book 10 Test 4')) {
@@ -1514,6 +1652,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book12Test1Questions;
     } else if (_selectedTestTitle.contains('Book 12 Test 2')) {
       return _book12Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 13 Test 1')) {
+      return _book13Test1Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
@@ -1612,6 +1752,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 11 Test 3') &&
         !folderName.contains('BOOK 11 Test 4') &&
         !folderName.contains('BOOK 12 Test 1') &&
+        !folderName.contains('BOOK 12 Test 2') &&
+        !folderName.contains('BOOK 13 Test 1') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
@@ -2046,7 +2188,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(4, (testIndex) {
                       final testNum = 1 + testIndex;
-                      final isUnlocked = isPremium || (bookNum == 21 && testNum == 1) || (bookNum == 10 && testNum == 1) || (bookNum == 10 && testNum == 2) || (bookNum == 10 && testNum == 3) || (bookNum == 10 && testNum == 4);
+                      final isUnlocked = isPremium ||
+                          (bookNum == 21 && testNum == 1) ||
+                          (bookNum == 10 && testNum >= 1 && testNum <= 4) ||
+                          (bookNum == 11 && testNum >= 1 && testNum <= 4) ||
+                          (bookNum == 12 && (testNum == 1 || testNum == 2)) ||
+                          (bookNum == 13 && testNum == 1);
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
