@@ -84,6 +84,7 @@ flutter:
     - assets/Speaking/IELTS BOOK 12 Test 2/
     - assets/Speaking/IELTS BOOK 13 Test 1/
     - assets/Speaking/IELTS BOOK 13 Test 2/
+    - assets/Speaking/IELTS BOOK 13 Test 3/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

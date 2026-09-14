@@ -1636,58 +1636,58 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   final List<Map<String, dynamic>> _book13Test2Questions = [
     // Part 1: Questions 1-4 (Age)
     {
-      'question': 'Are you happy to be the age you are now? [Why/Why not?]',
+      'question': 'Are you happy to be the age you are now? [Why/why not?]',
       'audioAsset': 'q1.mp3',
-      'duration': 2.14,
+      'duration': 2.10,
       'start': 0.0,
-      'promptEnd': 2.14,
-      'end': 2.14,
+      'promptEnd': 2.10,
+      'end': 2.10,
       'part': 1,
       'transcript':
-          'Yes, absolutely. I feel that my current age provides the perfect balance between youthful energy and mental maturity. I have achieved financial independence and a clear sense of life direction, while still possessing the physical vitality to pursue my goals and enjoy novel experiences.',
+          'I am quite happy with my current age. I feel that I have reached a stage in my life where I am more mature and independent, which allows me to make better decisions for my future. It is a very productive period for my personal and professional growth.',
     },
     {
-      'question': 'When you were a child, did you think a lot about your future? [Why/Why not?]',
+      'question': 'When you were a child, did you think a lot about your future? [Why/why not?]',
       'audioAsset': 'q2.mp3',
-      'duration': 2.85,
+      'duration': 2.80,
       'start': 0.0,
-      'promptEnd': 2.85,
-      'end': 2.85,
+      'promptEnd': 2.80,
+      'end': 2.80,
       'part': 1,
       'transcript':
-          'Not particularly. As a child, I was mostly preoccupied with the immediate present—playing games, spending time with school friends, and exploring hobbies. I occasionally daydreamed about glamorous professions like being an astronaut or pilot, but I didn\'t engage in serious or realistic long-term planning.',
+          'Actually, I didn\'t spend much time thinking about the future when I was a child. Back then, I was mostly focused on playing with my friends and enjoying my school days. I think that is quite normal for a child, as the future felt like a very distant and abstract concept.',
     },
     {
-      'question': 'Do you think you have changed as you have got older? [Why/Why not?]',
+      'question': 'Do you think you have changed as you have got older? [Why/why not?]',
       'audioAsset': 'q3.mp3',
-      'duration': 2.48,
+      'duration': 2.45,
       'start': 0.0,
-      'promptEnd': 2.48,
-      'end': 2.48,
+      'promptEnd': 2.45,
+      'end': 2.45,
       'part': 1,
       'transcript':
-          'Undoubtedly, yes. Over the years, I have become much more pragmatic, patient, and emotionally resilient. Experiencing various personal and professional challenges has taught me to remain composed under pressure and to prioritize meaningful relationships over superficial pursuits.',
+          'I believe I have changed significantly as I have grown older. My perspective on life has become more grounded, and I have learned to prioritize what is truly important to me. I am definitely more patient and thoughtful than I was a few years ago.',
     },
     {
       'question': 'What will be different about your life in the future? [Why?]',
       'audioAsset': 'q4.mp3',
-      'duration': 2.19,
+      'duration': 2.15,
       'start': 0.0,
-      'promptEnd': 2.19,
-      'end': 2.19,
+      'promptEnd': 2.15,
+      'end': 2.15,
       'part': 1,
       'transcript':
-          'In the coming years, I anticipate taking on substantially greater responsibilities, both professionally and within my family. I hope to advance into leadership roles in my career and perhaps settle down into family life, which will inevitably require wiser time management and long-term financial foresight.',
+          'I believe my life will be quite different because I plan to pursue a career in a new field. I expect to have more responsibilities and perhaps live in a different city, which will provide me with new challenges. I am looking forward to these changes as they will help me evolve as a person.',
     },
 
     // Part 2: Question 5 (Cue Card - Technological Device)
     {
       'question': 'Describe a time when you started using a new technological device (e.g. a new computer or phone).',
       'audioAsset': 'q5.mp3',
-      'duration': 5.54,
+      'duration': 5.50,
       'start': 0.0,
-      'promptEnd': 5.54,
-      'end': 5.54,
+      'promptEnd': 5.50,
+      'end': 5.50,
       'part': 2,
       'youShouldSay': [
         'what device you started using',
@@ -1696,75 +1696,221 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         'and explain how helpful this device was to you.'
       ],
       'transcript':
-          'I would like to describe the time I purchased and began using a digital tablet paired with a smart stylus, roughly two years ago. I made the decision to invest in this device because my university coursework and freelance projects required extensive reading, annotating complex PDF documents, and sketching conceptual diagrams, which had become cumbersome to manage on paper. Initially, transitioning to digital handwriting felt somewhat unnatural because the frictionless glass screen lacked the tactile resistance of paper. However, after customizing the palm rejection settings and downloading an intuitive note-taking application, the learning curve flattened within a matter of days. This tablet proved to be immensely helpful in my daily routine. It eliminated the necessity of carrying heavy textbooks, streamlined my study schedule through cloud synchronization across all my devices, and drastically cut down on paper waste. Overall, it revolutionized my personal productivity and organization.',
+          'Last year, I decided to upgrade to a high-end smartphone because my old device was becoming incredibly slow and unreliable. When I first unboxed the new phone, I was immediately impressed by the sleek design and the vibrant display quality. However, the transition was initially challenging because the operating system had several new features that I wasn\'t familiar with. I spent the entire weekend exploring the settings, customizing the interface, and migrating my data from the old device. Eventually, I grew comfortable with the device, and it has since significantly improved my daily productivity.',
     },
 
     // Part 3: Questions 6-11 (Discussion - Technology and Education / Society)
     {
       'question': 'What is the best age for children to start computer lessons?',
       'audioAsset': 'q6.mp3',
-      'duration': 3.08,
+      'duration': 3.05,
       'start': 0.0,
-      'promptEnd': 3.08,
-      'end': 3.08,
+      'promptEnd': 3.05,
+      'end': 3.05,
       'part': 3,
       'transcript':
-          'I believe around seven or eight years old is optimal. At this developmental stage, children already possess foundational literacy and numeracy skills, making them receptive to understanding basic computational logic, typing, and digital safety, without interfering with essential early physical and social play.',
+          'I believe the ideal age is around seven or eight. At this stage, children have developed basic literacy and logical thinking skills, which makes it easier for them to grasp the fundamentals of coding and computer navigation without becoming overwhelmed.',
     },
     {
       'question': 'Do you think that schools should use more technology to help children learn?',
       'audioAsset': 'q7.mp3',
-      'duration': 4.28,
+      'duration': 4.25,
       'start': 0.0,
-      'promptEnd': 4.28,
-      'end': 4.28,
+      'promptEnd': 4.25,
+      'end': 4.25,
       'part': 3,
       'transcript':
-          'Yes, modern educational institutions should certainly integrate technology, provided it serves a clear pedagogical purpose. Interactive software and multimedia simulations can demystify abstract scientific or mathematical concepts and cater to diverse learning styles, though it should complement rather than entirely replace traditional instructional methods.',
+          'Absolutely. Integrating technology into the classroom can significantly enhance engagement and provide students with access to a wealth of information. It prepares them for a future where digital literacy is an essential skill for almost any career path.',
     },
     {
       'question': 'Do you agree or disagree that computers will replace teachers one day?',
       'audioAsset': 'q8.mp3',
+      'duration': 3.45,
+      'start': 0.0,
+      'promptEnd': 3.45,
+      'end': 3.45,
+      'part': 3,
+      'transcript':
+          'I strongly disagree with that notion. While computers are excellent at delivering information, they lack the emotional intelligence and ability to mentor students. A teacher\'s role involves fostering critical thinking and providing moral support, which technology simply cannot replicate.',
+    },
+    {
+      'question': 'How much has technology improved how we communicate with each other?',
+      'audioAsset': 'q9.mp3',
+      'duration': 3.00,
+      'start': 0.0,
+      'promptEnd': 3.00,
+      'end': 3.00,
+      'part': 3,
+      'transcript':
+          'Technology has revolutionized communication by making it instantaneous and global. We can now connect with anyone across the world via video calls or messaging apps, which has effectively bridged the geographical divide that once limited our social and professional interactions.',
+    },
+    {
+      'question': 'Do you agree that there are still many more major technological innovations to be made?',
+      'audioAsset': 'q10.mp3',
+      'duration': 4.40,
+      'start': 0.0,
+      'promptEnd': 4.40,
+      'end': 4.40,
+      'part': 3,
+      'transcript':
+          'I do. We are currently seeing rapid developments in fields like artificial intelligence, biotechnology, and renewable energy. These sectors are still in their infancy, and I believe we will witness breakthroughs that will fundamentally change how we live and work.',
+    },
+    {
+      'question': 'Could you suggest some reasons why some people are deciding to reduce their use of technology?',
+      'audioAsset': 'q11.mp3',
+      'duration': 5.45,
+      'start': 0.0,
+      'promptEnd': 5.45,
+      'end': 5.45,
+      'part': 3,
+      'transcript':
+          'Some people are choosing a \'digital detox\' because they feel overwhelmed by constant connectivity. They often find that reducing technology use helps them improve their mental health, regain focus on physical tasks, and spend more quality time with family and friends.',
+    },
+  ];
+
+  // ==========================================
+  // IELTS BOOK 13 TEST 3 (Money & Shopping / Interesting Discussion Cue Card / Discussing Problems & Communication Skills)
+  // ==========================================
+  final List<Map<String, dynamic>> _book13Test3Questions = [
+    // Part 1: Questions 1-4 (Money)
+    {
+      'question':
+          'When you go shopping, do you prefer to pay for things in cash or by card? [Why?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 3.89,
+      'start': 0.0,
+      'promptEnd': 3.89,
+      'end': 3.89,
+      'part': 1,
+      'transcript':
+          'I generally prefer paying with a debit or credit card, primarily for the sheer convenience and digital record-keeping it offers. With contactless payments and mobile wallets, transactions are practically instantaneous, and I can easily track my monthly expenditures through my banking application. That being said, I still keep a small amount of cash on hand for minor purchases at local street vendors or in emergencies where electronic terminal systems might fail.',
+    },
+    {
+      'question': 'Do you ever save money to buy special things? [Why/why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.35,
+      'start': 0.0,
+      'promptEnd': 2.35,
+      'end': 2.35,
+      'part': 1,
+      'transcript':
+          'Yes, I make a conscious effort to save money whenever I want to make a substantial or special purchase, such as high-grade electronics or travel excursions. I find it far more financially prudent to budget in advance rather than relying impulsively on credit. Setting aside a dedicated portion of my income each month instills financial discipline and gives me a great sense of gratification once I finally attain the item.',
+    },
+    {
+      'question': 'Would you ever take a job which had low pay? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.38,
+      'start': 0.0,
+      'promptEnd': 2.38,
+      'end': 2.38,
+      'part': 1,
+      'transcript':
+          'I would certainly consider taking a lower-paying job under specific circumstances, particularly if it offered invaluable hands-on mentorship, steep learning curves, or worked towards a cause I am passionate about, like a non-profit initiative. Early in one\'s career or during a career transition, gaining foundational expertise and establishing a professional network often carries greater long-term dividend than an immediate high salary.',
+    },
+    {
+      'question':
+          'Would winning a lot of money make a big difference to your life? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 2.59,
+      'start': 0.0,
+      'promptEnd': 2.59,
+      'end': 2.59,
+      'part': 1,
+      'transcript':
+          'Winning a significant sum of money would undoubtedly be transformative, primarily by eliminating financial anxieties and affording me complete autonomy over my time. It would enable me to clear any debts, invest securely in real estate, and finance higher education or entrepreneurial ventures without bureaucratic barriers. Furthermore, it would allow me to support philanthropic causes and provide long-term security for my family.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Interesting Discussion)
+    {
+      'question':
+          'Describe an interesting discussion you had as part of your work or studies.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.63,
+      'start': 0.0,
+      'promptEnd': 3.63,
+      'end': 3.63,
+      'part': 2,
+      'youShouldSay': [
+        'what the discussion was about',
+        'who you discussed this with',
+        'what was the result of the discussion',
+        'and explain why the discussion was interesting to you.'
+      ],
+      'transcript':
+          'I would like to recount an exceptionally stimulating discussion I had about six months ago during a collaborative academic project with my senior university peers and course supervisor. The core topic centered on the ethical ramifications of implementing generative artificial intelligence in higher education assessments. We debated whether universities should prohibit AI-generated coursework altogether to uphold academic integrity, or conversely redesign curricula to teach students how to harness AI tools productively and ethically. Two of my classmates argued vehemently that relying on automated tools dilutes authentic critical reasoning, while my supervisor and I maintained that AI literacy will soon be an indispensable workplace skill. Ultimately, the consensus of our roundtable was to propose a balanced policy draft: allowing AI tools for exploratory research and ideation, provided that students transparently cited prompts and critically reflected on the AI\'s outputs. This discussion was profoundly interesting to me because it forced us to reconsider the fundamental purpose of education in an increasingly automated world, and it demanded rigorous philosophical nuances rather than black-and-white answers.',
+    },
+
+    // Part 3: Questions 6-11 (Discussion - Discussing Problems & Communication Skills)
+    {
+      'question': 'Why is it good to discuss problems with other people?',
+      'audioAsset': 'q6.mp3',
+      'duration': 2.69,
+      'start': 0.0,
+      'promptEnd': 2.69,
+      'end': 2.69,
+      'part': 3,
+      'transcript':
+          'Discussing dilemmas with others is tremendously beneficial because it provides objective outside perspectives that one cannot readily perceive when emotionally immersed in a crisis. Other individuals can pinpoint blind spots, challenge flawed assumptions, and suggest creative solutions drawn from their own life experiences. Moreover, the simple psychological act of verbalizing concerns often alleviates stress and clarifies one\'s thoughts.',
+    },
+    {
+      'question':
+          'Do you think that it\'s better to talk to friends and family about problems, or to professionals?',
+      'audioAsset': 'q7.mp3',
+      'duration': 3.74,
+      'start': 0.0,
+      'promptEnd': 3.74,
+      'end': 3.74,
+      'part': 3,
+      'transcript':
+          'I believe it depends entirely on the nature and severity of the issue. For routine emotional distress, interpersonal misunderstandings, or general life encouragement, friends and family are ideal because their support is rooted in deep unconditional empathy. However, for specialized concerns such as clinical mental health conditions, complex financial disputes, or career crises, professional counselors or experts are far better equipped to provide unbiased, structured, and confidential intervention.',
+    },
+    {
+      'question':
+          'Is it always a good idea to tell lots of people about a problem?',
+      'audioAsset': 'q8.mp3',
+      'duration': 4.05,
+      'start': 0.0,
+      'promptEnd': 4.05,
+      'end': 4.05,
+      'part': 3,
+      'transcript':
+          'No, sharing sensitive problems with a broad audience can frequently exacerbate the situation. Having too many conflicting opinions can create cognitive overload and confusion, preventing decisive action. Furthermore, oversharing can lead to unsolicited gossip, breach of confidentiality, or premature judgment from acquaintances who lack sufficient context. It is far wiser to confide selectively in a trusted inner circle.',
+    },
+    {
+      'question':
+          'Which communication skills are most important when taking part in meetings with colleagues?',
+      'audioAsset': 'q9.mp3',
+      'duration': 4.73,
+      'start': 0.0,
+      'promptEnd': 4.73,
+      'end': 4.73,
+      'part': 3,
+      'transcript':
+          'In a professional meeting environment, active listening is undoubtedly the foremost skill. One must genuinely comprehend colleagues\' viewpoints rather than merely waiting for a turn to speak. In addition, articulate brevity—the ability to express complex arguments concisely and without jargon—along with emotional intelligence to navigate disagreements diplomatically and maintain mutual respect are essential for collaborative success.',
+    },
+    {
+      'question':
+          'What are the possible effects of poor communication skills at work?',
+      'audioAsset': 'q10.mp3',
       'duration': 3.50,
       'start': 0.0,
       'promptEnd': 3.50,
       'end': 3.50,
       'part': 3,
       'transcript':
-          'I respectfully disagree with that assertion. While artificial intelligence and computers can efficiently deliver curriculum content and grade standardized assignments, they inherently lack human empathy, mentorship, emotional intuition, and the ability to inspire critical discourse and ethical thinking in students.',
+          'Substandard communication in a workspace inevitably breeds ambiguity, operational errors, and costly project delays. When instructions or deliverables are conveyed vaguely, redundant effort and friction between team members quickly emerge. Over time, chronic miscommunication severely erodes workplace morale, fosters toxic resentment, and can even compromise client trust and organizational reputation.',
     },
     {
-      'question': 'How much has technology improved how we communicate with each other?',
-      'audioAsset': 'q9.mp3',
-      'duration': 3.03,
-      'start': 0.0,
-      'promptEnd': 3.03,
-      'end': 3.03,
-      'part': 3,
-      'transcript':
-          'Technology has transformed human communication immeasurably by dismantling geographical barriers and enabling instant video conferencing and messaging worldwide. However, it is a double-edged sword; while speed and accessibility have surged, interpersonal depth and face-to-face social nuance have sometimes suffered in the process.',
-    },
-    {
-      'question': 'Do you agree that there are still many more major technological innovations to be made?',
-      'audioAsset': 'q10.mp3',
-      'duration': 4.44,
-      'start': 0.0,
-      'promptEnd': 4.44,
-      'end': 4.44,
-      'part': 3,
-      'transcript':
-          'Absolutely. We are merely at the threshold of transformative frontiers such as quantum computing, renewable clean energy storage, personalized genomic medicine, and advanced neurotechnology. These fields still hold boundless potential to tackle humanity\'s most daunting existential challenges.',
-    },
-    {
-      'question': 'Could you suggest some reasons why some people are deciding to reduce their use of technology?',
+      'question':
+          'What do you think will be the future impact of technology on communication in the workplace?',
       'audioAsset': 'q11.mp3',
-      'duration': 5.36,
+      'duration': 4.65,
       'start': 0.0,
-      'promptEnd': 5.36,
-      'end': 5.36,
+      'promptEnd': 4.65,
+      'end': 4.65,
       'part': 3,
       'transcript':
-          'Many individuals are intentionally pursuing "digital detoxes" primarily to safeguard their mental health and alleviate cognitive overload caused by non-stop notifications and social media comparisons. Furthermore, concerns regarding data privacy, screen-induced insomnia, and a desire to cultivate deeper real-world presence and authentic human connection are prompting people to step back.',
+          'In the near future, emerging technologies such as immersive virtual reality meeting rooms, real-time neural translation, and AI-driven collaborative co-pilots will make distributed global teamwork virtually indistinguishable from in-person collaboration. However, the challenge will be preventing employee isolation and screen fatigue, meaning organizations will need to place an even higher premium on preserving genuine empathy and human connection amidst ubiquitous automation.',
     },
   ];
 
@@ -1794,6 +1940,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book13Test1Questions;
     } else if (_selectedTestTitle.contains('Book 13 Test 2')) {
       return _book13Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 13 Test 3')) {
+      return _book13Test3Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
@@ -1895,6 +2043,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 12 Test 2') &&
         !folderName.contains('BOOK 13 Test 1') &&
         !folderName.contains('BOOK 13 Test 2') &&
+        !folderName.contains('BOOK 13 Test 3') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
@@ -2334,7 +2483,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           (bookNum == 10 && testNum >= 1 && testNum <= 4) ||
                           (bookNum == 11 && testNum >= 1 && testNum <= 4) ||
                           (bookNum == 12 && (testNum == 1 || testNum == 2)) ||
-                          (bookNum == 13 && (testNum == 1 || testNum == 2));
+                          (bookNum == 13 && (testNum >= 1 && testNum <= 3));
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(

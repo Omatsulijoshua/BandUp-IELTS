@@ -1182,7 +1182,99 @@ const book13Test2Questions: Question[] = [
   },
 ];
 
+const book13Test3Questions: Question[] = [
+  // Part 1: Questions 1-4 (Money)
+  {
+    question: 'When you go shopping, do you prefer to pay for things in cash or by card? [Why?]',
+    audioAsset: 'q1.mp3',
+    duration: 3.89,
+    part: 1,
+    transcript: 'I generally prefer paying with a debit or credit card, primarily for the sheer convenience and digital record-keeping it offers. With contactless payments and mobile wallets, transactions are practically instantaneous, and I can easily track my monthly expenditures through my banking application. That being said, I still keep a small amount of cash on hand for minor purchases at local street vendors or in emergencies where electronic terminal systems might fail.',
+  },
+  {
+    question: 'Do you ever save money to buy special things? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.35,
+    part: 1,
+    transcript: 'Yes, I make a conscious effort to save money whenever I want to make a substantial or special purchase, such as high-grade electronics or travel excursions. I find it far more financially prudent to budget in advance rather than relying impulsively on credit. Setting aside a dedicated portion of my income each month instills financial discipline and gives me a great sense of gratification once I finally attain the item.',
+  },
+  {
+    question: 'Would you ever take a job which had low pay? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.38,
+    part: 1,
+    transcript: 'I would certainly consider taking a lower-paying job under specific circumstances, particularly if it offered invaluable hands-on mentorship, steep learning curves, or worked towards a cause I am passionate about, like a non-profit initiative. Early in one\'s career or during a career transition, gaining foundational expertise and establishing a professional network often carries greater long-term dividend than an immediate high salary.',
+  },
+  {
+    question: 'Would winning a lot of money make a big difference to your life? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.59,
+    part: 1,
+    transcript: 'Winning a significant sum of money would undoubtedly be transformative, primarily by eliminating financial anxieties and affording me complete autonomy over my time. It would enable me to clear any debts, invest securely in real estate, and finance higher education or entrepreneurial ventures without bureaucratic barriers. Furthermore, it would allow me to support philanthropic causes and provide long-term security for my family.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Interesting Discussion)
+  {
+    question: 'Describe an interesting discussion you had as part of your work or studies.',
+    audioAsset: 'q5.mp3',
+    duration: 3.63,
+    part: 2,
+    youShouldSay: [
+      'what the discussion was about',
+      'who you discussed this with',
+      'what was the result of the discussion',
+      'and explain why the discussion was interesting to you.'
+    ],
+    transcript: 'I would like to recount an exceptionally stimulating discussion I had about six months ago during a collaborative academic project with my senior university peers and course supervisor. The core topic centered on the ethical ramifications of implementing generative artificial intelligence in higher education assessments. We debated whether universities should prohibit AI-generated coursework altogether to uphold academic integrity, or conversely redesign curricula to teach students how to harness AI tools productively and ethically. Two of my classmates argued vehemently that relying on automated tools dilutes authentic critical reasoning, while my supervisor and I maintained that AI literacy will soon be an indispensable workplace skill. Ultimately, the consensus of our roundtable was to propose a balanced policy draft: allowing AI tools for exploratory research and ideation, provided that students transparently cited prompts and critically reflected on the AI\'s outputs. This discussion was profoundly interesting to me because it forced us to reconsider the fundamental purpose of education in an increasingly automated world, and it demanded rigorous philosophical nuances rather than black-and-white answers.',
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Discussing Problems & Communication Skills)
+  {
+    question: 'Why is it good to discuss problems with other people?',
+    audioAsset: 'q6.mp3',
+    duration: 2.69,
+    part: 3,
+    transcript: 'Discussing dilemmas with others is tremendously beneficial because it provides objective outside perspectives that one cannot readily perceive when emotionally immersed in a crisis. Other individuals can pinpoint blind spots, challenge flawed assumptions, and suggest creative solutions drawn from their own life experiences. Moreover, the simple psychological act of verbalizing concerns often alleviates stress and clarifies one\'s thoughts.',
+  },
+  {
+    question: 'Do you think that it\'s better to talk to friends and family about problems, or to professionals?',
+    audioAsset: 'q7.mp3',
+    duration: 3.74,
+    part: 3,
+    transcript: 'I believe it depends entirely on the nature and severity of the issue. For routine emotional distress, interpersonal misunderstandings, or general life encouragement, friends and family are ideal because their support is rooted in deep unconditional empathy. However, for specialized concerns such as clinical mental health conditions, complex financial disputes, or career crises, professional counselors or experts are far better equipped to provide unbiased, structured, and confidential intervention.',
+  },
+  {
+    question: 'Is it always a good idea to tell lots of people about a problem?',
+    audioAsset: 'q8.mp3',
+    duration: 4.05,
+    part: 3,
+    transcript: 'No, sharing sensitive problems with a broad audience can frequently exacerbate the situation. Having too many conflicting opinions can create cognitive overload and confusion, preventing decisive action. Furthermore, oversharing can lead to unsolicited gossip, breach of confidentiality, or premature judgment from acquaintances who lack sufficient context. It is far wiser to confide selectively in a trusted inner circle.',
+  },
+  {
+    question: 'Which communication skills are most important when taking part in meetings with colleagues?',
+    audioAsset: 'q9.mp3',
+    duration: 4.73,
+    part: 3,
+    transcript: 'In a professional meeting environment, active listening is undoubtedly the foremost skill. One must genuinely comprehend colleagues\' viewpoints rather than merely waiting for a turn to speak. In addition, articulate brevity—the ability to express complex arguments concisely and without jargon—along with emotional intelligence to navigate disagreements diplomatically and maintain mutual respect are essential for collaborative success.',
+  },
+  {
+    question: 'What are the possible effects of poor communication skills at work?',
+    audioAsset: 'q10.mp3',
+    duration: 3.50,
+    part: 3,
+    transcript: 'Substandard communication in a workspace inevitably breeds ambiguity, operational errors, and costly project delays. When instructions or deliverables are conveyed vaguely, redundant effort and friction between team members quickly emerge. Over time, chronic miscommunication severely erodes workplace morale, fosters toxic resentment, and can even compromise client trust and organizational reputation.',
+  },
+  {
+    question: 'What do you think will be the future impact of technology on communication in the workplace?',
+    audioAsset: 'q11.mp3',
+    duration: 4.65,
+    part: 3,
+    transcript: 'In the near future, emerging technologies such as immersive virtual reality meeting rooms, real-time neural translation, and AI-driven collaborative co-pilots will make distributed global teamwork virtually indistinguishable from in-person collaboration. However, the challenge will be preventing employee isolation and screen fatigue, meaning organizations will need to place an even higher premium on preserving genuine empathy and human connection amidst ubiquitous automation.',
+  },
+];
+
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 13 Test 3': book13Test3Questions,
   'IELTS Book 13 Test 2': book13Test2Questions,
   'IELTS Book 13 Test 1': book13Test1Questions,
   'IELTS Book 12 Test 2': book12Test2Questions,
@@ -1824,7 +1916,9 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 13 Test 2')
+                    {title.includes('Book 13 Test 3')
+                      ? 'Money & Shopping, Interesting Discussion Cue Card & Workplace Communication'
+                      : title.includes('Book 13 Test 2')
                       ? 'Age & Life Stages, New Technological Device & Technology in Society'
                       : title.includes('Book 13 Test 1')
                       ? 'Television Programmes, Starting a Business & Work-Life Balance'
