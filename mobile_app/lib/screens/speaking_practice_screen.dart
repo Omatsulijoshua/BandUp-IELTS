@@ -2041,6 +2041,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 11 Test 4') &&
         !folderName.contains('BOOK 12 Test 1') &&
         !folderName.contains('BOOK 12 Test 2') &&
+        !folderName.contains('BOOK 12 Test 3') &&
         !folderName.contains('BOOK 13 Test 1') &&
         !folderName.contains('BOOK 13 Test 2') &&
         !folderName.contains('BOOK 13 Test 3') &&
@@ -4581,49 +4582,80 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   "Prepare stories about people you know in advance to avoid being caught off guard during the test."
                 ];
         } else {
-          fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 1')
-              ? "Your answers were completely irrelevant. You did not answer the questions; instead, you repeated single words ('Why', 'Where') that were not meaningful responses to the prompts provided."
-              : _selectedTestTitle.contains('Book 10 Test 4')
-                  ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
-                  : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-          lexicalFeedback = _selectedTestTitle.contains('Book 13 Test 1')
-              ? "There is no evidence of lexical resource as you only provided single-word non-answers."
-              : _selectedTestTitle.contains('Book 10 Test 4')
-                  ? "There is no vocabulary to assess beyond a single, repetitive word."
-                  : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-          grammarFeedback = _selectedTestTitle.contains('Book 13 Test 1')
-              ? "There is no evidence of grammatical range or accuracy as you did not form complete sentences."
-              : _selectedTestTitle.contains('Book 10 Test 4')
-                  ? "There is no grammatical structure to assess."
-                  : "There is no grammatical range to assess as no full sentences were produced.";
-          pronunciationFeedback = _selectedTestTitle.contains('Book 13 Test 1')
-              ? "It is impossible to evaluate pronunciation based on single-word responses that do not address the prompt."
-              : _selectedTestTitle.contains('Book 10 Test 4')
-                  ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
-                  : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-          tipsList = _selectedTestTitle.contains('Book 13 Test 1')
+          fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "Your answers were highly irrelevant and failed to address the task. Providing a one-word answer ('No') to open-ended questions that require explanation ('Why/why not?') demonstrates a complete inability to engage with the test format."
+              : _selectedTestTitle.contains('Book 13 Test 2')
+                  ? "Your answers are extremely short and fail to address the 'Why/why not' requirement of the questions. You are providing one-word answers which prevents any assessment of coherence."
+                  : _selectedTestTitle.contains('Book 13 Test 1')
+                      ? "Your answers were completely irrelevant. You did not answer the questions; instead, you repeated single words ('Why', 'Where') that were not meaningful responses to the prompts provided."
+                      : _selectedTestTitle.contains('Book 10 Test 4')
+                          ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
+                          : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
+          lexicalFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "There is no vocabulary range to assess. Using a single word repeatedly is not indicative of language proficiency."
+              : _selectedTestTitle.contains('Book 13 Test 2')
+                  ? "There is no vocabulary range to assess. A single word does not demonstrate the ability to use language to express ideas."
+                  : _selectedTestTitle.contains('Book 13 Test 1')
+                      ? "There is no evidence of lexical resource as you only provided single-word non-answers."
+                      : _selectedTestTitle.contains('Book 10 Test 4')
+                          ? "There is no vocabulary to assess beyond a single, repetitive word."
+                          : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
+          grammarFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "There is no grammatical structure to assess. You failed to form full sentences."
+              : _selectedTestTitle.contains('Book 13 Test 2')
+                  ? "There is no grammatical structure to assess. You must produce full sentences to demonstrate grammatical control."
+                  : _selectedTestTitle.contains('Book 13 Test 1')
+                      ? "There is no evidence of grammatical range or accuracy as you did not form complete sentences."
+                      : _selectedTestTitle.contains('Book 10 Test 4')
+                          ? "There is no grammatical structure to assess."
+                          : "There is no grammatical range to assess as no full sentences were produced.";
+          pronunciationFeedback = _selectedTestTitle.contains('Book 13 Test 3')
+              ? "Insufficient data to assess pronunciation; however, the lack of effort in providing a verbal response makes a score of 1 mandatory."
+              : _selectedTestTitle.contains('Book 13 Test 2')
+                  ? "While you can articulate the word 'Yes', this is insufficient for an IELTS examiner to assess your pronunciation range, intonation, or connected speech."
+                  : _selectedTestTitle.contains('Book 13 Test 1')
+                      ? "It is impossible to evaluate pronunciation based on single-word responses that do not address the prompt."
+                      : _selectedTestTitle.contains('Book 10 Test 4')
+                          ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
+                          : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
+          tipsList = _selectedTestTitle.contains('Book 13 Test 3')
               ? [
-                  "You must answer the actual question asked. Repeating a question word like 'Why' or 'Where' is not an answer.",
-                  "Practice giving full, detailed sentences. Aim for 3-4 sentences per response in Part 1.",
-                  "Listen carefully to the question. If it asks 'Where', describe a location. If it asks 'What', describe an object or activity.",
-                  "Avoid using 'I don't know' or repeating the question words. If you are stuck, try to describe your feelings or experiences related to the topic.",
-                  "Your current performance is a failure to engage with the task; you must provide relevant content to be assessed."
+                  "Stop answering with one-word responses. IELTS Part 1 requires you to provide full sentences and explain your reasoning.",
+                  "Address the 'Why/why not?' component of every question. If you do not explain your answer, you cannot achieve a score above band 3.",
+                  "Practice expanding your answers using the 'Answer + Reason + Example' structure.",
+                  "Understand that the examiner is looking for your ability to communicate in English; silence or one-word answers will result in a failing grade."
                 ]
-              : _selectedTestTitle.contains('Book 10 Test 4')
+              : _selectedTestTitle.contains('Book 13 Test 2')
                   ? [
-                      "You must provide full, descriptive sentences to allow the examiner to assess your language ability.",
-                      "Use the 'PPF' method: Past, Present, Future, or provide reasons and examples to expand your answers.",
-                      "Avoid one-word answers at all costs; they demonstrate a lack of English proficiency and result in a minimum band score.",
-                      "Practice elaborating on simple questions by answering 'Why' or 'How' even if the question does not explicitly ask for it.",
-                      "Treat the speaking test as a conversation where you are expected to share information, not just provide data points."
+                      "Stop providing one-word answers. IELTS Speaking requires you to develop your ideas fully.",
+                      "Always address the 'Why' or 'Why not' part of the question. If a question asks for a reason, you must provide one.",
+                      "Aim to speak for at least 3-4 sentences per question in Part 1. Use the 'Answer + Extend' technique.",
+                      "Practice using linking words like 'because', 'however', or 'in addition' to connect your thoughts.",
+                      "Record yourself answering these questions and listen to see if you sound natural and fluent."
                     ]
-                  : [
-                      "You must provide full, complete sentences for every question. One-word answers will result in a failing score.",
-                      "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Why' part of the question as a prompt to expand.",
-                      "Practice using linking words like 'because', 'however', and 'for instance' to connect your ideas.",
-                      "Aim for at least 3-4 sentences per response in Part 1 to demonstrate your English proficiency.",
-                      "Understand that the examiner needs to hear you speak to evaluate your language skills; by saying 'No', you are preventing the assessment from taking place."
-                    ];
+                  : _selectedTestTitle.contains('Book 13 Test 1')
+                      ? [
+                          "You must answer the actual question asked. Repeating a question word like 'Why' or 'Where' is not an answer.",
+                          "Practice giving full, detailed sentences. Aim for 3-4 sentences per response in Part 1.",
+                          "Listen carefully to the question. If it asks 'Where', describe a location. If it asks 'What', describe an object or activity.",
+                          "Avoid using 'I don't know' or repeating the question words. If you are stuck, try to describe your feelings or experiences related to the topic.",
+                          "Your current performance is a failure to engage with the task; you must provide relevant content to be assessed."
+                        ]
+                      : _selectedTestTitle.contains('Book 10 Test 4')
+                          ? [
+                              "You must provide full, descriptive sentences to allow the examiner to assess your language ability.",
+                              "Use the 'PPF' method: Past, Present, Future, or provide reasons and examples to expand your answers.",
+                              "Avoid one-word answers at all costs; they demonstrate a lack of English proficiency and result in a minimum band score.",
+                              "Practice elaborating on simple questions by answering 'Why' or 'How' even if the question does not explicitly ask for it.",
+                              "Treat the speaking test as a conversation where you are expected to share information, not just provide data points."
+                            ]
+                          : [
+                              "You must provide full, complete sentences for every question. One-word answers will result in a failing score.",
+                              "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Why' part of the question as a prompt to expand.",
+                              "Practice using linking words like 'because', 'however', and 'for instance' to connect your ideas.",
+                              "Aim for at least 3-4 sentences per response in Part 1 to demonstrate your English proficiency.",
+                              "Understand that the examiner needs to hear you speak to evaluate your language skills; by saying 'No', you are preventing the assessment from taking place."
+                            ];
         }
       } else if (hasNoSpokenWords) {
         fluencyFeedback = 'No verbal response was detected during the practice session. You must speak into the microphone to receive an IELTS speaking assessment.';
