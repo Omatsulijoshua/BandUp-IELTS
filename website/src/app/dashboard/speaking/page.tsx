@@ -1091,6 +1091,110 @@ const book12Test3Questions: Question[] = [
   },
 ];
 
+const book12Test4Questions: Question[] = [
+  // Part 1: Questions 1-4 (Art)
+  {
+    question: 'Did you enjoy doing art lessons when you were a child [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.5,
+    part: 1,
+    transcript:
+      'To be honest, I didn\'t particularly enjoy art lessons as a child. I found it quite frustrating because I felt I lacked the natural creativity required to draw well, and I often struggled to follow the teacher\'s instructions. As a result, I usually felt quite discouraged whenever we had an art project to complete.',
+  },
+  {
+    question: 'Do you ever draw or paint pictures now? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 1.9,
+    part: 1,
+    transcript:
+      'Not really, I rarely draw or paint these days. My current lifestyle is quite hectic, so I prefer to spend my limited free time on activities like reading or exercising. I suppose I simply lost interest in artistic hobbies as I grew older and focused more on my academic studies.',
+  },
+  {
+    question: 'When was the last time you went to an art gallery or exhibition? [Why?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.7,
+    part: 1,
+    transcript:
+      'It has been quite a long time, actually. I think the last time I visited an art gallery was about three years ago when I was on vacation in Europe. I went there primarily to see some historical paintings, which I found surprisingly fascinating even though I am not an artist myself.',
+  },
+  {
+    question: 'What kind of pictures do you like having in your home? [Why?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.2,
+    part: 1,
+    transcript:
+      'I generally prefer to have landscape photography or minimalist prints in my home. I find that these kinds of pictures create a calm and relaxing atmosphere, which is exactly what I want in my living space. I tend to avoid overly complex or abstract art because I find it a bit distracting.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Visiting Workplace)
+  {
+    question:
+      'Describe a time when you visited a friend or family member at their workplace.',
+    audioAsset: 'q5.mp3',
+    duration: 3.7,
+    part: 2,
+    youShouldSay: [
+      'who you visited',
+      'where this person worked',
+      'why you visited this person\'s workplace',
+      'and explain how you felt about visiting this person\'s workplace',
+    ],
+    transcript:
+      'I remember a time when I visited my brother at his architecture firm. It was quite an eye-opening experience to see him in his professional environment, surrounded by blueprints and complex 3D models. The office had a very creative atmosphere, with everyone collaborating intensely on a new city project. I was particularly impressed by how he managed to balance his artistic vision with the strict technical requirements of the buildings. We ended up grabbing a quick lunch together nearby, where he told me more about the challenges of sustainable design.',
+  },
+
+  // Part 3: Questions 6-11 (Workplace & Work Environment)
+  {
+    question: 'What things make an office comfortable to work in?',
+    audioAsset: 'q6.mp3',
+    duration: 2.3,
+    part: 3,
+    transcript:
+      'A comfortable office environment is primarily defined by ergonomics and atmosphere. Good lighting, comfortable furniture, and a quiet space are essential for maintaining focus. Furthermore, having access to modern technology and a pleasant break area can significantly boost employee morale and productivity.',
+  },
+  {
+    question: 'Why do some people prefer to work outdoors?',
+    audioAsset: 'q7.mp3',
+    duration: 2.0,
+    part: 3,
+    transcript:
+      'Some individuals prefer working outdoors because they find the natural environment less restrictive than a traditional office. It can provide a sense of freedom, fresh air, and a change of scenery that helps reduce stress. For many, being close to nature improves their creativity and mental well-being.',
+  },
+  {
+    question:
+      'Do you agree that the building people work in is more important than the colleagues they work with?',
+    audioAsset: 'q8.mp3',
+    duration: 4.7,
+    part: 3,
+    transcript:
+      'I believe that the people you work with are actually more important than the physical building. A supportive and collaborative team can make even a substandard workspace feel productive and enjoyable. Conversely, a beautiful office cannot compensate for a toxic or uncooperative work environment.',
+  },
+  {
+    question: 'What would life be like if people didn\'t have to work?',
+    audioAsset: 'q9.mp3',
+    duration: 2.7,
+    part: 3,
+    transcript:
+      'If people did not have to work, society would likely undergo a massive transformation. Many would dedicate their time to creative pursuits, hobbies, or community service, which could lead to a cultural renaissance. However, it might also lead to a lack of structure and purpose for many, potentially causing widespread boredom or societal instability.',
+  },
+  {
+    question: 'Are all jobs of equal important?',
+    audioAsset: 'q10.mp3',
+    duration: 1.6,
+    part: 3,
+    transcript:
+      'I do not believe all jobs are of equal importance in terms of societal impact. While every legitimate occupation contributes to the economy, roles in healthcare, emergency services, and education directly preserve life and shape the future of society. Therefore, these essential professions hold a higher level of critical significance.',
+  },
+  {
+    question: 'Why do some people become workaholics?',
+    audioAsset: 'q11.mp3',
+    duration: 1.7,
+    part: 3,
+    transcript:
+      'Some people become workaholics due to high personal ambition, financial pressure, or a deep passion for their career. For others, work serves as an escape from personal issues or a primary source of self-worth and validation. In highly competitive corporate environments, excessive working hours are often culturally normalized and rewarded.',
+  },
+];
+
 const book13Test1Questions: Question[] = [
   // Part 1: Questions 1-4 (Television Programmes)
   {
@@ -1761,8 +1865,111 @@ const book14Test3Questions: Question[] = [
   },
 ];
 
+const book14Test4Questions: Question[] = [
+  // Part 1: Questions 1-4 (Neighbourhood & Living Area)
+  {
+    question: 'Do you like the neighbourhood you live in? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 1.55,
+    part: 1,
+    transcript:
+      'Actually, I quite enjoy living in my neighbourhood. It is a very peaceful area with plenty of green spaces, which makes it perfect for relaxing after a long day of work. The community is very friendly, and I feel quite safe here, which is the most important thing for me.',
+  },
+  {
+    question: 'What do you do in your neighbourhood in your free time? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.30,
+    part: 1,
+    transcript:
+      'In my free time, I usually head to the local park to go for a jog or read a book under the trees. Occasionally, I like to visit the small café on the corner to grab a coffee and catch up with some of my neighbours. It is a great way to stay active and socialise.',
+  },
+  {
+    question: 'What new things would you like to have in your neighbourhood? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.25,
+    part: 1,
+    transcript:
+      'I would love to see a more modern community centre or perhaps a library in our neighbourhood. Currently, we lack a dedicated space for social events or workshops, and I think that would really bring the residents closer together. Improved public transport links would also be a fantastic addition.',
+  },
+  {
+    question: 'Would you like to live in another neighbourhood in your town or city? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 3.75,
+    part: 1,
+    transcript:
+      'While I am happy where I am, I would be open to moving to a more central part of the city. I think living closer to the business district would significantly reduce my daily commute and give me more time to spend on my hobbies. However, I would only move if I could find a place that is just as quiet as my current home.',
+  },
+
+  // Part 2: Question 5 (Cue Card: Website Bought From)
+  {
+    question: 'Describe a website you have bought something from.',
+    audioAsset: 'q5.mp3',
+    duration: 2.30,
+    part: 2,
+    youShouldSay: [
+      'what the website is',
+      'what you bought from this website',
+      'how satisfied you were with what you bought',
+      'and explain what you liked and disliked about using this website.',
+    ],
+    transcript:
+      'I frequently use Amazon to purchase various items because of its incredible convenience and extensive inventory. Last month, I decided to buy a new ergonomic office chair from their website to improve my posture while working from home. Navigating the site was seamless, as the search filters allowed me to quickly narrow down my options based on price, customer ratings, and material quality. Once I placed the order, the tracking feature kept me informed about the delivery status in real-time, and the package arrived at my doorstep within two days. Overall, I find the website highly reliable and user-friendly, which is why it has become my go-to platform for online shopping.',
+  },
+
+  // Part 3: Questions 6-11 (Online Shops, Pricing & Retail Malls)
+  {
+    question: 'What kinds of things do people in your country often buy from online shops?',
+    audioAsset: 'q6.mp3',
+    duration: 3.55,
+    part: 3,
+    transcript:
+      'In my country, people frequently purchase electronics, clothing, and household goods online. E-commerce platforms like Shopee and Lazada have become incredibly popular because they offer a wider variety of products than local physical stores.',
+  },
+  {
+    question: 'Why has online shopping become so popular in many countries?',
+    audioAsset: 'q7.mp3',
+    duration: 2.70,
+    part: 3,
+    transcript:
+      'Online shopping has surged in popularity primarily due to its unparalleled convenience. Consumers can browse and purchase items from the comfort of their homes at any time, often finding better prices and more competitive deals compared to traditional retail outlets.',
+  },
+  {
+    question: 'What are some possible disadvantages of buying things from online shops?',
+    audioAsset: 'q8.mp3',
+    duration: 4.10,
+    part: 3,
+    transcript:
+      'One major disadvantage is the inability to physically inspect products before purchasing, which can lead to disappointment regarding quality or size. Additionally, there are concerns about data security and the potential for shipping delays or damaged goods during transit.',
+  },
+  {
+    question: 'Do you agree that the prices of all goods should be lower on internet shopping sites than in shops?',
+    audioAsset: 'q9.mp3',
+    duration: 5.40,
+    part: 3,
+    transcript:
+      'I do not necessarily agree that all goods should be cheaper online. While internet sites often have lower overhead costs, physical shops provide immediate availability and the benefit of personalized customer service, which justifies a different pricing structure for many consumers.',
+  },
+  {
+    question: 'Will large shopping malls continue to be popular, despite the growth of internet shopping?',
+    audioAsset: 'q10.mp3',
+    duration: 4.50,
+    part: 3,
+    transcript:
+      'I believe large shopping malls will remain relevant but will have to evolve. They are increasingly becoming \'experience centers\' where people go for dining, entertainment, and social interaction, rather than just shopping for necessities, allowing them to coexist with online retail.',
+  },
+  {
+    question: 'Do you think that some businesses (e.g. banks and travel agents) will only operate online in the future?',
+    audioAsset: 'q11.mp3',
+    duration: 5.35,
+    part: 3,
+    transcript:
+      'It is highly probable that many businesses will shift to an online-only model. Digital transformation allows companies to reduce operational costs significantly while reaching a global audience, making it a logical progression for sectors like banking and travel services.',
+  },
+];
+
 
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 14 Test 4': book14Test4Questions,
   'IELTS Book 14 Test 3': book14Test3Questions,
   'IELTS Book 14 Test 2': book14Test2Questions,
   'IELTS Book 14 Test 1': book14Test1Questions,
@@ -1770,6 +1977,7 @@ const testSuites: { [key: string]: Question[] } = {
   'IELTS Book 13 Test 3': book13Test3Questions,
   'IELTS Book 13 Test 2': book13Test2Questions,
   'IELTS Book 13 Test 1': book13Test1Questions,
+  'IELTS Book 12 Test 4': book12Test4Questions,
   'IELTS Book 12 Test 3': book12Test3Questions,
   'IELTS Book 12 Test 2': book12Test2Questions,
   'IELTS Book 12 Test 1': book12Test1Questions,
@@ -1997,7 +2205,9 @@ export default function SpeakingPracticePage() {
 
     let band = 1.0;
     if (isSingleWordOrMinimal) {
-      if (selectedTestTitle.includes('Book 14 Test 2')) {
+      if (selectedTestTitle.includes('Book 14 Test 4')) {
+        band = selectedPart === 1 ? 1.0 : 0.0;
+      } else if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
       } else if (selectedTestTitle.includes('Book 13 Test 2')) {
         band = selectedPart === 1 ? 2.0 : 1.0;
@@ -2015,7 +2225,9 @@ export default function SpeakingPracticePage() {
     } else if (totalWords > 5) {
       band = 3.0;
     } else {
-      if (selectedTestTitle.includes('Book 14 Test 2')) {
+      if (selectedTestTitle.includes('Book 14 Test 4')) {
+        band = selectedPart === 1 ? 1.0 : 0.0;
+      } else if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
       } else if (selectedTestTitle.includes('Book 13 Test 4')) {
         band = selectedPart === 2 ? 0.0 : 1.0;
@@ -2027,7 +2239,9 @@ export default function SpeakingPracticePage() {
     }
 
     const intBand = isSingleWordOrMinimal
-      ? (selectedTestTitle.includes('Book 14 Test 2')
+      ? (selectedTestTitle.includes('Book 14 Test 4')
+          ? (selectedPart === 1 ? 1 : 0)
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? (selectedPart === 1 ? 0 : 1)
           : selectedTestTitle.includes('Book 13 Test 4')
           ? (selectedPart === 2 ? 0 : 1)
@@ -2044,7 +2258,9 @@ export default function SpeakingPracticePage() {
 
     if (isSingleWordOrMinimal) {
       if (selectedPart === 3) {
-        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "Your responses are entirely empty/non-responsive. You provided 'No' to every question, which is not an answer. These responses are irrelevant and fail to address the task entirely."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "The responses are extremely short, incoherent, and fail to address the questions. Your answers were consistently off-topic or lacked any meaningful content."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "Your answers were completely irrelevant and failed to address the questions. Providing one-word fillers like 'Yeah', 'Oh', or 'Hey' demonstrates no ability to communicate or develop a topic."
@@ -2059,7 +2275,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
           : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "There is no vocabulary to assess."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is virtually no vocabulary usage. The responses consist of single words or fragmented phrases that do not communicate ideas."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "There is no evidence of lexical resource as you did not provide any meaningful vocabulary or complete sentences."
@@ -2074,7 +2292,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no lexical resource displayed, as you only used one word repeatedly."
           : "There is no vocabulary to assess.";
-        grammarFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        grammarFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is no evidence of grammatical structure. Responses are limited to single-word utterances."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "There is no evidence of grammatical range or accuracy as you did not produce any complete sentences."
@@ -2089,7 +2309,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "No grammatical structures were demonstrated beyond a single word."
           : "There is no grammar to assess.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "No speech was produced to evaluate."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "It is impossible to judge pronunciation effectively as there is no connected speech, but the lack of effort to speak full sentences indicates a failure to demonstrate even basic speaking skills."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "While your individual words were audible, you failed to use any connected speech or intonation patterns suitable for an IELTS exam."
@@ -2104,7 +2326,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
           : "There is no speech to assess.";
-        tipsList = selectedTestTitle.includes('Book 14 Test 2')
+        tipsList = selectedTestTitle.includes('Book 14 Test 4')
+          ? [
+              "You must provide full, relevant sentences to answer the examiner's questions.",
+              "Answering 'No' to open-ended questions demonstrates a complete lack of effort and will result in a score of 0.",
+              "Practice expanding your answers by providing a direct answer, a reason, and an example for each question.",
+              "Understand that the examiner needs to hear you speak; silence or one-word refusals cannot be graded higher than a band 0-1.",
+              "Review the IELTS Speaking band descriptors to understand that coherence and task response are essential requirements."
+            ]
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? [
               "You must provide full-sentence answers. One-word responses result in an automatic failing grade.",
               "Your answers were off-topic. Every question asked for an explanation (Why, In what ways, Do you think), which cannot be answered with 'No'.",
@@ -2149,7 +2379,9 @@ export default function SpeakingPracticePage() {
               "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
             ];
       } else if (selectedPart === 2) {
-        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "The response was empty. You failed to provide any information, which makes it impossible to assess your fluency or coherence."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a difficult task you succeeded in at work or studies, but you provided a single, meaningless word ('This'). This fails the task entirely."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "Your answer was off-topic and extremely insufficient. The question asked you to describe a book that made you think, but you only provided a greeting ('Hey'). This does not address the task at all."
@@ -2166,7 +2398,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "No vocabulary was demonstrated. You must provide a full response to be evaluated."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is no vocabulary range to assess as you only provided one word."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "There is no vocabulary to assess. You must provide a full response to demonstrate your range."
@@ -2183,7 +2417,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess."
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        grammarFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "No grammatical structures were demonstrated due to the lack of a response."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is no grammatical structure to assess."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "There is no grammatical structure to assess."
@@ -2200,7 +2436,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to evaluate.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "No speech was produced to evaluate."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "Cannot assess pronunciation based on a single word. Ensure you speak in full, coherent sentences during the test."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "You must speak at length to allow for an assessment of your pronunciation, intonation, and rhythm."
@@ -2217,7 +2455,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is insufficient data to evaluate your pronunciation."
           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-        tipsList = selectedTestTitle.includes('Book 14 Test 2')
+        tipsList = selectedTestTitle.includes('Book 14 Test 4')
+          ? [
+              "You must provide a full answer to the question asked. A one-word response like 'No' is not an attempt at the task.",
+              "In Part 2 of the IELTS Speaking test, you are expected to speak for 1 to 2 minutes on a specific topic.",
+              "Practice brainstorming ideas for common topics such as websites, hobbies, or past experiences.",
+              "Do not refuse to answer; even if you have no experience with a topic, you are expected to invent a plausible story or talk about why you haven't used such a service.",
+              "Familiarize yourself with the IELTS format to understand that you must provide descriptive, detailed responses."
+            ]
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? [
               "You must speak for 1-2 minutes for Part 2; one-word answers will result in a failing score.",
               "Understand the structure of Part 2: you are expected to tell a story or describe an object in detail.",
@@ -2272,7 +2518,9 @@ export default function SpeakingPracticePage() {
               "Prepare stories about people you know in advance to avoid being caught off guard during the test."
             ];
       } else {
-        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "Your answers were highly inadequate. You provided single-word responses ('No') to every question. This fails to address the requirement to provide extended, relevant answers. You did not engage with the prompts at all."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "Your answers were highly repetitive and failed to address the 'Why/why not' component of the questions. Simply saying 'Yes' to every question is not a valid response in an IELTS speaking test."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "The responses are either non-existent or consist of single words that do not address the questions. There is no coherence or development of ideas."
@@ -2289,7 +2537,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "There is no evidence of vocabulary range or usage. A single word cannot be assessed for lexical resource."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is no vocabulary range demonstrated. You relied on a single word for all responses."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "There is no vocabulary range to assess. The provided input does not demonstrate any ability to communicate ideas."
@@ -2306,7 +2556,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess beyond a single, repetitive word."
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        grammarFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "There is no evidence of grammatical structure. A single word cannot be assessed for grammatical range."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "No grammatical structures were displayed beyond a single-word affirmative."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "There is no grammatical structure present to evaluate."
@@ -2323,7 +2575,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to assess as no full sentences were produced.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 3')
+        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 4')
+          ? "It is impossible to assess pronunciation based on a single word response. You must speak in full sentences to demonstrate your ability."
+          : selectedTestTitle.includes('Book 14 Test 3')
           ? "While the word 'Yes' is clear, you failed to demonstrate any ability to form sentences, intonation, or connected speech."
           : selectedTestTitle.includes('Book 14 Test 1')
           ? "Unable to assess pronunciation due to the lack of spoken content. You must provide full, audible sentences to be evaluated."
@@ -2340,7 +2594,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
           : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-        tipsList = selectedTestTitle.includes('Book 14 Test 2')
+        tipsList = selectedTestTitle.includes('Book 14 Test 4')
+          ? [
+              "You must answer using full, extended sentences. A one-word answer will result in a failing score.",
+              "Always explain your 'why'. The questions ask for reasons, which requires you to elaborate on your thoughts.",
+              "Avoid saying 'No' or 'I don't know'. You need to demonstrate your English proficiency by describing your opinions and experiences.",
+              "Practice speaking for at least 20-30 seconds per question to build fluency and demonstrate your range of vocabulary and grammar.",
+              "Task relevance is critical. You must directly address the specific topic of the question."
+            ]
+          : selectedTestTitle.includes('Book 14 Test 2')
           ? [
               "You must provide full, descriptive answers to all questions; saying 'No' or remaining silent results in a score of 0.",
               "In IELTS Speaking Part 1, you are expected to speak for 2-3 sentences per question to demonstrate your English proficiency.",
@@ -2728,7 +2990,9 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 14 Test 3')
+                    {title.includes('Book 14 Test 4')
+                      ? 'Neighbourhoods, Website Bought From Cue Card & Online Shopping / Retail Malls'
+                      : title.includes('Book 14 Test 3')
                       ? 'Neighbours & Community, Difficult Task Succeeded At & Difficult Jobs / Personal Goals'
                       : title.includes('Book 14 Test 2')
                       ? 'Social Media Habits, Item Bought for Home & Accommodation Discussion'
@@ -2742,6 +3006,8 @@ export default function SpeakingPracticePage() {
                       ? 'Age & Life Stages, New Technological Device & Technology in Society'
                       : title.includes('Book 13 Test 1')
                       ? 'Television Programmes, Starting a Business & Work-Life Balance'
+                      : title.includes('Book 12 Test 4')
+                      ? 'Art & Painting, Visiting Workplace Cue Card & Office Comfort / Work Environment'
                       : title.includes('Book 12 Test 3')
                       ? 'Clothes & Fashion, Discussion about Money & Free Time / Work-Life'
                       : title.includes('Book 12 Test 2')
