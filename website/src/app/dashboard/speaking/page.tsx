@@ -1189,28 +1189,28 @@ const book13Test3Questions: Question[] = [
     audioAsset: 'q1.mp3',
     duration: 3.89,
     part: 1,
-    transcript: 'I generally prefer paying with a debit or credit card, primarily for the sheer convenience and digital record-keeping it offers. With contactless payments and mobile wallets, transactions are practically instantaneous, and I can easily track my monthly expenditures through my banking application. That being said, I still keep a small amount of cash on hand for minor purchases at local street vendors or in emergencies where electronic terminal systems might fail.',
+    transcript: 'I generally prefer to pay by card because it is much more convenient and hygienic than carrying physical cash. It also allows me to keep a digital record of my spending, which helps me manage my monthly budget more effectively.',
   },
   {
     question: 'Do you ever save money to buy special things? [Why/why not?]',
     audioAsset: 'q2.mp3',
     duration: 2.35,
     part: 1,
-    transcript: 'Yes, I make a conscious effort to save money whenever I want to make a substantial or special purchase, such as high-grade electronics or travel excursions. I find it far more financially prudent to budget in advance rather than relying impulsively on credit. Setting aside a dedicated portion of my income each month instills financial discipline and gives me a great sense of gratification once I finally attain the item.',
+    transcript: 'Yes, I frequently save money to purchase special items, such as high-quality electronics or travel experiences. I believe that saving up for a specific goal makes the final purchase feel much more rewarding and prevents me from overspending on impulse items.',
   },
   {
     question: 'Would you ever take a job which had low pay? [Why/why not?]',
     audioAsset: 'q3.mp3',
     duration: 2.38,
     part: 1,
-    transcript: 'I would certainly consider taking a lower-paying job under specific circumstances, particularly if it offered invaluable hands-on mentorship, steep learning curves, or worked towards a cause I am passionate about, like a non-profit initiative. Early in one\'s career or during a career transition, gaining foundational expertise and establishing a professional network often carries greater long-term dividend than an immediate high salary.',
+    transcript: 'I would consider taking a job with low pay only if it offered significant opportunities for gaining practical experience, developing critical skills, or working for an organization whose mission I deeply respect, even though adequate pay remains important.',
   },
   {
     question: 'Would winning a lot of money make a big difference to your life? [Why/why not?]',
     audioAsset: 'q4.mp3',
     duration: 2.59,
     part: 1,
-    transcript: 'Winning a significant sum of money would undoubtedly be transformative, primarily by eliminating financial anxieties and affording me complete autonomy over my time. It would enable me to clear any debts, invest securely in real estate, and finance higher education or entrepreneurial ventures without bureaucratic barriers. Furthermore, it would allow me to support philanthropic causes and provide long-term security for my family.',
+    transcript: 'Yes, winning a substantial sum of money would definitely transform my circumstances. It would provide the freedom to invest in my education and support my family, which would alleviate a great deal of stress.',
   },
 
   // Part 2: Question 5 (Cue Card - Interesting Discussion)
