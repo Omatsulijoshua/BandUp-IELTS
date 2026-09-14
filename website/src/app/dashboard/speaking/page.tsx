@@ -1220,12 +1220,12 @@ const book13Test3Questions: Question[] = [
     duration: 3.63,
     part: 2,
     youShouldSay: [
-      'what the discussion was about',
-      'who you discussed this with',
-      'what was the result of the discussion',
-      'and explain why the discussion was interesting to you.'
+      'what the subject of the discussion was',
+      'who you discussed the subject with',
+      'what opinions were expressed',
+      'and explain why you found the discussion interesting.'
     ],
-    transcript: 'I would like to recount an exceptionally stimulating discussion I had about six months ago during a collaborative academic project with my senior university peers and course supervisor. The core topic centered on the ethical ramifications of implementing generative artificial intelligence in higher education assessments. We debated whether universities should prohibit AI-generated coursework altogether to uphold academic integrity, or conversely redesign curricula to teach students how to harness AI tools productively and ethically. Two of my classmates argued vehemently that relying on automated tools dilutes authentic critical reasoning, while my supervisor and I maintained that AI literacy will soon be an indispensable workplace skill. Ultimately, the consensus of our roundtable was to propose a balanced policy draft: allowing AI tools for exploratory research and ideation, provided that students transparently cited prompts and critically reflected on the AI\'s outputs. This discussion was profoundly interesting to me because it forced us to reconsider the fundamental purpose of education in an increasingly automated world, and it demanded rigorous philosophical nuances rather than black-and-white answers.',
+    transcript: 'During my final year of university, I had a fascinating discussion with my professor regarding the future of artificial intelligence in education. We debated whether digital tools could truly replace human mentorship. It was an incredibly thought-provoking conversation because it forced me to consider the ethical implications of technology. We explored various case studies, and the exchange of ideas helped me refine my own thesis. Ultimately, it was a memorable experience that significantly shaped my perspective on my future career path.',
   },
 
   // Part 3: Questions 6-11 (Discussion - Discussing Problems & Communication Skills)
@@ -1561,27 +1561,43 @@ export default function SpeakingPracticePage() {
               "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
             ];
       } else if (selectedPart === 2) {
-        fluencyFeedback = selectedTestTitle.includes('Book 13 Test 2')
+        fluencyFeedback = selectedTestTitle.includes('Book 13 Test 3')
+          ? "Your answer was completely off-topic and failed to address the prompt. The question asked for a description of an interesting discussion, but you provided a single, unrelated word."
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answer was completely insufficient. The question asked for a description of a time you started using a new technological device, but you provided a one-word confirmation ('Yes'). This is not a response; it fails to address the task entirely."
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-        lexicalFeedback = selectedTestTitle.includes('Book 13 Test 2')
+        lexicalFeedback = selectedTestTitle.includes('Book 13 Test 3')
+          ? "There is no vocabulary range or evidence of communicative ability. A single word cannot be assessed for lexical resource in the context of an IELTS speaking task."
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no vocabulary range to assess."
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess."
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 13 Test 2')
+        grammarFeedback = selectedTestTitle.includes('Book 13 Test 3')
+          ? "No grammatical structures were used. It is impossible to assess range or accuracy from a single word."
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no grammatical structure to assess."
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to evaluate.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 13 Test 2')
+        pronunciationFeedback = selectedTestTitle.includes('Book 13 Test 3')
+          ? "There is insufficient speech to evaluate pronunciation."
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? "Unable to assess pronunciation based on a single word."
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is insufficient data to evaluate your pronunciation."
           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-        tipsList = selectedTestTitle.includes('Book 13 Test 2')
+        tipsList = selectedTestTitle.includes('Book 13 Test 3')
+          ? [
+              "You must speak in full, coherent sentences to be assessed for IELTS.",
+              "Your response was completely irrelevant; ensure you listen to the question carefully before answering.",
+              "Practice expanding your answers by using the '4 Ws' (Who, What, Where, Why) to provide detail.",
+              "Do not provide one-word answers; IELTS Part 2 requires a 1-2 minute monologue.",
+              "Review the prompt requirements for Part 2; you are expected to describe an experience, not state a random emotion."
+            ]
+          : selectedTestTitle.includes('Book 13 Test 2')
           ? [
               "You must provide a full, detailed response for Part 2 tasks; a one-word answer will result in a near-zero score.",
               "Follow the 'Who, What, Where, When, Why' structure to ensure you cover all aspects of the prompt.",

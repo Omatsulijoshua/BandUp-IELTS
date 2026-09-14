@@ -1543,10 +1543,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           'Yes, my preferences have shifted significantly over the last few years. I used to favor trendy, colorful outfits, but now I gravitate toward a more minimalist style with neutral colors because I find it much more professional and timeless.',
     },
 
-    // Part 2: Question 5 (Cue Card)
+    // Part 2: Question 5 (Cue Card - Interesting Discussion About Money)
     {
       'question':
-          'Describe an activity you do when you are on your own in your free time.',
+          'Describe an interesting discussion you had about how you spend your money.',
       'audioAsset': 'q5.mp3',
       'duration': 3.4,
       'start': 0.0,
@@ -1554,13 +1554,13 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.4,
       'part': 2,
       'youShouldSay': [
-        'what you do',
-        'how often you do it',
-        'why you do it',
-        'and explain how you feel about spending your free time this way'
+        'who you had the discussion with',
+        'why you discussed this topic',
+        'what the result of the discussion was',
+        'and explain why this discussion was interesting for you'
       ],
       'transcript':
-          'When I am on my own in my free time, I enjoy reading books and listening to music. It allows me to relax and recharge after a busy week. Solitary activities give me space to reflect and concentrate on my personal interests without any distractions.',
+          'I recall an interesting discussion I had with my father regarding my monthly budget. We were debating the merits of saving versus investing in stocks. He argued that I should prioritize long-term wealth, while I felt that spending on experiences was more valuable for my personal growth. The conversation was quite eye-opening because it forced me to reconsider my financial priorities and look at money as a tool for future security rather than just immediate consumption.',
     },
 
     // Part 3: Questions 6-11
@@ -4742,35 +4742,50 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
             "Engage with the topic; the IELTS Speaking test requires you to express opinions and provide justifications."
           ];
         } else if (_selectedPart == 2) {
-          fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 3')
-              ? "Your answer was completely off-topic and failed to address the prompt. The question asked for a description of an interesting discussion, but you provided a single, unrelated word."
-              : _selectedTestTitle.contains('Book 13 Test 2')
-              ? "Your answer was completely insufficient. The question asked for a description of a time you started using a new technological device, but you provided a one-word confirmation ('Yes'). This is not a response; it fails to address the task entirely."
-              : _selectedTestTitle.contains('Book 10 Test 4')
-                  ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
-                  : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-          lexicalFeedback = _selectedTestTitle.contains('Book 13 Test 3')
-              ? "There is no vocabulary range or evidence of communicative ability. A single word cannot be assessed for lexical resource in the context of an IELTS speaking task."
-              : _selectedTestTitle.contains('Book 13 Test 2')
-              ? "There is no vocabulary range to assess."
-              : _selectedTestTitle.contains('Book 10 Test 4')
-                  ? "There is no vocabulary to assess."
-                  : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-          grammarFeedback = _selectedTestTitle.contains('Book 13 Test 3')
-              ? "No grammatical structures were used. It is impossible to assess range or accuracy from a single word."
-              : _selectedTestTitle.contains('Book 13 Test 2')
-              ? "There is no grammatical structure to assess."
-              : _selectedTestTitle.contains('Book 10 Test 4')
-                  ? "There is no grammatical structure to assess."
-                  : "There is no grammatical range to evaluate.";
-          pronunciationFeedback = _selectedTestTitle.contains('Book 13 Test 3')
-              ? "There is insufficient speech to evaluate pronunciation."
-              : _selectedTestTitle.contains('Book 13 Test 2')
-              ? "Unable to assess pronunciation based on a single word."
-              : _selectedTestTitle.contains('Book 10 Test 4')
-                  ? "There is insufficient data to evaluate your pronunciation."
-                  : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-          tipsList = _selectedTestTitle.contains('Book 13 Test 3')
+          fluencyFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+              ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a person who started a business, but you only provided a single, nonsensical word ('Where'). This fails to address the task entirely."
+              : _selectedTestTitle.contains('Book 13 Test 3')
+                  ? "Your answer was completely off-topic and failed to address the prompt. The question asked for a description of an interesting discussion, but you provided a single, unrelated word."
+                  : _selectedTestTitle.contains('Book 13 Test 2')
+                      ? "Your answer was completely insufficient. The question asked for a description of a time you started using a new technological device, but you provided a one-word confirmation ('Yes'). This is not a response; it fails to address the task entirely."
+                      : _selectedTestTitle.contains('Book 10 Test 4')
+                          ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
+                          : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
+          lexicalFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+              ? "There is no evidence of vocabulary range or accuracy as you only spoke one word."
+              : _selectedTestTitle.contains('Book 13 Test 3')
+                  ? "There is no vocabulary range or evidence of communicative ability. A single word cannot be assessed for lexical resource in the context of an IELTS speaking task."
+                  : _selectedTestTitle.contains('Book 13 Test 2')
+                      ? "There is no vocabulary range to assess."
+                      : _selectedTestTitle.contains('Book 10 Test 4')
+                          ? "There is no vocabulary to assess."
+                          : "There is no lexical resource to evaluate as you only provided a single negative particle.";
+          grammarFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+              ? "There is no evidence of grammatical structure or range."
+              : _selectedTestTitle.contains('Book 13 Test 3')
+                  ? "No grammatical structures were used. It is impossible to assess range or accuracy from a single word."
+                  : _selectedTestTitle.contains('Book 13 Test 2')
+                      ? "There is no grammatical structure to assess."
+                      : _selectedTestTitle.contains('Book 10 Test 4')
+                          ? "There is no grammatical structure to assess."
+                          : "There is no grammatical range to evaluate.";
+          pronunciationFeedback = _selectedTestTitle.contains('Book 13 Test 1')
+              ? "Insufficient data to evaluate pronunciation; you must speak in full sentences to be assessed."
+              : _selectedTestTitle.contains('Book 13 Test 3')
+                  ? "There is insufficient speech to evaluate pronunciation."
+                  : _selectedTestTitle.contains('Book 13 Test 2')
+                      ? "Unable to assess pronunciation based on a single word."
+                      : _selectedTestTitle.contains('Book 10 Test 4')
+                          ? "There is insufficient data to evaluate your pronunciation."
+                          : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
+          tipsList = _selectedTestTitle.contains('Book 13 Test 1')
+              ? [
+                  "You must answer the specific question asked; your current response was off-topic.",
+                  "Practice speaking in full, coherent sentences rather than single words.",
+                  "In Part 2, you are expected to speak for 1-2 minutes; aim to expand your ideas by describing the person, the business, and why they started it.",
+                  "Familiarize yourself with the IELTS Speaking criteria; failing to address the prompt results in a very low score regardless of language ability."
+                ]
+              : _selectedTestTitle.contains('Book 13 Test 3')
               ? [
                   "You must speak in full, coherent sentences to be assessed for IELTS.",
                   "Your response was completely irrelevant; ensure you listen to the question carefully before answering.",
