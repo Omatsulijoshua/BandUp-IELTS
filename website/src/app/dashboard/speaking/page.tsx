@@ -17,44 +17,44 @@ interface Question {
 
 export const book21Test4Questions = [
   {
-    "question": "How do you usually get your daily news? [Why?]",
+    "question": "When do you usually eat bread?",
     "audioAsset": "q1.mp3",
-    "duration": 1.3,
+    "duration": 2,
     "start": 0,
-    "promptEnd": 1.3,
-    "end": 1.3,
+    "promptEnd": 2,
+    "end": 2,
     "part": 1,
-    "transcript": "I check digital news apps on my smartphone every morning to stay informed on current affairs."
+    "transcript": "I usually eat bread during breakfast, often toasted with butter or jam, or as part of a sandwich for a quick lunch."
   },
   {
-    "question": "Do you read newspapers or watch TV news broadcasts?",
+    "question": "How important is bread in your culture?",
     "audioAsset": "q2.mp3",
-    "duration": 1.5,
+    "duration": 2,
     "start": 0,
-    "promptEnd": 1.5,
-    "end": 1.5,
+    "promptEnd": 2,
+    "end": 2,
     "part": 1,
-    "transcript": "I prefer online news portals because they provide instant updates compared to print newspapers."
+    "transcript": "Bread is a staple food in my culture, eaten daily across almost every household and accompanying most traditional meals."
   },
   {
-    "question": "Are young people in your country interested in international news?",
+    "question": "Have you tried any kinds of bread from other countries?",
     "audioAsset": "q3.mp3",
-    "duration": 2.5,
+    "duration": 2,
     "start": 0,
-    "promptEnd": 2.5,
-    "end": 2.5,
+    "promptEnd": 2,
+    "end": 2,
     "part": 1,
-    "transcript": "Many young adults follow global environmental and technology news actively on social platforms."
+    "transcript": "Yes, I have tried French baguettes, Italian focaccia, and Indian naan, all of which have unique textures and flavors."
   },
   {
-    "question": "Is it important to verify news sources before sharing them?",
+    "question": "Would you be interested in learning how to make bread?",
     "audioAsset": "q4.mp3",
-    "duration": 1.9,
+    "duration": 2,
     "start": 0,
-    "promptEnd": 1.9,
-    "end": 1.9,
+    "promptEnd": 2,
+    "end": 2,
     "part": 1,
-    "transcript": "Verifying facts before sharing prevents the spread of misinformation and misleading rumors."
+    "transcript": "Definitely, I would love to learn the art of baking fresh sourdough bread at home from scratch."
   },
   {
     "question": "Describe an item of value that you possess.",
@@ -130,44 +130,44 @@ export const book21Test4Questions = [
 
 export const book21Test3Questions = [
   {
-    "question": "Do you take part in sports or physical exercise? [Why/Why not?]",
+    "question": "When you go shopping, do you usually pay for things by cash or by card?",
     "audioAsset": "q1.mp3",
     "duration": 3.5,
     "start": 0,
     "promptEnd": 3.5,
     "end": 3.5,
     "part": 1,
-    "transcript": "I jog three mornings a week to maintain cardiovascular fitness and boost my energy levels."
+    "transcript": "I generally prefer to pay by card because it is much more convenient than carrying physical cash. It also makes it easier for me to track my expenses through my banking app at the end of the month."
   },
   {
-    "question": "What sports are popular in your country?",
+    "question": "Are you generally careful about how much money you spend?",
     "audioAsset": "q2.mp3",
     "duration": 2.7,
     "start": 0,
     "promptEnd": 2.7,
     "end": 2.7,
     "part": 1,
-    "transcript": "Football is immensely popular, along with basketball and athletics among youth."
+    "transcript": "Yes, I try to be quite disciplined with my spending. I usually set a monthly budget for myself and prioritize essential items like groceries and bills before spending on non-essential things."
   },
   {
-    "question": "Did you enjoy sports lessons when you were at school?",
+    "question": "Have you ever spent money on something you didn't need?",
     "audioAsset": "q3.mp3",
     "duration": 2.3,
     "start": 0,
     "promptEnd": 2.3,
     "end": 2.3,
     "part": 1,
-    "transcript": "I loved physical education classes, especially team sports like volleyball and relay races."
+    "transcript": "Unfortunately, yes. I once bought a designer jacket on an impulsive whim during a sale, but I ended up wearing it only once. It was definitely an unnecessary expense that I regret now."
   },
   {
-    "question": "How can people be encouraged to do more exercise?",
+    "question": "How important is it to you to save money for the future?",
     "audioAsset": "q4.mp3",
     "duration": 2.2,
     "start": 0,
     "promptEnd": 2.2,
     "end": 2.2,
     "part": 1,
-    "transcript": "Building public fitness parks and promoting community sports events motivates people to stay active."
+    "transcript": "I believe it is extremely important. Saving money provides me with a sense of security and ensures that I am prepared for any unexpected emergencies or future investments I might want to make."
   },
   {
     "question": "Describe a public celebration or event you enjoyed.",
@@ -593,119 +593,140 @@ export const book20Test3Questions: Question[] = [
 ];
 
 
-export const book20Test1Questions = [
+export const book20Test1Questions: Question[] = [
+  // Part 1: Questions 1-4 (Walking)
   {
-    "question": "What is your favorite color? [Why?]",
-    "audioAsset": "q1.mp3",
-    "duration": 1.5,
-    "start": 0,
-    "promptEnd": 1.5,
-    "end": 1.5,
-    "part": 1,
-    "transcript": "My favorite color is navy blue because it is calming yet professional. I tend to choose blue for my clothing and home decor."
+    question: 'How much walking do you do in your daily life?',
+    audioAsset: 'q1.mp3',
+    duration: 1.54,
+    start: 0.0,
+    promptEnd: 1.54,
+    end: 1.54,
+    part: 1,
+    transcript:
+      'I try to walk quite a bit every day. My commute to work involves about twenty minutes of walking, and I usually take a stroll in the park during my lunch break to clear my head.',
   },
   {
-    "question": "Do colors have special meanings in your culture?",
-    "audioAsset": "q2.mp3",
-    "duration": 2.4,
-    "start": 0,
-    "promptEnd": 2.4,
-    "end": 2.4,
-    "part": 1,
-    "transcript": "Yes, in my culture, white symbolizes peace and purity, while bright colors like green and yellow are associated with joy and celebration."
+    question: 'Did you walk more when you were at school than now?',
+    audioAsset: 'q2.mp3',
+    duration: 2.43,
+    start: 0.0,
+    promptEnd: 2.43,
+    end: 2.43,
+    part: 1,
+    transcript:
+      'Actually, I think I walk more now than I did when I was at school. Back then, I mostly took the bus, but now I prefer walking because it helps me stay active and manage my stress levels after a long day.',
   },
   {
-    "question": "Did you like bright colors when you were a child?",
-    "audioAsset": "q3.mp3",
-    "duration": 2.6,
-    "start": 0,
-    "promptEnd": 2.6,
-    "end": 2.6,
-    "part": 1,
-    "transcript": "As a child, I loved bright colors such as red and yellow because they felt energetic and cheerful."
+    question: 'What places are there to go for a walk near where you live?',
+    audioAsset: 'q3.mp3',
+    duration: 2.64,
+    start: 0.0,
+    promptEnd: 2.64,
+    end: 2.64,
+    part: 1,
+    transcript:
+      'There is a beautiful public park just a few blocks from my apartment that has a long, winding trail. Additionally, there is a pedestrian-friendly waterfront area that is perfect for walking, especially during the sunset.',
   },
   {
-    "question": "Would you ever paint the walls of your room a dark color?",
-    "audioAsset": "q4.mp3",
-    "duration": 2.2,
-    "start": 0,
-    "promptEnd": 2.2,
-    "end": 2.2,
-    "part": 1,
-    "transcript": "I prefer lighter wall shades because dark colors can make a room feel smaller and less bright."
+    question: 'Would you ever like to go on a walking holiday?',
+    audioAsset: 'q4.mp3',
+    duration: 2.22,
+    start: 0.0,
+    promptEnd: 2.22,
+    end: 2.22,
+    part: 1,
+    transcript:
+      'That sounds like a fantastic idea. I have always wanted to go on a hiking trip in the mountains because I enjoy being surrounded by nature. It would be a great way to challenge myself physically while enjoying some beautiful scenery.',
   },
-  {
-    "question": "Describe an impressive person you met recently.",
-    "audioAsset": "q5.mp3",
-    "duration": 4.3,
-    "start": 0,
-    "promptEnd": 4.3,
-    "end": 4.3,
-    "part": 2,
-    "transcript": "Recently, I met a guest lecturer at an educational seminar who specializes in environmental sustainability. She delivered an inspiring talk on urban recycling initiatives and community garden projects. Her passion, depth of knowledge, and articulate delivery left a lasting impression on everyone in attendance."
-  },
-  {
-    "question": "What qualities make a person impressive to others?",
-    "audioAsset": "q6.mp3",
-    "duration": 3.2,
-    "start": 0,
-    "promptEnd": 3.2,
-    "end": 3.2,
-    "part": 3,
-    "transcript": "Qualities like genuine humbleness, strong communication skills, empathy, and remarkable expertise make an individual truly impressive."
-  },
-  {
-    "question": "Are role models important for young people today?",
-    "audioAsset": "q7.mp3",
-    "duration": 1.7,
-    "start": 0,
-    "promptEnd": 1.7,
-    "end": 1.7,
-    "part": 3,
-    "transcript": "Yes, positive role models provide guidance and values, encouraging young people to strive for meaningful achievements."
-  },
-  {
-    "question": "How do celebrities influence the behavior of teenagers?",
-    "audioAsset": "q8.mp3",
-    "duration": 3.4,
-    "start": 0,
-    "promptEnd": 3.4,
-    "end": 3.4,
-    "part": 3,
-    "transcript": "Celebrities strongly shape fashion choices, lifestyle habits, and public attitudes among teens through social media presence."
-  },
-  {
-    "question": "Is it better to admire someone for their personality or their accomplishments?",
-    "audioAsset": "q9.mp3",
-    "duration": 2.1,
-    "start": 0,
-    "promptEnd": 2.1,
-    "end": 2.1,
-    "part": 3,
-    "transcript": "Both matter, but character and integrity are paramount because achievements without ethics carry little long-term value."
-  },
-  {
-    "question": "How has social media altered the way people gain public recognition?",
-    "audioAsset": "q10.mp3",
-    "duration": 2.5,
-    "start": 0,
-    "promptEnd": 2.5,
-    "end": 2.5,
-    "part": 3,
-    "transcript": "Social media allows anyone to publish content globally without traditional gatekeepers, democratizing path to fame."
-  },
-  {
-    "question": "Should public figures be expected to act as ethical role models?",
-    "audioAsset": "q11.mp3",
-    "duration": 3,
-    "start": 0,
-    "promptEnd": 3,
-    "end": 3,
-    "part": 3,
-    "transcript": "Because public figures command large followings, carrying high ethical standards positively impacts society."
-  }
-];
 
+  // Part 2: Question 5 (Cue Card: Play or film seen and like to see again with friends)
+  {
+    question: 'Describe a play or a film you have seen that you would like to see again with friends.',
+    audioAsset: 'q5.mp3',
+    duration: 4.34,
+    start: 0.0,
+    promptEnd: 4.34,
+    end: 4.34,
+    part: 2,
+    youShouldSay: [
+      'what play or film you\'d like to go to see again',
+      'who you would go with',
+      'what other people have said about this play or film',
+      'and explain why you would like to see this play or film again with friends.',
+    ],
+    transcript:
+      'One film that left a lasting impression on me is \'Inception,\' directed by Christopher Nolan. I watched it for the first time a few years ago, and I was completely captivated by its complex plot and stunning visual effects. The story explores the concept of dreams within dreams, which I found intellectually stimulating. I would love to watch it again with my friends because it is the type of movie that requires deep discussion and analysis afterward. I am certain that sharing our theories about the ending would make for a very engaging and memorable evening.',
+  },
+
+  // Part 3: Questions 6-11 (Theatres & Acting)
+  {
+    question: 'What are the most popular kinds of plays or shows at theatres in your country?',
+    audioAsset: 'q6.mp3',
+    duration: 3.21,
+    start: 0.0,
+    promptEnd: 3.21,
+    end: 3.21,
+    part: 3,
+    transcript:
+      'In my country, musical theatre and historical dramas are incredibly popular. Many people flock to the city center to watch large-scale productions that feature elaborate sets and professional choreography.',
+  },
+  {
+    question: 'How easy is it to get tickets to the theatre?',
+    audioAsset: 'q7.mp3',
+    duration: 1.72,
+    start: 0.0,
+    promptEnd: 1.72,
+    end: 1.72,
+    part: 3,
+    transcript:
+      'It is actually quite convenient to purchase tickets nowadays. Most major theatres have integrated online booking systems, allowing patrons to select their seats and receive digital tickets via email within minutes.',
+  },
+  {
+    question: 'Do you think theatres need to do more to attract younger audiences?',
+    audioAsset: 'q8.mp3',
+    duration: 3.42,
+    start: 0.0,
+    promptEnd: 3.42,
+    end: 3.42,
+    part: 3,
+    transcript:
+      'I believe they absolutely do. To remain relevant, theatres should incorporate more modern themes, affordable student pricing, and digital interactive elements that appeal directly to the younger generation.',
+  },
+  {
+    question: 'What do you think attracts people to working as an actor?',
+    audioAsset: 'q9.mp3',
+    duration: 2.12,
+    start: 0.0,
+    promptEnd: 2.12,
+    end: 2.12,
+    part: 3,
+    transcript:
+      'I think many people are drawn to acting because of the opportunity to step into someone else\'s shoes. The chance to explore complex human emotions and receive recognition from a large audience can be very fulfilling.',
+  },
+  {
+    question: 'What are some of the qualities that a person needs to have if they want to become an actor?',
+    audioAsset: 'q10.mp3',
+    duration: 2.53,
+    start: 0.0,
+    promptEnd: 2.53,
+    end: 2.53,
+    part: 3,
+    transcript:
+      'A successful actor needs a high level of emotional intelligence and the ability to empathize with different characters. Furthermore, persistence is vital because the industry is highly competitive and often involves facing frequent rejection.',
+  },
+  {
+    question: 'Can you think of any disadvantages of working as an actor?',
+    audioAsset: 'q11.mp3',
+    duration: 3.00,
+    start: 0.0,
+    promptEnd: 3.00,
+    end: 3.00,
+    part: 3,
+    transcript:
+      'The most significant disadvantage is the lack of job security. Actors often face long periods of unemployment between roles, which can lead to financial instability and a great deal of stress regarding their career progression.',
+  },
+];
 
 export const book18Test3Questions = [
   {
@@ -1743,21 +1764,21 @@ const book21Test1Questions: Question[] = [
     audioAsset: 'q9.mp3',
     duration: 4.73,
     part: 3,
-    transcript: 'Visitors are drawn to our ancient historical landmarks, national museums, and picturesque national parks.',
+    transcript: 'Visitors are typically drawn to our historical landmarks, such as the ancient temples in the capital city. They are also very interested in our vibrant street food markets and the unique traditional festivals that take place throughout the year.',
   },
   {
     question: 'Do you think tourist attractions such as museums should be free for local people to visit?',
     audioAsset: 'q10.mp3',
     duration: 5.74,
     part: 3,
-    transcript: 'Yes, I believe public museums should be free for local residents because they promote cultural literacy and education.',
+    transcript: 'Yes, I strongly believe that museums should be free for local citizens. These institutions are essential for preserving our cultural heritage, and making them accessible ensures that everyone, regardless of their financial status, can learn about their own history.',
   },
   {
     question: 'What can make a tourist attraction disappointing for visitors?',
     audioAsset: 'q11.mp3',
     duration: 3.74,
     part: 3,
-    transcript: 'Severe overcrowding, excessive commercialization, and poor maintenance can ruin a visitor experience.',
+    transcript: 'A tourist attraction can become disappointing if it is extremely overcrowded, as this ruins the atmosphere. Furthermore, poor maintenance or a lack of clear information about the historical or cultural significance of the site can leave visitors feeling that their time was wasted.',
   },
 ];
 
@@ -4872,8 +4893,10 @@ export const book20Test2Questions: Question[] = [
 ];
 
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 20 Test 4': book20Test4Questions,
   'IELTS Book 20 Test 3': book20Test3Questions,
   'IELTS Book 20 Test 2': book20Test2Questions,
+  'IELTS Book 20 Test 1': book20Test1Questions,
   'IELTS Book 19 Test 4': book19Test4Questions,
   'IELTS Book 19 Test 3': book19Test3Questions,
   'IELTS Book 19 Test 2': book19Test2Questions,
@@ -5152,7 +5175,11 @@ export default function SpeakingPracticePage() {
 
     let band = 1.0;
     if (isSingleWordOrMinimal) {
-      if (selectedTestTitle.includes('Book 17 Test 1') || selectedTestTitle.includes('Book 19 Test 1')) {
+      if (selectedTestTitle.includes('Book 20 Test 1')) {
+        band = 1.0;
+      } else if (selectedTestTitle.includes('Book 20 Test 1')) {
+        band = 1.0;
+      } else if (selectedTestTitle.includes('Book 17 Test 1') || selectedTestTitle.includes('Book 19 Test 1')) {
         band = selectedPart === 3 ? 0.0 : 1.0;
       } else if (selectedTestTitle.includes('Book 16 Test 2')) {
         band = selectedPart === 1 ? 1.5 : (selectedPart === 2 ? 0.0 : 1.0);
@@ -5200,7 +5227,9 @@ export default function SpeakingPracticePage() {
     }
 
     const intBand = isSingleWordOrMinimal
-      ? ((selectedTestTitle.includes('Book 17 Test 1') || selectedTestTitle.includes('Book 19 Test 1'))
+      ? (selectedTestTitle.includes('Book 20 Test 1')
+          ? 1
+          : (selectedTestTitle.includes('Book 17 Test 1') || selectedTestTitle.includes('Book 19 Test 1'))
           ? (selectedPart === 3 ? 0 : 1)
           : selectedTestTitle.includes('Book 16 Test 2')
           ? (selectedPart === 2 ? 0 : 1)
@@ -5234,7 +5263,9 @@ export default function SpeakingPracticePage() {
 
     if (isSingleWordOrMinimal) {
       if (selectedPart === 3) {
-        fluencyFeedback = selectedTestTitle.includes('Book 19 Test 1')
+        fluencyFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "Your answers were entirely irrelevant and failed to address the questions. Answering 'No' to open-ended questions does not constitute a response in an IELTS speaking test."
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? "Your answers were completely inadequate. By responding 'No' to every single question, you failed to address the task entirely. This is not a conversation; it is a refusal to participate. You must provide full, relevant sentences to be assessed."
           : selectedTestTitle.includes('Book 19 Test 2')
           ? "The candidate provided 'No' for every single question. This constitutes a failure to respond to the task. There is no coherence or fluency to evaluate as the candidate refused to engage with the assessment."
@@ -5271,7 +5302,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
           : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-        lexicalFeedback = selectedTestTitle.includes('Book 19 Test 1')
+        lexicalFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "There is no vocabulary to assess. You must provide descriptive, meaningful sentences to demonstrate your range."
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? "There is no vocabulary to assess. You provided no content."
           : selectedTestTitle.includes('Book 19 Test 2')
           ? "There is no vocabulary to assess. The use of a single word 'No' demonstrates a total lack of lexical range."
@@ -5308,7 +5341,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no lexical resource displayed, as you only used one word repeatedly."
           : "There is no vocabulary to assess.";
-        grammarFeedback = selectedTestTitle.includes('Book 19 Test 1')
+        grammarFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "There is no grammatical structure to assess. You must provide full sentences using varied tenses and complex structures."
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."
           : selectedTestTitle.includes('Book 19 Test 2')
           ? "There is no grammatical structure to assess."
@@ -5345,7 +5380,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "No grammatical structures were demonstrated beyond a single word."
           : "There is no grammar to assess.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 19 Test 1')
+        pronunciationFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "Insufficient data to assess pronunciation. You must speak in full sentences for an accurate evaluation."
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? "Assessment is impossible as there is no continuous speech to evaluate. You must speak in full sentences."
           : selectedTestTitle.includes('Book 19 Test 2')
           ? "The candidate did not provide enough speech for an assessment of pronunciation."
@@ -5382,7 +5419,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
           : "There is no speech to assess.";
-        tipsList = selectedTestTitle.includes('Book 19 Test 1')
+        tipsList = selectedTestTitle.includes('Book 20 Test 1')
+          ? [
+              "Stop providing one-word answers. An IELTS examiner needs to hear your ability to elaborate and justify your opinions.",
+              "Address the topic directly. 'No' is not a valid answer to questions asking for descriptions, opinions, or explanations.",
+              "Practice expanding your answers using the 'PREP' method: Point, Reason, Example, Point.",
+              "Familiarize yourself with the IELTS Speaking Part 3 format, which requires deeper analytical discussion.",
+              "If you do not know an answer, use phrases like 'That\'s an interesting question, I haven\'t thought about it much, but I suppose...' rather than saying 'No'.",
+            ]
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? [
               "You must provide full, detailed answers. One-word responses like 'No' are not acceptable in an IELTS speaking test.",
               "Ensure your answers are relevant. The questions asked for information about school rules and the legal profession; answering 'No' is factually and contextually incorrect.",
@@ -5548,7 +5593,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-        lexicalFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        lexicalFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "No vocabulary was demonstrated."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no vocabulary range to evaluate due to the lack of production."
           : selectedTestTitle.includes('Book 17 Test 3')
           ? "No vocabulary was produced to assess."
@@ -5581,7 +5628,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess."
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        grammarFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "No grammatical structures were demonstrated."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no grammatical structure to evaluate."
           : selectedTestTitle.includes('Book 17 Test 3')
           ? "No grammatical structures were produced to assess."
@@ -5614,7 +5663,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to evaluate.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 19 Test 1')
+        pronunciationFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "There was insufficient speech to evaluate pronunciation."
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? "No assessment possible due to lack of speech."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "Insufficient speech to assess pronunciation."
@@ -5649,7 +5700,14 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is insufficient data to evaluate your pronunciation."
           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-        tipsList = selectedTestTitle.includes('Book 19 Test 1')
+        tipsList = selectedTestTitle.includes('Book 20 Test 1')
+          ? [
+              "You must speak at length for Part 2; a one-word answer is an automatic fail.",
+              "Practice using the 'PPF' method (Past, Present, Future) to expand your ideas.",
+              "Prepare a structured response: introduce the topic, provide context, share personal experiences, and explain your thoughts in detail.",
+              "Remember that the examiner cannot grade you if you do not provide enough content to evaluate.",
+            ]
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? [
               "You must speak at length for Part 2; a one-word answer is an automatic fail.",
               "Practice using the 'PPF' method (Past, Present, Future) to expand your ideas.",
@@ -5774,7 +5832,9 @@ export default function SpeakingPracticePage() {
               "Prepare stories about people you know in advance to avoid being caught off guard during the test."
             ];
       } else {
-        fluencyFeedback = selectedTestTitle.includes('Book 19 Test 1')
+        fluencyFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "Your responses were extremely poor. You provided one-word answers ('No') to every question, which fails to demonstrate any ability to speak English or communicate ideas. While the answers were technically relevant to the 'yes/no' aspect, they failed to address the communicative intent of the questions."
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? "Your answers were completely non-responsive. By simply saying 'No' to every question, you failed to communicate, provide information, or demonstrate language ability. This is a total failure to address the task."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "The responses are completely inadequate. The candidate provided one-word answers ('No') for every question. This is not a demonstration of speaking ability and fails to address the tasks entirely."
@@ -5809,7 +5869,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-        lexicalFeedback = selectedTestTitle.includes('Book 19 Test 1')
+        lexicalFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "There is no vocabulary range to assess. Using a single word repeatedly does not demonstrate lexical resource."
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? "There is no vocabulary to evaluate. A single-word response does not demonstrate any range or control over language."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no lexical resource to evaluate as the candidate only used a single negative particle."
@@ -5844,7 +5906,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess beyond a single, repetitive word."
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 19 Test 1')
+        grammarFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "There is no grammatical range to assess. A single word cannot demonstrate knowledge of sentence structure, tense, or complex grammar."
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no grammatical structure present to evaluate."
@@ -5879,7 +5943,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to assess as no full sentences were produced.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 19 Test 1')
+        pronunciationFeedback = selectedTestTitle.includes('Book 20 Test 1')
+          ? "With only four words spoken, it is impossible to evaluate your pronunciation, intonation, or natural rhythm."
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? "With only four words spoken, it is impossible to evaluate your pronunciation, intonation, or natural rhythm."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "The candidate failed to engage in the assessment. To score higher, you must provide full, descriptive sentences."
@@ -5912,7 +5978,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
           : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-        tipsList = selectedTestTitle.includes('Book 19 Test 1')
+        tipsList = selectedTestTitle.includes('Book 20 Test 1')
+          ? [
+              "You must provide full sentences. In IELTS Speaking, a one-word answer is an automatic failure.",
+              "Elaborate on your answers by providing reasons, examples, or personal details to reach the required length.",
+              "Practice using the 'Answer + Reason + Example' method to ensure you speak for a sufficient amount of time.",
+              "Do not answer with 'No' unless the question is a direct yes/no inquiry, and even then, always follow up with an explanation.",
+              "Prepare common Part 1 topics (hobbies, work, study, hometown) so you are not caught off guard.",
+            ]
+          : selectedTestTitle.includes('Book 19 Test 1')
           ? [
               "You must provide full, descriptive answers. A single word is never sufficient for an IELTS speaking test.",
               "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Answer + Reason + Example' structure.",
@@ -6358,7 +6432,11 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 19 Test 1')
+                    {title.includes('Book 20 Test 1')
+                      ? 'Walking • Film to See Again with Friends • Theatres & Acting'
+                      : title.includes('Book 20 Test 4')
+                      ? 'Lost Items • Helping People • Volunteering & Charity'
+                      : title.includes('Book 19 Test 1')
                       ? 'International Food • A Law on Environmental Protection • School Rules & Legal Profession'
                       : title.includes('Book 19 Test 2')
                       ? 'Travelling by plane • Person Won a Prize/Award Cue Card • School Prizes, Rewards & Sports'
