@@ -2059,7 +2059,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
-  // IELTS BOOK 15 TEST 3 (Swimming / Performance Cue Card / Live Performances & Entertainment Discussion)
+  // IELTS BOOK 15 TEST 3 (Swimming / Famous Business Person Cue Card / Famous People & Fame Discussion)
   // ==========================================
   final List<Map<String, dynamic>> _book15Test3Questions = [
     // Part 1: Questions 1-4 (Swimming)
@@ -2073,7 +2073,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.8,
       'part': 1,
       'transcript':
-          'Yes, I learned to swim when I was about seven years old. My parents enrolled me in swimming lessons at a local sports complex because they believed it was an essential life-saving skill that every child should acquire early on.',
+          'Yes, I did. My parents enrolled me in swimming lessons at a local pool when I was around six years old. They believed it was an essential life skill for safety, especially during family holidays near the water.',
     },
     {
       'question':
@@ -2085,7 +2085,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.5,
       'part': 1,
       'transcript':
-          'I try to go swimming at least once a week. It serves as an excellent way for me to de-stress after a busy work week and keeps me physically active. I find that the rhythmic nature of swimming laps is very therapeutic for my mental health.',
+          'Honestly, I don\'t go swimming very often these days, maybe once or twice a month during the summer. Busy work schedules make it hard to visit the pool regularly, so I usually reserve it for recreational outings.',
     },
     {
       'question':
@@ -2097,7 +2097,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.6,
       'part': 1,
       'transcript':
-          'In my neighborhood, there is a large public aquatic center that features both an Olympic-sized pool and a smaller recreational area. Additionally, there is a private gym nearby that offers an indoor pool, which is quite convenient during the colder winter months when outdoor facilities are closed.',
+          'Where I live, there are a few options, including a public community centre with a heated indoor pool and several private fitness clubs. Additionally, there is a popular public beach nearby that gets very busy in the warm summer months.',
     },
     {
       'question':
@@ -2109,12 +2109,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 4.2,
       'part': 1,
       'transcript':
-          'I personally prefer swimming at an indoor pool. The main advantage is that the temperature is strictly controlled, so it is comfortable regardless of the weather outside. Furthermore, indoor facilities are generally open throughout the entire year, whereas outdoor pools are often restricted to the summer season.',
+          'I think swimming outdoors is generally more enjoyable because you can experience fresh air and natural sunlight. However, an indoor pool is much more practical year-round, as it isn\'t affected by unpredictable weather or cold temperatures.',
     },
 
-    // Part 2: Question 5 (Cue Card - Performance)
+    // Part 2: Question 5 (Cue Card - Famous Business Person)
     {
-      'question': 'Describe a performance you enjoyed watching.',
+      'question': 'Describe a famous business person that you know about.',
       'audioAsset': 'q5.mp3',
       'duration': 3.8,
       'start': 0.0,
@@ -2122,18 +2122,18 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.8,
       'part': 2,
       'youShouldSay': [
-        'what the performance was',
-        'when and where you saw it',
-        'who you saw it with',
-        'and explain why you enjoyed watching this performance'
+        'who this person is',
+        'what kind of business this person is involved in',
+        'what you know about this business person',
+        'and explain what you think of this business person.'
       ],
       'transcript':
-          'I remember attending a live symphony orchestra concert at the national grand theatre last year with a group of close friends. The orchestra performed classic pieces alongside modern film scores. The acoustics in the hall were absolutely breathtaking, and watching the musicians collaborate with such precision made it an unforgettable and inspiring evening.',
+          'A famous business person I have always admired is Elon Musk. He is well-known for his visionary leadership at companies like Tesla and SpaceX, which are revolutionizing the automotive and aerospace industries. I find his ability to take massive risks on futuristic technology truly inspiring. What impresses me most is his relentless work ethic and his focus on solving global problems, such as sustainable energy and multi-planetary travel. Although he is a controversial figure, there is no denying that his influence on modern business and innovation is significant.',
     },
 
-    // Part 3: Questions 6-11 (Live Performances & Entertainment)
+    // Part 3: Questions 6-11 (Famous People & Fame)
     {
-      'question': 'What kinds of performances are popular in your country?',
+      'question': 'What kinds of people are most famous in your country today?',
       'audioAsset': 'q6.mp3',
       'duration': 2.5,
       'start': 0.0,
@@ -2141,11 +2141,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.5,
       'part': 3,
       'transcript':
-          'Traditional theatrical plays, live music concerts, and modern dance performances are all very popular in my country. Cultural festivals featuring traditional folk music and storytelling also attract large crowds across different generations.',
+          'In my country, the most famous individuals are typically social media influencers and reality television stars. While traditional actors and musicians still hold a significant place in the public eye, digital creators have gained massive followings due to their daily engagement with young audiences.',
     },
     {
       'question':
-          'Do you think traditional performances will still be popular in the future?',
+          'Why are there so many stories about famous people in the news?',
       'audioAsset': 'q7.mp3',
       'duration': 2.4,
       'start': 0.0,
@@ -2153,11 +2153,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.4,
       'part': 3,
       'transcript':
-          'Yes, I believe traditional performances will retain their cultural appeal. While digital entertainment is growing rapidly, live traditional arts offer a unique historical connection and authentic human interaction that digital media cannot replace.',
+          'The media focuses heavily on famous people because it is highly profitable. Gossip, scandals, and personal details about celebrities generate significant web traffic and advertising revenue, which media outlets rely on to sustain their business models.',
     },
     {
       'question':
-          'Is it important for children to learn music and dancing at school?',
+          'Do you agree or disagree that many young people today want to be famous?',
       'audioAsset': 'q8.mp3',
       'duration': 2.3,
       'start': 0.0,
@@ -2165,11 +2165,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.3,
       'part': 3,
       'transcript':
-          'I strongly agree that arts education is vital for young learners. Music and dance help foster creative expression, emotional balance, and physical coordination, complementing academic studies to produce well-rounded individuals.',
+          'I believe this is true to a large extent. The rise of platforms like Instagram and TikTok has made fame seem more accessible and desirable than ever before, leading many young people to view \'influencer\' status as a viable and lucrative career path.',
     },
     {
       'question':
-          'Should the government provide financial support for local artists?',
+          'Do you think it is easy for famous people to earn a lot of money?',
       'audioAsset': 'q9.mp3',
       'duration': 2.8,
       'start': 0.0,
@@ -2177,11 +2177,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.8,
       'part': 3,
       'transcript':
-          'Governments should invest in local artists and arts initiatives. Public funding and grants ensure that cultural diversity is preserved, encouraging artistic innovation even when projects are not purely commercial.',
+          'It can be, provided they have established a strong personal brand. Once a celebrity reaches a certain level of fame, they can earn substantial income through endorsements, sponsorships, and high-profile appearances, which often pay significantly more than their primary profession.',
     },
     {
       'question':
-          'What are the benefits of watching live performances compared to watching them on TV?',
+          'Why might famous people enjoy having fans?',
       'audioAsset': 'q10.mp3',
       'duration': 2.6,
       'start': 0.0,
@@ -2189,10 +2189,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.6,
       'part': 3,
       'transcript':
-          'The primary benefit of attending live events is the immersive atmosphere and shared collective energy of the audience. Being present in the same space as the performers creates an emotional resonance that broadcast television simply cannot replicate.',
+          'Famous people often enjoy having fans because it provides validation for their work and helps build a sense of community. Furthermore, a dedicated fanbase acts as a powerful support system that can help them promote new projects and maintain their relevance in a competitive industry.',
     },
     {
-      'question': 'Do you think performers earn too much money?',
+      'question': 'In what ways could famous people use their influence to do good things in the world?',
       'audioAsset': 'q11.mp3',
       'duration': 3.2,
       'start': 0.0,
@@ -2200,7 +2200,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.2,
       'part': 3,
       'transcript':
-          'While a small percentage of top international celebrities command astronomical earnings, the majority of local performers and stage artists work incredibly hard for modest compensation. Income in the performing arts is often highly skewed by market demand.',
+          'Celebrities have the unique ability to draw global attention to critical issues. By leveraging their massive platforms, they can raise funds for charities, advocate for social justice, and influence public policy, thereby creating a positive impact that ordinary citizens might struggle to achieve.',
     },
   ];
 
