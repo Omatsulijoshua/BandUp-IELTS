@@ -2075,8 +2075,117 @@ const book15Test3Questions: Question[] = [
   },
 ];
 
+const book16Test3Questions: Question[] = [
+  // Part 1: Questions 1-4 (Summer)
+  {
+    question: 'Is summer your favorite time of year? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.3,
+    part: 1,
+    transcript:
+      'Yes, summer is definitely my favorite time of year. I love the long daylight hours and warm weather, which make it much easier to enjoy outdoor activities like hiking and spending time with friends.',
+  },
+  {
+    question: 'What do you do in summer when the weather\'s very hot? [Why?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.4,
+    part: 1,
+    transcript:
+      'When the weather gets extremely hot in summer, I usually stay indoors in air-conditioned spaces or go swimming at a local pool. I try to avoid direct sunlight during midday peak hours to stay cool and comfortable.',
+  },
+  {
+    question: 'Do you go on holiday every summer? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 1.7,
+    part: 1,
+    transcript:
+      'I do not go on holiday every single summer. While I enjoy traveling, it can be quite expensive, so I prefer to take a major trip every two years instead of traveling annually.',
+  },
+  {
+    question:
+      'Did you enjoy the summer holidays when you were at school? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.7,
+    part: 1,
+    transcript:
+      'I absolutely loved the summer holidays when I was at school. It was a wonderful time to relax, meet up with my friends every day, and pursue hobbies that I didn\'t have time for during the busy academic term.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Luxury Item)
+  {
+    question: 'Describe a luxury item you would like to own in the future.',
+    audioAsset: 'q5.mp3',
+    duration: 3.0,
+    part: 2,
+    youShouldSay: [
+      'what item you would like to own',
+      'what this item looks like',
+      'why you would like to own this item',
+      'and explain whether you think you will ever own this item.',
+    ],
+    transcript:
+      'One luxury item I have always dreamed of owning is a high-end mechanical wristwatch, specifically a Patek Philippe. I have been fascinated by the intricate craftsmanship and the engineering precision required to create such a timeless piece. In the future, once I have established my career, I hope to purchase one as a symbol of my hard work and personal success. Beyond its status, I appreciate it as a piece of art that can be passed down through generations. It is not just about the brand, but about owning a masterpiece of horology.',
+  },
+
+  // Part 3: Questions 6-11 (Buying, Expensive Items & Wealth)
+  {
+    question: 'Which expensive items would many young people (in your country) like to buy?',
+    audioAsset: 'q6.mp3',
+    duration: 2.8,
+    part: 3,
+    transcript:
+      'Many young people in my country are keen to buy high-end electronics, such as the latest smartphones, laptops, and wireless earbuds. Additionally, designer fashion, branded sneakers, and personal vehicles like motorcycles are also very popular.',
+  },
+  {
+    question:
+      'How do the expensive items that younger people want to buy differ from those that older people want to buy?',
+    audioAsset: 'q7.mp3',
+    duration: 2.4,
+    part: 3,
+    transcript:
+      'Younger people tend to focus on tech gadgets, trendy fashion, and social status items, whereas older individuals usually prioritize long-term assets such as real estate, comfortable family cars, or high-quality home furnishings.',
+  },
+  {
+    question:
+      'Do you think that people are more likely to buy expensive items for their friends or for themselves?',
+    audioAsset: 'q8.mp3',
+    duration: 3.1,
+    part: 3,
+    transcript:
+      'I think people are generally more likely to purchase expensive items for themselves, as high-priced goods require significant financial consideration. However, people do buy costly gifts for close family or friends on special occasions like weddings or milestone birthdays.',
+  },
+  {
+    question:
+      'How difficult is it to become very rich in today\'s world?',
+    audioAsset: 'q9.mp3',
+    duration: 2.4,
+    part: 3,
+    transcript:
+      'Acquiring wealth in today\'s world is quite challenging due to high economic competition and rising living costs. However, digital platforms and technology have created new entrepreneurial opportunities that allow innovative individuals to build successful businesses faster than in the past.',
+  },
+  {
+    question:
+      'Do you agree that money does not necessarily bring happiness?',
+    audioAsset: 'q10.mp3',
+    duration: 2.7,
+    part: 3,
+    transcript:
+      'I strongly agree that money does not guarantee happiness. While financial security removes basic life stresses, true fulfillment comes from meaningful relationships, good health, personal growth, and a sense of purpose.',
+  },
+  {
+    question:
+      'In what ways might rich people use their money to help society?',
+    audioAsset: 'q11.mp3',
+    duration: 2.4,
+    part: 3,
+    transcript:
+      'Wealthy individuals can contribute significantly to society by funding charitable foundations, supporting educational scholarships, and investing in medical research. They can also create employment opportunities and invest in sustainable green initiatives.',
+  },
+];
+
 
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 16 Test 3': book16Test3Questions,
   'IELTS Book 15 Test 3': book15Test3Questions,
   'IELTS Book 14 Test 4': book14Test4Questions,
   'IELTS Book 14 Test 3': book14Test3Questions,

@@ -2205,6 +2205,152 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 16 TEST 3 (Summer / Luxury Item Cue Card / Buying, Expensive Items & Wealth Discussion)
+  // ==========================================
+  final List<Map<String, dynamic>> _book16Test3Questions = [
+    // Part 1: Questions 1-4 (Summer)
+    {
+      'question':
+          'Is summer your favorite time of year? [Why/why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.3,
+      'start': 0.0,
+      'promptEnd': 2.3,
+      'end': 2.3,
+      'part': 1,
+      'transcript':
+          'Yes, summer is definitely my favorite time of year. I love the long daylight hours and warm weather, which make it much easier to enjoy outdoor activities like hiking and spending time with friends.',
+    },
+    {
+      'question':
+          'What do you do in summer when the weather\'s very hot? [Why?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.4,
+      'start': 0.0,
+      'promptEnd': 2.4,
+      'end': 2.4,
+      'part': 1,
+      'transcript':
+          'When the weather gets extremely hot in summer, I usually stay indoors in air-conditioned spaces or go swimming at a local pool. I try to avoid direct sunlight during midday peak hours to stay cool and comfortable.',
+    },
+    {
+      'question':
+          'Do you go on holiday every summer? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 1.7,
+      'start': 0.0,
+      'promptEnd': 1.7,
+      'end': 1.7,
+      'part': 1,
+      'transcript':
+          'I do not go on holiday every single summer. While I enjoy traveling, it can be quite expensive, so I prefer to take a major trip every two years instead of traveling annually.',
+    },
+    {
+      'question':
+          'Did you enjoy the summer holidays when you were at school? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 2.7,
+      'start': 0.0,
+      'promptEnd': 2.7,
+      'end': 2.7,
+      'part': 1,
+      'transcript':
+          'I absolutely loved the summer holidays when I was at school. It was a wonderful time to relax, meet up with my friends every day, and pursue hobbies that I didn\'t have time for during the busy academic term.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Luxury Item)
+    {
+      'question': 'Describe a luxury item you would like to own in the future.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 2,
+      'youShouldSay': [
+        'what item you would like to own',
+        'what this item looks like',
+        'why you would like to own this item',
+        'and explain whether you think you will ever own this item.'
+      ],
+      'transcript':
+          'One luxury item I have always dreamed of owning is a high-end mechanical wristwatch, specifically a Patek Philippe. I have been fascinated by the intricate craftsmanship and the engineering precision required to create such a timeless piece. In the future, once I have established my career, I hope to purchase one as a symbol of my hard work and personal success. Beyond its status, I appreciate it as a piece of art that can be passed down through generations. It is not just about the brand, but about owning a masterpiece of horology.',
+    },
+
+    // Part 3: Questions 6-11 (Buying, Expensive Items & Wealth)
+    {
+      'question': 'Which expensive items would many young people (in your country) like to buy?',
+      'audioAsset': 'q6.mp3',
+      'duration': 2.8,
+      'start': 0.0,
+      'promptEnd': 2.8,
+      'end': 2.8,
+      'part': 3,
+      'transcript':
+          'Many young people in my country are keen to buy high-end electronics, such as the latest smartphones, laptops, and wireless earbuds. Additionally, designer fashion, branded sneakers, and personal vehicles like motorcycles are also very popular.',
+    },
+    {
+      'question':
+          'How do the expensive items that younger people want to buy differ from those that older people want to buy?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.4,
+      'start': 0.0,
+      'promptEnd': 2.4,
+      'end': 2.4,
+      'part': 3,
+      'transcript':
+          'Younger people tend to focus on tech gadgets, trendy fashion, and social status items, whereas older individuals usually prioritize long-term assets such as real estate, comfortable family cars, or high-quality home furnishings.',
+    },
+    {
+      'question':
+          'Do you think that people are more likely to buy expensive items for their friends or for themselves?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.1,
+      'start': 0.0,
+      'promptEnd': 3.1,
+      'end': 3.1,
+      'part': 3,
+      'transcript':
+          'I think people are generally more likely to purchase expensive items for themselves, as high-priced goods require significant financial consideration. However, people do buy costly gifts for close family or friends on special occasions like weddings or milestone birthdays.',
+    },
+    {
+      'question':
+          'How difficult is it to become very rich in today\'s world?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.4,
+      'start': 0.0,
+      'promptEnd': 2.4,
+      'end': 2.4,
+      'part': 3,
+      'transcript':
+          'Acquiring wealth in today\'s world is quite challenging due to high economic competition and rising living costs. However, digital platforms and technology have created new entrepreneurial opportunities that allow innovative individuals to build successful businesses faster than in the past.',
+    },
+    {
+      'question':
+          'Do you agree that money does not necessarily bring happiness?',
+      'audioAsset': 'q10.mp3',
+      'duration': 2.7,
+      'start': 0.0,
+      'promptEnd': 2.7,
+      'end': 2.7,
+      'part': 3,
+      'transcript':
+          'I strongly agree that money does not guarantee happiness. While financial security removes basic life stresses, true fulfillment comes from meaningful relationships, good health, personal growth, and a sense of purpose.',
+    },
+    {
+      'question': 'In what ways might rich people use their money to help society?',
+      'audioAsset': 'q11.mp3',
+      'duration': 2.4,
+      'start': 0.0,
+      'promptEnd': 2.4,
+      'end': 2.4,
+      'part': 3,
+      'transcript':
+          'Wealthy individuals can contribute significantly to society by funding charitable foundations, supporting educational scholarships, and investing in medical research. They can also create employment opportunities and invest in sustainable green initiatives.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 13 TEST 3 (Money & Shopping / Interesting Discussion Cue Card / Discussing Problems & Communication Skills)
   // ==========================================
   final List<Map<String, dynamic>> _book13Test3Questions = [
@@ -3054,6 +3200,144 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+  // ==========================================
+  // IELTS BOOK 15 TEST 2 (Languages / Website Bought From Cue Card / Online Shopping & Consumerism Discussion)
+  // ==========================================
+  final List<Map<String, dynamic>> _book15Test2Questions = [
+    // Part 1: Questions 1-4 (Languages)
+    {
+      'question': 'How many languages can you speak? [Why/why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.25,
+      'start': 0.0,
+      'promptEnd': 1.25,
+      'end': 1.25,
+      'part': 1,
+      'transcript':
+          'I am currently fluent in two languages: my native language and English. I have also been studying French for several years because I believe it is a beautiful language, though I would not say I am fully proficient in it yet.',
+    },
+    {
+      'question': 'How useful will English be to you in your future? [Why/why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.50,
+      'start': 0.0,
+      'promptEnd': 2.50,
+      'end': 2.50,
+      'part': 1,
+      'transcript':
+          'English will be incredibly useful for my future career. As I plan to work in an international organization, English will serve as the primary medium of communication with colleagues and clients from diverse backgrounds across the globe.',
+    },
+    {
+      'question': 'What do you remember about learning languages at school? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.25,
+      'start': 0.0,
+      'promptEnd': 2.25,
+      'end': 2.25,
+      'part': 1,
+      'transcript':
+          'I remember my school language classes being quite structured. We spent a lot of time focusing on grammar rules and vocabulary lists, which helped build a solid foundation, even though we didn\'t get many opportunities to practice speaking in real-life situations.',
+    },
+    {
+      'question': 'What do you think would be the hardest language for you to learn? [Why?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 2.15,
+      'start': 0.0,
+      'promptEnd': 2.15,
+      'end': 2.15,
+      'part': 1,
+      'transcript':
+          'I believe Mandarin Chinese would be the most challenging language for me to master. The complex tonal system and the requirement to memorize thousands of unique characters present a significant learning curve that differs greatly from the languages I am familiar with.',
+    },
+
+    // Part 2: Question 5 (Cue Card: Describe a website that you bought something from)
+    {
+      'question': 'Describe a website that you bought something from.',
+      'audioAsset': 'q5.mp3',
+      'duration': 1.90,
+      'start': 0.0,
+      'promptEnd': 1.90,
+      'end': 1.90,
+      'part': 2,
+      'youShouldSay': [
+        'what the website is',
+        'what you bought from this website',
+        'how satisfied you were with what you bought',
+        'and explain what you liked or disliked about using this website.'
+      ],
+      'transcript':
+          'One website I frequently use to purchase items is Amazon. I remember buying a high-quality noise-canceling headset from there last year for my studies. The interface is incredibly user-friendly, and the search filters make it very easy to find specific products. What I particularly appreciate is the customer review section, which helped me make an informed decision about the product\'s durability. The delivery was remarkably fast, arriving at my doorstep within two days of the order.',
+    },
+
+    // Part 3: Questions 6-11 (Online Shops, Consumer Society & Consumerism)
+    {
+      'question': 'What kinds of things do people in your country often buy from online shops?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.75,
+      'start': 0.0,
+      'promptEnd': 3.75,
+      'end': 3.75,
+      'part': 3,
+      'transcript':
+          'In my country, online shopping has become incredibly popular. People frequently purchase electronic gadgets, clothing, and household appliances because it is convenient and often cheaper than physical retail stores.',
+    },
+    {
+      'question': 'Why do you think online shopping has become so popular nowadays?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.45,
+      'start': 0.0,
+      'promptEnd': 2.45,
+      'end': 2.45,
+      'part': 3,
+      'transcript':
+          'I believe online shopping has surged in popularity primarily due to the convenience it offers. Consumers can browse through thousands of products from the comfort of their homes and have items delivered directly to their doorsteps within days.',
+    },
+    {
+      'question': 'What are some possible disadvantages of buying things from online shops?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.50,
+      'start': 0.0,
+      'promptEnd': 3.50,
+      'end': 3.50,
+      'part': 3,
+      'transcript':
+          'One of the main disadvantages is the inability to physically inspect items before purchasing, which often leads to disappointment if the quality is poor. Additionally, there are concerns regarding cyber security and the risk of identity theft during online transactions.',
+    },
+    {
+      'question': 'Why do many people today keep buying things which they do not need?',
+      'audioAsset': 'q9.mp3',
+      'duration': 3.05,
+      'start': 0.0,
+      'promptEnd': 3.05,
+      'end': 3.05,
+      'part': 3,
+      'transcript':
+          'Many people are driven by the psychological need for instant gratification or the desire to keep up with current trends. Advertising and social media also play a significant role in creating a false sense of necessity for products that people do not truly require.',
+    },
+    {
+      'question': 'Do you believe the benefits of a consumer society outweigh the disadvantages?',
+      'audioAsset': 'q10.mp3',
+      'duration': 4.55,
+      'start': 0.0,
+      'promptEnd': 4.55,
+      'end': 4.55,
+      'part': 3,
+      'transcript':
+          'While consumerism has driven economic growth and provided people with a higher standard of living, I believe the disadvantages, such as environmental degradation and excessive waste, are becoming increasingly difficult to ignore. Therefore, I feel the negative impacts often outweigh the benefits.',
+    },
+    {
+      'question': 'How possible is it to avoid the culture of consumerism?',
+      'audioAsset': 'q11.mp3',
+      'duration': 2.25,
+      'start': 0.0,
+      'promptEnd': 2.25,
+      'end': 2.25,
+      'part': 3,
+      'transcript':
+          'Avoiding consumerism entirely is quite challenging in today\'s society, as we are constantly surrounded by marketing. However, it is possible to adopt a more mindful approach by practicing minimalism, prioritizing quality over quantity, and choosing to repair items rather than replacing them immediately.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
     if (_selectedTestTitle.contains('Book 10 Test 4')) {
@@ -3096,8 +3380,12 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book14Test3Questions;
     } else if (_selectedTestTitle.contains('Book 14 Test 4')) {
       return _book14Test4Questions;
+    } else if (_selectedTestTitle.contains('Book 15 Test 2')) {
+      return _book15Test2Questions;
     } else if (_selectedTestTitle.contains('Book 15 Test 3')) {
       return _book15Test3Questions;
+    } else if (_selectedTestTitle.contains('Book 16 Test 3')) {
+      return _book16Test3Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
@@ -3207,6 +3495,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 14 Test 2') &&
         !folderName.contains('BOOK 14 Test 3') &&
         !folderName.contains('BOOK 14 Test 4') &&
+        !folderName.contains('BOOK 15 Test 2') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
@@ -3647,7 +3936,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           (bookNum == 11 && testNum >= 1 && testNum <= 4) ||
                           (bookNum == 12 && (testNum >= 1 && testNum <= 3)) ||
                           (bookNum == 13 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 14 && (testNum >= 1 && testNum <= 4));
+                          (bookNum == 14 && (testNum >= 1 && testNum <= 4)) ||
+                          (bookNum == 15 && testNum == 2);
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
