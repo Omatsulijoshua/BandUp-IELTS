@@ -170,14 +170,20 @@ export const book21Test3Questions = [
     "transcript": "I believe it is extremely important. Saving money provides me with a sense of security and ensures that I am prepared for any unexpected emergencies or future investments I might want to make."
   },
   {
-    "question": "Describe a public celebration or event you enjoyed.",
+    "question": "Describe an interesting garden or park you have seen.",
     "audioAsset": "q5.mp3",
     "duration": 2.7,
     "start": 0,
     "promptEnd": 2.7,
     "end": 2.7,
     "part": 2,
-    "transcript": "A memorable event was the annual cultural festival held in my city square last autumn. The celebration featured traditional music performances, vibrant dance parades, and local food stalls. Sharing the festive atmosphere with friends made it an unforgettable experience."
+    "youShouldSay": [
+      "where this garden or park is",
+      "how big it is",
+      "what you saw in this garden/park",
+      "and explain why you think this garden/park is interesting."
+    ],
+    "transcript": "One of the most impressive parks I have ever visited is the Royal Botanic Garden in Sydney. It is a massive, lush green space situated right on the edge of the harbor, offering a stunning view of the Opera House. What makes it particularly interesting is the variety of plant species from all over the world, as well as its beautifully manicured lawns and walking paths. I found it to be a perfect sanctuary away from the hustle and bustle of the city center. It is truly a place where one can reconnect with nature while enjoying an iconic urban landscape."
   },
   {
     "question": "Why are national celebrations important for a country?",
