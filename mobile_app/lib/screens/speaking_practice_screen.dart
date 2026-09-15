@@ -2798,6 +2798,152 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 18 TEST 4 (Sleep & Dreams / Cue Card: Meeting a Good Friend / Friendship & Making Friends)
+  // ==========================================
+  final List<Map<String, dynamic>> _book18Test4Questions = [
+    // Part 1: Questions 1-4 (Sleep & Dreams)
+    {
+      'question': 'How many hours do you usually sleep at night?',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.30,
+      'start': 0.0,
+      'promptEnd': 2.30,
+      'end': 2.30,
+      'part': 1,
+      'transcript':
+          'I usually aim for about seven to eight hours of sleep each night. I find that this amount is necessary for me to feel fully refreshed and focused for the busy day ahead of me.',
+    },
+    {
+      'question': 'Do you sometimes sleep during the day? [Why/Why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 1.90,
+      'start': 0.0,
+      'promptEnd': 1.90,
+      'end': 1.90,
+      'part': 1,
+      'transcript':
+          'I rarely sleep during the day because I find that napping often leaves me feeling quite groggy. I prefer to stay active throughout the day so that I can maintain a consistent sleep schedule at night.',
+    },
+    {
+      'question': "What do you do if you can't get to sleep at night? [Why?]",
+      'audioAsset': 'q3.mp3',
+      'duration': 2.30,
+      'start': 0.0,
+      'promptEnd': 2.30,
+      'end': 2.30,
+      'part': 1,
+      'transcript':
+          'If I find myself struggling to fall asleep, I usually try to read a book or listen to some soothing music. These activities help to clear my mind and relax my body, which makes it much easier to drift off.',
+    },
+    {
+      'question':
+          "Do you ever remember the dreams you've had while you were asleep?",
+      'audioAsset': 'q4.mp3',
+      'duration': 2.80,
+      'start': 0.0,
+      'promptEnd': 2.80,
+      'end': 2.80,
+      'part': 1,
+      'transcript':
+          'I occasionally remember my dreams, especially if they were vivid or intense. However, most mornings I only have a faint recollection of what I dreamed about, and the details tend to fade quickly as I start my morning routine.',
+    },
+
+    // Part 2: Question 5 (Cue Card: Meeting a Good Friend)
+    {
+      'question':
+          'Describe a time when you met someone who you became good friends with.\n\nYou should say:\n• who you met\n• when and where you met this person\n• what you thought about this person when you first met\n• and explain why you think you became good friends with this person.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.40,
+      'start': 0.0,
+      'promptEnd': 3.40,
+      'end': 3.40,
+      'part': 2,
+      'youShouldSay': [
+        'who you met',
+        'when and where you met this person',
+        'what you thought about this person when you first met',
+        'and explain why you think you became good friends with this person.',
+      ],
+      'transcript':
+          'I would like to talk about a time I met my best friend, Sarah, during my first year of university. We were both attending an orientation lecture, and we happened to sit next to each other because it was the only empty spot left. We started chatting about our nerves regarding the course, and I immediately felt a strong connection because we shared the same academic interests and sense of humor. Over the next few weeks, we spent almost every day together studying in the library and grabbing coffee between classes. What made our friendship solidify was how supportive she was when I faced a personal challenge later that semester. I feel very fortunate to have met her, as she has become an integral part of my life.',
+    },
+
+    // Part 3: Questions 6-11 (Friendship & Making Friends Discussion)
+    {
+      'question':
+          'How important is it for children to have lots of friends at school?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.30,
+      'start': 0.0,
+      'promptEnd': 3.30,
+      'end': 3.30,
+      'part': 3,
+      'transcript':
+          'I believe it is quite important, though not necessarily essential. Having a wide social circle helps children develop vital interpersonal skills, such as empathy and conflict resolution. However, the quality of friendships is far more significant than the sheer quantity of friends they have.',
+    },
+    {
+      'question':
+          'Do you think it is wrong for parents to influence which friends their children have?',
+      'audioAsset': 'q7.mp3',
+      'duration': 4.60,
+      'start': 0.0,
+      'promptEnd': 4.60,
+      'end': 4.60,
+      'part': 3,
+      'transcript':
+          "I don't think it is wrong for parents to provide guidance, but they should not dictate their children's social lives. Parents can offer advice on healthy relationships, but children need autonomy to learn how to choose friends independently, which is a crucial part of growing up.",
+    },
+    {
+      'question':
+          'Why do you think children often choose different friends as they get older?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.50,
+      'start': 0.0,
+      'promptEnd': 3.50,
+      'end': 3.50,
+      'part': 3,
+      'transcript':
+          "Children's interests and personalities evolve rapidly as they mature. As they enter different stages of development, their priorities shift, leading them to seek out peers who share their new hobbies or values. It is a natural process of finding one's identity.",
+    },
+    {
+      'question':
+          'If a person is moving to a new town, what is a good way for them to make friends?',
+      'audioAsset': 'q9.mp3',
+      'duration': 4.80,
+      'start': 0.0,
+      'promptEnd': 4.80,
+      'end': 4.80,
+      'part': 3,
+      'transcript':
+          'Joining local clubs or community organizations is an excellent strategy. By participating in shared activities—like sports, volunteering, or hobby groups—people naturally meet others with similar interests. This makes initiating a conversation much easier and less forced.',
+    },
+    {
+      'question':
+          'Can you think of any disadvantages of making new friends online?',
+      'audioAsset': 'q10.mp3',
+      'duration': 3.50,
+      'start': 0.0,
+      'promptEnd': 3.50,
+      'end': 3.50,
+      'part': 3,
+      'transcript':
+          "The main disadvantage is the difficulty in verifying a person's true identity or intentions. Furthermore, online interactions lack the non-verbal cues present in face-to-face communication, which can often lead to misunderstandings or, in more serious cases, exposure to dishonest individuals.",
+    },
+    {
+      'question':
+          'Would you say it is harder for people to make new friends as they get older?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.80,
+      'start': 0.0,
+      'promptEnd': 3.80,
+      'end': 3.80,
+      'part': 3,
+      'transcript':
+          'Yes, I would agree with that observation. As people get older, their daily schedules become dominated by work and family commitments, leaving less free time for socializing. Additionally, adults often become more set in their ways and cautious about whom they trust, which can make forming deep, new friendships more challenging compared to childhood.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 18 TEST 2 (Science & Technology / Tourist Attraction Cue Card / Museums & Tourism Discussion)
   // ==========================================
   final List<Map<String, dynamic>> _book18Test2Questions = [
@@ -4830,6 +4976,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book18Test1Questions;
     } else if (_selectedTestTitle.contains('Book 18 Test 2')) {
       return _book18Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 18 Test 4')) {
+      return _book18Test4Questions;
+
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
