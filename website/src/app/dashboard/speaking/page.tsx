@@ -3297,20 +3297,22 @@ export default function SpeakingPracticePage() {
         recog.lang = 'en-US';
 
         recog.onresult = (event: any) => {
-          let finalTranscript = '';
+          let interimText = '';
+          let finalText = '';
           for (let i = event.resultIndex; i < event.results.length; ++i) {
+            const transcript = event.results[i][0].transcript;
             if (event.results[i].isFinal) {
-              finalTranscript += event.results[i][0].transcript;
+              finalText += transcript;
+            } else {
+              interimText += transcript;
             }
           }
-          if (finalTranscript) {
-            setUserResponses((prev) => {
-              const current = prev[currentQuestionIndex] || '';
-              return {
-                ...prev,
-                [currentQuestionIndex]: (current ? current + ' ' : '') + finalTranscript.trim(),
-              };
-            });
+          const recognized = (finalText || interimText).trim();
+          if (recognized) {
+            setUserResponses((prev) => ({
+              ...prev,
+              [currentQuestionIndex]: recognized,
+            }));
           }
         };
 
@@ -3378,27 +3380,53 @@ export default function SpeakingPracticePage() {
   const playQuestionAudio = () => {
     if (!currentQuestion) return;
     const folderName = selectedTestTitle.replace('Book', 'BOOK').trim();
-    const audioUrl = `/audio/speaking/${folderName}/${currentQuestion.audioAsset}`;
+    const primaryUrl = `/assets/Speaking/${folderName}/${currentQuestion.audioAsset}`;
+    const fallbackUrl = `/assets/Speaking/${selectedTestTitle}/${currentQuestion.audioAsset}`;
 
     if (audioRef.current) {
       audioRef.current.pause();
     }
 
-    const audio = new Audio(audioUrl);
-    audioRef.current = audio;
     setIsPlayingAudio(true);
 
-    audio.onended = () => setIsPlayingAudio(false);
-    audio.onerror = () => {
+    // Guaranteed fallback timer after 3.5 seconds
+    const timer = setTimeout(() => {
       setIsPlayingAudio(false);
-      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-        const utter = new SpeechSynthesisUtterance(currentQuestion.question);
-        utter.lang = 'en-GB';
-        window.speechSynthesis.speak(utter);
-      }
+    }, (currentQuestion.duration || 3.5) * 1000);
+
+    const audio = new Audio(primaryUrl);
+    audioRef.current = audio;
+
+    audio.onended = () => {
+      clearTimeout(timer);
+      setIsPlayingAudio(false);
+    };
+
+    audio.onerror = () => {
+      // Try fallback URL if primary fails
+      const fallbackAudio = new Audio(fallbackUrl);
+      audioRef.current = fallbackAudio;
+      fallbackAudio.onended = () => {
+        clearTimeout(timer);
+        setIsPlayingAudio(false);
+      };
+      fallbackAudio.onerror = () => {
+        clearTimeout(timer);
+        setIsPlayingAudio(false);
+        if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+          const utter = new SpeechSynthesisUtterance(currentQuestion.question);
+          utter.lang = 'en-GB';
+          window.speechSynthesis.speak(utter);
+        }
+      };
+      fallbackAudio.play().catch(() => {
+        clearTimeout(timer);
+        setIsPlayingAudio(false);
+      });
     };
 
     audio.play().catch(() => {
+      clearTimeout(timer);
       setIsPlayingAudio(false);
     });
   };
@@ -4692,18 +4720,15 @@ export default function SpeakingPracticePage() {
                 <span className="font-bold text-[#374151]">Your Spoken Response:</span>
                 <span className="text-[#0F766E] font-bold">{wordCount} words</span>
               </div>
-              <textarea
-                rows={3}
-                value={currentAnswer}
-                onChange={(e) =>
-                  setUserResponses({
-                    ...userResponses,
-                    [currentQuestionIndex]: e.target.value,
-                  })
-                }
-                placeholder="Click the microphone below to record your speech, or type your response here..."
-                className="w-full bg-[#F9FBFA] border border-[#E2E8F0] rounded-2xl p-4 text-xs text-[#1F2937] focus:outline-none focus:border-[#0F766E] transition-all leading-relaxed"
-              />
+              <div className="w-full bg-[#F9FBFA] border border-[#E2E8F0] rounded-2xl p-4 text-xs text-[#1F2937] leading-relaxed min-h-[72px] flex items-center">
+                {currentAnswer ? (
+                  <p className="font-medium text-[#1F2937]">{currentAnswer}</p>
+                ) : (
+                  <p className="italic text-[#9CA3AF]">
+                    {isRecording ? 'Listening to your voice... speak into microphone' : 'Tap microphone below to record answer'}
+                  </p>
+                )}
+              </div>
             </div>
 
             {/* Transcript Toggle */}
