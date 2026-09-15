@@ -412,64 +412,64 @@ export const book20Test4Questions = [
     "transcript": "I recall a time when I had a very intense discussion with my brother about a local news story regarding the construction of a new shopping mall in our neighborhood. The news had sparked a lot of controversy because it involved cutting down a protected forest area. We spent nearly an hour debating the trade-offs between economic development and environmental conservation. My brother argued that the mall would bring much-needed jobs to our town, while I maintained that the ecological cost was too high to justify. Ultimately, it was a fascinating conversation that really highlighted how differently people can view the same issue based on their personal priorities."
   },
   {
-    "question": "What are the main causes of public transport delays?",
+    "question": "How do most people find out about the news in your country?",
     "audioAsset": "q6.mp3",
     "duration": 3,
     "start": 0,
     "promptEnd": 3,
     "end": 3,
     "part": 3,
-    "transcript": "Severe weather conditions, mechanical breakdowns, and traffic congestion are major factors causing delays."
+    "transcript": "In my country, the majority of people rely on social media platforms like Facebook and Twitter to stay updated with news. Traditional media, such as television broadcasts and newspapers, are still used by the older generation, but digital news outlets are definitely becoming the primary source for most citizens."
   },
   {
-    "question": "How can transport companies improve passenger experience during delays?",
+    "question": "Are people more interested in local news than national news?",
     "audioAsset": "q7.mp3",
     "duration": 2.3,
     "start": 0,
     "promptEnd": 2.3,
     "end": 2.3,
     "part": 3,
-    "transcript": "Providing clear real-time notifications and comfortable seating mitigates passenger frustration."
+    "transcript": "It depends on the individual's priorities. Generally, people tend to be more interested in local news because it affects their daily lives, such as traffic updates or community events. However, national news is also quite significant as it covers politics and the economy, which impact everyone's long-term future."
   },
   {
-    "question": "Is public transport better than private cars in big cities?",
+    "question": "How important is it to know about international news?",
     "audioAsset": "q8.mp3",
     "duration": 2.8,
     "start": 0,
     "promptEnd": 2.8,
     "end": 2.8,
     "part": 3,
-    "transcript": "Public transit reduces urban gridlock and carbon emissions, making city travel more sustainable."
+    "transcript": "Staying informed about international news is essential in our globalized world. It allows us to understand global trends, economic shifts, and humanitarian issues that might eventually impact our own country. Being aware of international affairs helps people develop a broader perspective on global challenges."
   },
   {
-    "question": "How will high-speed rail change travel habits in the future?",
+    "question": "Why are discussion programmes involving members of the public popular on [TV and radio]?",
     "audioAsset": "q9.mp3",
     "duration": 2.3,
     "start": 0,
     "promptEnd": 2.3,
     "end": 2.3,
     "part": 3,
-    "transcript": "High-speed trains provide eco-friendly alternatives to short-haul domestic flights."
+    "transcript": "These programmes are popular because they allow ordinary people to voice their opinions on topics that directly affect them. They create a sense of community and give a platform to diverse perspectives, which many viewers find more relatable and engaging than formal, scripted news reports."
   },
   {
-    "question": "Should governments subsidize public transportation fares?",
+    "question": "What kinds of people want to take part in discussion programmes?",
     "audioAsset": "q10.mp3",
     "duration": 2.4,
     "start": 0,
     "promptEnd": 2.4,
     "end": 2.4,
     "part": 3,
-    "transcript": "Subsidies keep transit affordable for low-income citizens and encourage green travel."
+    "transcript": "Typically, individuals who are passionate, opinionated, or have a specific personal experience related to the topic want to participate. Some people participate because they want to advocate for a cause, while others simply enjoy the intellectual challenge of debating current issues in a public forum."
   },
   {
-    "question": "What infrastructure investments are most needed in modern cities?",
+    "question": "Do discussion programmes influence people in a good or bad way?",
     "audioAsset": "q11.mp3",
     "duration": 2.8,
     "start": 0,
     "promptEnd": 2.8,
     "end": 2.8,
     "part": 3,
-    "transcript": "Expanding metro lines, electric bus routes, and bike lanes relieves city congestion."
+    "transcript": "I believe they have a mixed influence. On the positive side, they promote public discourse and awareness of social issues. However, they can also be negative if they encourage polarization or spread misinformation, which can lead to unnecessary conflict among the public."
   }
 ];
 

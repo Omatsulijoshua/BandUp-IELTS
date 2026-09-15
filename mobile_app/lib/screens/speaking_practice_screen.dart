@@ -5709,9 +5709,139 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 ];
 
   final List<Map<String, dynamic>> _book20Test1Questions = [
-        "transcript": "Because public figures command large followings, carrying high ethical standards positively impacts society."
-    }
-];
+    // Part 1: Questions 1-4 (Walking)
+    {
+      'question': 'How much walking do you do in your daily life?',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.54,
+      'start': 0.0,
+      'promptEnd': 1.54,
+      'end': 1.54,
+      'part': 1,
+      'transcript':
+          'I try to walk quite a bit every day. My commute to work involves about twenty minutes of walking, and I usually take a stroll in the park during my lunch break to clear my head.',
+    },
+    {
+      'question': 'Did you walk more when you were at school than now?',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.43,
+      'start': 0.0,
+      'promptEnd': 2.43,
+      'end': 2.43,
+      'part': 1,
+      'transcript':
+          'Actually, I think I walk more now than I did when I was at school. Back then, I mostly took the bus, but now I prefer walking because it helps me stay active and manage my stress levels after a long day.',
+    },
+    {
+      'question': 'What places are there to go for a walk near where you live?',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.64,
+      'start': 0.0,
+      'promptEnd': 2.64,
+      'end': 2.64,
+      'part': 1,
+      'transcript':
+          'There is a beautiful public park just a few blocks from my apartment that has a long, winding trail. Additionally, there is a pedestrian-friendly waterfront area that is perfect for walking, especially during the sunset.',
+    },
+    {
+      'question': 'Would you ever like to go on a walking holiday?',
+      'audioAsset': 'q4.mp3',
+      'duration': 2.22,
+      'start': 0.0,
+      'promptEnd': 2.22,
+      'end': 2.22,
+      'part': 1,
+      'transcript':
+          'That sounds like a fantastic idea. I have always wanted to go on a hiking trip in the mountains because I enjoy being surrounded by nature. It would be a great way to challenge myself physically while enjoying some beautiful scenery.',
+    },
+
+    // Part 2: Question 5 (Cue Card: Play or film seen and like to see again with friends)
+    {
+      'question': 'Describe a play or a film you have seen that you would like to see again with friends.',
+      'audioAsset': 'q5.mp3',
+      'duration': 4.34,
+      'start': 0.0,
+      'promptEnd': 4.34,
+      'end': 4.34,
+      'part': 2,
+      'youShouldSay': [
+        'what play or film you\'d like to go to see again',
+        'who you would go with',
+        'what other people have said about this play or film',
+        'and explain why you would like to see this play or film again with friends.',
+      ],
+      'transcript':
+          'One film that left a lasting impression on me is \'Inception,\' directed by Christopher Nolan. I watched it for the first time a few years ago, and I was completely captivated by its complex plot and stunning visual effects. The story explores the concept of dreams within dreams, which I found intellectually stimulating. I would love to watch it again with my friends because it is the type of movie that requires deep discussion and analysis afterward. I am certain that sharing our theories about the ending would make for a very engaging and memorable evening.',
+    },
+
+    // Part 3: Questions 6-11 (Theatres & Acting)
+    {
+      'question': 'What are the most popular kinds of plays or shows at theatres in your country?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.21,
+      'start': 0.0,
+      'promptEnd': 3.21,
+      'end': 3.21,
+      'part': 3,
+      'transcript':
+          'In my country, musical theatre and historical dramas are incredibly popular. Many people flock to the city center to watch large-scale productions that feature elaborate sets and professional choreography.',
+    },
+    {
+      'question': 'How easy is it to get tickets to the theatre?',
+      'audioAsset': 'q7.mp3',
+      'duration': 1.72,
+      'start': 0.0,
+      'promptEnd': 1.72,
+      'end': 1.72,
+      'part': 3,
+      'transcript':
+          'It is actually quite convenient to purchase tickets nowadays. Most major theatres have integrated online booking systems, allowing patrons to select their seats and receive digital tickets via email within minutes.',
+    },
+    {
+      'question': 'Do you think theatres need to do more to attract younger audiences?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.42,
+      'start': 0.0,
+      'promptEnd': 3.42,
+      'end': 3.42,
+      'part': 3,
+      'transcript':
+          'I believe they absolutely do. To remain relevant, theatres should incorporate more modern themes, affordable student pricing, and digital interactive elements that appeal directly to the younger generation.',
+    },
+    {
+      'question': 'What do you think attracts people to working as an actor?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.12,
+      'start': 0.0,
+      'promptEnd': 2.12,
+      'end': 2.12,
+      'part': 3,
+      'transcript':
+          'I think many people are drawn to acting because of the opportunity to step into someone else\'s shoes. The chance to explore complex human emotions and receive recognition from a large audience can be very fulfilling.',
+    },
+    {
+      'question': 'What are some of the qualities that a person needs to have if they want to become an actor?',
+      'audioAsset': 'q10.mp3',
+      'duration': 2.53,
+      'start': 0.0,
+      'promptEnd': 2.53,
+      'end': 2.53,
+      'part': 3,
+      'transcript':
+          'A successful actor needs a high level of emotional intelligence and the ability to empathize with different characters. Furthermore, persistence is vital because the industry is highly competitive and often involves facing frequent rejection.',
+    },
+    {
+      'question': 'Can you think of any disadvantages of working as an actor?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.00,
+      'start': 0.0,
+      'promptEnd': 3.00,
+      'end': 3.00,
+      'part': 3,
+      'transcript':
+          'The most significant disadvantage is the lack of job security. Actors often face long periods of unemployment between roles, which can lead to financial instability and a great deal of stress regarding their career progression.',
+    },
+  ];
 
   final List<Map<String, dynamic>> _book20Test2Questions = [
     {
@@ -5997,64 +6127,64 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         "transcript": "I recall a time when I had a very intense discussion with my brother about a local news story regarding the construction of a new shopping mall in our neighborhood. The news had sparked a lot of controversy because it involved cutting down a protected forest area. We spent nearly an hour debating the trade-offs between economic development and environmental conservation. My brother argued that the mall would bring much-needed jobs to our town, while I maintained that the ecological cost was too high to justify. Ultimately, it was a fascinating conversation that really highlighted how differently people can view the same issue based on their personal priorities."
     },
     {
-        "question": "What are the main causes of public transport delays?",
+        "question": "How do most people find out about the news in your country?",
         "audioAsset": "q6.mp3",
         "duration": 3,
         "start": 0,
         "promptEnd": 3,
         "end": 3,
         "part": 3,
-        "transcript": "Severe weather conditions, mechanical breakdowns, and traffic congestion are major factors causing delays."
+        "transcript": "In my country, the majority of people rely on social media platforms like Facebook and Twitter to stay updated with news. Traditional media, such as television broadcasts and newspapers, are still used by the older generation, but digital news outlets are definitely becoming the primary source for most citizens."
     },
     {
-        "question": "How can transport companies improve passenger experience during delays?",
+        "question": "Are people more interested in local news than national news?",
         "audioAsset": "q7.mp3",
         "duration": 2.3,
         "start": 0,
         "promptEnd": 2.3,
         "end": 2.3,
         "part": 3,
-        "transcript": "Providing clear real-time notifications and comfortable seating mitigates passenger frustration."
+        "transcript": "It depends on the individual's priorities. Generally, people tend to be more interested in local news because it affects their daily lives, such as traffic updates or community events. However, national news is also quite significant as it covers politics and the economy, which impact everyone's long-term future."
     },
     {
-        "question": "Is public transport better than private cars in big cities?",
+        "question": "How important is it to know about international news?",
         "audioAsset": "q8.mp3",
         "duration": 2.8,
         "start": 0,
         "promptEnd": 2.8,
         "end": 2.8,
         "part": 3,
-        "transcript": "Public transit reduces urban gridlock and carbon emissions, making city travel more sustainable."
+        "transcript": "Staying informed about international news is essential in our globalized world. It allows us to understand global trends, economic shifts, and humanitarian issues that might eventually impact our own country. Being aware of international affairs helps people develop a broader perspective on global challenges."
     },
     {
-        "question": "How will high-speed rail change travel habits in the future?",
+        "question": "Why are discussion programmes involving members of the public popular on [TV and radio]?",
         "audioAsset": "q9.mp3",
         "duration": 2.3,
         "start": 0,
         "promptEnd": 2.3,
         "end": 2.3,
         "part": 3,
-        "transcript": "High-speed trains provide eco-friendly alternatives to short-haul domestic flights."
+        "transcript": "These programmes are popular because they allow ordinary people to voice their opinions on topics that directly affect them. They create a sense of community and give a platform to diverse perspectives, which many viewers find more relatable and engaging than formal, scripted news reports."
     },
     {
-        "question": "Should governments subsidize public transportation fares?",
+        "question": "What kinds of people want to take part in discussion programmes?",
         "audioAsset": "q10.mp3",
         "duration": 2.4,
         "start": 0,
         "promptEnd": 2.4,
         "end": 2.4,
         "part": 3,
-        "transcript": "Subsidies keep transit affordable for low-income citizens and encourage green travel."
+        "transcript": "Typically, individuals who are passionate, opinionated, or have a specific personal experience related to the topic want to participate. Some people participate because they want to advocate for a cause, while others simply enjoy the intellectual challenge of debating current issues in a public forum."
     },
     {
-        "question": "What infrastructure investments are most needed in modern cities?",
+        "question": "Do discussion programmes influence people in a good or bad way?",
         "audioAsset": "q11.mp3",
         "duration": 2.8,
         "start": 0,
         "promptEnd": 2.8,
         "end": 2.8,
         "part": 3,
-        "transcript": "Expanding metro lines, electric bus routes, and bike lanes relieves city congestion."
+        "transcript": "I believe they have a mixed influence. On the positive side, they promote public discourse and awareness of social issues. However, they can also be negative if they encourage polarization or spread misinformation, which can lead to unnecessary conflict among the public."
     }
 ];
 
