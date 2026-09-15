@@ -6423,7 +6423,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         "promptEnd": 2,
         "end": 2,
         "part": 1,
-        "transcript": "I usually eat bread during breakfast, often toasted with butter or jam, or as part of a sandwich for a quick lunch."
+        "transcript": "I typically eat bread during breakfast, usually in the form of toasted sourdough or a bagel. Sometimes, if I am having a light lunch, I might have a sandwich, but it is primarily a staple of my morning routine."
     },
     {
         "question": "How important is bread in your culture?",
@@ -6433,7 +6433,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         "promptEnd": 2,
         "end": 2,
         "part": 1,
-        "transcript": "Bread is a staple food in my culture, eaten daily across almost every household and accompanying most traditional meals."
+        "transcript": "Bread is quite significant in my culture as it accompanies almost every meal. We have various traditional types of flatbreads that are considered a symbol of hospitality and are essential for a balanced daily diet."
     },
     {
         "question": "Have you tried any kinds of bread from other countries?",
@@ -6443,7 +6443,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         "promptEnd": 2,
         "end": 2,
         "part": 1,
-        "transcript": "Yes, I have tried French baguettes, Italian focaccia, and Indian naan, all of which have unique textures and flavors."
+        "transcript": "Yes, I have had the opportunity to try several international varieties, such as French baguette and Italian ciabatta. I find it fascinating how different cultures use different grains and fermentation processes to create unique textures and flavors."
     },
     {
         "question": "Would you be interested in learning how to make bread?",
@@ -6453,77 +6453,77 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         "promptEnd": 2,
         "end": 2,
         "part": 1,
-        "transcript": "Definitely, I would love to learn the art of baking fresh sourdough bread at home from scratch."
+        "transcript": "I would be very interested in learning how to bake bread. There is something quite rewarding about the process of kneading dough and watching it rise, and I would love to master the art of making fresh, homemade loaves."
     },
     {
-        "question": "Describe an item of value that you possess.",
+        "question": "Describe a person you know who is very competitive.",
         "audioAsset": "q5.mp3",
-        "duration": 2.4,
+        "duration": 3.5,
         "start": 0,
-        "promptEnd": 2.4,
-        "end": 2.4,
+        "promptEnd": 3.5,
+        "end": 3.5,
         "part": 2,
-        "transcript": "A deeply valued possession is a vintage wristwatch gifted to me by my father on my university graduation. It has sentimental significance and reminds me of family support. I wear it on special occasions and take great care to keep it in working condition."
+        "transcript": "I would like to talk about my older brother, who is incredibly competitive in almost every aspect of his life. Whether we are playing board games or engaging in professional pursuits, he always strives to be the top performer. This trait often pushes him to work harder than anyone else, though it can sometimes make him quite intense to be around. He genuinely believes that being second-best is equivalent to losing, which is a mindset that drives his constant self-improvement. I find his dedication admirable, even if his need to win can be overwhelming at times."
     },
     {
-        "question": "Why do people attach emotional value to personal possessions?",
+        "question": "What kinds of competitions do people like to enter in your country?",
         "audioAsset": "q6.mp3",
-        "duration": 3,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 3,
-        "end": 3,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Items associated with family milestones or loved ones serve as cherished physical keepsakes."
+        "transcript": "In my country, a wide range of competitions are popular. Many people enjoy participating in local sporting events like marathons or football tournaments. Additionally, academic competitions, such as science fairs or debating contests, are quite common among students. Recently, talent shows and cooking competitions have also gained significant traction due to their popularity on social media."
     },
     {
-        "question": "How has consumerism changed what people value most?",
+        "question": "What do you think is the best kind of prize to win in a competition?",
         "audioAsset": "q7.mp3",
-        "duration": 3.6,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 3.6,
-        "end": 3.6,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Modern advertising emphasizes material possessions, though many still prioritize meaningful experiences."
+        "transcript": "I believe the most valuable prize is one that offers personal growth or long-term utility. While cash prizes are certainly attractive, winning an opportunity such as a scholarship, a professional mentorship, or a specialized training course is far more beneficial. These types of rewards provide lasting value that can help a person advance in their career or develop new skills."
     },
     {
-        "question": "Do people nowadays buy items for status rather than utility?",
+        "question": "Why do people like watching quiz shows and other competitions on TV?",
         "audioAsset": "q8.mp3",
-        "duration": 3.3,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 3.3,
-        "end": 3.3,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Luxury brands leverage social status appeal, encouraging buyers to showcase success visually."
+        "transcript": "People are drawn to quiz shows and competitions because they are highly entertaining and provide a sense of excitement. They allow viewers to test their own knowledge and engage in a bit of friendly rivalry from the comfort of their homes. Furthermore, these shows often feature inspiring stories of human achievement, which can be quite motivating for the audience."
     },
     {
-        "question": "Should children be taught to value experiences over material gifts?",
+        "question": "How important is it to be very competitive at sport?",
         "audioAsset": "q9.mp3",
-        "duration": 2,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 2,
-        "end": 2,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Teaching kids to cherish family outings and learning experiences fosters gratitude over materialism."
+        "transcript": "Being competitive in sports can be important as it drives individuals to push their limits and strive for excellence. It fosters discipline, resilience, and a strong work ethic. However, it is essential to balance this with sportsmanship; if the desire to win overshadows the value of playing fairly, the positive aspects of the sport are lost."
     },
     {
-        "question": "How does advertising influence consumer spending habits?",
+        "question": "Do you think sportspeople perform better when they play against competitors who are stronger than they are?",
         "audioAsset": "q10.mp3",
-        "duration": 4.8,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 4.8,
-        "end": 4.8,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Targeted ads create perceived needs, prompting impulsive purchases among consumers."
+        "transcript": "Yes, I believe that facing stronger opponents is a crucial factor in athletic improvement. When a sportsperson plays against someone better than them, it exposes their weaknesses and forces them to adapt their strategy. This 'pressure-cooker' environment is often the best way to accelerate skill development and mental toughness."
     },
     {
-        "question": "What strategies help individuals avoid unnecessary shopping impulse?",
+        "question": "Why do some people think that taking part in sport is more important than winning?",
         "audioAsset": "q11.mp3",
-        "duration": 3.9,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 3.9,
-        "end": 3.9,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Creating strict monthly budgets and delaying purchases by 24 hours curbs impulse shopping."
+        "transcript": "Many people prioritize participation because they believe the true value of sport lies in the journey rather than the final score. Engaging in physical activity promotes health, teamwork, and social connection, which are beneficial regardless of the outcome. Winning is merely a temporary result, whereas the character-building experiences gained through participation last a lifetime."
     }
 ];
 
