@@ -69,6 +69,15 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/Speaking/IELTS BOOK 21 Test 4/
+    - assets/Speaking/IELTS BOOK 21 Test 3/
+    - assets/Speaking/IELTS BOOK 21 Test 2/
+    - assets/Speaking/IELTS BOOK 20 Test 4/
+    - assets/Speaking/IELTS BOOK 20 Test 3/
+    - assets/Speaking/IELTS BOOK 20 Test 2/
+    - assets/Speaking/IELTS BOOK 20 Test 1/
+    - assets/Speaking/IELTS BOOK 19 Test 3/
+    - assets/Speaking/IELTS BOOK 18 Test 3/
     - assets/australian_household_energy_use.png
     - assets/examiner_avatar.png
     - assets/Speaking/IELTS BOOK 21 Test 1/
