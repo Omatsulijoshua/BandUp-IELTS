@@ -7740,7 +7740,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         "Prepare stories about people you know in advance to avoid being caught off guard during the test."
                       ];
           } else {
-            fcFeedback = _selectedTestTitle.contains('Book 16 Test 1')
+            fcFeedback = _selectedTestTitle.contains('Book 17 Test 1')
+                ? "The responses are completely inadequate. The candidate provided one-word answers ('No') for every question. This is not a demonstration of speaking ability and fails to address the tasks entirely."
+                : _selectedTestTitle.contains('Book 16 Test 1')
                 ? "Your answers were completely non-responsive. By simply saying 'No' to every question, you failed to communicate, provide information, or demonstrate language ability. This is a total failure to address the task."
                 : _selectedTestTitle.contains('Book 15 Test 1')
                 ? "Your answers were completely irrelevant and failed to address the questions. Providing one-word answers like 'No' or 'Oh' demonstrates a failure to engage with the test format."
@@ -7765,7 +7767,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
                         : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-            lrFeedback = _selectedTestTitle.contains('Book 16 Test 1')
+            lrFeedback = _selectedTestTitle.contains('Book 17 Test 1')
+                ? "There is no lexical resource to evaluate as the candidate only used a single negative particle."
+                : _selectedTestTitle.contains('Book 16 Test 1')
                 ? "There is no vocabulary to evaluate. A single-word response does not demonstrate any range or control over language."
                 : _selectedTestTitle.contains('Book 15 Test 1')
                 ? "There is no vocabulary range to assess as you only provided single-word responses."
@@ -7790,7 +7794,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "There is no vocabulary to assess beyond a single, repetitive word."
                         : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-            grFeedback = _selectedTestTitle.contains('Book 16 Test 1')
+            grFeedback = _selectedTestTitle.contains('Book 17 Test 1')
+                ? "There is no grammatical structure present to evaluate."
+                : _selectedTestTitle.contains('Book 16 Test 1')
                 ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."
                 : _selectedTestTitle.contains('Book 15 Test 1')
                 ? "There is no grammatical structure to assess. No complete sentences were produced."
@@ -7815,7 +7821,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "There is no grammatical structure to assess."
                         : "There is no grammatical range to assess as no full sentences were produced.";
-            prFeedback = _selectedTestTitle.contains('Book 16 Test 1')
+            prFeedback = _selectedTestTitle.contains('Book 17 Test 1')
+                ? "The candidate failed to engage in the assessment. To score higher, you must provide full, descriptive sentences."
+                : _selectedTestTitle.contains('Book 16 Test 1')
                 ? "While the word 'No' is articulated clearly, the lack of speech prevents any assessment of connected speech, intonation, or range."
                 : _selectedTestTitle.contains('Book 15 Test 1')
                 ? "Insufficient data to assess pronunciation, though the lack of effort suggests a failure to engage with the test format."
@@ -7840,7 +7848,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
                         : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-            tipsList = _selectedTestTitle.contains('Book 18 Test 2')
+            tipsList = _selectedTestTitle.contains('Book 17 Test 1')
+                ? [
+                    "You must provide full, complete sentences. An IELTS examiner cannot grade you if you only answer 'No'.",
+                    "Elaborate on your answers by using the 'P.E.E.' method: Point, Explain, and give an Example.",
+                    "Practice speaking for at least 2-3 sentences per question to show your language range.",
+                    "Avoid one-word answers at all costs; they will lead to a score of 0-2.",
+                    "Listen to the question carefully and ensure your answer directly addresses the 'Why' or 'How' components of the prompt.",
+                  ]
+                : _selectedTestTitle.contains('Book 18 Test 2')
               ? [
                   "You must answer in full sentences, not single words. A single word is never sufficient for an IELTS speaking test.",
                   "Expand your answers by providing a reason or personal experience. For example, mention whether you enjoyed biology, physics, or chemistry at school.",
