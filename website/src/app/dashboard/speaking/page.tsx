@@ -1967,8 +1967,116 @@ const book14Test4Questions: Question[] = [
   },
 ];
 
+const book15Test3Questions: Question[] = [
+  // Part 1: Questions 1-4 (Swimming)
+  {
+    question: 'Did you learn to swim when you were a child? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.8,
+    part: 1,
+    transcript:
+      'Yes, I learned to swim when I was about seven years old. My parents enrolled me in swimming lessons at a local sports complex because they believed it was an essential life-saving skill that every child should acquire early on.',
+  },
+  {
+    question: 'How often do you go swimming now? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.5,
+    part: 1,
+    transcript:
+      'Nowadays, I go swimming about once or twice a month, mostly during the summer. I find it to be a fantastic full-body workout and a great way to unwind after a demanding work week.',
+  },
+  {
+    question: 'What places are there for swimming where you live? [Why?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.6,
+    part: 1,
+    transcript:
+      'In my city, we have several public municipal pools as well as private fitness centres with indoor aquatic facilities. There is also a natural lake about twenty minutes away that is very popular for outdoor swimming in warm weather.',
+  },
+  {
+    question:
+      'Do you think it would be more enjoyable to go swimming outdoors or at an indoor pool? [Why?]',
+    audioAsset: 'q4.mp3',
+    duration: 4.2,
+    part: 1,
+    transcript:
+      'Personally, I prefer swimming outdoors in natural settings like lakes or open pools because fresh air and sunlight make the experience far more refreshing. However, indoor pools are much more practical during winter since they are temperature-controlled.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Performance)
+  {
+    question: 'Describe a performance you enjoyed watching.',
+    audioAsset: 'q5.mp3',
+    duration: 3.8,
+    part: 2,
+    youShouldSay: [
+      'what the performance was',
+      'when and where you saw it',
+      'who you saw it with',
+      'and explain why you enjoyed watching this performance',
+    ],
+    transcript:
+      'I remember attending a live symphony orchestra concert at the national grand theatre last year with a group of close friends. The orchestra performed classic pieces alongside modern film scores. The acoustics in the hall were absolutely breathtaking, and watching the musicians collaborate with such precision made it an unforgettable and inspiring evening.',
+  },
+
+  // Part 3: Questions 6-11 (Live Performances & Entertainment)
+  {
+    question: 'What kinds of performances are popular in your country?',
+    audioAsset: 'q6.mp3',
+    duration: 2.5,
+    part: 3,
+    transcript:
+      'Traditional theatrical plays, live music concerts, and modern dance performances are all very popular in my country. Cultural festivals featuring traditional folk music and storytelling also attract large crowds across different generations.',
+  },
+  {
+    question:
+      'Do you think traditional performances will still be popular in the future?',
+    audioAsset: 'q7.mp3',
+    duration: 2.4,
+    part: 3,
+    transcript:
+      'Yes, I believe traditional performances will retain their cultural appeal. While digital entertainment is growing rapidly, live traditional arts offer a unique historical connection and authentic human interaction that digital media cannot replace.',
+  },
+  {
+    question:
+      'Is it important for children to learn music and dancing at school?',
+    audioAsset: 'q8.mp3',
+    duration: 2.3,
+    part: 3,
+    transcript:
+      'I strongly agree that arts education is vital for young learners. Music and dance help foster creative expression, emotional balance, and physical coordination, complementing academic studies to produce well-rounded individuals.',
+  },
+  {
+    question:
+      'Should the government provide financial support for local artists?',
+    audioAsset: 'q9.mp3',
+    duration: 2.8,
+    part: 3,
+    transcript:
+      'Governments should invest in local artists and arts initiatives. Public funding and grants ensure that cultural diversity is preserved, encouraging artistic innovation even when projects are not purely commercial.',
+  },
+  {
+    question:
+      'What are the benefits of watching live performances compared to watching them on TV?',
+    audioAsset: 'q10.mp3',
+    duration: 2.6,
+    part: 3,
+    transcript:
+      'The primary benefit of attending live events is the immersive atmosphere and shared collective energy of the audience. Being present in the same space as the performers creates an emotional resonance that broadcast television simply cannot replicate.',
+  },
+  {
+    question: 'Do you think performers earn too much money?',
+    audioAsset: 'q11.mp3',
+    duration: 3.2,
+    part: 3,
+    transcript:
+      'While a small percentage of top international celebrities command astronomical earnings, the majority of local performers and stage artists work incredibly hard for modest compensation. Income in the performing arts is often highly skewed by market demand.',
+  },
+];
+
 
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 15 Test 3': book15Test3Questions,
   'IELTS Book 14 Test 4': book14Test4Questions,
   'IELTS Book 14 Test 3': book14Test3Questions,
   'IELTS Book 14 Test 2': book14Test2Questions,
@@ -2994,7 +3102,9 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 14 Test 4')
+                    {title.includes('Book 15 Test 3')
+                      ? 'Swimming, Enjoyable Performance Cue Card & Live Performances / Entertainment'
+                      : title.includes('Book 14 Test 4')
                       ? 'Neighbourhoods, Website Bought From Cue Card & Online Shopping / Retail Malls'
                       : title.includes('Book 14 Test 3')
                       ? 'Neighbours & Community, Difficult Task Succeeded At & Difficult Jobs / Personal Goals'
