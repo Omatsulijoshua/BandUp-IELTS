@@ -364,7 +364,7 @@ export const book20Test4Questions = [
   {
     "question": "What do you think your best personal qualities are? [Why?]",
     "audioAsset": "q1.mp3",
-    "duration": 1.54,
+    "duration": 2.17,
     "start": 0,
     "promptEnd": 1.54,
     "end": 1.54,
@@ -374,7 +374,7 @@ export const book20Test4Questions = [
   {
     "question": "Do you have the same personal qualities as your parents? [Why/Why not?]",
     "audioAsset": "q2.mp3",
-    "duration": 2.35,
+    "duration": 2.98,
     "start": 0,
     "promptEnd": 2.35,
     "end": 2.35,
@@ -384,7 +384,7 @@ export const book20Test4Questions = [
   {
     "question": "What personal qualities are important to you in a friend? [Why?]",
     "audioAsset": "q3.mp3",
-    "duration": 2.46,
+    "duration": 3.16,
     "start": 0,
     "promptEnd": 2.46,
     "end": 2.46,
@@ -394,7 +394,7 @@ export const book20Test4Questions = [
   {
     "question": "Do you think you have the personal qualities to be a good/successful leader? [Why/Why not?]",
     "audioAsset": "q4.mp3",
-    "duration": 2.43,
+    "duration": 3.66,
     "start": 0,
     "promptEnd": 2.43,
     "end": 2.43,
@@ -404,7 +404,7 @@ export const book20Test4Questions = [
   {
     "question": "Describe a time when you had a long discussion about a news story.",
     "audioAsset": "q5.mp3",
-    "duration": 3.45,
+    "duration": 3.47,
     "start": 0,
     "promptEnd": 3.45,
     "end": 3.45,
@@ -420,7 +420,7 @@ export const book20Test4Questions = [
   {
     "question": "How do most people find out about the news in your country?",
     "audioAsset": "q6.mp3",
-    "duration": 3.06,
+    "duration": 2.98,
     "start": 0,
     "promptEnd": 3.06,
     "end": 3.06,
@@ -430,7 +430,7 @@ export const book20Test4Questions = [
   {
     "question": "Are people more interested in local news than national news?",
     "audioAsset": "q7.mp3",
-    "duration": 2.35,
+    "duration": 3.27,
     "start": 0,
     "promptEnd": 2.35,
     "end": 2.35,
@@ -440,7 +440,7 @@ export const book20Test4Questions = [
   {
     "question": "How important is it to know about international news?",
     "audioAsset": "q8.mp3",
-    "duration": 2.85,
+    "duration": 2.98,
     "start": 0,
     "promptEnd": 2.85,
     "end": 2.85,
@@ -450,7 +450,7 @@ export const book20Test4Questions = [
   {
     "question": "Why are discussion programmes involving members of the public popular on [TV and radio]?",
     "audioAsset": "q9.mp3",
-    "duration": 2.35,
+    "duration": 4.57,
     "start": 0,
     "promptEnd": 2.35,
     "end": 2.35,
@@ -460,7 +460,7 @@ export const book20Test4Questions = [
   {
     "question": "What kinds of people want to take part in discussion programmes?",
     "audioAsset": "q10.mp3",
-    "duration": 2.46,
+    "duration": 2.77,
     "start": 0,
     "promptEnd": 2.46,
     "end": 2.46,
@@ -470,7 +470,7 @@ export const book20Test4Questions = [
   {
     "question": "Do discussion programmes influence people in a good or bad way?",
     "audioAsset": "q11.mp3",
-    "duration": 2.87,
+    "duration": 3.55,
     "start": 0,
     "promptEnd": 2.87,
     "end": 2.87,
@@ -483,7 +483,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "Did you enjoy going to museums when you were a child?",
     "audioAsset": "q1.mp3",
-    "duration": 1.57,
+    "duration": 2.66,
     "start": 0,
     "promptEnd": 1.57,
     "end": 1.57,
@@ -493,7 +493,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "Are there any interesting museums near where you live now?",
     "audioAsset": "q2.mp3",
-    "duration": 2.35,
+    "duration": 2.87,
     "start": 0,
     "promptEnd": 2.35,
     "end": 2.35,
@@ -503,7 +503,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "Do you think it is best to go to museums by yourself or with friends?",
     "audioAsset": "q3.mp3",
-    "duration": 2.46,
+    "duration": 3.66,
     "start": 0,
     "promptEnd": 2.46,
     "end": 2.46,
@@ -513,7 +513,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "When you visit another city or country, do you think it's important to go to a museum there?",
     "audioAsset": "q4.mp3",
-    "duration": 2.56,
+    "duration": 4.75,
     "start": 0,
     "promptEnd": 2.56,
     "end": 2.56,
@@ -523,7 +523,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "Describe a piece of work you did for your job or your studies that you felt very satisfied with.",
     "audioAsset": "q5.mp3",
-    "duration": 3.66,
+    "duration": 4.68,
     "start": 0,
     "promptEnd": 3.66,
     "end": 3.66,
@@ -539,7 +539,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "What are some aspects of people's lives that they can often be dissatisfied with?",
     "audioAsset": "q6.mp3",
-    "duration": 3.06,
+    "duration": 3.97,
     "start": 0,
     "promptEnd": 3.06,
     "end": 3.06,
@@ -549,7 +549,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "Would you say that having ambitions in life is always a positive thing?",
     "audioAsset": "q7.mp3",
-    "duration": 2.25,
+    "duration": 3.16,
     "start": 0,
     "promptEnd": 2.25,
     "end": 2.25,
@@ -559,7 +559,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "What do you believe the most important components are of a satisfying life?",
     "audioAsset": "q8.mp3",
-    "duration": 2.77,
+    "duration": 3.87,
     "start": 0,
     "promptEnd": 2.77,
     "end": 2.77,
@@ -569,7 +569,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "What makes a job more satisfying: a high salary or having good colleagues?",
     "audioAsset": "q9.mp3",
-    "duration": 2.46,
+    "duration": 3.97,
     "start": 0,
     "promptEnd": 2.46,
     "end": 2.46,
@@ -579,7 +579,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "Do you think people need to change jobs regularly if they want to stay satisfied at work?",
     "audioAsset": "q10.mp3",
-    "duration": 2.56,
+    "duration": 4.86,
     "start": 0,
     "promptEnd": 2.56,
     "end": 2.56,
@@ -589,7 +589,7 @@ export const book20Test3Questions: Question[] = [
   {
     "question": "Is it possible to find job satisfaction in all types of work?",
     "audioAsset": "q11.mp3",
-    "duration": 2.85,
+    "duration": 3.06,
     "start": 0,
     "promptEnd": 2.85,
     "end": 2.85,
@@ -3786,7 +3786,7 @@ const book19Test4Questions: Question[] = [
   {
     question: 'Do you have a favourite cafe? [Why/Why not?]',
     audioAsset: 'q1.mp3',
-    duration: 2.27,
+    duration: 2.4,
     part: 1,
     transcript:
       'Actually, I have a favourite cafe near my office that I visit quite often. I really enjoy it because the atmosphere is incredibly cozy, and they serve the best artisanal coffee in the city. It has become my go-to spot whenever I need a quiet place to focus on my work.',
@@ -3794,7 +3794,7 @@ const book19Test4Questions: Question[] = [
   {
     question: 'Do you often go to cafes by yourself? [Why/Why not?]',
     audioAsset: 'q2.mp3',
-    duration: 2.56,
+    duration: 2.4,
     part: 1,
     transcript:
       'I rarely go to cafes by myself because I usually prefer the company of friends or colleagues. For me, a cafe is a social space where I like to catch up with people and share ideas. However, if I have a pressing deadline, I might go alone to take advantage of the quiet environment.',
@@ -3802,7 +3802,7 @@ const book19Test4Questions: Question[] = [
   {
     question: 'What do you think helps to make a cafe very popular? [Why?]',
     audioAsset: 'q3.mp3',
-    duration: 4.75,
+    duration: 2.77,
     part: 1,
     transcript:
       'I believe the key to a popular cafe is a combination of high-quality coffee and a welcoming ambiance. People are often drawn to places with comfortable seating, reliable Wi-Fi, and friendly staff who make them feel at home. Additionally, unique interior design or a specific signature pastry can really set a cafe apart from the competition.',
@@ -3811,7 +3811,7 @@ const book19Test4Questions: Question[] = [
     question:
       'Why do some people prefer cafes that are part of large chains, rather than small, local cafes?',
     audioAsset: 'q4.mp3',
-    duration: 5.28,
+    duration: 5.36,
     part: 1,
     transcript:
       'Many people prefer large chains because of the consistency and reliability they offer. Whether you are in a different city or country, you know exactly what the coffee and service will be like. Furthermore, chains often provide a very predictable environment, which is convenient for people who want to work or meet others without any surprises.',
@@ -3820,7 +3820,7 @@ const book19Test4Questions: Question[] = [
     question:
       'Describe a place you visited that has beautiful views.',
     audioAsset: 'q5.mp3',
-    duration: 3.55,
+    duration: 3.06,
     part: 2,
     youShouldSay: [
       'where this place is',
@@ -3844,7 +3844,7 @@ const book19Test4Questions: Question[] = [
     question:
       'How does the beauty industry advertise its products so successfully?',
     audioAsset: 'q7.mp3',
-    duration: 3.37,
+    duration: 3.66,
     part: 3,
     transcript:
       'The beauty industry utilizes sophisticated marketing strategies, such as influencer partnerships and social media advertising, to create a sense of aspiration. They often focus on emotional branding, convincing consumers that their products are essential for personal confidence and social success.',
@@ -3853,7 +3853,7 @@ const book19Test4Questions: Question[] = [
     question:
       'What do you think of the view that beauty products should not be advertised to children?',
     audioAsset: 'q8.mp3',
-    duration: 4.68,
+    duration: 5.07,
     part: 3,
     transcript:
       'I strongly believe that advertising beauty products to children is inappropriate. It can foster unrealistic beauty standards at an age when children are still developing their self-esteem. Protecting children from such commercial pressures is crucial for their mental well-being.',
@@ -3861,7 +3861,7 @@ const book19Test4Questions: Question[] = [
   {
     question: 'Why do many people equate youth with beauty?',
     audioAsset: 'q9.mp3',
-    duration: 2.17,
+    duration: 2.22,
     part: 3,
     transcript:
       'In many cultures, youth is often associated with vitality, health, and fertility, which are evolutionary indicators of attractiveness. Consequently, the beauty industry reinforces this connection through marketing that promotes anti-aging products to maintain a youthful appearance.',
@@ -3870,7 +3870,7 @@ const book19Test4Questions: Question[] = [
     question:
       "Do you think that being beautiful could affect a person's success in life?",
     audioAsset: 'q10.mp3',
-    duration: 4.15,
+    duration: 4.26,
     part: 3,
     transcript:
       "It is undeniable that society often equates physical attractiveness with positive traits, a phenomenon sometimes called the 'halo effect.' While it shouldn't be the case, being perceived as beautiful can provide social advantages and open doors in various professional and personal contexts.",
@@ -3879,7 +3879,7 @@ const book19Test4Questions: Question[] = [
     question:
       "Why might society's ideas about beauty change over time?",
     audioAsset: 'q11.mp3',
-    duration: 2.87,
+    duration: 3.06,
     part: 3,
     transcript:
       "Societal standards of beauty are constantly evolving due to shifts in culture, media influence, and historical context. What is considered attractive in one generation can be drastically different in another as global trends and personal values continue to change.",
@@ -4321,7 +4321,7 @@ const book18Test1Questions: Question[] = [
     question:
       'How do you usually pay your bills — in cash or by another method? [Why?]',
     audioAsset: 'q2.mp3',
-    duration: 1.78,
+    duration: 3.66,
     part: 1,
     transcript:
       'I almost exclusively pay my bills online through my bank\'s mobile application. I find this method the most efficient because it allows me to automate recurring payments, which ensures that I never miss a deadline and saves me the trouble of visiting a physical office.',
@@ -4329,7 +4329,7 @@ const book18Test1Questions: Question[] = [
   {
     question: 'Have you ever forgotten to pay a bill? [Why/Why not?]',
     audioAsset: 'q3.mp3',
-    duration: 1.46,
+    duration: 1.85,
     part: 1,
     transcript:
       'Yes, I have unfortunately forgotten to pay a utility bill in the past. It happened because I was extremely busy with work during that period and I neglected to check my email notifications, which led to a late payment fee on my account.',
@@ -4338,7 +4338,7 @@ const book18Test1Questions: Question[] = [
     question:
       'Is there anything you could do to make your bills cheaper? [Why/Why not?]',
     audioAsset: 'q4.mp3',
-    duration: 1.78,
+    duration: 3.87,
     part: 1,
     transcript:
       'To reduce my bills, I have started being more conscious of my energy consumption by switching off lights and appliances when they are not in use. Additionally, I periodically review my subscription services to cancel those that I no longer use, which has helped me save a significant amount of money each month.',
@@ -4346,7 +4346,7 @@ const book18Test1Questions: Question[] = [
   {
     question: 'Describe some food or drink that you learned to prepare.',
     audioAsset: 'q5.mp3',
-    duration: 2.56,
+    duration: 3.06,
     part: 2,
     youShouldSay: [
       'what you learned to prepare',
@@ -4360,7 +4360,7 @@ const book18Test1Questions: Question[] = [
   {
     question: 'What kinds of things can children learn to cook?',
     audioAsset: 'q6.mp3',
-    duration: 2.98,
+    duration: 2.38,
     part: 3,
     transcript:
       'Children can start by learning basic tasks such as washing vegetables, mixing ingredients for a cake, or preparing simple sandwiches. As they grow older, they can progress to using kitchen appliances like a toaster or learning how to safely boil pasta and prepare healthy salads.',
@@ -4368,7 +4368,7 @@ const book18Test1Questions: Question[] = [
   {
     question: 'Do you think it is important for children to learn to cook?',
     audioAsset: 'q7.mp3',
-    duration: 2.27,
+    duration: 3.06,
     part: 3,
     transcript:
       'I believe it is highly important. Learning to cook is a fundamental life skill that fosters independence and encourages children to make healthier food choices. It also helps them understand nutrition and the effort required to prepare a meal, which can lead to a greater appreciation for food.',
@@ -4377,7 +4377,7 @@ const book18Test1Questions: Question[] = [
     question:
       'Do you think young people should learn to cook at home or at school?',
     audioAsset: 'q8.mp3',
-    duration: 2.98,
+    duration: 4.08,
     part: 3,
     transcript:
       'I think a combination of both is ideal. Home is a great place to learn practical skills from family members, which creates a bonding experience. However, school provides a structured environment where children can learn about food safety, hygiene, and the science behind cooking in a professional setting.',
@@ -4386,7 +4386,7 @@ const book18Test1Questions: Question[] = [
     question:
       'How enjoyable do you think it would be to work as a professional chef?',
     audioAsset: 'q9.mp3',
-    duration: 3.97,
+    duration: 3.53,
     part: 3,
     transcript:
       'Working as a professional chef is likely very rewarding but also extremely demanding. While the creative aspect of designing menus and experimenting with flavors is enjoyable, the long hours and high-pressure environment of a commercial kitchen can be quite exhausting.',
@@ -4394,7 +4394,7 @@ const book18Test1Questions: Question[] = [
   {
     question: 'What skills does a person need to be a great chef?',
     audioAsset: 'q10.mp3',
-    duration: 3.47,
+    duration: 2.87,
     part: 3,
     transcript:
       'To be a great chef, one needs excellent time management and the ability to work effectively under pressure. Beyond culinary techniques and knife skills, a chef must possess strong leadership qualities to manage a team and a keen attention to detail to ensure every dish meets a high standard.',
@@ -4403,7 +4403,7 @@ const book18Test1Questions: Question[] = [
     question:
       'How much influence do celebrity/TV chefs have on what ordinary people cook?',
     audioAsset: 'q11.mp3',
-    duration: 2.77,
+    duration: 4.31,
     part: 3,
     transcript:
       'Celebrity chefs have a massive influence on modern cooking trends. Through television and social media, they introduce people to exotic ingredients and complex techniques, which motivates many to step out of their comfort zones. They essentially make cooking more accessible and exciting for the average person.',
@@ -4812,89 +4812,89 @@ export const book20Test2Questions: Question[] = [
   {
     question: "What's your favourite fruit?",
     audioAsset: "q1.mp3",
-    duration: 1.44,
+    duration: 1.36,
     part: 1,
     transcript: "My absolute favourite fruit has to be mangoes. I really enjoy their sweet, tropical flavour, especially during the summer months when they are perfectly ripe. I find them incredibly refreshing as a snack or even in a fruit salad."
   },
   {
     question: "Are there any kinds of fruit that you don't like eating?",
     audioAsset: "q2.mp3",
-    duration: 2.66,
+    duration: 2.27,
     part: 1,
     transcript: "Actually, I'm not a huge fan of papayas. I find the texture a bit too soft for my liking, and the smell can be quite overpowering. Aside from that, I generally enjoy most other types of fruit."
   },
   {
     question: "Do you like eating cooked food that has fruit in it?",
     audioAsset: "q3.mp3",
-    duration: 2.35,
+    duration: 2.46,
     part: 1,
     transcript: "I generally prefer to eat fruit in its raw, natural state because I like the crispness. However, I do enjoy cooked fruit in specific dishes, such as apple pie or a warm berry crumble, as the cooking process brings out a lovely sweetness."
   },
   {
     question: "Where's the best place to buy fruit where you live?",
     audioAsset: "q4.mp3",
-    duration: 2.35,
+    duration: 2.17,
     part: 1,
     transcript: "The best place to buy fresh produce in my neighbourhood is the local farmers' market held every Saturday morning. The fruits there are sourced directly from nearby farms, so they are always much fresher and higher quality than what I find in the large supermarkets."
   },
 
-  // Part 2: Question 5 (Cue Card - Traditional Dish)
+  // Part 2: Question 5 (Cue Card: Time you changed a plan)
   {
-    question: "Describe a traditional dish or special food from your country that you enjoy.",
+    question: "Describe a time when you changed a plan you had made.",
     audioAsset: "q5.mp3",
-    duration: 3.55,
+    duration: 2.77,
     part: 2,
     youShouldSay: [
-      "what the food is and what it is made of",
-      "when and where you usually eat it",
-      "how it is prepared",
-      "and explain why you enjoy eating this traditional dish."
+      "what this plan was",
+      "why you made it",
+      "what you changed it to",
+      "and explain how you felt about changing this plan."
     ],
-    transcript: "One traditional dish from my country that I thoroughly enjoy is Pho, a aromatic noodle soup made with slow-simmered beef broth, rice noodles, tender beef slices, and fresh herbs like basil and cilantro. It is traditionally eaten for breakfast or during family gatherings. The complex broth is simmered for over eight hours with star anise, cinnamon, and ginger, giving it a rich and comforting flavour profile. I love it because it represents our cultural heritage and always brings back warm memories of family meals."
+    transcript: "I recall an occasion last summer when I had meticulously planned a weekend hiking trip to the mountains with a group of friends. We had booked equipment and scheduled our departure for early Saturday morning. However, on Friday evening, severe weather warnings were issued for torrential rain and localized flash flooding in the valley. Recognizing the safety risks, we quickly convened and decided to alter our plan. Instead of canceling completely, we transitioned our trip into an indoor cultural weekend in the nearest city, visiting modern art galleries and dining at local bistros. While I initially felt disappointed about missing the mountain trail, adapting flexibly turned out to be immensely enjoyable and kept everyone safe."
   },
 
-  // Part 3: Questions 6-11 (Food Production, Diets & Culture)
+  // Part 3: Questions 6-11 (Making plans / Career decisions)
   {
-    question: "How have people's eating habits changed in your country over recent years?",
+    question: "What kinds of plans do friends make together?",
     audioAsset: "q6.mp3",
-    duration: 3.24,
-    part: 3,
-    transcript: "In recent years, fast food and food delivery services have become much more prevalent due to busy urban lifestyles. However, there is also a growing awareness of healthy eating, with more people choosing organic produce and plant-based diets."
-  },
-  {
-    question: "Do you think imported foods are better than locally grown produce?",
-    audioAsset: "q7.mp3",
-    duration: 2.35,
-    part: 3,
-    transcript: "Not necessarily. While imported foods offer variety out of season, locally grown produce is generally fresher, more nutritional, and has a lower carbon footprint because it doesn't require long-distance transportation."
-  },
-  {
-    question: "What role does traditional food play in preserving national culture?",
-    audioAsset: "q8.mp3",
-    duration: 2.87,
-    part: 3,
-    transcript: "Traditional cuisine is a vital expression of cultural identity. Recipes passed down through generations reflect a country's history, climate, and values, fostering a sense of community and pride during cultural celebrations."
-  },
-  {
-    question: "Should governments introduce taxes on unhealthy sugary foods and beverages?",
-    audioAsset: "q9.mp3",
     duration: 2.46,
     part: 3,
-    transcript: "I believe levying taxes on high-sugar items can discourage excessive consumption and generate revenue to fund public health initiatives, helping to combat lifestyle diseases like obesity and diabetes."
+    transcript: "Friends often coordinate a wide variety of activities, from casual gatherings like dining out or watching movies to major adventures such as holiday travel and road trips. They also collaborate on joint projects, sports routines, and milestone celebrations like birthday gatherings."
   },
   {
-    question: "How important is it for children to learn cooking skills at school?",
+    question: "Do you think it's better to discuss future plans with friends or with family?",
+    audioAsset: "q7.mp3",
+    duration: 4.68,
+    part: 3,
+    transcript: "I think both perspectives offer distinct advantages. Family members generally provide grounded, long-term guidance and unconditional emotional support because they understand your background intimately. On the other hand, friends of a similar age often share contemporary perspectives and relatable career dilemmas, providing practical day-to-day feedback."
+  },
+  {
+    question: "When making plans for the future, how important is it to not be influenced by friends?",
+    audioAsset: "q8.mp3",
+    duration: 3.76,
+    part: 3,
+    transcript: "It is crucial to maintain an independent mindset when determining personal and career paths. While peers can offer valuable insights, letting peer pressure or social conformity dictate major decisions like choosing a university degree or career path can lead to regret. Decisions should ultimately align with one's individual values and passions."
+  },
+  {
+    question: "When people are choosing what to study, why do they choose a particular course?",
+    audioAsset: "q9.mp3",
+    duration: 2.06,
+    part: 3,
+    transcript: "People choose academic courses based on multiple factors, including genuine intellectual interest, perceived employment opportunities, and parental encouragement. In many cases, earning potential and the prestige associated with certain professions strongly sway their educational choices."
+  },
+  {
+    question: "How important is it that the course should lead directly to a career?",
     audioAsset: "q10.mp3",
-    duration: 2.56,
+    duration: 3.55,
     part: 3,
-    transcript: "Teaching children basic culinary skills is essential for their independence. It equips them to make healthy food choices, understand nutrition, and avoid over-reliance on processed convenience foods later in life."
+    transcript: "While direct career progression provides security, especially in technical disciplines like medicine or engineering, general degrees in humanities and sciences cultivate critical thinking, adaptability, and problem-solving skills that are transferable across multiple modern industries."
   },
   {
-    question: "Will traditional family cooking disappear in the future due to modern technology?",
+    question: "Why is it a good idea to get some work experience before deciding on a future career?",
     audioAsset: "q11.mp3",
-    duration: 2.77,
+    duration: 4.57,
     part: 3,
-    transcript: "While convenience foods and pre-packaged meals are popular, home cooking remains a cherished social activity. Many families still value gathering to cook together, so traditional recipes are likely to endure."
+    transcript: "Practical work experience provides realistic exposure to the workplace culture, day-to-day responsibilities, and emotional demands of a job. It enables students to test their interests before making costly long-term commitments, thereby avoiding career dissatisfaction later in life."
   }
 ];
 
@@ -5074,8 +5074,14 @@ export default function SpeakingPracticePage() {
     if (!currentQuestion) return;
     const match = selectedTestTitle.match(/Book\s+(\d+)\s+Test\s+(\d+)/i);
     const folderName = match ? `IELTS BOOK ${match[1]} Test ${match[2]}` : selectedTestTitle.replace('Book', 'BOOK').trim();
-    const primaryUrl = `/assets/Speaking/${folderName}/${currentQuestion.audioAsset}`;
-    const fallbackUrl = `/assets/Speaking/${selectedTestTitle}/${currentQuestion.audioAsset}`;
+    
+    // Candidates in prioritized fallback order:
+    const candidateUrls = [
+      `/assets/Speaking/${folderName}/${currentQuestion.audioAsset}`,
+      `/audio/speaking/${folderName}/${currentQuestion.audioAsset}`,
+      `/assets/Speaking/${selectedTestTitle}/${currentQuestion.audioAsset}`,
+      `/audio/speaking/${selectedTestTitle}/${currentQuestion.audioAsset}`
+    ];
 
     if (audioRef.current) {
       audioRef.current.pause();
@@ -5083,7 +5089,6 @@ export default function SpeakingPracticePage() {
 
     setIsPlayingAudio(true);
 
-    // Safety watchdog timer: only triggers if audio fails to complete naturally after 25s
     let timer: NodeJS.Timeout | null = null;
     const endPlayback = () => {
       if (timer) clearTimeout(timer);
@@ -5094,47 +5099,42 @@ export default function SpeakingPracticePage() {
       endPlayback();
     }, 25000);
 
-    const audio = new Audio(primaryUrl);
-    audioRef.current = audio;
-
-    audio.onloadedmetadata = () => {
-      if (timer) clearTimeout(timer);
-      const safeDuration = (audio.duration && isFinite(audio.duration)) 
-        ? Math.max((audio.duration + 5) * 1000, 15000) 
-        : 25000;
-      timer = setTimeout(endPlayback, safeDuration);
-    };
-
-    audio.onended = endPlayback;
-
-    audio.onerror = () => {
-      // Try fallback URL if primary fails
-      const fallbackAudio = new Audio(fallbackUrl);
-      audioRef.current = fallbackAudio;
-      fallbackAudio.onloadedmetadata = () => {
-        if (timer) clearTimeout(timer);
-        const safeDuration = (fallbackAudio.duration && isFinite(fallbackAudio.duration)) 
-          ? Math.max((fallbackAudio.duration + 5) * 1000, 15000) 
-          : 25000;
-        timer = setTimeout(endPlayback, safeDuration);
-      };
-      fallbackAudio.onended = endPlayback;
-      fallbackAudio.onerror = () => {
+    const tryPlayCandidate = (index: number) => {
+      if (index >= candidateUrls.length) {
+        // Only if all audio asset paths fail, fall back to speech synthesis
         endPlayback();
         if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
           const utter = new SpeechSynthesisUtterance(currentQuestion.question);
           utter.lang = 'en-GB';
           window.speechSynthesis.speak(utter);
         }
+        return;
+      }
+
+      const url = candidateUrls[index];
+      const audio = new Audio(url);
+      audioRef.current = audio;
+
+      audio.onloadedmetadata = () => {
+        if (timer) clearTimeout(timer);
+        const safeDuration = (audio.duration && isFinite(audio.duration)) 
+          ? Math.max((audio.duration + 5) * 1000, 15000) 
+          : 25000;
+        timer = setTimeout(endPlayback, safeDuration);
       };
-      fallbackAudio.play().catch(() => {
-        endPlayback();
+
+      audio.onended = endPlayback;
+
+      audio.onerror = () => {
+        tryPlayCandidate(index + 1);
+      };
+
+      audio.play().catch(() => {
+        tryPlayCandidate(index + 1);
       });
     };
 
-    audio.play().catch(() => {
-      endPlayback();
-    });
+    tryPlayCandidate(0);
   };
 
   const fineTuneAnswer = (userAns: string, q: Question) => {
