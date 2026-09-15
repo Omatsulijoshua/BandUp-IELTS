@@ -5489,11 +5489,11 @@ export default function SpeakingPracticePage() {
             ]
           : selectedTestTitle.includes('Book 15 Test 1')
           ? [
-              "Give extended answers in Part 3 by examining different perspectives, comparing situations, or discussing broader social implications.",
-              "Support your opinions with clear explanations, real-world examples, or hypothetical scenarios.",
-              "Use sophisticated discourse markers to structure complex thoughts (e.g., 'On the one hand', 'Conversely', 'In terms of').",
-              "Demonstrate a wide range of topic-specific vocabulary relevant to the themes discussed, such as hospitality, career longevity, and management.",
-              "Practice developing arguments logically without relying on memorized templates or simplistic yes/no answers.",
+              "You must answer the questions asked; saying 'No' to open-ended questions is an automatic failure.",
+              "Provide full sentences. In the IELTS speaking test, you are expected to expand on your answers with reasons, examples, and personal experiences.",
+              "If you do not understand a question, ask the examiner to repeat or clarify it rather than giving an irrelevant response.",
+              "Practice speaking at length. A minimum of 2-3 sentences per answer is required to demonstrate your English proficiency.",
+              "Review the IELTS Speaking criteria; 'Task Response' requires you to engage with the topic provided.",
             ]
           : selectedTestTitle.includes('Book 15 Test 2')
           ? [
@@ -5764,11 +5764,11 @@ export default function SpeakingPracticePage() {
             ]
           : selectedTestTitle.includes('Book 15 Test 1')
           ? [
-              "Use your 1-minute preparation time to write down bullet points and key vocabulary for each prompt on the card.",
-              "Aim to speak for the full 2 minutes by addressing all four bullet points systematically and adding personal anecdotes.",
-              "Structure your talk chronologically: start with the introduction, elaborate on the details, and conclude with your personal feelings.",
-              "Use descriptive adjectives and sensory details to make your description more vivid and engaging for the listener.",
-              "Practice speaking continuously without long pauses; use discourse markers like 'moving on to', 'in addition to that', and 'finally'.",
+              "You must provide a verbal response to the examiner's question; silence results in a score of 0.",
+              "Practice speaking for at least 1-2 minutes for Part 2 tasks.",
+              "If you do not know a specific hotel, you are permitted to invent a fictional story or describe a generic hotel you have stayed at.",
+              "Prepare a template for descriptive tasks (e.g., location, appearance, services, and why you remember it) to avoid freezing during the test.",
+              "Remember that the IELTS Speaking test requires active participation; ensure you attempt every prompt.",
             ]
           : selectedTestTitle.includes('Book 15 Test 2')
           ? [
