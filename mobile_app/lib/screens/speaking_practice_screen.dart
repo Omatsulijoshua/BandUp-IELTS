@@ -2497,6 +2497,154 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 17 TEST 2 (Books & Reading / Big City Cue Card / Visiting Cities & Urban Growth)
+  // ==========================================
+  final List<Map<String, dynamic>> _book17Test2Questions = [
+    // Part 1: Questions 1-4 (Books & Reading)
+    {
+      'question':
+          'Did you have a favourite book when you were a child? [Why/Why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.15,
+      'start': 0.0,
+      'promptEnd': 2.15,
+      'end': 2.15,
+      'part': 1,
+      'transcript':
+          'Yes, I absolutely loved reading \'The Chronicles of Narnia\' when I was a child. It was my favorite because it transported me to a magical world filled with wonder and adventure. I used to spend hours every weekend curled up with those books, completely lost in the story.',
+    },
+    {
+      'question':
+          'How much reading do you do for your work/studies? [Why/Why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.25,
+      'start': 0.0,
+      'promptEnd': 2.25,
+      'end': 2.25,
+      'part': 1,
+      'transcript':
+          'As a university student, I find myself reading extensively for my studies. I have to go through numerous academic journals and textbooks on a daily basis to keep up with my coursework. It is quite demanding, but it is essential for me to stay informed in my field.',
+    },
+    {
+      'question':
+          'What kinds of books do you read for pleasure? [Why/Why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 1.6,
+      'start': 0.0,
+      'promptEnd': 1.6,
+      'end': 1.6,
+      'part': 1,
+      'transcript':
+          'In my spare time, I am quite fond of reading historical fiction and mystery novels. I enjoy historical fiction because it allows me to learn about different eras, while mystery books keep me engaged as I try to solve the plot twists before the ending.',
+    },
+    {
+      'question':
+          'Do you prefer to read a newspaper or a magazine online, or to buy a copy? [Why?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 3.75,
+      'start': 0.0,
+      'promptEnd': 3.75,
+      'end': 3.75,
+      'part': 1,
+      'transcript':
+          'I prefer to buy physical copies of newspapers and magazines because I enjoy the tactile experience of flipping through the pages. I find that I concentrate better when I am reading a hard copy rather than staring at a digital screen.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Big City Visit)
+    {
+      'question': 'Describe a big city you would like to visit.',
+      'audioAsset': 'q5.mp3',
+      'duration': 1.6,
+      'start': 0.0,
+      'promptEnd': 1.6,
+      'end': 1.6,
+      'part': 2,
+      'youShouldSay': [
+        'which big city you would like to visit',
+        'how you would travel there',
+        'what you would do there',
+        'and explain why you would like to visit this big city.'
+      ],
+      'transcript':
+          'I have always dreamed of visiting Tokyo, Japan. It is a fascinating metropolis that perfectly blends ancient traditions with cutting-edge technology. I am particularly drawn to the vibrant atmosphere of districts like Shibuya and the serene beauty of the Meiji Shrine. Furthermore, I am a huge fan of Japanese cuisine, so the opportunity to experience authentic sushi and ramen in their place of origin would be incredible. Visiting such a dynamic city would be a highlight of my life.',
+    },
+
+    // Part 3: Questions 6-11 (Visiting Cities on Holiday & Urban Growth)
+    {
+      'question':
+          'What are the most interesting things to do while visiting cities on holiday?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.3,
+      'start': 0.0,
+      'promptEnd': 3.3,
+      'end': 3.3,
+      'part': 3,
+      'transcript':
+          'The most interesting things to do in a city often involve exploring local culture. Visiting historical landmarks, trying authentic street food, and wandering through local markets provide a deeper understanding of the city\'s character. Additionally, attending local festivals or visiting museums can offer unique insights into the region\'s history and traditions.',
+    },
+    {
+      'question':
+          'Why can it be expensive to visit cities on holiday?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.55,
+      'start': 0.0,
+      'promptEnd': 2.55,
+      'end': 2.55,
+      'part': 3,
+      'transcript':
+          'Visiting cities can be quite costly primarily due to inflated prices in tourist-centric areas. Accommodation in city centers is often expensive, and dining at popular restaurants frequently comes with a significant markup. Furthermore, entrance fees for major attractions and the costs associated with urban transport can quickly add up for a traveler.',
+    },
+    {
+      'question':
+          'Do you think it is better to visit cities alone or in a group with friends?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.75,
+      'start': 0.0,
+      'promptEnd': 3.75,
+      'end': 3.75,
+      'part': 3,
+      'transcript':
+          'I believe both options have their merits, but it depends on the individual\'s personality. Traveling alone offers complete freedom and the chance for self-reflection, while traveling with friends provides a shared experience and increased safety. Personally, I prefer a group setting because discussing experiences with others makes the journey more memorable.',
+    },
+    {
+      'question':
+          'Why have cities increased in size in recent years?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.35,
+      'start': 0.0,
+      'promptEnd': 2.35,
+      'end': 2.35,
+      'part': 3,
+      'transcript':
+          'Cities have expanded rapidly in recent years largely due to rural-to-urban migration. People move to cities in search of better employment opportunities, higher quality healthcare, and superior educational facilities. This centralization of resources acts as a magnet for individuals seeking a more prosperous life.',
+    },
+    {
+      'question':
+          'What are the challenges created by ever-growing cities?',
+      'audioAsset': 'q10.mp3',
+      'duration': 2.4,
+      'start': 0.0,
+      'promptEnd': 2.4,
+      'end': 2.4,
+      'part': 3,
+      'transcript':
+          'The rapid growth of cities creates significant challenges, most notably in infrastructure and environmental sustainability. Overcrowding often leads to traffic congestion, housing shortages, and increased pressure on public services like water and electricity. Furthermore, urban sprawl can lead to higher pollution levels and the loss of green spaces.',
+    },
+    {
+      'question':
+          'In what ways do you think cities of the future will be different to cities today?',
+      'audioAsset': 'q11.mp3',
+      'duration': 4.1,
+      'start': 0.0,
+      'promptEnd': 4.1,
+      'end': 4.1,
+      'part': 3,
+      'transcript':
+          'Cities of the future will likely be much more technology-driven and environmentally sustainable. We can expect to see widespread adoption of renewable energy, automated public transport systems, and vertical farming to optimize space. Additionally, smart infrastructure will help manage traffic flow and waste disposal more efficiently than today.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 13 TEST 3 (Money & Shopping / Interesting Discussion Cue Card / Discussing Problems & Communication Skills)
   // ==========================================
   final List<Map<String, dynamic>> _book13Test3Questions = [
@@ -3674,6 +3822,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book16Test3Questions;
     } else if (_selectedTestTitle.contains('Book 16 Test 4')) {
       return _book16Test4Questions;
+    } else if (_selectedTestTitle.contains('Book 17 Test 2')) {
+      return _book17Test2Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
