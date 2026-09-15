@@ -396,14 +396,20 @@ export const book20Test4Questions = [
     "transcript": "I think I possess the qualities to be a successful leader, specifically because I am highly organized and empathetic. I am able to motivate others by understanding their individual strengths, which is essential for guiding a team toward a common goal."
   },
   {
-    "question": "Describe a travel journey that was delayed.",
+    "question": "Describe a time when you had a long discussion about a news story.",
     "audioAsset": "q5.mp3",
     "duration": 3.4,
     "start": 0,
     "promptEnd": 3.4,
     "end": 3.4,
     "part": 2,
-    "transcript": "A memorable travel delay happened last winter during a flight to a holiday destination. Heavy snowfall grounded all departures for over six hours. Passengers waited in the terminal while airport staff provided updates and refreshment vouchers. Although waiting was tiring, safety was paramount."
+    "youShouldSay": [
+      "what the news story was about",
+      "who you discussed this news story with",
+      "what people's opinions were",
+      "and explain why you had such a long discussion about this news story."
+    ],
+    "transcript": "I recall a time when I had a very intense discussion with my brother about a local news story regarding the construction of a new shopping mall in our neighborhood. The news had sparked a lot of controversy because it involved cutting down a protected forest area. We spent nearly an hour debating the trade-offs between economic development and environmental conservation. My brother argued that the mall would bring much-needed jobs to our town, while I maintained that the ecological cost was too high to justify. Ultimately, it was a fascinating conversation that really highlighted how differently people can view the same issue based on their personal priorities."
   },
   {
     "question": "What are the main causes of public transport delays?",

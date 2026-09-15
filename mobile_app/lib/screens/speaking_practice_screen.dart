@@ -5709,114 +5709,6 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 ];
 
   final List<Map<String, dynamic>> _book20Test1Questions = [
-    {
-        "question": "What is your favorite color? [Why?]",
-        "audioAsset": "q1.mp3",
-        "duration": 1.5,
-        "start": 0,
-        "promptEnd": 1.5,
-        "end": 1.5,
-        "part": 1,
-        "transcript": "My favorite color is navy blue because it is calming yet professional. I tend to choose blue for my clothing and home decor."
-    },
-    {
-        "question": "Do colors have special meanings in your culture?",
-        "audioAsset": "q2.mp3",
-        "duration": 2.4,
-        "start": 0,
-        "promptEnd": 2.4,
-        "end": 2.4,
-        "part": 1,
-        "transcript": "Yes, in my culture, white symbolizes peace and purity, while bright colors like green and yellow are associated with joy and celebration."
-    },
-    {
-        "question": "Did you like bright colors when you were a child?",
-        "audioAsset": "q3.mp3",
-        "duration": 2.6,
-        "start": 0,
-        "promptEnd": 2.6,
-        "end": 2.6,
-        "part": 1,
-        "transcript": "As a child, I loved bright colors such as red and yellow because they felt energetic and cheerful."
-    },
-    {
-        "question": "Would you ever paint the walls of your room a dark color?",
-        "audioAsset": "q4.mp3",
-        "duration": 2.2,
-        "start": 0,
-        "promptEnd": 2.2,
-        "end": 2.2,
-        "part": 1,
-        "transcript": "I prefer lighter wall shades because dark colors can make a room feel smaller and less bright."
-    },
-    {
-        "question": "Describe an impressive person you met recently.",
-        "audioAsset": "q5.mp3",
-        "duration": 4.3,
-        "start": 0,
-        "promptEnd": 4.3,
-        "end": 4.3,
-        "part": 2,
-        "transcript": "Recently, I met a guest lecturer at an educational seminar who specializes in environmental sustainability. She delivered an inspiring talk on urban recycling initiatives and community garden projects. Her passion, depth of knowledge, and articulate delivery left a lasting impression on everyone in attendance."
-    },
-    {
-        "question": "What qualities make a person impressive to others?",
-        "audioAsset": "q6.mp3",
-        "duration": 3.2,
-        "start": 0,
-        "promptEnd": 3.2,
-        "end": 3.2,
-        "part": 3,
-        "transcript": "Qualities like genuine humbleness, strong communication skills, empathy, and remarkable expertise make an individual truly impressive."
-    },
-    {
-        "question": "Are role models important for young people today?",
-        "audioAsset": "q7.mp3",
-        "duration": 1.7,
-        "start": 0,
-        "promptEnd": 1.7,
-        "end": 1.7,
-        "part": 3,
-        "transcript": "Yes, positive role models provide guidance and values, encouraging young people to strive for meaningful achievements."
-    },
-    {
-        "question": "How do celebrities influence the behavior of teenagers?",
-        "audioAsset": "q8.mp3",
-        "duration": 3.4,
-        "start": 0,
-        "promptEnd": 3.4,
-        "end": 3.4,
-        "part": 3,
-        "transcript": "Celebrities strongly shape fashion choices, lifestyle habits, and public attitudes among teens through social media presence."
-    },
-    {
-        "question": "Is it better to admire someone for their personality or their accomplishments?",
-        "audioAsset": "q9.mp3",
-        "duration": 2.1,
-        "start": 0,
-        "promptEnd": 2.1,
-        "end": 2.1,
-        "part": 3,
-        "transcript": "Both matter, but character and integrity are paramount because achievements without ethics carry little long-term value."
-    },
-    {
-        "question": "How has social media altered the way people gain public recognition?",
-        "audioAsset": "q10.mp3",
-        "duration": 2.5,
-        "start": 0,
-        "promptEnd": 2.5,
-        "end": 2.5,
-        "part": 3,
-        "transcript": "Social media allows anyone to publish content globally without traditional gatekeepers, democratizing path to fame."
-    },
-    {
-        "question": "Should public figures be expected to act as ethical role models?",
-        "audioAsset": "q11.mp3",
-        "duration": 3,
-        "start": 0,
-        "promptEnd": 3,
-        "end": 3,
-        "part": 3,
         "transcript": "Because public figures command large followings, carrying high ethical standards positively impacts society."
     }
 ];
@@ -6089,14 +5981,20 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         "transcript": "I think I possess the qualities to be a successful leader, specifically because I am highly organized and empathetic. I am able to motivate others by understanding their individual strengths, which is essential for guiding a team toward a common goal."
     },
     {
-        "question": "Describe a travel journey that was delayed.",
+        "question": "Describe a time when you had a long discussion about a news story.",
         "audioAsset": "q5.mp3",
         "duration": 3.4,
         "start": 0,
         "promptEnd": 3.4,
         "end": 3.4,
         "part": 2,
-        "transcript": "A memorable travel delay happened last winter during a flight to a holiday destination. Heavy snowfall grounded all departures for over six hours. Passengers waited in the terminal while airport staff provided updates and refreshment vouchers. Although waiting was tiring, safety was paramount."
+        "youShouldSay": [
+            "what the news story was about",
+            "who you discussed this news story with",
+            "what people's opinions were",
+            "and explain why you had such a long discussion about this news story."
+        ],
+        "transcript": "I recall a time when I had a very intense discussion with my brother about a local news story regarding the construction of a new shopping mall in our neighborhood. The news had sparked a lot of controversy because it involved cutting down a protected forest area. We spent nearly an hour debating the trade-offs between economic development and environmental conservation. My brother argued that the mall would bring much-needed jobs to our town, while I maintained that the ecological cost was too high to justify. Ultimately, it was a fascinating conversation that really highlighted how differently people can view the same issue based on their personal priorities."
     },
     {
         "question": "What are the main causes of public transport delays?",
