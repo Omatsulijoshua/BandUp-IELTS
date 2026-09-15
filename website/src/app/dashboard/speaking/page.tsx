@@ -2069,6 +2069,108 @@ const book15Test1Questions: Question[] = [
   },
 ];
 
+const book15Test2Questions: Question[] = [
+  // Part 1: Questions 1-4 (Languages)
+  {
+    question: 'How many languages can you speak? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 1.25,
+    part: 1,
+    transcript:
+      'I am currently fluent in two languages: my native language and English. I have also been studying French for several years because I believe it is a beautiful language, though I would not say I am fully proficient in it yet.',
+  },
+  {
+    question: 'How useful will English be to you in your future? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.50,
+    part: 1,
+    transcript:
+      'English will be incredibly useful for my future career. As I plan to work in an international organization, English will serve as the primary medium of communication with colleagues and clients from diverse backgrounds across the globe.',
+  },
+  {
+    question: 'What do you remember about learning languages at school? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.25,
+    part: 1,
+    transcript:
+      'I remember my school language classes being quite structured. We spent a lot of time focusing on grammar rules and vocabulary lists, which helped build a solid foundation, even though we didn\'t get many opportunities to practice speaking in real-life situations.',
+  },
+  {
+    question: 'What do you think would be the hardest language for you to learn? [Why?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.15,
+    part: 1,
+    transcript:
+      'I believe Mandarin Chinese would be the most challenging language for me to master. The complex tonal system and the requirement to memorize thousands of unique characters present a significant learning curve that differs greatly from the languages I am familiar with.',
+  },
+
+  // Part 2: Question 5 (Cue Card: Describe a website that you bought something from)
+  {
+    question: 'Describe a website that you bought something from.',
+    audioAsset: 'q5.mp3',
+    duration: 1.90,
+    part: 2,
+    youShouldSay: [
+      'what the website is',
+      'what you bought from this website',
+      'how satisfied you were with what you bought',
+      'and explain what you liked or disliked about using this website.',
+    ],
+    transcript:
+      'One website I frequently use to purchase items is Amazon. I remember buying a high-quality noise-canceling headset from there last year for my studies. The interface is incredibly user-friendly, and the search filters make it very easy to find specific products. What I particularly appreciate is the customer review section, which helped me make an informed decision about the product\'s durability. The delivery was remarkably fast, arriving at my doorstep within two days of the order.',
+  },
+
+  // Part 3: Questions 6-11 (Online Shops, Consumer Society & Consumerism)
+  {
+    question: 'What kinds of things do people in your country often buy from online shops?',
+    audioAsset: 'q6.mp3',
+    duration: 3.75,
+    part: 3,
+    transcript:
+      'In my country, online shopping has become incredibly popular. People frequently purchase electronic gadgets, clothing, and household appliances because it is convenient and often cheaper than physical retail stores.',
+  },
+  {
+    question: 'Why do you think online shopping has become so popular nowadays?',
+    audioAsset: 'q7.mp3',
+    duration: 2.45,
+    part: 3,
+    transcript:
+      'I believe online shopping has surged in popularity primarily due to the convenience it offers. Consumers can browse through thousands of products from the comfort of their homes and have items delivered directly to their doorsteps within days.',
+  },
+  {
+    question: 'What are some possible disadvantages of buying things from online shops?',
+    audioAsset: 'q8.mp3',
+    duration: 3.50,
+    part: 3,
+    transcript:
+      'One of the main disadvantages is the inability to physically inspect items before purchasing, which often leads to disappointment if the quality is poor. Additionally, there are concerns regarding cyber security and the risk of identity theft during online transactions.',
+  },
+  {
+    question: 'Why do many people today keep buying things which they do not need?',
+    audioAsset: 'q9.mp3',
+    duration: 3.05,
+    part: 3,
+    transcript:
+      'Many people are driven by the psychological need for instant gratification or the desire to keep up with current trends. Advertising and social media also play a significant role in creating a false sense of necessity for products that people do not truly require.',
+  },
+  {
+    question: 'Do you believe the benefits of a consumer society outweigh the disadvantages?',
+    audioAsset: 'q10.mp3',
+    duration: 4.55,
+    part: 3,
+    transcript:
+      'While consumerism has driven economic growth and provided people with a higher standard of living, I believe the disadvantages, such as environmental degradation and excessive waste, are becoming increasingly difficult to ignore. Therefore, I feel the negative impacts often outweigh the benefits.',
+  },
+  {
+    question: 'How possible is it to avoid the culture of consumerism?',
+    audioAsset: 'q11.mp3',
+    duration: 2.25,
+    part: 3,
+    transcript:
+      'Avoiding consumerism entirely is quite challenging in today\'s society, as we are constantly surrounded by marketing. However, it is possible to adopt a more mindful approach by practicing minimalism, prioritizing quality over quantity, and choosing to repair items rather than replacing them immediately.',
+  },
+];
+
 const book15Test3Questions: Question[] = [
   // Part 1: Questions 1-4 (Swimming)
   {
@@ -2499,11 +2601,220 @@ const book17Test2Questions: Question[] = [
   },
 ];
 
+
+const book15Test4Questions: Question[] = [
+  // Part 1: Questions 1-4 (Jewellery)
+  {
+    question: 'How often do you wear jewellery? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 1.88,
+    part: 1,
+    transcript:
+      'I rarely wear jewellery on a day-to-day basis because I prefer a minimalist style. However, I do occasionally wear a simple wristwatch or a ring when I am attending formal events or important business meetings.',
+  },
+  {
+    question: 'What type of jewellery do you like best? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 1.23,
+    part: 1,
+    transcript:
+      'I personally prefer silver jewellery, such as simple necklaces or stud earrings, because they are understated and elegant. I tend to avoid gold or overly flashy pieces because they don\'t really complement my daily outfits.',
+  },
+  {
+    question: 'When do people like to give jewellery in your country? [Why?]',
+    audioAsset: 'q3.mp3',
+    duration: 1.99,
+    part: 1,
+    transcript:
+      'In my country, jewellery is almost always exchanged during significant life milestones, such as weddings, engagements, or graduation ceremonies. It is also a very common gift during major cultural festivals or as a token of appreciation for a loved one.',
+  },
+  {
+    question: 'Have you ever given jewellery to someone as a gift? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 3.74,
+    part: 1,
+    transcript:
+      'Yes, I have. I once bought a silver bracelet for my mother as a birthday present. I chose it specifically because it was a timeless piece that I knew she would be able to wear on many different occasions.',
+  },
+
+  // Part 2: Question 5 (Cue Card: TV Programme about Science)
+  {
+    question:
+      'Describe an interesting TV programme you watched about a science topic.\n\nYou should say:\n• what science topic this TV programme was about\n• when you saw this TV programme\n• what you learnt from this TV programme about a science topic\n• and explain why you found this TV programme interesting.',
+    audioAsset: 'q5.mp3',
+    duration: 2.38,
+    part: 2,
+    transcript:
+      'I would like to talk about a fascinating documentary series I watched recently called \'Cosmos: A Spacetime Odyssey\'. It explores complex scientific concepts like the evolution of the universe and the laws of physics in a very accessible way. What I found particularly interesting was how the host used visual storytelling to explain the vastness of time and space, making abstract theories feel tangible. It really shifted my perspective on our place in the universe and sparked a genuine curiosity in me to learn more about astrophysics. I highly recommend it to anyone who wants to understand the wonders of science without feeling overwhelmed by technical jargon.',
+  },
+
+  // Part 3: Questions 6-11 (Science & Research Discussion)
+  {
+    question: 'How interested are most people in your country in science?',
+    audioAsset: 'q6.mp3',
+    duration: 2.64,
+    part: 3,
+    transcript:
+      'Generally speaking, interest in science varies significantly in my country. While the younger generation is increasingly tech-savvy and curious about innovation, older generations often focus more on traditional fields. Overall, there is a growing appreciation for scientific advancements, especially in technology and medicine.',
+  },
+  {
+    question: 'Why do you think children today might be better at science than their parents?',
+    audioAsset: 'q7.mp3',
+    duration: 2.48,
+    part: 3,
+    transcript:
+      'Children today are often more proficient in science because they have grown up in a digital age with constant access to information. Modern education systems emphasize STEM subjects much earlier than in the past. Consequently, they are more comfortable with experimental thinking and technological tools than their parents were at that age.',
+  },
+  {
+    question: 'How do you suggest the public can learn more about scientific developments?',
+    audioAsset: 'q8.mp3',
+    duration: 3.68,
+    part: 3,
+    transcript:
+      'I believe the public can learn more through interactive platforms like science museums, documentaries, and accessible online courses. Governments could also promote science festivals to engage the community. Furthermore, social media influencers in the scientific field can play a crucial role in making complex topics understandable for the average person.',
+  },
+  {
+    question: 'What do you think are the most important scientific discoveries in the last 100 years?',
+    audioAsset: 'q9.mp3',
+    duration: 2.80,
+    part: 3,
+    transcript:
+      'The most significant discovery in the last century is arguably the development of the internet, which revolutionized how we access knowledge. Additionally, the mapping of the human genome and the development of mRNA vaccines have been monumental. These breakthroughs have fundamentally changed our quality of life and our understanding of human biology.',
+  },
+  {
+    question: 'Do you agree or disagree that there are no more major scientific discoveries left to make?',
+    audioAsset: 'q10.mp3',
+    duration: 2.48,
+    part: 3,
+    transcript:
+      'I strongly disagree with that notion. Scientific history shows that every time we think we have discovered everything, new questions arise. For instance, we are still exploring the mysteries of dark matter in space and the complexities of quantum physics. There is an infinite amount of knowledge yet to be uncovered.',
+  },
+  {
+    question: 'Who should pay for scientific research - governments or private companies?',
+    audioAsset: 'q11.mp3',
+    duration: 4.44,
+    part: 3,
+    transcript:
+      'I believe a partnership is the most effective approach. Governments should fund fundamental research, which is often long-term and high-risk, as they focus on public benefit. Meanwhile, private companies are better suited for applied research and commercializing products, as they have the resources and the market incentive to bring innovations to the public quickly.',
+  },
+];
+
+const book17Test4Questions: Question[] = [
+  // Part 1: Questions 1-4 (Maps & Navigation)
+  {
+    question:
+      'Do you think it\'s better to use a paper map or a map on your phone? [Why?]',
+    audioAsset: 'q1.mp3',
+    duration: 3.15,
+    part: 1,
+    transcript:
+      'I personally prefer using a map on my phone because it is incredibly convenient and provides real-time updates on traffic. Unlike paper maps, digital ones have a GPS feature that tracks my exact location, which is a lifesaver when I am in an unfamiliar area.',
+  },
+  {
+    question:
+      'When was the last time you needed to use a map? [Why/Why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 1.95,
+    part: 1,
+    transcript:
+      'I actually used a map just last weekend when I was exploring a new neighborhood in the city. I needed to find a specific art gallery, and since the streets were quite winding, the digital map was essential for ensuring I didn\'t get lost.',
+  },
+  {
+    question:
+      'If you visit a new city, do you always use a map to find your way around? [Why/Why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 4.35,
+    part: 1,
+    transcript:
+      'Yes, I almost always rely on a map when visiting a new city. It gives me a sense of security and helps me plan my route efficiently so I can visit as many landmarks as possible without wasting time wandering around aimlessly.',
+  },
+  {
+    question:
+      'In general, do you find it easy to read maps? [Why/Why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.76,
+    part: 1,
+    transcript:
+      'Generally speaking, I find it quite easy to read maps, especially digital ones. I am quite tech-savvy, so navigating through map applications is intuitive for me, and I rarely struggle to understand the scale or the directions provided.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Occasion in a Hurry)
+  {
+    question: 'Describe an occasion when you had to do something in a hurry.',
+    audioAsset: 'q5.mp3',
+    duration: 2.76,
+    part: 2,
+    youShouldSay: [
+      'what you had to do',
+      'why you had to do this in a hurry',
+      'how well you did this',
+      'and explain how you felt about having to do this in a hurry.',
+    ],
+    transcript:
+      'I remember a time when I had to rush to catch a train for an important job interview. I had miscalculated the traffic, and I realized with only twenty minutes left that I was still miles away. I had to abandon my taxi and sprint through the station to reach the platform just as the doors were closing. It was an incredibly stressful experience, but it taught me the importance of better time management in the future.',
+  },
+
+  // Part 3: Questions 6-11 (Being Late, Punctuality & Study Time Management)
+  {
+    question: 'Do you think it\'s OK to arrive late when meeting a friend?',
+    audioAsset: 'q6.mp3',
+    duration: 2.38,
+    part: 3,
+    transcript:
+      'I don\'t think it is acceptable to be late for a friend. It shows a lack of respect for the other person\'s time. While minor delays can happen occasionally, making it a habit can damage the quality of the friendship.',
+  },
+  {
+    question: 'What should happen to people who arrive late for work?',
+    audioAsset: 'q7.mp3',
+    duration: 2.67,
+    part: 3,
+    transcript:
+      'In a professional setting, chronic lateness should be addressed through formal warnings or disciplinary actions. Employers rely on punctuality to maintain productivity. If an employee is consistently late, it disrupts the workflow and sets a poor example for the rest of the team.',
+  },
+  {
+    question: 'Can you suggest how people can make sure they don\'t arrive late?',
+    audioAsset: 'q8.mp3',
+    duration: 3.22,
+    part: 3,
+    transcript:
+      'People can ensure they are on time by planning ahead and allowing for unexpected delays. For instance, checking traffic reports before leaving or setting an alarm earlier can be very effective. It is also helpful to prepare belongings the night before to avoid last-minute rushing.',
+  },
+  {
+    question: 'Is it better to study for long periods or in shorter blocks of time?',
+    audioAsset: 'q9.mp3',
+    duration: 3.52,
+    part: 3,
+    transcript:
+      'I believe shorter blocks of time are generally more effective for most students. The human brain tends to lose focus after a certain period of intense concentration. Taking short, regular breaks helps to refresh the mind and improves long-term information retention.',
+  },
+  {
+    question:
+      'What are the likely effects of students not managing their study time well?',
+    audioAsset: 'q10.mp3',
+    duration: 3.48,
+    part: 3,
+    transcript:
+      'If students fail to manage their time, they often experience extreme stress and anxiety as deadlines approach. This usually leads to poor academic performance because they are rushing to complete tasks rather than understanding the material. Ultimately, it can discourage them from pursuing their studies further.',
+  },
+  {
+    question: 'How important is it for students to have enough leisure time?',
+    audioAsset: 'q11.mp3',
+    duration: 2.64,
+    part: 3,
+    transcript:
+      'Leisure time is absolutely vital for students. It allows them to decompress and recharge, which is necessary for maintaining good mental health. Without adequate time to relax, students are prone to burnout, which negatively impacts their ability to focus and perform well in their academic responsibilities.',
+  },
+];
+
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 17 Test 4': book17Test4Questions,
   'IELTS Book 17 Test 2': book17Test2Questions,
   'IELTS Book 16 Test 4': book16Test4Questions,
   'IELTS Book 16 Test 3': book16Test3Questions,
+  'IELTS Book 15 Test 4': book15Test4Questions,
   'IELTS Book 15 Test 3': book15Test3Questions,
+  'IELTS Book 15 Test 2': book15Test2Questions,
+  'IELTS Book 15 Test 1': book15Test1Questions,
   'IELTS Book 14 Test 4': book14Test4Questions,
   'IELTS Book 14 Test 3': book14Test3Questions,
   'IELTS Book 14 Test 2': book14Test2Questions,
@@ -2740,7 +3051,7 @@ export default function SpeakingPracticePage() {
 
     let band = 1.0;
     if (isSingleWordOrMinimal) {
-      if (selectedTestTitle.includes('Book 14 Test 4')) {
+      if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2')) {
         band = selectedPart === 1 ? 1.0 : 0.0;
       } else if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
@@ -2760,7 +3071,7 @@ export default function SpeakingPracticePage() {
     } else if (totalWords > 5) {
       band = 3.0;
     } else {
-      if (selectedTestTitle.includes('Book 14 Test 4')) {
+      if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2')) {
         band = selectedPart === 1 ? 1.0 : 0.0;
       } else if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
@@ -2774,7 +3085,7 @@ export default function SpeakingPracticePage() {
     }
 
     const intBand = isSingleWordOrMinimal
-      ? (selectedTestTitle.includes('Book 14 Test 4')
+      ? ((selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2'))
           ? (selectedPart === 1 ? 1 : 0)
           : selectedTestTitle.includes('Book 14 Test 2')
           ? (selectedPart === 1 ? 0 : 1)
@@ -2793,7 +3104,13 @@ export default function SpeakingPracticePage() {
 
     if (isSingleWordOrMinimal) {
       if (selectedPart === 3) {
-        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        fluencyFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "The candidate provided no assessable language. Every response was 'No', which is completely irrelevant and fails to address any of the questions asked."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "Your responses were non-existent. You provided 'No' to every question. This is considered a refusal to participate or a total failure to address the task. Relevance is impossible to assess as you did not provide any content."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "Your answers were completely inadequate. By providing only the word 'No' to every question, you failed to address the task entirely. This is not a demonstration of speaking ability."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "Your responses are entirely empty/non-responsive. You provided 'No' to every question, which is not an answer. These responses are irrelevant and fail to address the task entirely."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "The responses are extremely short, incoherent, and fail to address the questions. Your answers were consistently off-topic or lacked any meaningful content."
@@ -2810,7 +3127,13 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
           : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        lexicalFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "There is no vocabulary range to assess."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "No vocabulary was demonstrated. A score of 0 is mandatory as there is no assessable language."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "There is no vocabulary range to assess. A single-word response is insufficient for an IELTS examination."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "There is no vocabulary to assess."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is virtually no vocabulary usage. The responses consist of single words or fragmented phrases that do not communicate ideas."
@@ -2827,7 +3150,13 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no lexical resource displayed, as you only used one word repeatedly."
           : "There is no vocabulary to assess.";
-        grammarFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        grammarFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "No grammatical structures were demonstrated. A score of 0 is mandatory."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "There is no grammatical structure to assess. You must provide full, complex sentences to be evaluated."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "There is no grammatical structure to assess."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is no evidence of grammatical structure. Responses are limited to single-word utterances."
@@ -2844,7 +3173,13 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "No grammatical structures were demonstrated beyond a single word."
           : "There is no grammar to assess.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        pronunciationFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "The candidate did not provide any spoken content beyond a single word."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "No speech was provided to evaluate pronunciation."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "Assessment is impossible as there is no continuous speech to evaluate. You must speak in full sentences."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "No speech was produced to evaluate."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "It is impossible to judge pronunciation effectively as there is no connected speech, but the lack of effort to speak full sentences indicates a failure to demonstrate even basic speaking skills."
@@ -2861,7 +3196,31 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
           : "There is no speech to assess.";
-        tipsList = selectedTestTitle.includes('Book 14 Test 4')
+        tipsList = selectedTestTitle.includes('Book 15 Test 1')
+          ? [
+              "Give extended answers in Part 3 by examining different perspectives, comparing situations, or discussing broader social implications.",
+              "Support your opinions with clear explanations, real-world examples, or hypothetical scenarios.",
+              "Use sophisticated discourse markers to structure complex thoughts (e.g., 'On the one hand', 'Conversely', 'In terms of').",
+              "Demonstrate a wide range of topic-specific vocabulary relevant to the themes discussed, such as hospitality, career longevity, and management.",
+              "Practice developing arguments logically without relying on memorized templates or simplistic yes/no answers.",
+            ]
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? [
+              "You must provide full, descriptive answers to IELTS questions; one-word or negative responses result in an automatic failure.",
+              "Practice speaking for 30-60 seconds per question to demonstrate your English proficiency.",
+              "If you do not know the answer, try to talk about your general thoughts on the topic rather than saying 'No'.",
+              "Familiarize yourself with the IELTS Speaking format, which requires you to elaborate and provide reasons/examples for your opinions.",
+              "An IELTS examiner cannot assess your level if you do not speak. You must engage with the questions provided.",
+            ]
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? [
+                "You must provide full, detailed answers. A one-word response like 'No' will result in a score of 0-1.",
+                "Practice expanding your answers by using the 'Answer, Reason, Example' (ARE) method for every question.",
+                "You must engage with the topic. Your current responses are irrelevant because they ignore the content of the questions.",
+                "Listen to sample IELTS speaking tests to understand the expected length and depth of responses for Part 3.",
+                "Focus on building a wider vocabulary to express complex opinions rather than relying on one-word responses."
+              ]
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? [
               "You must provide full, relevant sentences to answer the examiner's questions.",
               "Answering 'No' to open-ended questions demonstrates a complete lack of effort and will result in a score of 0.",
@@ -2914,7 +3273,13 @@ export default function SpeakingPracticePage() {
               "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
             ];
       } else if (selectedPart === 2) {
-        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        fluencyFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "Your answer was empty. You provided no response to the question asked."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "The response was empty. You provided no information, which results in a failure to address the task requirements."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "The response was empty. You failed to provide any information, which makes it impossible to assess your fluency or coherence."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "The response was empty. You failed to provide any information, which makes it impossible to assess your fluency or coherence."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a difficult task you succeeded in at work or studies, but you provided a single, meaningless word ('This'). This fails the task entirely."
@@ -2933,7 +3298,13 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        lexicalFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "No vocabulary was produced to evaluate."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "No vocabulary was demonstrated."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "There is no lexical resource to evaluate as no language was produced."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "No vocabulary was demonstrated. You must provide a full response to be evaluated."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is no vocabulary range to assess as you only provided one word."
@@ -2952,7 +3323,13 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess."
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        grammarFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "No grammatical structures were produced to evaluate."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "No grammatical structures were demonstrated."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "There is no grammatical range to evaluate as no language was produced."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "No grammatical structures were demonstrated due to the lack of a response."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is no grammatical structure to assess."
@@ -2971,7 +3348,13 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to evaluate.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        pronunciationFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "No speech was produced to evaluate."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "No speech was produced to evaluate."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "There is no speech to evaluate."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "No speech was produced to evaluate."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "Cannot assess pronunciation based on a single word. Ensure you speak in full, coherent sentences during the test."
@@ -2990,7 +3373,31 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is insufficient data to evaluate your pronunciation."
           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-        tipsList = selectedTestTitle.includes('Book 14 Test 4')
+        tipsList = selectedTestTitle.includes('Book 15 Test 1')
+          ? [
+              "Use your 1-minute preparation time to write down bullet points and key vocabulary for each prompt on the card.",
+              "Aim to speak for the full 2 minutes by addressing all four bullet points systematically and adding personal anecdotes.",
+              "Structure your talk chronologically: start with the introduction, elaborate on the details, and conclude with your personal feelings.",
+              "Use descriptive adjectives and sensory details to make your description more vivid and engaging for the listener.",
+              "Practice speaking continuously without long pauses; use discourse markers like 'moving on to', 'in addition to that', and 'finally'.",
+            ]
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? [
+              "You must attempt to answer the question; silence or saying 'No' results in a band 0.",
+              "In Part 2, you are expected to speak for 1-2 minutes. Practice organizing your thoughts into a narrative.",
+              "Use the 1-minute preparation time to jot down keywords related to the topic (e.g., website name, item bought, why you chose it).",
+              "If you are unprepared, try to describe any website you know, even if you haven't bought something from it; it is better to speak than to be silent.",
+              "Focus on building confidence by practicing speaking about familiar topics for at least 60 seconds.",
+            ]
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? [
+                "You must attempt to answer the question. A 'No' response results in a score of 0.",
+                "In Part 2, you are expected to speak for 1-2 minutes. Practice structuring your answer using the bullet points provided on the cue card.",
+                "If you do not know a specific science programme, invent one. The examiner is testing your English proficiency, not your factual knowledge of science.",
+                "Use a 'PPF' structure (Past experience, Present relevance, Future outlook) to expand your answers.",
+                "Record yourself speaking for at least 60 seconds to build the stamina required for Part 2."
+              ]
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? [
               "You must provide a full answer to the question asked. A one-word response like 'No' is not an attempt at the task.",
               "In Part 2 of the IELTS Speaking test, you are expected to speak for 1 to 2 minutes on a specific topic.",
@@ -3053,7 +3460,13 @@ export default function SpeakingPracticePage() {
               "Prepare stories about people you know in advance to avoid being caught off guard during the test."
             ];
       } else {
-        fluencyFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        fluencyFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "Your answers were completely irrelevant and failed to address the questions. Providing one-word answers like 'No' or 'Oh' demonstrates a failure to engage with the test format."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "Your answers were completely inadequate. You provided single-word responses ('No') that failed to address the questions asked. This demonstrates an inability to communicate or engage with the examiner."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "Your answers were extremely limited and failed to address the questions. You provided one-word responses ('No') which is completely inadequate for an IELTS Speaking test. This is not a demonstration of language ability."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "Your answers were highly inadequate. You provided single-word responses ('No') to every question. This fails to address the requirement to provide extended, relevant answers. You did not engage with the prompts at all."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "Your answers were highly repetitive and failed to address the 'Why/why not' component of the questions. Simply saying 'Yes' to every question is not a valid response in an IELTS speaking test."
@@ -3072,7 +3485,13 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-        lexicalFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        lexicalFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "There is no vocabulary range to assess as you only provided single-word responses."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "There is no evidence of lexical range or accuracy. You did not use any vocabulary to describe your experiences or opinions."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "There is no lexical resource to evaluate as you only used a single word repeatedly."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "There is no evidence of vocabulary range or usage. A single word cannot be assessed for lexical resource."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "There is no vocabulary range demonstrated. You relied on a single word for all responses."
@@ -3091,7 +3510,13 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess beyond a single, repetitive word."
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        grammarFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "There is no grammatical structure to assess. No complete sentences were produced."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "There is no evidence of grammatical range or accuracy as you only provided a single word."
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? "There is no grammatical range to evaluate."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "There is no evidence of grammatical structure. A single word cannot be assessed for grammatical range."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "No grammatical structures were displayed beyond a single-word affirmative."
@@ -3110,7 +3535,11 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to assess as no full sentences were produced.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 14 Test 4')
+        pronunciationFeedback = selectedTestTitle.includes('Book 15 Test 1')
+          ? "Insufficient data to assess pronunciation, though the lack of effort suggests a failure to engage with the test format."
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? "Insufficient data to assess, but your failure to provide full sentences makes it impossible to evaluate your phonological features."
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? "It is impossible to assess pronunciation based on a single word response. You must speak in full sentences to demonstrate your ability."
           : selectedTestTitle.includes('Book 14 Test 3')
           ? "While the word 'Yes' is clear, you failed to demonstrate any ability to form sentences, intonation, or connected speech."
@@ -3129,7 +3558,31 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
           : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-        tipsList = selectedTestTitle.includes('Book 14 Test 4')
+        tipsList = selectedTestTitle.includes('Book 15 Test 1')
+          ? [
+              "You must answer in full sentences, not single words.",
+              "Expand your answers by providing a reason, an example, or a personal detail for every question.",
+              "Do not provide 'No' or 'Oh' as answers; this results in a score of 0-1.",
+              "Practice the 'Answer + Extend' method: provide a direct answer, then add at least two sentences of explanation or detail.",
+              "Understand that the examiner needs to hear your English to grade you; silence or one-word answers make it impossible to give you a passing score.",
+            ]
+          : selectedTestTitle.includes('Book 15 Test 2')
+          ? [
+              "You must provide full, descriptive sentences. A one-word answer is not acceptable in an IELTS speaking test.",
+              "Elaborate on your answers by providing reasons, examples, or personal experiences to satisfy the 'Why/Why not' component of the questions.",
+              "Practice speaking for at least 20-30 seconds for each Part 1 question to demonstrate your fluency.",
+              "Your responses were technically irrelevant because they did not answer the prompt; 'No' is not a logical response to 'How many languages can you speak?'.",
+              "Engage with the topic fully. You are being assessed on your ability to speak English, not your ability to be brief.",
+            ]
+          : selectedTestTitle.includes('Book 15 Test 4')
+          ? [
+                "Stop providing one-word answers. You must expand on your ideas to show your English proficiency.",
+                "Follow the 'Answer + Extend' rule: Give a direct answer, then provide a reason, an example, or a personal detail.",
+                "Aim for at least 3-4 sentences per answer in Part 1 to demonstrate your vocabulary and grammar range.",
+                "Practice answering 'Why' or 'Why not' as prompted by the questions to ensure your response is complete.",
+                "Remember that the examiner cannot assess your level if you do not provide assessable language."
+              ]
+          : selectedTestTitle.includes('Book 14 Test 4')
           ? [
               "You must answer using full, extended sentences. A one-word answer will result in a failing score.",
               "Always explain your 'why'. The questions ask for reasons, which requires you to elaborate on your thoughts.",
@@ -3529,8 +3982,22 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 15 Test 3')
+                    {title.includes('Book 17 Test 4')
+                          ? 'Maps & Navigation • Occasion in a Hurry • Punctuality & Time Management'
+                          : title.includes('Book 17 Test 2')
+                      ? 'Books & Reading Habits, Children\'s Book Cue Card & Literary Preferences / Electronic Books'
+                      : title.includes('Book 16 Test 4')
+                      ? 'Fast Food & Cooking, Technology Stopped Using Cue Card & Educational Technology'
+                      : title.includes('Book 16 Test 3')
+                      ? 'Summer, Luxury Hotel Cue Card & Wealth / Money in Society'
+                      : title.includes('Book 15 Test 4')
+                      ? 'Jewellery • Interesting TV Programme about Science • Science & Research'
+                      : title.includes('Book 15 Test 3')
                       ? 'Swimming, Enjoyable Performance Cue Card & Live Performances / Entertainment'
+                      : title.includes('Book 15 Test 2')
+                      ? 'Languages & Future Career, Website Bought From Cue Card & Online Shopping / Consumerism'
+                      : title.includes('Book 15 Test 1')
+                      ? 'Emails & Messaging, Hotel You Know Cue Card & Hospitality Industry'
                       : title.includes('Book 14 Test 4')
                       ? 'Neighbourhoods, Website Bought From Cue Card & Online Shopping / Retail Malls'
                       : title.includes('Book 14 Test 3')

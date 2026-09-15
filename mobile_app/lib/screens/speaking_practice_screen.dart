@@ -2645,6 +2645,149 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 17 TEST 4 (Maps & Navigation / Occasion in a Hurry Cue Card / Being Late, Punctuality & Study Time Management)
+  // ==========================================
+  final List<Map<String, dynamic>> _book17Test4Questions = [
+    // Part 1: Questions 1-4 (Maps & Navigation)
+    {
+      'question':
+          'Do you think it\'s better to use a paper map or a map on your phone? [Why?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 3.15,
+      'start': 0.0,
+      'promptEnd': 3.15,
+      'end': 3.15,
+      'part': 1,
+      'transcript':
+          'I personally prefer using a map on my phone because it is incredibly convenient and provides real-time updates on traffic. Unlike paper maps, digital ones have a GPS feature that tracks my exact location, which is a lifesaver when I am in an unfamiliar area.',
+    },
+    {
+      'question':
+          'When was the last time you needed to use a map? [Why/Why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 1.95,
+      'start': 0.0,
+      'promptEnd': 1.95,
+      'end': 1.95,
+      'part': 1,
+      'transcript':
+          'I actually used a map just last weekend when I was exploring a new neighborhood in the city. I needed to find a specific art gallery, and since the streets were quite winding, the digital map was essential for ensuring I didn\'t get lost.',
+    },
+    {
+      'question':
+          'If you visit a new city, do you always use a map to find your way around? [Why/Why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 4.35,
+      'start': 0.0,
+      'promptEnd': 4.35,
+      'end': 4.35,
+      'part': 1,
+      'transcript':
+          'Yes, I almost always rely on a map when visiting a new city. It gives me a sense of security and helps me plan my route efficiently so I can visit as many landmarks as possible without wasting time wandering around aimlessly.',
+    },
+    {
+      'question':
+          'In general, do you find it easy to read maps? [Why/Why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 2.76,
+      'start': 0.0,
+      'promptEnd': 2.76,
+      'end': 2.76,
+      'part': 1,
+      'transcript':
+          'Generally speaking, I find it quite easy to read maps, especially digital ones. I am quite tech-savvy, so navigating through map applications is intuitive for me, and I rarely struggle to understand the scale or the directions provided.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Occasion in a Hurry)
+    {
+      'question': 'Describe an occasion when you had to do something in a hurry.',
+      'audioAsset': 'q5.mp3',
+      'duration': 2.76,
+      'start': 0.0,
+      'promptEnd': 2.76,
+      'end': 2.76,
+      'part': 2,
+      'youShouldSay': [
+        'what you had to do',
+        'why you had to do this in a hurry',
+        'how well you did this',
+        'and explain how you felt about having to do this in a hurry.'
+      ],
+      'transcript':
+          'I remember a time when I had to rush to catch a train for an important job interview. I had miscalculated the traffic, and I realized with only twenty minutes left that I was still miles away. I had to abandon my taxi and sprint through the station to reach the platform just as the doors were closing. It was an incredibly stressful experience, but it taught me the importance of better time management in the future.',
+    },
+
+    // Part 3: Questions 6-11 (Being Late, Punctuality & Study Time Management)
+    {
+      'question': 'Do you think it\'s OK to arrive late when meeting a friend?',
+      'audioAsset': 'q6.mp3',
+      'duration': 2.38,
+      'start': 0.0,
+      'promptEnd': 2.38,
+      'end': 2.38,
+      'part': 3,
+      'transcript':
+          'I don\'t think it is acceptable to be late for a friend. It shows a lack of respect for the other person\'s time. While minor delays can happen occasionally, making it a habit can damage the quality of the friendship.',
+    },
+    {
+      'question': 'What should happen to people who arrive late for work?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.67,
+      'start': 0.0,
+      'promptEnd': 2.67,
+      'end': 2.67,
+      'part': 3,
+      'transcript':
+          'In a professional setting, chronic lateness should be addressed through formal warnings or disciplinary actions. Employers rely on punctuality to maintain productivity. If an employee is consistently late, it disrupts the workflow and sets a poor example for the rest of the team.',
+    },
+    {
+      'question': 'Can you suggest how people can make sure they don\'t arrive late?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.22,
+      'start': 0.0,
+      'promptEnd': 3.22,
+      'end': 3.22,
+      'part': 3,
+      'transcript':
+          'People can ensure they are on time by planning ahead and allowing for unexpected delays. For instance, checking traffic reports before leaving or setting an alarm earlier can be very effective. It is also helpful to prepare belongings the night before to avoid last-minute rushing.',
+    },
+    {
+      'question': 'Is it better to study for long periods or in shorter blocks of time?',
+      'audioAsset': 'q9.mp3',
+      'duration': 3.52,
+      'start': 0.0,
+      'promptEnd': 3.52,
+      'end': 3.52,
+      'part': 3,
+      'transcript':
+          'I believe shorter blocks of time are generally more effective for most students. The human brain tends to lose focus after a certain period of intense concentration. Taking short, regular breaks helps to refresh the mind and improves long-term information retention.',
+    },
+    {
+      'question':
+          'What are the likely effects of students not managing their study time well?',
+      'audioAsset': 'q10.mp3',
+      'duration': 3.48,
+      'start': 0.0,
+      'promptEnd': 3.48,
+      'end': 3.48,
+      'part': 3,
+      'transcript':
+          'If students fail to manage their time, they often experience extreme stress and anxiety as deadlines approach. This usually leads to poor academic performance because they are rushing to complete tasks rather than understanding the material. Ultimately, it can discourage them from pursuing their studies further.',
+    },
+    {
+      'question': 'How important is it for students to have enough leisure time?',
+      'audioAsset': 'q11.mp3',
+      'duration': 2.64,
+      'start': 0.0,
+      'promptEnd': 2.64,
+      'end': 2.64,
+      'part': 3,
+      'transcript':
+          'Leisure time is absolutely vital for students. It allows them to decompress and recharge, which is necessary for maintaining good mental health. Without adequate time to relax, students are prone to burnout, which negatively impacts their ability to focus and perform well in their academic responsibilities.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 13 TEST 3 (Money & Shopping / Interesting Discussion Cue Card / Discussing Problems & Communication Skills)
   // ==========================================
   final List<Map<String, dynamic>> _book13Test3Questions = [
@@ -3770,6 +3913,140 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     },
   ];
 
+
+  // ==========================================
+  // IELTS BOOK 15 TEST 4 (Jewellery / Interesting TV Programme about Science Cue Card / Science & Research Discussion)
+  // ==========================================
+  final List<Map<String, dynamic>> _book15Test4Questions = [
+    // Part 1: Questions 1-4 (Jewellery)
+    {
+      'question': 'How often do you wear jewellery? [Why/why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.88,
+      'start': 0.0,
+      'promptEnd': 1.88,
+      'end': 1.88,
+      'part': 1,
+      'transcript':
+          'I rarely wear jewellery on a day-to-day basis because I prefer a minimalist style. However, I do occasionally wear a simple wristwatch or a ring when I am attending formal events or important business meetings.',
+    },
+    {
+      'question': 'What type of jewellery do you like best? [Why/why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 1.23,
+      'start': 0.0,
+      'promptEnd': 1.23,
+      'end': 1.23,
+      'part': 1,
+      'transcript':
+          'I personally prefer silver jewellery, such as simple necklaces or stud earrings, because they are understated and elegant. I tend to avoid gold or overly flashy pieces because they don\'t really complement my daily outfits.',
+    },
+    {
+      'question': 'When do people like to give jewellery in your country? [Why?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 1.99,
+      'start': 0.0,
+      'promptEnd': 1.99,
+      'end': 1.99,
+      'part': 1,
+      'transcript':
+          'In my country, jewellery is almost always exchanged during significant life milestones, such as weddings, engagements, or graduation ceremonies. It is also a very common gift during major cultural festivals or as a token of appreciation for a loved one.',
+    },
+    {
+      'question': 'Have you ever given jewellery to someone as a gift? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 3.74,
+      'start': 0.0,
+      'promptEnd': 3.74,
+      'end': 3.74,
+      'part': 1,
+      'transcript':
+          'Yes, I have. I once bought a silver bracelet for my mother as a birthday present. I chose it specifically because it was a timeless piece that I knew she would be able to wear on many different occasions.',
+    },
+
+    // Part 2: Question 5 (Cue Card: TV Programme about Science)
+    {
+      'question':
+          'Describe an interesting TV programme you watched about a science topic.\n\nYou should say:\n• what science topic this TV programme was about\n• when you saw this TV programme\n• what you learnt from this TV programme about a science topic\n• and explain why you found this TV programme interesting.',
+      'audioAsset': 'q5.mp3',
+      'duration': 2.38,
+      'start': 0.0,
+      'promptEnd': 2.38,
+      'end': 2.38,
+      'part': 2,
+      'transcript':
+          'I would like to talk about a fascinating documentary series I watched recently called \'Cosmos: A Spacetime Odyssey\'. It explores complex scientific concepts like the evolution of the universe and the laws of physics in a very accessible way. What I found particularly interesting was how the host used visual storytelling to explain the vastness of time and space, making abstract theories feel tangible. It really shifted my perspective on our place in the universe and sparked a genuine curiosity in me to learn more about astrophysics. I highly recommend it to anyone who wants to understand the wonders of science without feeling overwhelmed by technical jargon.',
+    },
+
+    // Part 3: Questions 6-11 (Science & Research Discussion)
+    {
+      'question': 'How interested are most people in your country in science?',
+      'audioAsset': 'q6.mp3',
+      'duration': 2.64,
+      'start': 0.0,
+      'promptEnd': 2.64,
+      'end': 2.64,
+      'part': 3,
+      'transcript':
+          'Generally speaking, interest in science varies significantly in my country. While the younger generation is increasingly tech-savvy and curious about innovation, older generations often focus more on traditional fields. Overall, there is a growing appreciation for scientific advancements, especially in technology and medicine.',
+    },
+    {
+      'question': 'Why do you think children today might be better at science than their parents?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.48,
+      'start': 0.0,
+      'promptEnd': 2.48,
+      'end': 2.48,
+      'part': 3,
+      'transcript':
+          'Children today are often more proficient in science because they have grown up in a digital age with constant access to information. Modern education systems emphasize STEM subjects much earlier than in the past. Consequently, they are more comfortable with experimental thinking and technological tools than their parents were at that age.',
+    },
+    {
+      'question': 'How do you suggest the public can learn more about scientific developments?',
+      'audioAsset': 'q8.mp3',
+      'duration': 3.68,
+      'start': 0.0,
+      'promptEnd': 3.68,
+      'end': 3.68,
+      'part': 3,
+      'transcript':
+          'I believe the public can learn more through interactive platforms like science museums, documentaries, and accessible online courses. Governments could also promote science festivals to engage the community. Furthermore, social media influencers in the scientific field can play a crucial role in making complex topics understandable for the average person.',
+    },
+    {
+      'question': 'What do you think are the most important scientific discoveries in the last 100 years?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.80,
+      'start': 0.0,
+      'promptEnd': 2.80,
+      'end': 2.80,
+      'part': 3,
+      'transcript':
+          'The most significant discovery in the last century is arguably the development of the internet, which revolutionized how we access knowledge. Additionally, the mapping of the human genome and the development of mRNA vaccines have been monumental. These breakthroughs have fundamentally changed our quality of life and our understanding of human biology.',
+    },
+    {
+      'question': 'Do you agree or disagree that there are no more major scientific discoveries left to make?',
+      'audioAsset': 'q10.mp3',
+      'duration': 2.48,
+      'start': 0.0,
+      'promptEnd': 2.48,
+      'end': 2.48,
+      'part': 3,
+      'transcript':
+          'I strongly disagree with that notion. Scientific history shows that every time we think we have discovered everything, new questions arise. For instance, we are still exploring the mysteries of dark matter in space and the complexities of quantum physics. There is an infinite amount of knowledge yet to be uncovered.',
+    },
+    {
+      'question': 'Who should pay for scientific research - governments or private companies?',
+      'audioAsset': 'q11.mp3',
+      'duration': 4.44,
+      'start': 0.0,
+      'promptEnd': 4.44,
+      'end': 4.44,
+      'part': 3,
+      'transcript':
+          'I believe a partnership is the most effective approach. Governments should fund fundamental research, which is often long-term and high-risk, as they focus on public benefit. Meanwhile, private companies are better suited for applied research and commercializing products, as they have the resources and the market incentive to bring innovations to the public quickly.',
+    },
+  ];
+
   /// Dynamically resolves the questions based on the currently selected test
   List<Map<String, dynamic>> get _activeQuestions {
     if (_selectedTestTitle.contains('Book 10 Test 4')) {
@@ -3818,12 +4095,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book15Test2Questions;
     } else if (_selectedTestTitle.contains('Book 15 Test 3')) {
       return _book15Test3Questions;
+    } else if (_selectedTestTitle.contains('Book 15 Test 4')) {
+      return _book15Test4Questions;
     } else if (_selectedTestTitle.contains('Book 16 Test 3')) {
       return _book16Test3Questions;
     } else if (_selectedTestTitle.contains('Book 16 Test 4')) {
       return _book16Test4Questions;
     } else if (_selectedTestTitle.contains('Book 17 Test 2')) {
       return _book17Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 17 Test 4')) {
+      return _book17Test4Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
@@ -3935,6 +4216,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 14 Test 4') &&
         !folderName.contains('BOOK 15 Test 1') &&
         !folderName.contains('BOOK 15 Test 2') &&
+        !folderName.contains('BOOK 15 Test 3') &&
+        !folderName.contains('BOOK 15 Test 4') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
@@ -4376,7 +4659,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           (bookNum == 12 && (testNum >= 1 && testNum <= 3)) ||
                           (bookNum == 13 && (testNum >= 1 && testNum <= 4)) ||
                           (bookNum == 14 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 15 && (testNum == 1 || testNum == 2));
+                          (bookNum == 15 && (testNum >= 1 && testNum <= 4));
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
@@ -6176,7 +6459,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           }
         }
 
-        if (isSingleWordOrMinimal && (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2'))) {
+        if (isSingleWordOrMinimal && _selectedTestTitle.contains('Book 15 Test 4')) {
+          overallBand = _selectedPart == 2 ? 0.0 : 1.0;
+        } else if (isSingleWordOrMinimal && (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2'))) {
           if (_selectedPart == 1) {
             overallBand = 1.0;
           } else {
@@ -6203,7 +6488,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         }
 
         final int defScore = isSingleWordOrMinimal
-            ? ((_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2'))
+            ? (_selectedTestTitle.contains('Book 15 Test 4')
+                ? (_selectedPart == 2 ? 0 : 1)
+                : (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2'))
                 ? (_selectedPart == 1 ? 1 : 0)
                 : _selectedTestTitle.contains('Book 14 Test 2')
                     ? (_selectedPart == 1 ? 0 : 1)
@@ -6233,7 +6520,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
         if (isSingleWordOrMinimal) {
           if (_selectedPart == 3) {
-            fcFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+            fcFeedback = _selectedTestTitle.contains('Book 15 Test 4')
+                ? "Your answers were completely inadequate. By providing only the word 'No' to every question, you failed to address the task entirely. This is not a demonstration of speaking ability."
+                : _selectedTestTitle.contains('Book 15 Test 1')
                 ? "The candidate provided no assessable language. Every response was 'No', which is completely irrelevant and fails to address any of the questions asked."
                 : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "Your responses were non-existent. You provided 'No' to every question. This is considered a refusal to participate or a total failure to address the task. Relevance is impossible to assess as you did not provide any content."
@@ -6254,7 +6543,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
                 : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-            lrFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+            lrFeedback = _selectedTestTitle.contains('Book 15 Test 4')
+                ? "There is no vocabulary range to assess. A single-word response is insufficient for an IELTS examination."
+                : _selectedTestTitle.contains('Book 15 Test 1')
                 ? "There is no vocabulary range to assess."
                 : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "No vocabulary was demonstrated. A score of 0 is mandatory as there is no assessable language."
@@ -6275,7 +6566,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "There is no lexical resource displayed, as you only used one word repeatedly."
                 : "There is no vocabulary to assess.";
-            grFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+            grFeedback = _selectedTestTitle.contains('Book 15 Test 4')
+                ? "There is no grammatical structure to assess. You must provide full, complex sentences to be evaluated."
+                : _selectedTestTitle.contains('Book 15 Test 1')
                 ? "There is no grammatical structure to assess."
                 : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "No grammatical structures were demonstrated. A score of 0 is mandatory."
@@ -6296,7 +6589,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "No grammatical structures were demonstrated beyond a single word."
                 : "There is no grammar to assess.";
-            prFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+            prFeedback = _selectedTestTitle.contains('Book 15 Test 4')
+                ? "Assessment is impossible as there is no continuous speech to evaluate. You must speak in full sentences."
+                : _selectedTestTitle.contains('Book 15 Test 1')
                 ? "The candidate did not provide any spoken content beyond a single word."
                 : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "No speech was provided to evaluate pronunciation."
@@ -6317,7 +6612,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
                 : "There is no speech to assess.";
-            tipsList = _selectedTestTitle.contains('Book 15 Test 1')
+            tipsList = _selectedTestTitle.contains('Book 15 Test 4')
+                ? [
+                "You must provide full, detailed answers. A one-word response like 'No' will result in a score of 0-1.",
+                "Practice expanding your answers by using the 'Answer, Reason, Example' (ARE) method for every question.",
+                "You must engage with the topic. Your current responses are irrelevant because they ignore the content of the questions.",
+                "Listen to sample IELTS speaking tests to understand the expected length and depth of responses for Part 3.",
+                "Focus on building a wider vocabulary to express complex opinions rather than relying on one-word responses."
+              ]
+                : _selectedTestTitle.contains('Book 15 Test 1')
                 ? [
                     "Give extended answers in Part 3 by examining different perspectives, comparing situations, or discussing broader social implications.",
                     "Support your opinions with clear explanations, real-world examples, or hypothetical scenarios.",
@@ -6846,7 +7149,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       final bool isSingleWordOrMinimal = wordCountTotal <= 5 || (avgWordsPerQuestion < 3 && wordCountTotal < 15);
       double band = 1.0;
       if (isSingleWordOrMinimal) {
-        if (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2')) {
+        if (_selectedTestTitle.contains('Book 15 Test 4')) {
+          band = _selectedPart == 2 ? 0.0 : 1.0;
+        } else if (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2')) {
           band = _selectedPart == 1 ? 1.0 : 0.0;
         } else if (_selectedTestTitle.contains('Book 14 Test 2')) {
           band = _selectedPart == 1 ? 0.0 : 1.0;
@@ -6882,7 +7187,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       }
 
       final int intBand = isSingleWordOrMinimal
-          ? ((_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2'))
+          ? (_selectedTestTitle.contains('Book 15 Test 4')
+              ? (_selectedPart == 2 ? 0 : 1)
+              : (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2'))
               ? (_selectedPart == 1 ? 1 : 0)
               : _selectedTestTitle.contains('Book 14 Test 2')
                   ? (_selectedPart == 1 ? 0 : 1)
