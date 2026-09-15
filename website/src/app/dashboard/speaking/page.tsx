@@ -356,14 +356,14 @@ export const book21Test2Questions = [
 
 export const book20Test4Questions = [
   {
-    "question": "What personal qualities do you admire in other people? [Why?]",
+    "question": "What do you think your best personal qualities are? [Why?]",
     "audioAsset": "q1.mp3",
     "duration": 2.8,
     "start": 0,
     "promptEnd": 2.8,
     "end": 2.8,
     "part": 1,
-    "transcript": "I deeply admire honesty and empathy in people. Honesty builds trust in relationships, while empathy allows individuals to understand and support others during difficult times."
+    "transcript": "I believe my best personal qualities are my patience and my ability to listen to others. I think these are important because they allow me to resolve conflicts effectively and build strong, trusting relationships with the people around me."
   },
   {
     "question": "Do you have the same personal qualities as your parents? [Why/Why not?]",
@@ -373,7 +373,7 @@ export const book20Test4Questions = [
     "promptEnd": 2.3,
     "end": 2.3,
     "part": 1,
-    "transcript": "Yes, I share my parents strong work ethic and patience. They always taught me the value of perseverance, which has shaped my approach to challenges."
+    "transcript": "I share many qualities with my parents, such as their strong work ethic and their sense of responsibility. However, I have developed my own independent perspective on life, which I believe is a result of my own unique experiences rather than just inheritance."
   },
   {
     "question": "What personal qualities are important to you in a friend? [Why?]",
@@ -383,7 +383,7 @@ export const book20Test4Questions = [
     "promptEnd": 2.4,
     "end": 2.4,
     "part": 1,
-    "transcript": "Loyalty and a good sense of humor are essential in a friend. A loyal friend offers unwavering support, while humor keeps our interactions enjoyable."
+    "transcript": "For me, loyalty and honesty are the most important qualities in a friend. I value these because I need to know that I can rely on someone during difficult times and that they will always be truthful with me, no matter the situation."
   },
   {
     "question": "Do you think you have the personal qualities to be a good/successful leader? [Why/Why not?]",
@@ -393,7 +393,7 @@ export const book20Test4Questions = [
     "promptEnd": 2.4,
     "end": 2.4,
     "part": 1,
-    "transcript": "I believe I possess good communication and listening skills, which are crucial for leadership. However, I am still working on decision-making under high pressure."
+    "transcript": "I think I possess the qualities to be a successful leader, specifically because I am highly organized and empathetic. I am able to motivate others by understanding their individual strengths, which is essential for guiding a team toward a common goal."
   },
   {
     "question": "Describe a travel journey that was delayed.",

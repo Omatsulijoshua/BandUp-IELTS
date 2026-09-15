@@ -6049,44 +6049,44 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   final List<Map<String, dynamic>> _book20Test4Questions = [
     {
-        "question": "Do you enjoy cooking at home? [Why/Why not?]",
+        "question": "What do you think your best personal qualities are? [Why?]",
         "audioAsset": "q1.mp3",
-        "duration": 1.5,
+        "duration": 2.8,
         "start": 0,
-        "promptEnd": 1.5,
-        "end": 1.5,
+        "promptEnd": 2.8,
+        "end": 2.8,
         "part": 1,
-        "transcript": "Yes, cooking relaxes me after work and allows me to prepare healthy meals tailored to my taste."
+        "transcript": "I believe my best personal qualities are my patience and my ability to listen to others. I think these are important because they allow me to resolve conflicts effectively and build strong, trusting relationships with the people around me."
     },
     {
-        "question": "Who usually does the cooking in your family?",
+        "question": "Do you have the same personal qualities as your parents? [Why/Why not?]",
         "audioAsset": "q2.mp3",
         "duration": 2.3,
         "start": 0,
         "promptEnd": 2.3,
         "end": 2.3,
         "part": 1,
-        "transcript": "My parents share cooking duties during weekdays, while I handle weekend family dinners."
+        "transcript": "I share many qualities with my parents, such as their strong work ethic and their sense of responsibility. However, I have developed my own independent perspective on life, which I believe is a result of my own unique experiences rather than just inheritance."
     },
     {
-        "question": "Did you learn how to cook when you were a child?",
+        "question": "What personal qualities are important to you in a friend? [Why?]",
         "audioAsset": "q3.mp3",
         "duration": 2.4,
         "start": 0,
         "promptEnd": 2.4,
         "end": 2.4,
         "part": 1,
-        "transcript": "My mother taught me basic recipes like pasta and simple soups when I was in secondary school."
+        "transcript": "For me, loyalty and honesty are the most important qualities in a friend. I value these because I need to know that I can rely on someone during difficult times and that they will always be truthful with me, no matter the situation."
     },
     {
-        "question": "What is a traditional dish from your country that you like?",
+        "question": "Do you think you have the personal qualities to be a good/successful leader? [Why/Why not?]",
         "audioAsset": "q4.mp3",
         "duration": 2.4,
         "start": 0,
         "promptEnd": 2.4,
         "end": 2.4,
         "part": 1,
-        "transcript": "Jollof rice is a beloved traditional dish cooked with tomatoes, spices, and served at celebrations."
+        "transcript": "I think I possess the qualities to be a successful leader, specifically because I am highly organized and empathetic. I am able to motivate others by understanding their individual strengths, which is essential for guiding a team toward a common goal."
     },
     {
         "question": "Describe a travel journey that was delayed.",
