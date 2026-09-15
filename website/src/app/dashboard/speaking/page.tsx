@@ -1983,7 +1983,7 @@ const book15Test3Questions: Question[] = [
     duration: 2.5,
     part: 1,
     transcript:
-      'Nowadays, I go swimming about once or twice a month, mostly during the summer. I find it to be a fantastic full-body workout and a great way to unwind after a demanding work week.',
+      'I try to go swimming at least once a week. It serves as an excellent way for me to de-stress after a busy work week and keeps me physically active. I find that the rhythmic nature of swimming laps is very therapeutic for my mental health.',
   },
   {
     question: 'What places are there for swimming where you live? [Why?]',
@@ -1991,7 +1991,7 @@ const book15Test3Questions: Question[] = [
     duration: 2.6,
     part: 1,
     transcript:
-      'In my city, we have several public municipal pools as well as private fitness centres with indoor aquatic facilities. There is also a natural lake about twenty minutes away that is very popular for outdoor swimming in warm weather.',
+      'In my neighborhood, there is a large public aquatic center that features both an Olympic-sized pool and a smaller recreational area. Additionally, there is a private gym nearby that offers an indoor pool, which is quite convenient during the colder winter months when outdoor facilities are closed.',
   },
   {
     question:
@@ -2000,7 +2000,7 @@ const book15Test3Questions: Question[] = [
     duration: 4.2,
     part: 1,
     transcript:
-      'Personally, I prefer swimming outdoors in natural settings like lakes or open pools because fresh air and sunlight make the experience far more refreshing. However, indoor pools are much more practical during winter since they are temperature-controlled.',
+      'I personally prefer swimming at an indoor pool. The main advantage is that the temperature is strictly controlled, so it is comfortable regardless of the weather outside. Furthermore, indoor facilities are generally open throughout the entire year, whereas outdoor pools are often restricted to the summer season.',
   },
 
   // Part 2: Question 5 (Cue Card - Performance)
