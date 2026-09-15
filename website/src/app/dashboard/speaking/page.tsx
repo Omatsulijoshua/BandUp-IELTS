@@ -2806,11 +2806,110 @@ const book17Test4Questions: Question[] = [
   },
 ];
 
+
+const book16Test2Questions: Question[] = [
+  // Part 1: Questions 1-4 (Flowers & Plants)
+  {
+    question: 'Do you have a favorite flower or plant? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 1.80,
+    part: 1,
+    transcript:
+      'Actually, I have a great fondness for sunflowers. I find them incredibly uplifting because of their vibrant yellow color and the way they seem to follow the sun throughout the day. They always remind me of warm summer days, which is why I enjoy having them in my garden.',
+  },
+  {
+    question: 'What kinds of flowers and plants grow near where you live? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.40,
+    part: 1,
+    transcript:
+      'In the area where I live, you can primarily find hardy shrubs and various types of ornamental grasses that are well-suited to our local climate. Since we don\'t get a lot of rain, these plants are quite common as they are drought-resistant and require very little maintenance to thrive.',
+  },
+  {
+    question: 'Is it important to you to have flowers and plants in your home? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.75,
+    part: 1,
+    transcript:
+      'Yes, I believe it is quite important. Having greenery in the home significantly improves the air quality and creates a more relaxing atmosphere. I find that taking care of a few indoor plants helps me de-stress after a long day at work, and they also act as beautiful natural decorations.',
+  },
+  {
+    question: 'Have you ever bought flowers for someone else? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.10,
+    part: 1,
+    transcript:
+      'Yes, I have bought flowers for others on several occasions. For instance, I frequently purchase bouquets for my mother on her birthday or for friends when they achieve a significant milestone. I think flowers are a universal way to express appreciation and kindness toward people you care about.',
+  },
+
+  // Part 2: Question 5 (Cue Card: Review of Product or Service)
+  {
+    question:
+      'Describe a review you read about a product or service.\n\nYou should say:\n• where you read the review\n• what the product or service was\n• what information the review gave about the product or service\n• and explain what you did as a result of reading this reveiw.',
+    audioAsset: 'q5.mp3',
+    duration: 3.05,
+    part: 2,
+    transcript:
+      'I recently read a very detailed review on a tech website about a new noise-canceling headset I was planning to purchase. The reviewer broke down the product\'s pros and cons, specifically highlighting the battery life and the comfort of the ear cushions. I found the section on sound quality particularly helpful because they compared it to several other leading brands. Reading this review was essential for me because it helped me decide whether the high price tag was justified. Ultimately, I felt much more confident in my decision to buy the product after seeing such an honest and thorough assessment.',
+  },
+
+  // Part 3: Questions 6-11 (Online Reviews & Customer Service Discussion)
+  {
+    question: 'What kinds of things do people write online reviews about in your country?',
+    audioAsset: 'q6.mp3',
+    duration: 3.65,
+    part: 3,
+    transcript:
+      'In my country, people typically write online reviews for a wide variety of services and products. This ranges from restaurant experiences and hotel stays to electronic gadgets and clothing items purchased through e-commerce platforms. Essentially, any consumer-facing business is subject to public scrutiny via these digital reviews.',
+  },
+  {
+    question: 'Why do some people write online reviews?',
+    audioAsset: 'q7.mp3',
+    duration: 2.20,
+    part: 3,
+    transcript:
+      'People write online reviews primarily to share their personal experiences and help other potential customers make informed decisions. Furthermore, many individuals feel a sense of responsibility to warn others about poor quality or, conversely, to express their appreciation for exceptional service. It also serves as a platform for consumers to vent their frustrations or seek resolution for issues.',
+  },
+  {
+    question: 'Do you think that online reviews are good for both shoppers and companies?',
+    audioAsset: 'q8.mp3',
+    duration: 3.80,
+    part: 3,
+    transcript:
+      'Yes, I believe they are highly beneficial for both parties. For shoppers, they provide transparent insights into the quality of products and services before a purchase is made. For companies, these reviews serve as a crucial feedback loop, allowing them to identify weaknesses in their operations and improve their overall customer satisfaction levels.',
+  },
+  {
+    question: 'What do you think it might be like to work in a customer service job?',
+    audioAsset: 'q9.mp3',
+    duration: 2.25,
+    part: 3,
+    transcript:
+      'Working in customer service is likely quite demanding and requires a high level of patience and emotional intelligence. You are the direct link between a company and its clientele, which means you must handle complaints with diplomacy and remain calm under pressure. It is a challenging role that requires strong communication skills and a problem-solving mindset.',
+  },
+  {
+    question: 'Do you agree that customers are more likely to complain nowadays?',
+    audioAsset: 'q10.mp3',
+    duration: 3.25,
+    part: 3,
+    transcript:
+      'I would agree with that observation. Due to the rise of social media and public review platforms, customers feel more empowered than ever to voice their dissatisfaction. People are now more aware of their rights as consumers, and they know that sharing a complaint publicly can often lead to a faster response from the company.',
+  },
+  {
+    question: 'How important is it for companies to take all customer complaints seriously?',
+    audioAsset: 'q11.mp3',
+    duration: 4.05,
+    part: 3,
+    transcript:
+      'It is absolutely critical for companies to take all complaints seriously. Ignoring feedback can damage a brand\'s reputation and lead to a significant loss of trust in the marketplace. By addressing issues professionally and promptly, companies demonstrate that they value their customers, which is essential for long-term loyalty and business sustainability.',
+  },
+];
+
 const testSuites: { [key: string]: Question[] } = {
   'IELTS Book 17 Test 4': book17Test4Questions,
   'IELTS Book 17 Test 2': book17Test2Questions,
   'IELTS Book 16 Test 4': book16Test4Questions,
   'IELTS Book 16 Test 3': book16Test3Questions,
+  'IELTS Book 16 Test 2': book16Test2Questions,
   'IELTS Book 15 Test 4': book15Test4Questions,
   'IELTS Book 15 Test 3': book15Test3Questions,
   'IELTS Book 15 Test 2': book15Test2Questions,
@@ -3982,7 +4081,9 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 17 Test 4')
+                    {title.includes('Book 16 Test 2')
+                          ? 'Flowers & Plants • Review of Product or Service • Online Reviews & Customer Service'
+                          : title.includes('Book 17 Test 4')
                           ? 'Maps & Navigation • Occasion in a Hurry • Punctuality & Time Management'
                           : title.includes('Book 17 Test 2')
                       ? 'Books & Reading Habits, Children\'s Book Cue Card & Literary Preferences / Electronic Books'
