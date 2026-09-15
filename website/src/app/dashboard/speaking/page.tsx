@@ -2184,7 +2184,113 @@ const book16Test3Questions: Question[] = [
 ];
 
 
+const book16Test4Questions: Question[] = [
+  // Part 1: Questions 1-4 (Fast Food & Cooking)
+  {
+    question: 'What kinds of fast food have you tried? [Why/why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.1,
+    part: 1,
+    transcript:
+      'I have tried various types of fast food, such as burgers and fried chicken. I generally enjoy them because they are convenient and flavorful, though I try to limit my intake for health reasons.',
+  },
+  {
+    question: 'Do you ever use a microwave to cook food quickly? [Why/why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.6,
+    part: 1,
+    transcript:
+      'Yes, I frequently use a microwave to reheat leftovers or prepare quick snacks. It is incredibly time-efficient, which is helpful when I have a busy schedule and need to eat something immediately.',
+  },
+  {
+    question: 'How popular are fast food restaurants where you live? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.3,
+    part: 1,
+    transcript:
+      'Fast food restaurants are extremely popular in my city, especially among the younger generation. You can find major international chains on almost every street corner because they offer a consistent and affordable dining experience.',
+  },
+  {
+    question: 'When would you go to a fast-food restaurant? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 1.9,
+    part: 1,
+    transcript:
+      'I typically visit a fast-food restaurant when I am traveling or when I am in a rush and do not have time to cook a proper meal at home. It is a practical solution for those moments when I need a quick bite.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Technology Stopped Using)
+  {
+    question:
+      'Describe some technology (e.g an app, phone, software program) that you decided to stop using.',
+    audioAsset: 'q5.mp3',
+    duration: 3.0,
+    part: 2,
+    youShouldSay: [
+      'when and where you got this technology',
+      'why you started using this technology',
+      'why you decided to stop using it',
+      'and explain how you feel about the decision you made.',
+    ],
+    transcript:
+      "A few years ago, I decided to stop using a popular social media app called Snapchat. Initially, I found it fun for sharing quick photos with friends, but eventually, I realized it was becoming a major distraction in my daily life. The constant notifications and the pressure to maintain 'streaks' made me feel anxious and unproductive. I found myself checking the app every few minutes, which really hindered my ability to focus on my university studies. Consequently, I deleted the account permanently, and I have felt much more present and focused ever since.",
+  },
+
+  // Part 3: Questions 6-11 (Computer Games & Educational Tech)
+  {
+    question: 'What kinds of computer games do people play in your country?',
+    audioAsset: 'q6.mp3',
+    duration: 1.7,
+    part: 3,
+    transcript:
+      'In my country, multiplayer online battle arena games and first-person shooters are immensely popular among young adults. Additionally, casual mobile puzzle games are widely played by people of all ages during their daily commutes.',
+  },
+  {
+    question: 'Why do people enjoy playing computer games?',
+    audioAsset: 'q7.mp3',
+    duration: 2.1,
+    part: 3,
+    transcript:
+      'People enjoy computer games primarily because they offer an immersive form of entertainment and stress relief. They also provide opportunities for social connection through online multiplayer modes and allow players to solve challenging puzzles.',
+  },
+  {
+    question:
+      'Do you think that all computer games should have a minimum age for players?',
+    audioAsset: 'q8.mp3',
+    duration: 4.0,
+    part: 3,
+    transcript:
+      'Yes, I firmly believe that age ratings are necessary for computer games. Many games feature intense violence, graphic content, or in-game purchases that are unsuitable for young children, so clear age guidelines help parents make informed choices.',
+  },
+  {
+    question: 'In what ways can technology in the classroom be helpful?',
+    audioAsset: 'q9.mp3',
+    duration: 1.6,
+    part: 3,
+    transcript:
+      'Technology in classrooms enhances learning by providing interactive digital textbooks, educational videos, and instant access to research materials. It also enables teachers to personalize instruction and make lessons more engaging through multimedia presentations.',
+  },
+  {
+    question:
+      'Do you agree that students are often better at using technology than their teachers?',
+    audioAsset: 'q10.mp3',
+    duration: 2.9,
+    part: 3,
+    transcript:
+      'Generally speaking, yes. Younger generations have grown up surrounded by digital devices, making them digital natives who adapt to new apps effortlessly, whereas some older educators may require more formal training to master modern educational tools.',
+  },
+  {
+    question: 'Do you believe that computers will ever replace human teachers?',
+    audioAsset: 'q11.mp3',
+    duration: 3.0,
+    part: 3,
+    transcript:
+      'No, I do not think computers will ever fully replace human teachers. While artificial intelligence can deliver information efficiently, teachers provide empathy, moral guidance, and emotional support that technology simply cannot replicate.',
+  },
+];
+
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 16 Test 4': book16Test4Questions,
   'IELTS Book 16 Test 3': book16Test3Questions,
   'IELTS Book 15 Test 3': book15Test3Questions,
   'IELTS Book 14 Test 4': book14Test4Questions,

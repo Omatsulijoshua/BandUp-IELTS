@@ -2351,6 +2351,152 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 16 TEST 4 (Fast Food & Cooking / Technology Cue Card / Computer Games & Educational Tech Discussion)
+  // ==========================================
+  final List<Map<String, dynamic>> _book16Test4Questions = [
+    // Part 1: Questions 1-4 (Fast Food & Cooking)
+    {
+      'question':
+          'What kinds of fast food have you tried? [Why/why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.1,
+      'start': 0.0,
+      'promptEnd': 2.1,
+      'end': 2.1,
+      'part': 1,
+      'transcript':
+          'I have tried various types of fast food, such as burgers and fried chicken. I generally enjoy them because they are convenient and flavorful, though I try to limit my intake for health reasons.',
+    },
+    {
+      'question':
+          'Do you ever use a microwave to cook food quickly? [Why/why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.6,
+      'start': 0.0,
+      'promptEnd': 2.6,
+      'end': 2.6,
+      'part': 1,
+      'transcript':
+          'Yes, I frequently use a microwave to reheat leftovers or prepare quick snacks. It is incredibly time-efficient, which is helpful when I have a busy schedule and need to eat something immediately.',
+    },
+    {
+      'question':
+          'How popular are fast food restaurants where you live? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.3,
+      'start': 0.0,
+      'promptEnd': 2.3,
+      'end': 2.3,
+      'part': 1,
+      'transcript':
+          'Fast food restaurants are extremely popular in my city, especially among the younger generation. You can find major international chains on almost every street corner because they offer a consistent and affordable dining experience.',
+    },
+    {
+      'question':
+          'When would you go to a fast-food restaurant? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 1.9,
+      'start': 0.0,
+      'promptEnd': 1.9,
+      'end': 1.9,
+      'part': 1,
+      'transcript':
+          'I typically visit a fast-food restaurant when I am traveling or when I am in a rush and do not have time to cook a proper meal at home. It is a practical solution for those moments when I need a quick bite.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Technology Stopped Using)
+    {
+      'question': 'Describe some technology (e.g an app, phone, software program) that you decided to stop using.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 2,
+      'youShouldSay': [
+        'when and where you got this technology',
+        'why you started using this technology',
+        'why you decided to stop using it',
+        'and explain how you feel about the decision you made.'
+      ],
+      'transcript':
+          'A few years ago, I decided to stop using a popular social media app called Snapchat. Initially, I found it fun for sharing quick photos with friends, but eventually, I realized it was becoming a major distraction in my daily life. The constant notifications and the pressure to maintain \'streaks\' made me feel anxious and unproductive. I found myself checking the app every few minutes, which really hindered my ability to focus on my university studies. Consequently, I deleted the account permanently, and I have felt much more present and focused ever since.',
+    },
+
+    // Part 3: Questions 6-11 (Computer Games & Educational Tech)
+    {
+      'question': 'What kinds of computer games do people play in your country?',
+      'audioAsset': 'q6.mp3',
+      'duration': 1.7,
+      'start': 0.0,
+      'promptEnd': 1.7,
+      'end': 1.7,
+      'part': 3,
+      'transcript':
+          'In my country, multiplayer online battle arena games and first-person shooters are immensely popular among young adults. Additionally, casual mobile puzzle games are widely played by people of all ages during their daily commutes.',
+    },
+    {
+      'question':
+          'Why do people enjoy playing computer games?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.1,
+      'start': 0.0,
+      'promptEnd': 2.1,
+      'end': 2.1,
+      'part': 3,
+      'transcript':
+          'People enjoy computer games primarily because they offer an immersive form of entertainment and stress relief. They also provide opportunities for social connection through online multiplayer modes and allow players to solve challenging puzzles.',
+    },
+    {
+      'question':
+          'Do you think that all computer games should have a minimum age for players?',
+      'audioAsset': 'q8.mp3',
+      'duration': 4.0,
+      'start': 0.0,
+      'promptEnd': 4.0,
+      'end': 4.0,
+      'part': 3,
+      'transcript':
+          'Yes, I firmly believe that age ratings are necessary for computer games. Many games feature intense violence, graphic content, or in-game purchases that are unsuitable for young children, so clear age guidelines help parents make informed choices.',
+    },
+    {
+      'question':
+          'In what ways can technology in the classroom be helpful?',
+      'audioAsset': 'q9.mp3',
+      'duration': 1.6,
+      'start': 0.0,
+      'promptEnd': 1.6,
+      'end': 1.6,
+      'part': 3,
+      'transcript':
+          'Technology in classrooms enhances learning by providing interactive digital textbooks, educational videos, and instant access to research materials. It also enables teachers to personalize instruction and make lessons more engaging through multimedia presentations.',
+    },
+    {
+      'question':
+          'Do you agree that students are often better at using technology than their teachers?',
+      'audioAsset': 'q10.mp3',
+      'duration': 2.9,
+      'start': 0.0,
+      'promptEnd': 2.9,
+      'end': 2.9,
+      'part': 3,
+      'transcript':
+          'Generally speaking, yes. Younger generations have grown up surrounded by digital devices, making them digital natives who adapt to new apps effortlessly, whereas some older educators may require more formal training to master modern educational tools.',
+    },
+    {
+      'question': 'Do you believe that computers will ever replace human teachers?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 3,
+      'transcript':
+          'No, I do not think computers will ever fully replace human teachers. While artificial intelligence can deliver information efficiently, teachers provide empathy, moral guidance, and emotional support that technology simply cannot replicate.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 13 TEST 3 (Money & Shopping / Interesting Discussion Cue Card / Discussing Problems & Communication Skills)
   // ==========================================
   final List<Map<String, dynamic>> _book13Test3Questions = [
@@ -3526,6 +3672,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book15Test3Questions;
     } else if (_selectedTestTitle.contains('Book 16 Test 3')) {
       return _book16Test3Questions;
+    } else if (_selectedTestTitle.contains('Book 16 Test 4')) {
+      return _book16Test4Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 1')) {
       return _book21Test1Questions;
     }
@@ -5878,7 +6026,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           }
         }
 
-        if (isSingleWordOrMinimal && (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 2'))) {
+        if (isSingleWordOrMinimal && (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2'))) {
           if (_selectedPart == 1) {
             overallBand = 1.0;
           } else {
@@ -5905,7 +6053,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         }
 
         final int defScore = isSingleWordOrMinimal
-            ? ((_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 2'))
+            ? ((_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2'))
                 ? (_selectedPart == 1 ? 1 : 0)
                 : _selectedTestTitle.contains('Book 14 Test 2')
                     ? (_selectedPart == 1 ? 0 : 1)
@@ -5935,7 +6083,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
         if (isSingleWordOrMinimal) {
           if (_selectedPart == 3) {
-            fcFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            fcFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "The candidate provided no assessable language. Every response was 'No', which is completely irrelevant and fails to address any of the questions asked."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "Your responses were non-existent. You provided 'No' to every question. This is considered a refusal to participate or a total failure to address the task. Relevance is impossible to assess as you did not provide any content."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "Your responses are entirely empty/non-responsive. You provided 'No' to every question, which is not an answer. These responses are irrelevant and fail to address the task entirely."
@@ -5954,7 +6104,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
                 : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-            lrFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            lrFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "There is no vocabulary range to assess."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "No vocabulary was demonstrated. A score of 0 is mandatory as there is no assessable language."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "There is no vocabulary to assess."
@@ -5973,7 +6125,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "There is no lexical resource displayed, as you only used one word repeatedly."
                 : "There is no vocabulary to assess.";
-            grFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            grFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "There is no grammatical structure to assess."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "No grammatical structures were demonstrated. A score of 0 is mandatory."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "There is no grammatical structure to assess."
@@ -5992,7 +6146,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "No grammatical structures were demonstrated beyond a single word."
                 : "There is no grammar to assess.";
-            prFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            prFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "The candidate did not provide any spoken content beyond a single word."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "No speech was provided to evaluate pronunciation."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "No speech was produced to evaluate."
@@ -6011,7 +6167,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
                 : "There is no speech to assess.";
-            tipsList = _selectedTestTitle.contains('Book 15 Test 2')
+            tipsList = _selectedTestTitle.contains('Book 15 Test 1')
+                ? [
+                    "Give extended answers in Part 3 by examining different perspectives, comparing situations, or discussing broader social implications.",
+                    "Support your opinions with clear explanations, real-world examples, or hypothetical scenarios.",
+                    "Use sophisticated discourse markers to structure complex thoughts (e.g., 'On the one hand', 'Conversely', 'In terms of').",
+                    "Demonstrate a wide range of topic-specific vocabulary relevant to the themes discussed, such as hospitality, career longevity, and management.",
+                    "Practice developing arguments logically without relying on memorized templates or simplistic yes/no answers.",
+                  ]
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? [
                     "You must provide full, descriptive answers to IELTS questions; one-word or negative responses result in an automatic failure.",
                     "Practice speaking for 30-60 seconds per question to demonstrate your English proficiency.",
@@ -6088,7 +6252,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
                   ];
           } else if (_selectedPart == 2) {
-            fcFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            fcFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "Your answer was empty. You provided no response to the question asked."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "The response was empty. You provided no information, which results in a failure to address the task requirements."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "The response was empty. You failed to provide any information, which makes it impossible to assess your fluency or coherence."
@@ -6109,7 +6275,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedTestTitle.contains('Book 10 Test 4')
                             ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
                             : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-            lrFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            lrFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "No vocabulary was produced to evaluate."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "No vocabulary was demonstrated."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "No vocabulary was demonstrated. You must provide a full response to be evaluated."
@@ -6130,7 +6298,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedTestTitle.contains('Book 10 Test 4')
                             ? "There is no vocabulary to assess."
                             : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-            grFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            grFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "No grammatical structures were produced to evaluate."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "No grammatical structures were demonstrated."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "No grammatical structures were demonstrated due to the lack of a response."
@@ -6151,7 +6321,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedTestTitle.contains('Book 10 Test 4')
                             ? "There is no grammatical structure to assess."
                             : "There is no grammatical range to evaluate.";
-            prFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            prFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "No speech was produced to evaluate."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "No speech was produced to evaluate."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "No speech was produced to evaluate."
@@ -6172,7 +6344,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedTestTitle.contains('Book 10 Test 4')
                             ? "There is insufficient data to evaluate your pronunciation."
                             : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-            tipsList = _selectedTestTitle.contains('Book 15 Test 2')
+            tipsList = _selectedTestTitle.contains('Book 15 Test 1')
+                ? [
+                    "Use your 1-minute preparation time to write down bullet points and key vocabulary for each prompt on the card.",
+                    "Aim to speak for the full 2 minutes by addressing all four bullet points systematically and adding personal anecdotes.",
+                    "Structure your talk chronologically: start with the introduction, elaborate on the details, and conclude with your personal feelings.",
+                    "Use descriptive adjectives and sensory details to make your description more vivid and engaging for the listener.",
+                    "Practice speaking continuously without long pauses; use discourse markers like 'moving on to', 'in addition to that', and 'finally'.",
+                  ]
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? [
                     "You must attempt to answer the question; silence or saying 'No' results in a band 0.",
                     "In Part 2, you are expected to speak for 1-2 minutes. Practice organizing your thoughts into a narrative.",
@@ -6258,7 +6438,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         "Prepare stories about people you know in advance to avoid being caught off guard during the test."
                       ];
           } else {
-            fcFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            fcFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "Your answers were completely irrelevant and failed to address the questions. Providing one-word answers like 'No' or 'Oh' demonstrates a failure to engage with the test format."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "Your answers were completely inadequate. You provided single-word responses ('No') that failed to address the questions asked. This demonstrates an inability to communicate or engage with the examiner."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "Your answers were highly inadequate. You provided single-word responses ('No') to every question. This fails to address the requirement to provide extended, relevant answers. You did not engage with the prompts at all."
@@ -6279,7 +6461,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
                         : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-            lrFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            lrFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "There is no vocabulary range to assess as you only provided single-word responses."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "There is no evidence of lexical range or accuracy. You did not use any vocabulary to describe your experiences or opinions."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "There is no evidence of vocabulary range or usage. A single word cannot be assessed for lexical resource."
@@ -6300,7 +6484,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "There is no vocabulary to assess beyond a single, repetitive word."
                         : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-            grFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            grFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "There is no grammatical structure to assess. No complete sentences were produced."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "There is no evidence of grammatical range or accuracy as you only provided a single word."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "There is no evidence of grammatical structure. A single word cannot be assessed for grammatical range."
@@ -6321,7 +6507,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "There is no grammatical structure to assess."
                         : "There is no grammatical range to assess as no full sentences were produced.";
-            prFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+            prFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+                ? "Insufficient data to assess pronunciation, though the lack of effort suggests a failure to engage with the test format."
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "Insufficient data to assess, but your failure to provide full sentences makes it impossible to evaluate your phonological features."
                 : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "It is impossible to assess pronunciation based on a single word response. You must speak in full sentences to demonstrate your ability."
@@ -6342,7 +6530,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
                         : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-            tipsList = _selectedTestTitle.contains('Book 15 Test 2')
+            tipsList = _selectedTestTitle.contains('Book 15 Test 1')
+                ? [
+                    "You must answer in full sentences, not single words.",
+                    "Expand your answers by providing a reason, an example, or a personal detail for every question.",
+                    "Do not provide 'No' or 'Oh' as answers; this results in a score of 0-1.",
+                    "Practice the 'Answer + Extend' method: provide a direct answer, then add at least two sentences of explanation or detail.",
+                    "Understand that the examiner needs to hear your English to grade you; silence or one-word answers make it impossible to give you a passing score.",
+                  ]
+                : _selectedTestTitle.contains('Book 15 Test 2')
                 ? [
                     "You must provide full, descriptive sentences. A one-word answer is not acceptable in an IELTS speaking test.",
                     "Elaborate on your answers by providing reasons, examples, or personal experiences to satisfy the 'Why/Why not' component of the questions.",
@@ -6500,7 +6696,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       final bool isSingleWordOrMinimal = wordCountTotal <= 5 || (avgWordsPerQuestion < 3 && wordCountTotal < 15);
       double band = 1.0;
       if (isSingleWordOrMinimal) {
-        if (_selectedTestTitle.contains('Book 14 Test 4')) {
+        if (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2')) {
           band = _selectedPart == 1 ? 1.0 : 0.0;
         } else if (_selectedTestTitle.contains('Book 14 Test 2')) {
           band = _selectedPart == 1 ? 0.0 : 1.0;
@@ -6522,7 +6718,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       } else if (wordCountTotal > 5) {
         band = 3.0;
       } else {
-        if (_selectedTestTitle.contains('Book 14 Test 4')) {
+        if (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2')) {
           band = _selectedPart == 1 ? 1.0 : 0.0;
         } else if (_selectedTestTitle.contains('Book 14 Test 2')) {
           band = _selectedPart == 1 ? 0.0 : 1.0;
@@ -6536,7 +6732,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       }
 
       final int intBand = isSingleWordOrMinimal
-          ? (_selectedTestTitle.contains('Book 14 Test 4')
+          ? ((_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2'))
               ? (_selectedPart == 1 ? 1 : 0)
               : _selectedTestTitle.contains('Book 14 Test 2')
                   ? (_selectedPart == 1 ? 0 : 1)
@@ -6557,7 +6753,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
       if (isSingleWordOrMinimal) {
         if (_selectedPart == 3) {
-          fluencyFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          fluencyFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "The candidate provided no assessable language. Every response was 'No', which is completely irrelevant and fails to address any of the questions asked."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "Your responses were non-existent. You provided 'No' to every question. This is considered a refusal to participate or a total failure to address the task. Relevance is impossible to assess as you did not provide any content."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "Your responses are entirely empty/non-responsive. You provided 'No' to every question, which is not an answer. These responses are irrelevant and fail to address the task entirely."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "Your answers were completely irrelevant and failed to address the questions. Answering 'No' to complex, open-ended questions demonstrates a total failure to participate in the exam."
@@ -6570,7 +6770,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               : _selectedTestTitle.contains('Book 13 Test 2')
               ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
               : "Your answers were completely inadequate. By providing only the word 'No' to every question, you failed to address the task. These responses are essentially empty and do not demonstrate any English language proficiency.";
-          lexicalFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          lexicalFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "There is no vocabulary range to assess."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "No vocabulary was demonstrated. A score of 0 is mandatory as there is no assessable language."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "There is no vocabulary to assess."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no vocabulary range to assess as you only provided a single-word response for every question."
@@ -6583,7 +6787,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               : _selectedTestTitle.contains('Book 13 Test 2')
               ? "There is no lexical resource displayed, as you only used one word repeatedly."
               : "There is no lexical resource to evaluate as you only provided a single-word response repeatedly.";
-          grammarFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          grammarFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "There is no grammatical structure to assess."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "No grammatical structures were demonstrated. A score of 0 is mandatory."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "There is no grammatical structure to assess."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no grammatical structure to assess."
@@ -6596,7 +6804,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               : _selectedTestTitle.contains('Book 13 Test 2')
               ? "No grammatical structures were demonstrated beyond a single word."
               : "There is no grammatical range to evaluate.";
-          pronunciationFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          pronunciationFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "The candidate did not provide any spoken content beyond a single word."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "No speech was provided to evaluate pronunciation."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "No speech was produced to evaluate."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "Cannot assess pronunciation based on a single word; however, you must speak in full, coherent sentences to be evaluated."
@@ -6609,7 +6821,23 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               : _selectedTestTitle.contains('Book 13 Test 2')
               ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
               : "No speech content provided to evaluate pronunciation.";
-          tipsList = _selectedTestTitle.contains('Book 14 Test 4')
+          tipsList = _selectedTestTitle.contains('Book 15 Test 1')
+              ? [
+                  "Give extended answers in Part 3 by examining different perspectives, comparing situations, or discussing broader social implications.",
+                  "Support your opinions with clear explanations, real-world examples, or hypothetical scenarios.",
+                  "Use sophisticated discourse markers to structure complex thoughts (e.g., 'On the one hand', 'Conversely', 'In terms of').",
+                  "Demonstrate a wide range of topic-specific vocabulary relevant to the themes discussed, such as hospitality, career longevity, and management.",
+                  "Practice developing arguments logically without relying on memorized templates or simplistic yes/no answers.",
+                ]
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? [
+                  "You must provide full, descriptive answers to IELTS questions; one-word or negative responses result in an automatic failure.",
+                  "Practice speaking for 30-60 seconds per question to demonstrate your English proficiency.",
+                  "If you do not know the answer, try to talk about your general thoughts on the topic rather than saying 'No'.",
+                  "Familiarize yourself with the IELTS Speaking format, which requires you to elaborate and provide reasons/examples for your opinions.",
+                  "An IELTS examiner cannot assess your level if you do not speak. You must engage with the questions provided.",
+                ]
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? [
                   "You must provide full, relevant sentences to answer the examiner's questions.",
                   "Answering 'No' to open-ended questions demonstrates a complete lack of effort and will result in a score of 0.",
@@ -6663,7 +6891,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   "Engage with the topic; the IELTS Speaking test requires you to express opinions and provide justifications."
                 ];
         } else if (_selectedPart == 2) {
-          fluencyFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          fluencyFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "Your answer was empty. You provided no response to the question asked."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "The response was empty. You provided no information, which results in a failure to address the task requirements."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "The response was empty. You failed to provide any information, which makes it impossible to assess your fluency or coherence."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "Your answer was completely insufficient. You provided a one-word response ('No') to a Part 2 prompt, which requires a 1-2 minute descriptive talk. This is not a valid attempt at the task."
@@ -6678,7 +6910,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : _selectedTestTitle.contains('Book 10 Test 4')
                           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
                           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-          lexicalFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          lexicalFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "No vocabulary was produced to evaluate."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "No vocabulary was demonstrated."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "No vocabulary was demonstrated. You must provide a full response to be evaluated."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no vocabulary to assess."
@@ -6693,12 +6929,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : _selectedTestTitle.contains('Book 10 Test 4')
                           ? "There is no vocabulary to assess."
                           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-          grammarFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          grammarFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "No grammatical structures were produced to evaluate."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "No grammatical structures were demonstrated."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "No grammatical structures were demonstrated due to the lack of a response."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no grammatical structure to assess."
               : _selectedTestTitle.contains('Book 13 Test 4')
-              ? "No grammatical structures were produced to assess."
+              ? "No grammatical structures were produced."
               : _selectedTestTitle.contains('Book 13 Test 1')
               ? "There is no evidence of grammatical structure or range."
               : _selectedTestTitle.contains('Book 13 Test 3')
@@ -6708,7 +6948,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : _selectedTestTitle.contains('Book 10 Test 4')
                           ? "There is no grammatical structure to assess."
                           : "There is no grammatical range to evaluate.";
-          pronunciationFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          pronunciationFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "No speech was produced to evaluate."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "No speech was produced to evaluate."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "No speech was produced to evaluate."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no continuous speech to assess."
@@ -6723,7 +6967,23 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       : _selectedTestTitle.contains('Book 10 Test 4')
                           ? "There is insufficient data to evaluate your pronunciation."
                           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-          tipsList = _selectedTestTitle.contains('Book 14 Test 4')
+          tipsList = _selectedTestTitle.contains('Book 15 Test 1')
+              ? [
+                  "Use your 1-minute preparation time to write down bullet points and key vocabulary for each prompt on the card.",
+                  "Aim to speak for the full 2 minutes by addressing all four bullet points systematically and adding personal anecdotes.",
+                  "Structure your talk chronologically: start with the introduction, elaborate on the details, and conclude with your personal feelings.",
+                  "Use descriptive adjectives and sensory details to make your description more vivid and engaging for the listener.",
+                  "Practice speaking continuously without long pauses; use discourse markers like 'moving on to', 'in addition to that', and 'finally'.",
+                ]
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? [
+                  "You must attempt to answer the question; silence or saying 'No' results in a band 0.",
+                  "In Part 2, you are expected to speak for 1-2 minutes. Practice organizing your thoughts into a narrative.",
+                  "Use the 1-minute preparation time to jot down keywords related to the topic (e.g., website name, item bought, why you chose it).",
+                  "If you are unprepared, try to describe any website you know, even if you haven't bought something from it; it is better to speak than to be silent.",
+                  "Focus on building confidence by practicing speaking about familiar topics for at least 60 seconds.",
+                ]
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? [
                   "You must provide a full answer to the question asked. A one-word response like 'No' is not an attempt at the task.",
                   "In Part 2 of the IELTS Speaking test, you are expected to speak for 1 to 2 minutes on a specific topic.",
@@ -6786,8 +7046,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                       "Prepare stories about people you know in advance to avoid being caught off guard during the test."
                     ];
         } else {
-          fluencyFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          fluencyFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "Your answers were completely irrelevant and failed to address the questions. Providing one-word answers like 'No' or 'Oh' demonstrates a failure to engage with the test format."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "Your answers were completely inadequate. You provided single-word responses ('No') that failed to address the questions asked. This demonstrates an inability to communicate or engage with the examiner."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "Your answers were highly inadequate. You provided single-word responses ('No') to every question. This fails to address the requirement to provide extended, relevant answers. You did not engage with the prompts at all."
+              : _selectedTestTitle.contains('Book 14 Test 3')
+              ? "Your answers were highly repetitive and failed to address the 'Why/why not' component of the questions. Simply saying 'Yes' to every question is not a valid response in an IELTS speaking test."
+              : _selectedTestTitle.contains('Book 14 Test 1')
+              ? "The responses are either non-existent or consist of single words that do not address the questions. There is no coherence or development of ideas."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "The candidate provided no responses to any of the questions. The answers were empty/refusals, which makes them completely incoherent and irrelevant to the task."
               : _selectedTestTitle.contains('Book 13 Test 4')
@@ -6801,7 +7069,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   : _selectedTestTitle.contains('Book 10 Test 4')
                       ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
                       : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-          lexicalFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          lexicalFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "There is no vocabulary range to assess as you only provided single-word responses."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "There is no evidence of lexical range or accuracy. You did not use any vocabulary to describe your experiences or opinions."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "There is no evidence of vocabulary range or usage. A single word cannot be assessed for lexical resource."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no vocabulary to assess."
@@ -6816,7 +7088,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   : _selectedTestTitle.contains('Book 10 Test 4')
                       ? "There is no vocabulary to assess beyond a single, repetitive word."
                       : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-          grammarFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          grammarFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "There is no grammatical structure to assess. No complete sentences were produced."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "There is no evidence of grammatical range or accuracy as you only provided a single word."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "There is no evidence of grammatical structure. A single word cannot be assessed for grammatical range."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "There is no grammatical structure to assess."
@@ -6831,7 +7107,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   : _selectedTestTitle.contains('Book 10 Test 4')
                       ? "There is no grammatical structure to assess."
                       : "There is no grammatical range to assess as no full sentences were produced.";
-          pronunciationFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+          pronunciationFeedback = _selectedTestTitle.contains('Book 15 Test 1')
+              ? "Insufficient data to assess pronunciation, though the lack of effort suggests a failure to engage with the test format."
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? "Insufficient data to assess, but your failure to provide full sentences makes it impossible to evaluate your phonological features."
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? "It is impossible to assess pronunciation based on a single word response. You must speak in full sentences to demonstrate your ability."
               : _selectedTestTitle.contains('Book 14 Test 2')
               ? "There was no speech to evaluate."
@@ -6846,7 +7126,23 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                   : _selectedTestTitle.contains('Book 10 Test 4')
                       ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
                       : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-          tipsList = _selectedTestTitle.contains('Book 14 Test 4')
+          tipsList = _selectedTestTitle.contains('Book 15 Test 1')
+              ? [
+                  "You must answer in full sentences, not single words.",
+                  "Expand your answers by providing a reason, an example, or a personal detail for every question.",
+                  "Do not provide 'No' or 'Oh' as answers; this results in a score of 0-1.",
+                  "Practice the 'Answer + Extend' method: provide a direct answer, then add at least two sentences of explanation or detail.",
+                  "Understand that the examiner needs to hear your English to grade you; silence or one-word answers make it impossible to give you a passing score.",
+                ]
+              : _selectedTestTitle.contains('Book 15 Test 2')
+              ? [
+                  "You must provide full, descriptive sentences. A one-word answer is not acceptable in an IELTS speaking test.",
+                  "Elaborate on your answers by providing reasons, examples, or personal experiences to satisfy the 'Why/Why not' component of the questions.",
+                  "Practice speaking for at least 20-30 seconds for each Part 1 question to demonstrate your fluency.",
+                  "Your responses were technically irrelevant because they did not answer the prompt; 'No' is not a logical response to 'How many languages can you speak?'.",
+                  "Engage with the topic fully. You are being assessed on your ability to speak English, not your ability to be brief.",
+                ]
+              : _selectedTestTitle.contains('Book 14 Test 4')
               ? [
                   "You must answer using full, extended sentences. A one-word answer will result in a failing score.",
                   "Always explain your 'why'. The questions ask for reasons, which requires you to elaborate on your thoughts.",
