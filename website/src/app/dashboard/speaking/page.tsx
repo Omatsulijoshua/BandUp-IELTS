@@ -2493,6 +2493,119 @@ const book16Test4Questions: Question[] = [
   },
 ];
 
+const book17Test1Questions: Question[] = [
+  // Part 1: Questions 1-4 (History Lessons)
+  {
+    question:
+      'What did you study in history lessons when you were at school?',
+    audioAsset: 'q1.mp3',
+    duration: 2.55,
+    part: 1,
+    transcript:
+      'In my history lessons at school, we primarily focused on 20th-century global conflicts, such as the two World Wars. We also spent a significant amount of time studying the industrial revolution and its impact on modern society. It was quite a comprehensive curriculum that covered both local and international historical events.',
+  },
+  {
+    question:
+      'Did you enjoy studying history at school? [Why/Why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.05,
+    part: 1,
+    transcript:
+      'To be honest, I found history quite fascinating. I particularly enjoyed learning about the personal stories behind major historical figures, as it made the past feel much more relatable. Understanding the cause and effect of certain events helped me gain a better perspective on why our world functions the way it does today.',
+  },
+  {
+    question:
+      'How often do you watch TV programmes about history now? [Why/Why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 2.85,
+    part: 1,
+    transcript:
+      "I don't watch historical programmes on TV very often, perhaps only once or twice a month. When I do, I prefer high-quality documentaries on streaming platforms like Netflix or the BBC. I find them to be a relaxing yet educational way to spend my leisure time, although my busy schedule often limits how much I can watch.",
+  },
+  {
+    question:
+      'What period in history would you like to learn more about? [Why?]',
+    audioAsset: 'q4.mp3',
+    duration: 2.3,
+    part: 1,
+    transcript:
+      'I would be very interested in learning more about Ancient Egyptian civilization. The architectural achievements, such as the pyramids and their complex social structure, have always intrigued me. I think it would be fascinating to delve deeper into their belief systems and daily lives, as they seem so different from our modern existence.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Childhood Neighbourhood)
+  {
+    question:
+      'Describe the neighbourhood you lived in when you were a child.',
+    audioAsset: 'q5.mp3',
+    duration: 2.6,
+    part: 2,
+    youShouldSay: [
+      'where in your town/city the neighbourhood was',
+      'what kind of people lived there',
+      'what it was like to live in this neighbourhood',
+      'and explain whether you would like to live in this neighbourhood in the future.',
+    ],
+    transcript:
+      "I grew up in a quiet, suburban neighbourhood on the outskirts of the city. It was a very friendly area where all the neighbours knew each other and children could play safely in the streets. There was a large park nearby with plenty of trees, which was my favorite place to spend time after school. Although it wasn't particularly modern, it had a warm, welcoming atmosphere that I still remember fondly today.",
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Neighbours & Urban Living)
+  {
+    question:
+      'What sort of things can neighbours do to help each other?',
+    audioAsset: 'q6.mp3',
+    duration: 2.5,
+    part: 3,
+    transcript:
+      'Neighbours can be incredibly helpful by fostering a sense of community. For instance, they might collect parcels for each other while someone is away, share tools, or offer assistance during emergencies. This mutual support system creates a safer and friendlier environment for everyone living in the vicinity.',
+  },
+  {
+    question:
+      'How well do people generally know their neighbours in your country?',
+    audioAsset: 'q7.mp3',
+    duration: 2.1,
+    part: 3,
+    transcript:
+      'In my country, the level of connection depends on the living situation. In rural areas, people are generally very close-knit and know their neighbours well. However, in large cities, residents often lead busy lives and may only have a superficial acquaintance with those living next door.',
+  },
+  {
+    question:
+      'How important do you think it is to have good neighbours?',
+    audioAsset: 'q8.mp3',
+    duration: 1.9,
+    part: 3,
+    transcript:
+      "I believe it is highly important to have good neighbours as they are the people closest to you physically. A positive relationship can significantly improve your quality of life, reducing stress and providing a safety net. Conversely, difficult neighbours can make one's home life feel very uncomfortable.",
+  },
+  {
+    question:
+      'Which facilities are most important to people living in cities?',
+    audioAsset: 'q9.mp3',
+    duration: 2.5,
+    part: 3,
+    transcript:
+      'When living in a city, accessibility is paramount. Most people prioritize proximity to public transport, supermarkets, and healthcare facilities. Additionally, access to green spaces like parks is increasingly valued as it provides a necessary escape from the urban hustle and bustle.',
+  },
+  {
+    question:
+      'How does shopping in small local shops differ from shopping in large city centre shops?',
+    audioAsset: 'q10.mp3',
+    duration: 4.5,
+    part: 3,
+    transcript:
+      'Shopping in small local shops is often a more personal experience where the shopkeeper knows their customers and provides tailored service. On the other hand, large city centre shops offer far greater variety, competitive prices, and the convenience of finding everything under one roof, though they tend to be much more impersonal.',
+  },
+  {
+    question:
+      'Do you think that children should always go to the school nearest to where they live?',
+    audioAsset: 'q11.mp3',
+    duration: 4.25,
+    part: 3,
+    transcript:
+      "While attending the nearest school is convenient and allows children to build friendships in their local community, it should not be an absolute rule. If a nearby school lacks quality facilities or specialized academic programs that fit a child's strengths, parents should have the flexibility to choose a better suited institution farther away.",
+  },
+];
+
 const book17Test2Questions: Question[] = [
   // Part 1: Questions 1-4 (Books & Reading)
   {
@@ -2696,6 +2809,110 @@ const book15Test4Questions: Question[] = [
     part: 3,
     transcript:
       'I believe a partnership is the most effective approach. Governments should fund fundamental research, which is often long-term and high-risk, as they focus on public benefit. Meanwhile, private companies are better suited for applied research and commercializing products, as they have the resources and the market incentive to bring innovations to the public quickly.',
+  },
+];
+
+const book19Test4Questions: Question[] = [
+  {
+    question: 'Do you have a favourite cafe? [Why/Why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.20,
+    part: 1,
+    transcript:
+      'Actually, I have a favourite cafe near my office that I visit quite often. I really enjoy it because the atmosphere is incredibly cozy, and they serve the best artisanal coffee in the city. It has become my go-to spot whenever I need a quiet place to focus on my work.',
+  },
+  {
+    question: 'Do you often go to cafes by yourself? [Why/Why not?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.50,
+    part: 1,
+    transcript:
+      'I rarely go to cafes by myself because I usually prefer the company of friends or colleagues. For me, a cafe is a social space where I like to catch up with people and share ideas. However, if I have a pressing deadline, I might go alone to take advantage of the quiet environment.',
+  },
+  {
+    question: 'What do you think helps to make a cafe very popular? [Why?]',
+    audioAsset: 'q3.mp3',
+    duration: 4.70,
+    part: 1,
+    transcript:
+      'I believe the key to a popular cafe is a combination of high-quality coffee and a welcoming ambiance. People are often drawn to places with comfortable seating, reliable Wi-Fi, and friendly staff who make them feel at home. Additionally, unique interior design or a specific signature pastry can really set a cafe apart from the competition.',
+  },
+  {
+    question:
+      'Why do some people prefer cafes that are part of large chains, rather than small, local cafes?',
+    audioAsset: 'q4.mp3',
+    duration: 5.20,
+    part: 1,
+    transcript:
+      'Many people prefer large chains because of the consistency and reliability they offer. Whether you are in a different city or country, you know exactly what the coffee and service will be like. Furthermore, chains often provide a very predictable environment, which is convenient for people who want to work or meet others without any surprises.',
+  },
+  {
+    question:
+      'Describe a place you visited that has beautiful views.',
+    audioAsset: 'q5.mp3',
+    duration: 3.50,
+    part: 2,
+    youShouldSay: [
+      'where this place is',
+      'when and why you visited it',
+      'what views you can see from this place',
+      'and explain why you think these views are so beautiful.',
+    ],
+    transcript:
+      'One place that immediately comes to mind is the Amalfi Coast in Italy, which I visited a few years ago. The scenery is absolutely breathtaking, characterized by dramatic cliffs that plunge directly into the turquoise Mediterranean Sea. I spent hours simply walking along the coastal paths, mesmerized by the vibrant pastel-colored houses perched precariously on the hillsides. It was the most picturesque landscape I have ever encountered, and the sunset views from the town of Positano were particularly unforgettable. Every corner you turn offers a new, stunning perspective that feels like a scene from a postcard.',
+  },
+  {
+    question:
+      'Do you agree that most beauty products are a waste of money?',
+    audioAsset: 'q6.mp3',
+    duration: 3.50,
+    part: 3,
+    transcript:
+      'I generally disagree with that perspective. While some luxury brands are overpriced, many beauty products serve essential functions for skin health and hygiene. Therefore, I believe it is a matter of personal choice rather than a complete waste of money.',
+  },
+  {
+    question:
+      'How does the beauty industry advertise its products so successfully?',
+    audioAsset: 'q7.mp3',
+    duration: 3.30,
+    part: 3,
+    transcript:
+      'The beauty industry utilizes sophisticated marketing strategies, such as influencer partnerships and social media advertising, to create a sense of aspiration. They often focus on emotional branding, convincing consumers that their products are essential for personal confidence and social success.',
+  },
+  {
+    question:
+      'What do you think of the view that beauty products should not be advertised to children?',
+    audioAsset: 'q8.mp3',
+    duration: 4.60,
+    part: 3,
+    transcript:
+      'I strongly believe that advertising beauty products to children is inappropriate. It can foster unrealistic beauty standards at an age when children are still developing their self-esteem. Protecting children from such commercial pressures is crucial for their mental well-being.',
+  },
+  {
+    question: 'Why do many people equate youth with beauty?',
+    audioAsset: 'q9.mp3',
+    duration: 2.10,
+    part: 3,
+    transcript:
+      'In many cultures, youth is often associated with vitality, health, and fertility, which are evolutionary indicators of attractiveness. Consequently, the beauty industry reinforces this connection through marketing that promotes anti-aging products to maintain a youthful appearance.',
+  },
+  {
+    question:
+      "Do you think that being beautiful could affect a person's success in life?",
+    audioAsset: 'q10.mp3',
+    duration: 4.10,
+    part: 3,
+    transcript:
+      "It is undeniable that society often equates physical attractiveness with positive traits, a phenomenon sometimes called the 'halo effect.' While it shouldn't be the case, being perceived as beautiful can provide social advantages and open doors in various professional and personal contexts.",
+  },
+  {
+    question:
+      "Why might society's ideas about beauty change over time?",
+    audioAsset: 'q11.mp3',
+    duration: 2.80,
+    part: 3,
+    transcript:
+      "Societal standards of beauty are constantly evolving due to shifts in culture, media influence, and historical context. What is considered attractive in one generation can be drastically different in another as global trends and personal values continue to change.",
   },
 ];
 
@@ -3321,11 +3538,13 @@ const book16Test2Questions: Question[] = [
 ];
 
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 19 Test 4': book19Test4Questions,
   'IELTS Book 18 Test 4': book18Test4Questions,
   'IELTS Book 18 Test 2': book18Test2Questions,
   'IELTS Book 18 Test 1': book18Test1Questions,
   'IELTS Book 17 Test 4': book17Test4Questions,
   'IELTS Book 17 Test 2': book17Test2Questions,
+  'IELTS Book 17 Test 1': book17Test1Questions,
   'IELTS Book 16 Test 4': book16Test4Questions,
   'IELTS Book 16 Test 3': book16Test3Questions,
   'IELTS Book 16 Test 2': book16Test2Questions,
@@ -3598,7 +3817,9 @@ export default function SpeakingPracticePage() {
 
     let band = 1.0;
     if (isSingleWordOrMinimal) {
-      if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2')) {
+      if (selectedTestTitle.includes('Book 17 Test 1')) {
+        band = selectedPart === 3 ? 0.0 : 1.0;
+      } else if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2')) {
         band = selectedPart === 1 ? 1.0 : 0.0;
       } else if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
@@ -3618,7 +3839,9 @@ export default function SpeakingPracticePage() {
     } else if (totalWords > 5) {
       band = 3.0;
     } else {
-      if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2')) {
+      if (selectedTestTitle.includes('Book 17 Test 1')) {
+        band = selectedPart === 3 ? 0.0 : 1.0;
+      } else if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2')) {
         band = selectedPart === 1 ? 1.0 : 0.0;
       } else if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
@@ -3632,7 +3855,9 @@ export default function SpeakingPracticePage() {
     }
 
     const intBand = isSingleWordOrMinimal
-      ? ((selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2'))
+      ? (selectedTestTitle.includes('Book 17 Test 1')
+          ? (selectedPart === 3 ? 0 : 1)
+          : (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2'))
           ? (selectedPart === 1 ? 1 : 0)
           : selectedTestTitle.includes('Book 14 Test 2')
           ? (selectedPart === 1 ? 0 : 1)
@@ -3651,7 +3876,9 @@ export default function SpeakingPracticePage() {
 
     if (isSingleWordOrMinimal) {
       if (selectedPart === 3) {
-        fluencyFeedback = selectedTestTitle.includes('Book 18 Test 2')
+        fluencyFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "Your answers were completely irrelevant. You provided a one-word negative response ('No') to every single question. This does not constitute an attempt to answer the prompt, resulting in a band 0."
+          : selectedTestTitle.includes('Book 18 Test 2')
           ? "Your answers were completely empty or irrelevant. By responding with 'No' to every question, you failed to provide any assessable language. This indicates a total lack of participation."
           : selectedTestTitle.includes('Book 16 Test 1')
           ? "Your answers were completely empty or irrelevant. By responding with 'No' to every question, you failed to provide any assessable language. This indicates a total lack of participation."
@@ -3678,7 +3905,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
           : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-        lexicalFeedback = selectedTestTitle.includes('Book 18 Test 2')
+        lexicalFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "There is no lexical resource to evaluate as you only used a single word repeatedly."
+          : selectedTestTitle.includes('Book 18 Test 2')
           ? "There is no vocabulary to assess because you provided no meaningful responses."
           : selectedTestTitle.includes('Book 16 Test 1')
           ? "There is no vocabulary to assess because you provided no meaningful responses."
@@ -3705,7 +3934,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no lexical resource displayed, as you only used one word repeatedly."
           : "There is no vocabulary to assess.";
-        grammarFeedback = selectedTestTitle.includes('Book 18 Test 2')
+        grammarFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "There is no grammatical range to evaluate."
+          : selectedTestTitle.includes('Book 18 Test 2')
           ? "There is no grammatical structure to assess because you provided no meaningful responses."
           : selectedTestTitle.includes('Book 16 Test 1')
           ? "There is no grammatical structure to assess because you provided no meaningful responses."
@@ -3732,7 +3963,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "No grammatical structures were demonstrated beyond a single word."
           : "There is no grammar to assess.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 18 Test 2')
+        pronunciationFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "The candidate did not provide any spoken content beyond a single word."
+          : selectedTestTitle.includes('Book 18 Test 2')
           ? "There is no speech to evaluate."
           : selectedTestTitle.includes('Book 16 Test 1')
           ? "There is no speech to evaluate."
@@ -3759,7 +3992,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
           : "There is no speech to assess.";
-        tipsList = selectedTestTitle.includes('Book 18 Test 2')
+        tipsList = selectedTestTitle.includes('Book 17 Test 1')
+          ? [
+              "You must answer the questions asked; saying 'No' to open-ended questions is an automatic failure.",
+              "Provide full sentences. In the IELTS speaking test, you are expected to expand on your answers with reasons, examples, and personal experiences.",
+              "If you do not understand a question, ask the examiner to repeat or clarify it rather than giving an irrelevant response.",
+              "Practice speaking at length. A minimum of 2-3 sentences per answer is required to demonstrate your English proficiency.",
+              "Review the IELTS Speaking criteria; 'Task Response' requires you to engage with the topic provided.",
+            ]
+          : selectedTestTitle.includes('Book 18 Test 2')
           ? [
               "You must answer the questions with developed sentences. A one-word response like 'No' will lead to a failing band score in IELTS Speaking.",
               "In Part 3, you are expected to analyze, give opinions, and provide reasons. Use the 'Point + Reason + Example' structure.",
@@ -3852,7 +4093,9 @@ export default function SpeakingPracticePage() {
               "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
             ];
       } else if (selectedPart === 2) {
-        fluencyFeedback = selectedTestTitle.includes('Book 16 Test 1')
+        fluencyFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "Your answer was essentially non-existent. You provided a single-word response ('No') which failed to address the prompt entirely. This is considered a refusal to perform the task."
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? "Your answer was empty. You provided no response to the question, which results in a score of 0."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "Your answer was empty. You provided no response to the question asked."
@@ -3879,7 +4122,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-        lexicalFeedback = selectedTestTitle.includes('Book 16 Test 1')
+        lexicalFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "There is no vocabulary range to evaluate due to the lack of production."
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? "No vocabulary was produced to evaluate."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "No vocabulary was produced to evaluate."
@@ -3906,7 +4151,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess."
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 16 Test 1')
+        grammarFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "There is no grammatical structure to evaluate."
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? "No grammatical structures were produced to evaluate."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "No grammatical structures were produced to evaluate."
@@ -3933,7 +4180,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to evaluate.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 16 Test 1')
+        pronunciationFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "Insufficient speech to assess pronunciation."
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? "No speech was produced to evaluate."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "No speech was produced to evaluate."
@@ -3960,7 +4209,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is insufficient data to evaluate your pronunciation."
           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-        tipsList = selectedTestTitle.includes('Book 16 Test 1')
+        tipsList = selectedTestTitle.includes('Book 17 Test 1')
+          ? [
+              "You must provide a full, descriptive answer. A single-word response will result in a failing score.",
+              "When asked to 'Describe' something, aim to speak for 1-2 minutes using descriptive adjectives and past tense verbs.",
+              "Focus on the 'W' questions: Where was it? What did it look like? Who lived there? What did you do there?",
+              "Practice expanding your thoughts; never answer a prompt with 'yes' or 'no' when a description is requested.",
+              "Review IELTS Part 2 requirements, which expect a sustained response of several sentences.",
+            ]
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? [
               "You must provide a verbal response to the examiner's questions to be assessed.",
               "In Part 2, you are expected to speak for 1-2 minutes on the topic provided.",
@@ -4055,7 +4312,9 @@ export default function SpeakingPracticePage() {
               "Prepare stories about people you know in advance to avoid being caught off guard during the test."
             ];
       } else {
-        fluencyFeedback = selectedTestTitle.includes('Book 16 Test 1')
+        fluencyFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "The responses are completely inadequate. The candidate provided one-word answers ('No') for every question. This is not a demonstration of speaking ability and fails to address the tasks entirely."
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? "Your answers were completely non-responsive. By simply saying 'No' to every question, you failed to communicate, provide information, or demonstrate language ability. This is a total failure to address the task."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "Your answers were completely irrelevant and failed to address the questions. Providing one-word answers like 'No' or 'Oh' demonstrates a failure to engage with the test format."
@@ -4082,7 +4341,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-        lexicalFeedback = selectedTestTitle.includes('Book 16 Test 1')
+        lexicalFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "There is no lexical resource to evaluate as the candidate only used a single negative particle."
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? "There is no vocabulary to evaluate. A single-word response does not demonstrate any range or control over language."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "There is no vocabulary range to assess as you only provided single-word responses."
@@ -4109,7 +4370,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess beyond a single, repetitive word."
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 16 Test 1')
+        grammarFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "There is no grammatical structure present to evaluate."
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "There is no grammatical structure to assess. No complete sentences were produced."
@@ -4136,7 +4399,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to assess as no full sentences were produced.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 16 Test 1')
+        pronunciationFeedback = selectedTestTitle.includes('Book 17 Test 1')
+          ? "The candidate failed to engage in the assessment. To score higher, you must provide full, descriptive sentences."
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? "While the word 'No' is articulated clearly, the lack of speech prevents any assessment of connected speech, intonation, or range."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "Insufficient data to assess pronunciation, though the lack of effort suggests a failure to engage with the test format."
@@ -4161,7 +4426,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
           : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-        tipsList = selectedTestTitle.includes('Book 16 Test 1')
+        tipsList = selectedTestTitle.includes('Book 17 Test 1')
+          ? [
+              "You must provide full, complete sentences. An IELTS examiner cannot grade you if you only answer 'No'.",
+              "Elaborate on your answers by using the 'P.E.E.' method: Point, Explain, and give an Example.",
+              "Practice speaking for at least 2-3 sentences per question to show your language range.",
+              "Avoid one-word answers at all costs; they will lead to a score of 0-2.",
+              "Listen to the question carefully and ensure your answer directly addresses the 'Why' or 'How' components of the prompt.",
+            ]
+          : selectedTestTitle.includes('Book 16 Test 1')
           ? [
               "You must provide full, descriptive answers. A single word is never sufficient for an IELTS speaking test.",
               "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Answer + Reason + Example' structure.",
@@ -4603,6 +4876,8 @@ export default function SpeakingPracticePage() {
                           ? 'Maps & Navigation • Occasion in a Hurry • Punctuality & Time Management'
                           : title.includes('Book 17 Test 2')
                       ? 'Books & Reading Habits, Children\'s Book Cue Card & Literary Preferences / Electronic Books'
+                          : title.includes('Book 17 Test 1')
+                      ? 'History Lessons, Neighbourhood Cue Card & Helping Neighbours / City Facilities Discussion'
                       : title.includes('Book 16 Test 4')
                       ? 'Fast Food & Cooking, Technology Stopped Using Cue Card & Educational Technology'
                       : title.includes('Book 16 Test 3')

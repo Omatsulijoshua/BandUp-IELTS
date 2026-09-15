@@ -2798,6 +2798,151 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 19 TEST 4 (Cafes / Cue Card: Beautiful Views / Beauty Products & Beauty Standards)
+  // ==========================================
+  final List<Map<String, dynamic>> _book19Test4Questions = [
+    // Part 1: Questions 1-4 (Cafes)
+    {
+      'question': 'Do you have a favourite cafe? [Why/Why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.20,
+      'start': 0.0,
+      'promptEnd': 2.20,
+      'end': 2.20,
+      'part': 1,
+      'transcript':
+          'Actually, I have a favourite cafe near my office that I visit quite often. I really enjoy it because the atmosphere is incredibly cozy, and they serve the best artisanal coffee in the city. It has become my go-to spot whenever I need a quiet place to focus on my work.',
+    },
+    {
+      'question': 'Do you often go to cafes by yourself? [Why/Why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.50,
+      'start': 0.0,
+      'promptEnd': 2.50,
+      'end': 2.50,
+      'part': 1,
+      'transcript':
+          'I rarely go to cafes by myself because I usually prefer the company of friends or colleagues. For me, a cafe is a social space where I like to catch up with people and share ideas. However, if I have a pressing deadline, I might go alone to take advantage of the quiet environment.',
+    },
+    {
+      'question': 'What do you think helps to make a cafe very popular? [Why?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 4.70,
+      'start': 0.0,
+      'promptEnd': 4.70,
+      'end': 4.70,
+      'part': 1,
+      'transcript':
+          'I believe the key to a popular cafe is a combination of high-quality coffee and a welcoming ambiance. People are often drawn to places with comfortable seating, reliable Wi-Fi, and friendly staff who make them feel at home. Additionally, unique interior design or a specific signature pastry can really set a cafe apart from the competition.',
+    },
+    {
+      'question':
+          'Why do some people prefer cafes that are part of large chains, rather than small, local cafes?',
+      'audioAsset': 'q4.mp3',
+      'duration': 5.20,
+      'start': 0.0,
+      'promptEnd': 5.20,
+      'end': 5.20,
+      'part': 1,
+      'transcript':
+          'Many people prefer large chains because of the consistency and reliability they offer. Whether you are in a different city or country, you know exactly what the coffee and service will be like. Furthermore, chains often provide a very predictable environment, which is convenient for people who want to work or meet others without any surprises.',
+    },
+
+    // Part 2: Question 5 (Cue Card: Beautiful Views)
+    {
+      'question':
+          'Describe a place you visited that has beautiful views.\n\nYou should say:\n• where this place is\n• when and why you visited it\n• what views you can see from this place\n• and explain why you think these views are so beautiful.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.50,
+      'start': 0.0,
+      'promptEnd': 3.50,
+      'end': 3.50,
+      'part': 2,
+      'youShouldSay': [
+        'where this place is',
+        'when and why you visited it',
+        'what views you can see from this place',
+        'and explain why you think these views are so beautiful.',
+      ],
+      'transcript':
+          'One place that immediately comes to mind is the Amalfi Coast in Italy, which I visited a few years ago. The scenery is absolutely breathtaking, characterized by dramatic cliffs that plunge directly into the turquoise Mediterranean Sea. I spent hours simply walking along the coastal paths, mesmerized by the vibrant pastel-colored houses perched precariously on the hillsides. It was the most picturesque landscape I have ever encountered, and the sunset views from the town of Positano were particularly unforgettable. Every corner you turn offers a new, stunning perspective that feels like a scene from a postcard.',
+    },
+
+    // Part 3: Questions 6-11 (Beauty Products & Beauty Standards)
+    {
+      'question':
+          'Do you agree that most beauty products are a waste of money?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.50,
+      'start': 0.0,
+      'promptEnd': 3.50,
+      'end': 3.50,
+      'part': 3,
+      'transcript':
+          'I generally disagree with that perspective. While some luxury brands are overpriced, many beauty products serve essential functions for skin health and hygiene. Therefore, I believe it is a matter of personal choice rather than a complete waste of money.',
+    },
+    {
+      'question':
+          'How does the beauty industry advertise its products so successfully?',
+      'audioAsset': 'q7.mp3',
+      'duration': 3.30,
+      'start': 0.0,
+      'promptEnd': 3.30,
+      'end': 3.30,
+      'part': 3,
+      'transcript':
+          'The beauty industry utilizes sophisticated marketing strategies, such as influencer partnerships and social media advertising, to create a sense of aspiration. They often focus on emotional branding, convincing consumers that their products are essential for personal confidence and social success.',
+    },
+    {
+      'question':
+          'What do you think of the view that beauty products should not be advertised to children?',
+      'audioAsset': 'q8.mp3',
+      'duration': 4.60,
+      'start': 0.0,
+      'promptEnd': 4.60,
+      'end': 4.60,
+      'part': 3,
+      'transcript':
+          'I strongly believe that advertising beauty products to children is inappropriate. It can foster unrealistic beauty standards at an age when children are still developing their self-esteem. Protecting children from such commercial pressures is crucial for their mental well-being.',
+    },
+    {
+      'question': 'Why do many people equate youth with beauty?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.10,
+      'start': 0.0,
+      'promptEnd': 2.10,
+      'end': 2.10,
+      'part': 3,
+      'transcript':
+          'In many cultures, youth is often associated with vitality, health, and fertility, which are evolutionary indicators of attractiveness. Consequently, the beauty industry reinforces this connection through marketing that promotes anti-aging products to maintain a youthful appearance.',
+    },
+    {
+      'question':
+          "Do you think that being beautiful could affect a person's success in life?",
+      'audioAsset': 'q10.mp3',
+      'duration': 4.10,
+      'start': 0.0,
+      'promptEnd': 4.10,
+      'end': 4.10,
+      'part': 3,
+      'transcript':
+          "It is undeniable that society often equates physical attractiveness with positive traits, a phenomenon sometimes called the 'halo effect.' While it shouldn't be the case, being perceived as beautiful can provide social advantages and open doors in various professional and personal contexts.",
+    },
+    {
+      'question':
+          "Why might society's ideas about beauty change over time?",
+      'audioAsset': 'q11.mp3',
+      'duration': 2.80,
+      'start': 0.0,
+      'promptEnd': 2.80,
+      'end': 2.80,
+      'part': 3,
+      'transcript':
+          "Societal standards of beauty are constantly evolving due to shifts in culture, media influence, and historical context. What is considered attractive in one generation can be drastically different in another as global trends and personal values continue to change.",
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 18 TEST 4 (Sleep & Dreams / Cue Card: Meeting a Good Friend / Friendship & Making Friends)
   // ==========================================
   final List<Map<String, dynamic>> _book18Test4Questions = [
@@ -4977,6 +5122,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book18Test1Questions;
     } else if (_selectedTestTitle.contains('Book 18 Test 2')) {
       return _book18Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 19 Test 4')) {
+      return _book19Test4Questions;
     } else if (_selectedTestTitle.contains('Book 18 Test 4')) {
       return _book18Test4Questions;
 
