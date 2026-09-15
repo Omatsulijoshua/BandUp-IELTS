@@ -2939,7 +2939,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.80,
       'part': 3,
       'transcript':
-          'Yes, I would agree with that observation. As people get older, their daily schedules become dominated by work and family commitments, leaving less free time for socializing. Additionally, adults often become more set in their ways and cautious about whom they trust, which can make forming deep, new friendships more challenging compared to childhood.',
+          'Yes, I would agree with that observation. As people get older, their lives become more structured and their social circles often solidify. Additionally, the time and energy required to nurture new friendships can be harder to find amidst the responsibilities of work and family life.',
+
     },
   ];
 
