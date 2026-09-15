@@ -6190,114 +6190,114 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
   final List<Map<String, dynamic>> _book21Test2Questions = [
     {
-        "question": "Do you enjoy visiting art galleries or museums? [Why/Why not?]",
+        "question": "How well do you know the capital city of your country?",
         "audioAsset": "q1.mp3",
-        "duration": 1.6,
+        "duration": 2,
         "start": 0,
-        "promptEnd": 1.6,
-        "end": 1.6,
+        "promptEnd": 2,
+        "end": 2,
         "part": 1,
-        "transcript": "I love visiting art galleries because viewing creative artwork inspires my imagination and broadens my perspective."
+        "transcript": "I am quite familiar with the capital city, as I have visited it several times for both business and leisure. It is the political and cultural heart of our country, so living there provides access to many museums and government institutions, although it can be very crowded."
     },
     {
-        "question": "Did you paint or draw pictures at school?",
+        "question": "Do you think cities are exciting places to live?",
         "audioAsset": "q2.mp3",
-        "duration": 2.4,
+        "duration": 2,
         "start": 0,
-        "promptEnd": 2.4,
-        "end": 2.4,
+        "promptEnd": 2,
+        "end": 2,
         "part": 1,
-        "transcript": "Yes, art was a regular class in primary school where we experimented with watercolors and pencil sketches."
+        "transcript": "Yes, I find cities incredibly exciting because they are hubs of innovation and culture. There is always something new to discover, whether it is a unique restaurant, a gallery opening, or a live performance, which makes daily life feel very dynamic."
     },
     {
-        "question": "Do you have any artwork displayed on the walls of your home?",
+        "question": "Why do some people dislike living in a city?",
         "audioAsset": "q3.mp3",
-        "duration": 2.6,
+        "duration": 2,
         "start": 0,
-        "promptEnd": 2.6,
-        "end": 2.6,
+        "promptEnd": 2,
+        "end": 2,
         "part": 1,
-        "transcript": "I have framed landscape paintings in my living room that add color and warmth to the space."
+        "transcript": "Many people dislike living in a city primarily due to the high cost of living and the constant noise pollution. Furthermore, the fast pace of urban life and the lack of green spaces can be quite stressful compared to the tranquility of rural areas."
     },
     {
-        "question": "Is art education important for school children?",
+        "question": "If you could visit any city in the world, where would you go?",
         "audioAsset": "q4.mp3",
-        "duration": 2.4,
+        "duration": 2,
         "start": 0,
-        "promptEnd": 2.4,
-        "end": 2.4,
+        "promptEnd": 2,
+        "end": 2,
         "part": 1,
-        "transcript": "Art education fosters creative thinking, motor skills, and self-expression in young minds."
+        "transcript": "If I had the opportunity to visit any city, I would definitely choose Tokyo. I am fascinated by the unique blend of ancient traditions and cutting-edge technology, and I have always wanted to experience the famous culinary scene and the efficiency of the public transport system there."
     },
     {
-        "question": "Describe a useful skill you learned from an older person.",
+        "question": "Describe a time when you read or heard something that you thought was not true.",
         "audioAsset": "q5.mp3",
         "duration": 3.5,
         "start": 0,
         "promptEnd": 3.5,
         "end": 3.5,
         "part": 2,
-        "transcript": "A practical skill I gained from my grandfather was gardening and organic plant cultivation. He taught me how to prepare soil, prune fruit trees, and care for vegetables naturally. Learning this skill cultivated patience and gave me a practical hobby I enjoy today."
+        "transcript": "I remember a few months ago, I read a sensationalized news article on social media claiming that a common household spice could cure a serious illness. It sounded very convincing because it cited a fake study, but my immediate instinct was to be skeptical. I decided to cross-reference the information with reputable medical websites and found that the claim was entirely baseless and potentially dangerous. This experience taught me the importance of verifying information before sharing it, as misinformation spreads incredibly quickly online. It was a clear reminder that not everything we read on the internet is factual."
     },
     {
-        "question": "What traditional skills can older generations teach young people?",
+        "question": "Do you think children are more honest than adults?",
         "audioAsset": "q6.mp3",
-        "duration": 3.2,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 3.2,
-        "end": 3.2,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Craftsmanship, traditional cooking, gardening, and historical storytelling are valuable traditions older people pass down."
+        "transcript": "Actually, I believe children are generally more honest than adults because they haven't yet learned the social complexities that lead to white lies. Adults often feel pressured to be polite or avoid conflict, whereas children tend to be very direct and unfiltered in their communication."
     },
     {
-        "question": "Why do some young people find it difficult to connect with seniors?",
+        "question": "Why do adults tell children it's important to be honest?",
         "audioAsset": "q7.mp3",
         "duration": 2.5,
         "start": 0,
         "promptEnd": 2.5,
         "end": 2.5,
         "part": 3,
-        "transcript": "Generational gaps in technology usage and lifestyle preferences can sometimes hinder communication."
+        "transcript": "Adults emphasize honesty because it is the cornerstone of building trust within any relationship. By teaching children to be truthful, parents hope to instill strong moral values and ensure that their children can navigate social interactions with integrity as they grow older."
     },
     {
-        "question": "How can communities encourage intergenerational bonding?",
+        "question": "Do you think there are sometimes good reasons for adults not to tell children the truth?",
         "audioAsset": "q8.mp3",
-        "duration": 2.7,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 2.7,
-        "end": 2.7,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Community centers can host joint workshops, storytelling sessions, and volunteering events."
+        "transcript": "Yes, there are certainly instances where protecting a child from the truth is appropriate. For example, shielding a young child from distressing world events or complex adult problems can prevent unnecessary anxiety and allow them to enjoy their childhood without being burdened by adult concerns."
     },
     {
-        "question": "Are practical skills more important than academic qualifications?",
+        "question": "Are there any claims in advertisements that are sometimes not true?",
         "audioAsset": "q9.mp3",
-        "duration": 2.4,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 2.4,
-        "end": 2.4,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Both complement each other; academic knowledge builds theory while practical skills turn ideas into real solutions."
+        "transcript": "Many advertisements do exaggerate or omit certain facts to make a product seem more appealing. For instance, food commercials often use non-edible materials to make dishes look perfect, which is technically misleading even if it is a common industry practice."
     },
     {
-        "question": "How has the internet changed how people acquire new skills?",
+        "question": "Why do people still buy things even when they know advertisements aren't completely accurate?",
         "audioAsset": "q10.mp3",
-        "duration": 2.6,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 2.6,
-        "end": 2.6,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Online tutorials and video courses allow anyone to master diverse skills at their own pace for free."
+        "transcript": "People often buy products despite knowing the ads are exaggerated because of the emotional appeal or the 'aspirational' lifestyle being sold. They aren't just buying the product; they are buying into the idea or status that the brand promises, which overrides their logical skepticism."
     },
     {
-        "question": "Should lifelong learning programs receive government funding?",
+        "question": "Do you think advertisements that are dishonest should be banned?",
         "audioAsset": "q11.mp3",
-        "duration": 2.7,
+        "duration": 2.5,
         "start": 0,
-        "promptEnd": 2.7,
-        "end": 2.7,
+        "promptEnd": 2.5,
+        "end": 2.5,
         "part": 3,
-        "transcript": "Funding adult education ensures workforce adaptability in a rapidly changing economy."
+        "transcript": "I think there should be stricter regulations on misleading advertising, especially when it involves health or financial claims. While minor exaggerations might be harmless, dishonest claims that could cause physical or financial harm to consumers should definitely be banned to protect the public."
     }
 ];
 
@@ -9088,6 +9088,22 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 ? "Your answers were completely inadequate. By providing only the word 'No' to every question, you failed to address the task entirely. This is not a demonstration of speaking ability."
                 : _selectedTestTitle.contains('Book 15 Test 1')
                 ? "The candidate provided no assessable language. Every response was 'No', which is completely irrelevant and fails to address any of the questions asked."
+                : _selectedTestTitle.contains('Book 15 Test 4')
+                ? [
+                    "You must attempt to answer the question. A 'No' response results in a score of 0.",
+                    "In Part 2, you are expected to speak for 1-2 minutes. Practice structuring your answer using the bullet points provided on the cue card.",
+                    "If you do not know a specific science programme, invent one. The examiner is testing your English proficiency, not your factual knowledge of science.",
+                    "Use a 'PPF' structure (Past experience, Present relevance, Future outlook) to expand your answers.",
+                    "Record yourself speaking for at least 60 seconds to build the stamina required for Part 2."
+                  ]
+                : _selectedTestTitle.contains('Book 15 Test 4')
+                ? [
+                    "You must attempt to answer the question. A 'No' response results in a score of 0.",
+                    "In Part 2, you are expected to speak for 1-2 minutes. Practice structuring your answer using the bullet points provided on the cue card.",
+                    "If you do not know a specific science programme, invent one. The examiner is testing your English proficiency, not your factual knowledge of science.",
+                    "Use a 'PPF' structure (Past experience, Present relevance, Future outlook) to expand your answers.",
+                    "Record yourself speaking for at least 60 seconds to build the stamina required for Part 2."
+                  ]
                 : _selectedTestTitle.contains('Book 15 Test 2')
                 ? "Your responses were non-existent. You provided 'No' to every question. This is considered a refusal to participate or a total failure to address the task. Relevance is impossible to assess as you did not provide any content."
                 : _selectedTestTitle.contains('Book 14 Test 4')
@@ -9230,7 +9246,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     "Address the topic directly. 'No' is not a valid answer to questions asking for descriptions, opinions, or explanations.",
                     "Practice expanding your answers using the 'PREP' method: Point, Reason, Example, Point.",
                     "Familiarize yourself with the IELTS Speaking Part 3 format, which requires deeper analytical discussion.",
-                    "If you do not know an answer, use phrases like 'That\'s an interesting question, I haven\'t thought about it much, but I suppose...' rather than saying 'No'.",
+                    "If you do not know an answer, use phrases like 'That's an interesting question, I haven't thought about it much, but I suppose...' rather than saying 'No'.",
                   ]
                 : _selectedTestTitle.contains('Book 19 Test 1')
                 ? [
