@@ -2798,6 +2798,150 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 18 TEST 1 (Paying Bills / Food Cue Card / Cooking & Chefs Discussion)
+  // ==========================================
+  final List<Map<String, dynamic>> _book18Test1Questions = [
+    // Part 1: Questions 1-4 (Paying Bills)
+    {
+      'question': 'What kinds of bills do you have to pay?',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.60,
+      'start': 0.0,
+      'promptEnd': 1.60,
+      'end': 1.60,
+      'part': 1,
+      'transcript':
+          'I have to pay a variety of monthly bills, including my electricity, water, and internet subscriptions. In addition to these utilities, I also have to manage my mobile phone contract and occasionally pay for professional services or subscriptions like gym memberships.',
+    },
+    {
+      'question':
+          'How do you usually pay your bills — in cash or by another method? [Why?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 1.70,
+      'start': 0.0,
+      'promptEnd': 1.70,
+      'end': 1.70,
+      'part': 1,
+      'transcript':
+          'I almost exclusively pay my bills online through my bank\'s mobile application. I find this method the most efficient because it allows me to automate recurring payments, which ensures that I never miss a deadline and saves me the trouble of visiting a physical office.',
+    },
+    {
+      'question': 'Have you ever forgotten to pay a bill? [Why/Why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 1.40,
+      'start': 0.0,
+      'promptEnd': 1.40,
+      'end': 1.40,
+      'part': 1,
+      'transcript':
+          'Yes, I have unfortunately forgotten to pay a utility bill in the past. It happened because I was extremely busy with work during that period and I neglected to check my email notifications, which led to a late payment fee on my account.',
+    },
+    {
+      'question':
+          'Is there anything you could do to make your bills cheaper? [Why/Why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 1.70,
+      'start': 0.0,
+      'promptEnd': 1.70,
+      'end': 1.70,
+      'part': 1,
+      'transcript':
+          'To reduce my bills, I have started being more conscious of my energy consumption by switching off lights and appliances when they are not in use. Additionally, I periodically review my subscription services to cancel those that I no longer use, which has helped me save a significant amount of money each month.',
+    },
+
+    // Part 2: Question 5 (Cue Card: Food or Drink Learned to Prepare)
+    {
+      'question':
+          'Describe some food or drink that you learned to prepare.\n\nYou should say:\n• what you learned to prepare\n• when and where you learned this\n• how you learned to prepare it\n• and explain how you felt about learning to prepare this food or drink.',
+      'audioAsset': 'q5.mp3',
+      'duration': 2.50,
+      'start': 0.0,
+      'promptEnd': 2.50,
+      'end': 2.50,
+      'part': 2,
+      'youShouldSay': [
+        'what you learned to prepare',
+        'when and where you learned this',
+        'how you learned to prepare it',
+        'and explain how you felt about learning to prepare this food or drink.',
+      ],
+      'transcript':
+          'I would like to talk about how I learned to prepare traditional pasta carbonara. I first became interested in making this dish when I visited Italy last summer and tasted an authentic version in a small local restaurant. To learn how to make it, I watched several online tutorials and practiced the technique of tempering the eggs with the hot pasta to create a creamy sauce without scrambling them. It took me a few attempts to get the ratio of pecorino cheese and black pepper correct. Now, I frequently prepare this dish for my friends, and they always compliment the rich flavor and texture.',
+    },
+
+    // Part 3: Questions 6-11 (Cooking, Chefs & Culinary Influence)
+    {
+      'question': 'What kinds of things can children learn to cook?',
+      'audioAsset': 'q6.mp3',
+      'duration': 2.90,
+      'start': 0.0,
+      'promptEnd': 2.90,
+      'end': 2.90,
+      'part': 3,
+      'transcript':
+          'Children can start by learning basic tasks such as washing vegetables, mixing ingredients for a cake, or preparing simple sandwiches. As they grow older, they can progress to using kitchen appliances like a toaster or learning how to safely boil pasta and prepare healthy salads.',
+    },
+    {
+      'question': 'Do you think it is important for children to learn to cook?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.20,
+      'start': 0.0,
+      'promptEnd': 2.20,
+      'end': 2.20,
+      'part': 3,
+      'transcript':
+          'I believe it is highly important. Learning to cook is a fundamental life skill that fosters independence and encourages children to make healthier food choices. It also helps them understand nutrition and the effort required to prepare a meal, which can lead to a greater appreciation for food.',
+    },
+    {
+      'question':
+          'Do you think young people should learn to cook at home or at school?',
+      'audioAsset': 'q8.mp3',
+      'duration': 2.90,
+      'start': 0.0,
+      'promptEnd': 2.90,
+      'end': 2.90,
+      'part': 3,
+      'transcript':
+          'I think a combination of both is ideal. Home is a great place to learn practical skills from family members, which creates a bonding experience. However, school provides a structured environment where children can learn about food safety, hygiene, and the science behind cooking in a professional setting.',
+    },
+    {
+      'question':
+          'How enjoyable do you think it would be to work as a professional chef?',
+      'audioAsset': 'q9.mp3',
+      'duration': 3.90,
+      'start': 0.0,
+      'promptEnd': 3.90,
+      'end': 3.90,
+      'part': 3,
+      'transcript':
+          'Working as a professional chef is likely very rewarding but also extremely demanding. While the creative aspect of designing menus and experimenting with flavors is enjoyable, the long hours and high-pressure environment of a commercial kitchen can be quite exhausting.',
+    },
+    {
+      'question': 'What skills does a person need to be a great chef?',
+      'audioAsset': 'q10.mp3',
+      'duration': 3.40,
+      'start': 0.0,
+      'promptEnd': 3.40,
+      'end': 3.40,
+      'part': 3,
+      'transcript':
+          'To be a great chef, one needs excellent time management and the ability to work effectively under pressure. Beyond culinary techniques and knife skills, a chef must possess strong leadership qualities to manage a team and a keen attention to detail to ensure every dish meets a high standard.',
+    },
+    {
+      'question':
+          'How much influence do celebrity/TV chefs have on what ordinary people cook?',
+      'audioAsset': 'q11.mp3',
+      'duration': 2.70,
+      'start': 0.0,
+      'promptEnd': 2.70,
+      'end': 2.70,
+      'part': 3,
+      'transcript':
+          'Celebrity chefs have a massive influence on modern cooking trends. Through television and social media, they introduce people to exotic ingredients and complex techniques, which motivates many to step out of their comfort zones. They essentially make cooking more accessible and exciting for the average person.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 17 TEST 4 (Maps & Navigation / Occasion in a Hurry Cue Card / Being Late, Punctuality & Study Time Management)
   // ==========================================
   final List<Map<String, dynamic>> _book17Test4Questions = [
