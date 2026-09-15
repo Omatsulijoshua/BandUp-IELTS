@@ -6499,8 +6499,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
     }
 ];
 
-List<Map<String, dynamic>> get _activeQuestions {
-    } else if (_selectedTestTitle.contains('Book 18 Test 3')) {
+  /// Dynamically resolves the questions based on the currently selected test
+  List<Map<String, dynamic>> get _activeQuestions {
+    if (_selectedTestTitle.contains('Book 18 Test 3')) {
       return _book18Test3Questions;
     } else if (_selectedTestTitle.contains('Book 19 Test 3')) {
       return _book19Test3Questions;
@@ -6518,7 +6519,7 @@ List<Map<String, dynamic>> get _activeQuestions {
       return _book21Test3Questions;
     } else if (_selectedTestTitle.contains('Book 21 Test 4')) {
       return _book21Test4Questions;
-    if (_selectedTestTitle.contains('Book 10 Test 4')) {
+    } else if (_selectedTestTitle.contains('Book 10 Test 4')) {
       return _book10Test4Questions;
     } else if (_selectedTestTitle.contains('Book 10 Test 3')) {
       return _book10Test3Questions;
