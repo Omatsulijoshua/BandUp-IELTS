@@ -2287,7 +2287,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.8,
       'part': 3,
       'transcript':
-          'Many young people in my country are keen to buy high-end electronics, such as the latest smartphones, laptops, and wireless earbuds. Additionally, designer fashion, branded sneakers, and personal vehicles like motorcycles are also very popular.',
+          'In my country, many young people are particularly keen on acquiring high-end electronics, such as the latest smartphones or gaming consoles. Additionally, there is a strong trend toward investing in fashionable branded clothing and sneakers, which are seen as status symbols among peers.',
     },
     {
       'question':
@@ -2299,7 +2299,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.4,
       'part': 3,
       'transcript':
-          'Younger people tend to focus on tech gadgets, trendy fashion, and social status items, whereas older individuals usually prioritize long-term assets such as real estate, comfortable family cars, or high-quality home furnishings.',
+          'The primary difference lies in priorities. Younger people often gravitate toward items related to lifestyle, entertainment, and social status, whereas older generations tend to prioritize long-term investments, such as home improvements, high-quality furniture, or practical appliances that offer lasting utility.',
     },
     {
       'question':
@@ -2335,7 +2335,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.7,
       'part': 3,
       'transcript':
-          'I strongly agree that money does not guarantee happiness. While financial security removes basic life stresses, true fulfillment comes from meaningful relationships, good health, personal growth, and a sense of purpose.',
+          'I strongly agree with that sentiment. While money can certainly alleviate financial stress and provide access to better healthcare and education, true happiness is derived from personal relationships, health, and a sense of purpose, none of which can be purchased.',
     },
     {
       'question': 'In what ways might rich people use their money to help society?',
@@ -2346,7 +2346,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.4,
       'part': 3,
       'transcript':
-          'Wealthy individuals can contribute significantly to society by funding charitable foundations, supporting educational scholarships, and investing in medical research. They can also create employment opportunities and invest in sustainable green initiatives.',
+          'Wealthy individuals can make a profound impact by funding philanthropic initiatives, such as medical research, educational scholarships, or environmental conservation projects. Beyond simple donations, they can also invest in social enterprises that create sustainable jobs and support local communities.',
     },
   ];
 
@@ -3201,6 +3201,144 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 15 TEST 1 (Emails / Hotel Cue Card / Hotel Selection & Management Discussion)
+  // ==========================================
+  final List<Map<String, dynamic>> _book15Test1Questions = [
+    // Part 1: Questions 1-4 (Emails)
+    {
+      'question': 'What kinds of emails do you receive about your work or studies?',
+      'audioAsset': 'q1.mp3',
+      'duration': 3.05,
+      'start': 0.0,
+      'promptEnd': 3.05,
+      'end': 3.05,
+      'part': 1,
+      'transcript':
+          'I receive a variety of emails regarding my studies, including notifications from my university portal, updates from professors about course deadlines, and occasional emails from classmates to coordinate group projects. These are essential for staying organized and keeping track of my academic progress.',
+    },
+    {
+      'question': 'Do you prefer to email, phone, or text your friends? [Why?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.95,
+      'start': 0.0,
+      'promptEnd': 2.95,
+      'end': 2.95,
+      'part': 1,
+      'transcript':
+          'I generally prefer to text my friends because it is more convenient and less intrusive than a phone call. Texting allows me to respond at my own pace, which is helpful when I am busy, although I do occasionally make phone calls if I need to discuss something urgent or personal.',
+    },
+    {
+      'question': 'Do you reply to emails and messages as soon as you receive them? [Why/why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 3.45,
+      'start': 0.0,
+      'promptEnd': 3.45,
+      'end': 3.45,
+      'part': 1,
+      'transcript':
+          'I try to reply to important messages as soon as possible to avoid a backlog, but I am not always able to respond immediately. If I am in the middle of a task or studying, I prefer to wait until I have a break so that I can give the message my full attention.',
+    },
+    {
+      'question': 'Are you happy to receive emails that are advertising things? [Why/why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 4.05,
+      'start': 0.0,
+      'promptEnd': 4.05,
+      'end': 4.05,
+      'part': 1,
+      'transcript':
+          'No, I am not happy to receive promotional emails because they clutter my inbox and distract me from important correspondence. I find it quite annoying when companies send me unsolicited advertisements, and I often take the time to unsubscribe from those mailing lists to keep my account clean.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Hotel you know)
+    {
+      'question': 'Describe a hotel that you know.',
+      'audioAsset': 'q5.mp3',
+      'duration': 1.75,
+      'start': 0.0,
+      'promptEnd': 1.75,
+      'end': 1.75,
+      'part': 2,
+      'youShouldSay': [
+        'where this hotel is',
+        'what this hotel looks like',
+        'what facilities this hotel has',
+        'and explain whether you think this is a nice hotel to stay in.'
+      ],
+      'transcript':
+          'I would like to talk about a hotel I stayed in during a trip to Tokyo last year, called The Peninsula. It is a luxurious five-star establishment located in the heart of the city, overlooking the Imperial Palace gardens. What struck me most was the impeccable service and the sophisticated interior design, which blended modern technology with traditional Japanese aesthetics. I particularly enjoyed the rooftop terrace, which offered a breathtaking panoramic view of the skyline. I remember this hotel vividly because it provided a sense of tranquility despite being in one of the busiest cities in the world.',
+    },
+
+    // Part 3: Questions 6-11 (Discussion - Hotels & Hotel Management)
+    {
+      'question': 'What things are important when people are choosing a hotel?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.30,
+      'start': 0.0,
+      'promptEnd': 3.30,
+      'end': 3.30,
+      'part': 3,
+      'transcript':
+          'When choosing a hotel, the most important factors are usually the location, the quality of service, and the overall cleanliness. For many travelers, proximity to public transport or city centers is crucial for convenience, while others prioritize amenities like free Wi-Fi or a high-quality breakfast buffet.',
+    },
+    {
+      'question': 'Why do some people not like staying in hotels?',
+      'audioAsset': 'q7.mp3',
+      'duration': 2.50,
+      'start': 0.0,
+      'promptEnd': 2.50,
+      'end': 2.50,
+      'part': 3,
+      'transcript':
+          'Some people dislike staying in hotels because they find them impersonal and lacking the comfort of a home environment. Additionally, the noise from other guests or staff can be disruptive, and many travelers prefer the privacy and autonomy that comes with renting a private apartment or staying in a guesthouse.',
+    },
+    {
+      'question': 'Do you think staying in a luxury hotel is a waste of money?',
+      'audioAsset': 'q8.mp3',
+      'duration': 2.95,
+      'start': 0.0,
+      'promptEnd': 2.95,
+      'end': 2.95,
+      'part': 3,
+      'transcript':
+          'I don\'t necessarily think it is a waste of money if the individual values the experience and comfort provided. While luxury hotels are expensive, they offer high-end facilities and personalized services that can enhance a trip significantly, making it a worthwhile investment for those celebrating special occasions or seeking relaxation.',
+    },
+    {
+      'question': 'Do you think hotel work is a good career for life?',
+      'audioAsset': 'q9.mp3',
+      'duration': 2.30,
+      'start': 0.0,
+      'promptEnd': 2.30,
+      'end': 2.30,
+      'part': 3,
+      'transcript':
+          'A career in the hotel industry can be very rewarding for those who enjoy working with people and thrive in a fast-paced environment. However, it is quite demanding due to irregular hours and the need for constant emotional labor, so it requires a genuine passion for hospitality to remain successful in the long term.',
+    },
+    {
+      'question': 'How does working in a big hotel compare with working in a small hotel?',
+      'audioAsset': 'q10.mp3',
+      'duration': 3.50,
+      'start': 0.0,
+      'promptEnd': 3.50,
+      'end': 3.50,
+      'part': 3,
+      'transcript':
+          'Working in a big hotel often provides more structured career paths and opportunities for specialization, whereas small hotels usually offer a more intimate work environment where staff might handle a wider variety of tasks. Big hotels are often more corporate and systematic, while small hotels allow for more personal interaction with guests.',
+    },
+    {
+      'question': 'What skills are needed to be a successful hotel manager?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.10,
+      'start': 0.0,
+      'promptEnd': 3.10,
+      'end': 3.10,
+      'part': 3,
+      'transcript':
+          'To be a successful hotel manager, one must possess excellent communication and problem-solving skills to handle both staff and guest issues effectively. Furthermore, strong leadership abilities and financial literacy are essential to ensure the hotel remains profitable while maintaining high standards of customer satisfaction.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 15 TEST 2 (Languages / Website Bought From Cue Card / Online Shopping & Consumerism Discussion)
   // ==========================================
   final List<Map<String, dynamic>> _book15Test2Questions = [
@@ -3380,6 +3518,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book14Test3Questions;
     } else if (_selectedTestTitle.contains('Book 14 Test 4')) {
       return _book14Test4Questions;
+    } else if (_selectedTestTitle.contains('Book 15 Test 1')) {
+      return _book15Test1Questions;
     } else if (_selectedTestTitle.contains('Book 15 Test 2')) {
       return _book15Test2Questions;
     } else if (_selectedTestTitle.contains('Book 15 Test 3')) {
@@ -3495,6 +3635,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 14 Test 2') &&
         !folderName.contains('BOOK 14 Test 3') &&
         !folderName.contains('BOOK 14 Test 4') &&
+        !folderName.contains('BOOK 15 Test 1') &&
         !folderName.contains('BOOK 15 Test 2') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
@@ -3937,7 +4078,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           (bookNum == 12 && (testNum >= 1 && testNum <= 3)) ||
                           (bookNum == 13 && (testNum >= 1 && testNum <= 4)) ||
                           (bookNum == 14 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 15 && testNum == 2);
+                          (bookNum == 15 && (testNum == 1 || testNum == 2));
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
@@ -5737,7 +5878,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           }
         }
 
-        if (isSingleWordOrMinimal && _selectedTestTitle.contains('Book 14 Test 4')) {
+        if (isSingleWordOrMinimal && (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 2'))) {
           if (_selectedPart == 1) {
             overallBand = 1.0;
           } else {
@@ -5764,7 +5905,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         }
 
         final int defScore = isSingleWordOrMinimal
-            ? (_selectedTestTitle.contains('Book 14 Test 4')
+            ? ((_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 2'))
                 ? (_selectedPart == 1 ? 1 : 0)
                 : _selectedTestTitle.contains('Book 14 Test 2')
                     ? (_selectedPart == 1 ? 0 : 1)
@@ -5794,7 +5935,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
         if (isSingleWordOrMinimal) {
           if (_selectedPart == 3) {
-            fcFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            fcFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "Your responses were non-existent. You provided 'No' to every question. This is considered a refusal to participate or a total failure to address the task. Relevance is impossible to assess as you did not provide any content."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "Your responses are entirely empty/non-responsive. You provided 'No' to every question, which is not an answer. These responses are irrelevant and fail to address the task entirely."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "The responses are extremely short, incoherent, and fail to address the questions. Your answers were consistently off-topic or lacked any meaningful content."
@@ -5811,7 +5954,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
                 : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-            lrFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            lrFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "No vocabulary was demonstrated. A score of 0 is mandatory as there is no assessable language."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "There is no vocabulary to assess."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "There is virtually no vocabulary usage. The responses consist of single words or fragmented phrases that do not communicate ideas."
@@ -5828,7 +5973,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "There is no lexical resource displayed, as you only used one word repeatedly."
                 : "There is no vocabulary to assess.";
-            grFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            grFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "No grammatical structures were demonstrated. A score of 0 is mandatory."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "There is no grammatical structure to assess."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "There is no evidence of grammatical structure. Responses are limited to single-word utterances."
@@ -5845,7 +5992,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "No grammatical structures were demonstrated beyond a single word."
                 : "There is no grammar to assess.";
-            prFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            prFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "No speech was provided to evaluate pronunciation."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "No speech was produced to evaluate."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "It is impossible to judge pronunciation effectively as there is no connected speech, but the lack of effort to speak full sentences indicates a failure to demonstrate even basic speaking skills."
@@ -5862,7 +6011,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
                 : "There is no speech to assess.";
-            tipsList = _selectedTestTitle.contains('Book 14 Test 4')
+            tipsList = _selectedTestTitle.contains('Book 15 Test 2')
+                ? [
+                    "You must provide full, descriptive answers to IELTS questions; one-word or negative responses result in an automatic failure.",
+                    "Practice speaking for 30-60 seconds per question to demonstrate your English proficiency.",
+                    "If you do not know the answer, try to talk about your general thoughts on the topic rather than saying 'No'.",
+                    "Familiarize yourself with the IELTS Speaking format, which requires you to elaborate and provide reasons/examples for your opinions.",
+                    "An IELTS examiner cannot assess your level if you do not speak. You must engage with the questions provided.",
+                  ]
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? [
                     "You must provide full, relevant sentences to answer the examiner's questions.",
                     "Answering 'No' to open-ended questions demonstrates a complete lack of effort and will result in a score of 0.",
@@ -5931,7 +6088,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
                   ];
           } else if (_selectedPart == 2) {
-            fcFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            fcFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "The response was empty. You provided no information, which results in a failure to address the task requirements."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "The response was empty. You failed to provide any information, which makes it impossible to assess your fluency or coherence."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "Your answer was completely irrelevant and insufficient. The question asked you to describe a difficult task you succeeded in at work or studies, but you provided a single, meaningless word ('This'). This fails the task entirely."
@@ -5950,7 +6109,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedTestTitle.contains('Book 10 Test 4')
                             ? "Your answer was essentially non-existent. You provided a single word ('No') which is completely insufficient for a Part 2 task that requires a 1-2 minute monologue. This response is effectively a failure to attempt the task."
                             : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
-            lrFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            lrFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "No vocabulary was demonstrated."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "No vocabulary was demonstrated. You must provide a full response to be evaluated."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "There is no vocabulary range to assess as you only provided one word."
@@ -5969,7 +6130,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedTestTitle.contains('Book 10 Test 4')
                             ? "There is no vocabulary to assess."
                             : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-            grFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            grFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "No grammatical structures were demonstrated."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "No grammatical structures were demonstrated due to the lack of a response."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "There is no grammatical structure to assess."
@@ -5988,7 +6151,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedTestTitle.contains('Book 10 Test 4')
                             ? "There is no grammatical structure to assess."
                             : "There is no grammatical range to evaluate.";
-            prFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            prFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "No speech was produced to evaluate."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "No speech was produced to evaluate."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "Cannot assess pronunciation based on a single word. Ensure you speak in full, coherent sentences during the test."
@@ -6007,7 +6172,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         : _selectedTestTitle.contains('Book 10 Test 4')
                             ? "There is insufficient data to evaluate your pronunciation."
                             : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-            tipsList = _selectedTestTitle.contains('Book 14 Test 4')
+            tipsList = _selectedTestTitle.contains('Book 15 Test 2')
+                ? [
+                    "You must attempt to answer the question; silence or saying 'No' results in a band 0.",
+                    "In Part 2, you are expected to speak for 1-2 minutes. Practice organizing your thoughts into a narrative.",
+                    "Use the 1-minute preparation time to jot down keywords related to the topic (e.g., website name, item bought, why you chose it).",
+                    "If you are unprepared, try to describe any website you know, even if you haven't bought something from it; it is better to speak than to be silent.",
+                    "Focus on building confidence by practicing speaking about familiar topics for at least 60 seconds.",
+                  ]
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? [
                     "You must provide a full answer to the question asked. A one-word response like 'No' is not an attempt at the task.",
                     "In Part 2 of the IELTS Speaking test, you are expected to speak for 1 to 2 minutes on a specific topic.",
@@ -6085,7 +6258,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                         "Prepare stories about people you know in advance to avoid being caught off guard during the test."
                       ];
           } else {
-            fcFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            fcFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "Your answers were completely inadequate. You provided single-word responses ('No') that failed to address the questions asked. This demonstrates an inability to communicate or engage with the examiner."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "Your answers were highly inadequate. You provided single-word responses ('No') to every question. This fails to address the requirement to provide extended, relevant answers. You did not engage with the prompts at all."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "Your answers were highly repetitive and failed to address the 'Why/why not' component of the questions. Simply saying 'Yes' to every question is not a valid response in an IELTS speaking test."
@@ -6104,7 +6279,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
                         : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-            lrFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            lrFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "There is no evidence of lexical range or accuracy. You did not use any vocabulary to describe your experiences or opinions."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "There is no evidence of vocabulary range or usage. A single word cannot be assessed for lexical resource."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "There is no vocabulary range demonstrated. You relied on a single word for all responses."
@@ -6123,7 +6300,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "There is no vocabulary to assess beyond a single, repetitive word."
                         : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-            grFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            grFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "There is no evidence of grammatical range or accuracy as you only provided a single word."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "There is no evidence of grammatical structure. A single word cannot be assessed for grammatical range."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "No grammatical structures were displayed beyond a single-word affirmative."
@@ -6142,7 +6321,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "There is no grammatical structure to assess."
                         : "There is no grammatical range to assess as no full sentences were produced.";
-            prFeedback = _selectedTestTitle.contains('Book 14 Test 4')
+            prFeedback = _selectedTestTitle.contains('Book 15 Test 2')
+                ? "Insufficient data to assess, but your failure to provide full sentences makes it impossible to evaluate your phonological features."
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? "It is impossible to assess pronunciation based on a single word response. You must speak in full sentences to demonstrate your ability."
                 : _selectedTestTitle.contains('Book 14 Test 3')
                 ? "While the word 'Yes' is clear, you failed to demonstrate any ability to form sentences, intonation, or connected speech."
@@ -6161,7 +6342,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     : _selectedTestTitle.contains('Book 10 Test 4')
                         ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
                         : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-            tipsList = _selectedTestTitle.contains('Book 14 Test 4')
+            tipsList = _selectedTestTitle.contains('Book 15 Test 2')
+                ? [
+                    "You must provide full, descriptive sentences. A one-word answer is not acceptable in an IELTS speaking test.",
+                    "Elaborate on your answers by providing reasons, examples, or personal experiences to satisfy the 'Why/Why not' component of the questions.",
+                    "Practice speaking for at least 20-30 seconds for each Part 1 question to demonstrate your fluency.",
+                    "Your responses were technically irrelevant because they did not answer the prompt; 'No' is not a logical response to 'How many languages can you speak?'.",
+                    "Engage with the topic fully. You are being assessed on your ability to speak English, not your ability to be brief.",
+                  ]
+                : _selectedTestTitle.contains('Book 14 Test 4')
                 ? [
                     "You must answer using full, extended sentences. A one-word answer will result in a failing score.",
                     "Always explain your 'why'. The questions ask for reasons, which requires you to elaborate on your thoughts.",

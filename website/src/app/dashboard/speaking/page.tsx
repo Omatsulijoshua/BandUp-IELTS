@@ -2134,7 +2134,7 @@ const book16Test3Questions: Question[] = [
     duration: 2.8,
     part: 3,
     transcript:
-      'Many young people in my country are keen to buy high-end electronics, such as the latest smartphones, laptops, and wireless earbuds. Additionally, designer fashion, branded sneakers, and personal vehicles like motorcycles are also very popular.',
+      'In my country, many young people are particularly keen on acquiring high-end electronics, such as the latest smartphones or gaming consoles. Additionally, there is a strong trend toward investing in fashionable branded clothing and sneakers, which are seen as status symbols among peers.',
   },
   {
     question:
@@ -2143,7 +2143,7 @@ const book16Test3Questions: Question[] = [
     duration: 2.4,
     part: 3,
     transcript:
-      'Younger people tend to focus on tech gadgets, trendy fashion, and social status items, whereas older individuals usually prioritize long-term assets such as real estate, comfortable family cars, or high-quality home furnishings.',
+      'The primary difference lies in priorities. Younger people often gravitate toward items related to lifestyle, entertainment, and social status, whereas older generations tend to prioritize long-term investments, such as home improvements, high-quality furniture, or practical appliances that offer lasting utility.',
   },
   {
     question:
@@ -2170,7 +2170,7 @@ const book16Test3Questions: Question[] = [
     duration: 2.7,
     part: 3,
     transcript:
-      'I strongly agree that money does not guarantee happiness. While financial security removes basic life stresses, true fulfillment comes from meaningful relationships, good health, personal growth, and a sense of purpose.',
+      'I strongly agree with that sentiment. While money can certainly alleviate financial stress and provide access to better healthcare and education, true happiness is derived from personal relationships, health, and a sense of purpose, none of which can be purchased.',
   },
   {
     question:
@@ -2179,7 +2179,7 @@ const book16Test3Questions: Question[] = [
     duration: 2.4,
     part: 3,
     transcript:
-      'Wealthy individuals can contribute significantly to society by funding charitable foundations, supporting educational scholarships, and investing in medical research. They can also create employment opportunities and invest in sustainable green initiatives.',
+      'Wealthy individuals can make a profound impact by funding philanthropic initiatives, such as medical research, educational scholarships, or environmental conservation projects. Beyond simple donations, they can also invest in social enterprises that create sustainable jobs and support local communities.',
   },
 ];
 
