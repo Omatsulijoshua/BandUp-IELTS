@@ -356,44 +356,44 @@ export const book21Test2Questions = [
 
 export const book20Test4Questions = [
   {
-    "question": "Do you enjoy cooking at home? [Why/Why not?]",
+    "question": "What personal qualities do you admire in other people? [Why?]",
     "audioAsset": "q1.mp3",
-    "duration": 1.5,
+    "duration": 2.8,
     "start": 0,
-    "promptEnd": 1.5,
-    "end": 1.5,
+    "promptEnd": 2.8,
+    "end": 2.8,
     "part": 1,
-    "transcript": "Yes, cooking relaxes me after work and allows me to prepare healthy meals tailored to my taste."
+    "transcript": "I deeply admire honesty and empathy in people. Honesty builds trust in relationships, while empathy allows individuals to understand and support others during difficult times."
   },
   {
-    "question": "Who usually does the cooking in your family?",
+    "question": "Do you have the same personal qualities as your parents? [Why/Why not?]",
     "audioAsset": "q2.mp3",
     "duration": 2.3,
     "start": 0,
     "promptEnd": 2.3,
     "end": 2.3,
     "part": 1,
-    "transcript": "My parents share cooking duties during weekdays, while I handle weekend family dinners."
+    "transcript": "Yes, I share my parents strong work ethic and patience. They always taught me the value of perseverance, which has shaped my approach to challenges."
   },
   {
-    "question": "Did you learn how to cook when you were a child?",
+    "question": "What personal qualities are important to you in a friend? [Why?]",
     "audioAsset": "q3.mp3",
     "duration": 2.4,
     "start": 0,
     "promptEnd": 2.4,
     "end": 2.4,
     "part": 1,
-    "transcript": "My mother taught me basic recipes like pasta and simple soups when I was in secondary school."
+    "transcript": "Loyalty and a good sense of humor are essential in a friend. A loyal friend offers unwavering support, while humor keeps our interactions enjoyable."
   },
   {
-    "question": "What is a traditional dish from your country that you like?",
+    "question": "Do you think you have the personal qualities to be a good/successful leader? [Why/Why not?]",
     "audioAsset": "q4.mp3",
     "duration": 2.4,
     "start": 0,
     "promptEnd": 2.4,
     "end": 2.4,
     "part": 1,
-    "transcript": "Jollof rice is a beloved traditional dish cooked with tomatoes, spices, and served at celebrations."
+    "transcript": "I believe I possess good communication and listening skills, which are crucial for leadership. However, I am still working on decision-making under high pressure."
   },
   {
     "question": "Describe a travel journey that was delayed.",
