@@ -1,3 +1,20 @@
+'use client';
+
+import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+
+interface Question {
+  question: string;
+  audioAsset: string;
+  duration: number;
+  part: number;
+  transcript: string;
+  youShouldSay?: string[];
+  start?: number;
+  promptEnd?: number;
+  end?: number;
+}
+
 export const book21Test4Questions = [
   {
     "question": "How do you usually get your daily news? [Why?]",
@@ -450,231 +467,125 @@ export const book20Test4Questions = [
   }
 ];
 
-export const book20Test3Questions = [
+export const book20Test3Questions: Question[] = [
   {
-    "question": "What mobile apps do you use most frequently? [Why?]",
+    "question": "Did you enjoy going to museums when you were a child?",
     "audioAsset": "q1.mp3",
     "duration": 1.5,
     "start": 0,
     "promptEnd": 1.5,
     "end": 1.5,
     "part": 1,
-    "transcript": "I use messaging apps for daily communication and navigation apps for finding directions when traveling."
+    "transcript": "Actually, I have very fond memories of visiting museums as a child. My parents used to take me to the local history museum every summer, and I was always fascinated by the ancient artifacts and the stories behind them. It sparked a lifelong curiosity in me about how people lived in the past."
   },
   {
-    "question": "How has technology improved your daily routine?",
+    "question": "Are there any interesting museums near where you live now?",
     "audioAsset": "q2.mp3",
     "duration": 2.3,
     "start": 0,
     "promptEnd": 2.3,
     "end": 2.3,
     "part": 1,
-    "transcript": "Smartphones enable instant communication, online banking, and quick access to information on the go."
+    "transcript": "Yes, there are a couple of excellent museums in my city. There is a contemporary art gallery downtown that hosts rotating exhibitions, and a science museum that is quite popular among students. I try to visit them whenever there is a new collection on display."
   },
   {
-    "question": "Do you prefer reading physical books or e-books?",
+    "question": "Do you think it is best to go to museums by yourself or with friends?",
     "audioAsset": "q3.mp3",
     "duration": 2.4,
     "start": 0,
     "promptEnd": 2.4,
     "end": 2.4,
     "part": 1,
-    "transcript": "I enjoy e-books for convenience while traveling, but physical books offer a tactile reading experience."
+    "transcript": "I personally prefer visiting museums with friends. It makes the experience much more interactive because we can discuss the exhibits and share our different perspectives on the art or history we are seeing. Going alone is fine for quiet reflection, but I find it more engaging to share the experience with someone else."
   },
   {
-    "question": "What technological device could you not live without?",
+    "question": "When you visit another city or country, do you think it's important to go to a museum there?",
     "audioAsset": "q4.mp3",
     "duration": 2.5,
     "start": 0,
     "promptEnd": 2.5,
     "end": 2.5,
     "part": 1,
-    "transcript": "My smartphone is indispensable as it serves as my camera, GPS, wallet, and primary communication hub."
+    "transcript": "I think it is absolutely essential. Museums are the best way to get a deep insight into the culture, history, and values of a new place. By seeing the preserved heritage of a country, you gain a much better understanding of the local people and their traditions than you would just by visiting tourist landmarks."
   },
   {
-    "question": "Describe a difficult problem you successfully solved.",
+    "question": "Describe a piece of work you did for your job or your studies that you felt very satisfied with.",
     "audioAsset": "q5.mp3",
     "duration": 3.6,
     "start": 0,
     "promptEnd": 3.6,
     "end": 3.6,
     "part": 2,
-    "transcript": "A challenging problem I resolved occurred when our software team faced a critical bug right before a major product launch. I analyzed the error logs systematically, identified a database query bottleneck, and refactored the code under tight deadlines. Resolving the issue ensured a smooth software release."
+    "youShouldSay": [
+      "what this piece of work was",
+      "why you did this piece of work",
+      "who or what helped you to do this work",
+      "and explain why you felt so satisfied with this piece of work."
+    ],
+    "transcript": "During my final year of university, I completed a complex research project on environmental sustainability that I felt incredibly satisfied with. The task involved analyzing data from local water treatment plants to identify efficiency gaps. I spent weeks meticulously organizing my findings and creating visual presentations to explain the technical data to non-experts. When I finally submitted the report, I felt a deep sense of accomplishment because my recommendations were actually adopted by the facility. It was the most rewarding piece of work I have ever produced because it combined my academic knowledge with a tangible, positive impact on the community."
   },
   {
-    "question": "What skills are essential for effective problem-solving?",
+    "question": "What are some aspects of people's lives that they can often be dissatisfied with?",
     "audioAsset": "q6.mp3",
     "duration": 3,
     "start": 0,
     "promptEnd": 3,
     "end": 3,
     "part": 3,
-    "transcript": "Analytical thinking, patience, adaptability, and clear communication are crucial when tackling complex challenges."
+    "transcript": "People are often dissatisfied with their work-life balance, as the pressure to meet professional deadlines can encroach on their personal time. Additionally, many individuals feel a lack of fulfillment if their career path does not align with their personal values or long-term goals. Financial instability is another major source of dissatisfaction, particularly when income fails to keep pace with the rising cost of living."
   },
   {
-    "question": "Should children be encouraged to solve problems independently?",
+    "question": "Would you say that having ambitions in life is always a positive thing?",
     "audioAsset": "q7.mp3",
-    "duration": 2.2,
-    "start": 0,
-    "promptEnd": 2.2,
-    "end": 2.2,
-    "part": 3,
-    "transcript": "Allowing kids to work through difficulties builds resilience, confidence, and critical reasoning abilities."
-  },
-  {
-    "question": "How does artificial intelligence impact human decision-making?",
-    "audioAsset": "q8.mp3",
-    "duration": 2.7,
-    "start": 0,
-    "promptEnd": 2.7,
-    "end": 2.7,
-    "part": 3,
-    "transcript": "AI provides data-driven recommendations, but humans must retain critical oversight regarding ethics."
-  },
-  {
-    "question": "Why do some people struggle to adapt to technological changes?",
-    "audioAsset": "q9.mp3",
-    "duration": 2.4,
-    "start": 0,
-    "promptEnd": 2.4,
-    "end": 2.4,
-    "part": 3,
-    "transcript": "Rapid innovation can feel overwhelming, especially for individuals without formal digital training."
-  },
-  {
-    "question": "Will technology replace human workers in most industries?",
-    "audioAsset": "q10.mp3",
-    "duration": 2.5,
-    "start": 0,
-    "promptEnd": 2.5,
-    "end": 2.5,
-    "part": 3,
-    "transcript": "Automation will reshape jobs, but human creativity and emotional intelligence remain irreplaceable."
-  },
-  {
-    "question": "What role should government play in regulating new technology?",
-    "audioAsset": "q11.mp3",
     "duration": 2.8,
     "start": 0,
     "promptEnd": 2.8,
     "end": 2.8,
     "part": 3,
-    "transcript": "Regulations should protect user privacy and safety while encouraging technological innovation."
-  }
-];
-
-export const book20Test2Questions = [
-  {
-    "question": "Do you have a pet at home? [Why/Why not?]",
-    "audioAsset": "q1.mp3",
-    "duration": 1.4,
-    "start": 0,
-    "promptEnd": 1.4,
-    "end": 1.4,
-    "part": 1,
-    "transcript": "I have a friendly dog named Max. Keeping a pet brings immense joy and companionship to our household."
+    "transcript": "Having ambitions can be a powerful motivator, driving people to acquire new skills and push their boundaries. However, it is not always positive if those ambitions are unrealistic or lead to excessive stress and burnout. When individuals become obsessed with reaching a goal, they may neglect their mental health or overlook the importance of enjoying the present moment."
   },
   {
-    "question": "What kinds of pets are popular in your country?",
-    "audioAsset": "q2.mp3",
-    "duration": 2.6,
-    "start": 0,
-    "promptEnd": 2.6,
-    "end": 2.6,
-    "part": 1,
-    "transcript": "Dogs and cats are the most common household pets, while fish and birds are popular among city dwellers."
-  },
-  {
-    "question": "Did you play with animals when you were a child?",
-    "audioAsset": "q3.mp3",
-    "duration": 2.3,
-    "start": 0,
-    "promptEnd": 2.3,
-    "end": 2.3,
-    "part": 1,
-    "transcript": "Yes, growing up in a suburb gave me plenty of opportunities to play with neighbour pets and farm animals."
-  },
-  {
-    "question": "What are the benefits of children having a pet?",
-    "audioAsset": "q4.mp3",
-    "duration": 2.3,
-    "start": 0,
-    "promptEnd": 2.3,
-    "end": 2.3,
-    "part": 1,
-    "transcript": "Caring for pets teaches children responsibility, empathy, and nurtures respect for animals."
-  },
-  {
-    "question": "Describe a natural place you enjoy visiting.",
-    "audioAsset": "q5.mp3",
-    "duration": 3.5,
-    "start": 0,
-    "promptEnd": 3.5,
-    "end": 3.5,
-    "part": 2,
-    "transcript": "A natural spot I love visiting is a serene national park located a few hours from my city. It features dense pine forests, walking trails, and a clear freshwater lake. Visiting this park offers a peaceful escape from urban noise and allows me to reconnect with nature."
-  },
-  {
-    "question": "Why is spending time in nature important for human health?",
-    "audioAsset": "q6.mp3",
+    "question": "What do you believe the most important components are of a satisfying life?",
+    "audioAsset": "q8.mp3",
     "duration": 3.2,
     "start": 0,
     "promptEnd": 3.2,
     "end": 3.2,
     "part": 3,
-    "transcript": "Exposure to green spaces reduces mental stress, lowers blood pressure, and improves overall emotional well-being."
+    "transcript": "I believe the most important components are a sense of purpose and meaningful relationships with others. While financial security is necessary to meet basic needs, true satisfaction often comes from feeling that one is contributing to society or pursuing a passion. Furthermore, maintaining a healthy balance between professional duties and personal wellbeing is essential for long-term happiness."
   },
   {
-    "question": "What measures should governments take to protect natural parks?",
-    "audioAsset": "q7.mp3",
-    "duration": 2.3,
-    "start": 0,
-    "promptEnd": 2.3,
-    "end": 2.3,
-    "part": 3,
-    "transcript": "Governments should enforce strict anti-littering laws, restrict commercial building, and invest in conservation rangers."
-  },
-  {
-    "question": "How can eco-tourism benefit local communities?",
-    "audioAsset": "q8.mp3",
-    "duration": 2.8,
-    "start": 0,
-    "promptEnd": 2.8,
-    "end": 2.8,
-    "part": 3,
-    "transcript": "Eco-tourism creates local jobs, promotes sustainable small businesses, and preserves indigenous wildlife."
-  },
-  {
-    "question": "Do young people appreciate nature as much as older generations?",
+    "question": "What makes a job more satisfying: a high salary or having good colleagues?",
     "audioAsset": "q9.mp3",
-    "duration": 2.4,
+    "duration": 3.4,
     "start": 0,
-    "promptEnd": 2.4,
-    "end": 2.4,
+    "promptEnd": 3.4,
+    "end": 3.4,
     "part": 3,
-    "transcript": "While screen time keeps some youth indoors, growing environmental awareness inspires many young activists today."
+    "transcript": "While a high salary provides comfort, I believe having good colleagues is more important for long-term job satisfaction. A supportive work environment where you feel valued and can collaborate effectively reduces stress and makes daily tasks more enjoyable. Conversely, a high salary cannot compensate for a toxic workplace culture that leads to isolation and unhappiness."
   },
   {
-    "question": "How does pollution impact natural habitats?",
+    "question": "Do you think people need to change jobs regularly if they want to stay satisfied at work?",
     "audioAsset": "q10.mp3",
-    "duration": 2.5,
+    "duration": 3.1,
     "start": 0,
-    "promptEnd": 2.5,
-    "end": 2.5,
+    "promptEnd": 3.1,
+    "end": 3.1,
     "part": 3,
-    "transcript": "Pollution contaminates water bodies and soil, threatening animal species and destroying delicate ecosystems."
+    "transcript": "Not necessarily. While changing jobs can provide new challenges, staying in one place allows an individual to deepen their expertise and build strong professional connections. Satisfaction often comes from mastering a role and seeing the results of one's long-term commitment. Regular job changes are only beneficial if the current environment is stagnant or prevents personal growth."
   },
   {
-    "question": "Should schools organize more outdoor learning activities?",
+    "question": "Is it possible to find job satisfaction in all types of work?",
     "audioAsset": "q11.mp3",
-    "duration": 2.7,
+    "duration": 3.0,
     "start": 0,
-    "promptEnd": 2.7,
-    "end": 2.7,
+    "promptEnd": 3.0,
+    "end": 3.0,
     "part": 3,
-    "transcript": "Outdoor lessons make learning interactive, enhancing students understanding of biology and environmental science."
+    "transcript": "It is certainly possible, provided that the individual finds value in the contribution they make to their workplace. Even in repetitive or manual roles, satisfaction can be found through pride in craftsmanship or the camaraderie formed with coworkers. Ultimately, job satisfaction is often a matter of mindset and how an individual chooses to perceive their daily responsibilities."
   }
 ];
+
 
 export const book20Test1Questions = [
   {
@@ -789,118 +700,6 @@ export const book20Test1Questions = [
   }
 ];
 
-export const book19Test3Questions = [
-  {
-    "question": "Do you often use maps when you visit new places? [Why/Why not?]",
-    "audioAsset": "q1.mp3",
-    "duration": 2.4,
-    "start": 0,
-    "promptEnd": 2.4,
-    "end": 2.4,
-    "part": 1,
-    "transcript": "Yes, I rely heavily on digital navigation maps whenever I visit an unfamiliar city. Navigation apps provide real-time traffic updates and optimal routes."
-  },
-  {
-    "question": "Did you learn how to read maps when you were at school? [Why/Why not?]",
-    "audioAsset": "q2.mp3",
-    "duration": 2.2,
-    "start": 0,
-    "promptEnd": 2.2,
-    "end": 2.2,
-    "part": 1,
-    "transcript": "We had basic map reading lessons in geography class, where we learned about scale, topographical symbols, and cardinal directions."
-  },
-  {
-    "question": "Do you prefer paper maps or electronic maps on a smartphone?",
-    "audioAsset": "q3.mp3",
-    "duration": 1.7,
-    "start": 0,
-    "promptEnd": 1.7,
-    "end": 1.7,
-    "part": 1,
-    "transcript": "I definitely prefer smartphone maps because they offer live GPS tracking, turn-by-turn audio directions, and searchable points of interest."
-  },
-  {
-    "question": "Have you ever asked someone for directions instead of using a map?",
-    "audioAsset": "q4.mp3",
-    "duration": 3.9,
-    "start": 0,
-    "promptEnd": 3.9,
-    "end": 3.9,
-    "part": 1,
-    "transcript": "Yes, if my phone battery dies or internet connection is poor, asking locals for directions is the best alternative to find my way."
-  },
-  {
-    "question": "Describe a period of time when you were extremely busy with work or study.",
-    "audioAsset": "q5.mp3",
-    "duration": 2.8,
-    "start": 0,
-    "promptEnd": 2.8,
-    "end": 2.8,
-    "part": 2,
-    "transcript": "An intensely busy period occurred last semester during final exam week. I had to complete three research papers and revise for four comprehensive exams simultaneously. I created a strict daily schedule, prioritizing tasks and working long hours at the library. Staying organized helped me manage the pressure and achieve strong academic results."
-  },
-  {
-    "question": "Why do many people feel they have less free time nowadays?",
-    "audioAsset": "q6.mp3",
-    "duration": 3.2,
-    "start": 0,
-    "promptEnd": 3.2,
-    "end": 3.2,
-    "part": 3,
-    "transcript": "Modern work culture and constant digital connectivity blur the lines between work and leisure, making people feel constantly busy even outside working hours."
-  },
-  {
-    "question": "What strategies can people use to manage their time effectively?",
-    "audioAsset": "q7.mp3",
-    "duration": 3.8,
-    "start": 0,
-    "promptEnd": 3.8,
-    "end": 3.8,
-    "part": 3,
-    "transcript": "Setting clear priorities, utilizing digital planners, delegating tasks, and eliminating unnecessary distractions are effective time management habits."
-  },
-  {
-    "question": "Is it important for people to balance work with leisure activities?",
-    "audioAsset": "q8.mp3",
-    "duration": 2.8,
-    "start": 0,
-    "promptEnd": 2.8,
-    "end": 2.8,
-    "part": 3,
-    "transcript": "Achieving a healthy work-life balance is essential to prevent mental burnout, maintain physical health, and foster positive personal relationships."
-  },
-  {
-    "question": "How has modern technology affected the pace of life in cities?",
-    "audioAsset": "q9.mp3",
-    "duration": 1.9,
-    "start": 0,
-    "promptEnd": 1.9,
-    "end": 1.9,
-    "part": 3,
-    "transcript": "Technology has significantly accelerated urban life by enabling instant communication, fast online transactions, and rapid transport services."
-  },
-  {
-    "question": "Do older people manage their time differently compared to younger people?",
-    "audioAsset": "q10.mp3",
-    "duration": 3.3,
-    "start": 0,
-    "promptEnd": 3.3,
-    "end": 3.3,
-    "part": 3,
-    "transcript": "Older generations tend to follow structured routines and focus on face-to-face interactions, whereas younger individuals multi-task using digital platforms."
-  },
-  {
-    "question": "Should employers give staff more flexibility regarding working hours?",
-    "audioAsset": "q11.mp3",
-    "duration": 2.2,
-    "start": 0,
-    "promptEnd": 2.2,
-    "end": 2.2,
-    "part": 3,
-    "transcript": "Offering flexible working hours improves job satisfaction and productivity, allowing employees to manage personal commitments effectively."
-  }
-];
 
 export const book18Test3Questions = [
   {
@@ -1149,19 +948,6 @@ export const book19Test1Questions = [
           'I strongly agree that the legal profession is exceptionally stressful. Lawyers often face heavy workloads, tight deadlines, and the immense pressure of representing clients in high-stakes situations, which can lead to significant mental fatigue and long working hours.',
     },
   ];
-'use client';
-
-import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-
-interface Question {
-  question: string;
-  audioAsset: string;
-  duration: number;
-  part: number;
-  transcript: string;
-  youShouldSay?: string[];
-}
 
 const book10Test1Questions: Question[] = [
   {
@@ -4630,71 +4416,70 @@ const book17Test4Questions: Question[] = [
       'Generally speaking, I find it quite easy to read maps, especially digital ones. I am quite tech-savvy, so navigating through map applications is intuitive for me, and I rarely struggle to understand the scale or the directions provided.',
   },
 
-  // Part 2: Question 5 (Cue Card - Occasion in a Hurry)
+  // Part 2: Question 5 (Cue Card - Changed a Plan)
   {
-    question: 'Describe an occasion when you had to do something in a hurry.',
+    question: 'Describe a time when you changed a plan you had made.',
     audioAsset: 'q5.mp3',
-    duration: 2.76,
+    duration: 3.5,
     part: 2,
     youShouldSay: [
-      'what you had to do',
-      'why you had to do this in a hurry',
-      'how well you did this',
-      'and explain how you felt about having to do this in a hurry.',
+      'what your original plan was',
+      'why you changed it',
+      'what new plan you made',
+      'and explain how you felt about changing your plan.',
     ],
     transcript:
-      'I remember a time when I had to rush to catch a train for an important job interview. I had miscalculated the traffic, and I realized with only twenty minutes left that I was still miles away. I had to abandon my taxi and sprint through the station to reach the platform just as the doors were closing. It was an incredibly stressful experience, but it taught me the importance of better time management in the future.',
+      'I remember a time when I had planned a hiking trip to the mountains with my friends. We had everything prepared, but on the morning of our departure, the weather forecast suddenly predicted a severe storm. I realized it would be dangerous to proceed, so I suggested we change our plans and visit an indoor climbing gym instead. Although it was a last-minute decision, everyone agreed it was the safer and more sensible option. We actually ended up having a fantastic time learning new techniques, and I was glad I had made the decision to adapt.',
   },
 
-  // Part 3: Questions 6-11 (Being Late, Punctuality & Study Time Management)
+  // Part 3: Questions 6-11 (Planning & Time Management)
   {
-    question: 'Do you think it\'s OK to arrive late when meeting a friend?',
+    question: 'What kinds of plans do friends make together?',
     audioAsset: 'q6.mp3',
-    duration: 2.38,
+    duration: 3.2,
     part: 3,
     transcript:
-      'I don\'t think it is acceptable to be late for a friend. It shows a lack of respect for the other person\'s time. While minor delays can happen occasionally, making it a habit can damage the quality of the friendship.',
+      'Friends often make a variety of plans together, ranging from casual social outings like going to the cinema or dining out, to more significant activities such as planning group travel or collaborating on academic projects. These plans help strengthen their bond and create shared memories.',
   },
   {
-    question: 'What should happen to people who arrive late for work?',
-    audioAsset: 'q7.mp3',
-    duration: 2.67,
+    question: "Do you think it's better to discuss future plans with friends or with family?",
+    audioAsset: "q7.mp3",
+    duration: 3.4,
     part: 3,
     transcript:
-      'In a professional setting, chronic lateness should be addressed through formal warnings or disciplinary actions. Employers rely on punctuality to maintain productivity. If an employee is consistently late, it disrupts the workflow and sets a poor example for the rest of the team.',
+      "I believe it depends on the nature of the plans. Discussing future plans with family is often beneficial because they have a deeper understanding of one's background and long-term well-being. However, friends can provide more relatable, peer-to-peer advice, especially regarding social or lifestyle choices.",
   },
   {
-    question: 'Can you suggest how people can make sure they don\'t arrive late?',
-    audioAsset: 'q8.mp3',
-    duration: 3.22,
+    question: "When making plans for the future, is it important not to copy friends?",
+    audioAsset: "q8.mp3",
+    duration: 3.5,
     part: 3,
     transcript:
-      'People can ensure they are on time by planning ahead and allowing for unexpected delays. For instance, checking traffic reports before leaving or setting an alarm earlier can be very effective. It is also helpful to prepare belongings the night before to avoid last-minute rushing.',
+      "It is certainly important to maintain one's individuality when planning for the future. While friends can offer great support and inspiration, blindly copying them can lead to choices that do not align with one's personal strengths, interests, or career goals.",
   },
   {
-    question: 'Is it better to study for long periods or in shorter blocks of time?',
-    audioAsset: 'q9.mp3',
-    duration: 3.52,
+    question: "When people are choosing what to study, how important is it that their course should lead directly to a career?",
+    audioAsset: "q9.mp3",
+    duration: 3.6,
     part: 3,
     transcript:
-      'I believe shorter blocks of time are generally more effective for most students. The human brain tends to lose focus after a certain period of intense concentration. Taking short, regular breaks helps to refresh the mind and improves long-term information retention.',
+      "It is highly significant, as the primary purpose of higher education is often to prepare individuals for the workforce. A course that leads directly to a career provides a clear roadmap and practical skills, which can significantly improve a graduate's employability and transition into the professional world.",
   },
   {
-    question:
-      'What are the likely effects of students not managing their study time well?',
-    audioAsset: 'q10.mp3',
-    duration: 3.48,
+    question: "Why is it a good idea to get some work experience before deciding on a future career?",
+    audioAsset: "q10.mp3",
+    duration: 3.5,
     part: 3,
     transcript:
-      'If students fail to manage their time, they often experience extreme stress and anxiety as deadlines approach. This usually leads to poor academic performance because they are rushing to complete tasks rather than understanding the material. Ultimately, it can discourage them from pursuing their studies further.',
+      "Gaining work experience is extremely valuable because it allows students to test their theoretical knowledge in a real-world environment. It helps them identify whether they actually enjoy the day-to-day tasks of a specific profession before committing years to a career path, thereby preventing potential dissatisfaction.",
   },
   {
-    question: 'How important is it for students to have enough leisure time?',
-    audioAsset: 'q11.mp3',
-    duration: 2.64,
+    question: "How easy do you think it is for people to change from one career to another?",
+    audioAsset: "q11.mp3",
+    duration: 3.5,
     part: 3,
     transcript:
-      'Leisure time is absolutely vital for students. It allows them to decompress and recharge, which is necessary for maintaining good mental health. Without adequate time to relax, students are prone to burnout, which negatively impacts their ability to focus and perform well in their academic responsibilities.',
+      "Changing careers can be quite challenging, especially if the new field requires a completely different set of qualifications or experience. However, with the rise of transferable skills and online certification programs, many people are finding it more feasible to pivot to new industries than in the past.",
   },
 ];
 
@@ -4898,9 +4683,195 @@ const book16Test2Questions: Question[] = [
   },
 ];
 
+const book19Test3Questions: Question[] = [
+  // Part 1: Questions 1-4 (Holidays)
+  {
+    question: 'Do you prefer spending holidays with friends or with family? [Why?]',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 1,
+    transcript: 'I generally prefer spending my holidays with my family. I find that it is a wonderful opportunity to reconnect with my relatives and strengthen our bonds, as we are often too busy with work or studies to spend quality time together during the rest of the year.',
+  },
+  {
+    question: 'What kind of holiday accommodation do you like to stay in? [Why?]',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 1,
+    transcript: 'I typically prefer staying in boutique hotels or guesthouses. I enjoy these types of accommodations because they often provide a more personalized experience and a unique, local atmosphere that large chain hotels sometimes lack.',
+  },
+  {
+    question: 'What plans do you have for your next holiday?',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 1,
+    transcript: 'For my next holiday, I am planning to visit a coastal town in the south. I have already booked my flight and I am currently researching some interesting historical sites and local restaurants that I would like to explore while I am there.',
+  },
+  {
+    question: 'Is your city or region a good place for other people to visit on holiday? [Why/Why not?]',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 1,
+    transcript: 'Yes, my city is definitely a great place for tourists. It offers a perfect blend of modern architecture and historical landmarks, and the local cuisine is absolutely world-class, which makes it very attractive for visitors who enjoy cultural exploration.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Car Journey)
+  {
+    question: 'Describe a car journey you made that took longer than expected.',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 4.0,
+    part: 2,
+    youShouldSay: [
+      'where you were going',
+      'who you were with',
+      'how you felt during the journey',
+      'and explain why this car journey took longer than expected.',
+    ],
+    transcript: 'I remember a road trip I took to the mountains last summer which ended up being much longer than I had anticipated. We were supposed to arrive in about four hours, but due to an unexpected landslide that blocked the main highway, we were forced to take a lengthy detour through winding mountain roads. This added nearly three extra hours to our journey, and it was quite exhausting as we were stuck in traffic for most of the afternoon. Despite the frustration, the scenery during the detour was absolutely breathtaking, which made the delay slightly more bearable. By the time we finally reached our destination, it was already late at night, but it certainly became a memorable story to share with my friends.',
+  },
+
+  // Part 3: Questions 6-11 (Family Celebrations & Relationships)
+  {
+    question: 'When do families celebrate together in your country?',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 3,
+    transcript: 'In my country, families typically celebrate together during major national holidays like Tet or Lunar New Year. Additionally, significant life events such as weddings, graduations, and milestone birthdays serve as primary occasions for family gatherings.',
+  },
+  {
+    question: 'How often do all the generations in a family come together in your country?',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 3,
+    transcript: 'Multi-generational gatherings often occur during traditional festivals or annual reunions. However, in urban areas, these events are becoming less frequent due to busy work schedules, so they usually happen only once or twice a year.',
+  },
+  {
+    question: 'Why is it that some people might not enjoy attending family occasions?',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 3,
+    transcript: 'Some individuals may find family occasions stressful due to the pressure to conform to social expectations or strained relationships with relatives. Additionally, the need to engage in small talk with people they rarely see can be exhausting for introverts.',
+  },
+  {
+    question: 'Do you think it is a good thing for parents to help their children with schoolwork?',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 3,
+    transcript: 'I believe it is highly beneficial for parents to assist their children with schoolwork as it fosters a supportive learning environment. It allows parents to monitor academic progress and helps children develop a deeper understanding of complex subjects.',
+  },
+  {
+    question: 'How important do you think it is for families to eat together at least once a day?',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 3,
+    transcript: 'Eating together is crucial as it strengthens family bonds and provides a space for meaningful communication. In today\'s fast-paced world, sharing at least one meal a day acts as a vital ritual for maintaining emotional connection and family stability.',
+  },
+  {
+    question: 'Do you believe that everyone in a family should share household tasks?',
+    audioAsset: 'VideoSnap_ScreenRecording_09-13-2026 09-01-53_1.mp3',
+    duration: 3.5,
+    part: 3,
+    transcript: 'Yes, I strongly believe that sharing household chores is essential for promoting equality and responsibility within a family. When every member contributes, it lightens the burden on one individual and teaches children the importance of cooperation and life skills.',
+  },
+];
+
+export const book20Test2Questions: Question[] = [
+  // Part 1: Questions 1-4 (Fruit & Food)
+  {
+    question: "What's your favourite fruit?",
+    audioAsset: "q1.mp3",
+    duration: 2.2,
+    part: 1,
+    transcript: "My absolute favourite fruit has to be mangoes. I really enjoy their sweet, tropical flavour, especially during the summer months when they are perfectly ripe. I find them incredibly refreshing as a snack or even in a fruit salad."
+  },
+  {
+    question: "Are there any kinds of fruit that you don't like eating?",
+    audioAsset: "q2.mp3",
+    duration: 2.4,
+    part: 1,
+    transcript: "Actually, I'm not a huge fan of papayas. I find the texture a bit too soft for my liking, and the smell can be quite overpowering. Aside from that, I generally enjoy most other types of fruit."
+  },
+  {
+    question: "Do you like eating cooked food that has fruit in it?",
+    audioAsset: "q3.mp3",
+    duration: 2.5,
+    part: 1,
+    transcript: "I generally prefer to eat fruit in its raw, natural state because I like the crispness. However, I do enjoy cooked fruit in specific dishes, such as apple pie or a warm berry crumble, as the cooking process brings out a lovely sweetness."
+  },
+  {
+    question: "Where's the best place to buy fruit where you live?",
+    audioAsset: "q4.mp3",
+    duration: 2.3,
+    part: 1,
+    transcript: "The best place to buy fresh produce in my neighbourhood is the local farmers' market held every Saturday morning. The fruits there are sourced directly from nearby farms, so they are always much fresher and higher quality than what I find in the large supermarkets."
+  },
+
+  // Part 2: Question 5 (Cue Card - Traditional Dish)
+  {
+    question: "Describe a traditional dish or special food from your country that you enjoy.",
+    audioAsset: "q5.mp3",
+    duration: 3.5,
+    part: 2,
+    youShouldSay: [
+      "what the food is and what it is made of",
+      "when and where you usually eat it",
+      "how it is prepared",
+      "and explain why you enjoy eating this traditional dish."
+    ],
+    transcript: "One traditional dish from my country that I thoroughly enjoy is Pho, a aromatic noodle soup made with slow-simmered beef broth, rice noodles, tender beef slices, and fresh herbs like basil and cilantro. It is traditionally eaten for breakfast or during family gatherings. The complex broth is simmered for over eight hours with star anise, cinnamon, and ginger, giving it a rich and comforting flavour profile. I love it because it represents our cultural heritage and always brings back warm memories of family meals."
+  },
+
+  // Part 3: Questions 6-11 (Food Production, Diets & Culture)
+  {
+    question: "How have people's eating habits changed in your country over recent years?",
+    audioAsset: "q6.mp3",
+    duration: 3.2,
+    part: 3,
+    transcript: "In recent years, fast food and food delivery services have become much more prevalent due to busy urban lifestyles. However, there is also a growing awareness of healthy eating, with more people choosing organic produce and plant-based diets."
+  },
+  {
+    question: "Do you think imported foods are better than locally grown produce?",
+    audioAsset: "q7.mp3",
+    duration: 3.5,
+    part: 3,
+    transcript: "Not necessarily. While imported foods offer variety out of season, locally grown produce is generally fresher, more nutritional, and has a lower carbon footprint because it doesn't require long-distance transportation."
+  },
+  {
+    question: "What role does traditional food play in preserving national culture?",
+    audioAsset: "q8.mp3",
+    duration: 3.8,
+    part: 3,
+    transcript: "Traditional cuisine is a vital expression of cultural identity. Recipes passed down through generations reflect a country's history, climate, and values, fostering a sense of community and pride during cultural celebrations."
+  },
+  {
+    question: "Should governments introduce taxes on unhealthy sugary foods and beverages?",
+    audioAsset: "q9.mp3",
+    duration: 3.6,
+    part: 3,
+    transcript: "I believe levying taxes on high-sugar items can discourage excessive consumption and generate revenue to fund public health initiatives, helping to combat lifestyle diseases like obesity and diabetes."
+  },
+  {
+    question: "How important is it for children to learn cooking skills at school?",
+    audioAsset: "q10.mp3",
+    duration: 3.4,
+    part: 3,
+    transcript: "Teaching children basic culinary skills is essential for their independence. It equips them to make healthy food choices, understand nutrition, and avoid over-reliance on processed convenience foods later in life."
+  },
+  {
+    question: "Will traditional family cooking disappear in the future due to modern technology?",
+    audioAsset: "q11.mp3",
+    duration: 3.5,
+    part: 3,
+    transcript: "While convenience foods and pre-packaged meals are popular, home cooking remains a cherished social activity. Many families still value gathering to cook together, so traditional recipes are likely to endure."
+  }
+];
+
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 20 Test 3': book20Test3Questions,
+  'IELTS Book 20 Test 2': book20Test2Questions,
   'IELTS Book 19 Test 4': book19Test4Questions,
+  'IELTS Book 19 Test 3': book19Test3Questions,
   'IELTS Book 19 Test 2': book19Test2Questions,
+  'IELTS Book 19 Test 1': book19Test1Questions,
   'IELTS Book 18 Test 4': book18Test4Questions,
   'IELTS Book 18 Test 2': book18Test2Questions,
   'IELTS Book 18 Test 1': book18Test1Questions,
@@ -4941,17 +4912,11 @@ const testSuites: { [key: string]: Question[] } = {
 };
 
 const PASTEL_WAVE_COLORS = [
-  '#FCA5A5', '#FCA5A5', '#FCA5A5',
-  '#FDBA74', '#FDBA74', '#FDBA74',
-  '#FDE047', '#FDE047', '#FDE047',
-  '#86EFAC', '#86EFAC', '#86EFAC',
-  '#4ADE80', '#4ADE80',
-  '#2DD4BF', '#2DD4BF',
-  '#38BDF8', '#38BDF8',
-  '#60A5FA', '#60A5FA',
-  '#818CF8', '#818CF8',
-  '#A78BFA', '#A78BFA',
-  '#C084FC', '#C084FC',
+  '#F97316', '#F97316', '#F59E0B', '#EAB308', '#84CC16',
+  '#22C55E', '#10B981', '#14B8A6', '#06B6D4', '#0EA5E9',
+  '#3B82F6', '#6366F1', '#8B5CF6', '#A855F7', '#D946EF',
+  '#EC4899', '#F43F5E', '#F97316', '#F59E0B', '#84CC16',
+  '#10B981', '#06B6D4', '#3B82F6', '#8B5CF6', '#A855F7', '#EC4899'
 ];
 
 export default function SpeakingPracticePage() {
@@ -4959,7 +4924,7 @@ export default function SpeakingPracticePage() {
   const [selectedPart, setSelectedPart] = useState<number>(1);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userResponses, setUserResponses] = useState<{ [index: number]: string }>({});
-  const [viewState, setViewState] = useState<'TESTS' | 'PRACTICE' | 'RESULTS'>('TESTS');
+  const [viewState, setViewState] = useState<'TESTS' | 'INTRO' | 'PRACTICE' | 'RESULTS'>('TESTS');
   const [isRecording, setIsRecording] = useState(false);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [showTranscript, setShowTranscript] = useState(false);
@@ -5181,13 +5146,19 @@ export default function SpeakingPracticePage() {
 
     let band = 1.0;
     if (isSingleWordOrMinimal) {
-      if (selectedTestTitle.includes('Book 17 Test 1')) {
+      if (selectedTestTitle.includes('Book 17 Test 1') || selectedTestTitle.includes('Book 19 Test 1')) {
         band = selectedPart === 3 ? 0.0 : 1.0;
+      } else if (selectedTestTitle.includes('Book 16 Test 2')) {
+        band = selectedPart === 1 ? 1.5 : (selectedPart === 2 ? 0.0 : 1.0);
+      } else if (selectedTestTitle.includes('Book 15 Test 4') || selectedTestTitle.includes('Book 17 Test 3')) {
+        band = selectedPart === 2 ? 0.0 : 1.0;
       } else if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2') || selectedTestTitle.includes('Book 19 Test 2')) {
         band = selectedPart === 1 ? 1.0 : 0.0;
       } else if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
-      } else if (selectedTestTitle.includes('Book 13 Test 2')) {
+      } else if (selectedTestTitle.includes('Book 13 Test 4')) {
+        band = selectedPart === 2 ? 0.0 : 1.0;
+      } else if (selectedTestTitle.includes('Book 13 Test 2') || selectedTestTitle.includes('Book 14 Test 3')) {
         band = selectedPart === 1 ? 2.0 : 1.0;
       } else {
         band = selectedPart === 3 ? 0.0 : 1.0;
@@ -5203,8 +5174,12 @@ export default function SpeakingPracticePage() {
     } else if (totalWords > 5) {
       band = 3.0;
     } else {
-      if (selectedTestTitle.includes('Book 17 Test 1')) {
+      if (selectedTestTitle.includes('Book 17 Test 1') || selectedTestTitle.includes('Book 19 Test 1')) {
         band = selectedPart === 3 ? 0.0 : 1.0;
+      } else if (selectedTestTitle.includes('Book 16 Test 2')) {
+        band = selectedPart === 1 ? 1.5 : (selectedPart === 2 ? 0.0 : 1.0);
+      } else if (selectedTestTitle.includes('Book 15 Test 4') || selectedTestTitle.includes('Book 17 Test 3')) {
+        band = selectedPart === 2 ? 0.0 : 1.0;
       } else if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2') || selectedTestTitle.includes('Book 19 Test 2')) {
         band = selectedPart === 1 ? 1.0 : 0.0;
       } else if (selectedTestTitle.includes('Book 14 Test 2')) {
@@ -5219,8 +5194,12 @@ export default function SpeakingPracticePage() {
     }
 
     const intBand = isSingleWordOrMinimal
-      ? (selectedTestTitle.includes('Book 17 Test 1')
+      ? ((selectedTestTitle.includes('Book 17 Test 1') || selectedTestTitle.includes('Book 19 Test 1'))
           ? (selectedPart === 3 ? 0 : 1)
+          : selectedTestTitle.includes('Book 16 Test 2')
+          ? (selectedPart === 2 ? 0 : 1)
+          : (selectedTestTitle.includes('Book 15 Test 4') || selectedTestTitle.includes('Book 17 Test 3'))
+          ? (selectedPart === 2 ? 0 : 1)
           : (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2') || selectedTestTitle.includes('Book 19 Test 2'))
           ? (selectedPart === 1 ? 1 : 0)
           : selectedTestTitle.includes('Book 14 Test 2')
@@ -5232,6 +5211,15 @@ export default function SpeakingPracticePage() {
           : (selectedPart === 3 ? 0 : 1))
       : Math.round(band);
 
+    const fcScore = isSingleWordOrMinimal
+      ? (selectedTestTitle.includes('Book 14 Test 3') && selectedPart === 1 ? 2 : intBand)
+      : intBand;
+    const lrScore = intBand;
+    const grScore = intBand;
+    const prScore = isSingleWordOrMinimal
+      ? ((selectedTestTitle.includes('Book 14 Test 3') || selectedTestTitle.includes('Book 16 Test 2')) && selectedPart === 1 ? 2 : intBand)
+      : intBand;
+
     let fluencyFeedback = '';
     let lexicalFeedback = '';
     let grammarFeedback = '';
@@ -5240,14 +5228,20 @@ export default function SpeakingPracticePage() {
 
     if (isSingleWordOrMinimal) {
       if (selectedPart === 3) {
-        fluencyFeedback = selectedTestTitle.includes('Book 19 Test 2')
+        fluencyFeedback = selectedTestTitle.includes('Book 19 Test 1')
+          ? "Your answers were completely inadequate. By responding 'No' to every single question, you failed to address the task entirely. This is not a conversation; it is a refusal to participate. You must provide full, relevant sentences to be assessed."
+          : selectedTestTitle.includes('Book 19 Test 2')
           ? "The candidate provided 'No' for every single question. This constitutes a failure to respond to the task. There is no coherence or fluency to evaluate as the candidate refused to engage with the assessment."
-          : selectedTestTitle.includes('Book 17 Test 1')
-          ? "Your answers were completely irrelevant. You provided a one-word negative response ('No') to every single question. This does not constitute an attempt to answer the prompt, resulting in a band 0."
           : selectedTestTitle.includes('Book 18 Test 2')
           ? "Your answers were completely empty or irrelevant. By responding with 'No' to every question, you failed to provide any assessable language. This indicates a total lack of participation."
+          : selectedTestTitle.includes('Book 17 Test 1')
+          ? "Your answers were completely irrelevant. You provided a one-word negative response ('No') to every single question. This does not constitute an attempt to answer the prompt, resulting in a band 0."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "Your responses were either empty or consisted of a single word ('No'). These are not coherent answers and fail to address any of the questions asked. This is a complete failure to engage with the task."
           : selectedTestTitle.includes('Book 16 Test 1')
           ? "Your answers were completely empty or irrelevant. By responding with 'No' to every question, you failed to provide any assessable language. This indicates a total lack of participation."
+          : selectedTestTitle.includes('Book 16 Test 2')
+          ? "Your answers were completely inadequate. Providing 'No' to open-ended discussion questions fails to address the task entirely."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "The candidate provided no assessable language. Every response was 'No', which is completely irrelevant and fails to address any of the questions asked."
           : selectedTestTitle.includes('Book 15 Test 2')
@@ -5271,14 +5265,20 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
           : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-        lexicalFeedback = selectedTestTitle.includes('Book 19 Test 2')
+        lexicalFeedback = selectedTestTitle.includes('Book 19 Test 1')
+          ? "There is no vocabulary to assess. You provided no content."
+          : selectedTestTitle.includes('Book 19 Test 2')
           ? "There is no vocabulary to assess. The use of a single word 'No' demonstrates a total lack of lexical range."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no lexical resource to evaluate as you only used a single word repeatedly."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "There is no assessable vocabulary. You must provide full sentences to demonstrate your ability to use English."
           : selectedTestTitle.includes('Book 18 Test 2')
           ? "There is no vocabulary to assess because you provided no meaningful responses."
           : selectedTestTitle.includes('Book 16 Test 1')
           ? "There is no vocabulary to assess because you provided no meaningful responses."
+          : selectedTestTitle.includes('Book 16 Test 2')
+          ? "There is no vocabulary to assess. You provided no lexical content beyond a single-word response."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "There is no vocabulary range to assess."
           : selectedTestTitle.includes('Book 15 Test 2')
@@ -5302,14 +5302,20 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no lexical resource displayed, as you only used one word repeatedly."
           : "There is no vocabulary to assess.";
-        grammarFeedback = selectedTestTitle.includes('Book 19 Test 2')
+        grammarFeedback = selectedTestTitle.includes('Book 19 Test 1')
+          ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."
+          : selectedTestTitle.includes('Book 19 Test 2')
           ? "There is no grammatical structure to assess."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no grammatical range to evaluate."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "There is no assessable grammar. You must provide full sentences to demonstrate your ability to construct English phrases."
           : selectedTestTitle.includes('Book 18 Test 2')
           ? "There is no grammatical structure to assess because you provided no meaningful responses."
           : selectedTestTitle.includes('Book 16 Test 1')
           ? "There is no grammatical structure to assess because you provided no meaningful responses."
+          : selectedTestTitle.includes('Book 16 Test 2')
+          ? "There is no grammatical structure to assess. You must provide full, complex sentences to be evaluated."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "There is no grammatical structure to assess."
           : selectedTestTitle.includes('Book 15 Test 2')
@@ -5333,14 +5339,20 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "No grammatical structures were demonstrated beyond a single word."
           : "There is no grammar to assess.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 19 Test 2')
+        pronunciationFeedback = selectedTestTitle.includes('Book 19 Test 1')
+          ? "Assessment is impossible as there is no continuous speech to evaluate. You must speak in full sentences."
+          : selectedTestTitle.includes('Book 19 Test 2')
           ? "The candidate did not provide enough speech for an assessment of pronunciation."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "The candidate did not provide any spoken content beyond a single word."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "There was insufficient speech to evaluate pronunciation. You need to speak clearly and at length to receive a score."
           : selectedTestTitle.includes('Book 18 Test 2')
           ? "There is no speech to evaluate."
           : selectedTestTitle.includes('Book 16 Test 1')
           ? "There is no speech to evaluate."
+          : selectedTestTitle.includes('Book 16 Test 2')
+          ? "Assessment is impossible as there is no continuous speech to evaluate. You must speak in full sentences."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "The candidate did not provide any spoken content beyond a single word."
           : selectedTestTitle.includes('Book 15 Test 2')
@@ -5364,7 +5376,14 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
           : "There is no speech to assess.";
-        tipsList = selectedTestTitle.includes('Book 19 Test 2')
+        tipsList = selectedTestTitle.includes('Book 19 Test 1')
+          ? [
+              "You must provide full, detailed answers. One-word responses like 'No' are not acceptable in an IELTS speaking test.",
+              "Ensure your answers are relevant. The questions asked for information about school rules and the legal profession; answering 'No' is factually and contextually incorrect.",
+              "Practice expanding your answers using the 'Answer, Explain, Example' method to reach the required length and depth.",
+              "Understand that the IELTS Speaking test requires you to speak at length to demonstrate your language proficiency. Refusing to speak will result in a score of 0.",
+            ]
+          : selectedTestTitle.includes('Book 19 Test 2')
           ? [
               "You must provide full, descriptive answers to all questions; a one-word answer is not acceptable in an IELTS speaking test.",
               "Practice expanding your answers by using the 'Answer + Reason + Example' technique.",
@@ -5379,6 +5398,13 @@ export default function SpeakingPracticePage() {
               "If you do not understand a question, ask the examiner to repeat or clarify it rather than giving an irrelevant response.",
               "Practice speaking at length. A minimum of 2-3 sentences per answer is required to demonstrate your English proficiency.",
               "Review the IELTS Speaking criteria; 'Task Response' requires you to engage with the topic provided.",
+            ]
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? [
+              "You must answer in full, complete sentences. Never give one-word answers like 'No'.",
+              "Your answers were effectively non-existent. You must address the topic provided in the question.",
+              "Practice expanding your answers by using the 'Answer, Reason, Example' (ARE) method.",
+              "If you do not know the answer, do not say 'No'. Instead, explain why the topic is unfamiliar to you or discuss a related aspect of the subject.",
             ]
           : selectedTestTitle.includes('Book 18 Test 2')
           ? [
@@ -5395,6 +5421,14 @@ export default function SpeakingPracticePage() {
               "Ensure you understand the question before responding; if you do not understand, ask the examiner to repeat it rather than giving an incorrect or dismissive answer.",
               "Prepare common topics related to tourism, culture, and travel to build your confidence and vocabulary.",
               "Understand that in an actual exam, providing 'No' to questions will result in a band score of 0 or 1.",
+            ]
+          : selectedTestTitle.includes('Book 16 Test 2')
+          ? [
+              "You must provide verbal responses to the examiner's questions to receive a score.",
+              "Answering 'No' to open-ended discussion questions is not a valid response and results in a band 0-1.",
+              "Practice expanding your answers by using the 'Answer + Reason + Example' structure.",
+              "Familiarize yourself with the IELTS Speaking format; it is an interactive conversation, not a questionnaire that can be answered with 'yes' or 'no'.",
+              "If you are unable to speak, you will fail the test. Please attempt to articulate your thoughts in full sentences.",
             ]
           : selectedTestTitle.includes('Book 15 Test 1')
           ? [
@@ -5473,9 +5507,15 @@ export default function SpeakingPracticePage() {
               "If you do not know how to answer a question, use phrases like 'That\\'s an interesting question, I think...' to give yourself time to think, rather than refusing to speak."
             ];
       } else if (selectedPart === 2) {
-        fluencyFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        fluencyFeedback = selectedTestTitle.includes('Book 19 Test 1')
           ? "Your answer was essentially non-existent. You provided a single-word response ('No') which failed to address the prompt entirely. This is considered a refusal to perform the task."
+          : selectedTestTitle.includes('Book 17 Test 1')
+          ? "Your answer was essentially non-existent. You provided a single-word response ('No') which failed to address the prompt entirely. This is considered a refusal to perform the task."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "Your answer was empty. You provided 'No' as a response to a Part 2 prompt, which requires a 1-2 minute spoken description. This is a failure to attempt the task."
           : selectedTestTitle.includes('Book 16 Test 1')
+          ? "Your answer was empty. You provided no response to the question, which results in a score of 0."
+          : selectedTestTitle.includes('Book 16 Test 2')
           ? "Your answer was empty. You provided no response to the question, which results in a score of 0."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "Your answer was empty. You provided no response to the question asked."
@@ -5504,7 +5544,11 @@ export default function SpeakingPracticePage() {
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
         lexicalFeedback = selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no vocabulary range to evaluate due to the lack of production."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "No vocabulary was produced to assess."
           : selectedTestTitle.includes('Book 16 Test 1')
+          ? "No vocabulary was produced to evaluate."
+          : selectedTestTitle.includes('Book 16 Test 2')
           ? "No vocabulary was produced to evaluate."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "No vocabulary was produced to evaluate."
@@ -5533,7 +5577,11 @@ export default function SpeakingPracticePage() {
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
         grammarFeedback = selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no grammatical structure to evaluate."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "No grammatical structures were produced to assess."
           : selectedTestTitle.includes('Book 16 Test 1')
+          ? "No grammatical structures were produced to evaluate."
+          : selectedTestTitle.includes('Book 16 Test 2')
           ? "No grammatical structures were produced to evaluate."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "No grammatical structures were produced to evaluate."
@@ -5560,9 +5608,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to evaluate.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        pronunciationFeedback = selectedTestTitle.includes('Book 19 Test 1')
+          ? "No assessment possible due to lack of speech."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "Insufficient speech to assess pronunciation."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "No speech was produced to assess."
           : selectedTestTitle.includes('Book 16 Test 1')
+          ? "No speech was produced to evaluate."
+          : selectedTestTitle.includes('Book 16 Test 2')
           ? "No speech was produced to evaluate."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "No speech was produced to evaluate."
@@ -5589,13 +5643,27 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is insufficient data to evaluate your pronunciation."
           : "Cannot assess pronunciation based on a single word. You must speak in full sentences to be evaluated.";
-        tipsList = selectedTestTitle.includes('Book 17 Test 1')
+        tipsList = selectedTestTitle.includes('Book 19 Test 1')
+          ? [
+              "You must speak at length for Part 2; a one-word answer is an automatic fail.",
+              "Practice using the 'PPF' method (Past, Present, Future) to expand your ideas.",
+              "Prepare a structured response: introduce the law, explain why it was introduced, describe how it works, and explain why you think it was a good idea.",
+              "Remember that the examiner cannot grade you if you do not provide enough content to evaluate.",
+            ]
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? [
               "You must provide a full, descriptive answer. A single-word response will result in a failing score.",
               "When asked to 'Describe' something, aim to speak for 1-2 minutes using descriptive adjectives and past tense verbs.",
               "Focus on the 'W' questions: Where was it? What did it look like? Who lived there? What did you do there?",
               "Practice expanding your thoughts; never answer a prompt with 'yes' or 'no' when a description is requested.",
               "Review IELTS Part 2 requirements, which expect a sustained response of several sentences.",
+            ]
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? [
+              "You must attempt to speak for the full 1-2 minutes in Part 2; saying 'no' results in a score of 0.",
+              "Prepare a structure for your talk: Introduction, Physical description, History/Meaning, and why you like it.",
+              "Practice speaking continuously, even if you are nervous. Silence is the worst possible outcome in an IELTS exam.",
+              "Familiarize yourself with common Part 2 topics such as monuments, historical buildings, or public art.",
             ]
           : selectedTestTitle.includes('Book 16 Test 1')
           ? [
@@ -5604,6 +5672,14 @@ export default function SpeakingPracticePage() {
               "Familiarize yourself with the IELTS speaking format; silence will lead to an automatic failure.",
               "Prepare notes during the 1-minute preparation time provided in the actual exam.",
               "Practice speaking continuously about a specific topic to build fluency.",
+            ]
+          : selectedTestTitle.includes('Book 16 Test 2')
+          ? [
+              "You must attempt to answer the question; silence or saying 'No' results in a band 0.",
+              "In Part 2, you are expected to speak for 1-2 minutes. Practice organizing your thoughts into a narrative.",
+              "Use the 1-minute preparation time to jot down keywords related to the product or service you are reviewing.",
+              "If you are unprepared, try to describe any product or service you know well; it is better to speak than to be silent.",
+              "Focus on building confidence by practicing speaking about familiar topics for at least 60 seconds.",
             ]
           : selectedTestTitle.includes('Book 15 Test 1')
           ? [
@@ -5692,9 +5768,15 @@ export default function SpeakingPracticePage() {
               "Prepare stories about people you know in advance to avoid being caught off guard during the test."
             ];
       } else {
-        fluencyFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        fluencyFeedback = selectedTestTitle.includes('Book 19 Test 1')
+          ? "Your answers were completely non-responsive. By simply saying 'No' to every question, you failed to communicate, provide information, or demonstrate language ability. This is a total failure to address the task."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "The responses are completely inadequate. The candidate provided one-word answers ('No') for every question. This is not a demonstration of speaking ability and fails to address the tasks entirely."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "The responses are extremely limited and fail to address the 'Why' component of the questions. The answers are essentially non-communicative and fail to demonstrate any ability to sustain a conversation."
           : selectedTestTitle.includes('Book 16 Test 1')
+          ? "Your answers were completely non-responsive. By simply saying 'No' to every question, you failed to communicate, provide information, or demonstrate language ability. This is a total failure to address the task."
+          : selectedTestTitle.includes('Book 16 Test 2')
           ? "Your answers were completely non-responsive. By simply saying 'No' to every question, you failed to communicate, provide information, or demonstrate language ability. This is a total failure to address the task."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "Your answers were completely irrelevant and failed to address the questions. Providing one-word answers like 'No' or 'Oh' demonstrates a failure to engage with the test format."
@@ -5721,9 +5803,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-        lexicalFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        lexicalFeedback = selectedTestTitle.includes('Book 19 Test 1')
+          ? "There is no vocabulary to evaluate. A single-word response does not demonstrate any range or control over language."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no lexical resource to evaluate as the candidate only used a single negative particle."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "The vocabulary is non-existent as the student only provided a single-word response ('No') to every question."
           : selectedTestTitle.includes('Book 16 Test 1')
+          ? "There is no vocabulary to evaluate. A single-word response does not demonstrate any range or control over language."
+          : selectedTestTitle.includes('Book 16 Test 2')
           ? "There is no vocabulary to evaluate. A single-word response does not demonstrate any range or control over language."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "There is no vocabulary range to assess as you only provided single-word responses."
@@ -5750,9 +5838,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess beyond a single, repetitive word."
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        grammarFeedback = selectedTestTitle.includes('Book 19 Test 1')
+          ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no grammatical structure present to evaluate."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "There is no grammatical range to assess as the student provided only one-word answers."
           : selectedTestTitle.includes('Book 16 Test 1')
+          ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."
+          : selectedTestTitle.includes('Book 16 Test 2')
           ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "There is no grammatical structure to assess. No complete sentences were produced."
@@ -5779,10 +5873,16 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no grammatical structure to assess."
           : "There is no grammatical range to assess as no full sentences were produced.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        pronunciationFeedback = selectedTestTitle.includes('Book 19 Test 1')
+          ? "With only four words spoken, it is impossible to evaluate your pronunciation, intonation, or natural rhythm."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "The candidate failed to engage in the assessment. To score higher, you must provide full, descriptive sentences."
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? "Cannot be assessed due to the lack of speech, but a single word is insufficient to demonstrate any phonetic control or intonation."
           : selectedTestTitle.includes('Book 16 Test 1')
           ? "While the word 'No' is articulated clearly, the lack of speech prevents any assessment of connected speech, intonation, or range."
+          : selectedTestTitle.includes('Book 16 Test 2')
+          ? "While the sounds were likely produced correctly, there is no connected speech, intonation, or rhythm to evaluate. You must speak in full sentences to be assessed."
           : selectedTestTitle.includes('Book 15 Test 1')
           ? "Insufficient data to assess pronunciation, though the lack of effort suggests a failure to engage with the test format."
           : selectedTestTitle.includes('Book 15 Test 2')
@@ -5806,13 +5906,29 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "Insufficient data to assess pronunciation; however, silence or one-word answers will lead to a score of 1."
           : "It is impossible to assess pronunciation based on a single word repeated four times. You must speak in full, developed sentences.";
-        tipsList = selectedTestTitle.includes('Book 17 Test 1')
+        tipsList = selectedTestTitle.includes('Book 19 Test 1')
+          ? [
+              "You must provide full, descriptive answers. A single word is never sufficient for an IELTS speaking test.",
+              "Elaborate on your answers by providing reasons, examples, or personal experiences. Use the 'Answer + Reason + Example' structure.",
+              "Practice speaking for at least 2-3 sentences per question to demonstrate your fluency and ability to expand on a topic.",
+              "Avoid one-word answers at all costs; they will lead to a score of 0-1.",
+              "Review model responses to understand how to structure a 3-4 sentence answer for Part 1.",
+            ]
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? [
               "You must provide full, complete sentences. An IELTS examiner cannot grade you if you only answer 'No'.",
               "Elaborate on your answers by using the 'P.E.E.' method: Point, Explain, and give an Example.",
               "Practice speaking for at least 2-3 sentences per question to show your language range.",
               "Avoid one-word answers at all costs; they will lead to a score of 0-2.",
               "Listen to the question carefully and ensure your answer directly addresses the 'Why' or 'How' components of the prompt.",
+            ]
+          : selectedTestTitle.includes('Book 17 Test 3')
+          ? [
+              "You must provide full, descriptive sentences. A one-word answer is not acceptable in an IELTS speaking test.",
+              "Always address the 'Why' part of the question. You should aim for 3-4 sentences for every Part 1 answer.",
+              "Practice expanding your answers by adding personal examples, reasons, or feelings related to the topic.",
+              "Avoid giving 'No' as a default answer; you are expected to demonstrate your English proficiency, not just provide facts.",
+              "Familiarize yourself with common IELTS Part 1 topics (hobbies, hometown, daily routine, food/drink) and practice speaking aloud for at least 30 seconds per question.",
             ]
           : selectedTestTitle.includes('Book 16 Test 1')
           ? [
@@ -5821,6 +5937,14 @@ export default function SpeakingPracticePage() {
               "Your responses were entirely non-responsive. You must address the actual topic of the question (e.g., studying/working habits) rather than providing a negative reply.",
               "Practice speaking for at least 3-4 sentences per question to demonstrate your fluency and ability to expand on a topic.",
               "Do not use 'No' as a conversational filler. If you do not have a specific answer, explain why or describe a related situation.",
+            ]
+          : selectedTestTitle.includes('Book 16 Test 2')
+          ? [
+              "You must provide full sentences. One-word answers are not acceptable in IELTS Speaking and will result in a failing score.",
+              "Use the 'PPF' method (Past, Present, Future) or 'Reason, Example, Detail' to expand your answers to at least 3-4 sentences.",
+              "Do not refuse to answer. Even if you don't have a favorite flower, explain why you don't care for them or what you prefer instead.",
+              "Practice speaking for at least 15-20 seconds for each Part 1 question to demonstrate your English proficiency.",
+              "Listen to sample IELTS Part 1 recordings to understand the expected length and depth of responses.",
             ]
           : selectedTestTitle.includes('Book 15 Test 1')
           ? [
@@ -5946,19 +6070,19 @@ export default function SpeakingPracticePage() {
     const results = {
       overallBand: band,
       fluency: {
-        score: intBand,
+        score: fcScore,
         feedback: fluencyFeedback,
       },
       lexical: {
-        score: intBand,
+        score: lrScore,
         feedback: lexicalFeedback,
       },
       grammar: {
-        score: intBand,
+        score: grScore,
         feedback: grammarFeedback,
       },
       pronunciation: {
-        score: intBand,
+        score: prScore,
         feedback: pronunciationFeedback,
       },
       tips: tipsList,
@@ -6052,45 +6176,27 @@ export default function SpeakingPracticePage() {
           {/* 4 Criteria Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { title: 'Fluency & Coherence', color: '#007AFF', data: examinerResults.fluency },
-              { title: 'Lexical Resource', color: '#C026D3', data: examinerResults.lexical },
-              { title: 'Grammatical Range', color: '#F97316', data: examinerResults.grammar },
-              { title: 'Pronunciation', color: '#10B981', data: examinerResults.pronunciation },
-            ].map((crit, idx) => {
-              const isCheckmarkStyle = crit.data?.score === 0 || selectedPart === 3;
-              return (
-                <div key={idx} className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-sm flex flex-col justify-between space-y-3">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2.5">
-                        {isCheckmarkStyle ? (
-                          <div
-                            className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                            style={{ backgroundColor: `${crit.color}20`, color: crit.color }}
-                          >
-                            ✓
-                          </div>
-                        ) : (
-                          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: crit.color }} />
-                        )}
-                        <span className="text-sm font-bold text-[#1F2937]">{crit.title}</span>
-                      </div>
-                      {isCheckmarkStyle ? (
-                        <span className="text-2xl font-bold" style={{ color: crit.color }}>
-                          {crit.data?.score ?? 0}
-                        </span>
-                      ) : (
-                        <span className="bg-[#DC2626] text-white px-2 py-0.5 rounded text-xs font-extrabold">
-                          {crit.data?.score ?? 1}
-                        </span>
-                      )}
+              { title: 'Fluency & Coherence', color: '#0284C7', data: examinerResults.fluency },
+              { title: 'Lexical Resource', color: '#9333EA', data: examinerResults.lexical },
+              { title: 'Grammatical Range', color: '#EA580C', data: examinerResults.grammar },
+              { title: 'Pronunciation', color: '#16A34A', data: examinerResults.pronunciation },
+            ].map((crit, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-sm flex flex-col justify-between space-y-3">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: crit.color }} />
+                      <span className="text-sm font-bold text-[#1F2937]">{crit.title}</span>
                     </div>
-                    <p className="text-xs text-[#4B5563] leading-relaxed">{crit.data?.feedback}</p>
+                    <span className="bg-[#DC2626] text-white px-2.5 py-0.5 rounded-xl text-xs font-extrabold shadow-sm">
+                      {crit.data?.score ?? 1}
+                    </span>
                   </div>
-                  {!isCheckmarkStyle && <div className="w-20 h-1 rounded bg-[#DC2626]" />}
+                  <p className="text-xs text-[#4B5563] leading-relaxed pt-1">{crit.data?.feedback}</p>
                 </div>
-              );
-            })}
+                <div className="w-10 h-1 rounded-full bg-[#DC2626]" />
+              </div>
+            ))}
           </div>
 
           {/* Improvement Tips */}
@@ -6099,7 +6205,7 @@ export default function SpeakingPracticePage() {
             <div className="space-y-3">
               {examinerResults.tips.map((tip: string, idx: number) => (
                 <div key={idx} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#DC2626] text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                  <div className="w-5 h-5 rounded-full bg-[#DC2626] text-white flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5 shadow-sm">
                     {idx + 1}
                   </div>
                   <p className="text-xs text-[#374151] leading-relaxed font-medium">{tip}</p>
@@ -6112,7 +6218,7 @@ export default function SpeakingPracticePage() {
           <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0] shadow-sm space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="text-[#F59E0B] font-bold">⚠️</span>
+                <span className="text-[#F59E0B] font-bold text-lg">⚠️</span>
                 <h3 className="text-base font-extrabold text-[#1F2937]">Your Mistakes</h3>
               </div>
               <div className="flex items-center gap-3 text-xs">
@@ -6128,16 +6234,16 @@ export default function SpeakingPracticePage() {
             </div>
             <div className="space-y-4">
               {examinerResults.mistakes.map((m: any, idx: number) => (
-                <div key={idx} className="bg-[#F9FAFB] rounded-2xl p-4 sm:p-5 border border-[#E5E7EB] space-y-2.5">
+                <div key={idx} className="bg-[#F9FAFB] rounded-2xl p-4 sm:p-5 border border-[#E5E7EB] space-y-3">
                   <p className="text-xs sm:text-sm font-bold text-[#B91C1C] leading-snug">{m.question}</p>
-                  <div className="flex flex-wrap gap-1.5 pt-0.5 items-center">
+                  <div className="leading-relaxed pt-0.5">
                     {m.wrong && m.wrong !== 'No verbal response recorded' && (
-                      <span className="bg-[#FEE2E2] border border-[#FEE2E2] rounded px-2 py-0.5 text-xs text-[#DC2626] line-through font-medium">
+                      <span className="bg-[#FEE2E2] border border-[#FEE2E2] rounded px-2 py-0.5 text-xs text-[#DC2626] line-through font-medium mr-2 inline-block my-0.5">
                         {m.wrong}
                       </span>
                     )}
                     {m.correct.split(/\s+/).filter(Boolean).map((word: string, wIdx: number) => (
-                      <span key={wIdx} className="bg-[#DCFCE7] text-[#15803D] px-2 py-0.5 rounded text-xs font-medium">
+                      <span key={wIdx} className="bg-[#DCFCE7] text-[#15803D] px-1.5 py-0.5 rounded text-xs font-medium inline-block mr-1 my-0.5">
                         {word}
                       </span>
                     ))}
@@ -6246,8 +6352,14 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 19 Test 2')
+                    {title.includes('Book 19 Test 1')
+                      ? 'International Food • A Law on Environmental Protection • School Rules & Legal Profession'
+                      : title.includes('Book 19 Test 2')
                       ? 'Travelling by plane • Person Won a Prize/Award Cue Card • School Prizes, Rewards & Sports'
+                      : title.includes('Book 19 Test 3')
+                      ? 'Holidays • Car Journey Cue Card • Family Celebrations & Relationships'
+                      : title.includes('Book 19 Test 4')
+                      ? 'Cafes • Beautiful Views Cue Card • Beauty Products & Beauty Standards'
                       : title.includes('Book 18 Test 2')
                       ? 'Science & Technology • Tourist Attraction Recommended • Museums & Tourism'
                       : title.includes('Book 16 Test 1')
@@ -6256,6 +6368,8 @@ export default function SpeakingPracticePage() {
                           ? 'Flowers & Plants • Review of Product or Service • Online Reviews & Customer Service'
                           : title.includes('Book 17 Test 4')
                           ? 'Maps & Navigation • Occasion in a Hurry • Punctuality & Time Management'
+                          : title.includes('Book 17 Test 3')
+                          ? 'Drinks & Beverages • Monument Cue Card • Preserving Monuments & Architecture'
                           : title.includes('Book 17 Test 2')
                       ? 'Books & Reading Habits, Children\'s Book Cue Card & Literary Preferences / Electronic Books'
                           : title.includes('Book 17 Test 1')
@@ -6328,7 +6442,7 @@ export default function SpeakingPracticePage() {
                     setCurrentQuestionIndex(0);
                     setUserResponses({});
                     setExaminerResults(null);
-                    setViewState('PRACTICE');
+                    setViewState('INTRO');
                   }}
                   className="w-full bg-[#0F766E] hover:bg-[#115E59] text-white py-2.5 rounded-xl text-xs font-bold transition-all shadow-sm cursor-pointer"
                 >
@@ -6336,6 +6450,115 @@ export default function SpeakingPracticePage() {
                 </button>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // --- VIEW: PART INTRO SCREEN (Matching Image 1) ---
+  if (viewState === 'INTRO') {
+    const partTitle = selectedPart === 1 ? 'Part 1: Questions 1-4' : selectedPart === 2 ? 'Part 2: Cue Card' : 'Part 3: Questions 6-11';
+    const durationText = selectedPart === 2 ? '3-4 minutes' : '4-5 minutes';
+    const descriptionText =
+      selectedPart === 1
+        ? 'The examiner asks general questions about familiar topics like home, family, work, studies, and interests.'
+        : selectedPart === 2
+        ? 'The examiner gives you a cue card with a specific topic. You will have 1 minute to prepare before speaking for 1 to 2 minutes.'
+        : 'The examiner asks further abstract and analytical questions connected to the topic in Part 2.';
+
+    return (
+      <div className="min-h-screen bg-[#F9FBFA] text-[#1F2937] p-6 md:p-12">
+        <div className="max-w-xl mx-auto space-y-6">
+          {/* Header */}
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setViewState('TESTS')}
+              className="w-10 h-10 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center text-base font-extrabold text-[#111827] shadow-sm hover:bg-gray-50 transition-colors cursor-pointer"
+              title="Back to Tests"
+            >
+              ←
+            </button>
+            <h1 className="text-base sm:text-lg font-extrabold text-[#111827]">{selectedTestTitle}</h1>
+            <div className="w-10" />
+          </div>
+
+          {/* Segmented Pill Tabs */}
+          <div className="bg-white rounded-2xl p-1.5 border border-[#E2E8F0] shadow-sm grid grid-cols-3 gap-1 text-center">
+            {[
+              { part: 1, title: 'Part 1', sub: 'Interview' },
+              { part: 2, title: 'Part 2', sub: 'Cue Card' },
+              { part: 3, title: 'Part 3', sub: 'Discussion' },
+            ].map((tab) => {
+              const isActive = selectedPart === tab.part;
+              return (
+                <button
+                  key={tab.part}
+                  onClick={() => setSelectedPart(tab.part)}
+                  className={`py-3 px-2 rounded-xl transition-all cursor-pointer flex flex-col items-center justify-center ${
+                    isActive
+                      ? 'bg-[#C0042A] text-white shadow-md font-extrabold'
+                      : 'hover:bg-gray-50 text-[#6B7280]'
+                  }`}
+                >
+                  <span className="text-xs font-bold">{tab.title}</span>
+                  <span className={`text-[10px] ${isActive ? 'text-white/80' : 'text-[#9CA3AF]'}`}>{tab.sub}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Part Heading & Description */}
+          <div className="space-y-1.5 pt-2">
+            <h2 className="text-xl font-extrabold text-[#111827]">{partTitle}</h2>
+            <p className="text-sm font-bold text-[#C0042A]">{durationText}</p>
+            <p className="text-xs text-[#4B5563] leading-relaxed">{descriptionText}</p>
+          </div>
+
+          {/* Pro Tips Card */}
+          <div className="bg-white rounded-3xl p-6 border border-[#E2E8F0] shadow-sm space-y-4">
+            <h3 className="text-base font-extrabold text-[#111827]">Pro Tips</h3>
+            <div className="space-y-3">
+              {[
+                'Speak naturally and confidently.',
+                'Expand on your answers but keep them relevant.',
+                "Don't worry if the examiner interrupts you to move on.",
+              ].map((tip, idx) => (
+                <div key={idx} className="flex items-start gap-3">
+                  <span className="text-base shrink-0 mt-0.5">💡</span>
+                  <p className="text-xs text-[#374151] font-medium leading-relaxed">{tip}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Test Security Pink Card */}
+          <div className="bg-[#FDF2F4] border border-[#FBCFE8] rounded-2xl p-5 flex items-start gap-3.5">
+            <div className="w-9 h-9 rounded-xl bg-[#C0042A] text-white flex items-center justify-center font-bold shrink-0 shadow-sm text-sm">
+              🔒
+            </div>
+            <div className="space-y-0.5">
+              <h4 className="text-xs font-bold text-[#991B1B]">Test Security</h4>
+              <p className="text-xs text-[#7F1D1D] leading-relaxed">
+                Questions are hidden until you start the speaking session to simulate real test conditions.
+              </p>
+            </div>
+          </div>
+
+          {/* Start Speaking Button */}
+          <div className="pt-2">
+            <button
+              onClick={() => {
+                setCurrentQuestionIndex(0);
+                setUserResponses({});
+                setExaminerResults(null);
+                setViewState('PRACTICE');
+              }}
+              className="w-full bg-[#C0042A] hover:bg-[#991B1B] text-white py-4 rounded-full text-base font-extrabold shadow-lg shadow-red-500/20 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2"
+            >
+              <span className="text-lg">🎙️</span>
+              <span>Start Speaking</span>
+            </button>
           </div>
         </div>
       </div>
@@ -6510,47 +6733,31 @@ export default function SpeakingPracticePage() {
               )}
             </div>
 
-            {/* Bottom Control Area: Speaking status / 72px Mic button */}
+            {/* Bottom Control Area: 72px Mic button */}
             <div className="pt-2 flex flex-col items-center justify-center space-y-3">
-              {isPlayingAudio ? (
-                <div
-                  onClick={() => {
-                    if (audioRef.current) audioRef.current.pause();
-                    setIsPlayingAudio(false);
-                  }}
-                  className="cursor-pointer text-center space-y-3"
-                >
-                  <p className="text-sm font-medium text-[#6B7280]">Examiner is speaking...</p>
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626]" />
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <p className="text-sm font-medium text-[#6B7280]">
-                    {isRecording ? 'Recording your answer...' : 'Tap the microphone to answer'}
-                  </p>
-                  <button
-                    onClick={toggleRecording}
-                    className={`w-[72px] h-[72px] rounded-full flex items-center justify-center transition-all cursor-pointer shadow-xl ${
-                      isRecording
-                        ? 'bg-[#DC2626] shadow-red-500/40 animate-pulse scale-105'
-                        : 'bg-[#DC2626] hover:bg-[#B91C1C] shadow-red-500/30 hover:scale-105 active:scale-95'
-                    }`}
-                  >
-                    {isRecording ? (
-                      <div className="w-6 h-6 bg-white rounded-sm" />
-                    ) : (
-                      <span className="text-3xl text-white">🎙️</span>
-                    )}
-                  </button>
-                  <p className="text-xs text-[#9CA3AF]">
-                    {isRecording ? 'Tap when finished' : 'Tap to answer'}
-                  </p>
-                </>
-              )}
+              <p className="text-sm font-medium text-[#6B7280]">
+                {isRecording ? 'Recording your answer...' : isPlayingAudio ? 'Examiner is speaking...' : 'Tap the microphone to answer'}
+              </p>
+              <button
+                onClick={toggleRecording}
+                disabled={isPlayingAudio}
+                className={`w-[72px] h-[72px] rounded-full flex items-center justify-center transition-all cursor-pointer shadow-xl ${
+                  isRecording
+                    ? 'bg-[#DC2626] shadow-red-500/40 animate-pulse scale-105'
+                    : isPlayingAudio
+                    ? 'bg-gray-300 shadow-none opacity-60 cursor-not-allowed'
+                    : 'bg-[#DC2626] hover:bg-[#B91C1C] shadow-red-500/30 hover:scale-105 active:scale-95'
+                }`}
+              >
+                {isRecording ? (
+                  <div className="w-6 h-6 bg-white rounded-sm" />
+                ) : (
+                  <span className="text-3xl text-white">🎙️</span>
+                )}
+              </button>
+              <p className="text-xs text-[#9CA3AF]">
+                {isRecording ? 'Tap when finished' : isPlayingAudio ? 'Please wait while examiner speaks' : 'Tap to answer'}
+              </p>
             </div>
 
             {/* Bottom Navigation */}
