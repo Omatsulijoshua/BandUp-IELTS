@@ -1967,6 +1967,108 @@ const book14Test4Questions: Question[] = [
   },
 ];
 
+const book15Test1Questions: Question[] = [
+  // Part 1: Questions 1-4 (Emails)
+  {
+    question: 'What kinds of emails do you receive about your work or studies?',
+    audioAsset: 'q1.mp3',
+    duration: 3.05,
+    part: 1,
+    transcript:
+      'I receive a variety of emails regarding my studies, including notifications from my university portal, updates from professors about course deadlines, and occasional emails from classmates to coordinate group projects. These are essential for staying organized and keeping track of my academic progress.',
+  },
+  {
+    question: 'Do you prefer to email, phone, or text your friends? [Why?]',
+    audioAsset: 'q2.mp3',
+    duration: 2.95,
+    part: 1,
+    transcript:
+      'I generally prefer to text my friends because it is more convenient and less intrusive than a phone call. Texting allows me to respond at my own pace, which is helpful when I am busy, although I do occasionally make phone calls if I need to discuss something urgent or personal.',
+  },
+  {
+    question: 'Do you reply to emails and messages as soon as you receive them? [Why/why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 3.45,
+    part: 1,
+    transcript:
+      'I try to reply to important messages as soon as possible to avoid a backlog, but I am not always able to respond immediately. If I am in the middle of a task or studying, I prefer to wait until I have a break so that I can give the message my full attention.',
+  },
+  {
+    question: 'Are you happy to receive emails that are advertising things? [Why/why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 4.05,
+    part: 1,
+    transcript:
+      'No, I am not happy to receive promotional emails because they clutter my inbox and distract me from important correspondence. I find it quite annoying when companies send me unsolicited advertisements, and I often take the time to unsubscribe from those mailing lists to keep my account clean.',
+  },
+
+  // Part 2: Question 5 (Cue Card - Hotel you know)
+  {
+    question: 'Describe a hotel that you know.',
+    audioAsset: 'q5.mp3',
+    duration: 1.75,
+    part: 2,
+    youShouldSay: [
+      'where this hotel is',
+      'what this hotel looks like',
+      'what facilities this hotel has',
+      'and explain whether you think this is a nice hotel to stay in.',
+    ],
+    transcript:
+      'I would like to talk about a hotel I stayed in during a trip to Tokyo last year, called The Peninsula. It is a luxurious five-star establishment located in the heart of the city, overlooking the Imperial Palace gardens. What struck me most was the impeccable service and the sophisticated interior design, which blended modern technology with traditional Japanese aesthetics. I particularly enjoyed the rooftop terrace, which offered a breathtaking panoramic view of the skyline. I remember this hotel vividly because it provided a sense of tranquility despite being in one of the busiest cities in the world.',
+  },
+
+  // Part 3: Questions 6-11 (Discussion - Hotels & Hotel Management)
+  {
+    question: 'What things are important when people are choosing a hotel?',
+    audioAsset: 'q6.mp3',
+    duration: 3.30,
+    part: 3,
+    transcript:
+      'When choosing a hotel, the most important factors are usually the location, the quality of service, and the overall cleanliness. For many travelers, proximity to public transport or city centers is crucial for convenience, while others prioritize amenities like free Wi-Fi or a high-quality breakfast buffet.',
+  },
+  {
+    question: 'Why do some people not like staying in hotels?',
+    audioAsset: 'q7.mp3',
+    duration: 2.50,
+    part: 3,
+    transcript:
+      'Some people dislike staying in hotels because they find them impersonal and lacking the comfort of a home environment. Additionally, the noise from other guests or staff can be disruptive, and many travelers prefer the privacy and autonomy that comes with renting a private apartment or staying in a guesthouse.',
+  },
+  {
+    question: 'Do you think staying in a luxury hotel is a waste of money?',
+    audioAsset: 'q8.mp3',
+    duration: 2.95,
+    part: 3,
+    transcript:
+      'I don\'t necessarily think it is a waste of money if the individual values the experience and comfort provided. While luxury hotels are expensive, they offer high-end facilities and personalized services that can enhance a trip significantly, making it a worthwhile investment for those celebrating special occasions or seeking relaxation.',
+  },
+  {
+    question: 'Do you think hotel work is a good career for life?',
+    audioAsset: 'q9.mp3',
+    duration: 2.30,
+    part: 3,
+    transcript:
+      'A career in the hotel industry can be very rewarding for those who enjoy working with people and thrive in a fast-paced environment. However, it is quite demanding due to irregular hours and the need for constant emotional labor, so it requires a genuine passion for hospitality to remain successful in the long term.',
+  },
+  {
+    question: 'How does working in a big hotel compare with working in a small hotel?',
+    audioAsset: 'q10.mp3',
+    duration: 3.50,
+    part: 3,
+    transcript:
+      'Working in a big hotel often provides more structured career paths and opportunities for specialization, whereas small hotels usually offer a more intimate work environment where staff might handle a wider variety of tasks. Big hotels are often more corporate and systematic, while small hotels allow for more personal interaction with guests.',
+  },
+  {
+    question: 'What skills are needed to be a successful hotel manager?',
+    audioAsset: 'q11.mp3',
+    duration: 3.10,
+    part: 3,
+    transcript:
+      'To be a successful hotel manager, one must possess excellent communication and problem-solving skills to handle both staff and guest issues effectively. Furthermore, strong leadership abilities and financial literacy are essential to ensure the hotel remains profitable while maintaining high standards of customer satisfaction.',
+  },
+];
+
 const book15Test3Questions: Question[] = [
   // Part 1: Questions 1-4 (Swimming)
   {
@@ -2243,7 +2345,7 @@ const book16Test4Questions: Question[] = [
     duration: 1.7,
     part: 3,
     transcript:
-      'In my country, multiplayer online battle arena games and first-person shooters are immensely popular among young adults. Additionally, casual mobile puzzle games are widely played by people of all ages during their daily commutes.',
+      'In my country, there is a diverse range of computer games being played. Popular choices include massive multiplayer online games like League of Legends, as well as mobile-based strategy games that are easily accessible to everyone. Many young people also engage in competitive esports, which have gained significant popularity recently.',
   },
   {
     question: 'Why do people enjoy playing computer games?',
@@ -2251,7 +2353,7 @@ const book16Test4Questions: Question[] = [
     duration: 2.1,
     part: 3,
     transcript:
-      'People enjoy computer games primarily because they offer an immersive form of entertainment and stress relief. They also provide opportunities for social connection through online multiplayer modes and allow players to solve challenging puzzles.',
+      'People generally enjoy computer games because they offer an immersive escape from the stresses of daily life. They also provide a sense of achievement through goal setting and problem-solving. Additionally, many games have a strong social component, allowing players to connect and collaborate with friends from all over the world.',
   },
   {
     question:
@@ -2260,7 +2362,7 @@ const book16Test4Questions: Question[] = [
     duration: 4.0,
     part: 3,
     transcript:
-      'Yes, I firmly believe that age ratings are necessary for computer games. Many games feature intense violence, graphic content, or in-game purchases that are unsuitable for young children, so clear age guidelines help parents make informed choices.',
+      'I believe that implementing a minimum age for certain computer games is a necessary measure. Many modern games contain mature themes, graphic violence, or complex gambling mechanics that are not suitable for younger children. Age ratings help parents make informed decisions about what content their children are exposed to.',
   },
   {
     question: 'In what ways can technology in the classroom be helpful?',
@@ -2268,7 +2370,7 @@ const book16Test4Questions: Question[] = [
     duration: 1.6,
     part: 3,
     transcript:
-      'Technology in classrooms enhances learning by providing interactive digital textbooks, educational videos, and instant access to research materials. It also enables teachers to personalize instruction and make lessons more engaging through multimedia presentations.',
+      'Technology in the classroom can significantly enhance the learning experience by providing access to a vast array of resources beyond textbooks. For instance, interactive simulations can make complex scientific concepts much easier to understand. Furthermore, it allows for personalized learning, where students can progress at their own pace using digital platforms.',
   },
   {
     question:
@@ -2277,7 +2379,7 @@ const book16Test4Questions: Question[] = [
     duration: 2.9,
     part: 3,
     transcript:
-      'Generally speaking, yes. Younger generations have grown up surrounded by digital devices, making them digital natives who adapt to new apps effortlessly, whereas some older educators may require more formal training to master modern educational tools.',
+      'Yes, I certainly agree with that. Younger generations have grown up in a digital-native environment, making them naturally more adept at navigating new software and hardware. While teachers possess greater pedagogical knowledge, students often find it much easier to adapt to new technological tools, sometimes even helping their instructors troubleshoot issues.',
   },
   {
     question: 'Do you believe that computers will ever replace human teachers?',
@@ -2285,7 +2387,7 @@ const book16Test4Questions: Question[] = [
     duration: 3.0,
     part: 3,
     transcript:
-      'No, I do not think computers will ever fully replace human teachers. While artificial intelligence can deliver information efficiently, teachers provide empathy, moral guidance, and emotional support that technology simply cannot replicate.',
+      'While technology is a powerful tool, I do not believe computers will ever fully replace human teachers. Education is not just about the transfer of information; it involves mentorship, emotional support, and the ability to inspire students. A computer cannot replicate the nuanced guidance and interpersonal connection that a human educator provides.',
   },
 ];
 

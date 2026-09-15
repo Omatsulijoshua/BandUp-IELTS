@@ -2433,7 +2433,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 1.7,
       'part': 3,
       'transcript':
-          'In my country, multiplayer online battle arena games and first-person shooters are immensely popular among young adults. Additionally, casual mobile puzzle games are widely played by people of all ages during their daily commutes.',
+          'In my country, there is a diverse range of computer games being played. Popular choices include massive multiplayer online games like League of Legends, as well as mobile-based strategy games that are easily accessible to everyone. Many young people also engage in competitive esports, which have gained significant popularity recently.',
     },
     {
       'question':
@@ -2445,7 +2445,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.1,
       'part': 3,
       'transcript':
-          'People enjoy computer games primarily because they offer an immersive form of entertainment and stress relief. They also provide opportunities for social connection through online multiplayer modes and allow players to solve challenging puzzles.',
+          'People generally enjoy computer games because they offer an immersive escape from the stresses of daily life. They also provide a sense of achievement through goal setting and problem-solving. Additionally, many games have a strong social component, allowing players to connect and collaborate with friends from all over the world.',
     },
     {
       'question':
@@ -2457,7 +2457,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 4.0,
       'part': 3,
       'transcript':
-          'Yes, I firmly believe that age ratings are necessary for computer games. Many games feature intense violence, graphic content, or in-game purchases that are unsuitable for young children, so clear age guidelines help parents make informed choices.',
+          'I believe that implementing a minimum age for certain computer games is a necessary measure. Many modern games contain mature themes, graphic violence, or complex gambling mechanics that are not suitable for younger children. Age ratings help parents make informed decisions about what content their children are exposed to.',
     },
     {
       'question':
@@ -2469,7 +2469,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 1.6,
       'part': 3,
       'transcript':
-          'Technology in classrooms enhances learning by providing interactive digital textbooks, educational videos, and instant access to research materials. It also enables teachers to personalize instruction and make lessons more engaging through multimedia presentations.',
+          'Technology in the classroom can significantly enhance the learning experience by providing access to a vast array of resources beyond textbooks. For instance, interactive simulations can make complex scientific concepts much easier to understand. Furthermore, it allows for personalized learning, where students can progress at their own pace using digital platforms.',
     },
     {
       'question':
@@ -2481,7 +2481,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 2.9,
       'part': 3,
       'transcript':
-          'Generally speaking, yes. Younger generations have grown up surrounded by digital devices, making them digital natives who adapt to new apps effortlessly, whereas some older educators may require more formal training to master modern educational tools.',
+          'Yes, I certainly agree with that. Younger generations have grown up in a digital-native environment, making them naturally more adept at navigating new software and hardware. While teachers possess greater pedagogical knowledge, students often find it much easier to adapt to new technological tools, sometimes even helping their instructors troubleshoot issues.',
     },
     {
       'question': 'Do you believe that computers will ever replace human teachers?',
@@ -2492,7 +2492,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       'end': 3.0,
       'part': 3,
       'transcript':
-          'No, I do not think computers will ever fully replace human teachers. While artificial intelligence can deliver information efficiently, teachers provide empathy, moral guidance, and emotional support that technology simply cannot replicate.',
+          'While technology is a powerful tool, I do not believe computers will ever fully replace human teachers. Education is not just about the transfer of information; it involves mentorship, emotional support, and the ability to inspire students. A computer cannot replicate the nuanced guidance and interpersonal connection that a human educator provides.',
     },
   ];
 
