@@ -2798,8 +2798,297 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   ];
 
   // ==========================================
+  // IELTS BOOK 17 TEST 3 (Drinks & Beverages / Monument Cue Card / Preserving Monuments & Architecture Discussion)
+  // ==========================================
+  final List<Map<String, dynamic>> _book17Test3Questions = [
+    // Part 1: Questions 1-4 (Drinks)
+    {
+      'question': 'What do you like to drink with your dinner? [Why?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 1.5,
+      'start': 0.0,
+      'promptEnd': 1.5,
+      'end': 1.5,
+      'part': 1,
+      'transcript':
+          'I usually prefer to drink chilled water or a glass of fresh orange juice with my dinner. I find that these options are quite refreshing and they don\'t overpower the flavor of the food I\'m eating.',
+    },
+    {
+      'question': 'Do you drink a lot of water every day? [Why/Why not?]',
+      'audioAsset': 'q2.mp3',
+      'duration': 1.6,
+      'start': 0.0,
+      'promptEnd': 1.6,
+      'end': 1.6,
+      'part': 1,
+      'transcript':
+          'Yes, I make it a point to drink at least two liters of water throughout the day. I believe staying hydrated is essential for maintaining good energy levels and keeping my skin healthy.',
+    },
+    {
+      'question': 'Do you prefer drinking tea or coffee? [Why?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 2.0,
+      'start': 0.0,
+      'promptEnd': 2.0,
+      'end': 2.0,
+      'part': 1,
+      'transcript':
+          'I definitely prefer coffee over tea, especially in the morning. I find the rich aroma and the caffeine kick help me to wake up and focus better on my daily tasks.',
+    },
+    {
+      'question':
+          'If people visit you in your home, what do you usually offer them to drink? [Why/Why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 3.5,
+      'start': 0.0,
+      'promptEnd': 3.5,
+      'end': 3.5,
+      'part': 1,
+      'transcript':
+          'When I have guests over, I usually offer them a choice between herbal tea, fresh coffee, or perhaps some sparkling water. I like to have a few options available so that I can cater to their individual preferences.',
+    },
+
+    // Part 2: Question 5 (Cue Card - Monument)
+    {
+      'question':
+          'Describe a monument (e.g., a statue or sculpture) that you like.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.7,
+      'start': 0.0,
+      'promptEnd': 3.7,
+      'end': 3.7,
+      'part': 2,
+      'cueCard': {
+        'topic':
+            'Describe a monument (e.g., a statue or sculpture) that you like.',
+        'bullets': [
+          'what this monument is',
+          'where this monument is',
+          'what it looks like',
+          'and explain why you like this monument.',
+        ],
+      },
+      'transcript':
+          'One monument that I find particularly fascinating is the Statue of Liberty in New York. It is a colossal copper sculpture that stands as a symbol of freedom and democracy, welcoming immigrants arriving by sea. I admire it not just for its impressive architectural design and its iconic green patina, but also for the historical message of hope it represents. I first saw it in a documentary, and I was struck by the intricate craftsmanship and the sheer scale of the structure. It is truly a remarkable piece of art that has become a global landmark.',
+    },
+
+    // Part 3: Questions 6-11 (Monuments & Architecture)
+    {
+      'question':
+          'What kinds of monuments do tourists in your country enjoy visiting?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.4,
+      'start': 0.0,
+      'promptEnd': 3.4,
+      'end': 3.4,
+      'part': 3,
+      'transcript':
+          'Tourists in my country predominantly enjoy visiting historical monuments, such as ancient palaces, colonial-era buildings, and grand commemorative statues. These sites offer visitors a fascinating window into our cultural heritage and architectural history. Additionally, religious monuments like century-old temples and cathedrals draw a lot of tourists due to their intricate craftsmanship and spiritual significance.',
+    },
+    {
+      'question':
+          'Why do you think there are often statues of famous people in public places?',
+      'audioAsset': 'q7.mp3',
+      'duration': 3.6,
+      'start': 0.0,
+      'promptEnd': 3.6,
+      'end': 3.6,
+      'part': 3,
+      'transcript':
+          'Statues of famous people are typically erected in public spaces to honor historical figures who have made significant contributions to the nation. They serve as a constant reminder of our history and help to foster a sense of national identity among citizens. Furthermore, these statues often act as landmarks, making public squares more recognizable and culturally meaningful.',
+    },
+    {
+      'question':
+          'Do you agree that old monuments and buildings should always be preserved?',
+      'audioAsset': 'q8.mp3',
+      'duration': 4.0,
+      'start': 0.0,
+      'promptEnd': 4.0,
+      'end': 4.0,
+      'part': 3,
+      'transcript':
+          'I believe that preserving old monuments is crucial because they serve as a physical link to our past. Once these historical structures are demolished, a part of our heritage is lost forever, which is a tragedy for future generations. However, I also think it is important to balance preservation with the need for modern infrastructure, perhaps by repurposing old buildings for contemporary use.',
+    },
+    {
+      'question': 'Why is architecture such a popular university subject?',
+      'audioAsset': 'q9.mp3',
+      'duration': 3.0,
+      'start': 0.0,
+      'promptEnd': 3.0,
+      'end': 3.0,
+      'part': 3,
+      'transcript':
+          'Architecture is a popular university subject because it perfectly blends technical precision with artistic creativity. Many students are drawn to the challenge of designing functional spaces that also serve as aesthetic contributions to a city\'s skyline. Additionally, there is a growing global interest in sustainable design, which makes the field both intellectually stimulating and highly relevant to environmental concerns.',
+    },
+    {
+      'question':
+          'In what ways has the design of homes changed in recent years?',
+      'audioAsset': 'q10.mp3',
+      'duration': 2.9,
+      'start': 0.0,
+      'promptEnd': 2.9,
+      'end': 2.9,
+      'part': 3,
+      'transcript':
+          'The design of homes has evolved significantly, shifting toward more open-plan layouts that encourage social interaction. There is also a much stronger emphasis on energy efficiency and the use of smart technology to automate household tasks. Furthermore, due to the rise of remote work, many modern homes now incorporate dedicated office spaces, which was rarely a priority in the past.',
+    },
+    {
+      'question':
+          'To what extent does the design of buildings affect people\'s moods?',
+      'audioAsset': 'q11.mp3',
+      'duration': 3.6,
+      'start': 0.0,
+      'promptEnd': 3.6,
+      'end': 3.6,
+      'part': 3,
+      'transcript':
+          'The design of buildings has a profound impact on people\'s moods and overall well-being. For instance, spaces that utilize natural light and high ceilings tend to make occupants feel more positive and productive. Conversely, cramped or poorly lit environments can lead to feelings of claustrophobia and stress, demonstrating why psychological comfort is a key consideration in modern architectural design.',
+    },
+  ];
+
+  // ==========================================
   // IELTS BOOK 19 TEST 4 (Cafes / Cue Card: Beautiful Views / Beauty Products & Beauty Standards)
   // ==========================================
+  // ==========================================
+  // IELTS BOOK 19 TEST 2 (Travelling by plane / Cue Card: Person Won a Prize, Award or Medal / School Prizes & Rewards / Sports Prize Money)
+  // ==========================================
+  final List<Map<String, dynamic>> _book19Test2Questions = [
+    // Part 1: Questions 1-4 (Travelling by plane)
+    {
+      'question': 'Have you travelled a lot by plane? [To where?/Why not?]',
+      'audioAsset': 'q1.mp3',
+      'duration': 2.40,
+      'start': 0.0,
+      'promptEnd': 2.40,
+      'end': 2.40,
+      'part': 1,
+      'transcript':
+          "Actually, I haven't traveled by plane very much. I have only taken a couple of domestic flights for family vacations, but I would love to travel internationally in the future to experience different cultures.",
+    },
+    {
+      'question': 'Why do you think some people enjoy travelling by plane?',
+      'audioAsset': 'q2.mp3',
+      'duration': 2.55,
+      'start': 0.0,
+      'promptEnd': 2.55,
+      'end': 2.55,
+      'part': 1,
+      'transcript':
+          "I believe people enjoy air travel primarily because of the speed and convenience it offers. It allows travelers to reach distant destinations in a matter of hours, which would otherwise take days by road or rail. Additionally, the experience of seeing the world from above is quite unique and exciting for many.",
+    },
+    {
+      'question': 'Would you like to live near an airport? [Why/Why not?]',
+      'audioAsset': 'q3.mp3',
+      'duration': 1.90,
+      'start': 0.0,
+      'promptEnd': 1.90,
+      'end': 1.90,
+      'part': 1,
+      'transcript':
+          "Personally, I would prefer not to live near an airport. The constant noise from take-offs and landings would be extremely disruptive and stressful. I value a peaceful living environment, and the proximity to air traffic would significantly lower my quality of life.",
+    },
+    {
+      'question':
+          'In the future, do you think that you will travel by plane more often? [Why/Why not?]',
+      'audioAsset': 'q4.mp3',
+      'duration': 3.35,
+      'start': 0.0,
+      'promptEnd': 3.35,
+      'end': 3.35,
+      'part': 1,
+      'transcript':
+          "Yes, I definitely think I will travel by plane more often in the future. As I progress in my career, I hope to have more opportunities for business travel and the financial means to explore different countries during my holidays. Air travel will be an essential tool for these plans.",
+    },
+
+    // Part 2: Question 5 (Cue Card: Person who won a prize, award or medal)
+    {
+      'question':
+          'Describe a person from your country who has won a prize, award or medal.\n\nYou should say:\n• who this person is\n• which prize, award or medal they received\n• what they did to win this\n• and explain whether you think it was right that this person received this prize, award or medal.',
+      'audioAsset': 'q5.mp3',
+      'duration': 3.55,
+      'start': 0.0,
+      'promptEnd': 3.55,
+      'end': 3.55,
+      'part': 2,
+      'transcript':
+          "One person from my country who has achieved significant recognition is Malala Yousafzai, who was awarded the Nobel Peace Prize. She is globally renowned for her courageous advocacy for girls' education, especially in regions where it was previously restricted. I first learned about her story through international news outlets, and I was immediately struck by her resilience and eloquence at such a young age. Her dedication to social justice is truly inspiring, as she continues to challenge systemic barriers despite facing immense personal danger. I believe she is a role model for many, not just in my country, but across the world, for proving that one voice can indeed spark global change.",
+    },
+
+    // Part 3: Questions 6-11 (School prizes, rewards & sports prize money / participation)
+    {
+      'question':
+          'What types of school prizes do children in your country receive?',
+      'audioAsset': 'q6.mp3',
+      'duration': 3.40,
+      'start': 0.0,
+      'promptEnd': 3.40,
+      'end': 3.40,
+      'part': 3,
+      'transcript':
+          "In my country, school prizes typically include certificates of merit for academic excellence, books, or small vouchers for school supplies. Sometimes, outstanding students are awarded medals or trophies during end-of-year ceremonies to recognize their hard work throughout the term.",
+    },
+    {
+      'question':
+          'What do you think are the advantages of rewarding schoolchildren for good work?',
+      'audioAsset': 'q7.mp3',
+      'duration': 4.05,
+      'start': 0.0,
+      'promptEnd': 4.05,
+      'end': 4.05,
+      'part': 3,
+      'transcript':
+          "Rewarding schoolchildren is highly beneficial because it acts as a powerful incentive for them to perform better. It boosts their self-esteem and encourages them to develop a strong work ethic. When children see their efforts recognized, they are more likely to stay motivated and engaged in their studies.",
+    },
+    {
+      'question':
+          "Do you agree that it's more important for children to receive rewards from their parents than from teachers?",
+      'audioAsset': 'q8.mp3',
+      'duration': 5.35,
+      'start': 0.0,
+      'promptEnd': 5.35,
+      'end': 5.35,
+      'part': 3,
+      'transcript':
+          "I believe that both parents and teachers play distinct roles. Teachers provide professional feedback on academic performance, which is essential for growth, while parental rewards often focus on personal effort and character development. It is not necessarily more important to receive one over the other; rather, they complement each other in shaping a child's values.",
+    },
+    {
+      'question':
+          'Do you think that some sportspeople (e.g., top footballers) are paid too much money?',
+      'audioAsset': 'q9.mp3',
+      'duration': 4.10,
+      'start': 0.0,
+      'promptEnd': 4.10,
+      'end': 4.10,
+      'part': 3,
+      'transcript':
+          "This is a contentious issue, but I think the salaries of top footballers are often disproportionate to their actual contribution to society. While they possess unique talents that generate huge revenues for clubs, these astronomical figures can seem excessive when compared to essential professions like nursing or teaching. However, this is a reflection of the global commercialization of sports.",
+    },
+    {
+      'question':
+          'Should everyone on a team get the same prize money when they win?',
+      'audioAsset': 'q10.mp3',
+      'duration': 3.20,
+      'start': 0.0,
+      'promptEnd': 3.20,
+      'end': 3.20,
+      'part': 3,
+      'transcript':
+          "I generally think that performance-based rewards are fairer, but team sports require a collective effort. If a team wins, it is usually because everyone contributed to that victory, even those who didn't score the goal. Therefore, distributing prize money equally fosters team spirit and recognizes that success is a collaborative achievement.",
+    },
+    {
+      'question':
+          'Do you agree with the view that, in sport, taking part is more important than winning?',
+      'audioAsset': 'q11.mp3',
+      'duration': 4.40,
+      'start': 0.0,
+      'promptEnd': 4.40,
+      'end': 4.40,
+      'part': 3,
+      'transcript':
+          "I strongly agree with that sentiment. While winning is the primary goal of competitive sport, the true value lies in the discipline, fitness, and teamwork developed during the process. Focusing solely on the outcome can lead to unhealthy pressure, whereas valuing participation encourages lifelong physical activity and resilience.",
+    },
+  ];
+
   final List<Map<String, dynamic>> _book19Test4Questions = [
     // Part 1: Questions 1-4 (Cafes)
     {
@@ -5116,12 +5405,16 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
       return _book17Test1Questions;
     } else if (_selectedTestTitle.contains('Book 17 Test 2')) {
       return _book17Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 17 Test 3')) {
+      return _book17Test3Questions;
     } else if (_selectedTestTitle.contains('Book 17 Test 4')) {
       return _book17Test4Questions;
     } else if (_selectedTestTitle.contains('Book 18 Test 1')) {
       return _book18Test1Questions;
     } else if (_selectedTestTitle.contains('Book 18 Test 2')) {
       return _book18Test2Questions;
+    } else if (_selectedTestTitle.contains('Book 19 Test 2')) {
+      return _book19Test2Questions;
     } else if (_selectedTestTitle.contains('Book 19 Test 4')) {
       return _book19Test4Questions;
     } else if (_selectedTestTitle.contains('Book 18 Test 4')) {
@@ -5246,9 +5539,11 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
         !folderName.contains('BOOK 16 Test 4') &&
         !folderName.contains('BOOK 17 Test 1') &&
         !folderName.contains('BOOK 17 Test 2') &&
+        !folderName.contains('BOOK 17 Test 3') &&
         !folderName.contains('BOOK 17 Test 4') &&
         !folderName.contains('BOOK 18 Test 1') &&
         !folderName.contains('BOOK 18 Test 2') &&
+        !folderName.contains('BOOK 19 Test 2') &&
         !folderName.contains('BOOK 21 Test 1')) {
       folderName = 'IELTS BOOK 10 Test 1';
     }
@@ -5692,8 +5987,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                           (bookNum == 14 && (testNum >= 1 && testNum <= 4)) ||
                           (bookNum == 16 && (testNum >= 1 && testNum <= 4)) ||
                           (bookNum == 15 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 17 && (testNum == 1 || testNum == 2 || testNum == 4)) ||
-                          (bookNum == 18 && (testNum >= 1 && testNum <= 2));
+                          (bookNum == 17 && (testNum >= 1 && testNum <= 4)) ||
+                          (bookNum == 18 && (testNum >= 1 && testNum <= 2)) ||
+                          (bookNum == 19 && (testNum == 2 || testNum == 4));
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
@@ -7499,7 +7795,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           overallBand = _selectedPart == 1 ? 1.5 : (_selectedPart == 2 ? 0.0 : 1.0);
         } else if (isSingleWordOrMinimal && _selectedTestTitle.contains('Book 15 Test 4')) {
           overallBand = _selectedPart == 2 ? 0.0 : 1.0;
-        } else if (isSingleWordOrMinimal && (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2') || _selectedTestTitle.contains('Book 16 Test 1') || _selectedTestTitle.contains('Book 18 Test 2'))) {
+        } else if (isSingleWordOrMinimal && (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2') || _selectedTestTitle.contains('Book 16 Test 1') || _selectedTestTitle.contains('Book 18 Test 2') || _selectedTestTitle.contains('Book 19 Test 2'))) {
           if (_selectedPart == 1) {
             overallBand = 1.0;
           } else {
@@ -7532,7 +7828,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 ? (_selectedPart == 2 ? 0 : 1)
                 : _selectedTestTitle.contains('Book 15 Test 4')
                 ? (_selectedPart == 2 ? 0 : 1)
-                : (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2') || _selectedTestTitle.contains('Book 16 Test 1') || _selectedTestTitle.contains('Book 18 Test 2'))
+                : (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2') || _selectedTestTitle.contains('Book 16 Test 1') || _selectedTestTitle.contains('Book 18 Test 2') || _selectedTestTitle.contains('Book 19 Test 2'))
                 ? (_selectedPart == 1 ? 1 : 0)
                 : _selectedTestTitle.contains('Book 14 Test 2')
                     ? (_selectedPart == 1 ? 0 : 1)
@@ -7562,7 +7858,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
 
         if (isSingleWordOrMinimal) {
           if (_selectedPart == 3) {
-            fcFeedback = _selectedTestTitle.contains('Book 18 Test 2')
+            fcFeedback = _selectedTestTitle.contains('Book 19 Test 2')
+                ? "The candidate provided 'No' for every single question. This constitutes a failure to respond to the task. There is no coherence or fluency to evaluate as the candidate refused to engage with the assessment."
+                : _selectedTestTitle.contains('Book 18 Test 2')
                 ? "Your responses were non-existent or completely off-topic. You answered 'No' to every question, which fails to provide any assessable language in an IELTS discussion."
                 : _selectedTestTitle.contains('Book 17 Test 1')
                 ? "Your answers were completely irrelevant. You provided a one-word negative response ('No') to every single question. This does not constitute an attempt to answer the prompt, resulting in a band 0."
@@ -7593,7 +7891,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
                 : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-            lrFeedback = _selectedTestTitle.contains('Book 18 Test 2')
+            lrFeedback = _selectedTestTitle.contains('Book 19 Test 2')
+                ? "There is no vocabulary to assess. The use of a single word 'No' demonstrates a total lack of lexical range."
+                : _selectedTestTitle.contains('Book 18 Test 2')
                 ? "There is no vocabulary range to assess because you did not produce any meaningful answers."
                 : _selectedTestTitle.contains('Book 17 Test 1')
                 ? "There is no lexical resource to evaluate as you only used a single word repeatedly."
@@ -7624,7 +7924,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "There is no lexical resource displayed, as you only used one word repeatedly."
                 : "There is no vocabulary to assess.";
-            grFeedback = _selectedTestTitle.contains('Book 18 Test 2')
+            grFeedback = _selectedTestTitle.contains('Book 19 Test 2')
+                ? "There is no grammatical structure to assess."
+                : _selectedTestTitle.contains('Book 18 Test 2')
                 ? "No grammatical structures were demonstrated as you only provided single words."
                 : _selectedTestTitle.contains('Book 17 Test 1')
                 ? "There is no grammatical range to evaluate."
@@ -7655,7 +7957,9 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "No grammatical structures were demonstrated beyond a single word."
                 : "There is no grammar to assess.";
-            prFeedback = _selectedTestTitle.contains('Book 18 Test 2')
+            prFeedback = _selectedTestTitle.contains('Book 19 Test 2')
+                ? "The candidate did not provide enough speech for an assessment of pronunciation."
+                : _selectedTestTitle.contains('Book 18 Test 2')
                 ? "Assessment is impossible as there was no connected speech to evaluate."
                 : _selectedTestTitle.contains('Book 17 Test 1')
                 ? "The candidate did not provide any spoken content beyond a single word."
@@ -7686,7 +7990,15 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 13 Test 2')
                 ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
                 : "There is no speech to assess.";
-            tipsList = _selectedTestTitle.contains('Book 18 Test 2')
+            tipsList = _selectedTestTitle.contains('Book 19 Test 2')
+                ? [
+                    "You must provide full, descriptive answers to all questions; a one-word answer is not acceptable in an IELTS speaking test.",
+                    "Practice expanding your answers by using the 'Answer + Reason + Example' technique.",
+                    "Answering 'No' to a question that requires an explanation or opinion results in a score of 0-1. You must engage with the topic.",
+                    "Review IELTS Speaking Part 3 criteria, which require you to discuss abstract topics in detail.",
+                    "Aim to speak for at least 3-5 sentences per question in Part 3."
+                  ]
+                : _selectedTestTitle.contains('Book 18 Test 2')
                 ? [
                     "You must answer the questions with developed sentences. A one-word response like 'No' will lead to a failing band score in IELTS Speaking.",
                     "In Part 3, you are expected to analyze, give opinions, and provide reasons. Use the 'Point + Reason + Example' structure.",
@@ -8341,7 +8653,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
           band = _selectedPart == 1 ? 1.5 : (_selectedPart == 2 ? 0.0 : 1.0);
         } else if (_selectedTestTitle.contains('Book 15 Test 4')) {
           band = _selectedPart == 2 ? 0.0 : 1.0;
-        } else if (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2') || _selectedTestTitle.contains('Book 16 Test 1')) {
+        } else if (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2') || _selectedTestTitle.contains('Book 16 Test 1') || _selectedTestTitle.contains('Book 18 Test 2') || _selectedTestTitle.contains('Book 19 Test 2')) {
           band = _selectedPart == 1 ? 1.0 : 0.0;
         } else if (_selectedTestTitle.contains('Book 14 Test 2')) {
           band = _selectedPart == 1 ? 0.0 : 1.0;
@@ -8385,7 +8697,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
               ? (_selectedPart == 2 ? 0 : 1)
               : _selectedTestTitle.contains('Book 15 Test 4')
               ? (_selectedPart == 2 ? 0 : 1)
-              : (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2') || _selectedTestTitle.contains('Book 16 Test 1'))
+              : (_selectedTestTitle.contains('Book 14 Test 4') || _selectedTestTitle.contains('Book 15 Test 1') || _selectedTestTitle.contains('Book 15 Test 2') || _selectedTestTitle.contains('Book 16 Test 1') || _selectedTestTitle.contains('Book 18 Test 2') || _selectedTestTitle.contains('Book 19 Test 2'))
               ? (_selectedPart == 1 ? 1 : 0)
               : _selectedTestTitle.contains('Book 14 Test 2')
                   ? (_selectedPart == 1 ? 0 : 1)

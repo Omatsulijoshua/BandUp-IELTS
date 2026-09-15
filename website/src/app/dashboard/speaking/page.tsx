@@ -3022,6 +3022,111 @@ const book18Test4Questions: Question[] = [
   },
 ];
 
+const book19Test2Questions: Question[] = [
+  {
+    question: 'Have you travelled a lot by plane? [To where?/Why not?]',
+    audioAsset: 'q1.mp3',
+    duration: 2.40,
+    part: 1,
+    transcript:
+      "Actually, I haven't traveled by plane very much. I have only taken a couple of domestic flights for family vacations, but I would love to travel internationally in the future to experience different cultures.",
+  },
+  {
+    question: 'Why do you think some people enjoy travelling by plane?',
+    audioAsset: 'q2.mp3',
+    duration: 2.55,
+    part: 1,
+    transcript:
+      "I believe people enjoy air travel primarily because of the speed and convenience it offers. It allows travelers to reach distant destinations in a matter of hours, which would otherwise take days by road or rail. Additionally, the experience of seeing the world from above is quite unique and exciting for many.",
+  },
+  {
+    question: 'Would you like to live near an airport? [Why/Why not?]',
+    audioAsset: 'q3.mp3',
+    duration: 1.90,
+    part: 1,
+    transcript:
+      "Personally, I would prefer not to live near an airport. The constant noise from take-offs and landings would be extremely disruptive and stressful. I value a peaceful living environment, and the proximity to air traffic would significantly lower my quality of life.",
+  },
+  {
+    question:
+      'In the future, do you think that you will travel by plane more often? [Why/Why not?]',
+    audioAsset: 'q4.mp3',
+    duration: 3.35,
+    part: 1,
+    transcript:
+      "Yes, I definitely think I will travel by plane more often in the future. As I progress in my career, I hope to have more opportunities for business travel and the financial means to explore different countries during my holidays. Air travel will be an essential tool for these plans.",
+  },
+  {
+    question:
+      'Describe a person from your country who has won a prize, award or medal.',
+    audioAsset: 'q5.mp3',
+    duration: 3.55,
+    part: 2,
+    youShouldSay: [
+      'who this person is',
+      'which prize, award or medal they received',
+      'what they did to win this',
+      'and explain whether you think it was right that this person received this prize, award or medal.',
+    ],
+    transcript:
+      "One person from my country who has achieved significant recognition is Malala Yousafzai, who was awarded the Nobel Peace Prize. She is globally renowned for her courageous advocacy for girls' education, especially in regions where it was previously restricted. I first learned about her story through international news outlets, and I was immediately struck by her resilience and eloquence at such a young age. Her dedication to social justice is truly inspiring, as she continues to challenge systemic barriers despite facing immense personal danger. I believe she is a role model for many, not just in my country, but across the world, for proving that one voice can indeed spark global change.",
+  },
+  {
+    question:
+      'What types of school prizes do children in your country receive?',
+    audioAsset: 'q6.mp3',
+    duration: 3.40,
+    part: 3,
+    transcript:
+      "In my country, school prizes typically include certificates of merit for academic excellence, books, or small vouchers for school supplies. Sometimes, outstanding students are awarded medals or trophies during end-of-year ceremonies to recognize their hard work throughout the term.",
+  },
+  {
+    question:
+      'What do you think are the advantages of rewarding schoolchildren for good work?',
+    audioAsset: 'q7.mp3',
+    duration: 4.05,
+    part: 3,
+    transcript:
+      "Rewarding schoolchildren is highly beneficial because it acts as a powerful incentive for them to perform better. It boosts their self-esteem and encourages them to develop a strong work ethic. When children see their efforts recognized, they are more likely to stay motivated and engaged in their studies.",
+  },
+  {
+    question:
+      "Do you agree that it's more important for children to receive rewards from their parents than from teachers?",
+    audioAsset: 'q8.mp3',
+    duration: 5.35,
+    part: 3,
+    transcript:
+      "I believe that both parents and teachers play distinct roles. Teachers provide professional feedback on academic performance, which is essential for growth, while parental rewards often focus on personal effort and character development. It is not necessarily more important to receive one over the other; rather, they complement each other in shaping a child's values.",
+  },
+  {
+    question:
+      'Do you think that some sportspeople (e.g., top footballers) are paid too much money?',
+    audioAsset: 'q9.mp3',
+    duration: 4.10,
+    part: 3,
+    transcript:
+      "This is a contentious issue, but I think the salaries of top footballers are often disproportionate to their actual contribution to society. While they possess unique talents that generate huge revenues for clubs, these astronomical figures can seem excessive when compared to essential professions like nursing or teaching. However, this is a reflection of the global commercialization of sports.",
+  },
+  {
+    question:
+      'Should everyone on a team get the same prize money when they win?',
+    audioAsset: 'q10.mp3',
+    duration: 3.20,
+    part: 3,
+    transcript:
+      "I generally think that performance-based rewards are fairer, but team sports require a collective effort. If a team wins, it is usually because everyone contributed to that victory, even those who didn't score the goal. Therefore, distributing prize money equally fosters team spirit and recognizes that success is a collaborative achievement.",
+  },
+  {
+    question:
+      'Do you agree with the view that, in sport, taking part is more important than winning?',
+    audioAsset: 'q11.mp3',
+    duration: 4.40,
+    part: 3,
+    transcript:
+      "I strongly agree with that sentiment. While winning is the primary goal of competitive sport, the true value lies in the discipline, fitness, and teamwork developed during the process. Focusing solely on the outcome can lead to unhealthy pressure, whereas valuing participation encourages lifelong physical activity and resilience.",
+  },
+];
+
 const book18Test2Questions: Question[] = [
   {
     question:
@@ -3539,6 +3644,7 @@ const book16Test2Questions: Question[] = [
 
 const testSuites: { [key: string]: Question[] } = {
   'IELTS Book 19 Test 4': book19Test4Questions,
+  'IELTS Book 19 Test 2': book19Test2Questions,
   'IELTS Book 18 Test 4': book18Test4Questions,
   'IELTS Book 18 Test 2': book18Test2Questions,
   'IELTS Book 18 Test 1': book18Test1Questions,
@@ -3819,7 +3925,7 @@ export default function SpeakingPracticePage() {
     if (isSingleWordOrMinimal) {
       if (selectedTestTitle.includes('Book 17 Test 1')) {
         band = selectedPart === 3 ? 0.0 : 1.0;
-      } else if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2')) {
+      } else if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2') || selectedTestTitle.includes('Book 19 Test 2')) {
         band = selectedPart === 1 ? 1.0 : 0.0;
       } else if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
@@ -3841,7 +3947,7 @@ export default function SpeakingPracticePage() {
     } else {
       if (selectedTestTitle.includes('Book 17 Test 1')) {
         band = selectedPart === 3 ? 0.0 : 1.0;
-      } else if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2')) {
+      } else if (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2') || selectedTestTitle.includes('Book 19 Test 2')) {
         band = selectedPart === 1 ? 1.0 : 0.0;
       } else if (selectedTestTitle.includes('Book 14 Test 2')) {
         band = selectedPart === 1 ? 0.0 : 1.0;
@@ -3857,7 +3963,7 @@ export default function SpeakingPracticePage() {
     const intBand = isSingleWordOrMinimal
       ? (selectedTestTitle.includes('Book 17 Test 1')
           ? (selectedPart === 3 ? 0 : 1)
-          : (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2'))
+          : (selectedTestTitle.includes('Book 14 Test 4') || selectedTestTitle.includes('Book 15 Test 1') || selectedTestTitle.includes('Book 15 Test 2') || selectedTestTitle.includes('Book 16 Test 1') || selectedTestTitle.includes('Book 18 Test 2') || selectedTestTitle.includes('Book 19 Test 2'))
           ? (selectedPart === 1 ? 1 : 0)
           : selectedTestTitle.includes('Book 14 Test 2')
           ? (selectedPart === 1 ? 0 : 1)
@@ -3876,7 +3982,9 @@ export default function SpeakingPracticePage() {
 
     if (isSingleWordOrMinimal) {
       if (selectedPart === 3) {
-        fluencyFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        fluencyFeedback = selectedTestTitle.includes('Book 19 Test 2')
+          ? "The candidate provided 'No' for every single question. This constitutes a failure to respond to the task. There is no coherence or fluency to evaluate as the candidate refused to engage with the assessment."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "Your answers were completely irrelevant. You provided a one-word negative response ('No') to every single question. This does not constitute an attempt to answer the prompt, resulting in a band 0."
           : selectedTestTitle.includes('Book 18 Test 2')
           ? "Your answers were completely empty or irrelevant. By responding with 'No' to every question, you failed to provide any assessable language. This indicates a total lack of participation."
@@ -3905,7 +4013,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "Your answers were completely irrelevant. The questions asked for opinions and explanations, but you provided a single-word 'Yes' to every single question. This does not constitute a response to the task."
           : "Your responses were entirely non-existent. You provided 'No' for every single question. This is not an attempt at a speaking test and fails to address any of the tasks.";
-        lexicalFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        lexicalFeedback = selectedTestTitle.includes('Book 19 Test 2')
+          ? "There is no vocabulary to assess. The use of a single word 'No' demonstrates a total lack of lexical range."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no lexical resource to evaluate as you only used a single word repeatedly."
           : selectedTestTitle.includes('Book 18 Test 2')
           ? "There is no vocabulary to assess because you provided no meaningful responses."
@@ -3934,7 +4044,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "There is no lexical resource displayed, as you only used one word repeatedly."
           : "There is no vocabulary to assess.";
-        grammarFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        grammarFeedback = selectedTestTitle.includes('Book 19 Test 2')
+          ? "There is no grammatical structure to assess."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no grammatical range to evaluate."
           : selectedTestTitle.includes('Book 18 Test 2')
           ? "There is no grammatical structure to assess because you provided no meaningful responses."
@@ -3963,7 +4075,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "No grammatical structures were demonstrated beyond a single word."
           : "There is no grammar to assess.";
-        pronunciationFeedback = selectedTestTitle.includes('Book 17 Test 1')
+        pronunciationFeedback = selectedTestTitle.includes('Book 19 Test 2')
+          ? "The candidate did not provide enough speech for an assessment of pronunciation."
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? "The candidate did not provide any spoken content beyond a single word."
           : selectedTestTitle.includes('Book 18 Test 2')
           ? "There is no speech to evaluate."
@@ -3992,7 +4106,15 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 13 Test 2')
           ? "While the word 'Yes' is pronounced clearly, it fails to address the criteria for an IELTS speaking test."
           : "There is no speech to assess.";
-        tipsList = selectedTestTitle.includes('Book 17 Test 1')
+        tipsList = selectedTestTitle.includes('Book 19 Test 2')
+          ? [
+              "You must provide full, descriptive answers to all questions; a one-word answer is not acceptable in an IELTS speaking test.",
+              "Practice expanding your answers by using the 'Answer + Reason + Example' technique.",
+              "Answering 'No' to a question that requires an explanation or opinion results in a score of 0-1. You must engage with the topic.",
+              "Review IELTS Speaking Part 3 criteria, which require you to discuss abstract topics in detail.",
+              "Aim to speak for at least 3-5 sentences per question in Part 3."
+            ]
+          : selectedTestTitle.includes('Book 17 Test 1')
           ? [
               "You must answer the questions asked; saying 'No' to open-ended questions is an automatic failure.",
               "Provide full sentences. In the IELTS speaking test, you are expected to expand on your answers with reasons, examples, and personal experiences.",
@@ -4866,7 +4988,9 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 18 Test 2')
+                    {title.includes('Book 19 Test 2')
+                      ? 'Travelling by plane • Person Won a Prize/Award Cue Card • School Prizes, Rewards & Sports'
+                      : title.includes('Book 18 Test 2')
                       ? 'Science & Technology • Tourist Attraction Recommended • Museums & Tourism'
                       : title.includes('Book 16 Test 1')
                       ? 'Collaborative Work & Study • Tourist Attraction • Tourism & Foreign Travel'
