@@ -4899,6 +4899,10 @@ export const book20Test2Questions: Question[] = [
 ];
 
 const testSuites: { [key: string]: Question[] } = {
+  'IELTS Book 21 Test 4': book21Test4Questions,
+  'IELTS Book 21 Test 3': book21Test3Questions,
+  'IELTS Book 21 Test 2': book21Test2Questions,
+  'IELTS Book 21 Test 1': book21Test1Questions,
   'IELTS Book 20 Test 4': book20Test4Questions,
   'IELTS Book 20 Test 3': book20Test3Questions,
   'IELTS Book 20 Test 2': book20Test2Questions,
@@ -4908,11 +4912,11 @@ const testSuites: { [key: string]: Question[] } = {
   'IELTS Book 19 Test 2': book19Test2Questions,
   'IELTS Book 19 Test 1': book19Test1Questions,
   'IELTS Book 18 Test 4': book18Test4Questions,
+  'IELTS Book 18 Test 3': book18Test3Questions,
   'IELTS Book 18 Test 2': book18Test2Questions,
   'IELTS Book 18 Test 1': book18Test1Questions,
   'IELTS Book 17 Test 4': book17Test4Questions,
   'IELTS Book 17 Test 3': book17Test3Questions,
-
   'IELTS Book 17 Test 2': book17Test2Questions,
   'IELTS Book 17 Test 1': book17Test1Questions,
   'IELTS Book 16 Test 4': book16Test4Questions,
@@ -4943,7 +4947,6 @@ const testSuites: { [key: string]: Question[] } = {
   'IELTS Book 10 Test 3': book10Test3Questions,
   'IELTS Book 10 Test 2': book10Test2Questions,
   'IELTS Book 10 Test 1': book10Test1Questions,
-  'IELTS Book 21 Test 1': book21Test1Questions,
 };
 
 const PASTEL_WAVE_COLORS = [
@@ -5069,7 +5072,8 @@ export default function SpeakingPracticePage() {
 
   const playQuestionAudio = () => {
     if (!currentQuestion) return;
-    const folderName = selectedTestTitle.replace('Book', 'BOOK').trim();
+    const match = selectedTestTitle.match(/Book\s+(\d+)\s+Test\s+(\d+)/i);
+    const folderName = match ? `IELTS BOOK ${match[1]} Test ${match[2]}` : selectedTestTitle.replace('Book', 'BOOK').trim();
     const primaryUrl = `/assets/Speaking/${folderName}/${currentQuestion.audioAsset}`;
     const fallbackUrl = `/assets/Speaking/${selectedTestTitle}/${currentQuestion.audioAsset}`;
 
@@ -6455,20 +6459,38 @@ export default function SpeakingPracticePage() {
                   </div>
                   <h3 className="text-base font-bold text-[#1F2937]">{title}</h3>
                   <p className="text-xs text-[#6B7280] mt-1">
-                    {title.includes('Book 20 Test 1')
-                      ? 'Walking • Film to See Again with Friends • Theatres & Acting'
+                    {title.includes('Book 21 Test 4')
+                      ? 'Bread & Culinary Traditions • Competitive Person Cue Card • Competitions & Winning in Society'
+                      : title.includes('Book 21 Test 3')
+                      ? 'Money & Spending Habits • Interesting Garden or Park Cue Card • Public Parks & Nature in Cities'
+                      : title.includes('Book 21 Test 2')
+                      ? 'Cities & Urban Life • Untrue Story / Misinformation Cue Card • News, Media & Critical Thinking'
+                      : title.includes('Book 21 Test 1')
+                      ? 'Haircuts & Hairstyles • Tourist Information Guidebook Cue Card • Travel Resources & Tourism'
                       : title.includes('Book 20 Test 4')
                       ? 'Lost Items • Helping People • Volunteering & Charity'
-                      : title.includes('Book 19 Test 1')
-                      ? 'International Food • A Law on Environmental Protection • School Rules & Legal Profession'
-                      : title.includes('Book 19 Test 2')
-                      ? 'Travelling by plane • Person Won a Prize/Award Cue Card • School Prizes, Rewards & Sports'
-                      : title.includes('Book 19 Test 3')
-                      ? 'Holidays • Car Journey Cue Card • Family Celebrations & Relationships'
+                      : title.includes('Book 20 Test 3')
+                      ? 'Museums & Child Memories • Satisfying Piece of Work Cue Card • Job Satisfaction & Work Quality'
+                      : title.includes('Book 20 Test 2')
+                      ? 'Fruit & Food Habits • Traditional Dish Cue Card • Food Production & Cultural Cuisine'
+                      : title.includes('Book 20 Test 1')
+                      ? 'Walking • Film to See Again with Friends • Theatres & Acting'
                       : title.includes('Book 19 Test 4')
                       ? 'Cafes • Beautiful Views Cue Card • Beauty Products & Beauty Standards'
+                      : title.includes('Book 19 Test 3')
+                      ? 'Holidays • Car Journey Cue Card • Family Celebrations & Relationships'
+                      : title.includes('Book 19 Test 2')
+                      ? 'Travelling by plane • Person Won a Prize/Award Cue Card • School Prizes, Rewards & Sports'
+                      : title.includes('Book 19 Test 1')
+                      ? 'International Food • A Law on Environmental Protection • School Rules & Legal Profession'
+                      : title.includes('Book 18 Test 4')
+                      ? 'Sleep Habits & Dreams • Meeting a Good Friend Cue Card • Making Friends & Social Connections'
+                      : title.includes('Book 18 Test 3')
+                      ? 'Keys & Outer Space • Memorable Presentation Cue Card • Public Speaking & Communication'
                       : title.includes('Book 18 Test 2')
                       ? 'Science & Technology • Tourist Attraction Recommended • Museums & Tourism'
+                      : title.includes('Book 18 Test 1')
+                      ? 'Paying Bills & Expenses • Learned to Prepare Food Cue Card • Culinary Skills & Children Cooking'
                       : title.includes('Book 16 Test 1')
                       ? 'Collaborative Work & Study • Tourist Attraction • Tourism & Foreign Travel'
                       : title.includes('Book 16 Test 2')

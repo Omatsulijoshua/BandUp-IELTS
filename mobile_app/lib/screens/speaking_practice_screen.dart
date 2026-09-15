@@ -6713,47 +6713,10 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
   }
 
   String _getAudioAssetForQuestion(Map<String, dynamic> currentQ) {
-    String folderName = _selectedTestTitle.replaceAll('Book', 'BOOK').trim();
-    if (!folderName.contains('BOOK 10 Test 1') &&
-        !folderName.contains('BOOK 10 Test 2') &&
-        !folderName.contains('BOOK 10 Test 3') &&
-        !folderName.contains('BOOK 10 Test 4') &&
-        !folderName.contains('BOOK 11 Test 1') &&
-        !folderName.contains('BOOK 11 Test 2') &&
-        !folderName.contains('BOOK 11 Test 3') &&
-        !folderName.contains('BOOK 11 Test 4') &&
-        !folderName.contains('BOOK 12 Test 1') &&
-        !folderName.contains('BOOK 12 Test 2') &&
-        !folderName.contains('BOOK 12 Test 3') &&
-        !folderName.contains('BOOK 12 Test 4') &&
-        !folderName.contains('BOOK 13 Test 1') &&
-        !folderName.contains('BOOK 13 Test 2') &&
-        !folderName.contains('BOOK 13 Test 3') &&
-        !folderName.contains('BOOK 13 Test 4') &&
-        !folderName.contains('BOOK 14 Test 1') &&
-        !folderName.contains('BOOK 14 Test 2') &&
-        !folderName.contains('BOOK 14 Test 3') &&
-        !folderName.contains('BOOK 14 Test 4') &&
-        !folderName.contains('BOOK 15 Test 1') &&
-        !folderName.contains('BOOK 15 Test 2') &&
-        !folderName.contains('BOOK 15 Test 3') &&
-        !folderName.contains('BOOK 15 Test 4') &&
-        !folderName.contains('BOOK 16 Test 1') &&
-        !folderName.contains('BOOK 16 Test 2') &&
-        !folderName.contains('BOOK 16 Test 3') &&
-        !folderName.contains('BOOK 16 Test 4') &&
-        !folderName.contains('BOOK 17 Test 1') &&
-        !folderName.contains('BOOK 17 Test 2') &&
-        !folderName.contains('BOOK 17 Test 3') &&
-        !folderName.contains('BOOK 17 Test 4') &&
-        !folderName.contains('BOOK 18 Test 1') &&
-        !folderName.contains('BOOK 18 Test 2') &&
-        !folderName.contains('BOOK 19 Test 1') &&
-        !folderName.contains('BOOK 19 Test 2') &&
-        !folderName.contains('BOOK 20 Test 1') &&
-        !folderName.contains('BOOK 21 Test 1')) {
-      folderName = 'IELTS BOOK 10 Test 1';
-    }
+    final match = RegExp(r'Book\s+(\d+)\s+Test\s+(\d+)', caseSensitive: false).firstMatch(_selectedTestTitle);
+    final String folderName = match != null
+        ? 'IELTS BOOK ${match.group(1)} Test ${match.group(2)}'
+        : 'IELTS BOOK 10 Test 1';
 
     if (currentQ['audioAsset'] != null) {
       final String rawAsset = currentQ['audioAsset'] as String;
@@ -7185,19 +7148,7 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(4, (testIndex) {
                       final testNum = 1 + testIndex;
-                      final isUnlocked = isPremium ||
-                          (bookNum == 21 && testNum == 1) ||
-                          (bookNum == 10 && testNum >= 1 && testNum <= 4) ||
-                          (bookNum == 11 && testNum >= 1 && testNum <= 4) ||
-                          (bookNum == 12 && (testNum >= 1 && testNum <= 3)) ||
-                          (bookNum == 13 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 14 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 16 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 15 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 17 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 18 && (testNum >= 1 && testNum <= 2)) ||
-                          (bookNum == 19 && (testNum >= 1 && testNum <= 4)) ||
-                          (bookNum == 20 && testNum == 1);
+                      final isUnlocked = isPremium || (bookNum >= 10 && bookNum <= 21);
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
                         child: _buildTestListItem(
