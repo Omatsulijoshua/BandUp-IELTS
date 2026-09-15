@@ -5601,6 +5601,8 @@ export default function SpeakingPracticePage() {
           : "Your answer was completely inadequate. The question asked you to describe a child you know, but you provided a single word response ('No'). This fails to address the task entirely.";
         lexicalFeedback = selectedTestTitle.includes('Book 20 Test 1')
           ? "No vocabulary was demonstrated."
+          : selectedTestTitle.includes('Book 19 Test 2')
+          ? "No vocabulary was demonstrated."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no vocabulary range to evaluate due to the lack of production."
           : selectedTestTitle.includes('Book 17 Test 3')
@@ -5634,7 +5636,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess."
           : "There is no lexical resource to evaluate as you only provided a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 20 Test 1')
+        grammarFeedback = selectedTestTitle.includes('Book 19 Test 2')
+          ? "No grammatical structures were demonstrated."
+          : selectedTestTitle.includes('Book 20 Test 1')
           ? "No grammatical structures were demonstrated."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "There is no grammatical structure to evaluate."
@@ -5734,6 +5738,13 @@ export default function SpeakingPracticePage() {
               "Prepare a structure for your talk: Introduction, Physical description, History/Meaning, and why you like it.",
               "Practice speaking continuously, even if you are nervous. Silence is the worst possible outcome in an IELTS exam.",
               "Familiarize yourself with common Part 2 topics such as monuments, historical buildings, or public art.",
+            ]
+          : selectedTestTitle.includes('Book 19 Test 2')
+          ? [
+              "You must attempt every question; silence results in a score of 0.",
+              "In Part 2, you are expected to speak for 1-2 minutes. Practice structuring your response using the bullet points provided on the cue card.",
+              "If you do not know a famous person who won an award, invent one. The examiner is testing your English proficiency, not your factual knowledge.",
+              "Prepare a template for 'describing a person' (e.g., appearance, personality, why they are famous, and how you feel about them) so you are never caught without an answer."
             ]
           : selectedTestTitle.includes('Book 16 Test 1')
           ? [
@@ -5842,6 +5853,8 @@ export default function SpeakingPracticePage() {
           ? "Your responses were extremely poor. You provided one-word answers ('No') to every question, which fails to demonstrate any ability to speak English or communicate ideas. While the answers were technically relevant to the 'yes/no' aspect, they failed to address the communicative intent of the questions."
           : selectedTestTitle.includes('Book 19 Test 1')
           ? "Your answers were completely non-responsive. By simply saying 'No' to every question, you failed to communicate, provide information, or demonstrate language ability. This is a total failure to address the task."
+          : selectedTestTitle.includes('Book 19 Test 2')
+          ? "The responses are extremely limited and fail to provide any information. While technically answering 'No' is relevant to a Yes/No question, the lack of elaboration makes it impossible to assess coherence or task achievement. This is a failure to engage with the test format."
           : selectedTestTitle.includes('Book 17 Test 1')
           ? "The responses are completely inadequate. The candidate provided one-word answers ('No') for every question. This is not a demonstration of speaking ability and fails to address the tasks entirely."
           : selectedTestTitle.includes('Book 17 Test 3')
@@ -5875,7 +5888,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "The responses are essentially non-existent. You provided one-word answers ('No') which fail to address the task. This does not constitute communication."
           : "Your responses were extremely limited and failed to address the task. You provided one-word answers ('No') to all questions, which does not demonstrate the ability to speak English in an IELTS context. These responses are essentially non-answers.";
-        lexicalFeedback = selectedTestTitle.includes('Book 20 Test 1')
+        lexicalFeedback = selectedTestTitle.includes('Book 19 Test 2')
+          ? "Vocabulary is non-existent beyond a single word. There is no range to evaluate."
+          : selectedTestTitle.includes('Book 20 Test 1')
           ? "There is no vocabulary range to assess. Using a single word repeatedly does not demonstrate lexical resource."
           : selectedTestTitle.includes('Book 19 Test 1')
           ? "There is no vocabulary to evaluate. A single-word response does not demonstrate any range or control over language."
@@ -5912,7 +5927,9 @@ export default function SpeakingPracticePage() {
           : selectedTestTitle.includes('Book 10 Test 4')
           ? "There is no vocabulary to assess beyond a single, repetitive word."
           : "The vocabulary range is non-existent. You failed to use any descriptive language or demonstrate any range beyond a single negative particle.";
-        grammarFeedback = selectedTestTitle.includes('Book 20 Test 1')
+        grammarFeedback = selectedTestTitle.includes('Book 19 Test 2')
+          ? "There is no sentence structure or grammatical range to evaluate."
+          : selectedTestTitle.includes('Book 20 Test 1')
           ? "There is no grammatical range to assess. A single word cannot demonstrate knowledge of sentence structure, tense, or complex grammar."
           : selectedTestTitle.includes('Book 19 Test 1')
           ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."

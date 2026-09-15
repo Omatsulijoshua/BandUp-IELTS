@@ -9190,6 +9190,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 : _selectedTestTitle.contains('Book 19 Test 1')
                 ? "There is no speech to evaluate."
                 : _selectedTestTitle.contains('Book 19 Test 2')
+                ? "No speech provided to evaluate."
+                : _selectedTestTitle.contains('Book 19 Test 2')
                 ? "The candidate did not provide enough speech for an assessment of pronunciation."
                 : _selectedTestTitle.contains('Book 18 Test 2')
                 ? "Assessment is impossible as there was no connected speech to evaluate."
@@ -9383,6 +9385,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 ? "Your answer was essentially non-existent. You provided a single word 'No' which failed to address the prompt entirely. This is considered an empty response."
                 : _selectedTestTitle.contains('Book 19 Test 1')
                 ? "Your answer was completely insufficient. You provided a one-word response ('No') to a Part 2 cue card question, which requires a 1-2 minute spoken response. This is essentially a refusal to perform the task."
+                : _selectedTestTitle.contains('Book 19 Test 2')
+                ? "The response was empty. You provided no information, meaning you failed to address the task entirely."
                 : _selectedTestTitle.contains('Book 17 Test 1')
                 ? "Your answer was essentially non-existent. You provided a single-word response ('No') which failed to address the prompt entirely. This is considered a refusal to perform the task."
                 : _selectedTestTitle.contains('Book 17 Test 3')
@@ -9447,6 +9451,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 ? "No grammatical structures were demonstrated."
                 : _selectedTestTitle.contains('Book 19 Test 1')
                 ? "There is no grammatical structure to assess."
+                : _selectedTestTitle.contains('Book 19 Test 2')
+                ? "No grammatical structures were demonstrated."
                 : _selectedTestTitle.contains('Book 17 Test 1')
                 ? "There is no grammatical structure to evaluate."
                 : _selectedTestTitle.contains('Book 17 Test 3')
@@ -9660,6 +9666,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 ? "Your responses were extremely poor. You provided one-word answers ('No') to every question, which fails to demonstrate any ability to speak English or communicate ideas. While the answers were technically relevant to the 'yes/no' aspect, they failed to address the communicative intent of the questions."
                 : _selectedTestTitle.contains('Book 19 Test 1')
                 ? "Your answers were completely non-responsive. By simply saying 'No' to every question, you failed to communicate, provide information, or demonstrate language ability. This is a total failure to address the task."
+                : _selectedTestTitle.contains('Book 19 Test 2')
+                ? "The responses are extremely limited and fail to provide any information. While technically answering 'No' is relevant to a Yes/No question, the lack of elaboration makes it impossible to assess coherence or task achievement. This is a failure to engage with the test format."
                 : _selectedTestTitle.contains('Book 17 Test 1')
                 ? "The responses are completely inadequate. The candidate provided one-word answers ('No') for every question. This is not a demonstration of speaking ability and fails to address the tasks entirely."
                 : _selectedTestTitle.contains('Book 17 Test 3')
@@ -9693,6 +9701,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 ? "There is no vocabulary range to assess. Using a single word repeatedly does not demonstrate lexical resource."
                 : _selectedTestTitle.contains('Book 19 Test 1')
                 ? "There is no vocabulary to evaluate. A single-word response does not demonstrate any range or control over language."
+                : _selectedTestTitle.contains('Book 19 Test 2')
+                ? "Vocabulary is non-existent beyond a single word. There is no range to evaluate."
                 : _selectedTestTitle.contains('Book 17 Test 1')
                 ? "There is no lexical resource to evaluate as the candidate only used a single negative particle."
                 : _selectedTestTitle.contains('Book 17 Test 3')
@@ -9726,6 +9736,8 @@ class _SpeakingPracticeScreenState extends ConsumerState<SpeakingPracticeScreen>
                 ? "There is no grammatical range to assess. A single word cannot demonstrate knowledge of sentence structure, tense, or complex grammar."
                 : _selectedTestTitle.contains('Book 19 Test 1')
                 ? "There is no grammatical structure to evaluate. You must provide full sentences to demonstrate your command of English grammar."
+                : _selectedTestTitle.contains('Book 19 Test 2')
+                ? "There is no sentence structure or grammatical range to evaluate."
                 : _selectedTestTitle.contains('Book 17 Test 1')
                 ? "There is no grammatical structure present to evaluate."
                 : _selectedTestTitle.contains('Book 17 Test 3')
